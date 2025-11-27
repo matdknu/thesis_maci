@@ -1,0 +1,10 @@
+pandas>=2.0
+pytrends>=4.9
+praw>=7.7
+python-dotenv>=1.0
+openpyxl>=3.1
+requests>=2.32
+tqdm>=4.66
+pyarrow>=16.0
+matplotlib>=3.8
+pyreadr>=0.4.9
