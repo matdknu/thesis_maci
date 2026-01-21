@@ -2,6 +2,9 @@
 
 **Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile**
 
+[![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FNQB3G-blue)](https://doi.org/10.17605/OSF.IO/NQB3G)
+[![OSF](https://img.shields.io/badge/OSF-Project-green)](https://osf.io/nqb3g/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-orange)](https://matdknu.github.io/thesis_maci/)
 [![Universidad de Concepción](https://img.shields.io/badge/Universidad-Concepción-blue)](https://www.udec.cl/)
 [![Magíster en Ciencia de Datos](https://img.shields.io/badge/Magíster-Ciencia%20de%20Datos-green)](https://www.udec.cl/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)](https://www.python.org/)
@@ -79,11 +82,17 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 
 ---
 
-## 📖 Ver Libro de Tesis Online
+## 📖 Acceder a la Tesis
 
-**🌐 Lee el libro completo en:** **[https://matdknu.github.io/thesis_maci/](https://matdknu.github.io/thesis_maci/)**
+### 🌐 Libro Online (GitHub Pages)
+**Lee el libro completo en:** **[https://matdknu.github.io/thesis_maci/](https://matdknu.github.io/thesis_maci/)**
 
-El libro está publicado en GitHub Pages y se actualiza automáticamente con cada cambio en el repositorio.
+### 📚 Repositorio OSF
+**DOI:** [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FNQB3G-blue)](https://doi.org/10.17605/OSF.IO/NQB3G)
+
+**Proyecto completo disponible en OSF:** **[https://osf.io/nqb3g/](https://osf.io/nqb3g/)**
+
+El proyecto en OSF incluye datos, código, documentación completa y materiales suplementarios.
 
 ---
 
@@ -201,9 +210,13 @@ Si utilizas este trabajo en tu investigación, por favor cita:
   author  = {Deneken, Matías},
   year    = {2026},
   school  = {Universidad de Concepción},
-  type    = {Tesina de Magíster en Ciencia de Datos}
+  type    = {Tesina de Magíster en Ciencia de Datos},
+  doi     = {10.17605/OSF.IO/NQB3G},
+  url     = {https://osf.io/nqb3g/}
 }
 ```
+
+**DOI:** [10.17605/OSF.IO/NQB3G](https://doi.org/10.17605/OSF.IO/NQB3G)
 
 ---
 
