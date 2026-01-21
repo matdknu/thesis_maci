@@ -79,6 +79,14 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 
 ---
 
+## 📖 Ver Libro de Tesis Online
+
+**🌐 Lee el libro completo en:** **[https://matdknu.github.io/thesis_maci/](https://matdknu.github.io/thesis_maci/)**
+
+El libro está publicado en GitHub Pages y se actualiza automáticamente con cada cambio en el repositorio.
+
+---
+
 ## 🚀 Inicio Rápido
 
 ### 📋 Requisitos Previos
