@@ -5,6 +5,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FNQB3G-blue)](https://doi.org/10.17605/OSF.IO/NQB3G)
 [![OSF](https://img.shields.io/badge/OSF-Project-green)](https://osf.io/nqb3g/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-orange)](https://matdknu.github.io/thesis_maci/)
+[![Shiny App](https://img.shields.io/badge/Shiny-App%20Live-brightgreen?logo=r)](https://matdknu.shinyapps.io/reddit-politico-chile/)
 [![Universidad de Concepción](https://img.shields.io/badge/Universidad-Concepción-blue)](https://www.udec.cl/)
 [![Magíster en Ciencia de Datos](https://img.shields.io/badge/Magíster-Ciencia%20de%20Datos-green)](https://www.udec.cl/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)](https://www.python.org/)
@@ -85,7 +86,12 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 ## 📖 Acceder a la Tesis
 
 ### 🌐 Libro Online (GitHub Pages)
-**Lee el libro completo en:** **[https://matdknu.github.io/thesis_maci/](https://matdknu.github.io/thesis_maci/)**
+**📚 Lee el libro completo:** **[https://matdknu.github.io/thesis_maci/](https://matdknu.github.io/thesis_maci/)**
+
+### 📊 Aplicación Interactiva (Shiny)
+**🚀 Explora los datos en vivo:** **[https://matdknu.shinyapps.io/reddit-politico-chile/](https://matdknu.shinyapps.io/reddit-politico-chile/)**
+
+Dashboard interactivo con visualizaciones, análisis temporal, frames discursivos y clasificación ideológica.
 
 ### 📚 Repositorio OSF
 **DOI:** [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FNQB3G-blue)](https://doi.org/10.17605/OSF.IO/NQB3G)
@@ -162,15 +168,20 @@ El análisis combina múltiples enfoques:
 
 ## 📊 Aplicación Shiny Interactiva
 
-La aplicación incluye:
+### 🌐 Ver App en Vivo
+**Aplicación desplegada:** **[https://matdknu.shinyapps.io/reddit-politico-chile/](https://matdknu.shinyapps.io/reddit-politico-chile/)**
 
-- ✅ **Dashboard General** - Resumen de estadísticas clave
-- 👥 **Análisis por Candidato** - Visualizaciones individuales
-- 📅 **Línea de Tiempo** - Eventos y picos de menciones
-- 💭 **Frames Discursivos** - Análisis de narrativas
-- ⚖️ **Clasificación Ideológica** - Distribución left-right
+La aplicación interactiva incluye:
 
-**Demo:** La aplicación está desplegada en [shinyapps.io](https://matdknu.shinyapps.io/reddit-politico-chile/)
+- ✅ **Dashboard General** - Resumen de estadísticas clave y evolución temporal
+- 👥 **Análisis por Candidato** - Visualizaciones detalladas por personaje político
+- 📅 **Eventos Temporales** - Identificación de picos y eventos relevantes
+- 💭 **Frames Discursivos** - Análisis de marcos y narrativas
+- ⚖️ **Análisis Ideológico** - Distribución left-right mediante IA
+- 🗺️ **Resultados Electorales** - Visualización geográfica de datos SERVEL
+- 📊 **Explorador de Datos** - Tabla interactiva con búsqueda y filtros
+
+**Datos:** Reddit (r/chile, r/RepublicadeChile) | **Período:** Agosto - Diciembre 2025
 
 ---
 
