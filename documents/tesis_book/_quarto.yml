@@ -3,8 +3,9 @@ project:
   output-dir: ../../docs
 
 book:
-  # Nota: título, subtítulo y autor están en la portada personalizada de index.qmd
-  # No definirlos aquí evita que Quarto genere una página automática
+  title: "Derecha fragmentada y un enemigo compartido"
+  subtitle: "Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile"
+  author: "Matías Deneken"
   
   # Metadatos
   description: |
@@ -29,8 +30,9 @@ book:
   
   # Configuración del libro
   language: es
-  repo-url: https://github.com/usuario/repositorio
-  repo-actions: [issue, source]
+  repo-url: https://github.com/matdknu/thesis_maci
+  repo-actions: [source, issue]
+  downloads: [pdf]
 
 # ============================================================================
 # FORMATO HTML
