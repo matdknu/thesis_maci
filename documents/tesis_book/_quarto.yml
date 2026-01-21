@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: _book
+  output-dir: ../../docs
 
 book:
   # Nota: título, subtítulo y autor están en la portada personalizada de index.qmd

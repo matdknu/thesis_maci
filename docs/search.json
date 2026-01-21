@@ -1,0 +1,172 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Code\n\n\n\n\n\n\n\nDerecha fragmentada y un enemigo compartido\n\n\nAnálisis textual longitudinal de la constación discursiva en las elecciones presidencial de 2025 en Chile\n\n\nTesina presentada para optar al grado deMagíster en Ciencia de Datos\n\n\nMatías Deneken Centro de Datos e Inteligencia Artificial - Universidad de Concepción\n\n\nProfesores Guías:Dr. Carlos Navarrete Dr. Marcela Parada\n\n\nFacultad de Ingeniería  Universidad de ConcepciónMarzo 2026\n\n\n\nAgradecimientos\nEsta tesina no habría sido posible por la beca de excención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.\nAgradezco a mis compañeras y compañeros de generación con los cuáles compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quién constituí un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia el MACI habría sido significativamente más compleja.\n\n\n\nPresentación\nContenido de presentación/introducción general",
+    "crumbs": [
+      "Agradecimientos"
+    ]
+  },
+  {
+    "objectID": "01-introduccion.html",
+    "href": "01-introduccion.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "[Contenido de la introducción]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html",
+    "href": "02-presentacion-problema.html",
+    "title": "2  Presentación del Problema",
+    "section": "",
+    "text": "2.1 Problema\n[Descripción del problema]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#acercamiento-actores-y-dimensiones",
+    "href": "02-presentacion-problema.html#acercamiento-actores-y-dimensiones",
+    "title": "2  Presentación del Problema",
+    "section": "2.2 Acercamiento, actores y dimensiones",
+    "text": "2.2 Acercamiento, actores y dimensiones\n[Descripción del acercamiento, actores y dimensiones]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#descripción-de-la-propuesta",
+    "href": "02-presentacion-problema.html#descripción-de-la-propuesta",
+    "title": "2  Presentación del Problema",
+    "section": "2.3 Descripción de la propuesta",
+    "text": "2.3 Descripción de la propuesta\nDescripción de la propuesta",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#mvp-y-objetivos",
+    "href": "02-presentacion-problema.html#mvp-y-objetivos",
+    "title": "2  Presentación del Problema",
+    "section": "2.4 MVP y objetivos",
+    "text": "2.4 MVP y objetivos\n[Descripción del MVP y objetivos]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#validación",
+    "href": "02-presentacion-problema.html#validación",
+    "title": "2  Presentación del Problema",
+    "section": "2.5 Validación",
+    "text": "2.5 Validación\n[Descripción de la validación]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "03-obtencion-datos.html",
+    "href": "03-obtencion-datos.html",
+    "title": "3  Obtención de Datos",
+    "section": "",
+    "text": "[Contenido de obtención de datos]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Obtención de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-modelado-datos.html",
+    "href": "06-modelado-datos.html",
+    "title": "6  Modelado de Datos",
+    "section": "",
+    "text": "6.1 Clustering K-Means\n[Contenido sobre clustering K-Means]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-modelado-datos.html#clustering-dbscan",
+    "href": "06-modelado-datos.html#clustering-dbscan",
+    "title": "6  Modelado de Datos",
+    "section": "6.2 Clustering DBSCAN",
+    "text": "6.2 Clustering DBSCAN\n[Contenido sobre clustering DBSCAN]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-modelado-datos.html#clustering-jerárquico",
+    "href": "06-modelado-datos.html#clustering-jerárquico",
+    "title": "6  Modelado de Datos",
+    "section": "6.3 Clustering Jerárquico",
+    "text": "6.3 Clustering Jerárquico\n[Contenido sobre clustering jerárquico]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-modelado-datos.html#determinación-del-modelo-más-óptimo",
+    "href": "06-modelado-datos.html#determinación-del-modelo-más-óptimo",
+    "title": "6  Modelado de Datos",
+    "section": "6.4 Determinación del modelo más óptimo",
+    "text": "6.4 Determinación del modelo más óptimo\n[Contenido sobre determinación del modelo más óptimo]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-interpretacion-resultados.html",
+    "href": "07-interpretacion-resultados.html",
+    "title": "7  Interpretación de Resultados",
+    "section": "",
+    "text": "7.1 Interpretación de componentes principales\n[Contenido sobre interpretación de componentes principales]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "07-interpretacion-resultados.html#interpretación-de-clusters",
+    "href": "07-interpretacion-resultados.html#interpretación-de-clusters",
+    "title": "7  Interpretación de Resultados",
+    "section": "7.2 Interpretación de clusters",
+    "text": "7.2 Interpretación de clusters\n[Contenido sobre interpretación de clusters]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "07-interpretacion-resultados.html#validación-de-los-resultados",
+    "href": "07-interpretacion-resultados.html#validación-de-los-resultados",
+    "title": "7  Interpretación de Resultados",
+    "section": "7.3 Validación de los resultados",
+    "text": "7.3 Validación de los resultados\n[Contenido sobre validación de resultados]",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-conclusion.html",
+    "href": "08-conclusion.html",
+    "title": "8  Conclusión",
+    "section": "",
+    "text": "[Contenido de la conclusión]",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Conclusión</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "9  Referencias",
+    "section": "",
+    "text": "10 Referencias\n[Las referencias se generan automáticamente desde el archivo bibliography.bib]",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Referencias</span>"
+    ]
+  }
+]
