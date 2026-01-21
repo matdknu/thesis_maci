@@ -8,3 +8,12 @@
 data/raw/
 data/proc_data/
 outputs/
+
+# Scripts con API keys embebidas (no subir por seguridad)
+scripts/Tesis/08_aplicacion_api.py
+scripts/Tesis/09_deepseek_api.py
+scripts/Tesis/17_imputar_ideologia.R
+scripts/Tesis/06_apis.R
+scripts/Tesis/scraping_outputs/analysis_basic.py
+scripts/no_sirve/
+scripts/no_usar/

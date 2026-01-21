@@ -1,0 +1,714 @@
+/* =============================================================
+   CSS PROFESIONAL PARA SHINY APP - ANÁLISIS PRESIDENCIAL
+   Tema: Institucional con acentos en rojo presidencial
+   ============================================================= */
+
+/* === VARIABLES DE COLOR === */
+:root {
+    --presidencial-red: #b91c1c;
+    --presidencial-dark-red: #991b1b;
+    --presidencial-light-red: #dc2626;
+    --presidencial-gold: #d97706;
+    --dark-navy: #1e293b;
+    --medium-navy: #334155;
+    --light-navy: #475569;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --white: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+  }
+  
+  /* === ESTRUCTURA GENERAL === */
+  body, .content-wrapper {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    background: linear-gradient(135deg, var(--slate-50) 0%, var(--slate-100) 100%);
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+  }
+  
+  /* === HEADER PRESIDENCIAL === */
+  .main-header {
+    background: linear-gradient(135deg, var(--presidencial-dark-red) 0%, var(--presidencial-red) 50%, var(--presidencial-light-red) 100%) !important;
+    border-bottom: 4px solid var(--presidencial-gold);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.25);
+  }
+  
+  .main-header .logo {
+    background: transparent !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .main-header .navbar {
+    background: transparent !important;
+  }
+  
+  .main-header .navbar .nav > li > a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease;
+  }
+  
+  .main-header .navbar .nav > li > a:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+  }
+  
+  /* === SIDEBAR ELEGANTE === */
+  .main-sidebar {
+    background: linear-gradient(180deg, var(--dark-navy) 0%, var(--medium-navy) 100%) !important;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .sidebar-menu {
+    padding-top: 10px;
+  }
+  
+  .sidebar-menu > li {
+    border-left: 4px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .sidebar-menu > li > a {
+    color: #cbd5e1 !important;
+    padding: 14px 20px !important;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-menu > li > a > .fa,
+  .sidebar-menu > li > a > .glyphicon,
+  .sidebar-menu > li > a > .ion {
+    margin-right: 12px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+  }
+  
+  .sidebar-menu > li:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-left-color: var(--presidencial-gold);
+  }
+  
+  .sidebar-menu > li:hover > a {
+    color: #ffffff !important;
+    padding-left: 24px;
+  }
+  
+  .sidebar-menu > li.active {
+    background: linear-gradient(90deg, rgba(185, 28, 28, 0.2) 0%, transparent 100%) !important;
+    border-left-color: var(--presidencial-red) !important;
+  }
+  
+  .sidebar-menu > li.active > a {
+    color: #ffffff !important;
+    font-weight: 600;
+    background: transparent !important;
+  }
+  
+  /* === CONTENT AREA === */
+  .content-wrapper {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  
+  .content-header {
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--slate-200);
+    margin-bottom: 25px;
+  }
+  
+  .content-header h1 {
+    color: var(--dark-navy);
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: -0.5px;
+  }
+  
+  /* === BOXES PRESIDENCIALES === */
+  .box {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    border: none !important;
+    border-top: 4px solid var(--presidencial-red) !important;
+    background: var(--white) !important;
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  .box-header {
+    background: linear-gradient(135deg, var(--slate-50) 0%, var(--white) 100%) !important;
+    border-bottom: 2px solid var(--slate-200) !important;
+    padding: 18px 24px !important;
+  }
+  
+  .box-title {
+    font-weight: 700 !important;
+    color: var(--dark-navy) !important;
+    font-size: 18px !important;
+    letter-spacing: -0.25px;
+  }
+  
+  .box-body {
+    padding: 24px !important;
+  }
+  
+  .box.box-solid.box-primary > .box-header {
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-dark-red) 100%) !important;
+    color: white !important;
+  }
+  
+  .box.box-solid.box-info > .box-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  }
+  
+  .box.box-solid.box-success > .box-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  }
+  
+  .box.box-solid.box-warning > .box-header {
+    background: linear-gradient(135deg, var(--presidencial-gold) 0%, #ea580c 100%) !important;
+  }
+  
+  /* === VALUE BOXES PRESIDENCIALES === */
+  .small-box {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .small-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+  }
+  
+  .small-box:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .small-box .inner {
+    padding: 20px;
+  }
+  
+  .small-box .inner h3 {
+    font-weight: 700;
+    font-size: 42px;
+    margin: 0 0 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .small-box .inner p {
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .small-box .icon {
+    font-size: 80px;
+    opacity: 0.2;
+  }
+  
+  .small-box-footer {
+    background: rgba(0, 0, 0, 0.15) !important;
+    padding: 12px 15px !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Colores específicos para value boxes */
+  .bg-red {
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-dark-red) 100%) !important;
+  }
+  
+  .bg-aqua {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+  }
+  
+  .bg-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  }
+  
+  .bg-yellow {
+    background: linear-gradient(135deg, var(--presidencial-gold) 0%, #ea580c 100%) !important;
+  }
+  
+  /* === BOTONES PRESIDENCIALES === */
+  .btn {
+    border-radius: 8px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-dark-red) 100%) !important;
+    color: white !important;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--presidencial-dark-red) 0%, #7f1d1d 100%) !important;
+    box-shadow: 0 6px 16px rgba(185, 28, 28, 0.4) !important;
+    transform: translateY(-2px);
+  }
+  
+  .btn-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+  }
+  
+  .btn-info:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4) !important;
+  }
+  
+  .btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4) !important;
+  }
+  
+  .btn-lg {
+    padding: 14px 32px !important;
+    font-size: 15px !important;
+    border-radius: 10px !important;
+  }
+  
+  /* === CARDS DE PERSONAJES === */
+  .personaje-card {
+    text-align: center;
+    padding: 35px 25px;
+    margin: 20px 10px;
+    background: linear-gradient(135deg, var(--white) 0%, var(--slate-50) 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--slate-200);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .personaje-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+  }
+  
+  .personaje-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--presidencial-red);
+  }
+  
+  .personaje-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--slate-200);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin-bottom: 24px;
+    transition: all 0.4s ease;
+  }
+  
+  .personaje-card:hover .personaje-img {
+    border-color: var(--presidencial-red);
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(185, 28, 28, 0.3);
+  }
+  
+  .personaje-card h3 {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--dark-navy);
+    margin: 16px 0 8px 0;
+    letter-spacing: -0.5px;
+  }
+  
+  .personaje-card h2 {
+    font-weight: 800;
+    font-size: 48px;
+    margin: 12px 0;
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .personaje-card p {
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+  }
+  
+  /* === PÁGINA DE BIENVENIDA === */
+  .welcome-container {
+    background: linear-gradient(135deg, var(--white) 0%, var(--slate-50) 100%);
+    padding: 80px 60px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    margin: 60px auto;
+    max-width: 1100px;
+    border: 2px solid var(--slate-200);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .welcome-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, 
+      var(--presidencial-red) 0%, 
+      var(--presidencial-gold) 50%, 
+      var(--presidencial-red) 100%);
+  }
+  
+  .welcome-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--dark-navy);
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+    line-height: 1.2;
+  }
+  
+  .welcome-subtitle {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+  
+  .welcome-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 60px;
+  }
+  
+  .feature-card {
+    background: var(--white);
+    padding: 35px 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--slate-200);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+  .feature-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--presidencial-red);
+  }
+  
+  .feature-icon {
+    font-size: 56px;
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+  }
+  
+  .feature-card:hover .feature-icon {
+    transform: scale(1.15) rotate(5deg);
+  }
+  
+  .feature-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.25px;
+  }
+  
+  .feature-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* === FORMULARIOS === */
+  .form-control, 
+  .selectize-input,
+  .shiny-input-container input[type="text"],
+  .shiny-input-container input[type="number"],
+  .shiny-input-container select {
+    border-radius: 8px !important;
+    border: 2px solid var(--slate-200) !important;
+    padding: 10px 14px !important;
+    transition: all 0.3s ease !important;
+    background: var(--white) !important;
+    font-weight: 500;
+  }
+  
+  .form-control:focus, 
+  .selectize-input.focus {
+    border-color: var(--presidencial-red) !important;
+    box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1) !important;
+    outline: none;
+  }
+  
+  .selectize-input {
+    min-height: 42px !important;
+  }
+  
+  .selectize-dropdown {
+    border-radius: 8px !important;
+    border: 2px solid var(--presidencial-red) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .well {
+    background: var(--white) !important;
+    border-radius: 12px !important;
+    border: 2px solid var(--slate-200) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    padding: 24px !important;
+  }
+  
+  /* === TABLAS === */
+  .dataTables_wrapper {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 2px solid var(--slate-200);
+  }
+  
+  .dataTable {
+    border-collapse: separate !important;
+    border-spacing: 0;
+  }
+  
+  .dataTable thead th {
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--medium-navy) 100%) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    padding: 16px 12px !important;
+    border: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+  }
+  
+  .dataTable thead th:first-child {
+    border-top-left-radius: 8px;
+  }
+  
+  .dataTable thead th:last-child {
+    border-top-right-radius: 8px;
+  }
+  
+  .dataTable tbody tr {
+    transition: all 0.3s ease;
+  }
+  
+  .dataTable tbody tr:hover {
+    background: var(--slate-50) !important;
+    transform: scale(1.01);
+  }
+  
+  .dataTable tbody td {
+    padding: 14px 12px !important;
+    border-bottom: 1px solid var(--slate-200) !important;
+    font-weight: 500;
+  }
+  
+  .dataTables_info,
+  .dataTables_paginate {
+    margin-top: 20px !important;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  
+  .paginate_button {
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    margin: 0 3px !important;
+    font-weight: 600 !important;
+  }
+  
+  .paginate_button.current {
+    background: var(--presidencial-red) !important;
+    color: white !important;
+    border-color: var(--presidencial-red) !important;
+  }
+  
+  /* === GRÁFICOS === */
+  .plotly {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* === SCROLLBAR PERSONALIZADO === */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--slate-100);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-gold) 100%);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--presidencial-dark-red) 0%, #ea580c 100%);
+  }
+  
+  /* === ANIMACIONES === */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .box,
+  .small-box,
+  .welcome-container,
+  .feature-card,
+  .personaje-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .welcome-title {
+      font-size: 36px;
+    }
+    
+    .welcome-subtitle {
+      font-size: 18px;
+    }
+    
+    .welcome-container {
+      padding: 40px 30px;
+    }
+    
+    .feature-card {
+      margin: 10px 0;
+    }
+    
+    .personaje-card {
+      margin: 15px 0;
+    }
+    
+    .content-wrapper {
+      padding: 20px 10px;
+    }
+  }
+  
+  /* === UTILIDADES === */
+  .text-presidencial {
+    color: var(--presidencial-red) !important;
+  }
+  
+  .bg-presidencial {
+    background: linear-gradient(135deg, var(--presidencial-red) 0%, var(--presidencial-dark-red) 100%) !important;
+  }
+  
+  .border-presidencial {
+    border-color: var(--presidencial-red) !important;
+  }
+  
+  .shadow-presidencial {
+    box-shadow: 0 8px 24px rgba(185, 28, 28, 0.2) !important;
+  }

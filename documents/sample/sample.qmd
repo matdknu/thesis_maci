@@ -1,0 +1,86 @@
+---
+title: Cambridge-Medium Template
+format:
+  cambridge-medium-pdf:
+    keep-tex: true
+    journal: medium
+    year: 2023
+    volume: NA
+author:
+  - name: F. Author
+    affiliations:
+      - name: Organization
+        department: First Division
+        city: Boston
+        state: Massachusetts
+        country: USA
+        postal-code: 02210-1022
+      - A second affiliation, University
+    email: first.author@address.edu # corresponding author gets email
+  - name: S. Author
+    affiliations:
+      - name: Organization
+        department: Second Division
+        city: Boston
+        state: Massachusetts
+        country: USA
+        postal-code: 02138
+  - name: T. Author
+    affiliations:
+      - name: Organization
+        department: Third Division
+        city: New York
+        state: New York
+        country: USA
+        postal-code: 10012
+  - name: F.T. Author
+    affiliations:
+      - name: Organization
+        department: Political Science
+        city: Chicago
+        state: Illinois
+        country: USA
+        postal-code: 60637
+abstract: |
+  This document is a template demonstrating the Cambridge-medium format.
+acknowledgements: |
+  This document is based on the Overleaf template.
+keywords: [template, demo]
+bibliography: bibliography.bib
+---
+
+\noindent This Quarto template is unofficial and based on Overleaf's Cambridge Medium Template template. The first sentence of the article should not be indented, so keep the above command. Some examples of commonly used commands and features are listed below, to help you get started.
+
+Since we are in Quarto, you can cite with an `@` symbol, like @knuth1984texbook. As seen below, you can mix markdown and Latex with each other, though it's likely best to mostly use markdown.
+
+## Introduction {#sec-intro}
+
+This is based on the Cambridge Medium starter file. It is for preparing manuscript submission only, not for preparing camera-ready versions of manuscripts. Manuscripts will be typeset for publication by the journal, after they have been accepted.
+
+## Using Figures and Tables
+
+Figures and tables can be included using LaTeX or Quarto syntax. For information on including figures in Quarto, see [this documentation page](https://quarto.org/docs/authoring/figures.html).
+
+
+## Conclusion
+The conclusion text goes here.
+
+
+##### Funding Statement
+
+This research was supported by grants from the `<funder-name> <doi> (<award ID>)`; `<funder-name> <doi> (<award ID>)`.
+
+##### Competing Interests
+
+A statement about any financial, professional, contractual or personal relationships or situations that could be perceived to impact the presentation of the work --- or `None' if none exist.
+
+## References
+
+:::{#refs}
+:::
+
+## Appendix {.appendix}
+
+Appendix goes here!
+
+

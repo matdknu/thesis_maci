@@ -1,0 +1,15 @@
+{
+  "hash": "4985030fb37e8cd7ee013b3909535c19",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Exploración de Datos\"\nlang: es\n---\n\n\n\n\n\n\n\n\n[Contenido de exploración de datos]\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

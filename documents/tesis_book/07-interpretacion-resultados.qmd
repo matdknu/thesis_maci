@@ -1,0 +1,28 @@
+---
+title: "Interpretación de Resultados"
+lang: es
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+[Contenido de interpretación de resultados]
+
+## Interpretación de componentes principales
+
+[Contenido sobre interpretación de componentes principales]
+
+## Interpretación de clusters
+
+[Contenido sobre interpretación de clusters]
+
+## Validación de los resultados
+
+[Contenido sobre validación de resultados]

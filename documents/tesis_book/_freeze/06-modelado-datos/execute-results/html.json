@@ -1,0 +1,15 @@
+{
+  "hash": "859841fd06e2639b5010b862146f4a02",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Modelado de Datos\"\nlang: es\n---\n\n\n\n\n\n\n\n\n[Contenido de modelado de datos]\n\n## Clustering K-Means\n\n[Contenido sobre clustering K-Means]\n\n## Clustering DBSCAN\n\n[Contenido sobre clustering DBSCAN]\n\n## Clustering Jerárquico\n\n[Contenido sobre clustering jerárquico]\n\n## Determinación del modelo más óptimo\n\n[Contenido sobre determinación del modelo más óptimo]\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

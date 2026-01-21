@@ -1,0 +1,32 @@
+{
+  "index.qmd": {
+    "index.html": "c5df97ba"
+  },
+  "01-introduccion.qmd": {
+    "01-introduccion.html": "c3970a94"
+  },
+  "02-presentacion-problema.qmd": {
+    "02-presentacion-problema.html": "305a9e11"
+  },
+  "03-obtencion-datos.qmd": {
+    "03-obtencion-datos.html": "08e9715a"
+  },
+  "04-depuracion-datos.qmd": {
+    "04-depuracion-datos.html": "f25c871f"
+  },
+  "05-exploracion-datos.qmd": {
+    "05-exploracion-datos.html": "6c0450a6"
+  },
+  "06-modelado-datos.qmd": {
+    "06-modelado-datos.html": "ad08e9d9"
+  },
+  "07-interpretacion-resultados.qmd": {
+    "07-interpretacion-resultados.html": "1d373ef2"
+  },
+  "08-conclusion.qmd": {
+    "08-conclusion.html": "058a6fcd"
+  },
+  "references.qmd": {
+    "references.html": "798d393c"
+  }
+}

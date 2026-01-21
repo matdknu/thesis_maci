@@ -1,0 +1,23 @@
+$if(title)$
+\title{$title$}
+$endif$
+
+$for(by-author)$
+\author{$by-author.name.literal$}%
+$if(by-author.affiliations)$
+$for(by-author.affiliations/first)$
+\affiliation{$_affiliation.tex()$}%
+$endfor$
+$for(by-author.affiliations/rest)$
+\alsoaffiliation{$_affiliation.tex()$}%
+$endfor$
+$endif$
+$if(by-author.email)$
+\email{$by-author.email$}
+$endif$
+
+$endfor$
+
+$if(keywords)$
+\keywords{$for(keywords)$$keywords$$sep$, $endfor$}
+$endif$

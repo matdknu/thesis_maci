@@ -1,0 +1,36 @@
+---
+title: "Presentación del Problema"
+lang: es
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+\[Contenido de la presentación del problema\]
+
+## Problema
+
+\[Descripción del problema\]
+
+## Acercamiento, actores y dimensiones
+
+\[Descripción del acercamiento, actores y dimensiones\]
+
+## Descripción de la propuesta
+
+[Descripción de la propuesta]
+
+## MVP y objetivos
+
+\[Descripción del MVP y objetivos\]
+
+## Validación
+
+\[Descripción de la validación\]

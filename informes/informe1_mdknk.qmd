@@ -1,0 +1,454 @@
+---
+title: "Polarización afectiva entre y desde las derechas en Chile"
+subtitle: "Análisis a las elecciones presidenciales en Chile 2025"
+format:
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    code-fold: show
+    fig-width: 10
+    fig-height: 6
+    fig-dpi: 300
+---
+
+```{r setup, include=FALSE}
+#quarto publish quarto-pub informe1_mdknk.qmd
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  dpi = 300,
+  out.width = "100%"
+)
+
+# Librerías
+library(tidyverse)
+library(lubridate)
+library(here)
+library(readr)
+library(scales)
+library(ggtext)
+library(patchwork)
+library(knitr)
+```
+
+# Introducción
+
+Este informe presenta un análisis descriptivo de las menciones de candidatos presidenciales en Reddit y su comparación con las tendencias de búsqueda en Google Trends, enfocándose en la polarización afectiva en el discurso político chileno durante el período electoral 2025.
+
+# Datos
+
+```{r datos, include=FALSE}
+# Carga de datos
+df <- readRDS(here("data/proc_data/reddit_filtrado.rds"))
+df_trends <- read_csv(here("data/trends/series/trends_candidatos_daily.csv"), 
+                      show_col_types = FALSE)
+
+# Calcular estadísticas para el texto
+n_reddit <- nrow(df)
+fecha_min_reddit <- min(df$fecha, na.rm = TRUE)
+fecha_max_reddit <- max(df$fecha, na.rm = TRUE)
+dias_reddit <- as.numeric(fecha_max_reddit - fecha_min_reddit)
+
+n_trends <- nrow(df_trends)
+fecha_min_trends <- min(df_trends$date, na.rm = TRUE)
+fecha_max_trends <- max(df_trends$date, na.rm = TRUE)
+dias_trends <- as.numeric(fecha_max_trends - fecha_min_trends)
+
+# Calcular menciones por candidato
+menciones_totales <- df %>%
+  summarise(
+    Kast = sum(kast, na.rm = TRUE),
+    Kaiser = sum(kaiser, na.rm = TRUE),
+    Matthei = sum(matthei, na.rm = TRUE),
+    Jara = sum(jara, na.rm = TRUE),
+    Parisi = sum(parisi, na.rm = TRUE),
+    Mayne = sum(mayne_nicholls, na.rm = TRUE)
+  ) %>%
+  pivot_longer(everything(), names_to = "candidato", values_to = "menciones") %>%
+  arrange(desc(menciones))
+
+# Calcular menciones por fecha
+menciones_por_fecha <- df %>%
+  group_by(fecha) %>%
+  summarise(
+    Kast = sum(kast, na.rm = TRUE),
+    Kaiser = sum(kaiser, na.rm = TRUE),
+    Matthei = sum(matthei, na.rm = TRUE),
+    Jara = sum(jara, na.rm = TRUE),
+    Parisi = sum(parisi, na.rm = TRUE),
+    Mayne = sum(mayne_nicholls, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(-fecha, names_to = "candidato", values_to = "menciones") %>%
+  filter(!is.na(fecha))
+
+# Preparar datos de trends
+trends_long <- df_trends %>%
+  pivot_longer(-date, names_to = "candidato", values_to = "score") %>%
+  filter(!is.na(date), !is.na(score)) %>%
+  mutate(
+    candidato = case_when(
+      candidato == "Evelyn Matthei" ~ "Matthei",
+      candidato == "José Antonio Kast" ~ "Kast",
+      candidato == "Johannes Kaiser" ~ "Kaiser",
+      candidato == "Franco Parisi" ~ "Parisi",
+      candidato == "Jeannette Jara" ~ "Jara",
+      candidato == "Harold Mayne-Nicholls" ~ "Mayne",
+      TRUE ~ candidato
+    )
+  )
+
+# Promedio de interés por candidato
+trends_promedio <- trends_long %>%
+  group_by(candidato) %>%
+  summarise(
+    promedio = mean(score, na.rm = TRUE),
+    mediana = median(score, na.rm = TRUE),
+    maximo = max(score, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(promedio))
+
+# Comparación Reddit vs Google Trends
+menciones_semanales <- menciones_por_fecha %>%
+  mutate(semana = floor_date(fecha, "week", week_start = 1)) %>%
+  group_by(semana, candidato) %>%
+  summarise(menciones = mean(menciones, na.rm = TRUE), .groups = "drop")
+
+trends_semanales <- trends_long %>%
+  filter(candidato %in% c("Kast", "Kaiser", "Matthei", "Jara", "Parisi", "Mayne")) %>%
+  mutate(semana = floor_date(date, "week", week_start = 1)) %>%
+  group_by(semana, candidato) %>%
+  summarise(score = mean(score, na.rm = TRUE), .groups = "drop")
+
+comparacion <- menciones_semanales %>%
+  inner_join(trends_semanales, by = c("semana", "candidato")) %>%
+  filter(!is.na(semana))
+
+correlaciones <- comparacion %>%
+  group_by(candidato) %>%
+  summarise(
+    correlacion = cor(menciones, score, use = "complete.obs"),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(correlacion))
+```
+
+## Señalamiento de los datos
+
+Los datos analizados provienen de dos fuentes principales:
+
+1. **Reddit**: Se analizaron `r format(n_reddit, big.mark = ".")` observaciones de comentarios y publicaciones en subreddits chilenos, cubriendo el período desde `r as.character(fecha_min_reddit)` hasta `r as.character(fecha_max_reddit)` (`r dias_reddit` días). Los datos fueron filtrados para incluir únicamente menciones a los candidatos presidenciales principales.
+
+2. **Google Trends**: Se analizaron `r format(n_trends, big.mark = ".")` observaciones diarias de interés de búsqueda para los mismos candidatos, cubriendo un período más amplio desde `r as.character(fecha_min_trends)` hasta `r as.character(fecha_max_trends)` (`r dias_trends` días).
+
+Los candidatos analizados incluyen: José Antonio Kast, Johannes Kaiser, Evelyn Matthei, Jeannette Jara, Franco Parisi, Harold Mayne-Nicholls, Marco Enríquez-Ominami y Eduardo Artés.
+
+# Análisis descriptivo
+
+## Menciones en Reddit
+
+En cuanto al volumen total de menciones en Reddit, se observa que **José Antonio Kast** lidera con `r format(menciones_totales$menciones[1], big.mark = ".")` menciones (`r round(menciones_totales$menciones[1] / sum(menciones_totales$menciones) * 100, 1)`% del total), seguido por **Jeannette Jara** con `r format(menciones_totales$menciones[2], big.mark = ".")` menciones (`r round(menciones_totales$menciones[2] / sum(menciones_totales$menciones) * 100, 1)`%), y **Johannes Kaiser** con `r format(menciones_totales$menciones[3], big.mark = ".")` menciones (`r round(menciones_totales$menciones[3] / sum(menciones_totales$menciones) * 100, 1)`%). Los demás candidatos presentan volúmenes menores: **Evelyn Matthei** con `r format(menciones_totales$menciones[4], big.mark = ".")` menciones (`r round(menciones_totales$menciones[4] / sum(menciones_totales$menciones) * 100, 1)`%), **Franco Parisi** con `r format(menciones_totales$menciones[5], big.mark = ".")` menciones (`r round(menciones_totales$menciones[5] / sum(menciones_totales$menciones) * 100, 1)`%), y **Harold Mayne-Nicholls** con `r format(menciones_totales$menciones[6], big.mark = ".")` menciones (`r round(menciones_totales$menciones[6] / sum(menciones_totales$menciones) * 100, 1)`%).
+
+```{r grafico-menciones-totales, fig.cap="Distribución total de menciones por candidato en Reddit", echo=FALSE}
+# Cargar figura generada - usar ruta relativa desde informes/
+fig_path <- "outputs/thesis_figures/fig1_distribucion_menciones.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  # Generar gráfico si no existe
+  g1 <- menciones_totales %>%
+    mutate(candidato = fct_reorder(candidato, menciones)) %>%
+    ggplot(aes(x = candidato, y = menciones, fill = candidato)) +
+    geom_col(alpha = 0.8, show.legend = FALSE) +
+    geom_text(aes(label = format(menciones, big.mark = ".")), 
+              hjust = -0.1, size = 3.5) +
+    coord_flip() +
+    scale_fill_brewer(palette = "Set2") +
+    scale_y_continuous(labels = label_number(big.mark = "."), 
+                       expand = expansion(mult = c(0, 0.15))) +
+    labs(
+      title = "Total de menciones por candidato en Reddit",
+      subtitle = "Período: agosto - diciembre 2025",
+      x = NULL,
+      y = "Número de menciones",
+      caption = "Fuente: Elaboración propia a partir de scraping de Reddit."
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+      plot.subtitle = element_text(size = 11, hjust = 0.5, color = "grey40"),
+      plot.caption = element_text(size = 9, hjust = 0, color = "grey50"),
+      axis.title.x = element_text(face = "bold"),
+      axis.text.y = element_text(face = "bold"),
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor = element_blank()
+    )
+  g1
+}
+```
+
+## Evolución temporal de menciones
+
+La evolución temporal de las menciones muestra patrones dinámicos a lo largo del período analizado. Se observan picos de actividad en fechas específicas, posiblemente asociados a eventos políticos relevantes como debates presidenciales, anuncios de propuestas o cobertura mediática intensa.
+
+```{r grafico-evolucion-temporal, fig.cap="Evolución temporal de menciones diarias en Reddit", echo=FALSE}
+fig_path <- "outputs/thesis_figures/fig2_evolucion_temporal.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  g2 <- menciones_por_fecha %>%
+    ggplot(aes(x = fecha, y = menciones, color = candidato, group = candidato)) +
+    geom_line(linewidth = 0.8, alpha = 0.9) +
+    geom_point(size = 1.5, alpha = 0.6) +
+    scale_color_brewer(palette = "Set2", name = "Candidato") +
+    scale_x_date(date_breaks = "2 weeks", date_labels = "%d %b", 
+                 expand = expansion(mult = 0.02)) +
+    scale_y_continuous(labels = label_number(), 
+                       expand = expansion(mult = c(0, 0.05))) +
+    labs(
+      title = "Evolución temporal de menciones diarias en Reddit",
+      subtitle = "Serie diaria de menciones por candidato",
+      x = "Fecha",
+      y = "Número de menciones",
+      caption = "Fuente: Elaboración propia a partir de scraping de Reddit."
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+      plot.subtitle = element_text(size = 11, hjust = 0.5, color = "grey40"),
+      plot.caption = element_text(size = 9, hjust = 0, color = "grey50"),
+      axis.title = element_text(face = "bold"),
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 9),
+      legend.position = "bottom",
+      legend.title = element_text(face = "bold"),
+      panel.grid.minor = element_blank()
+    )
+  g2
+}
+```
+
+```{r grafico-evolucion-facets, fig.cap="Evolución temporal de menciones por candidato (paneles separados)", echo=FALSE}
+fig_path <- "outputs/thesis_figures/fig3_small_multiples.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  g3 <- menciones_por_fecha %>%
+    ggplot(aes(x = fecha, y = menciones, color = candidato, group = candidato)) +
+    geom_line(linewidth = 0.9, show.legend = FALSE) +
+    geom_point(size = 1.2, alpha = 0.7, show.legend = FALSE) +
+    facet_wrap(~ candidato, ncol = 3, scales = "free_y") +
+    scale_color_brewer(palette = "Set2") +
+    scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b", 
+                 expand = expansion(mult = 0.02)) +
+    scale_y_continuous(labels = label_number(), 
+                       expand = expansion(mult = c(0, 0.1))) +
+    labs(
+      title = "Evolución temporal de menciones por candidato",
+      subtitle = "Paneles separados para facilitar la comparación",
+      x = "Fecha",
+      y = "Número de menciones",
+      caption = "Fuente: Elaboración propia a partir de scraping de Reddit."
+    ) +
+    theme_minimal(base_size = 11) +
+    theme(
+      plot.title = element_text(face = "bold", size = 13, hjust = 0.5),
+      plot.subtitle = element_text(size = 10, hjust = 0.5, color = "grey40"),
+      plot.caption = element_text(size = 9, hjust = 0, color = "grey50"),
+      axis.title = element_text(face = "bold"),
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+      strip.text = element_text(face = "bold", size = 10),
+      panel.grid.minor = element_blank()
+    )
+  g3
+}
+```
+
+## Google Trends
+
+En cuanto al interés en Google Trends, el candidato con mayor interés promedio es **`r trends_promedio$candidato[1]`** con un promedio de `r round(trends_promedio$promedio[1], 1)` puntos, seguido por **`r trends_promedio$candidato[2]`** con `r round(trends_promedio$promedio[2], 1)` puntos, y **`r trends_promedio$candidato[3]`** con `r round(trends_promedio$promedio[3], 1)` puntos. Los valores máximos de interés alcanzados durante el período fueron de `r round(trends_promedio$maximo[1], 1)` puntos para `r trends_promedio$candidato[1]`, `r round(trends_promedio$maximo[2], 1)` puntos para `r trends_promedio$candidato[2]`, y `r round(trends_promedio$maximo[3], 1)` puntos para `r trends_promedio$candidato[3]`.
+
+```{r grafico-trends, fig.cap="Evolución temporal del interés en Google Trends", echo=FALSE}
+fig_path <- "outputs/thesis_figures/fig4_google_trends.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  g4 <- trends_long %>%
+    filter(candidato %in% c("Kast", "Kaiser", "Matthei", "Jara", "Parisi", "Mayne")) %>%
+    ggplot(aes(x = date, y = score, color = candidato, group = candidato)) +
+    geom_line(linewidth = 0.8, alpha = 0.9) +
+    geom_point(size = 1.2, alpha = 0.6) +
+    scale_color_brewer(palette = "Set2", name = "Candidato") +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b %Y", 
+                 expand = expansion(mult = 0.02)) +
+    scale_y_continuous(labels = label_number(), 
+                       expand = expansion(mult = c(0, 0.05))) +
+    labs(
+      title = "Evolución del interés en Google Trends",
+      subtitle = "Interés relativo de búsqueda por candidato (0-100)",
+      x = "Fecha",
+      y = "Interés relativo",
+      caption = "Fuente: Google Trends. Elaboración propia."
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+      plot.subtitle = element_text(size = 11, hjust = 0.5, color = "grey40"),
+      plot.caption = element_text(size = 9, hjust = 0, color = "grey50"),
+      axis.title = element_text(face = "bold"),
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 9),
+      legend.position = "bottom",
+      legend.title = element_text(face = "bold"),
+      panel.grid.minor = element_blank()
+    )
+  g4
+}
+```
+
+## Comparación Reddit vs Google Trends
+
+La correlación entre las menciones en Reddit y el interés en Google Trends varía significativamente por candidato. **`r correlaciones$candidato[1]`** presenta la correlación más alta (`r round(correlaciones$correlacion[1], 3)`), seguido por **`r correlaciones$candidato[2]`** con `r round(correlaciones$correlacion[2], 3)`, y **`r correlaciones$candidato[3]`** con `r round(correlaciones$correlacion[3], 3)`. Los demás candidatos muestran correlaciones más moderadas: **`r correlaciones$candidato[4]`** (`r round(correlaciones$correlacion[4], 3)`), **`r correlaciones$candidato[5]`** (`r round(correlaciones$correlacion[5], 3)`), y **`r correlaciones$candidato[6]`** (`r round(correlaciones$correlacion[6], 3)`). Estas diferencias sugieren que ambos canales capturan aspectos distintos del discurso público, con algunos candidatos mostrando mayor sincronización entre plataformas que otros.
+
+```{r grafico-comparacion, fig.cap="Comparación entre menciones en Reddit e interés en Google Trends", echo=FALSE}
+fig_path <- "outputs/thesis_figures/fig5_comparacion_reddit_trends.png"
+if (file.exists(fig_path)) {
+  knitr::include_graphics(fig_path)
+} else {
+  comparacion_plot <- menciones_semanales %>%
+    inner_join(trends_semanales, by = c("semana", "candidato")) %>%
+    filter(!is.na(semana))
+  
+  g5 <- comparacion_plot %>%
+    ggplot(aes(x = menciones, y = score, color = candidato)) +
+    geom_point(alpha = 0.6, size = 2) +
+    geom_smooth(method = "lm", se = TRUE, alpha = 0.2, linewidth = 0.8) +
+    facet_wrap(~ candidato, ncol = 3, scales = "free") +
+    scale_color_brewer(palette = "Set2", guide = "none") +
+    labs(
+      title = "Relación entre menciones en Reddit e interés en Google Trends",
+      subtitle = "Puntos semanales con línea de tendencia",
+      x = "Menciones promedio semanal (Reddit)",
+      y = "Interés promedio semanal (Google Trends)",
+      caption = "Fuente: Elaboración propia. Reddit: scraping propio; Google Trends: API oficial."
+    ) +
+    theme_minimal(base_size = 11) +
+    theme(
+      plot.title = element_text(face = "bold", size = 13, hjust = 0.5),
+      plot.subtitle = element_text(size = 10, hjust = 0.5, color = "grey40"),
+      plot.caption = element_text(size = 9, hjust = 0, color = "grey50"),
+      axis.title = element_text(face = "bold"),
+      strip.text = element_text(face = "bold", size = 10),
+      panel.grid.minor = element_blank()
+    )
+  g5
+}
+```
+
+# Análisis de texto inicial
+
+## Metodología propuesta
+
+Para el análisis de texto y clasificación de sentimiento, se propone utilizar modelos de lenguaje avanzados mediante las APIs de **Google Gemini** y **OpenAI GPT**. Esta aproximación permite un análisis más sofisticado y contextualizado del contenido textual, superando las limitaciones de los métodos basados en diccionarios léxicos tradicionales.
+
+La clasificación se realizará mediante un proceso de dos etapas:
+
+1. **Análisis con Gemini API**: Se utilizará el modelo Gemini de Google para realizar una primera clasificación de sentimiento y extracción de tópicos principales.
+
+2. **Análisis con GPT API**: Se utilizará el modelo GPT de OpenAI para validar y complementar los resultados, permitiendo una clasificación más robusta mediante consenso entre modelos.
+
+Esta metodología dual permite aprovechar las fortalezas de ambos modelos: Gemini destaca en el análisis de contexto y matices del lenguaje, mientras que GPT ofrece una clasificación más estructurada y consistente.
+
+## Características del texto analizado
+
+```{r analisis-texto-inicial, include=FALSE}
+# Preparar datos de texto para análisis
+df_texto <- df %>%
+  mutate(
+    texto_completo = paste(
+      coalesce(post_title, ""),
+      coalesce(post_selftext, ""),
+      coalesce(comment_body, ""),
+      sep = " "
+    ),
+    n_palabras = str_count(texto_completo, "\\S+"),
+    n_caracteres = nchar(texto_completo)
+  ) %>%
+  filter(!is.na(texto_completo), texto_completo != "", texto_completo != " ")
+
+# Estadísticas básicas
+stats_texto <- df_texto %>%
+  summarise(
+    n_comentarios = n(),
+    palabras_promedio = mean(n_palabras, na.rm = TRUE),
+    palabras_mediana = median(n_palabras, na.rm = TRUE),
+    palabras_max = max(n_palabras, na.rm = TRUE),
+    caracteres_promedio = mean(n_caracteres, na.rm = TRUE),
+    caracteres_mediana = median(n_caracteres, na.rm = TRUE)
+  )
+
+# Estadísticas por candidato
+stats_por_candidato <- df_texto %>%
+  summarise(
+    Kast = sum(kast, na.rm = TRUE),
+    Kaiser = sum(kaiser, na.rm = TRUE),
+    Matthei = sum(matthei, na.rm = TRUE),
+    Jara = sum(jara, na.rm = TRUE),
+    Parisi = sum(parisi, na.rm = TRUE),
+    Mayne = sum(mayne_nicholls, na.rm = TRUE)
+  ) %>%
+  pivot_longer(everything(), names_to = "candidato", values_to = "n_menciones") %>%
+  mutate(
+    pct = n_menciones / sum(n_menciones) * 100
+  )
+```
+
+El corpus textual analizado comprende `r format(stats_texto$n_comentarios, big.mark = ".")` comentarios y publicaciones que mencionan a los candidatos presidenciales. En términos de longitud, los textos presentan un promedio de `r round(stats_texto$palabras_promedio, 1)` palabras por comentario, con una mediana de `r round(stats_texto$palabras_mediana, 1)` palabras. El comentario más extenso contiene `r format(stats_texto$palabras_max, big.mark = ".")` palabras. En cuanto a caracteres, el promedio es de `r round(stats_texto$caracteres_promedio, 0)` caracteres por texto, con una mediana de `r round(stats_texto$caracteres_mediana, 0)` caracteres.
+
+La distribución de menciones por candidato en el corpus textual sigue un patrón similar al observado en el análisis general: **Kast** aparece en `r format(stats_por_candidato$n_menciones[stats_por_candidato$candidato == "Kast"], big.mark = ".")` textos (`r round(stats_por_candidato$pct[stats_por_candidato$candidato == "Kast"], 1)`%), **Jara** en `r format(stats_por_candidato$n_menciones[stats_por_candidato$candidato == "Jara"], big.mark = ".")` textos (`r round(stats_por_candidato$pct[stats_por_candidato$candidato == "Jara"], 1)`%), y **Kaiser** en `r format(stats_por_candidato$n_menciones[stats_por_candidato$candidato == "Kaiser"], big.mark = ".")` textos (`r round(stats_por_candidato$pct[stats_por_candidato$candidato == "Kaiser"], 1)`%).
+
+## Implementación técnica
+
+El código para realizar el análisis de texto con las APIs de Gemini y GPT se encuentra en el script `scripts/analysis/analisis_texto_apis.R`. Este script implementa las funciones necesarias para:
+
+- Conexión y autenticación con ambas APIs
+- Procesamiento por lotes de los textos
+- Clasificación de sentimiento (positivo, negativo, neutro)
+- Extracción de tópicos principales
+- Manejo de errores y reintentos
+- Almacenamiento de resultados
+
+**Nota importante**: El código está preparado pero no se ejecutará en esta fase del análisis, ya que requiere configuración de credenciales API y consideraciones de costo. La ejecución se realizará en una etapa posterior del proyecto.
+
+# Resumen y conclusiones
+
+## Hallazgos principales
+
+1. **Volumen de menciones**: Los candidatos con mayor volumen de menciones en Reddit son **`r paste(head(menciones_totales$candidato, 3), collapse = ", ")`**, con **`r format(head(menciones_totales$menciones, 1), big.mark = ".")`** menciones totales para el líder, representando `r round(head(menciones_totales$menciones, 1) / sum(menciones_totales$menciones) * 100, 1)`% del total.
+
+2. **Evolución temporal**: Se observan picos de actividad en fechas específicas, posiblemente asociados a eventos políticos relevantes como debates presidenciales, anuncios de propuestas o cobertura mediática intensa.
+
+3. **Interés en búsquedas**: El interés en Google Trends muestra patrones similares pero no idénticos a las menciones en Reddit, sugiriendo que ambos canales capturan diferentes aspectos del discurso público.
+
+4. **Correlación entre fuentes**: La correlación entre menciones en Reddit e interés en Google Trends varía por candidato, con valores que van desde `r round(min(correlaciones$correlacion), 3)` hasta `r round(max(correlaciones$correlacion), 3)`, siendo **`r correlaciones$candidato[1]`** el candidato con mayor sincronización entre plataformas.
+
+5. **Características del texto**: El corpus textual analizado comprende `r format(stats_texto$n_comentarios, big.mark = ".")` textos con un promedio de `r round(stats_texto$palabras_promedio, 1)` palabras por comentario, proporcionando una base sólida para el análisis de sentimiento y tópicos.
+
+## Limitaciones
+
+- Los datos de Reddit representan únicamente una muestra de la discusión en plataformas específicas y pueden no ser representativos de la población general.
+- Los datos de Google Trends son relativos (0-100) y no representan volúmenes absolutos de búsqueda.
+- El período de análisis está limitado a los meses previos a las elecciones presidenciales.
+- El análisis de texto con APIs requiere consideraciones de costo y tiempo de procesamiento.
+
+## Próximos pasos
+
+- **Análisis de sentimiento**: Implementación del análisis de sentimiento utilizando las APIs de Gemini y GPT para clasificar el tono de las menciones.
+- **Análisis de tópicos**: Identificación de los temas principales asociados a cada candidato mediante técnicas de modelado de tópicos.
+- **Modelado de series temporales**: Desarrollo de modelos predictivos para anticipar tendencias en las menciones.
+- **Análisis de redes**: Exploración de las relaciones de co-mención entre candidatos y la estructura de las discusiones.
