@@ -1,0 +1,161 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  # Nota: título, subtítulo y autor están en la portada personalizada de index.qmd
+  # No definirlos aquí evita que Quarto genere una página automática
+  
+  # Metadatos
+  description: |
+    Tesis para optar al grado de Magíster en Ciencia de Datos.
+  
+  # Imágenes (descomentar cuando tengas los archivos)
+  # favicon: logo/logo.png
+  # cover-image: logo/portada.png
+  
+  # Estructura del libro
+  chapters:
+    - index.qmd
+    - 01-introduccion.qmd
+    - 02-presentacion-problema.qmd
+    - 03-obtencion-datos.qmd
+    - 04-depuracion-datos.qmd
+    - 05-exploracion-datos.qmd
+    - 06-modelado-datos.qmd
+    - 07-interpretacion-resultados.qmd
+    - 08-conclusion.qmd
+    - references.qmd
+  
+  # Configuración del libro
+  language: es
+  repo-url: https://github.com/usuario/repositorio
+  repo-actions: [issue, source]
+
+# ============================================================================
+# FORMATO HTML
+# ============================================================================
+format:
+  html:
+    language: es
+    theme: 
+      light: [cosmo]
+    toc: true
+    toc-depth: 3
+    toc-title: "Contenido"
+    number-sections: true
+    number-depth: 2
+    smooth-scroll: true
+    code-fold: show
+    code-tools: true
+    code-copy: true
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 150
+    fig-align: center
+
+# ============================================================================
+# FORMATO PDF
+# ============================================================================
+  pdf:
+    language: es
+    documentclass: scrreprt
+    classoption: 
+      - fontsize=11pt
+      - DIV=12
+      - titlepage=false
+    
+    # Geometría de página
+    geometry:
+      - top=30mm
+      - bottom=30mm
+      - left=25mm
+      - right=25mm
+    
+    # Tabla de contenidos (controlada manualmente en index.qmd)
+    toc: false
+    toc-depth: 3
+    toc-title: "Índice General"
+    lof: false
+    lot: false
+    
+    # Numeración
+    number-sections: true
+    number-depth: 3
+    
+    # Enlaces
+    colorlinks: true
+    linkcolor: "NavyBlue"
+    urlcolor: "NavyBlue"
+    citecolor: "NavyBlue"
+    
+    # Figuras
+    fig-width: 7
+    fig-height: 5
+    fig-dpi: 300
+    fig-pos: "H"
+    
+    # Fuente y espaciado
+    linestretch: 1.5
+    
+    # Portada antes del contenido
+    include-before-body:
+      - portada.tex
+    
+    # Cabecera LaTeX
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+        \usepackage{array}
+        \usepackage{float}
+        \usepackage{colortbl}
+        \usepackage{xcolor}
+        \usepackage{caption}
+        \usepackage{fancyhdr}
+        \captionsetup{font=small,labelfont=bf,skip=8pt}
+        \renewcommand{\arraystretch}{1.2}
+        
+        % Configuración de encabezados
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[LE,RO]{\thepage}
+        \fancyhead[LO]{\nouppercase{\leftmark}}
+        \fancyhead[RE]{\nouppercase{\rightmark}}
+        \renewcommand{\headrulewidth}{0.4pt}
+        
+        % Sin encabezado en páginas preliminares
+        \AtBeginDocument{
+          \pagenumbering{roman}
+          \pagestyle{plain}
+        }
+        
+        % Configuración para numeración continua de capítulos (las partes no cuentan)
+        \makeatletter
+        % Ocultar numeración de partes
+        \renewcommand{\thepart}{}
+        % Remover el reset automático de capítulos por parte para numeración continua
+        \@removefromreset{chapter}{part}
+        % Hacer que las secciones se numeren basándose en el capítulo, no en la parte
+        \@removefromreset{section}{part}
+        % Asegurar que las secciones se numeren dentro de cada capítulo
+        \renewcommand{\thesection}{\thechapter.\arabic{section}}
+        \makeatother
+        
+        % Configuración para evitar saltos de página innecesarios
+        \clubpenalty=10000
+        \widowpenalty=10000
+        \displaywidowpenalty=10000
+
+# ============================================================================
+# CONFIGURACIÓN DE EJECUCIÓN
+# ============================================================================
+execute: 
+  echo: false
+  warning: false
+  message: false
+  error: false
+  cache: false
+  freeze: auto
+
+editor: visual

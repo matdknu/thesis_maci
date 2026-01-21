@@ -1,0 +1,101 @@
+---
+title: "Avance 1 de Tesis"
+subtitle: "Polarización afectiva entre y desde las derechas en Chile"
+author: "Análisis a las elecciones presidenciales en Chile 2025"
+date: today
+format:
+  revealjs:
+    theme: default
+    transition: slide
+    slide-number: true
+    toc: true
+    toc-depth: 2
+    navigation-mode: linear
+    preview-links: auto
+    fig-width: 10
+    fig-height: 6
+    fig-dpi: 300
+    css: avance1_tesis.css
+---
+
+# Introducción
+
+## Introducción
+
+-   Ciclo presidencial reciente en Chile marcado por **tres derechas**:
+    -   Derecha tradicional de gobierno (Chile Vamos / “los 30 años”)
+    -   Derecha liberal–conservadora
+    -   Nueva derecha radical (Partido Republicano)
+-   En las tres, el **Partido Comunista (PC)** aparece como *enemigo por antonomasia*:
+    -   Condensa la amenaza “izquierdista” y “antisistémica”
+    -   Ordena y unifica al campo de la derecha pese a sus tensiones internas
+
+------------------------------------------------------------------------
+
+# Teoría
+
+## Teoría
+
+-   **Polarización afectiva**: el adversario se convierte en enemigo moral (“ellos” vs. “nosotros”).
+-   **Nuevos discursos de derecha en redes**:
+    -   Lenguaje más directo, irónico, moralizante
+    -   Centralidad de temas como orden, seguridad y “octubrismo”
+-   **Plataformas digitales** (como Reddit) como laboratorio:
+    -   Difunden y testean marcos anti-PC
+    -   Amplifican la polarización a través de memes, insultos y emociones negativas
+
+------------------------------------------------------------------------
+
+# Métodos
+
+## Métodos
+
+### Datos
+
+-   Corpus de publicaciones y comentarios de **Reddit** sobre política chilena.
+-   Foco en menciones a: derecha, Republicanos, Chile Vamos, UDI, RN, **PC**.
+
+### Técnica de recolección
+
+-   **Web scraping / API Reddit** para extraer posts y comentarios.
+-   Preprocesamiento: limpieza de texto, filtros por fechas y palabras clave.
+-   Construcción de un corpus con metadatos (fecha, subreddit, score, etc.).
+
+
+# Resultado preliminar
+
+## Resultado Preliminar 1
+
+![](images/fig1_distribucion_menciones.png){fig-align="center"}
+
+
+# 
+
+## Resultado Preliminar 2
+
+![](images/fig2_evolucion_temporal.png){fig-align="center"}
+
+#
+
+## Resultado Preliminar 3
+
+![](images/fig5_comparacion_reddit_trends.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+# Proyecciones Análisis API
+
+## Uso de OpenAI y Gemini para análisis de discurso
+
+-   Usar **modelos de lenguaje (OpenAI, GeminAI)** para:
+    -   Clasificar mensajes según tipo de derecha y función de la mención al PC.
+    -   Identificar marcos discursivos (orden/caos, pueblo/élite, libertad/comunismo).
+    -   Mapear emociones dominantes y su evolución en el tiempo.
+-   Objetivo: construir una **cartografía computacional** de las derechas en Chile en redes y del rol del PC como enemigo por antonomasia.
+
+------------------------------------------------------------------------
+
+# GRACIAS
+
+Muchas gracias por la atención.\
+Comentarios y sugerencias muy bienvenidos.

@@ -1,0 +1,15 @@
+{
+  "hash": "b2cf42413a97db808c3c636e69671995",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Presentación del Problema\"\nlang: es\n---\n\n\n\n\n\n\n\n\n[Contenido de la presentación del problema]\n\n## Problema\n\n[Descripción del problema]\n\n## Acercamiento, actores y dimensiones\n\n[Descripción del acercamiento, actores y dimensiones]\n\n## Descripción de la propuesta\n\n[Descripción de la propuesta]\n\n## MVP y objetivos\n\n[Descripción del MVP y objetivos]\n\n## Validación\n\n[Descripción de la validación]\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

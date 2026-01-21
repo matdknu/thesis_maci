@@ -1,0 +1,10 @@
+name: reddit-politico-chile
+title:
+username: matdknu
+account: matdknu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16344166
+bundleId: 11354215
+url: https://matdknu.shinyapps.io/reddit-politico-chile/
+version: 1

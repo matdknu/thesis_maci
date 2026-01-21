@@ -1,0 +1,15 @@
+{
+  "hash": "b3896ba9c021547b78786b2827fcd05f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Referencias\"\nlang: es\n---\n\n\n\n\n\n\n\n\n# Referencias\n\n[Las referencias se generan automáticamente desde el archivo bibliography.bib]\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

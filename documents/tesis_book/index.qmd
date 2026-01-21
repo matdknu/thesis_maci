@@ -1,0 +1,88 @@
+---
+format:
+  html:
+    toc: false
+  pdf:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  dpi = 300
+)
+```
+
+::: {.content-visible when-format="html"}
+::: {style="text-align: center; margin-top: 2cm;"}
+<img src="logo/logo_udec.png" alt="Logo UdeC" style="width: 25%; height: auto;"/>
+
+<h1 style="margin-top: 2cm;">
+
+Derecha fragmentada y un enemigo compartido
+
+</h1>
+
+<h2 style="font-style: italic;">
+
+Análisis textual longitudinal de la constación discursiva en las elecciones presidencial de 2025 en Chile
+
+</h2>
+
+<p style="margin-top: 2cm;">
+
+Tesina presentada para optar al grado de<br>Magíster en Ciencia de Datos
+
+</p>
+
+<p style="margin-top: 2cm;">
+
+<strong>Matías Deneken</strong><br> Centro de Datos e Inteligencia Artificial - Universidad de Concepción
+
+</p>
+
+<p style="margin-top: 1cm;">
+
+<strong>Profesores Guías:</strong><br>Dr. Carlos Navarrete <br>Dr. Marcela Parada
+
+</p>
+
+<p style="margin-top: 2cm;">
+
+Facultad de Ingeniería <br> Universidad de Concepción<br>Marzo 2026
+
+</p>
+:::
+:::
+
+# Agradecimientos {.unnumbered}
+
+Esta tesina no habría sido posible por la beca de excención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.
+
+Agradezco a mis compañeras y compañeros de generación con los cuáles compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quién constituí un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia el MACI habría sido significativamente más compleja.
+
+\newpage
+
+# Presentación {.unnumbered}
+
+Contenido de presentación/introducción general
+
+\newpage
+
+```{=latex}
+% Índices después de las páginas preliminares
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+% Cambiar a numeración arábiga para el contenido principal
+\pagenumbering{arabic}
+\pagestyle{fancy}
+```

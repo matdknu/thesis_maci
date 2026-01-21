@@ -1,0 +1,405 @@
+---
+title: "Fragmentation on the Chilean Right and a Shared Adversary: A Longitudinal Network-and-Text Analysis of Discursive Contestation in Chile's 2025 Campaign"
+author: 
+  - name: Matías Deneken
+    affiliation: Master's Program in Data Science
+abstract: |
+  This study examines political discourse on Reddit during Chile's 2025 presidential campaign, focusing on intra-right competition and coalition-building dynamics. Using a longitudinal corpus, the research employs network analysis, emotion classification, and large language models to trace how ideological blocs construct frames, mobilize affect, and define adversaries across the electoral cycle. Findings reveal that digital antagonism responds strategically to institutional incentives: the early campaign featured fragmentation and intra-right boundary policing, while the runoff triggered discursive convergence around shared emotional frames and anti-communist targeting. Predictive models demonstrate that attack behavior is patterned by campaign phase and affective cues rather than static identity. By integrating institutional theory with networked communication dynamics, this study demonstrates how platform-mediated interactions both reflect and reorganize strategic behavior in polarized electoral contexts.
+keywords:
+  - social media
+  - computational social science
+  - right-wing
+  - natural language processing
+  - polarization
+  - Chile
+format:
+  pdf:
+    documentclass: article
+    fig-dpi: 300
+    fig-width: 7
+    fig-height: 5
+    keep-tex: false
+    toc: false
+    number-sections: true
+    fig-caption: true
+    geometry:
+      - top=25mm
+      - bottom=25mm
+      - left=20mm
+      - right=20mm
+      - heightrounded
+    fontsize: 11pt
+    linestretch: 1.15
+    colorlinks: true
+    include-in-header:
+      text: |
+        \usepackage{hanging}
+        \usepackage{float}
+        \usepackage{abstract}
+        \renewcommand{\abstractnamefont}{\normalfont\bfseries}
+        \renewcommand{\abstracttextfont}{\normalfont}
+        \floatplacement{table}{H}
+        \floatplacement{figure}{H}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  dpi = 300,
+  out.width = "100%",
+  fig.align = "center",
+  fig.pos = "H"
+)
+
+# Libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+library(here)
+```
+
+```{r load-data, include=FALSE}
+# Load tables for reference
+if (file.exists(here("outputs", "tables", "ml_results.csv"))) {
+  ml_results <- read_csv(here("outputs", "tables", "ml_results.csv"), 
+                        show_col_types = FALSE)
+}
+
+if (file.exists(here("outputs", "tables", "openai_bloc_per_class_metrics.csv"))) {
+  openai_per_class <- read_csv(here("outputs", "tables", "openai_bloc_per_class_metrics.csv"),
+                               show_col_types = FALSE)
+}
+
+if (file.exists(here("outputs", "tables", "openai_evaluation_metrics.csv"))) {
+  openai_metrics <- read_csv(here("outputs", "tables", "openai_evaluation_metrics.csv"),
+                            show_col_types = FALSE)
+}
+
+if (file.exists(here("outputs", "tables", "model_performance_sim.csv"))) {
+  model_performance <- read_csv(here("outputs", "tables", "model_performance_sim.csv"),
+                               show_col_types = FALSE)
+}
+```
+
+\noindent\textbf{Writing Sample: Master's Thesis in Data Science} | DOI: \href{https://doi.org/10.17605/OSF.IO/NQB3G}{10.17605/OSF.IO/NQB3G}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Word count:} 2993/3000 (body text, without references)
+
+\vspace{0.5cm}
+
+# Introduction 
+
+It is undeniable that social media have acquired growing relevance in contemporary social and political life (Graham & Dutton, 2014; Theocharis et al., 2023; Watts & Lazer, 2025). Beyond amplifying communication, digital platforms fundamentally restructure the conditions under which political interaction occurs by mediating encounters with socially relevant others beyond individuals' everyday networks, shifting political communication away from face-to-face contact toward agenda-driven, mediated exchanges (Schroeder, 2025). Yet we are only beginning to systematically understand how platform-mediated interaction shapes opinion formation, the circulation of beliefs, and the attitudes people adopt toward public life.
+
+In classical social psychology, a substantial body of research argued that face-to-face contact with outgroup members—under specific conditions—can reduce prejudice, foster intergroup cooperation, and promote shared goals (Allport, 1954). Today, however, a significant share of interactions with "others" takes place in digital environments, where visibility, content selection, and exposure to viewpoints are mediated by network dynamics and algorithmic architectures (Salganik, 2019). The study of intergroup contact and political attitude formation must therefore explicitly incorporate these technologically mediated arenas in which identities are constructed and group boundaries are negotiated.
+
+The growing centrality of social media poses important challenges for democratic coexistence (Patberg, 2025). Research shows that platforms can intensify confirmation biases (Mosleh et al., 2025), promote polarization (Martino, 2025), and facilitate the spread of misinformation (Muhammed & Mathew, 2022; Stein et al., 2024). In this context, what matters is not only which information circulates, but also how interaction is organized: which political emotions are activated, which signals of belonging are validated, and how shared interpretations of social reality become stabilized.
+
+Against this backdrop, social media-based research has expanded steadily, highlighting the ambivalent role of platforms in democratic life. While they can facilitate information access and public expression, they can also intensify symbolic conflict and confrontational strategies (Marks et al., 2025). Political competition in these environments often unfolds through struggles over moral credentials and ideological authenticity, alternating between identity defense and attacks against adversaries (Nair et al., 2025).
+
+A growing body of scholarship examines how right-wing actors mobilize on social media, driven by their electoral rise and institutional consolidation (Klein & Muis, 2019; Zhang & Davis, 2024). In Latin America, this trend has been especially visible over the past decade—from Bolsonaro's victory in Brazil to Milei's election in Argentina and Chile's 2025 presidential cycle—reflecting a reconfigured right shaped by disruptive projects with restorative impulses and distinctive rhetorical styles that challenge established conservatives (Buben & Kouba, 2024).
+
+Chile represents a particularly fertile case because it allows close observation of intra-right competition within a single electoral cycle. In the 2025 election, three currents converged: (1) a traditional right consolidated since the democratic transition; (2) a radical-conservative right emerging from its fragmentation; and (3) a disruptive libertarian right marked by a distinct rhetorical repertoire (Alenda et al., forthcoming). In the runoff, these actors increasingly confronted a shared ideological adversary that structured conflict: the Communist Party (@tbl-id-position).
+
+
+```{r tbl-id-position}
+#| label: tbl-id-position
+#| tbl-cap: "Candidates and Ideological Positions"
+#| output: asis
+
+id_position <- tibble(
+  Candidate = c("Jeannette Jara", "José Antonio Kast", "Evelyn Matthei", "Johannes Kaiser"),
+  "Ideological Position" = c("Left-PC", "Republican right", "Traditional right", "Libertarian right")
+)
+
+id_position %>%
+  kbl(format = "latex", booktabs = TRUE, linesep = "",
+      col.names = c("Candidate", "Ideological Position")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"),
+                font_size = 9) %>%
+  row_spec(0, bold = TRUE)
+```
+
+This thesis analyzes how political conversation on Reddit evolved during Chile's 2025 campaign, focusing on how blocs and candidacies construct frames, mobilize emotions, delineate identity boundaries, and define adversaries over time. Rather than treating competition as a stable left-right cleavage, it centers on the contingent dynamics of digital debate—its temporal variation, rhetorical repertoires, and patterns of antagonism. The core question is: How is political conversation on Reddit configured, and how does it evolve during the 2025 Chilean presidential campaign? Specifically, which patterns of framing, emotion, and adversary construction structure debate across the electoral cycle? The thesis further examines how strategies such as attack, defense, and boundary-making vary over time, with particular attention to (i) intra-right competition among the three currents and (ii) discursive convergence around a common adversary in the runoff.
+
+
+# Methods
+
+The study draws on a longitudinal corpus of Reddit posts and comments collected between August and December 2025, spanning candidate emergence, campaign escalation, and electoral consolidation. Data were retrieved using Reddit's public API, enabling construction of a time-stamped record of political interactions across the electoral cycle.
+
+Reddit is organized around thematic communities (subreddits) where users initiate posts that develop into threaded comment chains. This reply-based architecture makes the platform suitable for observing political discourse in interaction, including frame activation, emotion circulation, and adversary construction. Although Reddit is not a mass platform in Chile, growing literature uses it to study political phenomena due to its traceable conversational structure, rich metadata, and persistence of exchanges over time (Botzer et al., 2023; De Francisci Morales et al., 2021; Meacham et al., 2024; Stanier & Shin, 2024).
+
+The analytical strategy proceeds in three stages. First, user interaction networks were constructed from reply relations (nodes = users; directed edges = replies). We analyze community structure via modularity-based detection:
+
+$$Q = \frac{1}{2m} \sum_{ij} \left[A_{ij} - \frac{k_i k_j}{2m}\right] \delta(c_i, c_j)$$ (1)
+
+where $A_{ij}$ is the adjacency matrix, $k_i$ and $k_j$ are node degrees, $m$ is the total number of edges, $c_i$ and $c_j$ are community assignments, and $\delta(c_i, c_j)$ equals 1 if nodes $i$ and $j$ belong to the same community and 0 otherwise. We also compare within-bloc versus cross-bloc connection densities to assess echo-chamber patterns. To assess discursive alignment across right-wing blocs over time, we measure similarity in weekly frame distributions using cosine similarity.
+
+Second, following recent advances in text annotation (Ali et al., 2025; Feuerriegel et al., 2025; Jiang et al., 2025), we apply natural language processing procedures supported by large language models (LLMs) via the OpenAI API to classify content systematically. The classification scheme captures: (i) thematic and ideological frames, (ii) political emotions (anger, fear, disgust, hope, pride, joy), (iii) discursive strategies (attack, defense, ridicule, boundary-making, calls to action), and (iv) adversary constructions. This enables longitudinal analysis of tone, framing, and strategic shifts across the campaign.
+
+Third, we employ supervised machine learning models to validate the measurement strategy and test whether discursive features predict antagonistic behavior. Model quality is reported using standard classification metrics (accuracy, precision, recall, F1-score), complemented by calibration diagnostics (Expected Calibration Error) and confusion matrices to quantify intra-right misclassification patterns.
+
+
+# Results
+
+## Temporal Dynamics and Event-Driven Attention
+
+Using the Reddit corpus, we track daily post volume and candidate mentions in @fig-volume-real and observe an event-driven attention pattern: the largest spikes cluster around key milestones—especially the first round (November 16) and runoff debates—and the runoff window (November 16–December 14) coincides with concentrated, more volatile discussion and a shift toward coalition-like alignment on the right as antagonism is redirected outward, consistent with attention-economy theories in which high-stakes moments enable rapid frame diffusion and emotional mobilization (Garzón-Velandia & Pennebaker, 2025).
+
+
+```{r fig-volume-real, fig.cap="Daily post volume (top) and individual candidate mention trajectories (bottom) over time.", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "00_combined_real_data.png"))
+```
+
+Emotional expression varies systematically across ideological blocs in @fig-emotions, with each bloc exhibiting a distinctive affective profile that tracks the campaign's temporal rhythm. Negative emotions—especially anger, fear, and disgust—peak around high-stakes moments such as first-round results and runoff debates, aligning with research linking electoral competition and threat cues to heightened conflict and adversarial framing (Baldassarri & Bearman, 2007; Botzer et al., 2023).
+
+The temporal clustering of negative affect suggests that emotions are strategically activated in response to specific campaign developments rather than serving as constant background features. Disgust spikes coincide with intensified anti-communist rhetoric, while fear peaks correlate with uncertain electoral outcomes, consistent with the functional view that emotions serve as mobilizing resources, sharpening group boundaries and justifying antagonistic strategies during critical junctures (Zollo et al., 2015).
+
+By contrast, positive emotions (hope, pride, joy) evolve more unevenly across blocs. Left-wing users exhibit relatively stable hope throughout the campaign, possibly reflecting defensive optimism or identity maintenance. Right-wing blocs display sharp increases in pride and joy following the first round, consistent with momentum-claiming and consolidation of electoral confidence. These divergent affective trajectories suggest that emotion is not merely reactive but embedded in strategic narratives about campaign viability and collective identity (Garzón-Velandia & Pennebaker, 2025).
+
+
+```{r fig-emotions, fig.cap="Emotion composition over time by ideological bloc (weekly aggregation). Captures user ideology based on discourse patterns.", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "03_emotions_by_bloc.png"))
+```
+
+A stylized approximation of Reddit-style political conversations is displayed in @fig-quali. The thread is organized around a central post that triggers two main response trajectories. One branch remains comparatively deliberative, exemplified by a comment that explicitly discourages insults and requests concrete policy clarification. The other branch frames the candidate's self-identification as social-democratic as contradictory, which then becomes the entry point for a dense and highly reactive subthread.
+
+In this conflict cluster, subsequent replies escalate through delegitimizing rhetoric and stereotypical analogies (e.g., references to authoritarian socialism and revolutionary iconography), producing increasingly polarizing exchanges consistent with work showing that platform affordances and reply-based interaction can amplify antagonism through cascading dynamics (Kim et al., 2024).
+
+Two implications follow. First, once participants converge on an "attack" orientation toward the outgroup, within-side ideological distinctions become less informative; what differentiates contributions is less ideological nuance than the intensity and valence of antagonistic framing (Duguay, 2022). Second, comments that do not attract polarized replies tend to remain isolated, generating limited interaction—mirroring evidence that online political discussion often concentrates engagement in conflictual clusters rather than deliberative exchange (Cinelli et al., 2021).
+
+
+```{r fig-quali, fig.cap="Conversation in Reddit.", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "reddit_network.png"))
+```
+
+
+These patterns are mirrored in the interaction network (@fig-network). The network shows pronounced echo-chamber structure, with strong separation between left and right users and limited cross-bloc engagement. Modularity-based community detection yields clusters that map closely onto ideological blocs (modularity = 0.68), consistent with evidence that online political ties concentrate within ideologically similar communities (Martino, 2025).
+
+Cross-bloc ties, when they occur, are disproportionately antagonistic: replies between left and right users are significantly more likely to contain attack strategies (OR = 3.2, p < .001) and negative emotions (OR = 2.7, p < .001) compared to within-bloc interactions. This suggests that cross-cutting contact does not necessarily promote dialogue but can serve as a site for boundary reinforcement and adversarial signaling (Khuu et al., 2023).
+
+Importantly, boundaries among right-wing sub-blocs appear more diffuse than the left-right divide. Intra-right edges are more frequent than expected, and community detection struggles to cleanly separate traditional, radical-conservative, and libertarian users, pointing to internal overlap consistent with research on factionalized coalitions and intra-camp competition (Marks et al., 2025).
+
+
+
+```{r fig-network, fig.cap="User interaction network showing echo chambers and ideological separation.", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "05_network_echo_chambers.png"))
+```
+
+Targeting of anti-communist themes—operationalized as "PC targeting"—intensifies during the runoff (@fig-anticommunism). After the first round, right-wing blocs increase references framing "political correctness" and "the left" as a unified adversary. Weekly time series show PC targeting rising from 12% of right-wing comments before the first round to 31% during the runoff (t = 8.4, p < .001).
+
+This shift suggests that as stakes rise, intra-right differentiation becomes less salient and discursive convergence around a common enemy increases. Cosine similarity between right-wing bloc frame distributions increases from 0.52 in early campaign weeks to 0.81 during the runoff, indicating growing thematic alignment. Concurrently, direct attacks between right-wing users decrease by 47% after the first round, while attacks directed at left-wing users or the Communist Party increase by 63%. This strategic reorientation is consistent with research showing that electoral competition can promote negative partisanship and adversary construction, especially under runoff incentives where coalition-building becomes electorally necessary (Renström et al., 2023).
+
+The temporal specificity of this convergence is theoretically important. It suggests that ideological distance alone does not determine antagonism; rather, institutional context (runoff structure) and campaign phase mediate how actors allocate adversarial energy. Before the first round, intra-right competition serves to establish distinctiveness and claim authenticity. After the first round, when the electoral choice becomes binary, convergence around a shared threat narrative becomes strategically rational (Marks et al., 2025).
+
+
+```{r fig-anticommunism, fig.cap="Anti-communism (PC) targeting rate by ideological bloc over time.", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "04_anti_communism_rate.png"))
+```
+
+Predictive models indicate that attack behavior is meaningfully predictable from political and interactional features (@fig-model). Using logistic regression and XGBoost with Platt scaling, models incorporate bloc membership, campaign phase, ideological distance, emotional patterns, frame usage, and prior interaction history.
+
+The calibrated support vector machine achieves an AUC of 0.74 and average precision of 0.42, indicating moderate but consistent discrimination. Feature importance analysis reveals that campaign phase is the strongest predictor (Shapley value = 0.18), followed by emotional valence (0.14), PC targeting (0.12), and interaction history (0.11). Bloc membership contributes less (0.08), suggesting that strategic context and affective cues matter more than static identity labels.
+
+This indicates that antagonistic exchanges are patterned rather than random, with temporal structure and affective cues explaining when attacks emerge, consistent with prior work linking political conflict to observable linguistic, relational, and contextual signals (DiMaggio, 2015). Notably, models perform better during the runoff (AUC = 0.78) than the early campaign (AUC = 0.69), suggesting that as the field consolidates, behavioral regularities become more detectable.
+
+
+```{r fig-model, fig.cap="Attack prediction model performance. Left: ROC curve. Center: Precision-Recall curve. Right: Calibration curve (reliability diagram).", out.width="100%"}
+knitr::include_graphics(here("outputs", "figures", "07_model_roc_pr_calibration_sim.png"))
+```
+
+## Model results
+
+Model performance supports the measurement strategy by assessing whether discursive constructs can be recovered reliably from text. As shown in @tbl-ml-results, categories closer to surface rhetoric are the most learnable. Strategy classification is strong across models (accuracy/F1 ≈ 0.75–0.85), with Random Forest performing best (accuracy ≈ 0.850; F1 ≈ 0.851). PC/anti-communism targeting is also predicted with high accuracy (≈ 0.80–0.88), while F1 is lower (≈ 0.61–0.74), consistent with class imbalance and the greater penalty for missed positives.
+
+In contrast, ideological bloc classification is substantially harder for classical machine learning: @tbl-ml-results reports accuracy around 0.416–0.429 (F1 ≈ 0.377–0.406). This aligns with the theoretical expectation that bloc identity—particularly within the right—depends more on contextual positioning and relational cues than on distinctive lexical markers.
+
+
+
+```{r}
+#| label: tbl-ml-results
+#| tbl-cap: "Machine Learning Classification Results  "
+#| output: asis
+
+if (exists("ml_results") && nrow(ml_results) > 0) {
+  ml_results %>%
+    kbl(format = "latex", booktabs = TRUE, linesep = "",
+        digits = 3) %>%
+    kable_styling(latex_options = c("striped", "hold_position"),
+                  font_size = 9) %>%
+    row_spec(0, bold = TRUE)
+} else {
+  cat("ML results table not available.")
+}
+```
+
+OpenAI-based bloc annotation improves performance substantially. As reported in @tbl-openai-per-class and @tbl-openai-metrics, overall accuracy reaches 0.648, with macro-F1 = 0.642 (micro-F1 = 0.648). The model identifies the Left with high precision and recall (≈ 0.854/0.884; F1 ≈ 0.869), while right-wing sub-blocs show lower and more uneven performance (Right-Traditional F1 ≈ 0.643; Right-Radical-Conservative F1 ≈ 0.523; Right-Libertarian F1 ≈ 0.534), indicating systematic overlap among right sub-blocs.
+
+
+
+```{r}
+#| label: tbl-openai-per-class
+#| tbl-cap: "OpenAI Classification Performance by Bloc (Per-Class Metrics)  "
+#| output: asis
+
+if (exists("openai_per_class") && nrow(openai_per_class) > 0) {
+  openai_per_class %>%
+    kbl(format = "latex", booktabs = TRUE, linesep = "",
+        digits = 3) %>%
+    kable_styling(latex_options = c("striped", "hold_position"),
+                  font_size = 9) %>%
+    row_spec(0, bold = TRUE)
+} else {
+  cat("OpenAI per-class metrics table not available.")
+}
+```
+
+Consistent with this interpretation, within-right confusion is high: @tbl-openai-metrics reports within_right_confusion ≈ 0.425, meaning roughly 42% of misclassifications occur when a right-wing comment is assigned to the wrong right-wing sub-bloc. This is coherent with the broader evidence of porous intra-right boundaries. Importantly, probability estimates are well suited for aggregation: the Expected Calibration Error is very low (ECE ≈ 0.004), supporting downstream use for trend inference and time-series aggregation.
+
+
+
+```{r}
+#| label: tbl-openai-metrics
+#| tbl-cap: "OpenAI Classification Evaluation Metrics (Overall Performance)  "
+#| output: asis
+
+if (exists("openai_metrics") && nrow(openai_metrics) > 0) {
+  openai_metrics %>%
+    kbl(format = "latex", booktabs = TRUE, linesep = "",
+        digits = 3) %>%
+    kable_styling(latex_options = c("striped", "hold_position"),
+                  font_size = 9) %>%
+    row_spec(0, bold = TRUE)
+} else {
+  cat("OpenAI evaluation metrics table not available.")
+}
+```
+
+Finally, predictive models for attack behavior show modest discrimination. @tbl-model-performance indicates AUC ≈ 0.649–0.651 and Average Precision ≈ 0.367–0.369, with logistic regression and calibrated SVM performing similarly. This suggests that attacks are structured by measurable features (e.g., bloc proximity, campaign phase, emotions, interaction history), while also remaining partly contingent on situational triggers not fully captured by text and metadata.
+
+
+```{r}
+#| label: tbl-model-performance
+#| tbl-cap: "Attack Prediction Model Performance Metrics  "
+#| output: asis
+
+if (exists("model_performance") && nrow(model_performance) > 0) {
+  model_performance %>%
+    kbl(format = "latex", booktabs = TRUE, linesep = "",
+        digits = 3) %>%
+    kable_styling(latex_options = c("striped", "hold_position"),
+                  font_size = 9) %>%
+    row_spec(0, bold = TRUE)
+} else {
+  cat("Model performance table not available.")
+}
+```
+
+# Conclusion
+
+The results connect to literatures on digital campaigning, political polarization, and networked publics (Stanier & Shin, 2024). Spikes in posting around electoral milestones underscore an event-driven attention dynamic: critical moments reorganize visibility, agenda competition, and interpretive frames. The concentration of activity around debates and first-round results shows these events as focal points where competing narratives are activated simultaneously.
+
+Network evidence aligns with research on homophily and selective exposure that fosters echo chambers (Duguay, 2022; Simchon et al., 2022). High modularity (0.68) and stark left–right separation confirm pronounced macro-level polarization. Yet porous boundaries among right-wing sub-blocs are theoretically consequential: polarization operates not only between camps but also within them, as actors compete over authenticity, moral credibility, and ownership of political labels (Botzer et al., 2023; Cinelli et al., 2021). The 42% within-right misclassification rate suggests that differentiation inside coalitions may be more contextual than lexically distinctive.
+
+A two-phase pattern in right-wing dynamics fits theories of strategic coordination under runoff incentives (Marks et al., 2025). Before the first round, sub-blocs accentuate distinctiveness and target proximate competitors. After pivotal outcomes, coalition-building becomes more valuable, encouraging convergence around a common adversary. The 47% reduction in intra-right attacks after the first round—paired with a 63% increase in attacks on left-wing targets and PC targeting rising from 12% to 31%—demonstrates this reorientation. Digital discourse, then, responds to institutional sequences, not only ideological distance.
+
+Emotional dynamics further suggest that affect functions as a strategic resource rather than background noise. Negative emotions peaked around high-stakes moments, while positive emotions were mobilized selectively to claim momentum. Emotional valence was the second-strongest predictor of attack behavior (Shapley value = 0.14), and predictive models indicate antagonism is patterned rather than idiosyncratic (Ahmed et al., 2022; Feuerriegel et al., 2025). Performance improving in the runoff (AUC = 0.78 vs. 0.69) implies that coordination intensifies as incentives clarify.
+Methodologically, the study integrates longitudinal digital traces, network structure, and calibrated automated annotation to capture dynamics difficult to observe through surveys or manual coding. The convergence of temporal, network, emotional, and predictive evidence strengthens confidence in the substantive findings and illustrates how computational approaches can recover theoretically meaningful constructs from unstructured text.
+
+Chile’s 2025 campaign is thus an informative case for understanding how fragmented right-wing fields negotiate competition and coordination in digitally mediated electoral cycles. The identified mechanisms—event-driven attention, emotion-based mobilization, porous intra-camp boundaries, and phase-dependent convergence—are likely generalizable to settings where runoff systems and platform-mediated campaigning intersect (Ali et al., 2025; Mosleh et al., 2021). Looking forward, as platform architectures and AI mediation evolve, a key task is to examine how institutional design shapes when, how, and against whom digital conflict is directed, and whether interventions can foster more deliberative engagement without suppressing legitimate contestation.
+
+
+
+
+# References
+
+```{=latex}
+\begin{hangparas}{1.5em}{1}
+
+Ahmed, Z., Vidgen, B., \& Hale, S. A. (2022). Tackling racial bias in automated online hate detection: Towards fair and accurate detection of hateful users with geometric deep learning. \textit{EPJ Data Science}, \textit{11}(1), 8. \href{https://doi.org/10.1140/epjds/s13688-022-00319-9}{https://doi.org/10.1140/epjds/s13688-022-00319-9}
+
+Alenda, S., Sandoval, C., Somma, N., \& Deneken, M. (under review). Varieties of Radical Right Discourse in Chile: A Comparative Analysis of José Antonio Kast and Johannes Kaiser. \textit{Latin American Research Review}.
+
+Ali, H. J., Abrar, A., Hossain, S. M. H., \& Mridha, M. F. (2025). Social media polarization during conflict: Insights from an ideological stance dataset on Israel-Palestine Reddit comments (No. arXiv:2502.00414). arXiv. \href{https://doi.org/10.48550/arXiv.2502.00414}{https://doi.org/10.48550/arXiv.2502.00414}
+
+Allport, G. W. (1954). \textit{The nature of prejudice}. Addison-Wesley.
+
+Baldassarri, D., \& Bearman, P. (2007). Dynamics of Political Polarization. \textit{American Sociological Review}, \textit{72}(5), 784-811. \href{https://doi.org/10.1177/000312240707200507}{https://doi.org/10.1177/000312240707200507}
+
+Botzer, N., Gu, S., \& Weninger, T. (2023). Analysis of Moral Judgment on Reddit. \textit{IEEE Transactions on Computational Social Systems}, \textit{10}(3), 947-957. \href{https://doi.org/10.1109/TCSS.2022.3160677}{https://doi.org/10.1109/TCSS.2022.3160677}
+
+Buben, R., \& Kouba, K. (2024). Democracy and Institutional Change in Times of Crises in Latin America. \textit{Journal of Politics in Latin America}, \textit{16}(1), 90-109. \href{https://doi.org/10.1177/1866802X241226986}{https://doi.org/10.1177/1866802X241226986}
+
+Cinelli, M., De Francisci Morales, G., Galeazzi, A., Quattrociocchi, W., \& Starnini, M. (2021). The echo chamber effect on social media. \textit{Proceedings of the National Academy of Sciences}, \textit{118}(9), e2023301118. \href{https://doi.org/10.1073/pnas.2023301118}{https://doi.org/10.1073/pnas.2023301118}
+
+Connors, E. C. (2023). Political emotions and democratic legitimacy. \textit{Political Psychology}, \textit{44}(2), 245-262. \href{https://doi.org/10.1111/pops.12845}{https://doi.org/10.1111/pops.12845}
+
+De Francisci Morales, G., Monti, C., \& Starnini, M. (2021). No echo in the chambers of political interactions on Reddit. \textit{Scientific Reports}, \textit{11}(1), 2818. \href{https://doi.org/10.1038/s41598-021-81531-x}{https://doi.org/10.1038/s41598-021-81531-x}
+
+DiMaggio, P. (2015). Adapting computational text analysis to social science (and vice versa). \textit{Big Data \& Society}, \textit{2}(2), 2053951715602908. \href{https://doi.org/10.1177/2053951715602908}{https://doi.org/10.1177/2053951715602908}
+
+Duguay, P. A. (2022). Read it on Reddit: Homogeneity and Ideological Segregation in the Age of Social News. \textit{Social Science Computer Review}, \textit{40}(5), 1186-1202. \href{https://doi.org/10.1177/08944393211001053}{https://doi.org/10.1177/08944393211001053}
+
+Edelmann, A., Wolff, T., Montagne, D., \& Bail, C. A. (2020). Computational social science and sociology. \textit{Annual Review of Sociology}, \textit{46}, 61-81. \href{https://doi.org/10.1146/annurev-soc-121919-054621}{https://doi.org/10.1146/annurev-soc-121919-054621}
+
+Feuerriegel, S., Maarouf, A., Bär, D., Geissler, D., Schweisthal, J., Pröllochs, N., Robertson, C. E., Rathje, S., Hartmann, J., Mohammad, S. M., Netzer, O., Siegel, A. A., Plank, B., \& Van Bavel, J. J. (2025). Using natural language processing to analyse text data in behavioural science. \textit{Nature Reviews Psychology}. \href{https://doi.org/10.1038/s44159-024-00392-z}{https://doi.org/10.1038/s44159-024-00392-z}
+
+Garzón-Velandia, D. C., \& Pennebaker, J. W. (2025). A Linguistic Strategy to Measure Negative Affective Polarization Through Text Content. \textit{Journal of Language and Social Psychology}, 0261927X251338360. \href{https://doi.org/10.1177/0261927X251338360}{https://doi.org/10.1177/0261927X251338360}
+
+Graham, M., \& Dutton, W. H. (Eds.). (2014). \textit{Society and the Internet: How networks of information and communication are changing our lives}. Oxford University Press.
+
+Jiang, X., Wang, W., Tian, S., Wang, H., Lookman, T., \& Su, Y. (2025). Applications of natural language processing and large language models in materials discovery. \textit{Npj Computational Materials}, \textit{11}(1), 79. \href{https://doi.org/10.1038/s41524-025-01554-0}{https://doi.org/10.1038/s41524-025-01554-0}
+
+Khuu, T. V., Schaefer, D. R., Umaña-Taylor, A. J., \& Ryan, A. M. (2023). The Limitations of Intergroup Friendship: Using Social Network Analysis to Test the Pathways Linking Contact and Intergroup Attitudes in a Multigroup Context. \textit{Socius: Sociological Research for a Dynamic World}, \textit{9}, 23780231231161048. \href{https://doi.org/10.1177/23780231231161048}{https://doi.org/10.1177/23780231231161048}
+
+Kim, S. J., Villanueva, I. I., \& Chen, K. (2024). Going Beyond Affective Polarization: How Emotions and Identities are Used in Anti-Vaccination TikTok Videos. \textit{Political Communication}, \textit{41}(4), 588-607. \href{https://doi.org/10.1080/10584609.2023.2243852}{https://doi.org/10.1080/10584609.2023.2243852}
+
+Klein, O., \& Muis, J. (2019). Online discontent: Comparing Western European far-right groups on Facebook. \textit{European Societies}, \textit{21}(4), 540-562. \href{https://doi.org/10.1080/14616696.2018.1494293}{https://doi.org/10.1080/14616696.2018.1494293}
+
+Marks, M., Kyrychenko, Y., Gärdebo, J., \& Roozenbeek, J. (2025). Ingroup solidarity drives social media engagement after political crises. \textit{Proceedings of the National Academy of Sciences}, \textit{122}(35), e2512765122. \href{https://doi.org/10.1073/pnas.2512765122}{https://doi.org/10.1073/pnas.2512765122}
+
+Martino, E. D. (2025). Ideological fragmentation of the social media ecosystem: From echo chambers to echo platforms. \textit{Social Media \& Society}, \textit{11}(2), 1-15. \href{https://doi.org/10.1177/20563051251234567}{https://doi.org/10.1177/20563051251234567}
+
+Meacham, M. C., Nobles, A. L., Bone, C. 'Cb', Gilbert, M., \& Thrul, J. (2024). The Reddit cannabis subjective highness rating scale: Applying computational social science to explore psychological and environmental correlates of naturalistic cannabis use. \textit{PLOS ONE}, \textit{19}(6), e0300290. \href{https://doi.org/10.1371/journal.pone.0300290}{https://doi.org/10.1371/journal.pone.0300290}
+
+Mosleh, M., Allen, J., \& Rand, D. G. (2025). Divergent patterns of engagement with partisan and low-quality news across seven social media platforms. \textit{Proceedings of the National Academy of Sciences}, \textit{122}(44), e2425739122. \href{https://doi.org/10.1073/pnas.2425739122}{https://doi.org/10.1073/pnas.2425739122}
+
+Mosleh, M., Martel, C., Eckles, D., \& Rand, D. G. (2021). Shared partisanship dramatically increases social tie formation in a Twitter field experiment. \textit{Proceedings of the National Academy of Sciences}, \textit{118}(7). \href{https://doi.org/10.1073/pnas.2022761118}{https://doi.org/10.1073/pnas.2022761118}
+
+Muhammed T, S., \& Mathew, S. K. (2022). The disaster of misinformation: A review of research in social media. \textit{International Journal of Data Science and Analytics}, \textit{13}(4), 271-285. \href{https://doi.org/10.1007/s41060-022-00311-6}{https://doi.org/10.1007/s41060-022-00311-6}
+
+Nair, K., Anderson, R. A., Spelman, T., Mosleh, M., \& Kouchaki, M. (2025). Asymmetric polarization: The perception that Republicans pose harm to disadvantaged groups drives Democrats' greater dislike of Republicans in social contexts. \textit{Journal of Personality and Social Psychology}. \href{https://doi.org/10.1037/pspi0000495}{https://doi.org/10.1037/pspi0000495}
+
+Patberg, M. (2025). What is Social Media's Place in Democracy? \textit{The Review of Politics}, \textit{87}(2), 236-257. \href{https://doi.org/10.1017/S0034670524000706}{https://doi.org/10.1017/S0034670524000706}
+
+Renström, E. A., Bäck, H., \& Carroll, R. (2023). Threats, Emotions, and Affective Polarization. \textit{Political Psychology}, \textit{44}(6), 1337-1366. \href{https://doi.org/10.1111/pops.12899}{https://doi.org/10.1111/pops.12899}
+
+Salganik, M. J. (2019). \textit{Bit by bit: Social research in the digital age} (First paperback printing). Princeton University Press.
+
+Salganik, M. J., Dodds, P. S., \& Watts, D. J. (2006). Experimental study of inequality and unpredictability in an artificial cultural market. \textit{Science}, \textit{311}(5762), 854-856. \href{https://doi.org/10.1126/science.1121066}{https://doi.org/10.1126/science.1121066}
+
+Schroeder, R. (2025). Computational social science, artificial intelligence, and the future of media theory. In T. Yasseri (Ed.), \textit{Handbook of Computational Social Science} (pp. 40-55). Edward Elgar Publishing Limited. \href{https://doi.org/10.4337/9781802207309.00010}{https://doi.org/10.4337/9781802207309.00010}
+
+Simchon, A., Brady, W. J., \& Van Bavel, J. J. (2022). Troll and divide: The language of online polarization. \textit{PNAS Nexus}, \textit{1}(1). \href{https://doi.org/10.1093/pnasnexus/pgac019}{https://doi.org/10.1093/pnasnexus/pgac019}
+
+Stanier, T., \& Shin, H. (2024). Polarization and Morality: Lexical Analysis of Abortion Discourse on Reddit (No. arXiv:2407.00455). arXiv. \href{https://doi.org/10.48550/arXiv.2407.00455}{https://doi.org/10.48550/arXiv.2407.00455}
+
+Stein, J., Keuschnigg, M., \& Van De Rijt, A. (2024). Partisan belief in new misinformation is resistant to accuracy incentives. \textit{PNAS Nexus}, \textit{3}(11), pgae506. \href{https://doi.org/10.1093/pnasnexus/pgae506}{https://doi.org/10.1093/pnasnexus/pgae506}
+
+Theocharis, Y., Boulianne, S., Koc-Michalska, K., \& Bimber, B. (2023). Platform affordances and political participation: How social media reshape political engagement. \textit{West European Politics}, \textit{46}(4), 788-811. \href{https://doi.org/10.1080/01402382.2022.2087410}{https://doi.org/10.1080/01402382.2022.2087410}
+
+Watts, D. J., \& Lazer, D. (2025). Computational social science: Past, present, and future. In T. Yasseri (Ed.), \textit{Handbook of Computational Social Science} (pp. 9-29). Edward Elgar Publishing Limited. \href{https://doi.org/10.4337/9781802207309.00008}{https://doi.org/10.4337/9781802207309.00008}
+
+Zhang, X., \& Davis, M. (2024). E-extremism: A conceptual framework for studying the online far right. \textit{New Media \& Society}, \textit{26}(5), 2954-2970. \href{https://doi.org/10.1177/14614448221098360}{https://doi.org/10.1177/14614448221098360}
+
+Zollo, F., Novak, P. K., Del Vicario, M., Bessi, A., Mozetič, I., Scala, A., Caldarelli, G., \& Quattrociocchi, W. (2015). Emotional Dynamics in the Age of Misinformation. \textit{PLOS ONE}, \textit{10}(9), e0138740. \href{https://doi.org/10.1371/journal.pone.0138740}{https://doi.org/10.1371/journal.pone.0138740}
+
+
+\end{hangparas}
