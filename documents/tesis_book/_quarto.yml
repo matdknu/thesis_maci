@@ -3,9 +3,8 @@ project:
   output-dir: ../../docs
 
 book:
-  title: "Derecha fragmentada y un enemigo compartido"
-  subtitle: "Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile"
-  author: "Matías Deneken"
+  # Nota: título, subtítulo y autor se definen solo para HTML
+  # Para PDF se usa la portada personalizada en portada.tex
   
   # Metadatos
   description: |
@@ -39,6 +38,9 @@ book:
 # ============================================================================
 format:
   html:
+    title: "Derecha fragmentada y un enemigo compartido"
+    subtitle: "Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile"
+    author: "Matías Deneken"
     language: es
     theme: 
       light: [cosmo]
