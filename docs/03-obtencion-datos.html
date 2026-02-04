@@ -9,7 +9,7 @@
 <meta name="author" content="Matías Deneken">
 <meta name="description" content="Tesis para optar al grado de Magíster en Ciencia de Datos.">
 
-<title>3&nbsp; Obtención de Datos</title>
+<title>3&nbsp; Diseño metodológico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-obtencion-datos.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Obtención de Datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-obtencion-datos.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-obtencion-datos.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Obtención de Datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,15 +207,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#recolección-de-datos-web-scraping-mediante-api" id="toc-recolección-de-datos-web-scraping-mediante-api" class="nav-link active" data-scroll-target="#recolección-de-datos-web-scraping-mediante-api"><span class="header-section-number">3.1</span> Recolección de datos: web scraping mediante API</a>
+  <ul class="collapse">
+  <li><a href="#procedimiento-técnico" id="toc-procedimiento-técnico" class="nav-link" data-scroll-target="#procedimiento-técnico">Procedimiento técnico</a></li>
+  <li><a href="#período-temporal" id="toc-período-temporal" class="nav-link" data-scroll-target="#período-temporal">Período temporal</a></li>
+  <li><a href="#estrategia-de-scraping-incremental" id="toc-estrategia-de-scraping-incremental" class="nav-link" data-scroll-target="#estrategia-de-scraping-incremental">Estrategia de scraping incremental</a></li>
+  <li><a href="#filtrado-temático" id="toc-filtrado-temático" class="nav-link" data-scroll-target="#filtrado-temático">Filtrado temático</a></li>
+  <li><a href="#figuras-políticas-de-interés" id="toc-figuras-políticas-de-interés" class="nav-link" data-scroll-target="#figuras-políticas-de-interés">Figuras políticas de interés</a></li>
+  </ul></li>
+  <li><a href="#consideraciones-éticas" id="toc-consideraciones-éticas" class="nav-link" data-scroll-target="#consideraciones-éticas"><span class="header-section-number">3.2</span> Consideraciones éticas</a></li>
+  <li><a href="#técnicas-de-análisis" id="toc-técnicas-de-análisis" class="nav-link" data-scroll-target="#técnicas-de-análisis"><span class="header-section-number">3.3</span> Técnicas de análisis</a>
+  <ul class="collapse">
+  <li><a href="#análisis-de-sentimiento-y-emociones" id="toc-análisis-de-sentimiento-y-emociones" class="nav-link" data-scroll-target="#análisis-de-sentimiento-y-emociones">Análisis de sentimiento y emociones</a></li>
+  <li><a href="#modelado-de-tópicos" id="toc-modelado-de-tópicos" class="nav-link" data-scroll-target="#modelado-de-tópicos">Modelado de tópicos</a></li>
+  <li><a href="#análisis-de-redes-de-interacción" id="toc-análisis-de-redes-de-interacción" class="nav-link" data-scroll-target="#análisis-de-redes-de-interacción">Análisis de redes de interacción</a></li>
+  <li><a href="#análisis-temporal" id="toc-análisis-temporal" class="nav-link" data-scroll-target="#análisis-temporal">Análisis temporal</a></li>
+  </ul></li>
+  <li><a href="#volumen-y-estructura-del-corpus-final" id="toc-volumen-y-estructura-del-corpus-final" class="nav-link" data-scroll-target="#volumen-y-estructura-del-corpus-final"><span class="header-section-number">3.4</span> Volumen y estructura del corpus final</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-obtencion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Obtención de Datos</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
 <p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
 </div>
 
@@ -239,11 +261,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>[Contenido de obtención de datos]</p>
+<p>Esta investigación adopta un diseño <strong>longitudinal observacional</strong> basado en el análisis de datos digitales generados por usuarios (<em>user-generated content</em>). El carácter longitudinal permite capturar la evolución temporal del debate político a lo largo del ciclo electoral, identificando patrones de variación, puntos de inflexión y dinámicas de cambio. El carácter observacional implica que los datos son recolectados sin intervención experimental, preservando las características naturales de la interacción en las plataformas estudiadas.</p>
+<p>Metodológicamente, la investigación se inscribe en el campo emergente de la <strong>ciencia social computacional</strong> (<em>computational social science</em>), que integra técnicas de procesamiento de datos a gran escala con los marcos teóricos y las preguntas sustantivas de las ciencias sociales (Lazer et al., 2009; Salganik, 2019). Esta aproximación permite analizar volúmenes de datos textuales que excederían las capacidades del análisis cualitativo tradicional, mientras mantiene un compromiso con la interpretación teóricamente informada de los patrones identificados.</p>
+<p>El diseño combina componentes <strong>descriptivos</strong>, orientados a caracterizar la conversación política en Reddit durante el período estudiado, con componentes <strong>explicativos</strong>, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados. Esta combinación responde a la naturaleza de las preguntas de investigación, que demandan tanto una cartografía del terreno empírico como una comprensión de las dinámicas que lo estructuran.</p>
+<section id="recolección-de-datos-web-scraping-mediante-api" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="recolección-de-datos-web-scraping-mediante-api"><span class="header-section-number">3.1</span> Recolección de datos: web scraping mediante API</h2>
+<section id="procedimiento-técnico" class="level3">
+<h3 class="anchored" data-anchor-id="procedimiento-técnico">Procedimiento técnico</h3>
+<p>Los datos fueron extraídos mediante <strong>web scraping</strong> utilizando la API pública de Reddit a través de la librería PRAW (<em>Python Reddit API Wrapper</em>). Esta aproximación permite acceder de forma estructurada y sistemática al contenido público de la plataforma, respetando los límites de uso establecidos por Reddit y garantizando la trazabilidad y reproducibilidad del proceso de recolección.</p>
+<p>El scraping se realizó sobre los dos subreddits principales de la comunidad chilena:</p>
+<ul>
+<li><p><strong>r/chile</strong>: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática.</p></li>
+<li><p><strong>r/RepublicadeChile</strong>: Comunidad alternativa surgida como escisión de r/chile, caracterizada por una composición ideológica distintiva y políticas de moderación más permisivas.</p></li>
+</ul>
+<p>Estos espacios fueron seleccionados por constituir los principales foros de discusión política chilena en la plataforma, caracterizados por participación activa, diversidad de perspectivas ideológicas y debates sostenidos sobre temas de contingencia nacional.</p>
+</section>
+<section id="período-temporal" class="level3">
+<h3 class="anchored" data-anchor-id="período-temporal">Período temporal</h3>
+<p>La recolección de datos abarcó <strong>cinco meses</strong>, desde el <strong>1 de agosto hasta el 31 de diciembre de 2024</strong>. Este período temporal captura diferentes fases del ciclo electoral presidencial chileno de 2025:</p>
+<ul>
+<li><p><strong>Agosto-octubre 2024</strong>: Fase de emergencia de candidaturas, posicionamiento inicial y primeras definiciones programáticas.</p></li>
+<li><p><strong>Noviembre-diciembre 2024</strong>: Período de escalamiento de campaña, consolidación electoral y estructuración del debate público.</p></li>
+</ul>
+<p>La ventana temporal de cinco meses permite observar la evolución dinámica del debate político, identificar patrones temporales de activación discursiva y capturar tanto tendencias sostenidas como picos de discusión asociados a eventos políticos específicos del período (debates televisados, declaraciones públicas, controversias mediáticas).</p>
+</section>
+<section id="estrategia-de-scraping-incremental" class="level3">
+<h3 class="anchored" data-anchor-id="estrategia-de-scraping-incremental">Estrategia de scraping incremental</h3>
+<p>El proceso de recolección fue <strong>incremental y acumulativo</strong>, ejecutándose en múltiples iteraciones programadas que:</p>
+<ol type="1">
+<li><p><strong>Extracción</strong>: Recuperaban los posts más recientes disponibles en cada subreddit (límite de 250-1000 posts por ejecución según configuración).</p></li>
+<li><p><strong>Expansión</strong>: Descargaban el árbol completo de comentarios de cada post relevante mediante <code>replace_more(limit=None)</code> para capturar todos los niveles de anidación conversacional.</p></li>
+<li><p><strong>Acumulación</strong>: Integraban nuevos datos con extracciones previas en archivos CSV, Parquet y Excel.</p></li>
+<li><p><strong>Deduplicación</strong>: Eliminaban registros duplicados mediante identificadores únicos generados con hashes SHA-256 basados en: post_id + timestamp + autor + contenido textual.</p></li>
+</ol>
+<p>Este diseño iterativo permitió maximizar la cobertura temporal sin exceder los límites de la API, capturar discusiones en desarrollo a lo largo de los cinco meses y construir un corpus longitudinal que refleja la evolución dinámica del debate político.</p>
+</section>
+<section id="filtrado-temático" class="level3">
+<h3 class="anchored" data-anchor-id="filtrado-temático">Filtrado temático</h3>
+<p>Para cada publicación dentro del rango temporal, se extrajeron dos niveles de contenido textual:</p>
+<p><strong>Nivel de publicación (posts)</strong>:</p>
+<ul>
+<li><p>Título (<em>title</em>): Encabezado del post que condensa el tema o posición principal.</p></li>
+<li><p>Cuerpo (<em>selftext</em>): Texto completo de la publicación cuando el formato lo incluye.</p></li>
+<li><p>Metadatos: autor, fecha de creación, puntuación, número de comentarios, flair (etiqueta temática).</p></li>
+</ul>
+<p><strong>Nivel de comentarios</strong>:</p>
+<ul>
+<li><p>Cuerpo del comentario (<em>comment_body</em>): Texto completo de cada comentario en el árbol de discusión.</p></li>
+<li><p>Metadatos: autor, fecha de creación, puntuación, relación con post padre e identificador del comentario al que responde.</p></li>
+</ul>
+<p>Ambos niveles de texto fueron procesados mediante <strong>expresiones regulares</strong> que identifican menciones de figuras políticas específicas, manejando variaciones ortográficas comunes (presencia/ausencia de acentos, nombres completos vs.&nbsp;apellidos, apodos políticos, errores tipográficos frecuentes). Este filtrado temático permite construir un corpus focalizado en la discusión sobre las candidaturas presidenciales de interés.</p>
+</section>
+<section id="figuras-políticas-de-interés" class="level3">
+<h3 class="anchored" data-anchor-id="figuras-políticas-de-interés">Figuras políticas de interés</h3>
+<p>El filtrado temático se centró en cuatro candidaturas representativas de las distintas corrientes ideológicas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 35%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Candidatura</th>
+<th>Corriente ideológica</th>
+<th>Patrones de búsqueda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Evelyn Matthei</td>
+<td>Derecha tradicional</td>
+<td>“matthei”, “matei”, “evelyn”</td>
+</tr>
+<tr class="even">
+<td>José Antonio Kast</td>
+<td>Derecha radical-conservadora</td>
+<td>“kast”, “jose antonio kast”, “jak”</td>
+</tr>
+<tr class="odd">
+<td>Johannes Kaiser</td>
+<td>Derecha libertaria</td>
+<td>“kaiser”, “johannes”, “jkaiser”</td>
+</tr>
+<tr class="even">
+<td>Jeannette Jara</td>
+<td>Izquierda (PC)</td>
+<td>“jara”, “jeannette”, “jeanette”</td>
+</tr>
+</tbody>
+</table>
+<p>Esta selección permite analizar tanto la <strong>competencia intra-derecha</strong> entre tres corrientes (tradicional, republicana, libertaria) como la <strong>convergencia discursiva</strong> frente a un adversario ideológico común en segunda vuelta (el Partido Comunista).</p>
+</section>
+</section>
+<section id="consideraciones-éticas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="consideraciones-éticas"><span class="header-section-number">3.2</span> Consideraciones éticas</h2>
+<p>La investigación se rige por principios éticos establecidos para la investigación con datos digitales (Salganik, 2019; Zimmer &amp; Kinder-Kurlanda, 2017):</p>
+<p><strong>Consentimiento y datos públicos</strong>: Los datos recolectados provienen de publicaciones y comentarios realizados en espacios públicos de la plataforma, donde los usuarios tienen expectativas razonables de que su contenido será visible para audiencias amplias. No se accedió a contenido privado, mensajes directos ni información restringida.</p>
+<p><strong>Anonimización</strong>: Aunque los nombres de usuario en Reddit son seudónimos, el análisis no reporta identificadores individuales ni busca vincular cuentas con identidades reales. Los ejemplos citados en el análisis son anonimizados cuando resulta necesario.</p>
+<p><strong>Minimización de daños</strong>: La investigación no interviene en las comunidades estudiadas ni expone a sus miembros a riesgos adicionales. El objetivo es comprender dinámicas colectivas, no escrutinizar comportamientos individuales.</p>
+<p><strong>Reproducibilidad</strong>: Los scripts de recolección y procesamiento se documentan para permitir la replicación del estudio, respetando los términos de uso de la API de Reddit.</p>
+</section>
+<section id="técnicas-de-análisis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="técnicas-de-análisis"><span class="header-section-number">3.3</span> Técnicas de análisis</h2>
+<section id="análisis-de-sentimiento-y-emociones" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-sentimiento-y-emociones">Análisis de sentimiento y emociones</h3>
+<p>Para identificar los patrones emocionales del corpus, se implementó análisis de sentimiento mediante modelos de procesamiento de lenguaje natural entrenados para español. Se empleó una aproximación multidimensional que distingue entre:</p>
+<ul>
+<li><p><strong>Polaridad</strong>: Valencia positiva, negativa o neutra del contenido.</p></li>
+<li><p><strong>Intensidad</strong>: Grado de activación emocional.</p></li>
+<li><p><strong>Emociones discretas</strong>: Identificación de emociones específicas (alegría, tristeza, miedo, ira, sorpresa, asco) cuando los modelos lo permiten.</p></li>
+</ul>
+</section>
+<section id="modelado-de-tópicos" class="level3">
+<h3 class="anchored" data-anchor-id="modelado-de-tópicos">Modelado de tópicos</h3>
+<p>Para identificar los marcos interpretativos y temas estructurantes del debate, se implementaron técnicas de <strong>modelado de tópicos</strong> (<em>topic modeling</em>). Estas técnicas permiten descubrir patrones temáticos latentes en grandes corpus textuales, identificando agrupaciones de palabras que tienden a co-ocurrir y que pueden interpretarse como “temas” o, en el marco teórico de esta investigación, como indicadores de <em>frames</em>.</p>
+</section>
+<section id="análisis-de-redes-de-interacción" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-redes-de-interacción">Análisis de redes de interacción</h3>
+<p>Para examinar las dinámicas interaccionales, se construyeron <strong>redes de respuesta</strong> donde los nodos representan usuarios y las aristas representan relaciones de respuesta (comentario a comentario). Este análisis permite identificar patrones de interacción entre usuarios de distintas orientaciones ideológicas, la existencia de subcomunidades discursivas y las dinámicas de confrontación o cooperación.</p>
+</section>
+<section id="análisis-temporal" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-temporal">Análisis temporal</h3>
+<p>El diseño longitudinal permite implementar análisis de <strong>series temporales</strong> que examinan cómo varían los indicadores de interés a lo largo del período estudiado. Esto incluye la identificación de tendencias, ciclos, puntos de quiebre y la correlación entre eventos externos (debates, declaraciones, escándalos) y cambios en los patrones discursivos.</p>
+</section>
+</section>
+<section id="volumen-y-estructura-del-corpus-final" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="volumen-y-estructura-del-corpus-final"><span class="header-section-number">3.4</span> Volumen y estructura del corpus final</h2>
+<p>Al cierre de la recolección (31 de diciembre de 2024), el corpus construido contiene:</p>
+<ul>
+<li><p>Todos los posts publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una figura política de interés.</p></li>
+<li><p>Todos los comentarios dentro de esos posts que mencionan a dichas figuras.</p></li>
+<li><p>Estructura temporal completa desde el 1 de agosto al 31 de diciembre de 2024.</p></li>
+<li><p>Metadatos asociados que permiten análisis longitudinal, de red y de interacción.</p></li>
+</ul>
+<p>Este diseño metodológico permite observar la configuración de la conversación política en Reddit y su evolución durante la campaña presidencial chilena de 2025, con foco específico en patrones de enmarcamiento (<em>framing</em>), movilización emocional y construcción de adversarios a lo largo del ciclo electoral.</p>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -730,7 +887,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Obtención de Datos"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Diseño metodológico"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -744,12 +901,137 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Contenido de obtención de datos<span class="sc">\]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Esta investigación adopta un diseño **longitudinal observacional** basado en el análisis de datos digitales generados por usuarios (*user-generated content*). El carácter longitudinal permite capturar la evolución temporal del debate político a lo largo del ciclo electoral, identificando patrones de variación, puntos de inflexión y dinámicas de cambio. El carácter observacional implica que los datos son recolectados sin intervención experimental, preservando las características naturales de la interacción en las plataformas estudiadas.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Metodológicamente, la investigación se inscribe en el campo emergente de la **ciencia social computacional** (*computational social science*), que integra técnicas de procesamiento de datos a gran escala con los marcos teóricos y las preguntas sustantivas de las ciencias sociales (Lazer et al., 2009; Salganik, 2019). Esta aproximación permite analizar volúmenes de datos textuales que excederían las capacidades del análisis cualitativo tradicional, mientras mantiene un compromiso con la interpretación teóricamente informada de los patrones identificados.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>El diseño combina componentes **descriptivos**, orientados a caracterizar la conversación política en Reddit durante el período estudiado, con componentes **explicativos**, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados. Esta combinación responde a la naturaleza de las preguntas de investigación, que demandan tanto una cartografía del terreno empírico como una comprensión de las dinámicas que lo estructuran.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recolección de datos: web scraping mediante API</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">###  Procedimiento técnico</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Los datos fueron extraídos mediante **web scraping** utilizando la API pública de Reddit a través de la librería PRAW (*Python Reddit API Wrapper*). Esta aproximación permite acceder de forma estructurada y sistemática al contenido público de la plataforma, respetando los límites de uso establecidos por Reddit y garantizando la trazabilidad y reproducibilidad del proceso de recolección.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>El scraping se realizó sobre los dos subreddits principales de la comunidad chilena:</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**r/chile**: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**r/RepublicadeChile**: Comunidad alternativa surgida como escisión de r/chile, caracterizada por una composición ideológica distintiva y políticas de moderación más permisivas.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Estos espacios fueron seleccionados por constituir los principales foros de discusión política chilena en la plataforma, caracterizados por participación activa, diversidad de perspectivas ideológicas y debates sostenidos sobre temas de contingencia nacional.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Período temporal</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>La recolección de datos abarcó **cinco meses**, desde el **1 de agosto hasta el 31 de diciembre de 2024**. Este período temporal captura diferentes fases del ciclo electoral presidencial chileno de 2025:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Agosto-octubre 2024**: Fase de emergencia de candidaturas, posicionamiento inicial y primeras definiciones programáticas.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Noviembre-diciembre 2024**: Período de escalamiento de campaña, consolidación electoral y estructuración del debate público.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>La ventana temporal de cinco meses permite observar la evolución dinámica del debate político, identificar patrones temporales de activación discursiva y capturar tanto tendencias sostenidas como picos de discusión asociados a eventos políticos específicos del período (debates televisados, declaraciones públicas, controversias mediáticas).</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estrategia de scraping incremental</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>El proceso de recolección fue **incremental y acumulativo**, ejecutándose en múltiples iteraciones programadas que:</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Extracción**: Recuperaban los posts más recientes disponibles en cada subreddit (límite de 250-1000 posts por ejecución según configuración).</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Expansión**: Descargaban el árbol completo de comentarios de cada post relevante mediante <span class="in">`replace_more(limit=None)`</span> para capturar todos los niveles de anidación conversacional.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Acumulación**: Integraban nuevos datos con extracciones previas en archivos CSV, Parquet y Excel.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Deduplicación**: Eliminaban registros duplicados mediante identificadores únicos generados con hashes SHA-256 basados en: post_id + timestamp + autor + contenido textual.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Este diseño iterativo permitió maximizar la cobertura temporal sin exceder los límites de la API, capturar discusiones en desarrollo a lo largo de los cinco meses y construir un corpus longitudinal que refleja la evolución dinámica del debate político.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filtrado temático</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Para cada publicación dentro del rango temporal, se extrajeron dos niveles de contenido textual:</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**Nivel de publicación (posts)**:</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Título (*title*): Encabezado del post que condensa el tema o posición principal.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cuerpo (*selftext*): Texto completo de la publicación cuando el formato lo incluye.</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Metadatos: autor, fecha de creación, puntuación, número de comentarios, flair (etiqueta temática).</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>**Nivel de comentarios**:</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cuerpo del comentario (*comment_body*): Texto completo de cada comentario en el árbol de discusión.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Metadatos: autor, fecha de creación, puntuación, relación con post padre e identificador del comentario al que responde.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>Ambos niveles de texto fueron procesados mediante **expresiones regulares** que identifican menciones de figuras políticas específicas, manejando variaciones ortográficas comunes (presencia/ausencia de acentos, nombres completos vs. apellidos, apodos políticos, errores tipográficos frecuentes). Este filtrado temático permite construir un corpus focalizado en la discusión sobre las candidaturas presidenciales de interés.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Figuras políticas de interés</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>El filtrado temático se centró en cuatro candidaturas representativas de las distintas corrientes ideológicas:</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>| Candidatura       | Corriente ideológica         | Patrones de búsqueda               |</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>|-------------------|------------------------------|------------------------------------|</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>| Evelyn Matthei    | Derecha tradicional          | "matthei", "matei", "evelyn"       |</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>| José Antonio Kast | Derecha radical-conservadora | "kast", "jose antonio kast", "jak" |</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>| Johannes Kaiser   | Derecha libertaria           | "kaiser", "johannes", "jkaiser"    |</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>| Jeannette Jara    | Izquierda (PC)               | "jara", "jeannette", "jeanette"    |</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>Esta selección permite analizar tanto la **competencia intra-derecha** entre tres corrientes (tradicional, republicana, libertaria) como la **convergencia discursiva** frente a un adversario ideológico común en segunda vuelta (el Partido Comunista).</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Consideraciones éticas</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>La investigación se rige por principios éticos establecidos para la investigación con datos digitales (Salganik, 2019; Zimmer &amp; Kinder-Kurlanda, 2017):</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>**Consentimiento y datos públicos**: Los datos recolectados provienen de publicaciones y comentarios realizados en espacios públicos de la plataforma, donde los usuarios tienen expectativas razonables de que su contenido será visible para audiencias amplias. No se accedió a contenido privado, mensajes directos ni información restringida.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>**Anonimización**: Aunque los nombres de usuario en Reddit son seudónimos, el análisis no reporta identificadores individuales ni busca vincular cuentas con identidades reales. Los ejemplos citados en el análisis son anonimizados cuando resulta necesario.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>**Minimización de daños**: La investigación no interviene en las comunidades estudiadas ni expone a sus miembros a riesgos adicionales. El objetivo es comprender dinámicas colectivas, no escrutinizar comportamientos individuales.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>**Reproducibilidad**: Los scripts de recolección y procesamiento se documentan para permitir la replicación del estudio, respetando los términos de uso de la API de Reddit.</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Técnicas de análisis</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de sentimiento y emociones</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Para identificar los patrones emocionales del corpus, se implementó análisis de sentimiento mediante modelos de procesamiento de lenguaje natural entrenados para español. Se empleó una aproximación multidimensional que distingue entre:</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Polaridad**: Valencia positiva, negativa o neutra del contenido.</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Intensidad**: Grado de activación emocional.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Emociones discretas**: Identificación de emociones específicas (alegría, tristeza, miedo, ira, sorpresa, asco) cuando los modelos lo permiten.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modelado de tópicos</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>Para identificar los marcos interpretativos y temas estructurantes del debate, se implementaron técnicas de **modelado de tópicos** (*topic modeling*). Estas técnicas permiten descubrir patrones temáticos latentes en grandes corpus textuales, identificando agrupaciones de palabras que tienden a co-ocurrir y que pueden interpretarse como "temas" o, en el marco teórico de esta investigación, como indicadores de *frames*.</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de redes de interacción</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>Para examinar las dinámicas interaccionales, se construyeron **redes de respuesta** donde los nodos representan usuarios y las aristas representan relaciones de respuesta (comentario a comentario). Este análisis permite identificar patrones de interacción entre usuarios de distintas orientaciones ideológicas, la existencia de subcomunidades discursivas y las dinámicas de confrontación o cooperación.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis temporal</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>El diseño longitudinal permite implementar análisis de **series temporales** que examinan cómo varían los indicadores de interés a lo largo del período estudiado. Esto incluye la identificación de tendencias, ciclos, puntos de quiebre y la correlación entre eventos externos (debates, declaraciones, escándalos) y cambios en los patrones discursivos.</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Volumen y estructura del corpus final</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>Al cierre de la recolección (31 de diciembre de 2024), el corpus construido contiene:</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Todos los posts publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una figura política de interés.</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Todos los comentarios dentro de esos posts que mencionan a dichas figuras.</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Estructura temporal completa desde el 1 de agosto al 31 de diciembre de 2024.</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Metadatos asociados que permiten análisis longitudinal, de red y de interacción.</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>Este diseño metodológico permite observar la configuración de la conversación política en Reddit y su evolución durante la campaña presidencial chilena de 2025, con foco específico en patrones de enmarcamiento (*framing*), movilización emocional y construcción de adversarios a lo largo del ciclo electoral.</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-obtencion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-obtencion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
