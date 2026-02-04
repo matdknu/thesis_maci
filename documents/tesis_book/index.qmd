@@ -74,6 +74,10 @@ Contenido de presentación/introducción general
 \newpage
 
 ```{=latex}
+% Títulos de índices en español
+\renewcommand{\contentsname}{Índice General}
+\renewcommand{\listfigurename}{Índice de Figuras}
+\renewcommand{\listtablename}{Índice de Tablas}
 % Índices después de las páginas preliminares
 \tableofcontents
 \newpage
