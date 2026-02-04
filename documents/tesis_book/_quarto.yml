@@ -111,10 +111,6 @@ format:
     include-in-header:
       text: |
         \usepackage{booktabs}
-        % Títulos de índices en español
-        \renewcommand{\contentsname}{Índice General}
-        \renewcommand{\listfigurename}{Índice de Figuras}
-        \renewcommand{\listtablename}{Índice de Tablas}
         \usepackage{longtable}
         \usepackage{array}
         \usepackage{float}
@@ -133,6 +129,12 @@ format:
         \fancyhead[RE]{\nouppercase{\rightmark}}
         \renewcommand{\headrulewidth}{0.4pt}
         
+        % Títulos de índices en español (después de babel/polyglossia)
+        \AtBeginDocument{%
+          \renewcommand{\contentsname}{Índice General}%
+          \renewcommand{\listfigurename}{Índice de Figuras}%
+          \renewcommand{\listtablename}{Índice de Tablas}%
+        }
         % Sin encabezado en páginas preliminares
         \AtBeginDocument{
           \pagenumbering{roman}
