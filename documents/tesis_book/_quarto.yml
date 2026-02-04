@@ -110,6 +110,10 @@ format:
     include-in-header:
       text: |
         \usepackage{booktabs}
+        % Títulos de índices en español
+        \renewcommand{\contentsname}{Índice General}
+        \renewcommand{\listfigurename}{Índice de Figuras}
+        \renewcommand{\listtablename}{Índice de Tablas}
         \usepackage{longtable}
         \usepackage{array}
         \usepackage{float}

@@ -1,9 +1,11 @@
 {
-  "hash": "4985030fb37e8cd7ee013b3909535c19",
+  "hash": "216dca9b1790a5bcec888bb82a2d6fa5",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Exploración de Datos\"\nlang: es\n---\n\n\n\n\n\n\n\n\n[Contenido de exploración de datos]\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Exploración de Datos\"\nlang: es\n---\n\n\n",
+    "supporting": [
+      "05-exploracion-datos_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
