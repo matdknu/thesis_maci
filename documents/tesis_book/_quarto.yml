@@ -19,12 +19,13 @@ book:
     - index.qmd
     - 01-introduccion.qmd
     - 02-presentacion-problema.qmd
-    - 03-obtencion-datos.qmd
-    - 04-depuracion-datos.qmd
-    - 05-exploracion-datos.qmd
-    - 06-modelado-datos.qmd
-    - 07-interpretacion-resultados.qmd
-    - 08-conclusion.qmd
+    - 03-marco.qmd
+    - 04-obtencion-datos.qmd
+    - 05-depuracion-datos.qmd
+    - 06-exploracion-datos.qmd
+    - 07-modelado-datos.qmd
+    - 08-interpretacion-resultados.qmd
+    - 09-conclusion.qmd
     - references.qmd
   
   # Configuración del libro

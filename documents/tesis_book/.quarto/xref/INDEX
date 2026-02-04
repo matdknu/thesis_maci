@@ -28,5 +28,26 @@
   },
   "references.qmd": {
     "references.html": "798d393c"
+  },
+  "03-marco.qmd": {
+    "03-marco.html": "99d41685"
+  },
+  "04-obtencion-datos.qmd": {
+    "04-obtencion-datos.html": "1ae9b328"
+  },
+  "05-depuracion-datos.qmd": {
+    "05-depuracion-datos.html": "9127e5c4"
+  },
+  "06-exploracion-datos.qmd": {
+    "06-exploracion-datos.html": "4f4dedfd"
+  },
+  "07-modelado-datos.qmd": {
+    "07-modelado-datos.html": "5691321e"
+  },
+  "08-interpretacion-resultados.qmd": {
+    "08-interpretacion-resultados.html": "4e8a487e"
+  },
+  "09-conclusion.qmd": {
+    "09-conclusion.html": "02f01bc4"
   }
 }

@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matías Deneken">
+<meta name="description" content="Tesis para optar al grado de Magíster en Ciencia de Datos.">
+
+<title>3&nbsp; Marco teórico</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-obtencion-datos.html" rel="next">
+<link href="./02-presentacion-problema.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-marco.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+        <div class="sidebar-tools-collapse">
+    <a href="https://github.com/matdknu/thesis_maci" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./tesis_book.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derecha fragmentada y un enemigo compartido</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-presentacion-problema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Presentación del Problema</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-marco.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-obtencion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-depuracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Depuración de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-exploracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploración de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-modelado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-interpretacion-resultados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conclusión</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#comunicación-política-en-entornos-digitales" id="toc-comunicación-política-en-entornos-digitales" class="nav-link active" data-scroll-target="#comunicación-política-en-entornos-digitales"><span class="header-section-number">3.1</span> 3.1. Comunicación política en entornos digitales</a>
+  <ul class="collapse">
+  <li><a href="#la-transformación-estructural-de-la-esfera-pública" id="toc-la-transformación-estructural-de-la-esfera-pública" class="nav-link" data-scroll-target="#la-transformación-estructural-de-la-esfera-pública">3.1.1. La transformación estructural de la esfera pública</a></li>
+  <li><a href="#propiedades-estructurales-de-las-plataformas" id="toc-propiedades-estructurales-de-las-plataformas" class="nav-link" data-scroll-target="#propiedades-estructurales-de-las-plataformas">3.1.2. Propiedades estructurales de las plataformas</a></li>
+  <li><a href="#plataformas-como-infraestructuras-de-poder" id="toc-plataformas-como-infraestructuras-de-poder" class="nav-link" data-scroll-target="#plataformas-como-infraestructuras-de-poder">3.1.3. Plataformas como infraestructuras de poder</a></li>
+  </ul></li>
+  <li><a href="#polarización-afectiva-más-allá-de-la-divergencia-ideológica" id="toc-polarización-afectiva-más-allá-de-la-divergencia-ideológica" class="nav-link" data-scroll-target="#polarización-afectiva-más-allá-de-la-divergencia-ideológica"><span class="header-section-number">3.2</span> 3.2. Polarización afectiva: más allá de la divergencia ideológica</a>
+  <ul class="collapse">
+  <li><a href="#conceptualización-y-medición" id="toc-conceptualización-y-medición" class="nav-link" data-scroll-target="#conceptualización-y-medición">3.2.1. Conceptualización y medición</a></li>
+  <li><a href="#causas-y-mecanismos" id="toc-causas-y-mecanismos" class="nav-link" data-scroll-target="#causas-y-mecanismos">3.2.2. Causas y mecanismos</a></li>
+  <li><a href="#polarización-afectiva-y-plataformas-digitales" id="toc-polarización-afectiva-y-plataformas-digitales" class="nav-link" data-scroll-target="#polarización-afectiva-y-plataformas-digitales">3.2.3. Polarización afectiva y plataformas digitales</a></li>
+  <li><a href="#consecuencias-de-la-polarización-afectiva" id="toc-consecuencias-de-la-polarización-afectiva" class="nav-link" data-scroll-target="#consecuencias-de-la-polarización-afectiva">3.2.4. Consecuencias de la polarización afectiva</a></li>
+  </ul></li>
+  <li><a href="#teoría-del-framing-la-disputa-por-definir-la-realidad" id="toc-teoría-del-framing-la-disputa-por-definir-la-realidad" class="nav-link" data-scroll-target="#teoría-del-framing-la-disputa-por-definir-la-realidad"><span class="header-section-number">3.3</span> 3.3. Teoría del <em>framing</em>: la disputa por definir la realidad</a>
+  <ul class="collapse">
+  <li><a href="#fundamentos-conceptuales" id="toc-fundamentos-conceptuales" class="nav-link" data-scroll-target="#fundamentos-conceptuales">3.3.1. Fundamentos conceptuales</a></li>
+  <li><a href="#tipologías-de-marcos" id="toc-tipologías-de-marcos" class="nav-link" data-scroll-target="#tipologías-de-marcos">3.3.2. Tipologías de marcos</a></li>
+  <li><a href="#efectos-del-framing" id="toc-efectos-del-framing" class="nav-link" data-scroll-target="#efectos-del-framing">3.3.3. Efectos del <em>framing</em></a></li>
+  <li><a href="#framing-en-entornos-digitales" id="toc-framing-en-entornos-digitales" class="nav-link" data-scroll-target="#framing-en-entornos-digitales">3.3.4. <em>Framing</em> en entornos digitales</a></li>
+  </ul></li>
+  <li><a href="#emociones-políticas-repertorios-afectivos-y-movilización" id="toc-emociones-políticas-repertorios-afectivos-y-movilización" class="nav-link" data-scroll-target="#emociones-políticas-repertorios-afectivos-y-movilización"><span class="header-section-number">3.4</span> 3.4. Emociones políticas: repertorios afectivos y movilización</a>
+  <ul class="collapse">
+  <li><a href="#el-giro-afectivo-en-el-estudio-de-la-política" id="toc-el-giro-afectivo-en-el-estudio-de-la-política" class="nav-link" data-scroll-target="#el-giro-afectivo-en-el-estudio-de-la-política">3.4.1. El giro afectivo en el estudio de la política</a></li>
+  <li><a href="#teoría-de-la-inteligencia-afectiva" id="toc-teoría-de-la-inteligencia-afectiva" class="nav-link" data-scroll-target="#teoría-de-la-inteligencia-afectiva">3.4.2. Teoría de la inteligencia afectiva</a></li>
+  <li><a href="#emociones-discretas-políticamente-relevantes" id="toc-emociones-discretas-políticamente-relevantes" class="nav-link" data-scroll-target="#emociones-discretas-políticamente-relevantes">3.4.3. Emociones discretas políticamente relevantes</a></li>
+  <li><a href="#repertorios-afectivos" id="toc-repertorios-afectivos" class="nav-link" data-scroll-target="#repertorios-afectivos">3.4.4. Repertorios afectivos</a></li>
+  <li><a href="#emociones-en-entornos-digitales" id="toc-emociones-en-entornos-digitales" class="nav-link" data-scroll-target="#emociones-en-entornos-digitales">3.4.5. Emociones en entornos digitales</a></li>
+  </ul></li>
+  <li><a href="#construcción-de-adversarios-y-fronteras-identitarias" id="toc-construcción-de-adversarios-y-fronteras-identitarias" class="nav-link" data-scroll-target="#construcción-de-adversarios-y-fronteras-identitarias"><span class="header-section-number">3.5</span> 3.5. Construcción de adversarios y fronteras identitarias</a>
+  <ul class="collapse">
+  <li><a href="#la-constitución-relacional-de-las-identidades-políticas" id="toc-la-constitución-relacional-de-las-identidades-políticas" class="nav-link" data-scroll-target="#la-constitución-relacional-de-las-identidades-políticas">3.5.1. La constitución relacional de las identidades políticas</a></li>
+  <li><a href="#antagonismo-versus-agonismo" id="toc-antagonismo-versus-agonismo" class="nav-link" data-scroll-target="#antagonismo-versus-agonismo">3.5.2. Antagonismo versus agonismo</a></li>
+  <li><a href="#estrategias-de-construcción-de-adversarios" id="toc-estrategias-de-construcción-de-adversarios" class="nav-link" data-scroll-target="#estrategias-de-construcción-de-adversarios">3.5.3. Estrategias de construcción de adversarios</a></li>
+  <li><a href="#fronteras-intra-bloque-e-inter-bloque" id="toc-fronteras-intra-bloque-e-inter-bloque" class="nav-link" data-scroll-target="#fronteras-intra-bloque-e-inter-bloque">3.5.4. Fronteras intra-bloque e inter-bloque</a></li>
+  </ul></li>
+  <li><a href="#derechas-contemporáneas-tipología-y-dinámicas-de-competencia" id="toc-derechas-contemporáneas-tipología-y-dinámicas-de-competencia" class="nav-link" data-scroll-target="#derechas-contemporáneas-tipología-y-dinámicas-de-competencia"><span class="header-section-number">3.6</span> 3.6. Derechas contemporáneas: tipología y dinámicas de competencia</a>
+  <ul class="collapse">
+  <li><a href="#la-pluralización-de-las-derechas" id="toc-la-pluralización-de-las-derechas" class="nav-link" data-scroll-target="#la-pluralización-de-las-derechas">3.6.1. La pluralización de las derechas</a></li>
+  <li><a href="#diferencias-en-estrategias-comunicativas" id="toc-diferencias-en-estrategias-comunicativas" class="nav-link" data-scroll-target="#diferencias-en-estrategias-comunicativas">3.6.2. Diferencias en estrategias comunicativas</a></li>
+  <li><a href="#competencia-intra-derecha-y-dinámicas-de-diferenciación" id="toc-competencia-intra-derecha-y-dinámicas-de-diferenciación" class="nav-link" data-scroll-target="#competencia-intra-derecha-y-dinámicas-de-diferenciación">3.6.3. Competencia intra-derecha y dinámicas de diferenciación</a></li>
+  <li><a href="#las-derechas-latinoamericanas-contemporáneas" id="toc-las-derechas-latinoamericanas-contemporáneas" class="nav-link" data-scroll-target="#las-derechas-latinoamericanas-contemporáneas">3.6.4. Las derechas latinoamericanas contemporáneas</a></li>
+  </ul></li>
+  <li><a href="#reddit-como-espacio-de-deliberación-política" id="toc-reddit-como-espacio-de-deliberación-política" class="nav-link" data-scroll-target="#reddit-como-espacio-de-deliberación-política"><span class="header-section-number">3.7</span> 3.7. Reddit como espacio de deliberación política</a>
+  <ul class="collapse">
+  <li><a href="#arquitectura-y-propiedades-de-la-plataforma" id="toc-arquitectura-y-propiedades-de-la-plataforma" class="nav-link" data-scroll-target="#arquitectura-y-propiedades-de-la-plataforma">3.7.1. Arquitectura y propiedades de la plataforma</a></li>
+  <li><a href="#estructura-conversacional" id="toc-estructura-conversacional" class="nav-link" data-scroll-target="#estructura-conversacional">3.7.2. Estructura conversacional</a></li>
+  <li><a href="#los-subreddits-chilenos" id="toc-los-subreddits-chilenos" class="nav-link" data-scroll-target="#los-subreddits-chilenos">3.7.4. Los subreddits chilenos</a></li>
+  </ul></li>
+  <li><a href="#síntesis-un-modelo-analítico-integrado" id="toc-síntesis-un-modelo-analítico-integrado" class="nav-link" data-scroll-target="#síntesis-un-modelo-analítico-integrado"><span class="header-section-number">3.8</span> 3.8. Síntesis: un modelo analítico integrado</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-marco.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matías Deneken </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="comunicación-política-en-entornos-digitales" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="comunicación-política-en-entornos-digitales"><span class="header-section-number">3.1</span> 3.1. Comunicación política en entornos digitales</h2>
+<section id="la-transformación-estructural-de-la-esfera-pública" class="level3">
+<h3 class="anchored" data-anchor-id="la-transformación-estructural-de-la-esfera-pública">3.1.1. La transformación estructural de la esfera pública</h3>
+<p>La emergencia de las plataformas digitales ha reconfigurado las condiciones estructurales bajo las cuales se produce la comunicación política contemporánea. Esta transformación no constituye simplemente una ampliación cuantitativa de los canales disponibles, sino una modificación cualitativa de las propiedades del espacio comunicativo (Chadwick, 2017; Bennett &amp; Pfetsch, 2018). Comprender esta transformación requiere atender tanto a las continuidades con formas previas de comunicación política como a las discontinuidades que introducen las arquitecturas digitales.</p>
+<p>El concepto de <strong>esfera pública</strong>, tal como fue teorizado por Habermas (1962/1989), designaba un espacio de deliberación racional entre ciudadanos privados que, mediante el intercambio de argumentos, configuraban una opinión pública capaz de interpelar al poder político. Esta esfera pública burguesa, históricamente situada en los cafés, salones y periódicos de la Europa del siglo XVIII, operaba bajo condiciones específicas: acceso restringido pero formalmente igualitario, normas de civilidad discursiva, orientación hacia el interés general y autonomía respecto al Estado y al mercado.</p>
+<p>Las plataformas digitales han sido alternativamente celebradas como una expansión democratizadora de esta esfera —al reducir las barreras de entrada al debate público— y criticadas como su corrupción —al subordinar la deliberación razonada a la lógica del espectáculo, la polarización y la desinformación (Dahlgren, 2005; Sunstein, 2017; Habermas, 2022). Más que zanjar esta disputa, resulta analíticamente productivo reconocer que las plataformas constituyen un <strong>tipo distintivo</strong> de esfera pública, con propiedades estructurales específicas que habilitan ciertas formas de participación política mientras dificultan otras.</p>
+</section>
+<section id="propiedades-estructurales-de-las-plataformas" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-estructurales-de-las-plataformas">3.1.2. Propiedades estructurales de las plataformas</h3>
+<p>boyd (2010) identificó cuatro propiedades que distinguen a los entornos digitales en red de los espacios comunicativos previos:</p>
+<p><strong>Persistencia</strong>: Los contenidos publicados permanecen accesibles más allá del momento de su producción. A diferencia del discurso oral, que se desvanece, y a diferencia incluso de los medios impresos, cuya circulación es limitada, los textos digitales pueden ser recuperados, archivados y citados indefinidamente. Esta persistencia modifica los cálculos estratégicos de la comunicación política: lo que se dice queda registrado y puede ser usado en contra de su autor.</p>
+<p><strong>Replicabilidad</strong>: Los contenidos digitales pueden ser copiados y reproducidos sin pérdida de calidad. Esta propiedad facilita tanto la difusión viral de mensajes como la descontextualización: un fragmento puede ser extraído, editado y recirculado en contextos que distorsionan su sentido original.</p>
+<p><strong>Escalabilidad</strong>: La audiencia potencial de cualquier publicación es masiva. Un mensaje que en contextos previos habría alcanzado a decenas de personas puede, bajo ciertas condiciones, llegar a millones. Esta posibilidad transforma las expectativas de los productores de contenido y genera dinámicas de atención altamente desiguales.</p>
+<p><strong>Buscabilidad</strong>: Los contenidos pueden ser localizados mediante herramientas de búsqueda e indexación. Esta propiedad facilita el acceso a información pero también habilita formas de vigilancia y escrutinio que pueden inhibir la expresión libre.</p>
+<p>A estas cuatro propiedades, investigaciones posteriores han añadido otras características relevantes para el análisis político:</p>
+<p><strong>Mediación algorítmica</strong>: Los algoritmos de curación determinan qué contenidos ganan visibilidad. La optimización del <em>engagement</em> tiende a privilegiar contenidos emocionalmente activadores, particularmente aquellos que provocan indignación (Brady et al., 2017; Crockett, 2017). Esta mediación no es neutral: estructura la atención de maneras que pueden intensificar el conflicto y distorsionar la representación de las preferencias colectivas.</p>
+<p><strong>Colapso de contextos</strong>: En plataformas digitales, audiencias que en la vida offline permanecerían separadas convergen en un mismo espacio, generando tensiones entre registros comunicativos y expectativas de recepción (Marwick &amp; boyd, 2011). Un político que en contextos diferentes se dirigiría de manera distinta a sus militantes, a votantes indecisos y a la prensa, enfrenta en redes sociales la imposibilidad de segmentar audiencias con claridad.</p>
+<p><strong>Métricas de rendimiento</strong>: Las plataformas hacen visible y cuantificable la recepción de los mensajes mediante conteos de <em>likes</em>, compartidos, comentarios y visualizaciones. Estas métricas generan retroalimentación inmediata que puede orientar el comportamiento comunicativo hacia la maximización de indicadores que no necesariamente coinciden con objetivos de deliberación democrática.</p>
+</section>
+<section id="plataformas-como-infraestructuras-de-poder" class="level3">
+<h3 class="anchored" data-anchor-id="plataformas-como-infraestructuras-de-poder">3.1.3. Plataformas como infraestructuras de poder</h3>
+<p>Más allá de sus propiedades técnicas, las plataformas digitales deben comprenderse como <strong>infraestructuras de poder</strong> que condicionan las posibilidades de la acción política (Gillespie, 2018; van Dijck et al., 2018). Esta perspectiva implica atender a tres dimensiones:</p>
+<p>En primer lugar, las plataformas son <strong>empresas privadas</strong> con modelos de negocio específicos, típicamente basados en la captura y monetización de la atención mediante publicidad dirigida. Las decisiones de diseño que estructuran la experiencia del usuario responden a imperativos comerciales que pueden entrar en tensión con valores democráticos. La optimización del <em>engagement</em> puede privilegiar contenidos divisivos; la personalización puede fragmentar el espacio público; la opacidad algorítmica puede dificultar la rendición de cuentas.</p>
+<p>En segundo lugar, las plataformas ejercen <strong>poder de moderación</strong>: establecen las reglas de lo que puede y no puede decirse, deciden qué contenidos amplificar o suprimir, y arbitran disputas entre usuarios. Este poder, que en otros contextos correspondería a instituciones estatales o a normas sociales informales, es ejercido por corporaciones privadas con escasa supervisión democrática y con intereses que no necesariamente coinciden con los de la ciudadanía.</p>
+<p>En tercer lugar, las plataformas generan <strong>efectos de red</strong> que dificultan la competencia y la salida: cuanto más usuarios tiene una plataforma, más valiosa es para cada usuario individual, lo que tiende a consolidar monopolios u oligopolios. Esto implica que las decisiones de diseño de unas pocas empresas tienen consecuencias desproporcionadas para la calidad del debate público en sociedades enteras.</p>
+</section>
+</section>
+<section id="polarización-afectiva-más-allá-de-la-divergencia-ideológica" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="polarización-afectiva-más-allá-de-la-divergencia-ideológica"><span class="header-section-number">3.2</span> 3.2. Polarización afectiva: más allá de la divergencia ideológica</h2>
+<section id="conceptualización-y-medición" class="level3">
+<h3 class="anchored" data-anchor-id="conceptualización-y-medición">3.2.1. Conceptualización y medición</h3>
+<p>La <strong>polarización afectiva</strong> designa el distanciamiento emocional entre grupos políticos: no solo difieren en posiciones sustantivas, sino que se desagradan, desconfían mutuamente y se atribuyen malas intenciones (Iyengar et al., 2012, 2019). Este concepto captura una dimensión de la división política que no se reduce a la divergencia ideológica convencional.</p>
+<p>La distinción entre polarización ideológica y afectiva es analíticamente crucial. La <strong>polarización ideológica</strong> refiere a cuán distantes están las posiciones de distintos grupos en un continuo izquierda-derecha o en dimensiones temáticas específicas (aborto, inmigración, redistribución). La <strong>polarización afectiva</strong>, en cambio, captura cuánto se desagradan mutuamente los grupos, cuánta desconfianza se profesan y cuán dispuestos están a atribuirse mutuamente mala fe, independientemente de cuán diferentes sean sus posiciones sustantivas.</p>
+<p>Empíricamente, estas dos dimensiones pueden variar de manera independiente. Es posible una polarización ideológica moderada acompañada de intensa polarización afectiva (los grupos no difieren tanto en posiciones pero se detestan) o una polarización ideológica pronunciada con polarización afectiva moderada (difieren significativamente pero mantienen respeto mutuo). La evidencia sugiere que en muchas democracias contemporáneas, particularmente Estados Unidos, la polarización afectiva ha crecido más rápidamente que la ideológica (Iyengar et al., 2019; Boxell et al., 2022).</p>
+<p>La medición de la polarización afectiva típicamente emplea <strong>termómetros de sentimiento</strong>: escalas donde los encuestados indican cuán favorables se sienten hacia su propio grupo político (endogrupo) y hacia el grupo adversario (exogrupo). La diferencia entre ambas puntuaciones constituye un indicador de polarización afectiva a nivel individual; su promedio, un indicador a nivel agregado. Otros indicadores incluyen la resistencia a relaciones interpersonales con miembros del exogrupo (disposición a aceptarlos como amigos, vecinos, parejas de familiares) y la atribución de rasgos negativos (dishonestidad, cerrazón mental, peligrosidad).</p>
+</section>
+<section id="causas-y-mecanismos" class="level3">
+<h3 class="anchored" data-anchor-id="causas-y-mecanismos">3.2.2. Causas y mecanismos</h3>
+<p>La literatura ha identificado múltiples factores que contribuyen a la polarización afectiva:</p>
+<p><strong>Identidad partidaria como identidad social</strong>: Cuando la afiliación política se convierte en un componente central de la identidad personal —comparable a la identidad étnica, religiosa o de género—, los procesos de favoritismo endogrupal y hostilidad exogrupal documentados por la psicología social se activan en el dominio político (Mason, 2018). La política deja de ser una arena de competencia entre propuestas para convertirse en un conflicto entre “nosotros” y “ellos”.</p>
+<p><strong>Alineamiento de clivajes</strong>: Cuando múltiples divisiones sociales (raza, religión, educación, lugar de residencia) se alinean con la división partidaria, la distancia entre grupos se amplifica. En lugar de identidades cruzadas que generan vínculos transversales, emergen identidades “apiladas” que refuerzan mutuamente la pertenencia grupal y la hostilidad hacia el adversario (Mason, 2018; Baldassarri &amp; Gelman, 2008).</p>
+<p><strong>Élites polarizadas</strong>: Cuando los líderes políticos adoptan retóricas de confrontación y deslegitimación del adversario, estas señales son captadas por los ciudadanos y contribuyen a intensificar la polarización afectiva (Druckman et al., 2013). La polarización de élites puede preceder y causar la polarización de masas, aunque también puede operar en dirección inversa.</p>
+<p><strong>Medios y ecosistema informativo</strong>: La fragmentación del ecosistema mediático, con la proliferación de fuentes partidistas que presentan visiones del mundo mutuamente incompatibles, puede reforzar las percepciones negativas del exogrupo al exponerlo de manera sesgada y caricaturizada (Levendusky, 2013).</p>
+</section>
+<section id="polarización-afectiva-y-plataformas-digitales" class="level3">
+<h3 class="anchored" data-anchor-id="polarización-afectiva-y-plataformas-digitales">3.2.3. Polarización afectiva y plataformas digitales</h3>
+<p>Las plataformas digitales han sido señaladas como un factor potencialmente relevante en la intensificación de la polarización afectiva, aunque la evidencia sobre su contribución causal específica es objeto de debate (Boxell et al., 2017; Lelkes et al., 2017; Guess et al., 2023). Varios mecanismos han sido propuestos:</p>
+<p><strong>Exposición selectiva amplificada</strong>: Los algoritmos de personalización pueden reforzar la tendencia humana a buscar información congruente con las propias creencias, reduciendo la exposición a perspectivas disonantes (Mosleh et al., 2025). Sin embargo, la evidencia sobre la prevalencia de “cámaras de eco” puras es mixta; muchos usuarios están expuestos a cierta diversidad, aunque esta exposición no necesariamente reduce la polarización.</p>
+<p><strong>Contenido emocionalmente cargado</strong>: La optimización del <em>engagement</em> privilegia contenidos que provocan reacciones emocionales intensas, particularmente indignación y desprecio hacia el exogrupo (Brady et al., 2017). Los contenidos que expresan indignación moral tienden a difundirse más ampliamente, creando incentivos para la producción de contenido polarizante.</p>
+<p><strong>Visibilidad de extremos</strong>: Las voces más estridentes y las posiciones más extremas tienden a ser más visibles en plataformas digitales, distorsionando la percepción de lo que piensa “el otro lado” (Yudkin et al., 2019). Los usuarios pueden sobrestimar cuán extremos, irrazonables u hostiles son los miembros del exogrupo.</p>
+<p><strong>Reducción de costos de expresión hostil</strong>: El anonimato o seudonimato, la mediación tecnológica y la ausencia de consecuencias sociales inmediatas pueden facilitar la expresión de hostilidad hacia adversarios políticos (Settle, 2018; Crockett, 2017).</p>
+<p><strong>Dinámicas de señalización grupal</strong>: La expresión de hostilidad hacia el exogrupo funciona como señal de pertenencia y lealtad al endogrupo, siendo recompensada con aprobación social (<em>likes</em>, comentarios positivos) (Mason, 2018). Las plataformas hacen esta recompensa visible e inmediata.</p>
+</section>
+<section id="consecuencias-de-la-polarización-afectiva" class="level3">
+<h3 class="anchored" data-anchor-id="consecuencias-de-la-polarización-afectiva">3.2.4. Consecuencias de la polarización afectiva</h3>
+<p>La polarización afectiva tiene consecuencias significativas para la democracia. Cuando los ciudadanos ven a sus adversarios políticos no como oponentes legítimos sino como enemigos, varias dinámicas problemáticas emergen:</p>
+<p><strong>Erosión de la confianza institucional</strong>: Si el exogrupo es percibido como fundamentalmente corrupto o malintencionado, cualquier institución controlada por el exogrupo pierde legitimidad. Esto puede extenderse a instituciones supuestamente neutrales (tribunales, organismos electorales, medios de comunicación) cuando son percibidas como alineadas con el adversario.</p>
+<p><strong>Resistencia al compromiso</strong>: La negociación y el compromiso, esenciales para la democracia pluralista, se vuelven difíciles cuando cualquier acuerdo con el exogrupo es percibido como traición. Los incentivos se orientan hacia la confrontación y el bloqueo más que hacia la cooperación.</p>
+<p><strong>Tolerancia a la transgresión normativa</strong>: Cuando la victoria del propio bando se percibe como existencialmente importante, los ciudadanos pueden volverse tolerantes hacia transgresiones democráticas si son cometidas por su propio lado (Graham &amp; Svolik, 2020). La lealtad partidaria puede sobreponerse al compromiso con normas democráticas.</p>
+<p><strong>Distorsión de la percepción de la realidad</strong>: La polarización afectiva puede llevar a evaluar la misma información de maneras radicalmente diferentes según su fuente percibida, dificultando el establecimiento de hechos compartidos como base para la deliberación (Kahan et al., 2017).</p>
+</section>
+</section>
+<section id="teoría-del-framing-la-disputa-por-definir-la-realidad" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="teoría-del-framing-la-disputa-por-definir-la-realidad"><span class="header-section-number">3.3</span> 3.3. Teoría del <em>framing</em>: la disputa por definir la realidad</h2>
+<section id="fundamentos-conceptuales" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentos-conceptuales">3.3.1. Fundamentos conceptuales</h3>
+<p>La teoría del <strong>encuadre</strong> o <strong><em>framing</em></strong> constituye uno de los enfoques más influyentes para el análisis de la comunicación política. En su formulación clásica, Entman (1993) definió el <em>framing</em> como el proceso de “seleccionar algunos aspectos de una realidad percibida y hacerlos más prominentes en un texto comunicativo, de modo que se promueva una definición particular del problema, una interpretación causal, una evaluación moral y/o una recomendación de tratamiento” (p.&nbsp;52).</p>
+<p>Los marcos interpretativos no son descripciones neutrales de la realidad sino <strong>dispositivos de organización del sentido</strong> que orientan la percepción, estructuran la comprensión y sugieren cursos de acción. Funcionan como “paquetes interpretativos” que permiten a los actores dar coherencia a flujos de información complejos y potencialmente contradictorios (Gamson &amp; Modigliani, 1989). En el ámbito político, los marcos definen qué está en juego en una controversia, quiénes son los actores relevantes, cuáles son las causas de los problemas y qué soluciones resultan apropiadas.</p>
+<p>La competencia política puede entenderse, en parte significativa, como una <strong>competencia entre marcos alternativos</strong> por definir los términos del debate (Lakoff, 2004; Chong &amp; Druckman, 2007). Quien logra establecer el marco dominante de una controversia condiciona las opciones que parecen razonables y las que quedan excluidas. Por ejemplo, enmarcar la inmigración como “problema de seguridad” activa respuestas diferentes que enmarcarla como “oportunidad económica” o “cuestión humanitaria”; cada marco privilegia ciertos valores, actores y soluciones mientras margina otros.</p>
+</section>
+<section id="tipologías-de-marcos" class="level3">
+<h3 class="anchored" data-anchor-id="tipologías-de-marcos">3.3.2. Tipologías de marcos</h3>
+<p>La literatura distingue entre <strong>marcos genéricos</strong> y <strong>marcos específicos</strong> (Semetko &amp; Valkenburg, 2000; de Vreese, 2005):</p>
+<p>Los <strong>marcos genéricos</strong> son aplicables a una amplia gama de temas y contextos. Semetko y Valkenburg (2000) identificaron cinco marcos genéricos prevalentes en la cobertura noticiosa: <em>conflicto</em> (énfasis en desacuerdos y disputas), <em>interés humano</em> (personalización mediante historias individuales), <em>consecuencias económicas</em> (impacto financiero), <em>atribución de responsabilidad</em> (asignación de culpa o mérito) y <em>moralidad</em> (enmarcamiento ético o religioso).</p>
+<p>Los <strong>marcos específicos</strong> son propios de controversias particulares y capturan las categorías interpretativas relevantes en un dominio acotado. Por ejemplo, el debate sobre cambio climático puede analizarse mediante marcos específicos como “amenaza existencial”, “oportunidad tecnológica”, “complot anticapitalista” o “costo económico desproporcionado”.</p>
+<p>Para el análisis de campañas electorales, resulta útil distinguir también entre:</p>
+<ul>
+<li><strong>Marcos diagnósticos</strong>: ¿Cuál es el problema? ¿Quién es responsable?</li>
+<li><strong>Marcos pronósticos</strong>: ¿Cuál es la solución? ¿Qué debe hacerse?</li>
+<li><strong>Marcos motivacionales</strong>: ¿Por qué actuar? ¿Qué está en juego?</li>
+</ul>
+</section>
+<section id="efectos-del-framing" class="level3">
+<h3 class="anchored" data-anchor-id="efectos-del-framing">3.3.3. Efectos del <em>framing</em></h3>
+<p>La investigación experimental ha documentado extensamente los <strong>efectos del framing</strong>: la manera en que un tema es encuadrado influye significativamente en las actitudes y preferencias de las audiencias (Chong &amp; Druckman, 2007; Druckman, 2001). Estos efectos no son mera manipulación: los marcos funcionan haciendo accesibles ciertas consideraciones que luego son empleadas en la formación de juicios.</p>
+<p>Sin embargo, los efectos del framing no son uniformes ni automáticos. Su magnitud depende de factores como:</p>
+<ul>
+<li><strong>Fuerza del marco</strong>: Marcos que resuenan con valores ampliamente compartidos, que son internamente coherentes y que provienen de fuentes creíbles tienden a ser más influyentes.</li>
+<li><strong>Exposición competitiva</strong>: Cuando las audiencias están expuestas a marcos alternativos, los efectos de cada marco individual se atenúan (Chong &amp; Druckman, 2007).</li>
+<li><strong>Predisposiciones previas</strong>: Las audiencias no son receptoras pasivas; interpretan los marcos a la luz de sus creencias, valores e identidades previas, aceptando aquellos congruentes y resistiendo los incongruentes.</li>
+<li><strong>Conocimiento y motivación</strong>: Audiencias más informadas y motivadas pueden ser más resistentes a efectos de framing, aunque también pueden usar su conocimiento para contrarargumentar marcos que amenazan sus posiciones previas.</li>
+</ul>
+</section>
+<section id="framing-en-entornos-digitales" class="level3">
+<h3 class="anchored" data-anchor-id="framing-en-entornos-digitales">3.3.4. <em>Framing</em> en entornos digitales</h3>
+<p>En el contexto de la comunicación digital, el análisis de <em>framing</em> adquiere características específicas. Por un lado, la abundancia de datos textuales generados por usuarios permite identificar patrones de encuadre a escalas antes impensables mediante técnicas de procesamiento de lenguaje natural (Burscher et al., 2014; Walter &amp; Ophir, 2019). Es posible analizar no solo cómo los actores políticos proponen marcos, sino cómo estos son adoptados, resistidos, transformados o rechazados por los usuarios en sus intercambios.</p>
+<p>Por otro lado, la interactividad de las plataformas posibilita observar el <strong><em>framing</em> como proceso</strong> más que como producto estático. En conversaciones digitales, los marcos son negociados en tiempo real: usuarios proponen interpretaciones, otros las contestan, emergen síntesis o se profundizan divergencias (Meraz &amp; Papacharissi, 2013). Esta dimensión procesual resulta especialmente relevante para el estudio de campañas electorales, donde los marcos evolucionan en respuesta a eventos, declaraciones de adversarios y dinámicas de la conversación pública.</p>
+<p>La estructura de Reddit es particularmente adecuada para este tipo de análisis. Los hilos de comentarios anidados permiten seguir cómo los marcos son propuestos, cuestionados y reformulados; el sistema de votación ofrece un indicador (imperfecto pero disponible) de qué marcos resuenan con la comunidad; la persistencia de las conversaciones habilita el análisis longitudinal.</p>
+</section>
+</section>
+<section id="emociones-políticas-repertorios-afectivos-y-movilización" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="emociones-políticas-repertorios-afectivos-y-movilización"><span class="header-section-number">3.4</span> 3.4. Emociones políticas: repertorios afectivos y movilización</h2>
+<section id="el-giro-afectivo-en-el-estudio-de-la-política" class="level3">
+<h3 class="anchored" data-anchor-id="el-giro-afectivo-en-el-estudio-de-la-política">3.4.1. El giro afectivo en el estudio de la política</h3>
+<p>Durante décadas, los estudios de comportamiento político operaron bajo el supuesto de que las emociones eran “ruido” que distorsionaba el juicio racional. Esta perspectiva, heredera de una tradición filosófica que oponía razón y pasión, ha sido profundamente revisada en las últimas tres décadas. Hoy existe amplio consenso en que las emociones no son obstáculos para el pensamiento político sino componentes constitutivos de la cognición y la acción política (Marcus et al., 2000; Jasper, 2011; Nussbaum, 2013).</p>
+<p>Las emociones funcionan como <strong>sistemas de evaluación</strong> que orientan la atención hacia información relevante, informan juicios sobre situaciones y actores, y motivan respuestas conductuales. Lejos de ser meras reacciones irracionales, las emociones incorporan evaluaciones cognitivas de la situación: experimentar miedo implica percibir una amenaza; experimentar indignación implica percibir una transgresión injusta. Estas evaluaciones pueden ser más o menos acertadas, pero no son irracionales en el sentido de carecer de contenido cognitivo.</p>
+</section>
+<section id="teoría-de-la-inteligencia-afectiva" class="level3">
+<h3 class="anchored" data-anchor-id="teoría-de-la-inteligencia-afectiva">3.4.2. Teoría de la inteligencia afectiva</h3>
+<p>La <strong>teoría de la inteligencia afectiva</strong> (Marcus et al., 2000; Marcus, 2002) propone un modelo influyente sobre el rol de las emociones en el comportamiento político. Según esta teoría, dos sistemas emocionales operan de manera paralela:</p>
+<p>El <strong>sistema de disposiciones</strong> es activado por estímulos familiares y conduce al comportamiento habitual. Cuando el entorno se percibe como normal y predecible, las emociones positivas (entusiasmo) refuerzan las predisposiciones existentes y el procesamiento “automático” basado en heurísticas e identidades previas. Las emociones negativas de baja intensidad (aversión) también operan dentro de este sistema, reforzando el rechazo hacia objetos previamente valorados negativamente.</p>
+<p>El <strong>sistema de vigilancia</strong> es activado cuando el entorno se percibe como amenazante o incierto. La emoción característica de este sistema es la ansiedad, que interrumpe el procesamiento habitual, incrementa la atención a nueva información y puede promover una reconsideración de las predisposiciones previas.</p>
+<p>Esta teoría tiene implicaciones importantes para la comunicación política. Sugiere que las apelaciones emocionales no tienen efectos uniformes: el entusiasmo refuerza a los ya convencidos; la ansiedad puede abrir espacio para la persuasión al interrumpir el procesamiento automático. También sugiere que diferentes emociones activan diferentes modos de procesamiento de la información política.</p>
+</section>
+<section id="emociones-discretas-políticamente-relevantes" class="level3">
+<h3 class="anchored" data-anchor-id="emociones-discretas-políticamente-relevantes">3.4.3. Emociones discretas políticamente relevantes</h3>
+<p>Más allá de la distinción entre sistemas, la investigación ha identificado <strong>emociones discretas</strong> con roles específicos en la política:</p>
+<p><strong>Entusiasmo/esperanza</strong>: Emociones positivas de alta activación que energizan la participación, refuerzan la identificación con el endogrupo y motivan comportamientos de apoyo activo (donaciones, voluntariado, difusión de mensajes).</p>
+<p><strong>Miedo/ansiedad</strong>: Emociones negativas asociadas a la percepción de amenaza. Pueden promover búsqueda de información y apertura a persuasión, pero también pueden desmovilizar o conducir a respuestas defensivas.</p>
+<p><strong>Ira/indignación</strong>: Emociones negativas de alta activación asociadas a la percepción de transgresión injusta. A diferencia del miedo, que puede paralizar, la ira motiva la acción, típicamente orientada a confrontar o castigar al transgresor percibido.</p>
+<p><strong>Desprecio</strong>: Emoción negativa dirigida hacia individuos o grupos percibidos como moral o intelectualmente inferiores. Implica distancia y rechazo de la interacción como entre iguales.</p>
+<p><strong>Orgullo/vergüenza</strong>: Emociones autoevaluativas vinculadas a la identidad grupal. El orgullo por el propio grupo motiva defensa y promoción; la vergüenza puede generar distanciamiento o esfuerzos de reparación.</p>
+</section>
+<section id="repertorios-afectivos" class="level3">
+<h3 class="anchored" data-anchor-id="repertorios-afectivos">3.4.4. Repertorios afectivos</h3>
+<p>Para esta investigación, el concepto de <strong>repertorio afectivo</strong> resulta operativamente útil. Designa el conjunto de emociones característicamente movilizadas por un actor político, su combinación y secuenciación, y los objetos hacia los cuales se dirigen (Jasper, 2011; Goodwin et al., 2001).</p>
+<p>Los actores políticos no movilizan emociones aisladas sino configuraciones emocionales específicas. Un movimiento puede combinar esperanza respecto al futuro, orgullo por la identidad grupal e indignación frente a injusticias; otro puede combinar miedo a amenazas externas, desprecio hacia élites y nostalgia por un pasado idealizado. Estas configuraciones constituyen repertorios distintivos que caracterizan a diferentes tradiciones políticas y estrategias comunicativas.</p>
+<p>El análisis de repertorios afectivos permite preguntas más sofisticadas que la mera identificación de emociones aisladas: ¿Cómo se articulan emociones positivas y negativas? ¿Qué proporción del contenido emocional se dirige al endogrupo (defensa, orgullo) versus al exogrupo (ataque, desprecio)? ¿Cómo varían los repertorios entre corrientes ideológicas? ¿Cómo evolucionan a lo largo del tiempo?</p>
+</section>
+<section id="emociones-en-entornos-digitales" class="level3">
+<h3 class="anchored" data-anchor-id="emociones-en-entornos-digitales">3.4.5. Emociones en entornos digitales</h3>
+<p>Las plataformas digitales presentan características específicas para la expresión y circulación de emociones políticas. La investigación ha documentado que los contenidos emocionalmente cargados tienden a difundirse más ampliamente que los contenidos neutros (Berger &amp; Milkman, 2012; Stieglitz &amp; Dang-Xuan, 2013). Más específicamente, las emociones de alta activación —tanto positivas (asombro, entusiasmo) como negativas (ira, ansiedad)— predicen mayor viralidad que las emociones de baja activación.</p>
+<p>La <strong>indignación moral</strong> ha recibido particular atención como emoción políticamente relevante en entornos digitales (Crockett, 2017; Brady et al., 2017). A diferencia de otras emociones negativas, la indignación combina valencia negativa con alta activación y orientación hacia la acción: quien experimenta indignación no solo se siente mal, sino que se siente impelido a hacer algo al respecto, típicamente castigar al transgresor percibido o al menos señalar públicamente su desaprobación.</p>
+<p>En el contexto de las plataformas digitales, expresar indignación resulta fácil y de bajo costo (un comentario, un <em>retweet</em>), mientras que las recompensas sociales (aprobación del endogrupo) son inmediatas y visibles. Esto puede generar dinámicas de “cascada de indignación” donde cada expresión indignada suscita otras, amplificando el tono emocional de la conversación.</p>
+</section>
+</section>
+<section id="construcción-de-adversarios-y-fronteras-identitarias" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="construcción-de-adversarios-y-fronteras-identitarias"><span class="header-section-number">3.5</span> 3.5. Construcción de adversarios y fronteras identitarias</h2>
+<section id="la-constitución-relacional-de-las-identidades-políticas" class="level3">
+<h3 class="anchored" data-anchor-id="la-constitución-relacional-de-las-identidades-políticas">3.5.1. La constitución relacional de las identidades políticas</h3>
+<p>Desde la teoría del discurso político, las identidades colectivas no son esencias preexistentes sino <strong>construcciones relacionales</strong> que emergen a través de prácticas de diferenciación. La tradición inaugurada por Laclau y Mouffe (1985) sostiene que toda identidad se constituye mediante la demarcación de un “exterior constitutivo”: un “nosotros” se define en relación —y en oposición— a un “ellos”.</p>
+<p>Esta perspectiva tiene implicaciones importantes para el análisis político. Sugiere que la construcción de adversarios no es un subproducto accidental de la competencia política sino una operación constitutiva de las identidades políticas mismas. Los grupos se definen tanto por lo que son como por lo que no son, tanto por los valores que afirman como por los que rechazan, tanto por los aliados que reconocen como por los adversarios que construyen.</p>
+<p>En contextos electorales, esta dinámica se intensifica. Las campañas son, entre otras cosas, operaciones de producción de diferencia: de afirmación de la propia identidad y de demarcación respecto a alternativas. El análisis de cómo se construyen los adversarios —quiénes son identificados como tales, qué atributos se les asignan, mediante qué operaciones retóricas se los deslegitima— constituye una vía privilegiada para comprender la configuración del espacio político.</p>
+</section>
+<section id="antagonismo-versus-agonismo" class="level3">
+<h3 class="anchored" data-anchor-id="antagonismo-versus-agonismo">3.5.2. Antagonismo versus agonismo</h3>
+<p>Mouffe (2005, 2013) introduce una distinción conceptual crucial entre <strong>antagonismo</strong> y <strong>agonismo</strong>:</p>
+<p>El <strong>antagonismo</strong> designa una relación entre enemigos que no comparten un espacio simbólico común. El adversario es percibido como una amenaza existencial cuya eliminación es condición de la propia supervivencia. No hay terreno compartido para la negociación; el conflicto es de suma cero.</p>
+<p>El <strong>agonismo</strong>, en cambio, designa una relación entre adversarios que, reconociéndose mutuamente como oponentes legítimos, compiten dentro de reglas compartidas. Los adversarios difieren —incluso profundamente— pero comparten un compromiso con el marco institucional democrático y se reconocen mutuamente como participantes legítimos del juego político.</p>
+<p>La democracia, en la perspectiva de Mouffe, requiere la transformación de antagonismos potencialmente destructivos en agonismos productivos. El conflicto es inevitable y legítimo, pero debe canalizarse mediante formas que no pongan en cuestión la existencia misma del adversario ni el marco institucional compartido.</p>
+<p>Esta distinción resulta analíticamente útil para examinar el discurso político digital. Permite preguntar: ¿Los actores construyen a sus oponentes como adversarios legítimos o como enemigos existenciales? ¿Predominan formas agonistas de confrontación (crítica de posiciones, disputa por políticas) o formas antagonistas (impugnación de la legitimidad, demonización, llamados a la exclusión)?</p>
+</section>
+<section id="estrategias-de-construcción-de-adversarios" class="level3">
+<h3 class="anchored" data-anchor-id="estrategias-de-construcción-de-adversarios">3.5.3. Estrategias de construcción de adversarios</h3>
+<p>La literatura sobre comunicación política ha identificado múltiples estrategias mediante las cuales se construyen y deslegitiman adversarios:</p>
+<p><strong>Asociación negativa</strong>: Vincular al adversario con figuras, eventos o símbolos negativamente valorados. Por ejemplo, asociar a un candidato con dictaduras, corrupción o grupos estigmatizados.</p>
+<p><strong>Atribución de intenciones ocultas</strong>: Sugerir que los propósitos declarados del adversario encubren objetivos malignos o inconfesables. El adversario no solo estaría equivocado sino que mentiría deliberadamente.</p>
+<p><strong>Deshumanización</strong>: Emplear lenguaje que niega o degrada la humanidad del adversario, representándolo como animal, enfermedad, plaga o amenaza parasitaria.</p>
+<p><strong>Ridiculización</strong>: Emplear humor, sarcasmo o parodia para degradar al adversario, presentándolo como incompetente, absurdo o digno de desprecio.</p>
+<p><strong>Esencialización</strong>: Atribuir al adversario rasgos fijos e incorregibles que lo definirían en su naturaleza más profunda, negando la posibilidad de cambio o diálogo.</p>
+<p><strong>Construcción de amenaza</strong>: Enfatizar el peligro que representa el adversario para valores, instituciones o grupos queridos, activando emociones de miedo y urgencia.</p>
+</section>
+<section id="fronteras-intra-bloque-e-inter-bloque" class="level3">
+<h3 class="anchored" data-anchor-id="fronteras-intra-bloque-e-inter-bloque">3.5.4. Fronteras intra-bloque e inter-bloque</h3>
+<p>Para esta investigación resulta crucial distinguir entre dos tipos de fronteras identitarias:</p>
+<p>Las <strong>fronteras inter-bloque</strong> separan campos ideológicos opuestos (izquierda vs.&nbsp;derecha, progresistas vs.&nbsp;conservadores). Son las fronteras más visibles y típicamente las más estudiadas en la literatura sobre polarización.</p>
+<p>Las <strong>fronteras intra-bloque</strong> separan corrientes dentro de un mismo campo ideológico. En el caso de las derechas, distinguen entre derecha tradicional, radical-conservadora y libertaria. Estas fronteras son más porosas y contingentes, pero igualmente relevantes para comprender las dinámicas de competencia política.</p>
+<p>La coexistencia de ambos tipos de fronteras genera tensiones estratégicas. Los actores deben simultáneamente diferenciarse de sus competidores intra-bloque (para capturar nichos electorales específicos) y mantener cierta solidaridad de bloque frente al adversario ideológico. El balance entre diferenciación y convergencia varía según el momento del ciclo electoral y las dinámicas de la competencia.</p>
+</section>
+</section>
+<section id="derechas-contemporáneas-tipología-y-dinámicas-de-competencia" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="derechas-contemporáneas-tipología-y-dinámicas-de-competencia"><span class="header-section-number">3.6</span> 3.6. Derechas contemporáneas: tipología y dinámicas de competencia</h2>
+<section id="la-pluralización-de-las-derechas" class="level3">
+<h3 class="anchored" data-anchor-id="la-pluralización-de-las-derechas">3.6.1. La pluralización de las derechas</h3>
+<p>El estudio de las derechas contemporáneas ha experimentado un notable desarrollo durante las últimas dos décadas, impulsado por el ascenso electoral y la consolidación institucional de partidos y movimientos que desafían los consensos de la democracia liberal (Mudde, 2007, 2019; Norris &amp; Inglehart, 2019; Rydgren, 2018). Este desarrollo ha producido tipologías cada vez más sofisticadas que reconocen la <strong>pluralidad interna</strong> del campo genéricamente denominado “la derecha”.</p>
+<p>La distinción fundacional de Mudde (2007) entre <strong>extrema derecha</strong> y <strong>derecha radical</strong> sigue siendo influyente. La extrema derecha rechaza los principios fundamentales de la democracia liberal, incluyendo el pluralismo, el Estado de derecho y los derechos individuales; históricamente, el fascismo representa su manifestación más acabada. La derecha radical, en cambio, acepta (al menos nominalmente) las reglas del juego democrático pero adopta posiciones que tensionan sus límites: nativismo (prioridad de los nacionales sobre los extranjeros), autoritarismo (preferencia por orden y jerarquía sobre libertad y pluralismo) y populismo (antagonismo entre pueblo puro y élite corrupta).</p>
+<p>Dentro de la derecha radical —y junto a ella— coexisten otras corrientes que no encajan perfectamente en esta tipología:</p>
+<p><strong>Derecha tradicional/mainstream</strong>: Partidos conservadores establecidos, típicamente vinculados a élites económicas, que privilegian la estabilidad, el crecimiento económico y la continuidad institucional. Ejemplos incluyen los partidos demócrata-cristianos europeos, el Partido Republicano estadounidense pre-Trump, o la derecha chilena de la transición.</p>
+<p><strong>Derecha radical populista</strong>: Partidos que combinan nativismo, autoritarismo y populismo, construyendo un antagonismo entre un “pueblo” definido en términos etnoculturales y élites percibidas como cosmopolitas y traidoras. Ejemplos incluyen el Rassemblement National francés, Vox en España, o el Partido Republicano en Chile.</p>
+<p><strong>Derecha libertaria</strong>: Corriente que combina ultraliberalismo económico (reducción radical del Estado, desregulación, privatización) con crítica a las élites políticas establecidas, incluyendo frecuentemente a las derechas tradicionales. Ejemplos recientes incluyen a Milei en Argentina o Kaiser en Chile.</p>
+</section>
+<section id="diferencias-en-estrategias-comunicativas" class="level3">
+<h3 class="anchored" data-anchor-id="diferencias-en-estrategias-comunicativas">3.6.2. Diferencias en estrategias comunicativas</h3>
+<p>Estas corrientes no solo difieren ideológicamente sino también en sus <strong>estrategias comunicativas</strong>, particularmente en entornos digitales:</p>
+<p>Las <strong>derechas tradicionales</strong> tienden a emplear un registro institucional y moderado, apelando a valores de estabilidad, competencia técnica y responsabilidad. Su comunicación busca proyectar confiabilidad y evitar la polarización excesiva, posicionándose como alternativas “razonables” frente a extremos de izquierda y derecha.</p>
+<p>Las <strong>derechas radicales populistas</strong> movilizan agravios, construyen enemigos y emplean retórica de confrontación. Su comunicación enfatiza amenazas (inmigración, inseguridad, decadencia moral) y promete protección mediante liderazgo fuerte. El estilo es más emocional y directo que el de las derechas tradicionales.</p>
+<p>Las <strong>derechas libertarias</strong> adoptan frecuentemente estilos provocadores y transgresores, desafiando convenciones de corrección política y empleando códigos comunicativos propios de subculturas digitales (memes, jerga de foros, referencias a la “cultura de internet”). Su comunicación combina argumentos económicos con ataques al establishment político en su conjunto.</p>
+<p>Estas diferencias en estrategia comunicativa sugieren que las distintas corrientes no solo ofrecen programas diferentes sino que configuran <strong>públicos</strong> diferentes: atraen a audiencias con perfiles sociodemográficos, disposiciones psicológicas y hábitos mediáticos distintivos.</p>
+</section>
+<section id="competencia-intra-derecha-y-dinámicas-de-diferenciación" class="level3">
+<h3 class="anchored" data-anchor-id="competencia-intra-derecha-y-dinámicas-de-diferenciación">3.6.3. Competencia intra-derecha y dinámicas de diferenciación</h3>
+<p>La coexistencia de múltiples corrientes de derecha en un mismo sistema político genera <strong>dinámicas de competencia intra-bloque</strong> que han recibido atención creciente en la literatura (Meguid, 2005; Bale et al., 2010; Han, 2015).</p>
+<p>Estas dinámicas presentan características específicas:</p>
+<p><strong>Disputa por electorados superpuestos</strong>: Las distintas corrientes de derecha compiten parcialmente por los mismos votantes, particularmente aquellos desencantados con la izquierda pero no firmemente alineados con ninguna corriente específica de derecha.</p>
+<p><strong>Estrategias de diferenciación</strong>: Para capturar nichos específicos, cada corriente debe distinguirse de las demás. Esta diferenciación puede operar en múltiples dimensiones: posiciones sustantivas (más o menos moderadas), estilo comunicativo (más o menos confrontacional), construcción de adversarios (énfasis en amenazas diferentes).</p>
+<p><strong>Presiones de convergencia</strong>: Frente al adversario ideológico común (la izquierda), las corrientes de derecha enfrentan presiones para coordinar y presentar un frente unido. Esta presión es particularmente intensa en contextos de balotaje, donde la dispersión del voto de derecha puede facilitar victorias de la izquierda.</p>
+<p><strong>Dinámicas de contagio</strong>: La literatura ha documentado cómo los partidos mainstream pueden adoptar posiciones o estilos de partidos radicales que amenazan su base electoral (Han, 2015). En el contexto de las derechas, esto puede implicar que corrientes tradicionales radicalicen su discurso para competir con corrientes emergentes.</p>
+</section>
+<section id="las-derechas-latinoamericanas-contemporáneas" class="level3">
+<h3 class="anchored" data-anchor-id="las-derechas-latinoamericanas-contemporáneas">3.6.4. Las derechas latinoamericanas contemporáneas</h3>
+<p>En América Latina, el estudio de las derechas ha cobrado renovado impulso tras el ascenso de figuras como Bolsonaro y Milei, que representan una ruptura con las derechas tradicionales de la región (Zanotti &amp; Roberts, 2021; Buben &amp; Kouba, 2024; Cannon, 2016).</p>
+<p>Las <strong>nuevas derechas latinoamericanas</strong> comparten algunas características con sus homólogas del Norte Global pero presentan también especificidades regionales:</p>
+<ul>
+<li>Un contexto de sistemas de partidos más débiles e inestables, que facilita la emergencia de outsiders y la volatilidad electoral.</li>
+<li>Una relación más ambigua con el legado de dictaduras militares recientes, que algunas figuras reivindican parcialmente.</li>
+<li>La presencia del “giro a la izquierda” de los años 2000 como antagonista fundacional, que permite articular demandas diversas en oposición a gobiernos progresistas.</li>
+<li>Un uso particularmente intensivo de plataformas digitales para sortear medios tradicionales percibidos como hostiles.</li>
+</ul>
+<p>El caso chileno resulta particularmente interesante porque permite observar la coexistencia y competencia entre múltiples corrientes de derecha dentro de un sistema político que, aunque debilitado, mantiene mayor institucionalización que otros de la región. La presencia simultánea de una derecha tradicional (Matthei), una derecha radical-conservadora (Kast) y una derecha libertaria (Kaiser) ofrece un laboratorio para el estudio de las dinámicas de competencia intra-bloque.</p>
+</section>
+</section>
+<section id="reddit-como-espacio-de-deliberación-política" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="reddit-como-espacio-de-deliberación-política"><span class="header-section-number">3.7</span> 3.7. Reddit como espacio de deliberación política</h2>
+<section id="arquitectura-y-propiedades-de-la-plataforma" class="level3">
+<h3 class="anchored" data-anchor-id="arquitectura-y-propiedades-de-la-plataforma">3.7.1. Arquitectura y propiedades de la plataforma</h3>
+<p>Reddit constituye una plataforma de redes sociales con características estructurales distintivas que la diferencian de otros espacios de interacción digital (Medvedev et al., 2019; Proferes et al., 2021).</p>
+<p>A diferencia de plataformas organizadas en torno a redes de seguidores (Twitter/X, Instagram) o conexiones de amistad (Facebook), Reddit se estructura en torno a <strong>comunidades temáticas</strong> (<em>subreddits</em>) definidas por intereses compartidos. Los usuarios no siguen a otros usuarios sino que se suscriben a comunidades, y el contenido se organiza en función de su pertenencia a estas comunidades antes que de las relaciones sociales entre usuarios.</p>
+<p>Esta arquitectura tiene implicaciones importantes:</p>
+<ul>
+<li><strong>Centralidad del tema sobre la persona</strong>: La discusión se organiza en torno a intereses compartidos, no en torno a identidades individuales. Esto puede facilitar el debate sustantivo sobre temas específicos.</li>
+<li><strong>Identidad seudónima</strong>: Los usuarios operan bajo seudónimos no vinculados a su identidad real. Esto puede facilitar la expresión de posiciones polémicas pero también el comportamiento antisocial.</li>
+<li><strong>Comunidades autogobernadas</strong>: Cada subreddit tiene sus propias reglas y moderadores, generando culturas discursivas distintivas.</li>
+</ul>
+</section>
+<section id="estructura-conversacional" class="level3">
+<h3 class="anchored" data-anchor-id="estructura-conversacional">3.7.2. Estructura conversacional</h3>
+<p>La estructura conversacional de Reddit presenta características distintivas. Las publicaciones (<em>posts</em>) inician hilos de discusión que se desarrollan en <strong>comentarios anidados</strong> (<em>threaded discussions</em>): los usuarios pueden responder tanto al post original como a comentarios previos, generando árboles de discusión ramificados.</p>
+<p>Esta estructura contrasta con la linealidad de otras plataformas y resulta particularmente adecuada para el análisis de dinámicas deliberativas:</p>
+<ul>
+<li>Permite seguir el desarrollo de argumentos y contraargumentos.</li>
+<li>Habilita conversaciones paralelas sobre diferentes aspectos de un mismo tema.</li>
+<li>Facilita la identificación de puntos de controversia y consenso.</li>
+</ul>
+</section>
+<section id="los-subreddits-chilenos" class="level3">
+<h3 class="anchored" data-anchor-id="los-subreddits-chilenos">3.7.4. Los subreddits chilenos</h3>
+<p>En el contexto chileno, dos subreddits concentran la discusión política nacional:</p>
+<p><strong>r/chile</strong>: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática. Históricamente ha tendido hacia posiciones de centro-izquierda, aunque con presencia de voces diversas.</p>
+<p><strong>r/RepublicadeChile</strong>: Comunidad alternativa surgida como escisión de r/chile, con políticas de moderación más permisivas. Tiende a concentrar usuarios de derecha y a tolerar discursos más confrontacionales.</p>
+<p>Esta dualidad constituye un caso comparativo valioso: permite examinar cómo las mismas controversias políticas son procesadas de manera diferenciada en comunidades con distintas orientaciones y culturas discursivas.</p>
+</section>
+</section>
+<section id="síntesis-un-modelo-analítico-integrado" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="síntesis-un-modelo-analítico-integrado"><span class="header-section-number">3.8</span> 3.8. Síntesis: un modelo analítico integrado</h2>
+<p>El marco teórico desarrollado converge en un modelo que orienta el análisis empírico:</p>
+<pre><code>CONTEXTO ESTRUCTURAL
+├── Fragmentación del sistema de partidos chileno
+├── Reconfiguración del campo de las derechas  
+├── Plataformización de la comunicación política
+└── Ciclo electoral 2025 como coyuntura crítica
+
+ACTORES EN COMPETENCIA
+├── Derecha tradicional (Matthei)
+│   └── Moderación, competencia técnica, estabilidad
+├── Derecha radical-conservadora (Kast)
+│   └── Conservadurismo moral, retórica antielitista
+├── Derecha libertaria (Kaiser)
+│   └── Ultraliberalismo, provocación, códigos digitales
+└── Izquierda-PC (Jara)
+    └── Proyecto transformador, adversario estructurante
+
+DIMENSIONES ANALÍTICAS
+├── Framing
+│   ├── ¿Cómo definen el problema?
+│   ├── ¿A quién atribuyen responsabilidad?
+│   └── ¿Qué soluciones proponen?
+├── Emoción
+│   ├── ¿Qué repertorios afectivos despliegan?
+│   ├── ¿Cómo articulan emociones positivas y negativas?
+│   └── ¿Hacia quién dirigen cada emoción?
+└── Construcción de adversarios
+    ├── ¿A quién identifican como amenaza?
+    ├── ¿Qué estrategias de deslegitimación emplean?
+    └── ¿Predomina el agonismo o el antagonismo?
+
+DINÁMICAS DE COMPETENCIA
+├── Competencia intra-derecha
+│   ├── Estrategias de diferenciación
+│   └── Disputa por electorados superpuestos
+├── Convergencia anti-izquierda
+│   ├── Articulación de frente común
+│   └── Construcción del PC como adversario
+└── Evolución temporal
+    ├── Primera vuelta: predominio de diferenciación
+    └── Segunda vuelta: predominio de convergencia
+
+RESULTADOS ESPERADOS
+├── Patrones distintivos por corriente ideológica
+├── Variación temporal documentada
+├── Diferencias entre subreddits identificadas
+└── Mecanismos explicativos articulados</code></pre>
+<p>Este modelo será operacionalizado en el siguiente capítulo, que detalla las estrategias metodológicas para la recolección y análisis de datos.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-presentacion-problema.html" class="pagination-link" aria-label="Presentación del Problema">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Presentación del Problema</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-obtencion-datos.html" class="pagination-link" aria-label="Diseño metodológico">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Marco teórico"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">  echo = FALSE,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">  warning = FALSE,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.width = 7,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.height = 5</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1. Comunicación política en entornos digitales</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1.1. La transformación estructural de la esfera pública</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>La emergencia de las plataformas digitales ha reconfigurado las condiciones estructurales bajo las cuales se produce la comunicación política contemporánea. Esta transformación no constituye simplemente una ampliación cuantitativa de los canales disponibles, sino una modificación cualitativa de las propiedades del espacio comunicativo (Chadwick, 2017; Bennett &amp; Pfetsch, 2018). Comprender esta transformación requiere atender tanto a las continuidades con formas previas de comunicación política como a las discontinuidades que introducen las arquitecturas digitales.</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>El concepto de **esfera pública**, tal como fue teorizado por Habermas (1962/1989), designaba un espacio de deliberación racional entre ciudadanos privados que, mediante el intercambio de argumentos, configuraban una opinión pública capaz de interpelar al poder político. Esta esfera pública burguesa, históricamente situada en los cafés, salones y periódicos de la Europa del siglo XVIII, operaba bajo condiciones específicas: acceso restringido pero formalmente igualitario, normas de civilidad discursiva, orientación hacia el interés general y autonomía respecto al Estado y al mercado.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Las plataformas digitales han sido alternativamente celebradas como una expansión democratizadora de esta esfera —al reducir las barreras de entrada al debate público— y criticadas como su corrupción —al subordinar la deliberación razonada a la lógica del espectáculo, la polarización y la desinformación (Dahlgren, 2005; Sunstein, 2017; Habermas, 2022). Más que zanjar esta disputa, resulta analíticamente productivo reconocer que las plataformas constituyen un **tipo distintivo** de esfera pública, con propiedades estructurales específicas que habilitan ciertas formas de participación política mientras dificultan otras.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1.2. Propiedades estructurales de las plataformas</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>boyd (2010) identificó cuatro propiedades que distinguen a los entornos digitales en red de los espacios comunicativos previos:</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>**Persistencia**: Los contenidos publicados permanecen accesibles más allá del momento de su producción. A diferencia del discurso oral, que se desvanece, y a diferencia incluso de los medios impresos, cuya circulación es limitada, los textos digitales pueden ser recuperados, archivados y citados indefinidamente. Esta persistencia modifica los cálculos estratégicos de la comunicación política: lo que se dice queda registrado y puede ser usado en contra de su autor.</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>**Replicabilidad**: Los contenidos digitales pueden ser copiados y reproducidos sin pérdida de calidad. Esta propiedad facilita tanto la difusión viral de mensajes como la descontextualización: un fragmento puede ser extraído, editado y recirculado en contextos que distorsionan su sentido original.</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>**Escalabilidad**: La audiencia potencial de cualquier publicación es masiva. Un mensaje que en contextos previos habría alcanzado a decenas de personas puede, bajo ciertas condiciones, llegar a millones. Esta posibilidad transforma las expectativas de los productores de contenido y genera dinámicas de atención altamente desiguales.</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>**Buscabilidad**: Los contenidos pueden ser localizados mediante herramientas de búsqueda e indexación. Esta propiedad facilita el acceso a información pero también habilita formas de vigilancia y escrutinio que pueden inhibir la expresión libre.</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>A estas cuatro propiedades, investigaciones posteriores han añadido otras características relevantes para el análisis político:</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>**Mediación algorítmica**: Los algoritmos de curación determinan qué contenidos ganan visibilidad. La optimización del *engagement* tiende a privilegiar contenidos emocionalmente activadores, particularmente aquellos que provocan indignación (Brady et al., 2017; Crockett, 2017). Esta mediación no es neutral: estructura la atención de maneras que pueden intensificar el conflicto y distorsionar la representación de las preferencias colectivas.</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>**Colapso de contextos**: En plataformas digitales, audiencias que en la vida offline permanecerían separadas convergen en un mismo espacio, generando tensiones entre registros comunicativos y expectativas de recepción (Marwick &amp; boyd, 2011). Un político que en contextos diferentes se dirigiría de manera distinta a sus militantes, a votantes indecisos y a la prensa, enfrenta en redes sociales la imposibilidad de segmentar audiencias con claridad.</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>**Métricas de rendimiento**: Las plataformas hacen visible y cuantificable la recepción de los mensajes mediante conteos de *likes*, compartidos, comentarios y visualizaciones. Estas métricas generan retroalimentación inmediata que puede orientar el comportamiento comunicativo hacia la maximización de indicadores que no necesariamente coinciden con objetivos de deliberación democrática.</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1.3. Plataformas como infraestructuras de poder</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Más allá de sus propiedades técnicas, las plataformas digitales deben comprenderse como **infraestructuras de poder** que condicionan las posibilidades de la acción política (Gillespie, 2018; van Dijck et al., 2018). Esta perspectiva implica atender a tres dimensiones:</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>En primer lugar, las plataformas son **empresas privadas** con modelos de negocio específicos, típicamente basados en la captura y monetización de la atención mediante publicidad dirigida. Las decisiones de diseño que estructuran la experiencia del usuario responden a imperativos comerciales que pueden entrar en tensión con valores democráticos. La optimización del *engagement* puede privilegiar contenidos divisivos; la personalización puede fragmentar el espacio público; la opacidad algorítmica puede dificultar la rendición de cuentas.</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>En segundo lugar, las plataformas ejercen **poder de moderación**: establecen las reglas de lo que puede y no puede decirse, deciden qué contenidos amplificar o suprimir, y arbitran disputas entre usuarios. Este poder, que en otros contextos correspondería a instituciones estatales o a normas sociales informales, es ejercido por corporaciones privadas con escasa supervisión democrática y con intereses que no necesariamente coinciden con los de la ciudadanía.</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>En tercer lugar, las plataformas generan **efectos de red** que dificultan la competencia y la salida: cuanto más usuarios tiene una plataforma, más valiosa es para cada usuario individual, lo que tiende a consolidar monopolios u oligopolios. Esto implica que las decisiones de diseño de unas pocas empresas tienen consecuencias desproporcionadas para la calidad del debate público en sociedades enteras.</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2. Polarización afectiva: más allá de la divergencia ideológica</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2.1. Conceptualización y medición</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>La **polarización afectiva** designa el distanciamiento emocional entre grupos políticos: no solo difieren en posiciones sustantivas, sino que se desagradan, desconfían mutuamente y se atribuyen malas intenciones (Iyengar et al., 2012, 2019). Este concepto captura una dimensión de la división política que no se reduce a la divergencia ideológica convencional.</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>La distinción entre polarización ideológica y afectiva es analíticamente crucial. La **polarización ideológica** refiere a cuán distantes están las posiciones de distintos grupos en un continuo izquierda-derecha o en dimensiones temáticas específicas (aborto, inmigración, redistribución). La **polarización afectiva**, en cambio, captura cuánto se desagradan mutuamente los grupos, cuánta desconfianza se profesan y cuán dispuestos están a atribuirse mutuamente mala fe, independientemente de cuán diferentes sean sus posiciones sustantivas.</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>Empíricamente, estas dos dimensiones pueden variar de manera independiente. Es posible una polarización ideológica moderada acompañada de intensa polarización afectiva (los grupos no difieren tanto en posiciones pero se detestan) o una polarización ideológica pronunciada con polarización afectiva moderada (difieren significativamente pero mantienen respeto mutuo). La evidencia sugiere que en muchas democracias contemporáneas, particularmente Estados Unidos, la polarización afectiva ha crecido más rápidamente que la ideológica (Iyengar et al., 2019; Boxell et al., 2022).</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>La medición de la polarización afectiva típicamente emplea **termómetros de sentimiento**: escalas donde los encuestados indican cuán favorables se sienten hacia su propio grupo político (endogrupo) y hacia el grupo adversario (exogrupo). La diferencia entre ambas puntuaciones constituye un indicador de polarización afectiva a nivel individual; su promedio, un indicador a nivel agregado. Otros indicadores incluyen la resistencia a relaciones interpersonales con miembros del exogrupo (disposición a aceptarlos como amigos, vecinos, parejas de familiares) y la atribución de rasgos negativos (dishonestidad, cerrazón mental, peligrosidad).</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2.2. Causas y mecanismos</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>La literatura ha identificado múltiples factores que contribuyen a la polarización afectiva:</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>**Identidad partidaria como identidad social**: Cuando la afiliación política se convierte en un componente central de la identidad personal —comparable a la identidad étnica, religiosa o de género—, los procesos de favoritismo endogrupal y hostilidad exogrupal documentados por la psicología social se activan en el dominio político (Mason, 2018). La política deja de ser una arena de competencia entre propuestas para convertirse en un conflicto entre "nosotros" y "ellos".</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>**Alineamiento de clivajes**: Cuando múltiples divisiones sociales (raza, religión, educación, lugar de residencia) se alinean con la división partidaria, la distancia entre grupos se amplifica. En lugar de identidades cruzadas que generan vínculos transversales, emergen identidades "apiladas" que refuerzan mutuamente la pertenencia grupal y la hostilidad hacia el adversario (Mason, 2018; Baldassarri &amp; Gelman, 2008).</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>**Élites polarizadas**: Cuando los líderes políticos adoptan retóricas de confrontación y deslegitimación del adversario, estas señales son captadas por los ciudadanos y contribuyen a intensificar la polarización afectiva (Druckman et al., 2013). La polarización de élites puede preceder y causar la polarización de masas, aunque también puede operar en dirección inversa.</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>**Medios y ecosistema informativo**: La fragmentación del ecosistema mediático, con la proliferación de fuentes partidistas que presentan visiones del mundo mutuamente incompatibles, puede reforzar las percepciones negativas del exogrupo al exponerlo de manera sesgada y caricaturizada (Levendusky, 2013).</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2.3. Polarización afectiva y plataformas digitales</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>Las plataformas digitales han sido señaladas como un factor potencialmente relevante en la intensificación de la polarización afectiva, aunque la evidencia sobre su contribución causal específica es objeto de debate (Boxell et al., 2017; Lelkes et al., 2017; Guess et al., 2023). Varios mecanismos han sido propuestos:</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>**Exposición selectiva amplificada**: Los algoritmos de personalización pueden reforzar la tendencia humana a buscar información congruente con las propias creencias, reduciendo la exposición a perspectivas disonantes (Mosleh et al., 2025). Sin embargo, la evidencia sobre la prevalencia de "cámaras de eco" puras es mixta; muchos usuarios están expuestos a cierta diversidad, aunque esta exposición no necesariamente reduce la polarización.</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>**Contenido emocionalmente cargado**: La optimización del *engagement* privilegia contenidos que provocan reacciones emocionales intensas, particularmente indignación y desprecio hacia el exogrupo (Brady et al., 2017). Los contenidos que expresan indignación moral tienden a difundirse más ampliamente, creando incentivos para la producción de contenido polarizante.</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>**Visibilidad de extremos**: Las voces más estridentes y las posiciones más extremas tienden a ser más visibles en plataformas digitales, distorsionando la percepción de lo que piensa "el otro lado" (Yudkin et al., 2019). Los usuarios pueden sobrestimar cuán extremos, irrazonables u hostiles son los miembros del exogrupo.</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>**Reducción de costos de expresión hostil**: El anonimato o seudonimato, la mediación tecnológica y la ausencia de consecuencias sociales inmediatas pueden facilitar la expresión de hostilidad hacia adversarios políticos (Settle, 2018; Crockett, 2017).</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>**Dinámicas de señalización grupal**: La expresión de hostilidad hacia el exogrupo funciona como señal de pertenencia y lealtad al endogrupo, siendo recompensada con aprobación social (*likes*, comentarios positivos) (Mason, 2018). Las plataformas hacen esta recompensa visible e inmediata.</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2.4. Consecuencias de la polarización afectiva</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>La polarización afectiva tiene consecuencias significativas para la democracia. Cuando los ciudadanos ven a sus adversarios políticos no como oponentes legítimos sino como enemigos, varias dinámicas problemáticas emergen:</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>**Erosión de la confianza institucional**: Si el exogrupo es percibido como fundamentalmente corrupto o malintencionado, cualquier institución controlada por el exogrupo pierde legitimidad. Esto puede extenderse a instituciones supuestamente neutrales (tribunales, organismos electorales, medios de comunicación) cuando son percibidas como alineadas con el adversario.</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>**Resistencia al compromiso**: La negociación y el compromiso, esenciales para la democracia pluralista, se vuelven difíciles cuando cualquier acuerdo con el exogrupo es percibido como traición. Los incentivos se orientan hacia la confrontación y el bloqueo más que hacia la cooperación.</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>**Tolerancia a la transgresión normativa**: Cuando la victoria del propio bando se percibe como existencialmente importante, los ciudadanos pueden volverse tolerantes hacia transgresiones democráticas si son cometidas por su propio lado (Graham &amp; Svolik, 2020). La lealtad partidaria puede sobreponerse al compromiso con normas democráticas.</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>**Distorsión de la percepción de la realidad**: La polarización afectiva puede llevar a evaluar la misma información de maneras radicalmente diferentes según su fuente percibida, dificultando el establecimiento de hechos compartidos como base para la deliberación (Kahan et al., 2017).</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Teoría del *framing*: la disputa por definir la realidad</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.3.1. Fundamentos conceptuales</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>La teoría del **encuadre** o ***framing*** constituye uno de los enfoques más influyentes para el análisis de la comunicación política. En su formulación clásica, Entman (1993) definió el *framing* como el proceso de "seleccionar algunos aspectos de una realidad percibida y hacerlos más prominentes en un texto comunicativo, de modo que se promueva una definición particular del problema, una interpretación causal, una evaluación moral y/o una recomendación de tratamiento" (p. 52).</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>Los marcos interpretativos no son descripciones neutrales de la realidad sino **dispositivos de organización del sentido** que orientan la percepción, estructuran la comprensión y sugieren cursos de acción. Funcionan como "paquetes interpretativos" que permiten a los actores dar coherencia a flujos de información complejos y potencialmente contradictorios (Gamson &amp; Modigliani, 1989). En el ámbito político, los marcos definen qué está en juego en una controversia, quiénes son los actores relevantes, cuáles son las causas de los problemas y qué soluciones resultan apropiadas.</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>La competencia política puede entenderse, en parte significativa, como una **competencia entre marcos alternativos** por definir los términos del debate (Lakoff, 2004; Chong &amp; Druckman, 2007). Quien logra establecer el marco dominante de una controversia condiciona las opciones que parecen razonables y las que quedan excluidas. Por ejemplo, enmarcar la inmigración como "problema de seguridad" activa respuestas diferentes que enmarcarla como "oportunidad económica" o "cuestión humanitaria"; cada marco privilegia ciertos valores, actores y soluciones mientras margina otros.</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.3.2. Tipologías de marcos</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>La literatura distingue entre **marcos genéricos** y **marcos específicos** (Semetko &amp; Valkenburg, 2000; de Vreese, 2005):</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>Los **marcos genéricos** son aplicables a una amplia gama de temas y contextos. Semetko y Valkenburg (2000) identificaron cinco marcos genéricos prevalentes en la cobertura noticiosa: *conflicto* (énfasis en desacuerdos y disputas), *interés humano* (personalización mediante historias individuales), *consecuencias económicas* (impacto financiero), *atribución de responsabilidad* (asignación de culpa o mérito) y *moralidad* (enmarcamiento ético o religioso).</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>Los **marcos específicos** son propios de controversias particulares y capturan las categorías interpretativas relevantes en un dominio acotado. Por ejemplo, el debate sobre cambio climático puede analizarse mediante marcos específicos como "amenaza existencial", "oportunidad tecnológica", "complot anticapitalista" o "costo económico desproporcionado".</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>Para el análisis de campañas electorales, resulta útil distinguir también entre:</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Marcos diagnósticos**: ¿Cuál es el problema? ¿Quién es responsable?</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Marcos pronósticos**: ¿Cuál es la solución? ¿Qué debe hacerse?</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Marcos motivacionales**: ¿Por qué actuar? ¿Qué está en juego?</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.3.3. Efectos del *framing*</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>La investigación experimental ha documentado extensamente los **efectos del framing**: la manera en que un tema es encuadrado influye significativamente en las actitudes y preferencias de las audiencias (Chong &amp; Druckman, 2007; Druckman, 2001). Estos efectos no son mera manipulación: los marcos funcionan haciendo accesibles ciertas consideraciones que luego son empleadas en la formación de juicios.</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>Sin embargo, los efectos del framing no son uniformes ni automáticos. Su magnitud depende de factores como:</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fuerza del marco**: Marcos que resuenan con valores ampliamente compartidos, que son internamente coherentes y que provienen de fuentes creíbles tienden a ser más influyentes.</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Exposición competitiva**: Cuando las audiencias están expuestas a marcos alternativos, los efectos de cada marco individual se atenúan (Chong &amp; Druckman, 2007).</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Predisposiciones previas**: Las audiencias no son receptoras pasivas; interpretan los marcos a la luz de sus creencias, valores e identidades previas, aceptando aquellos congruentes y resistiendo los incongruentes.</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Conocimiento y motivación**: Audiencias más informadas y motivadas pueden ser más resistentes a efectos de framing, aunque también pueden usar su conocimiento para contrarargumentar marcos que amenazan sus posiciones previas.</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.3.4. *Framing* en entornos digitales</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>En el contexto de la comunicación digital, el análisis de *framing* adquiere características específicas. Por un lado, la abundancia de datos textuales generados por usuarios permite identificar patrones de encuadre a escalas antes impensables mediante técnicas de procesamiento de lenguaje natural (Burscher et al., 2014; Walter &amp; Ophir, 2019). Es posible analizar no solo cómo los actores políticos proponen marcos, sino cómo estos son adoptados, resistidos, transformados o rechazados por los usuarios en sus intercambios.</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>Por otro lado, la interactividad de las plataformas posibilita observar el ***framing* como proceso** más que como producto estático. En conversaciones digitales, los marcos son negociados en tiempo real: usuarios proponen interpretaciones, otros las contestan, emergen síntesis o se profundizan divergencias (Meraz &amp; Papacharissi, 2013). Esta dimensión procesual resulta especialmente relevante para el estudio de campañas electorales, donde los marcos evolucionan en respuesta a eventos, declaraciones de adversarios y dinámicas de la conversación pública.</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>La estructura de Reddit es particularmente adecuada para este tipo de análisis. Los hilos de comentarios anidados permiten seguir cómo los marcos son propuestos, cuestionados y reformulados; el sistema de votación ofrece un indicador (imperfecto pero disponible) de qué marcos resuenan con la comunidad; la persistencia de las conversaciones habilita el análisis longitudinal.</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Emociones políticas: repertorios afectivos y movilización</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.4.1. El giro afectivo en el estudio de la política</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>Durante décadas, los estudios de comportamiento político operaron bajo el supuesto de que las emociones eran "ruido" que distorsionaba el juicio racional. Esta perspectiva, heredera de una tradición filosófica que oponía razón y pasión, ha sido profundamente revisada en las últimas tres décadas. Hoy existe amplio consenso en que las emociones no son obstáculos para el pensamiento político sino componentes constitutivos de la cognición y la acción política (Marcus et al., 2000; Jasper, 2011; Nussbaum, 2013).</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>Las emociones funcionan como **sistemas de evaluación** que orientan la atención hacia información relevante, informan juicios sobre situaciones y actores, y motivan respuestas conductuales. Lejos de ser meras reacciones irracionales, las emociones incorporan evaluaciones cognitivas de la situación: experimentar miedo implica percibir una amenaza; experimentar indignación implica percibir una transgresión injusta. Estas evaluaciones pueden ser más o menos acertadas, pero no son irracionales en el sentido de carecer de contenido cognitivo.</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.4.2. Teoría de la inteligencia afectiva</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>La **teoría de la inteligencia afectiva** (Marcus et al., 2000; Marcus, 2002) propone un modelo influyente sobre el rol de las emociones en el comportamiento político. Según esta teoría, dos sistemas emocionales operan de manera paralela:</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>El **sistema de disposiciones** es activado por estímulos familiares y conduce al comportamiento habitual. Cuando el entorno se percibe como normal y predecible, las emociones positivas (entusiasmo) refuerzan las predisposiciones existentes y el procesamiento "automático" basado en heurísticas e identidades previas. Las emociones negativas de baja intensidad (aversión) también operan dentro de este sistema, reforzando el rechazo hacia objetos previamente valorados negativamente.</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>El **sistema de vigilancia** es activado cuando el entorno se percibe como amenazante o incierto. La emoción característica de este sistema es la ansiedad, que interrumpe el procesamiento habitual, incrementa la atención a nueva información y puede promover una reconsideración de las predisposiciones previas.</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>Esta teoría tiene implicaciones importantes para la comunicación política. Sugiere que las apelaciones emocionales no tienen efectos uniformes: el entusiasmo refuerza a los ya convencidos; la ansiedad puede abrir espacio para la persuasión al interrumpir el procesamiento automático. También sugiere que diferentes emociones activan diferentes modos de procesamiento de la información política.</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.4.3. Emociones discretas políticamente relevantes</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>Más allá de la distinción entre sistemas, la investigación ha identificado **emociones discretas** con roles específicos en la política:</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>**Entusiasmo/esperanza**: Emociones positivas de alta activación que energizan la participación, refuerzan la identificación con el endogrupo y motivan comportamientos de apoyo activo (donaciones, voluntariado, difusión de mensajes).</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>**Miedo/ansiedad**: Emociones negativas asociadas a la percepción de amenaza. Pueden promover búsqueda de información y apertura a persuasión, pero también pueden desmovilizar o conducir a respuestas defensivas.</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>**Ira/indignación**: Emociones negativas de alta activación asociadas a la percepción de transgresión injusta. A diferencia del miedo, que puede paralizar, la ira motiva la acción, típicamente orientada a confrontar o castigar al transgresor percibido.</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>**Desprecio**: Emoción negativa dirigida hacia individuos o grupos percibidos como moral o intelectualmente inferiores. Implica distancia y rechazo de la interacción como entre iguales.</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>**Orgullo/vergüenza**: Emociones autoevaluativas vinculadas a la identidad grupal. El orgullo por el propio grupo motiva defensa y promoción; la vergüenza puede generar distanciamiento o esfuerzos de reparación.</span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.4.4. Repertorios afectivos</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>Para esta investigación, el concepto de **repertorio afectivo** resulta operativamente útil. Designa el conjunto de emociones característicamente movilizadas por un actor político, su combinación y secuenciación, y los objetos hacia los cuales se dirigen (Jasper, 2011; Goodwin et al., 2001).</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>Los actores políticos no movilizan emociones aisladas sino configuraciones emocionales específicas. Un movimiento puede combinar esperanza respecto al futuro, orgullo por la identidad grupal e indignación frente a injusticias; otro puede combinar miedo a amenazas externas, desprecio hacia élites y nostalgia por un pasado idealizado. Estas configuraciones constituyen repertorios distintivos que caracterizan a diferentes tradiciones políticas y estrategias comunicativas.</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>El análisis de repertorios afectivos permite preguntas más sofisticadas que la mera identificación de emociones aisladas: ¿Cómo se articulan emociones positivas y negativas? ¿Qué proporción del contenido emocional se dirige al endogrupo (defensa, orgullo) versus al exogrupo (ataque, desprecio)? ¿Cómo varían los repertorios entre corrientes ideológicas? ¿Cómo evolucionan a lo largo del tiempo?</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.4.5. Emociones en entornos digitales</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>Las plataformas digitales presentan características específicas para la expresión y circulación de emociones políticas. La investigación ha documentado que los contenidos emocionalmente cargados tienden a difundirse más ampliamente que los contenidos neutros (Berger &amp; Milkman, 2012; Stieglitz &amp; Dang-Xuan, 2013). Más específicamente, las emociones de alta activación —tanto positivas (asombro, entusiasmo) como negativas (ira, ansiedad)— predicen mayor viralidad que las emociones de baja activación.</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>La **indignación moral** ha recibido particular atención como emoción políticamente relevante en entornos digitales (Crockett, 2017; Brady et al., 2017). A diferencia de otras emociones negativas, la indignación combina valencia negativa con alta activación y orientación hacia la acción: quien experimenta indignación no solo se siente mal, sino que se siente impelido a hacer algo al respecto, típicamente castigar al transgresor percibido o al menos señalar públicamente su desaprobación.</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>En el contexto de las plataformas digitales, expresar indignación resulta fácil y de bajo costo (un comentario, un *retweet*), mientras que las recompensas sociales (aprobación del endogrupo) son inmediatas y visibles. Esto puede generar dinámicas de "cascada de indignación" donde cada expresión indignada suscita otras, amplificando el tono emocional de la conversación.</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.5. Construcción de adversarios y fronteras identitarias</span></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.5.1. La constitución relacional de las identidades políticas</span></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>Desde la teoría del discurso político, las identidades colectivas no son esencias preexistentes sino **construcciones relacionales** que emergen a través de prácticas de diferenciación. La tradición inaugurada por Laclau y Mouffe (1985) sostiene que toda identidad se constituye mediante la demarcación de un "exterior constitutivo": un "nosotros" se define en relación —y en oposición— a un "ellos".</span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>Esta perspectiva tiene implicaciones importantes para el análisis político. Sugiere que la construcción de adversarios no es un subproducto accidental de la competencia política sino una operación constitutiva de las identidades políticas mismas. Los grupos se definen tanto por lo que son como por lo que no son, tanto por los valores que afirman como por los que rechazan, tanto por los aliados que reconocen como por los adversarios que construyen.</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>En contextos electorales, esta dinámica se intensifica. Las campañas son, entre otras cosas, operaciones de producción de diferencia: de afirmación de la propia identidad y de demarcación respecto a alternativas. El análisis de cómo se construyen los adversarios —quiénes son identificados como tales, qué atributos se les asignan, mediante qué operaciones retóricas se los deslegitima— constituye una vía privilegiada para comprender la configuración del espacio político.</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.5.2. Antagonismo versus agonismo</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>Mouffe (2005, 2013) introduce una distinción conceptual crucial entre **antagonismo** y **agonismo**:</span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>El **antagonismo** designa una relación entre enemigos que no comparten un espacio simbólico común. El adversario es percibido como una amenaza existencial cuya eliminación es condición de la propia supervivencia. No hay terreno compartido para la negociación; el conflicto es de suma cero.</span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>El **agonismo**, en cambio, designa una relación entre adversarios que, reconociéndose mutuamente como oponentes legítimos, compiten dentro de reglas compartidas. Los adversarios difieren —incluso profundamente— pero comparten un compromiso con el marco institucional democrático y se reconocen mutuamente como participantes legítimos del juego político.</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>La democracia, en la perspectiva de Mouffe, requiere la transformación de antagonismos potencialmente destructivos en agonismos productivos. El conflicto es inevitable y legítimo, pero debe canalizarse mediante formas que no pongan en cuestión la existencia misma del adversario ni el marco institucional compartido.</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>Esta distinción resulta analíticamente útil para examinar el discurso político digital. Permite preguntar: ¿Los actores construyen a sus oponentes como adversarios legítimos o como enemigos existenciales? ¿Predominan formas agonistas de confrontación (crítica de posiciones, disputa por políticas) o formas antagonistas (impugnación de la legitimidad, demonización, llamados a la exclusión)?</span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.5.3. Estrategias de construcción de adversarios</span></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>La literatura sobre comunicación política ha identificado múltiples estrategias mediante las cuales se construyen y deslegitiman adversarios:</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>**Asociación negativa**: Vincular al adversario con figuras, eventos o símbolos negativamente valorados. Por ejemplo, asociar a un candidato con dictaduras, corrupción o grupos estigmatizados.</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>**Atribución de intenciones ocultas**: Sugerir que los propósitos declarados del adversario encubren objetivos malignos o inconfesables. El adversario no solo estaría equivocado sino que mentiría deliberadamente.</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>**Deshumanización**: Emplear lenguaje que niega o degrada la humanidad del adversario, representándolo como animal, enfermedad, plaga o amenaza parasitaria.</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>**Ridiculización**: Emplear humor, sarcasmo o parodia para degradar al adversario, presentándolo como incompetente, absurdo o digno de desprecio.</span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>**Esencialización**: Atribuir al adversario rasgos fijos e incorregibles que lo definirían en su naturaleza más profunda, negando la posibilidad de cambio o diálogo.</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>**Construcción de amenaza**: Enfatizar el peligro que representa el adversario para valores, instituciones o grupos queridos, activando emociones de miedo y urgencia.</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.5.4. Fronteras intra-bloque e inter-bloque</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>Para esta investigación resulta crucial distinguir entre dos tipos de fronteras identitarias:</span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>Las **fronteras inter-bloque** separan campos ideológicos opuestos (izquierda vs. derecha, progresistas vs. conservadores). Son las fronteras más visibles y típicamente las más estudiadas en la literatura sobre polarización.</span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>Las **fronteras intra-bloque** separan corrientes dentro de un mismo campo ideológico. En el caso de las derechas, distinguen entre derecha tradicional, radical-conservadora y libertaria. Estas fronteras son más porosas y contingentes, pero igualmente relevantes para comprender las dinámicas de competencia política.</span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>La coexistencia de ambos tipos de fronteras genera tensiones estratégicas. Los actores deben simultáneamente diferenciarse de sus competidores intra-bloque (para capturar nichos electorales específicos) y mantener cierta solidaridad de bloque frente al adversario ideológico. El balance entre diferenciación y convergencia varía según el momento del ciclo electoral y las dinámicas de la competencia.</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.6. Derechas contemporáneas: tipología y dinámicas de competencia</span></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.6.1. La pluralización de las derechas</span></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>El estudio de las derechas contemporáneas ha experimentado un notable desarrollo durante las últimas dos décadas, impulsado por el ascenso electoral y la consolidación institucional de partidos y movimientos que desafían los consensos de la democracia liberal (Mudde, 2007, 2019; Norris &amp; Inglehart, 2019; Rydgren, 2018). Este desarrollo ha producido tipologías cada vez más sofisticadas que reconocen la **pluralidad interna** del campo genéricamente denominado "la derecha".</span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>La distinción fundacional de Mudde (2007) entre **extrema derecha** y **derecha radical** sigue siendo influyente. La extrema derecha rechaza los principios fundamentales de la democracia liberal, incluyendo el pluralismo, el Estado de derecho y los derechos individuales; históricamente, el fascismo representa su manifestación más acabada. La derecha radical, en cambio, acepta (al menos nominalmente) las reglas del juego democrático pero adopta posiciones que tensionan sus límites: nativismo (prioridad de los nacionales sobre los extranjeros), autoritarismo (preferencia por orden y jerarquía sobre libertad y pluralismo) y populismo (antagonismo entre pueblo puro y élite corrupta).</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>Dentro de la derecha radical —y junto a ella— coexisten otras corrientes que no encajan perfectamente en esta tipología:</span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>**Derecha tradicional/mainstream**: Partidos conservadores establecidos, típicamente vinculados a élites económicas, que privilegian la estabilidad, el crecimiento económico y la continuidad institucional. Ejemplos incluyen los partidos demócrata-cristianos europeos, el Partido Republicano estadounidense pre-Trump, o la derecha chilena de la transición.</span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>**Derecha radical populista**: Partidos que combinan nativismo, autoritarismo y populismo, construyendo un antagonismo entre un "pueblo" definido en términos etnoculturales y élites percibidas como cosmopolitas y traidoras. Ejemplos incluyen el Rassemblement National francés, Vox en España, o el Partido Republicano en Chile.</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>**Derecha libertaria**: Corriente que combina ultraliberalismo económico (reducción radical del Estado, desregulación, privatización) con crítica a las élites políticas establecidas, incluyendo frecuentemente a las derechas tradicionales. Ejemplos recientes incluyen a Milei en Argentina o Kaiser en Chile.</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.6.2. Diferencias en estrategias comunicativas</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>Estas corrientes no solo difieren ideológicamente sino también en sus **estrategias comunicativas**, particularmente en entornos digitales:</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>Las **derechas tradicionales** tienden a emplear un registro institucional y moderado, apelando a valores de estabilidad, competencia técnica y responsabilidad. Su comunicación busca proyectar confiabilidad y evitar la polarización excesiva, posicionándose como alternativas "razonables" frente a extremos de izquierda y derecha.</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>Las **derechas radicales populistas** movilizan agravios, construyen enemigos y emplean retórica de confrontación. Su comunicación enfatiza amenazas (inmigración, inseguridad, decadencia moral) y promete protección mediante liderazgo fuerte. El estilo es más emocional y directo que el de las derechas tradicionales.</span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>Las **derechas libertarias** adoptan frecuentemente estilos provocadores y transgresores, desafiando convenciones de corrección política y empleando códigos comunicativos propios de subculturas digitales (memes, jerga de foros, referencias a la "cultura de internet"). Su comunicación combina argumentos económicos con ataques al establishment político en su conjunto.</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>Estas diferencias en estrategia comunicativa sugieren que las distintas corrientes no solo ofrecen programas diferentes sino que configuran **públicos** diferentes: atraen a audiencias con perfiles sociodemográficos, disposiciones psicológicas y hábitos mediáticos distintivos.</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.6.3. Competencia intra-derecha y dinámicas de diferenciación</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>La coexistencia de múltiples corrientes de derecha en un mismo sistema político genera **dinámicas de competencia intra-bloque** que han recibido atención creciente en la literatura (Meguid, 2005; Bale et al., 2010; Han, 2015).</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>Estas dinámicas presentan características específicas:</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>**Disputa por electorados superpuestos**: Las distintas corrientes de derecha compiten parcialmente por los mismos votantes, particularmente aquellos desencantados con la izquierda pero no firmemente alineados con ninguna corriente específica de derecha.</span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>**Estrategias de diferenciación**: Para capturar nichos específicos, cada corriente debe distinguirse de las demás. Esta diferenciación puede operar en múltiples dimensiones: posiciones sustantivas (más o menos moderadas), estilo comunicativo (más o menos confrontacional), construcción de adversarios (énfasis en amenazas diferentes).</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>**Presiones de convergencia**: Frente al adversario ideológico común (la izquierda), las corrientes de derecha enfrentan presiones para coordinar y presentar un frente unido. Esta presión es particularmente intensa en contextos de balotaje, donde la dispersión del voto de derecha puede facilitar victorias de la izquierda.</span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>**Dinámicas de contagio**: La literatura ha documentado cómo los partidos mainstream pueden adoptar posiciones o estilos de partidos radicales que amenazan su base electoral (Han, 2015). En el contexto de las derechas, esto puede implicar que corrientes tradicionales radicalicen su discurso para competir con corrientes emergentes.</span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.6.4. Las derechas latinoamericanas contemporáneas</span></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>En América Latina, el estudio de las derechas ha cobrado renovado impulso tras el ascenso de figuras como Bolsonaro y Milei, que representan una ruptura con las derechas tradicionales de la región (Zanotti &amp; Roberts, 2021; Buben &amp; Kouba, 2024; Cannon, 2016).</span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>Las **nuevas derechas latinoamericanas** comparten algunas características con sus homólogas del Norte Global pero presentan también especificidades regionales:</span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Un contexto de sistemas de partidos más débiles e inestables, que facilita la emergencia de outsiders y la volatilidad electoral.</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Una relación más ambigua con el legado de dictaduras militares recientes, que algunas figuras reivindican parcialmente.</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>La presencia del "giro a la izquierda" de los años 2000 como antagonista fundacional, que permite articular demandas diversas en oposición a gobiernos progresistas.</span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Un uso particularmente intensivo de plataformas digitales para sortear medios tradicionales percibidos como hostiles.</span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>El caso chileno resulta particularmente interesante porque permite observar la coexistencia y competencia entre múltiples corrientes de derecha dentro de un sistema político que, aunque debilitado, mantiene mayor institucionalización que otros de la región. La presencia simultánea de una derecha tradicional (Matthei), una derecha radical-conservadora (Kast) y una derecha libertaria (Kaiser) ofrece un laboratorio para el estudio de las dinámicas de competencia intra-bloque.</span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.7. Reddit como espacio de deliberación política</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.7.1. Arquitectura y propiedades de la plataforma</span></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>Reddit constituye una plataforma de redes sociales con características estructurales distintivas que la diferencian de otros espacios de interacción digital (Medvedev et al., 2019; Proferes et al., 2021).</span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>A diferencia de plataformas organizadas en torno a redes de seguidores (Twitter/X, Instagram) o conexiones de amistad (Facebook), Reddit se estructura en torno a **comunidades temáticas** (*subreddits*) definidas por intereses compartidos. Los usuarios no siguen a otros usuarios sino que se suscriben a comunidades, y el contenido se organiza en función de su pertenencia a estas comunidades antes que de las relaciones sociales entre usuarios.</span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>Esta arquitectura tiene implicaciones importantes:</span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Centralidad del tema sobre la persona**: La discusión se organiza en torno a intereses compartidos, no en torno a identidades individuales. Esto puede facilitar el debate sustantivo sobre temas específicos.</span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Identidad seudónima**: Los usuarios operan bajo seudónimos no vinculados a su identidad real. Esto puede facilitar la expresión de posiciones polémicas pero también el comportamiento antisocial.</span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Comunidades autogobernadas**: Cada subreddit tiene sus propias reglas y moderadores, generando culturas discursivas distintivas.</span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.7.2. Estructura conversacional</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>La estructura conversacional de Reddit presenta características distintivas. Las publicaciones (*posts*) inician hilos de discusión que se desarrollan en **comentarios anidados** (*threaded discussions*): los usuarios pueden responder tanto al post original como a comentarios previos, generando árboles de discusión ramificados.</span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>Esta estructura contrasta con la linealidad de otras plataformas y resulta particularmente adecuada para el análisis de dinámicas deliberativas:</span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Permite seguir el desarrollo de argumentos y contraargumentos.</span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Habilita conversaciones paralelas sobre diferentes aspectos de un mismo tema.</span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Facilita la identificación de puntos de controversia y consenso.</span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.7.4. Los subreddits chilenos</span></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>En el contexto chileno, dos subreddits concentran la discusión política nacional:</span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>**r/chile**: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática. Históricamente ha tendido hacia posiciones de centro-izquierda, aunque con presencia de voces diversas.</span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a>**r/RepublicadeChile**: Comunidad alternativa surgida como escisión de r/chile, con políticas de moderación más permisivas. Tiende a concentrar usuarios de derecha y a tolerar discursos más confrontacionales.</span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a>Esta dualidad constituye un caso comparativo valioso: permite examinar cómo las mismas controversias políticas son procesadas de manera diferenciada en comunidades con distintas orientaciones y culturas discursivas.</span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.8. Síntesis: un modelo analítico integrado</span></span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a>El marco teórico desarrollado converge en un modelo que orienta el análisis empírico:</span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a><span class="in">CONTEXTO ESTRUCTURAL</span></span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a><span class="in">├── Fragmentación del sistema de partidos chileno</span></span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a><span class="in">├── Reconfiguración del campo de las derechas  </span></span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a><span class="in">├── Plataformización de la comunicación política</span></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a><span class="in">└── Ciclo electoral 2025 como coyuntura crítica</span></span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a><span class="in">ACTORES EN COMPETENCIA</span></span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a><span class="in">├── Derecha tradicional (Matthei)</span></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Moderación, competencia técnica, estabilidad</span></span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a><span class="in">├── Derecha radical-conservadora (Kast)</span></span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Conservadurismo moral, retórica antielitista</span></span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a><span class="in">├── Derecha libertaria (Kaiser)</span></span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Ultraliberalismo, provocación, códigos digitales</span></span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a><span class="in">└── Izquierda-PC (Jara)</span></span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a><span class="in">    └── Proyecto transformador, adversario estructurante</span></span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a><span class="in">DIMENSIONES ANALÍTICAS</span></span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a><span class="in">├── Framing</span></span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ¿Cómo definen el problema?</span></span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ¿A quién atribuyen responsabilidad?</span></span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── ¿Qué soluciones proponen?</span></span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a><span class="in">├── Emoción</span></span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ¿Qué repertorios afectivos despliegan?</span></span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ¿Cómo articulan emociones positivas y negativas?</span></span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── ¿Hacia quién dirigen cada emoción?</span></span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a><span class="in">└── Construcción de adversarios</span></span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── ¿A quién identifican como amenaza?</span></span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── ¿Qué estrategias de deslegitimación emplean?</span></span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a><span class="in">    └── ¿Predomina el agonismo o el antagonismo?</span></span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a><span class="in">DINÁMICAS DE COMPETENCIA</span></span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a><span class="in">├── Competencia intra-derecha</span></span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── Estrategias de diferenciación</span></span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Disputa por electorados superpuestos</span></span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a><span class="in">├── Convergencia anti-izquierda</span></span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── Articulación de frente común</span></span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── Construcción del PC como adversario</span></span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a><span class="in">└── Evolución temporal</span></span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a><span class="in">    ├── Primera vuelta: predominio de diferenciación</span></span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a><span class="in">    └── Segunda vuelta: predominio de convergencia</span></span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a><span class="in">RESULTADOS ESPERADOS</span></span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a><span class="in">├── Patrones distintivos por corriente ideológica</span></span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a><span class="in">├── Variación temporal documentada</span></span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a><span class="in">├── Diferencias entre subreddits identificadas</span></span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a><span class="in">└── Mecanismos explicativos articulados</span></span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>Este modelo será operacionalizado en el siguiente capítulo, que detalla las estrategias metodológicas para la recolección y análisis de datos.</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-marco.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
