@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-obtencion-datos.html" rel="next">
+<link href="./03-marco.html" rel="next">
 <link href="./01-introduccion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -162,44 +162,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-obtencion-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span></a>
+  <a href="./03-marco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-depuracion-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Depuración de Datos</span></span></a>
+  <a href="./04-obtencion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-exploracion-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploración de Datos</span></span></a>
+  <a href="./05-depuracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Depuración de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-modelado-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></span></a>
+  <a href="./06-exploracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploración de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-interpretacion-resultados.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></span></a>
+  <a href="./07-modelado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusión</span></span></a>
+  <a href="./08-interpretacion-resultados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conclusión</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
   </div>
 </li>
     </ul>
@@ -212,11 +218,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema"><span class="header-section-number">2.1</span> Problema</a></li>
-  <li><a href="#acercamiento-actores-y-dimensiones" id="toc-acercamiento-actores-y-dimensiones" class="nav-link" data-scroll-target="#acercamiento-actores-y-dimensiones"><span class="header-section-number">2.2</span> Acercamiento, actores y dimensiones</a></li>
-  <li><a href="#descripción-de-la-propuesta" id="toc-descripción-de-la-propuesta" class="nav-link" data-scroll-target="#descripción-de-la-propuesta"><span class="header-section-number">2.3</span> Descripción de la propuesta</a></li>
-  <li><a href="#mvp-y-objetivos" id="toc-mvp-y-objetivos" class="nav-link" data-scroll-target="#mvp-y-objetivos"><span class="header-section-number">2.4</span> MVP y objetivos</a></li>
-  <li><a href="#validación" id="toc-validación" class="nav-link" data-scroll-target="#validación"><span class="header-section-number">2.5</span> Validación</a></li>
+  <li><a href="#el-problema-competencia-política-digital-en-un-sistema-fragmentado" id="toc-el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="nav-link active" data-scroll-target="#el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.1</span> 2.1. El problema: competencia política digital en un sistema fragmentado</a></li>
+  <li><a href="#acercamiento-actores-dimensiones-y-niveles-de-análisis" id="toc-acercamiento-actores-dimensiones-y-niveles-de-análisis" class="nav-link" data-scroll-target="#acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.2</span> 2.2. Acercamiento: actores, dimensiones y niveles de análisis</a>
+  <ul class="collapse">
+  <li><a href="#los-actores-tres-derechas-y-un-adversario" id="toc-los-actores-tres-derechas-y-un-adversario" class="nav-link" data-scroll-target="#los-actores-tres-derechas-y-un-adversario">2.2.1. Los actores: tres derechas y un adversario</a></li>
+  <li><a href="#las-dimensiones-analíticas" id="toc-las-dimensiones-analíticas" class="nav-link" data-scroll-target="#las-dimensiones-analíticas">2.2.2. Las dimensiones analíticas</a></li>
+  <li><a href="#los-niveles-de-análisis" id="toc-los-niveles-de-análisis" class="nav-link" data-scroll-target="#los-niveles-de-análisis">2.2.3. Los niveles de análisis</a></li>
+  </ul></li>
+  <li><a href="#descripción-de-la-propuesta-analítica" id="toc-descripción-de-la-propuesta-analítica" class="nav-link" data-scroll-target="#descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> 2.3. Descripción de la propuesta analítica</a>
+  <ul class="collapse">
+  <li><a href="#enfoque-general" id="toc-enfoque-general" class="nav-link" data-scroll-target="#enfoque-general">2.3.1. Enfoque general</a></li>
+  <li><a href="#arquitectura-del-análisis" id="toc-arquitectura-del-análisis" class="nav-link" data-scroll-target="#arquitectura-del-análisis">2.3.2. Arquitectura del análisis</a></li>
+  <li><a href="#originalidad-de-la-propuesta" id="toc-originalidad-de-la-propuesta" class="nav-link" data-scroll-target="#originalidad-de-la-propuesta">2.3.3. Originalidad de la propuesta</a></li>
+  </ul></li>
+  <li><a href="#producto-mínimo-viable-mvp-y-objetivos-operacionales" id="toc-producto-mínimo-viable-mvp-y-objetivos-operacionales" class="nav-link" data-scroll-target="#producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.4</span> 2.4. Producto mínimo viable (MVP) y objetivos operacionales</a>
+  <ul class="collapse">
+  <li><a href="#definición-del-mvp" id="toc-definición-del-mvp" class="nav-link" data-scroll-target="#definición-del-mvp">2.4.1. Definición del MVP</a></li>
+  <li><a href="#objetivos-operacionales-y-entregables" id="toc-objetivos-operacionales-y-entregables" class="nav-link" data-scroll-target="#objetivos-operacionales-y-entregables">2.4.2. Objetivos operacionales y entregables</a></li>
+  <li><a href="#alcances-y-limitaciones-anticipadas" id="toc-alcances-y-limitaciones-anticipadas" class="nav-link" data-scroll-target="#alcances-y-limitaciones-anticipadas">2.4.3. Alcances y limitaciones anticipadas</a></li>
+  </ul></li>
+  <li><a href="#estrategia-de-validación" id="toc-estrategia-de-validación" class="nav-link" data-scroll-target="#estrategia-de-validación"><span class="header-section-number">2.5</span> 2.5. Estrategia de validación</a>
+  <ul class="collapse">
+  <li><a href="#validación-interna" id="toc-validación-interna" class="nav-link" data-scroll-target="#validación-interna">2.5.1. Validación interna</a></li>
+  <li><a href="#validación-externa" id="toc-validación-externa" class="nav-link" data-scroll-target="#validación-externa">2.5.2. Validación externa</a></li>
+  <li><a href="#criterios-de-éxito" id="toc-criterios-de-éxito" class="nav-link" data-scroll-target="#criterios-de-éxito">2.5.3. Criterios de éxito</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/02-presentacion-problema.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -249,30 +275,240 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>[Contenido de la presentación del problema]</p>
-<section id="problema" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="problema"><span class="header-section-number">2.1</span> Problema</h2>
-<p>[Descripción del problema]</p>
+<section id="el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.1</span> 2.1. El problema: competencia política digital en un sistema fragmentado</h2>
+<p>El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.</p>
+<p>El <strong>problema central</strong> que aborda esta investigación puede formularse así:</p>
+<blockquote class="blockquote">
+<p>En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?</p>
+</blockquote>
+<p>Este problema es relevante por tres razones:</p>
+<ol type="1">
+<li><p><strong>Vacío empírico</strong>: Mientras abundan los estudios sobre polarización izquierda-derecha, la competencia <em>intra-bloque</em> —particularmente entre derechas— permanece subexplorada en América Latina.</p></li>
+<li><p><strong>Transformación en curso</strong>: Las derechas chilenas están en proceso de reconfiguración activa; estudiar este proceso mientras ocurre permite capturar dinámicas que análisis retrospectivos pierden.</p></li>
+<li><p><strong>Implicancias democráticas</strong>: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización.</p></li>
+</ol>
 </section>
-<section id="acercamiento-actores-y-dimensiones" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="acercamiento-actores-y-dimensiones"><span class="header-section-number">2.2</span> Acercamiento, actores y dimensiones</h2>
-<p>[Descripción del acercamiento, actores y dimensiones]</p>
+<section id="acercamiento-actores-dimensiones-y-niveles-de-análisis" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.2</span> 2.2. Acercamiento: actores, dimensiones y niveles de análisis</h2>
+<section id="los-actores-tres-derechas-y-un-adversario" class="level3">
+<h3 class="anchored" data-anchor-id="los-actores-tres-derechas-y-un-adversario">2.2.1. Los actores: tres derechas y un adversario</h3>
+<p>La investigación se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 47%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Actor</th>
+<th>Posición</th>
+<th>Caracterización sintética</th>
+<th>Base social</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Evelyn Matthei</strong></td>
+<td>Derecha tradicional</td>
+<td>Pragmatismo, competencia técnica, moderación discursiva</td>
+<td>Élites empresariales, sectores medios-altos</td>
+</tr>
+<tr class="even">
+<td><strong>José Antonio Kast</strong></td>
+<td>Derecha radical-conservadora</td>
+<td>Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración</td>
+<td>Sectores populares conservadores, evangélicos</td>
+</tr>
+<tr class="odd">
+<td><strong>Johannes Kaiser</strong></td>
+<td>Derecha libertaria</td>
+<td>Ultraliberalismo, provocación deliberada, códigos de subculturas digitales</td>
+<td>Jóvenes masculinos, usuarios intensivos de internet</td>
+</tr>
+<tr class="even">
+<td><strong>Jeannette Jara</strong></td>
+<td>Izquierda-PC</td>
+<td>Proyecto transformador, defensa del legado del gobierno Boric</td>
+<td>Militancia de izquierda, sectores sindicalizados</td>
+</tr>
+</tbody>
+</table>
+<p>Esta selección permite observar:</p>
+<ul>
+<li><strong>Competencia intra-derecha</strong>: Cómo tres proyectos distintos disputan un electorado parcialmente superpuesto.</li>
+<li><strong>Convergencia anti-izquierda</strong>: Cómo actores previamente enfrentados articulan un frente común frente al adversario ideológico.</li>
+<li><strong>Asimetrías discursivas</strong>: Cómo diferentes corrientes movilizan repertorios retóricos y emocionales distintivos.</li>
+</ul>
 </section>
-<section id="descripción-de-la-propuesta" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="descripción-de-la-propuesta"><span class="header-section-number">2.3</span> Descripción de la propuesta</h2>
-<p><a href="#descripción-de-la-propuesta">Descripción de la propuesta</a></p>
+<section id="las-dimensiones-analíticas" class="level3">
+<h3 class="anchored" data-anchor-id="las-dimensiones-analíticas">2.2.2. Las dimensiones analíticas</h3>
+<p>El análisis se estructura en torno a <strong>tres dimensiones</strong> que capturan aspectos complementarios de la comunicación política:</p>
+<p><strong>Dimensión 1: Encuadre (<em>framing</em>)</strong> - ¿Qué marcos interpretativos predominan en el discurso de cada corriente? - ¿Cómo definen el problema, sus causas y sus soluciones? - ¿Qué está “en juego” según cada actor?</p>
+<p><strong>Dimensión 2: Emoción</strong> - ¿Qué emociones movilizan las distintas candidaturas? - ¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién se dirigen las emociones negativas?</p>
+<p><strong>Dimensión 3: Construcción de adversarios</strong> - ¿Quiénes son construidos como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs.&nbsp;izquierda) con los intra-bloque (entre derechas)?</p>
 </section>
-<section id="mvp-y-objetivos" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="mvp-y-objetivos"><span class="header-section-number">2.4</span> MVP y objetivos</h2>
-<p>[Descripción del MVP y objetivos]</p>
+<section id="los-niveles-de-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="los-niveles-de-análisis">2.2.3. Los niveles de análisis</h3>
+<p>El diseño contempla tres niveles de observación:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nivel</th>
+<th>Unidad</th>
+<th>Foco analítico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Macro</strong></td>
+<td>Corpus completo</td>
+<td>Tendencias agregadas, evolución temporal, comparación entre subreddits</td>
+</tr>
+<tr class="even">
+<td><strong>Meso</strong></td>
+<td>Hilos de discusión</td>
+<td>Dinámicas conversacionales, patrones de confrontación/consenso</td>
+</tr>
+<tr class="odd">
+<td><strong>Micro</strong></td>
+<td>Posts y comentarios individuales</td>
+<td>Estrategias retóricas específicas, ejemplos ilustrativos</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="validación" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="validación"><span class="header-section-number">2.5</span> Validación</h2>
-<p>[Descripción de la validación]</p>
+</section>
+<section id="descripción-de-la-propuesta-analítica" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> 2.3. Descripción de la propuesta analítica</h2>
+<section id="enfoque-general" class="level3">
+<h3 class="anchored" data-anchor-id="enfoque-general">2.3.1. Enfoque general</h3>
+<p>La propuesta combina <strong>ciencia social computacional</strong> con <strong>análisis interpretativo del discurso político</strong>. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos.</p>
+<p>El flujo analítico puede representarse así:</p>
+<pre><code>[Corpus textual] 
+    → [Procesamiento computacional: NLP, sentiment, topics]
+        → [Identificación de patrones cuantitativos]
+            → [Interpretación cualitativa de patrones]
+                → [Triangulación con eventos externos]
+                    → [Hallazgos sustantivos]</code></pre>
+</section>
+<section id="arquitectura-del-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="arquitectura-del-análisis">2.3.2. Arquitectura del análisis</h3>
+<p><strong>Fase 1: Caracterización del corpus</strong> - Estadísticas descriptivas: volumen, distribución temporal, participación por subreddit - Mapeo de actores: frecuencia de mención de cada candidatura - Identificación de eventos: picos de actividad y su correlación con acontecimientos políticos</p>
+<p><strong>Fase 2: Análisis de encuadres</strong> - Modelado de tópicos para identificar temas estructurantes - Análisis de co-ocurrencias: qué conceptos aparecen asociados a cada candidatura - Comparación inter-temporal: evolución de marcos entre primera y segunda vuelta</p>
+<p><strong>Fase 3: Análisis emocional</strong> - Clasificación de sentimiento (positivo/negativo/neutro) - Identificación de emociones discretas cuando es posible - Construcción de “perfiles emocionales” por candidatura</p>
+<p><strong>Fase 4: Análisis de adversarios</strong> - Identificación de menciones cruzadas entre candidaturas - Clasificación de valencia: menciones positivas, negativas, neutras - Mapeo de redes de antagonismo</p>
+<p><strong>Fase 5: Síntesis e integración</strong> - Triangulación de hallazgos entre dimensiones - Construcción de narrativa analítica - Identificación de mecanismos explicativos</p>
+</section>
+<section id="originalidad-de-la-propuesta" class="level3">
+<h3 class="anchored" data-anchor-id="originalidad-de-la-propuesta">2.3.3. Originalidad de la propuesta</h3>
+<p>La propuesta se distingue de estudios previos en tres aspectos:</p>
+<ol type="1">
+<li><p><strong>Foco en competencia intra-bloque</strong>: Mientras la mayoría de estudios examina la polarización entre izquierda y derecha, esta investigación centra la atención en las dinámicas <em>dentro</em> del campo de las derechas.</p></li>
+<li><p><strong>Perspectiva procesual</strong>: En lugar de fotografías estáticas, el diseño longitudinal permite observar cómo evolucionan las estrategias discursivas a lo largo del ciclo electoral.</p></li>
+<li><p><strong>Reddit como campo</strong>: La plataforma está subexplorada en el contexto latinoamericano, y sus características estructurales (conversaciones anidadas, votación comunitaria) ofrecen posibilidades analíticas distintivas.</p></li>
+</ol>
+</section>
+</section>
+<section id="producto-mínimo-viable-mvp-y-objetivos-operacionales" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.4</span> 2.4. Producto mínimo viable (MVP) y objetivos operacionales</h2>
+<section id="definición-del-mvp" class="level3">
+<h3 class="anchored" data-anchor-id="definición-del-mvp">2.4.1. Definición del MVP</h3>
+<p>El <strong>producto mínimo viable</strong> de esta investigación consiste en:</p>
+<blockquote class="blockquote">
+<p>Un análisis sistemático de la conversación política en Reddit sobre las candidaturas presidenciales chilenas de 2025, que identifique y caracterice los patrones de encuadre, emoción y construcción de adversarios de cada corriente ideológica, y que documente su evolución a lo largo del ciclo electoral (agosto-diciembre 2024).</p>
+</blockquote>
+</section>
+<section id="objetivos-operacionales-y-entregables" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos-operacionales-y-entregables">2.4.2. Objetivos operacionales y entregables</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 24%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Objetivo</th>
+<th>Entregable</th>
+<th>Indicador de cumplimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O1</strong>: Construir corpus</td>
+<td>Base de datos estructurada</td>
+<td>≥1000 posts y ≥10.000 comentarios con menciones políticas</td>
+</tr>
+<tr class="even">
+<td><strong>O2</strong>: Caracterizar encuadres</td>
+<td>Modelo de tópicos interpretado</td>
+<td>Identificación de ≥5 marcos distintivos por corriente</td>
+</tr>
+<tr class="odd">
+<td><strong>O3</strong>: Mapear emociones</td>
+<td>Perfiles emocionales por candidatura</td>
+<td>Clasificación de sentimiento del 100% del corpus</td>
+</tr>
+<tr class="even">
+<td><strong>O4</strong>: Analizar adversarios</td>
+<td>Red de antagonismos</td>
+<td>Matriz de menciones cruzadas con valencia</td>
+</tr>
+<tr class="odd">
+<td><strong>O5</strong>: Documentar evolución</td>
+<td>Serie temporal</td>
+<td>Análisis por fase electoral (pre-campaña, campaña, segunda vuelta)</td>
+</tr>
+<tr class="even">
+<td><strong>O6</strong>: Sintetizar hallazgos</td>
+<td>Capítulos de resultados</td>
+<td>Respuesta fundamentada a cada pregunta de investigación</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="alcances-y-limitaciones-anticipadas" class="level3">
+<h3 class="anchored" data-anchor-id="alcances-y-limitaciones-anticipadas">2.4.3. Alcances y limitaciones anticipadas</h3>
+<p><strong>Alcances</strong>: - El análisis cubre el debate en dos comunidades de Reddit, que constituyen los principales espacios de discusión política chilena en la plataforma. - El período captura fases clave del ciclo electoral, permitiendo observar dinámicas de cambio. - Las técnicas empleadas permiten procesar el corpus completo, no solo muestras.</p>
+<p><strong>Limitaciones</strong>: - Reddit no es representativo del electorado chileno; los hallazgos refieren al debate en esta plataforma específica, no a la opinión pública general. - Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general. - El análisis de sentimiento automatizado tiene márgenes de error, particularmente con ironía, sarcasmo y jerga local. - La atribución ideológica de usuarios es inferida a partir de su comportamiento discursivo, no de autodeclaraciones.</p>
+</section>
+</section>
+<section id="estrategia-de-validación" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="estrategia-de-validación"><span class="header-section-number">2.5</span> 2.5. Estrategia de validación</h2>
+<section id="validación-interna" class="level3">
+<h3 class="anchored" data-anchor-id="validación-interna">2.5.1. Validación interna</h3>
+<p><strong>Triangulación metodológica</strong>: Los hallazgos de cada técnica (modelado de tópicos, análisis de sentimiento, análisis de redes) son contrastados entre sí. Un patrón se considera robusto cuando emerge consistentemente de múltiples aproximaciones.</p>
+<p><strong>Verificación cualitativa</strong>: Los patrones identificados computacionalmente son verificados mediante lectura de casos. Cuando el análisis automatizado clasifica un comentario como “negativo hacia Matthei”, se revisan ejemplos para confirmar que la clasificación captura el fenómeno de interés.</p>
+<p><strong>Sensibilidad paramétrica</strong>: Las técnicas con parámetros ajustables (número de tópicos, umbrales de clasificación) son ejecutadas con múltiples configuraciones para verificar que los hallazgos no dependan de decisiones arbitrarias.</p>
+</section>
+<section id="validación-externa" class="level3">
+<h3 class="anchored" data-anchor-id="validación-externa">2.5.2. Validación externa</h3>
+<p><strong>Triangulación con fuentes externas</strong>: Los patrones temporales identificados en Reddit son contrastados con el calendario de eventos políticos documentado en medios de comunicación. La correlación entre picos de actividad y eventos específicos (debates, declaraciones, encuestas) proporciona validación externa.</p>
+<p><strong>Consistencia con literatura</strong>: Los hallazgos son discutidos a la luz de estudios previos sobre comunicación política digital, derechas latinoamericanas y polarización. La convergencia con patrones documentados en otros contextos refuerza la validez; las divergencias son examinadas como posibles especificidades del caso chileno.</p>
+</section>
+<section id="criterios-de-éxito" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-éxito">2.5.3. Criterios de éxito</h3>
+<p>La investigación se considerará exitosa si:</p>
+<ol type="1">
+<li><p><strong>Responde las preguntas</strong>: Cada pregunta de investigación recibe una respuesta fundamentada empíricamente.</p></li>
+<li><p><strong>Identifica patrones no triviales</strong>: Los hallazgos van más allá de lo que podría inferirse sin análisis sistemático.</p></li>
+<li><p><strong>Documenta variación</strong>: El análisis captura diferencias significativas entre corrientes ideológicas, entre subreddits y entre fases electorales.</p></li>
+<li><p><strong>Genera interpretaciones plausibles</strong>: Los patrones identificados son interpretados mediante mecanismos teóricamente informados.</p></li>
+<li><p><strong>Reconoce limitaciones</strong>: El análisis explicita qué puede y qué no puede concluirse a partir de los datos disponibles.</p></li>
+</ol>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -754,47 +990,206 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-obtencion-datos.html" class="pagination-link" aria-label="Diseño metodológico">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-marco.html" class="pagination-link" aria-label="Marco teórico">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Presentación del Problema"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">  echo = FALSE,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">  warning = FALSE,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.width = 7,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.height = 5</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Contenido de la presentación del problema<span class="sc">\]</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Descripción del problema<span class="sc">\]</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Acercamiento, actores y dimensiones</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Descripción del acercamiento, actores y dimensiones<span class="sc">\]</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descripción de la propuesta</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción de la propuesta</span><span class="co">]</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## MVP y objetivos</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Descripción del MVP y objetivos<span class="sc">\]</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Validación</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Descripción de la validación<span class="sc">\]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Presentación del Problema"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">  echo = FALSE,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">  warning = FALSE,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.width = 7,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.height = 5</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.1. El problema: competencia política digital en un sistema fragmentado</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>El **problema central** que aborda esta investigación puede formularse así:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Este problema es relevante por tres razones:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Vacío empírico**: Mientras abundan los estudios sobre polarización izquierda-derecha, la competencia *intra-bloque* —particularmente entre derechas— permanece subexplorada en América Latina.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Transformación en curso**: Las derechas chilenas están en proceso de reconfiguración activa; estudiar este proceso mientras ocurre permite capturar dinámicas que análisis retrospectivos pierden.</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Implicancias democráticas**: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización.</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.2. Acercamiento: actores, dimensiones y niveles de análisis</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2.1. Los actores: tres derechas y un adversario</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>La investigación se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>| Actor | Posición | Caracterización sintética | Base social |</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>|-------|----------|---------------------------|-------------|</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>| **Evelyn Matthei** | Derecha tradicional | Pragmatismo, competencia técnica, moderación discursiva | Élites empresariales, sectores medios-altos |</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>| **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos |</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>| **Johannes Kaiser** | Derecha libertaria | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales | Jóvenes masculinos, usuarios intensivos de internet |</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>| **Jeannette Jara** | Izquierda-PC | Proyecto transformador, defensa del legado del gobierno Boric | Militancia de izquierda, sectores sindicalizados |</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>Esta selección permite observar:</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Competencia intra-derecha**: Cómo tres proyectos distintos disputan un electorado parcialmente superpuesto.</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Convergencia anti-izquierda**: Cómo actores previamente enfrentados articulan un frente común frente al adversario ideológico.</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Asimetrías discursivas**: Cómo diferentes corrientes movilizan repertorios retóricos y emocionales distintivos.</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2.2. Las dimensiones analíticas</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>El análisis se estructura en torno a **tres dimensiones** que capturan aspectos complementarios de la comunicación política:</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>**Dimensión 1: Encuadre (*framing*)**</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Qué marcos interpretativos predominan en el discurso de cada corriente?</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Cómo definen el problema, sus causas y sus soluciones?</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Qué está "en juego" según cada actor?</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>**Dimensión 2: Emoción**</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Qué emociones movilizan las distintas candidaturas?</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)?</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Hacia quién se dirigen las emociones negativas?</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>**Dimensión 3: Construcción de adversarios**</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Quiénes son construidos como amenazas o enemigos?</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Qué estrategias de deslegitimación se emplean?</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>¿Cómo se articulan los antagonismos inter-bloque (derecha vs. izquierda) con los intra-bloque (entre derechas)?</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2.3. Los niveles de análisis</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>El diseño contempla tres niveles de observación:</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>| Nivel | Unidad | Foco analítico |</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>|-------|--------|----------------|</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>| **Macro** | Corpus completo | Tendencias agregadas, evolución temporal, comparación entre subreddits |</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>| **Meso** | Hilos de discusión | Dinámicas conversacionales, patrones de confrontación/consenso |</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>| **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos |</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.3. Descripción de la propuesta analítica</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.3.1. Enfoque general</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>La propuesta combina **ciencia social computacional** con **análisis interpretativo del discurso político**. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos.</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>El flujo analítico puede representarse así:</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="in">[Corpus textual] </span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="in">    → [Procesamiento computacional: NLP, sentiment, topics]</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="in">        → [Identificación de patrones cuantitativos]</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="in">            → [Interpretación cualitativa de patrones]</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="in">                → [Triangulación con eventos externos]</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="in">                    → [Hallazgos sustantivos]</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.3.2. Arquitectura del análisis</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>**Fase 1: Caracterización del corpus**</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Estadísticas descriptivas: volumen, distribución temporal, participación por subreddit</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mapeo de actores: frecuencia de mención de cada candidatura</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificación de eventos: picos de actividad y su correlación con acontecimientos políticos</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>**Fase 2: Análisis de encuadres**</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Modelado de tópicos para identificar temas estructurantes</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Análisis de co-ocurrencias: qué conceptos aparecen asociados a cada candidatura</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparación inter-temporal: evolución de marcos entre primera y segunda vuelta</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>**Fase 3: Análisis emocional**</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Clasificación de sentimiento (positivo/negativo/neutro)</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificación de emociones discretas cuando es posible</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construcción de "perfiles emocionales" por candidatura</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>**Fase 4: Análisis de adversarios**</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificación de menciones cruzadas entre candidaturas</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Clasificación de valencia: menciones positivas, negativas, neutras</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mapeo de redes de antagonismo</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>**Fase 5: Síntesis e integración**</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Triangulación de hallazgos entre dimensiones</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construcción de narrativa analítica</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificación de mecanismos explicativos</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.3.3. Originalidad de la propuesta</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>La propuesta se distingue de estudios previos en tres aspectos:</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Foco en competencia intra-bloque**: Mientras la mayoría de estudios examina la polarización entre izquierda y derecha, esta investigación centra la atención en las dinámicas *dentro* del campo de las derechas.</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Perspectiva procesual**: En lugar de fotografías estáticas, el diseño longitudinal permite observar cómo evolucionan las estrategias discursivas a lo largo del ciclo electoral.</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Reddit como campo**: La plataforma está subexplorada en el contexto latinoamericano, y sus características estructurales (conversaciones anidadas, votación comunitaria) ofrecen posibilidades analíticas distintivas.</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.4. Producto mínimo viable (MVP) y objetivos operacionales</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.4.1. Definición del MVP</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>El **producto mínimo viable** de esta investigación consiste en:</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Un análisis sistemático de la conversación política en Reddit sobre las candidaturas presidenciales chilenas de 2025, que identifique y caracterice los patrones de encuadre, emoción y construcción de adversarios de cada corriente ideológica, y que documente su evolución a lo largo del ciclo electoral (agosto-diciembre 2024).</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.4.2. Objetivos operacionales y entregables</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>| Objetivo | Entregable | Indicador de cumplimiento |</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>|----------|------------|---------------------------|</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>| **O1**: Construir corpus | Base de datos estructurada | ≥1000 posts y ≥10.000 comentarios con menciones políticas |</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>| **O2**: Caracterizar encuadres | Modelo de tópicos interpretado | Identificación de ≥5 marcos distintivos por corriente |</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>| **O3**: Mapear emociones | Perfiles emocionales por candidatura | Clasificación de sentimiento del 100% del corpus |</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>| **O4**: Analizar adversarios | Red de antagonismos | Matriz de menciones cruzadas con valencia |</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>| **O5**: Documentar evolución | Serie temporal | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>| **O6**: Sintetizar hallazgos | Capítulos de resultados | Respuesta fundamentada a cada pregunta de investigación |</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.4.3. Alcances y limitaciones anticipadas</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>**Alcances**:</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El análisis cubre el debate en dos comunidades de Reddit, que constituyen los principales espacios de discusión política chilena en la plataforma.</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El período captura fases clave del ciclo electoral, permitiendo observar dinámicas de cambio.</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Las técnicas empleadas permiten procesar el corpus completo, no solo muestras.</span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>**Limitaciones**:</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reddit no es representativo del electorado chileno; los hallazgos refieren al debate en esta plataforma específica, no a la opinión pública general.</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general.</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El análisis de sentimiento automatizado tiene márgenes de error, particularmente con ironía, sarcasmo y jerga local.</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>La atribución ideológica de usuarios es inferida a partir de su comportamiento discursivo, no de autodeclaraciones.</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.5. Estrategia de validación</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.5.1. Validación interna</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>**Triangulación metodológica**: Los hallazgos de cada técnica (modelado de tópicos, análisis de sentimiento, análisis de redes) son contrastados entre sí. Un patrón se considera robusto cuando emerge consistentemente de múltiples aproximaciones.</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>**Verificación cualitativa**: Los patrones identificados computacionalmente son verificados mediante lectura de casos. Cuando el análisis automatizado clasifica un comentario como "negativo hacia Matthei", se revisan ejemplos para confirmar que la clasificación captura el fenómeno de interés.</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables (número de tópicos, umbrales de clasificación) son ejecutadas con múltiples configuraciones para verificar que los hallazgos no dependan de decisiones arbitrarias.</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.5.2. Validación externa</span></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>**Triangulación con fuentes externas**: Los patrones temporales identificados en Reddit son contrastados con el calendario de eventos políticos documentado en medios de comunicación. La correlación entre picos de actividad y eventos específicos (debates, declaraciones, encuestas) proporciona validación externa.</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>**Consistencia con literatura**: Los hallazgos son discutidos a la luz de estudios previos sobre comunicación política digital, derechas latinoamericanas y polarización. La convergencia con patrones documentados en otros contextos refuerza la validez; las divergencias son examinadas como posibles especificidades del caso chileno.</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.5.3. Criterios de éxito</span></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>La investigación se considerará exitosa si:</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Responde las preguntas**: Cada pregunta de investigación recibe una respuesta fundamentada empíricamente.</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Identifica patrones no triviales**: Los hallazgos van más allá de lo que podría inferirse sin análisis sistemático.</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Documenta variación**: El análisis captura diferencias significativas entre corrientes ideológicas, entre subreddits y entre fases electorales.</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Genera interpretaciones plausibles**: Los patrones identificados son interpretados mediante mecanismos teóricamente informados.</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Reconoce limitaciones**: El análisis explicita qué puede y qué no puede concluirse a partir de los datos disponibles.</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

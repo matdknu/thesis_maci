@@ -1,0 +1,15 @@
+{
+  "hash": "49b66721d371dc9ac3fe959191976d83",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Depuración de Datos\"\nlang: es\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
