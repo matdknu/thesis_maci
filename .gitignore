@@ -12,10 +12,17 @@ data/proc_data/
 outputs/
 
 # Scripts con API keys embebidas (no subir por seguridad)
+# Rutas antiguas (por si acaso)
 scripts/Tesis/08_aplicacion_api.py
 scripts/Tesis/09_deepseek_api.py
 scripts/Tesis/17_imputar_ideologia.R
 scripts/Tesis/06_apis.R
 scripts/Tesis/scraping_outputs/analysis_basic.py
+# Rutas nuevas con API keys
+scripts/analisis/04_apis.R
+scripts/analisis/05_aplicacion_api.py
+scripts/analisis/06_deepseek_api.py
+scripts/analisis/14_imputar_ideologia.R
+# Carpetas descartadas
 scripts/no_sirve/
 scripts/no_usar/

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ -*- coding: utf-8 -*-
 # /usr/bin/env python
 import os
 import time
@@ -343,4 +343,4 @@ if WRITER_ENGINE:
     print(f"📘 Excel (2 sheets): {acum_path_excel}")
     print(f"📘 Excel (flat 1 sheet): {flat_xlsx}")
 
-print("Fin del scraping")
+print("Fin del scraping")#
