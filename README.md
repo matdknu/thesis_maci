@@ -83,6 +83,22 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 
 ---
 
+## 📑 Wiki del proyecto (documentación tipo GitHub Wiki)
+
+En la carpeta **[`wiki/`](wiki/)** hay páginas en Markdown listas para copiar a la pestaña **Wiki** del repositorio o para leer localmente:
+
+| Página | Contenido |
+|--------|-----------|
+| [`wiki/Home.md`](wiki/Home.md) | Portada: navegación, resumen, enlaces rápidos |
+| [`wiki/Analisis-de-texto-computacional.md`](wiki/Analisis-de-texto-computacional.md) | **Comp text**: pipeline NLP, herramientas, scripts, entregables |
+| [`wiki/Flujo-de-trabajo.md`](wiki/Flujo-de-trabajo.md) | Scraping → procesamiento → análisis → libro |
+| [`wiki/Enlaces-y-recursos.md`](wiki/Enlaces-y-recursos.md) | DOI, OSF, BibTeX |
+| [`wiki/_Sidebar.md`](wiki/_Sidebar.md) | Menú lateral (pegar en *Wiki → Edit sidebar* en GitHub) |
+
+**Presentación (diapositivas, estilo COMPTEXT/wiki-chile):** [`documents/presentacion_proyecto/presentation.qmd`](documents/presentacion_proyecto/presentation.qmd) — `quarto render presentation.qmd` → `presentation.html`.
+
+---
+
 ## 📖 Acceder a la Tesis
 
 ### 🌐 Libro Online (GitHub Pages)
