@@ -20,7 +20,7 @@ book:
     - 01-introduccion.qmd
     - 02-presentacion-problema.qmd
     - 03-marco.qmd
-    - 04-obtencion-datos.qmd
+    - 04-diseno.qmd
     - 05-depuracion-datos.qmd
     - 06-exploracion-datos.qmd
     - 07-modelado-datos.qmd
