@@ -1,6 +1,9 @@
 ---
 title: "Presentación del Problema"
 lang: es
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -13,321 +16,276 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ## El problema: competencia política digital en un sistema fragmentado
 
-El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.
+El sistema de partidos chileno atraviesa una crisis de representación
+sin precedentes desde el retorno a la democracia. Los indicadores son
+contundentes: la identificación partidaria ha caído sostenidamente desde
+2010, la volatilidad electoral alcanzó máximos históricos en los ciclos
+2021-2023, y la fragmentación parlamentaria dificulta la formación de
+coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de
+desalineamiento, las plataformas digitales han emergido como espacios
+donde se disputa la reconfiguración de las identidades políticas
+—particularmente en el campo de las derechas, donde coexisten proyectos
+en competencia que aún no han estabilizado sus fronteras.
 
-El **problema central** que aborda esta investigación puede formularse así:
+El **problema central** que aborda esta investigación puede formularse
+así:
 
-> En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?
+> En un contexto de fragmentación partidaria y reconfiguración
+> ideológica, ¿cómo se estructura la competencia política digital entre
+> actores que comparten un espacio ideológico pero compiten por
+> diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué
+> condiciones convergen o divergen?
 
 Este problema es relevante por tres razones:
 
-1. **Vacío empírico**: Mientras abundan los estudios sobre polarización izquierda-derecha, la competencia *intra-bloque* —particularmente entre derechas— permanece subexplorada en América Latina.
+1.  **Vacío empírico**: Mientras abundan los estudios sobre polarización
+    izquierda-derecha, la competencia *intra-bloque* —particularmente
+    entre derechas— permanece subexplorada en América Latina.
 
-2. **Transformación en curso**: Las derechas chilenas están en proceso de reconfiguración activa; estudiar este proceso mientras ocurre permite capturar dinámicas que análisis retrospectivos pierden.
+2.  **Transformación en curso**: Las derechas chilenas están en proceso
+    de reconfiguración activa; estudiar este proceso mientras ocurre
+    permite capturar dinámicas que análisis retrospectivos pierden.
 
-3. **Implicancias democráticas**: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización.
+3.  **Implicancias democráticas**: Comprender cómo se construyen
+    adversarios y fronteras identitarias en espacios digitales resulta
+    crucial para evaluar la calidad del debate público y anticipar
+    escenarios de polarización.
 
 ## Acercamiento: actores, dimensiones y niveles de análisis
 
 ### Los actores: tres derechas y un adversario
 
-La investigación se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:
+La investigación se focaliza en cuatro candidaturas que representan
+posiciones distintivas en el espectro político chileno:
 
-| Actor | Posición | Caracterización sintética | Base social |
-|-------|----------|---------------------------|-------------|
-| **Evelyn Matthei** | Derecha tradicional | Pragmatismo, competencia técnica, moderación discursiva | Élites empresariales, sectores medios-altos |
-| **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos |
-| **Johannes Kaiser** | Derecha libertaria | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales | Jóvenes masculinos, usuarios intensivos de internet |
-| **Jeannette Jara** | Izquierda-PC | Proyecto transformador, defensa del legado del gobierno Boric | Militancia de izquierda, sectores sindicalizados |
+| Actor                 | Posición                     | Caracterización sintética                                                      | Base social                                         |
+|---------------|---------------|--------------------------|---------------|
+| **Evelyn Matthei**    | Derecha tradicional          | Pragmatismo, competencia técnica, moderación discursiva                        | Élites empresariales, sectores medios-altos         |
+| **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos       |
+| **Johannes Kaiser**   | Derecha libertaria           | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales     | Jóvenes masculinos, usuarios intensivos de internet |
+| **Jeannette Jara**    | Izquierda-PC                 | Proyecto transformador, defensa del legado del gobierno Boric                  | Militancia de izquierda, sectores sindicalizados    |
+
+: Candidaturas incluidas en el análisis y su caracterización ideológica.
+{#tbl-candidaturas-actores}
+
+Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
+derechas y un adversario común de izquierda.
 
 Esta selección permite observar:
 
-- **Competencia intra-derecha**: Cómo tres proyectos distintos disputan un electorado parcialmente superpuesto.
-- **Convergencia anti-izquierda**: Cómo actores previamente enfrentados articulan un frente común frente al adversario ideológico.
-- **Asimetrías discursivas**: Cómo diferentes corrientes movilizan repertorios retóricos y emocionales distintivos.
+-   **Competencia intra-derecha**: Cómo tres proyectos distintos
+    disputan un electorado parcialmente superpuesto.
+-   **Convergencia anti-izquierda**: Cómo actores previamente
+    enfrentados articulan un frente común frente al adversario
+    ideológico.
+-   **Asimetrías discursivas**: Cómo diferentes corrientes movilizan
+    repertorios retóricos y emocionales distintivos.
 
 ### Las dimensiones analíticas
 
-El análisis se estructura en torno a **tres dimensiones** que capturan aspectos complementarios de la comunicación política:
+El análisis se estructura en torno a **tres dimensiones** que capturan
+aspectos complementarios de la comunicación política:
 
-**Dimensión 1: Encuadre (*framing*)**
-- ¿Qué marcos interpretativos predominan en el discurso de cada corriente?
-- ¿Cómo definen el problema, sus causas y sus soluciones?
-- ¿Qué está "en juego" según cada actor?
+**Dimensión 1: Encuadre (*framing*)** - ¿Qué marcos interpretativos
+predominan en el discurso de cada corriente? - ¿Cómo definen el
+problema, sus causas y sus soluciones? - ¿Qué está "en juego" según cada
+actor?
 
-**Dimensión 2: Emoción**
-- ¿Qué emociones movilizan las distintas candidaturas?
-- ¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)?
-- ¿Hacia quién se dirigen las emociones negativas?
+**Dimensión 2: Emoción** - ¿Qué emociones movilizan las distintas
+candidaturas? - ¿Cuál es la proporción entre emociones positivas
+(entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién
+se dirigen las emociones negativas?
 
-**Dimensión 3: Construcción de adversarios**
-- ¿Quiénes son construidos como amenazas o enemigos?
-- ¿Qué estrategias de deslegitimación se emplean?
-- ¿Cómo se articulan los antagonismos inter-bloque (derecha vs. izquierda) con los intra-bloque (entre derechas)?
+**Dimensión 3: Construcción de adversarios** - ¿Quiénes son construidos
+como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se
+emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs.
+izquierda) con los intra-bloque (entre derechas)?
 
-###  Los niveles de análisis
+### Los niveles de análisis
 
 El diseño contempla tres niveles de observación:
 
-| Nivel | Unidad | Foco analítico |
-|-------|--------|----------------|
-| **Macro** | Corpus completo | Tendencias agregadas, evolución temporal, comparación entre subreddits |
-| **Meso** | Hilos de discusión | Dinámicas conversacionales, patrones de confrontación/consenso |
-| **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos |
+| Nivel     | Unidad                           | Foco analítico                                                         |
+|------------------|-------------------|-----------------------------------|
+| **Macro** | Corpus completo                  | Tendencias agregadas, evolución temporal, comparación entre subreddits |
+| **Meso**  | Hilos de discusión               | Dinámicas conversacionales, patrones de confrontación/consenso         |
+| **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos               |
+
+: Niveles de análisis utilizados en la investigación.
+{#tbl-niveles-analisis}
+
+La @tbl-niveles-analisis resume cómo se articula el análisis en escalas
+macro, meso y micro.
 
 ## Descripción de la propuesta analítica
 
 ### Enfoque general
 
-La propuesta combina **ciencia social computacional** con **análisis interpretativo del discurso político**. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos.
+La propuesta combina **ciencia social computacional** con **análisis
+interpretativo del discurso político**. Esta combinación responde a una
+convicción metodológica: las técnicas computacionales permiten
+identificar patrones a escala que el análisis cualitativo tradicional no
+alcanza, pero requieren interpretación teóricamente informada para
+producir conocimiento sustantivo sobre procesos políticos.
 
 El flujo analítico puede representarse así:
 
-```{mermaid}
-%%| label: fig-pipeline
-%%| fig-cap: "Pipeline analítico: de la recolección del corpus a los hallazgos sustantivos"
-%%| fig-width: 9
+::: {.content-visible when-format="html"}
+![Pipeline analítico: de la recolección del corpus a los hallazgos
+sustantivos.](images/diagrama.png){#fig-pipeline fig-align="center"
+width="100%"}
+:::
 
-flowchart TD
+::: {.content-visible when-format="pdf"}
+![Pipeline analítico: de la recolección del corpus a los hallazgos
+sustantivos.](images/diagrama.png){fig-align="center" width="75%"}
+:::
 
-    %% ── CORPUS ──
-    A(["`**Corpus Reddit Chile**
-    r/chile · r/latinoamerica`"])
-
-    %% ── ACTORES ──
-    subgraph ACTORES["🧑‍🤝‍🧑 Actores analizados"]
-        direction LR
-        M(["`**Matthei**
-        Derecha tradicional`"])
-        K(["`**Kast**
-        Derecha radical`"])
-        KA(["`**Kaiser**
-        Derecha libertaria`"])
-        J(["`**Jara**
-        Izquierda-PC`"])
-    end
-
-    %% ── PREPROCESAMIENTO ──
-    B["`**Preprocesamiento NLP**
-    Limpieza · tokenización · lematización
-    *(spaCy es_core_news_lg)*`"]
-
-    %% ── DIMENSIONES ──
-    subgraph DIM["📐 Dimensiones analíticas"]
-        direction LR
-        D1["`**Dim 1: Framing**
-        Marcos interpretativos
-        Económico · seguridad
-        Identitario · institucional`"]
-
-        D2["`**Dim 2: Emoción**
-        Sentimiento pos/neg
-        Entusiasmo · miedo
-        Indignación · esperanza`"]
-
-        D3["`**Dim 3: Adversarios**
-        Deslegitimación
-        Antagonismos inter-bloque
-        Antagonismos intra-bloque`"]
-    end
-
-    %% ── CLASIFICADORES ML ──
-    subgraph ML["🤖 Clasificadores ML"]
-        direction LR
-        C1["`**Stance detection**
-        A favor · en contra · neutro
-        *(BETO fine-tuned)*`"]
-
-        C2["`**Framing classifier**
-        Zero-shot → fine-tune
-        *(Claude API + XLM-RoBERTa)*`"]
-
-        C3["`**Polarización afectiva**
-        Escala 1–4 de hostilidad
-        *(Perspective API + classifier)*`"]
-
-        C4["`**Clustering usuarios**
-        Embeddings + HDBSCAN
-        Detección de cámaras de eco`"]
-    end
-
-    %% ── NIVELES ──
-    subgraph NIV["🔬 Niveles de análisis"]
-        direction LR
-        N1["`**Macro**
-        Tendencias · evolución
-        temporal · comparación`"]
-
-        N2["`**Meso**
-        Hilos de discusión
-        Confrontación/consenso`"]
-
-        N3["`**Micro**
-        Posts individuales
-        Estrategias retóricas`"]
-    end
-
-    %% ── HALLAZGOS ──
-    subgraph HAL["💡 Hallazgos sustantivos"]
-        direction LR
-        H1["`**Competencia intra-derecha**
-        Matthei vs Kast vs Kaiser
-        Electorado superpuesto`"]
-
-        H2["`**Convergencia anti-izquierda**
-        Frente común vs Jara
-        Articulación discursiva`"]
-
-        H3["`**Asimetrías discursivas**
-        Repertorios retóricos
-        y emocionales distintos`"]
-    end
-
-    %% ── PREGUNTA CENTRAL ──
-    PQ{{"`**¿Existen cámaras de eco ideológicas en Reddit Chile
-    durante las elecciones 2025, y qué marcos discursivos las definen?**`"}}
-
-    %% ── FLUJO ──
-    A --> ACTORES
-    ACTORES --> B
-    B --> DIM
-    DIM --> ML
-    ML --> NIV
-    NIV --> HAL
-    HAL --> PQ
-
-    %% ── ESTILOS ──
-    classDef corpus  fill:#e8e6ff,stroke:#7f77dd,color:#3c3489,font-weight:bold
-    classDef actor   fill:#e6f1fb,stroke:#378add,color:#0c447c
-    classDef preproc fill:#f1efe8,stroke:#888780,color:#2c2c2a
-    classDef dim1    fill:#f4c0d1,stroke:#d4537e,color:#4b1528
-    classDef dim2    fill:#f5c4b3,stroke:#d85a30,color:#4a1b0c
-    classDef dim3    fill:#f7c1c1,stroke:#e24b4a,color:#501313
-    classDef ml1     fill:#e6f1fb,stroke:#378add,color:#0c447c
-    classDef ml2     fill:#eeedfe,stroke:#7f77dd,color:#26215c
-    classDef ml3     fill:#faece7,stroke:#993c1d,color:#4a1b0c
-    classDef ml4     fill:#e1f5ee,stroke:#0f6e56,color:#04342c
-    classDef nivel   fill:#f1efe8,stroke:#5f5e5a,color:#2c2c2a
-    classDef hal1    fill:#faeeda,stroke:#ba7517,color:#412402
-    classDef hal2    fill:#fcebeb,stroke:#a32d2d,color:#501313
-    classDef hal3    fill:#e1f5ee,stroke:#0f6e56,color:#04342c
-    classDef pregunta fill:#eeedfe,stroke:#534ab7,color:#26215c,font-weight:bold
-
-    class A corpus
-    class M,K,KA,J actor
-    class B preproc
-    class D1 dim1
-    class D2 dim2
-    class D3 dim3
-    class C1 ml1
-    class C2 ml2
-    class C3 ml3
-    class C4 ml4
-    class N1,N2,N3 nivel
-    class H1 hal1
-    class H2 hal2
-    class H3 hal3
-    class PQ pregunta
-```
+La @fig-pipeline sintetiza el encadenamiento entre corpus,
+procesamiento, modelamiento y hallazgos.
 
 ### Arquitectura del análisis
 
-**Fase 1: Caracterización del corpus**
-- Estadísticas descriptivas: volumen, distribución temporal, participación por subreddit
-- Mapeo de actores: frecuencia de mención de cada candidatura
-- Identificación de eventos: picos de actividad y su correlación con acontecimientos políticos
+**Fase 1: Caracterización del corpus** - Estadísticas descriptivas:
+volumen, distribución temporal, participación por subreddit - Mapeo de
+actores: frecuencia de mención de cada candidatura - Identificación de
+eventos: picos de actividad y su correlación con acontecimientos
+políticos
 
-**Fase 2: Análisis de encuadres**
-- Modelado de tópicos para identificar temas estructurantes
-- Análisis de co-ocurrencias: qué conceptos aparecen asociados a cada candidatura
-- Comparación inter-temporal: evolución de marcos entre primera y segunda vuelta
+**Fase 2: Análisis de encuadres** - Modelado de tópicos para identificar
+temas estructurantes - Análisis de co-ocurrencias: qué conceptos
+aparecen asociados a cada candidatura - Comparación inter-temporal:
+evolución de marcos entre primera y segunda vuelta
 
-**Fase 3: Análisis emocional**
-- Clasificación de sentimiento (positivo/negativo/neutro)
-- Identificación de emociones discretas cuando es posible
-- Construcción de "perfiles emocionales" por candidatura
+**Fase 3: Análisis emocional** - Clasificación de sentimiento
+(positivo/negativo/neutro) - Identificación de emociones discretas
+cuando es posible - Construcción de "perfiles emocionales" por
+candidatura
 
-**Fase 4: Análisis de adversarios**
-- Identificación de menciones cruzadas entre candidaturas
-- Clasificación de valencia: menciones positivas, negativas, neutras
-- Mapeo de redes de antagonismo
+**Fase 4: Análisis de adversarios** - Identificación de menciones
+cruzadas entre candidaturas - Clasificación de valencia: menciones
+positivas, negativas, neutras - Mapeo de redes de antagonismo
 
-**Fase 5: Síntesis e integración**
-- Triangulación de hallazgos entre dimensiones
-- Construcción de narrativa analítica
-- Identificación de mecanismos explicativos
+**Fase 5: Síntesis e integración** - Triangulación de hallazgos entre
+dimensiones - Construcción de narrativa analítica - Identificación de
+mecanismos explicativos
 
 ### Originalidad de la propuesta
 
 La propuesta se distingue de estudios previos en tres aspectos:
 
-1. **Foco en competencia intra-bloque**: Mientras la mayoría de estudios examina la polarización entre izquierda y derecha, esta investigación centra la atención en las dinámicas *dentro* del campo de las derechas.
+1.  **Foco en competencia intra-bloque**: Mientras la mayoría de
+    estudios examina la polarización entre izquierda y derecha, esta
+    investigación centra la atención en las dinámicas *dentro* del campo
+    de las derechas.
 
-2. **Perspectiva procesual**: En lugar de fotografías estáticas, el diseño longitudinal permite observar cómo evolucionan las estrategias discursivas a lo largo del ciclo electoral.
+2.  **Perspectiva procesual**: En lugar de fotografías estáticas, el
+    diseño longitudinal permite observar cómo evolucionan las
+    estrategias discursivas a lo largo del ciclo electoral.
 
-3. **Reddit como campo**: La plataforma está subexplorada en el contexto latinoamericano, y sus características estructurales (conversaciones anidadas, votación comunitaria) ofrecen posibilidades analíticas distintivas.
+3.  **Reddit como campo**: La plataforma está subexplorada en el
+    contexto latinoamericano, y sus características estructurales
+    (conversaciones anidadas, votación comunitaria) ofrecen
+    posibilidades analíticas distintivas.
 
 ## Producto mínimo viable (MVP) y objetivos operacionales
 
-###  Definición del MVP
+### Definición del MVP
 
 El **producto mínimo viable** de esta investigación consiste en:
 
-> Un análisis sistemático de la conversación política en Reddit sobre las candidaturas presidenciales chilenas de 2025, que identifique y caracterice los patrones de encuadre, emoción y construcción de adversarios de cada corriente ideológica, y que documente su evolución a lo largo del ciclo electoral (agosto-diciembre 2024).
+> Un análisis sistemático de la conversación política en Reddit sobre
+> las candidaturas presidenciales chilenas de 2025, que identifique y
+> caracterice los patrones de encuadre, emoción y construcción de
+> adversarios de cada corriente ideológica, y que documente su evolución
+> a lo largo del ciclo electoral (agosto-diciembre 2024).
 
-###  Objetivos operacionales y entregables
+### Objetivos operacionales y entregables
 
-| Objetivo | Entregable | Indicador de cumplimiento |
-|----------|------------|---------------------------|
-| **O1**: Construir corpus | Base de datos estructurada | ≥1000 posts y ≥10.000 comentarios con menciones políticas |
-| **O2**: Caracterizar encuadres | Modelo de tópicos interpretado | Identificación de ≥5 marcos distintivos por corriente |
-| **O3**: Mapear emociones | Perfiles emocionales por candidatura | Clasificación de sentimiento del 100% del corpus |
-| **O4**: Analizar adversarios | Red de antagonismos | Matriz de menciones cruzadas con valencia |
-| **O5**: Documentar evolución | Serie temporal | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |
-| **O6**: Sintetizar hallazgos | Capítulos de resultados | Respuesta fundamentada a cada pregunta de investigación |
+| Objetivo                       | Entregable                           | Indicador de cumplimiento                                          |
+|------------------|------------------|-------------------------------------|
+| **O1**: Construir corpus       | Base de datos estructurada           | ≥1000 posts y ≥10.000 comentarios con menciones políticas          |
+| **O2**: Caracterizar encuadres | Modelo de tópicos interpretado       | Identificación de ≥5 marcos distintivos por corriente              |
+| **O3**: Mapear emociones       | Perfiles emocionales por candidatura | Clasificación de sentimiento del 100% del corpus                   |
+| **O4**: Analizar adversarios   | Red de antagonismos                  | Matriz de menciones cruzadas con valencia                          |
+| **O5**: Documentar evolución   | Serie temporal                       | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |
+| **O6**: Sintetizar hallazgos   | Capítulos de resultados              | Respuesta fundamentada a cada pregunta de investigación            |
+
+: Objetivos operacionales, entregables e indicadores de cumplimiento del
+MVP. {#tbl-objetivos-mvp}
+
+La planificación operativa del estudio se detalla en la
+@tbl-objetivos-mvp.
 
 ### Alcances y limitaciones anticipadas
 
-**Alcances**:
-- El análisis cubre el debate en dos comunidades de Reddit, que constituyen los principales espacios de discusión política chilena en la plataforma.
-- El período captura fases clave del ciclo electoral, permitiendo observar dinámicas de cambio.
-- Las técnicas empleadas permiten procesar el corpus completo, no solo muestras.
+**Alcances**: - El análisis cubre el debate en dos comunidades de
+Reddit, que constituyen los principales espacios de discusión política
+chilena en la plataforma. - El período captura fases clave del ciclo
+electoral, permitiendo observar dinámicas de cambio. - Las técnicas
+empleadas permiten procesar el corpus completo, no solo muestras.
 
-**Limitaciones**:
-- Reddit no es representativo del electorado chileno; los hallazgos refieren al debate en esta plataforma específica, no a la opinión pública general.
-- Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general.
-- El análisis de sentimiento automatizado tiene márgenes de error, particularmente con ironía, sarcasmo y jerga local.
-- La atribución ideológica de usuarios es inferida a partir de su comportamiento discursivo, no de autodeclaraciones.
+**Limitaciones**: - Reddit no es representativo del electorado chileno;
+los hallazgos refieren al debate en esta plataforma específica, no a la
+opinión pública general. - Los usuarios de Reddit tienden a ser más
+jóvenes, más masculinos y más politizados que la población general. - El
+análisis de sentimiento automatizado tiene márgenes de error,
+particularmente con ironía, sarcasmo y jerga local. - La atribución
+ideológica de usuarios es inferida a partir de su comportamiento
+discursivo, no de autodeclaraciones.
 
 ## Estrategia de validación
 
 ### Validación interna
 
-**Triangulación metodológica**: Los hallazgos de cada técnica (modelado de tópicos, análisis de sentimiento, análisis de redes) son contrastados entre sí. Un patrón se considera robusto cuando emerge consistentemente de múltiples aproximaciones.
+**Triangulación metodológica**: Los hallazgos de cada técnica (modelado
+de tópicos, análisis de sentimiento, análisis de redes) son contrastados
+entre sí. Un patrón se considera robusto cuando emerge consistentemente
+de múltiples aproximaciones.
 
-**Verificación cualitativa**: Los patrones identificados computacionalmente son verificados mediante lectura de casos. Cuando el análisis automatizado clasifica un comentario como "negativo hacia Matthei", se revisan ejemplos para confirmar que la clasificación captura el fenómeno de interés.
+**Verificación cualitativa**: Los patrones identificados
+computacionalmente son verificados mediante lectura de casos. Cuando el
+análisis automatizado clasifica un comentario como "negativo hacia
+Matthei", se revisan ejemplos para confirmar que la clasificación
+captura el fenómeno de interés.
 
-**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables (número de tópicos, umbrales de clasificación) son ejecutadas con múltiples configuraciones para verificar que los hallazgos no dependan de decisiones arbitrarias.
+**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables
+(número de tópicos, umbrales de clasificación) son ejecutadas con
+múltiples configuraciones para verificar que los hallazgos no dependan
+de decisiones arbitrarias.
 
 ### Validación externa
 
-**Triangulación con fuentes externas**: Los patrones temporales identificados en Reddit son contrastados con el calendario de eventos políticos documentado en medios de comunicación. La correlación entre picos de actividad y eventos específicos (debates, declaraciones, encuestas) proporciona validación externa.
+**Triangulación con fuentes externas**: Los patrones temporales
+identificados en Reddit son contrastados con el calendario de eventos
+políticos documentado en medios de comunicación. La correlación entre
+picos de actividad y eventos específicos (debates, declaraciones,
+encuestas) proporciona validación externa.
 
-**Consistencia con literatura**: Los hallazgos son discutidos a la luz de estudios previos sobre comunicación política digital, derechas latinoamericanas y polarización. La convergencia con patrones documentados en otros contextos refuerza la validez; las divergencias son examinadas como posibles especificidades del caso chileno.
+**Consistencia con literatura**: Los hallazgos son discutidos a la luz
+de estudios previos sobre comunicación política digital, derechas
+latinoamericanas y polarización. La convergencia con patrones
+documentados en otros contextos refuerza la validez; las divergencias
+son examinadas como posibles especificidades del caso chileno.
 
 ### Criterios de éxito
 
 La investigación se considerará exitosa si:
 
-1. **Responde las preguntas**: Cada pregunta de investigación recibe una respuesta fundamentada empíricamente.
+1.  **Responde las preguntas**: Cada pregunta de investigación recibe
+    una respuesta fundamentada empíricamente.
 
-2. **Identifica patrones no triviales**: Los hallazgos van más allá de lo que podría inferirse sin análisis sistemático.
+2.  **Identifica patrones no triviales**: Los hallazgos van más allá de
+    lo que podría inferirse sin análisis sistemático.
 
-3. **Documenta variación**: El análisis captura diferencias significativas entre corrientes ideológicas, entre subreddits y entre fases electorales.
+3.  **Documenta variación**: El análisis captura diferencias
+    significativas entre corrientes ideológicas, entre subreddits y
+    entre fases electorales.
 
-4. **Genera interpretaciones plausibles**: Los patrones identificados son interpretados mediante mecanismos teóricamente informados.
+4.  **Genera interpretaciones plausibles**: Los patrones identificados
+    son interpretados mediante mecanismos teóricamente informados.
 
-5. **Reconoce limitaciones**: El análisis explicita qué puede y qué no puede concluirse a partir de los datos disponibles.
+5.  **Reconoce limitaciones**: El análisis explicita qué puede y qué no
+    puede concluirse a partir de los datos disponibles.
