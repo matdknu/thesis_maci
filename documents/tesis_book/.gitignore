@@ -1,1 +1,11 @@
 /.quarto/
+
+# secretos
+scripts/analisis/clave
+.env
+*.key
+
+# caches
+*_cache/
+*.rdb
+*.rdx
