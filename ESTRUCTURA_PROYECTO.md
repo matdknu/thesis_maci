@@ -45,7 +45,7 @@ thesis_final/
 │   │   └── api/                          # SCRIPTS DE APIs
 │   │       ├── deepseek_api.py          # 🆕 DeepSeek API
 │   │       ├── 04_test_api.py
-│   │       ├── 05_aplicacion_api.py
+│   │       ├── 03_aplicacion_api.py
 │   │       └── README_API.md
 │   │
 │   ├── 📊 network/                       # Scripts de redes
@@ -112,7 +112,7 @@ thesis_final/
 |--------|-----------|-------------|
 | `deepseek_api.py` | `scripts/analysis/api/` | 🆕 Análisis con DeepSeek |
 | `04_test_api.py` | `scripts/analysis/api/` | Prueba de APIs |
-| `05_aplicacion_api.py` | `scripts/analysis/api/` | Aplicación de APIs |
+| `03_aplicacion_api.py` | `scripts/analisis/` | Aplicación de APIs (ver también `03_modelado_api.R`) |
 
 ---
 

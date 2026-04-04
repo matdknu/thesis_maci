@@ -1,6 +1,12 @@
 project:
   type: book
   output-dir: ../../docs
+  # Plotly HTML del modelado (07-modelado-datos.qmd) para iframes en salida HTML
+  resources:
+    - ../../outputs_modelado/umap_interactivo_temas.html
+    - ../../outputs_modelado/umap_interactivo_sentimiento.html
+
+bibliography: bibliography.bib
 
 book:
   # Nota: título, subtítulo y autor se definen solo para HTML
@@ -166,7 +172,7 @@ execute:
   warning: false
   message: false
   error: false
-  cache: false
+  cache: true
   freeze: auto
 
 editor: visual

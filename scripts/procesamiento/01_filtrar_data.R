@@ -75,13 +75,7 @@ patrones <- tribble(
   "kast",    "\\bj(os[eé])\\s*antonio\\s*kast\\b|\\bkast\\b",
   "kaiser",  "\\bjohannes\\s*kaiser\\b|\\bkaiser\\b",
   "matthei", "\\bevelyn\\s*matthei\\b|\\bmatthei\\b",
-  "jara",    "\\bjeann?ette?\\s*jara\\b|\\bjara\\b",
-  "parisi",  "\\bfranco\\s*parisi\\b|\\bparisi\\b",
-  
-  # --- Nuevos ---
-  "mayne_nicholls", "\\bharold\\s*mayne[\\s-]*nicholls\\b|\\bmayne[\\s-]*nicholls\\b|\\bharold\\b",
-  "meo",            "\\bmarco\\s+enr[ií]quez[\\s-]*ominami\\b|\\bmeo\\b",
-  "artes",          "\\beduardo\\s*art[eé]s\\b|\\bart[eé]s\\b|\\bprofe\\s*art[eé]s\\b"
+  "jara",    "\\bjeann?ette?\\s*jara\\b|\\bjara\\b"
 )
 
 # Función: detectar si un texto menciona ALGÚN candidato

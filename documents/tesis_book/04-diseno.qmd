@@ -109,6 +109,100 @@ A partir de la estructura de respuestas anidadas de Reddit, se construyeron **re
 
 El diseño longitudinal habilita el análisis de **series temporales** de los indicadores de interés: volumen de menciones, tono emocional promedio y distribución de marcos temáticos semana a semana. Se identifican tendencias, ciclos y puntos de quiebre, así como correlaciones entre eventos externos (debates, declaraciones, controversias) y cambios en los patrones discursivos.
 
+### Formalización matemática del modelado automático
+
+El pipeline de análisis posterior a la anotación (TF-IDF, vectores semánticos, modelos supervisados y no supervisados) puede describirse mediante las expresiones siguientes. Se omiten detalles de implementación específicos de cada librería cuando equivalentes conceptualmente.
+
+#### Representación textual: TF-IDF
+
+Sea \(D\) el conjunto de documentos (comentarios o fragmentos), \(t\) un término y \(d \in D\) un documento. La frecuencia–inversa de documento se define como el producto de la frecuencia del término en \(d\) por un factor que penaliza términos muy frecuentes en el corpus:
+
+$$
+\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t), \qquad
+\text{idf}(t) = \log \frac{|D|}{1 + |\{d' \in D : t \in d'\}|}.
+$$
+
+En la práctica, la implementación puede aplicar transformaciones sublineales a \(\text{tf}\) y variantes suavizadas de \(\text{idf}\) según los hiperparámetros del vectorizador.
+
+#### Embeddings de oraciones y similitud coseno
+
+Un modelo de oraciones (p. ej. *Sentence Transformers*) proyecta cada texto en un vector de dimensión fija:
+
+$$
+\mathbf{e} = f_{\theta}(\text{texto}) \in \mathbb{R}^{d},
+$$
+
+donde \(f_{\theta}\) es una red neuronal profunda (arquitectura tipo encoder) y \(\theta\) denota los parámetros entrenados externamente. Para asignar un tema por proximidad a enunciados de referencia \(\mathbf{c}_k\), se utiliza la similitud coseno:
+
+$$
+\text{sim}(\mathbf{e}, \mathbf{c}_k) = \frac{\mathbf{e}^{\top} \mathbf{c}_k}{\|\mathbf{e}\| \, \|\mathbf{c}_k\|}, \qquad
+k^{\ast} = \arg\max_k \, \text{sim}(\mathbf{e}, \mathbf{c}_k).
+$$
+
+#### Clasificación de sentimiento y de desacuerdo (aprendizaje supervisado)
+
+Con un vector de características \(\mathbf{x}\) —obtenido, según el modelo, como vector TF-IDF concatenado con variables categóricas codificadas y numéricas escaladas— la **regresión logística multinomial** modela
+
+$$
+P(y = k \mid \mathbf{x}) = \frac{\exp(\mathbf{w}_k^{\top}\mathbf{x} + b_k)}{\sum_{j} \exp(\mathbf{w}_j^{\top}\mathbf{x} + b_j)}.
+$$
+
+Para un **SVM lineal** (clasificación), típicamente se minimiza una función hinge regularizada de la forma
+
+$$
+\min_{\mathbf{w}, b} \; \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i} \max\bigl(0, 1 - y_i(\mathbf{w}^{\top}\mathbf{x}_i + b)\bigr),
+$$
+
+con \(y_i\) en la convención \(\{-1,+1\}\) según la implementación.
+
+Un **bosque aleatorio** promedia las predicciones de árboles de decisión; en cada nodo se minimiza una impureza como el índice de Gini,
+
+$$
+G(S) = 1 - \sum_{k} p_k^2,
+$$
+
+donde \(p_k\) es la proporción de la clase \(k\) en el conjunto de instancias \(S\) del nodo.
+
+Los métodos de **gradiente sobre árboles** (p. ej. XGBoost) optimizan una función objetivo regularizada del tipo
+
+$$
+\mathcal{L} = \sum_{i} \ell\bigl(y_i, \hat{y}_i\bigr) + \sum_{t} \Omega(f_t),
+$$
+
+donde \(\ell\) es una pérdida acorde al tipo de tarea (p. ej. log-verosimilitud negativa en clasificación multiclase) y \(\Omega\) penaliza la complejidad de cada árbol aditivo \(f_t\).
+
+Cuando la entrada es directamente el embedding \(\mathbf{e}\), la **regresión logística** sobre \(\mathbf{e}\) conserva la misma forma softmax o binaria, según la variable respuesta.
+
+#### Regresión de polarización (variable continua)
+
+La **regresión Ridge** estima coeficientes penalizando la norma \(\ell_2\):
+
+$$
+\min_{\mathbf{w}} \; \|\mathbf{y} - X\mathbf{w}\|_2^2 + \alpha \|\mathbf{w}\|_2^2, \qquad \alpha > 0.
+$$
+
+Los **árboles** y **métodos de boosting** para regresión minimizan en cambio errores cuadráticos (u otras pérdidas) mediante particiones recursivas o sumas de árboles débiles, según el algoritmo elegido.
+
+#### Reducción de dimensionalidad: UMAP
+
+**UMAP** construye una representación de baja dimensión (en este trabajo, tres dimensiones para visualización) optimizando una función de coste que alinea estructuras de vecindad en el espacio de embeddings de alta dimensión con una distribución en el espacio incrustado; la formulación completa aparece en @mcinnes2018umap. Los hiperparámetros relevantes incluyen el número de vecinos considerados, la métrica de distancia (p. ej. coseno) y la distancia mínima entre puntos en el embedding.
+
+#### Clustering
+
+**K-medias** minimiza la suma de cuadrados intra-cluster:
+
+$$
+\min_{\{\boldsymbol{\mu}_k\}} \sum_{i} \min_k \|\mathbf{x}_i - \boldsymbol{\mu}_k\|_2^2,
+$$
+
+resuelto de forma aproximada por el algoritmo de Lloyd.
+
+**HDBSCAN** es un método de clustering por densidad jerárquico; no reduce a una única expresión escalar sino que combina distancias de alcance mutuo y un análisis de estabilidad de clusters a lo largo de una jerarquía [@mcinnes2017hdbscan].
+
+#### Modelos de lenguaje vía API (anotación)
+
+Las llamadas a modelos generativos de gran tamaño (p. ej. GPT-4o, DeepSeek) **no** admiten una fórmula cerrada equivalente a la de los modelos anteriores: la salida es una función implícita aprendida por entrenamiento masivo. En el diseño empírico, la “formalización” operativa consiste en la definición del prompt, la temperatura, el formato de salida (JSON) y las reglas de post-procesamiento (validación de etiquetas, consenso entre proveedores, agregación de polarización), descritas en los scripts de anotación.
+
 ## Corpus final y pipeline de procesamiento
 
 Al cierre de la recolección (31 de diciembre de 2025), el corpus contiene todos los posts y sus árboles completos de comentarios publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una de las cuatro candidaturas de interés, junto con sus metadatos asociados. La estructura del corpus permite análisis longitudinales, de red e interaccionales a lo largo del ciclo electoral completo.

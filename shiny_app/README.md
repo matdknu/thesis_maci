@@ -102,7 +102,7 @@ shiny_app/
 ### 5. Ideología
 - Distribución de labels de ideología (si hay datos)
 - Distribución de scores left-right
-- Requiere ejecutar `05_aplicacion_api.R` primero
+- Requiere ejecutar `scripts/analisis/03_aplicacion_api.py` primero
 
 ### 6. Datos
 - Tabla interactiva con todos los datos
@@ -139,7 +139,7 @@ Los estilos están en la sección `tags$head(tags$style(...))` del UI. Modifica 
 - Ejecuta `01_filtrado.R` primero
 
 **Error: "Datos de ideología no disponibles"**
-- Normal si no has ejecutado `05_aplicacion_api.R`
+- Normal si no has ejecutado `03_aplicacion_api.py`
 - La pestaña de Ideología mostrará un mensaje informativo
 
 **Las imágenes no aparecen**

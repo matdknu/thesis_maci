@@ -61,7 +61,7 @@ La investigación se focaliza en cuatro candidaturas que representan
 posiciones distintivas en el espectro político chileno:
 
 | Actor                 | Posición                     | Caracterización sintética                                                      | Base social                                         |
-|---------------|---------------|--------------------------|---------------|
+|-----------------------|------------------------------|--------------------------------------------------------------------------------|-----------------------------------------------------|
 | **Evelyn Matthei**    | Derecha tradicional          | Pragmatismo, competencia técnica, moderación discursiva                        | Élites empresariales, sectores medios-altos         |
 | **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos       |
 | **Johannes Kaiser**   | Derecha libertaria           | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales     | Jóvenes masculinos, usuarios intensivos de internet |
@@ -108,7 +108,7 @@ izquierda) con los intra-bloque (entre derechas)?
 El diseño contempla tres niveles de observación:
 
 | Nivel     | Unidad                           | Foco analítico                                                         |
-|------------------|-------------------|-----------------------------------|
+|-----------|----------------------------------|------------------------------------------------------------------------|
 | **Macro** | Corpus completo                  | Tendencias agregadas, evolución temporal, comparación entre subreddits |
 | **Meso**  | Hilos de discusión               | Dinámicas conversacionales, patrones de confrontación/consenso         |
 | **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos               |
@@ -205,7 +205,7 @@ El **producto mínimo viable** de esta investigación consiste en:
 ### Objetivos operacionales y entregables
 
 | Objetivo                       | Entregable                           | Indicador de cumplimiento                                          |
-|------------------|------------------|-------------------------------------|
+|--------------------------------|--------------------------------------|--------------------------------------------------------------------|
 | **O1**: Construir corpus       | Base de datos estructurada           | ≥1000 posts y ≥10.000 comentarios con menciones políticas          |
 | **O2**: Caracterizar encuadres | Modelo de tópicos interpretado       | Identificación de ≥5 marcos distintivos por corriente              |
 | **O3**: Mapear emociones       | Perfiles emocionales por candidatura | Clasificación de sentimiento del 100% del corpus                   |

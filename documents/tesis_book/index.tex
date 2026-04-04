@@ -132,6 +132,20 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
 \usepackage{float}
 \usepackage{colortbl}
 \usepackage{xcolor}
@@ -576,10 +590,10 @@ La investigación se focaliza en cuatro candidaturas que representan
 posiciones distintivas en el espectro político chileno:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2113}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2113}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3662}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2113}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1237}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4301}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2849}}@{}}
 \caption{Candidaturas incluidas en el análisis y su caracterización
 ideológica. }\label{tbl-candidaturas-actores}\tabularnewline
 \toprule\noalign{}
@@ -667,9 +681,9 @@ derechas)?
 El diseño contempla tres niveles de observación:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4861}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0940}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2906}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6154}}@{}}
 \caption{Niveles de análisis utilizados en la investigación.
 }\label{tbl-niveles-analisis}\tabularnewline
 \toprule\noalign{}
@@ -803,9 +817,9 @@ lo largo del ciclo electoral (agosto-diciembre 2024).
 entregables}\label{objetivos-operacionales-y-entregables}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5068}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2319}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2754}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4928}}@{}}
 \caption{Objetivos operacionales, entregables e indicadores de
 cumplimiento del MVP.}\label{tbl-objetivos-mvp}\tabularnewline
 \toprule\noalign{}
@@ -945,81 +959,80 @@ Más allá de sus propiedades técnicas, las plataformas deben entenderse
 como infraestructuras de poder privadas que ejercen moderación,
 optimizan el \emph{engagement} y consolidan efectos de red con
 consecuencias desproporcionadas para la calidad del debate democrático
-{[}@Gillespie2018; @vanDijck2018{]}.
+(Gillespie 2018; Dijck 2018).
 
 \section{Polarización afectiva}\label{polarizaciuxf3n-afectiva}
 
 La \textbf{polarización afectiva} designa el distanciamiento emocional
 entre grupos políticos: no solo divergen en posiciones, sino que se
-desagradan y se atribuyen mutuamente malas intenciones
-{[}@Iyengar2019{]}. Es analíticamente distinta de la polarización
-ideológica: ambas pueden variar de manera independiente, y la evidencia
-comparada sugiere que la afectiva ha crecido más rápidamente en
-democracias contemporáneas {[}@Boxell2022{]}.
+desagradan y se atribuyen mutuamente malas intenciones (Iyengar 2019).
+Es analíticamente distinta de la polarización ideológica: ambas pueden
+variar de manera independiente, y la evidencia comparada sugiere que la
+afectiva ha crecido más rápidamente en democracias contemporáneas
+(Boxell 2022).
 
 Sus principales mecanismos en entornos digitales incluyen la exposición
 selectiva amplificada por algoritmos, la mayor visibilidad de voces
 extremas, la reducción de costos de expresión hostil y las dinámicas de
-señalización grupal recompensadas con \emph{likes} {[}@Brady2017;
-@Settle2018{]}. Las consecuencias para la democracia son significativas:
-erosión de la confianza institucional, resistencia al compromiso y
-tolerancia a la transgresión normativa cuando proviene del propio bando
-{[}@Graham2020{]}.
+señalización grupal recompensadas con \emph{likes} (Brady 2017; Settle
+2018). Las consecuencias para la democracia son significativas: erosión
+de la confianza institucional, resistencia al compromiso y tolerancia a
+la transgresión normativa cuando proviene del propio bando (Graham
+2020).
 
 \section{\texorpdfstring{Teoría del
 \emph{framing}}{Teoría del framing}}\label{teoruxeda-del-framing}
 
 El encuadre consiste en seleccionar aspectos de la realidad y hacerlos
 prominentes para promover una definición del problema, una
-interpretación causal y una evaluación moral {[}@Entman1993{]}. La
+interpretación causal y una evaluación moral (Entman 1993). La
 competencia política es, en parte significativa, competencia entre
 marcos alternativos: quien establece el marco dominante condiciona las
 opciones que parecen razonables.
 
 Se distinguen \textbf{marcos genéricos} (conflicto, interés humano,
 consecuencias económicas, atribución de responsabilidad, moralidad) y
-\textbf{marcos específicos} propios de cada controversia
-{[}@Semetko2000{]}. Para campañas electorales resulta útil añadir la
-distinción entre marcos diagnósticos (¿cuál es el problema?),
-pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).
+\textbf{marcos específicos} propios de cada controversia (Semetko 2000).
+Para campañas electorales resulta útil añadir la distinción entre marcos
+diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y
+motivacionales (¿qué está en juego?).
 
 En entornos digitales, el \emph{framing} es observable como proceso: los
 marcos son propuestos, contestados y reformulados en tiempo real. La
 estructura anidada de Reddit ---con sistemas de votación y
 conversaciones persistentes--- es particularmente adecuada para este
-análisis longitudinal {[}@Meraz2013{]}.
+análisis longitudinal (Meraz 2013).
 
 \section{Emociones políticas}\label{emociones-poluxedticas}
 
 Las emociones no son ruido que distorsiona el juicio racional: son
-componentes constitutivos de la cognición y la acción política
-{[}@Marcus2000{]}. La teoría de la inteligencia afectiva distingue un
-sistema de disposiciones (activado en entornos familiares, refuerza
-hábitos mediante entusiasmo o aversión) y un sistema de vigilancia
-(activado ante amenaza o incertidumbre, genera ansiedad que puede
-interrumpir el procesamiento automático y abrir espacio a la
-persuasión).
+componentes constitutivos de la cognición y la acción política (Marcus
+2000). La teoría de la inteligencia afectiva distingue un sistema de
+disposiciones (activado en entornos familiares, refuerza hábitos
+mediante entusiasmo o aversión) y un sistema de vigilancia (activado
+ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el
+procesamiento automático y abrir espacio a la persuasión).
 
 Para el análisis empírico, el concepto de \textbf{repertorio afectivo}
 ---la configuración característica de emociones movilizadas por un
 actor, su combinación y los objetos hacia los que se dirigen--- resulta
-más útil que el registro de emociones aisladas {[}@Jasper2011{]}.
-Permite preguntar: ¿qué proporción del contenido emocional se dirige al
+más útil que el registro de emociones aisladas (Jasper 2011). Permite
+preguntar: ¿qué proporción del contenido emocional se dirige al
 endogrupo versus al exogrupo? ¿Cómo articula el actor emociones
 positivas y negativas?
 
 La \textbf{indignación moral} merece atención especial: combina valencia
 negativa con alta activación y orientación a la acción, se difunde más
 que otras emociones y genera bajo costo de expresión con recompensas
-sociales inmediatas {[}@Crockett2017{]}.
+sociales inmediatas (Crockett 2017).
 
 \section{Construcción de
 adversarios}\label{construcciuxf3n-de-adversarios}
 
 Las identidades colectivas no son esencias preexistentes: emergen a
 través de la diferenciación. Todo ``nosotros'' se constituye en relación
-con un ``ellos'' {[}@Laclau1985{]}. En contextos electorales, analizar
-cómo se construyen los adversarios ---qué atributos se les asignan, qué
+con un ``ellos'' (Laclau 1985). En contextos electorales, analizar cómo
+se construyen los adversarios ---qué atributos se les asignan, qué
 estrategias se emplean para deslegitimarlos--- es una vía privilegiada
 para comprender la configuración del espacio político.
 
@@ -1050,8 +1063,8 @@ Estas corrientes difieren no solo ideológicamente sino en sus
 estrategias comunicativas: la derecha tradicional emplea registro
 institucional y moderado; la radical populista moviliza agravios y
 retórica de confrontación; la libertaria combina argumentos económicos
-con estilos provocadores y referencias a subculturas de internet
-{[}@Norris2019{]}.
+con estilos provocadores y referencias a subculturas de internet (Norris
+2019).
 
 La coexistencia de las tres derechas en el caso chileno genera dinámicas
 de competencia intra-bloque ---disputa por electorados superpuestos,
@@ -1068,7 +1081,7 @@ privilegia el debate sustantivo sobre la identidad individual. Sus
 comentarios anidados permiten seguir el desarrollo de argumentos y
 contraargumentos; el sistema de votación ofrece un indicador de
 resonancia comunitaria; y la persistencia habilita el análisis
-longitudinal {[}@Proferes2021{]}.
+longitudinal (Proferes 2021).
 
 En el contexto chileno, \textbf{r/chile} (generalista, tendencia
 centro-izquierda) y \textbf{r/RepublicadeChile} (surgida como escisión,
@@ -1115,8 +1128,8 @@ observacional preserva las propiedades naturales de la interacción en
 las plataformas estudiadas, sin intervención experimental.
 
 Metodológicamente, la investigación se inscribe en la \textbf{ciencia
-social computacional} {[}@Lazer2009; @Salganik2019{]}: integra técnicas
-de procesamiento de datos a gran escala con marcos teóricos y preguntas
+social computacional} (Lazer 2009; Salganik 2019): integra técnicas de
+procesamiento de datos a gran escala con marcos teóricos y preguntas
 sustantivas de las ciencias sociales. El diseño combina componentes
 \textbf{descriptivos} ---caracterizar la conversación política en Reddit
 durante el período estudiado--- con componentes \textbf{explicativos},
@@ -1284,7 +1297,7 @@ Table~\ref{tbl-candidaturas}).
 \section{Consideraciones éticas}\label{consideraciones-uxe9ticas}
 
 La investigación se rige por principios establecidos para la
-investigación con datos digitales {[}@Salganik2019; @Zimmer2017{]}:
+investigación con datos digitales (Salganik 2019; Zimmer 2017):
 
 \textbf{Datos públicos}: Todo el contenido recolectado proviene de
 espacios públicos de Reddit. No se accedió a mensajes privados ni a
@@ -1367,6 +1380,152 @@ Se identifican tendencias, ciclos y puntos de quiebre, así como
 correlaciones entre eventos externos (debates, declaraciones,
 controversias) y cambios en los patrones discursivos.
 
+\subsection{Formalización matemática del modelado
+automático}\label{formalizaciuxf3n-matemuxe1tica-del-modelado-automuxe1tico}
+
+El pipeline de análisis posterior a la anotación (TF-IDF, vectores
+semánticos, modelos supervisados y no supervisados) puede describirse
+mediante las expresiones siguientes. Se omiten detalles de
+implementación específicos de cada librería cuando equivalentes
+conceptualmente.
+
+\subsubsection{Representación textual:
+TF-IDF}\label{representaciuxf3n-textual-tf-idf}
+
+Sea (D) el conjunto de documentos (comentarios o fragmentos), (t) un
+término y (d \in D) un documento. La frecuencia--inversa de documento se
+define como el producto de la frecuencia del término en (d) por un
+factor que penaliza términos muy frecuentes en el corpus:
+
+\[
+\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t), \qquad
+\text{idf}(t) = \log \frac{|D|}{1 + |\{d' \in D : t \in d'\}|}.
+\]
+
+En la práctica, la implementación puede aplicar transformaciones
+sublineales a (\text{tf}) y variantes suavizadas de (\text{idf}) según
+los hiperparámetros del vectorizador.
+
+\subsubsection{Embeddings de oraciones y similitud
+coseno}\label{embeddings-de-oraciones-y-similitud-coseno}
+
+Un modelo de oraciones (p.~ej. \emph{Sentence Transformers}) proyecta
+cada texto en un vector de dimensión fija:
+
+\[
+\mathbf{e} = f_{\theta}(\text{texto}) \in \mathbb{R}^{d},
+\]
+
+donde (f\_\{\theta\}) es una red neuronal profunda (arquitectura tipo
+encoder) y (\theta) denota los parámetros entrenados externamente. Para
+asignar un tema por proximidad a enunciados de referencia
+(\mathbf{c}\_k), se utiliza la similitud coseno:
+
+\[
+\text{sim}(\mathbf{e}, \mathbf{c}_k) = \frac{\mathbf{e}^{\top} \mathbf{c}_k}{\|\mathbf{e}\| \, \|\mathbf{c}_k\|}, \qquad
+k^{\ast} = \arg\max_k \, \text{sim}(\mathbf{e}, \mathbf{c}_k).
+\]
+
+\subsubsection{Clasificación de sentimiento y de desacuerdo (aprendizaje
+supervisado)}\label{clasificaciuxf3n-de-sentimiento-y-de-desacuerdo-aprendizaje-supervisado}
+
+Con un vector de características (\mathbf{x}) ---obtenido, según el
+modelo, como vector TF-IDF concatenado con variables categóricas
+codificadas y numéricas escaladas--- la \textbf{regresión logística
+multinomial} modela
+
+\[
+P(y = k \mid \mathbf{x}) = \frac{\exp(\mathbf{w}_k^{\top}\mathbf{x} + b_k)}{\sum_{j} \exp(\mathbf{w}_j^{\top}\mathbf{x} + b_j)}.
+\]
+
+Para un \textbf{SVM lineal} (clasificación), típicamente se minimiza una
+función hinge regularizada de la forma
+
+\[
+\min_{\mathbf{w}, b} \; \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i} \max\bigl(0, 1 - y_i(\mathbf{w}^{\top}\mathbf{x}_i + b)\bigr),
+\]
+
+con (y\_i) en la convención (\{-1,+1\}) según la implementación.
+
+Un \textbf{bosque aleatorio} promedia las predicciones de árboles de
+decisión; en cada nodo se minimiza una impureza como el índice de Gini,
+
+\[
+G(S) = 1 - \sum_{k} p_k^2,
+\]
+
+donde (p\_k) es la proporción de la clase (k) en el conjunto de
+instancias (S) del nodo.
+
+Los métodos de \textbf{gradiente sobre árboles} (p.~ej. XGBoost)
+optimizan una función objetivo regularizada del tipo
+
+\[
+\mathcal{L} = \sum_{i} \ell\bigl(y_i, \hat{y}_i\bigr) + \sum_{t} \Omega(f_t),
+\]
+
+donde (\ell) es una pérdida acorde al tipo de tarea (p.~ej.
+log-verosimilitud negativa en clasificación multiclase) y (\Omega)
+penaliza la complejidad de cada árbol aditivo (f\_t).
+
+Cuando la entrada es directamente el embedding (\mathbf{e}), la
+\textbf{regresión logística} sobre (\mathbf{e}) conserva la misma forma
+softmax o binaria, según la variable respuesta.
+
+\subsubsection{Regresión de polarización (variable
+continua)}\label{regresiuxf3n-de-polarizaciuxf3n-variable-continua}
+
+La \textbf{regresión Ridge} estima coeficientes penalizando la norma
+(\ell\_2):
+
+\[
+\min_{\mathbf{w}} \; \|\mathbf{y} - X\mathbf{w}\|_2^2 + \alpha \|\mathbf{w}\|_2^2, \qquad \alpha > 0.
+\]
+
+Los \textbf{árboles} y \textbf{métodos de boosting} para regresión
+minimizan en cambio errores cuadráticos (u otras pérdidas) mediante
+particiones recursivas o sumas de árboles débiles, según el algoritmo
+elegido.
+
+\subsubsection{Reducción de dimensionalidad:
+UMAP}\label{reducciuxf3n-de-dimensionalidad-umap}
+
+\textbf{UMAP} construye una representación de baja dimensión (en este
+trabajo, tres dimensiones para visualización) optimizando una función de
+coste que alinea estructuras de vecindad en el espacio de embeddings de
+alta dimensión con una distribución en el espacio incrustado; la
+formulación completa aparece en McInnes, Healy, and Melville (2018). Los
+hiperparámetros relevantes incluyen el número de vecinos considerados,
+la métrica de distancia (p.~ej. coseno) y la distancia mínima entre
+puntos en el embedding.
+
+\subsubsection{Clustering}\label{clustering}
+
+\textbf{K-medias} minimiza la suma de cuadrados intra-cluster:
+
+\[
+\min_{\{\boldsymbol{\mu}_k\}} \sum_{i} \min_k \|\mathbf{x}_i - \boldsymbol{\mu}_k\|_2^2,
+\]
+
+resuelto de forma aproximada por el algoritmo de Lloyd.
+
+\textbf{HDBSCAN} es un método de clustering por densidad jerárquico; no
+reduce a una única expresión escalar sino que combina distancias de
+alcance mutuo y un análisis de estabilidad de clusters a lo largo de una
+jerarquía (McInnes, Healy, and Astels 2017).
+
+\subsubsection{Modelos de lenguaje vía API
+(anotación)}\label{modelos-de-lenguaje-vuxeda-api-anotaciuxf3n}
+
+Las llamadas a modelos generativos de gran tamaño (p.~ej. GPT-4o,
+DeepSeek) \textbf{no} admiten una fórmula cerrada equivalente a la de
+los modelos anteriores: la salida es una función implícita aprendida por
+entrenamiento masivo. En el diseño empírico, la ``formalización''
+operativa consiste en la definición del prompt, la temperatura, el
+formato de salida (JSON) y las reglas de post-procesamiento (validación
+de etiquetas, consenso entre proveedores, agregación de polarización),
+descritas en los scripts de anotación.
+
 \section{Corpus final y pipeline de
 procesamiento}\label{corpus-final-y-pipeline-de-procesamiento}
 
@@ -1395,32 +1554,399 @@ del corpus.}
 
 \chapter{Depuración de Datos}\label{depuraciuxf3n-de-datos}
 
+\section{Depuración y preprocesamiento del
+corpus}\label{depuraciuxf3n-y-preprocesamiento-del-corpus}
+
+Una vez constituido el corpus filtrado temáticamente, se aplicó una
+etapa de depuración orientada a garantizar la calidad analítica de los
+datos. Esta etapa distingue entre dos tipos de decisiones: las que
+afectan a \textbf{unidades de observación} ---posts y comentarios que
+son excluidos del análisis--- y las que afectan al \textbf{contenido
+textual} ---transformaciones aplicadas al texto para mejorar su
+procesabilidad---.
+
+\section{Descripción general del
+corpus}\label{descripciuxf3n-general-del-corpus}
+
+El corpus previo a la depuración comprende \textbf{163.695 comentarios}
+distribuidos en \textbf{4.105 posts únicos}, publicados entre 05 de
+August de 2025 y 22 de January de 2026. Participaron \textbf{9.845
+autores únicos} en los comentarios y \textbf{1.106 autores únicos} en
+los posts. La Table~\ref{tbl-general} resume las estadísticas generales
+del corpus en esta etapa inicial.
+
+\begin{longtable}[t]{lr}
+
+\caption{\label{tbl-general}Estadísticas generales del corpus antes de
+depuración.}
+
+\tabularnewline
+
+\toprule
+Indicador & Valor\\
+\midrule
+\cellcolor{gray!10}{Comentarios totales} & \cellcolor{gray!10}{163.695}\\
+Posts únicos & 4.105\\
+\cellcolor{gray!10}{Autores de posts} & \cellcolor{gray!10}{1.106}\\
+Autores de comentarios & 9.845\\
+\cellcolor{gray!10}{Posts sin cuerpo textual (solo título)} & \cellcolor{gray!10}{99.434 (60.7\%)}\\
+\bottomrule
+
+\end{longtable}
+
+Destaca que una proporción elevada de posts carece de cuerpo textual
+(\texttt{post\_selftext\ =\ NA}), lo que implica que la detección de
+candidaturas mediante expresiones regulares recae principalmente sobre
+los títulos de los posts y el cuerpo de los comentarios. Este patrón es
+consistente con la cultura de publicación de Reddit, donde los posts de
+tipo \emph{link} o imagen no incluyen texto propio.
+
+La \textbf{?@tbl-subreddit} muestra la distribución del corpus entre las
+dos comunidades analizadas. La diferencia en volumen refleja el mayor
+tamaño y actividad general de r/chile respecto a r/RepublicadeChile, y
+no implica pesos analíticos distintos: ambas son estudiadas en igualdad
+de condiciones como casos comparativos con culturas discursivas
+diferenciadas.
+
+\begin{longtable}[t]{lrr}
+
+\caption{\label{tbl-menciones}Frecuencia de menciones por candidatura en
+el corpus bruto.}
+
+\tabularnewline
+
+\toprule
+Candidatura & Menciones & \% del corpus\\
+\midrule
+\cellcolor{gray!10}{José A. Kast} & \cellcolor{gray!10}{102.759} & \cellcolor{gray!10}{62.8\%}\\
+J. Jara & 63.602 & 38.9\%\\
+\cellcolor{gray!10}{J. Kaiser} & \cellcolor{gray!10}{26.521} & \cellcolor{gray!10}{16.2\%}\\
+E. Matthei & 16.358 & 10.0\%\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}\textit{Nota:} Un comentario puede mencionar a más de un candidato; los porcentajes no suman 100\%.}\\
+
+\end{longtable}
+
+La Figure~\ref{fig-serie} muestra la evolución semanal de las menciones
+por candidatura a lo largo del período de estudio. Los picos de
+actividad permiten identificar visualmente los momentos de mayor
+intensidad discursiva, que serán contrastados con el calendario de
+eventos electorales en el capítulo de resultados.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{05-depuracion-datos_files/figure-pdf/fig-serie-1.pdf}
+
+}
+
+\caption{\label{fig-serie}Volumen semanal de menciones por candidatura
+(agosto--diciembre 2025).}
+
+\end{figure}%
+
+\section{Criterios de exclusión de
+unidades}\label{criterios-de-exclusiuxf3n-de-unidades}
+
+Se aplicaron cuatro criterios de exclusión secuenciales:
+
+\textbf{Comentarios eliminados o moderados.} Reddit marca con los
+valores \texttt{{[}deleted{]}} o \texttt{{[}removed{]}} los comentarios
+cuyo contenido ha sido eliminado por el autor o por los moderadores de
+la comunidad. Estas cadenas no contienen información sustantiva y fueron
+descartadas del análisis textual, aunque se conservan en el corpus
+estructural para preservar la integridad de los árboles de conversación
+y no distorsionar las métricas de red.
+
+\textbf{Contenido automático y bots.} Se identificaron y excluyeron
+cuentas con comportamiento consistente con automatización,
+operacionalizadas como usuarios que publican más de cincuenta
+comentarios en un mismo día de forma sostenida, o cuyos nombres de
+usuario coinciden con patrones conocidos de bots en subreddits chilenos
+(\texttt{AutoModerator}, \texttt{RemindMeBot}). La exclusión de este
+contenido reduce el ruido no-humano en el análisis de sentimiento y en
+la construcción de redes de interacción.
+
+\textbf{Comentarios excesivamente cortos.} Los comentarios con menos de
+tres tokens tras la normalización ---típicamente reacciones
+monosilábicas, interjecciones o emojis aislados--- aportan información
+insuficiente para la clasificación de marcos interpretativos o emociones
+y fueron excluidos del análisis textual. Se conservan, no obstante, en
+el análisis de redes de interacción, donde su existencia como arista es
+analíticamente relevante con independencia de su contenido semántico.
+
+\textbf{Posts fuera del período de estudio.} Aunque la extracción se
+circunscribió al período agosto--diciembre 2025, la estrategia
+incremental puede incorporar registros cuya fecha cae fuera del rango
+por diferencias de zona horaria. Todos los registros fueron verificados
+contra el período definido usando \emph{timestamps} convertidos a hora
+de Santiago (America/Santiago, UTC−3/UTC−4 según horario de verano),
+descartando aquellos fuera de rango.
+
+\section{Normalización textual}\label{normalizaciuxf3n-textual}
+
+El texto de posts y comentarios fue sometido a una normalización previa
+a cualquier clasificación automatizada. Las transformaciones se
+aplicaron en el siguiente orden:
+
+\textbf{Eliminación de elementos no textuales.} URLs, menciones de
+usuario (patrones \texttt{u/nombre}), referencias a subreddits
+(\texttt{r/nombre}) y secuencias de formato Markdown (asteriscos,
+almohadillas, corchetes) fueron eliminadas mediante expresiones
+regulares, dado que no aportan contenido semántico al análisis
+discursivo.
+
+\textbf{Normalización de espacios y puntuación.} Secuencias de espacios
+múltiples, saltos de línea redundantes y puntuación repetida fueron
+colapsadas a su forma canónica mediante \texttt{str\_squish()}. Esta
+operación reduce la variabilidad superficial sin alterar el contenido
+informativo del texto.
+
+\textbf{Conservación de tildes y caracteres del español.} No se aplicó
+eliminación de tildes ni de la letra ñ, dado que su presencia es
+relevante para la correcta tokenización del español chileno y para el
+funcionamiento de los patrones regex de detección de candidaturas.
+
+\textbf{No aplicación de \emph{stopwords} ni lematización en esta fase.}
+Estas transformaciones más agresivas se reservan para las técnicas que
+específicamente las requieren ---fundamentalmente el modelado de
+tópicos--- y no se aplican al texto enviado a los modelos de lenguaje
+para clasificación de sentimiento y marcos interpretativos, donde el
+contexto completo mejora el desempeño del modelo.
+
 \bookmarksetup{startatroot}
 
 \chapter{Exploración de Datos}\label{exploraciuxf3n-de-datos}
+
+\begin{center}
+\includegraphics{images/fig_count_facet_candidatos.png}
+\end{center}
 
 \bookmarksetup{startatroot}
 
 \chapter{Modelado de Datos}\label{modelado-de-datos}
 
-{[}Contenido de modelado de datos{]}
+Este capítulo sintetiza el \textbf{pipeline de modelado} aplicado a los
+comentarios anotados (capítulo anterior / anotación vía API) y al texto
+enriquecido: representación TF-IDF y embeddings semánticos, modelos
+supervisados de \textbf{sentimiento} y \textbf{polarización}, reducción
+de dimensionalidad con \textbf{UMAP} en tres dimensiones, y
+\textbf{clustering} (K-medias y HDBSCAN). Los artefactos numéricos y
+figuras se generan con el script
+\texttt{scripts/analisis/05\_modelado.py}; las tablas siguientes leen
+directamente los CSV de salida cuando existen.
 
-\section{Clustering K-Means}\label{clustering-k-means}
+\section{Modelos supervisados: clasificación de
+sentimiento}\label{modelos-supervisados-clasificaciuxf3n-de-sentimiento}
 
-{[}Contenido sobre clustering K-Means{]}
+Se entrenaron clasificadores sobre un \textbf{dataset largo} (una fila
+por candidato--comentario cuando el hilo menciona a ese candidato), con
+matriz de predictores compuesta por TF-IDF del texto, codificación de la
+candidatura objetivo y covariables numéricas (longitud, puntuación,
+etc.). Se compararon regresión logística, SVM lineal y bosque aleatorio
+(y XGBoost cuando la librería está disponible).
 
-\section{Clustering DBSCAN}\label{clustering-dbscan}
+\begin{longtable}[]{@{}lrr@{}}
+\caption{Desempeño en hold-out (test) de modelos TF-IDF para predecir el
+sentimiento final.}\tabularnewline
+\toprule\noalign{}
+Modelo & Accuracy & F1 macro \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Modelo & Accuracy & F1 macro \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+tfidf\_logreg & 0.709 & 0.498 \\
+tfidf\_linear\_svm & 0.765 & 0.492 \\
+tfidf\_random\_forest & 0.783 & 0.475 \\
+\end{longtable}
 
-{[}Contenido sobre clustering DBSCAN{]}
+\begin{figure}[H]
 
-\section{Clustering Jerárquico}\label{clustering-jeruxe1rquico}
+\centering{
 
-{[}Contenido sobre clustering jerárquico{]}
+\includegraphics[width=0.75\textwidth,height=\textheight]{../../outputs_modelado/cm_sentimiento_mejor_modelo.png}
 
-\section{Determinación del modelo más
-óptimo}\label{determinaciuxf3n-del-modelo-muxe1s-uxf3ptimo}
+}
 
-{[}Contenido sobre determinación del modelo más óptimo{]}
+\caption{\label{fig-cm-pdf}Matriz de confusión del mejor modelo TF-IDF
+(sentimiento).}
+
+\end{figure}%
+
+\section{Regresión de
+polarización}\label{regresiuxf3n-de-polarizaciuxf3n}
+
+La polarización consensuada entre anotadores automáticos se modeló como
+variable continua con Ridge, bosque aleatorio y gradient boosting (más
+XGBoost si aplica).
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Regresión de polarización: error absoluto medio, RMSE y R\(^2\)
+en conjunto de prueba.}\tabularnewline
+\toprule\noalign{}
+Modelo & MAE & RMSE & R² \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Modelo & MAE & RMSE & R² \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+random\_forest\_reg & 0.0834 & 0.1168 & 0.3437 \\
+ridge & 0.0904 & 0.1199 & 0.3084 \\
+gbr & 0.1019 & 0.1281 & 0.2108 \\
+\end{longtable}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{../../outputs_modelado/polarizacion_por_tema.png}
+
+}
+
+\caption{\label{fig-pol-tema-pdf}Polarización promedio por tema
+semántico (embedding).}
+
+\end{figure}%
+
+\section{UMAP (3D), temas y
+clustering}\label{umap-3d-temas-y-clustering}
+
+Los embeddings de oraciones se proyectan con \textbf{UMAP} a tres
+dimensiones para visualización. En paralelo se obtienen clusters con
+\textbf{K-medias} (K elegido por silueta) y \textbf{HDBSCAN}. Las
+figuras estáticas corresponden a capturas del mismo espacio incrustado
+coloreado por distintas etiquetas.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_modelado/umap_temas.png}
+
+}
+
+\caption{\label{fig-umap-temas-pdf}UMAP 3D (vista estática): comentarios
+coloreados por tema semántico derivado de similitud con prototipos.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_modelado/umap_sentimiento.png}
+
+}
+
+\caption{\label{fig-umap-sent-pdf}UMAP 3D: sentimiento final.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_modelado/umap_kmeans.png}
+
+}
+
+\caption{\label{fig-umap-km-pdf}UMAP 3D: clusters K-medias.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_modelado/umap_hdbscan.png}
+
+}
+
+\caption{\label{fig-umap-hdb-pdf}UMAP 3D: clusters HDBSCAN (etiqueta -1
+= ruido).}
+
+\end{figure}%
+
+\section{Indicadores agregados y distribución por
+candidato}\label{indicadores-agregados-y-distribuciuxf3n-por-candidato}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{../../outputs_modelado/desacuerdo_por_tema.png}
+
+}
+
+\caption{\label{fig-desacuerdo-pdf}Desacuerdo entre modelos (proxy) por
+tema.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{../../outputs_modelado/sentimiento_por_candidato.png}
+
+}
+
+\caption{\label{fig-sent-cand-pdf}Distribución de sentimiento por
+candidato (dataset largo).}
+
+\end{figure}%
+
+\section{Esbozo de interpretación de
+resultados}\label{esbozo-de-interpretaciuxf3n-de-resultados}
+
+Los resultados deben leerse en clave \textbf{exploratoria y
+complementaria} a la lectura cualitativa del corpus, no como verdad
+sustantiva cerrada.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Clasificación de sentimiento.} El F1 macro moderado y la
+  matriz de confusión sugieren que el léxico y el contexto de
+  candidatura capturan parte de la variación, pero persisten confusiones
+  entre clases (p.~ej. ironía, matices neutros--negativos). Los pesos de
+  TF-IDF y los errores sistemáticos por tema se profundizan en el
+  capítulo de interpretación.
+\item
+  \textbf{Polarización.} Los valores de R\(^2\) moderados indican que el
+  texto y las covariables explican solo una fracción de la puntuación de
+  polarización; buena parte de la variación queda en factores no
+  modelados o en ruido de medición entre APIs. La comparación por tema
+  ayuda a localizar dónde el tono es más homogéneamente agresivo o
+  informativo.
+\item
+  \textbf{UMAP y clusters.} Las proyecciones 3D facilitan ver
+  \textbf{aglomeraciones} y solapes entre etiquetas; K-medias impone
+  particiones convexas mientras HDBSCAN permite ruido y formas más
+  irregulares. La etiqueta de cluster no tiene por sí sola significado
+  político: requiere inspección de textos representativos y de las
+  tablas de términos asociados a cada cluster
+  (\texttt{top\_terms\_*.csv} en la carpeta de salida).
+\item
+  \textbf{Coherencia con la anotación previa.} Donde los modelos
+  supervisados replican razonablemente las etiquetas de la API, ganamos
+  capacidad de \textbf{generalización} y de abstracción sobre variables
+  derivadas; donde fallan, el desacuerdo señala casos para revisión
+  manual o para refinar prompts y reglas de consenso.
+\item
+  \textbf{Próximos pasos analíticos.} Este esbozo alimenta el capítulo
+  de \textbf{interpretación de resultados}: allí se contrastarán estos
+  hallazgos con preguntas de investigación, eventos de campaña y lectura
+  cualitativa de hilos ilustrativos.
+\end{enumerate}
 
 \bookmarksetup{startatroot}
 
@@ -1455,7 +1981,75 @@ resultados}\label{validaciuxf3n-de-los-resultados}
 \chapter{Referencias}\label{referencias}
 
 \phantomsection\label{refs}
-\begin{CSLReferences}{0}{1}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Boxell2022}
+Boxell. 2022. {``Boxell2022.''}
+
+\bibitem[\citeproctext]{ref-Brady2017}
+Brady. 2017. {``Brady2017.''}
+
+\bibitem[\citeproctext]{ref-Crockett2017}
+Crockett. 2017. {``Crockett2017.''}
+
+\bibitem[\citeproctext]{ref-vanDijck2018}
+Dijck, van. 2018. {``vanDijck2018.''}
+
+\bibitem[\citeproctext]{ref-Entman1993}
+Entman. 1993. {``Entman1993.''}
+
+\bibitem[\citeproctext]{ref-Gillespie2018}
+Gillespie. 2018. {``Gillespie2018.''}
+
+\bibitem[\citeproctext]{ref-Graham2020}
+Graham. 2020. {``Graham2020.''}
+
+\bibitem[\citeproctext]{ref-Iyengar2019}
+Iyengar. 2019. {``Iyengar2019.''}
+
+\bibitem[\citeproctext]{ref-Jasper2011}
+Jasper. 2011. {``Jasper2011.''}
+
+\bibitem[\citeproctext]{ref-Laclau1985}
+Laclau. 1985. {``Laclau1985.''}
+
+\bibitem[\citeproctext]{ref-Lazer2009}
+Lazer. 2009. {``Lazer2009.''}
+
+\bibitem[\citeproctext]{ref-Marcus2000}
+Marcus. 2000. {``Marcus2000.''}
+
+\bibitem[\citeproctext]{ref-mcinnes2017hdbscan}
+McInnes, Leland, John Healy, and Steve Astels. 2017. {``Hdbscan:
+Hierarchical Density Based Clustering.''} \emph{The Journal of Open
+Source Software} 2 (11): 205. \url{https://doi.org/10.21105/joss.00205}.
+
+\bibitem[\citeproctext]{ref-mcinnes2018umap}
+McInnes, Leland, John Healy, and James Melville. 2018. {``UMAP: Uniform
+Manifold Approximation and Projection for Dimension Reduction.''}
+\emph{arXiv Preprint arXiv:1802.03426}.
+\url{https://arxiv.org/abs/1802.03426}.
+
+\bibitem[\citeproctext]{ref-Meraz2013}
+Meraz. 2013. {``Meraz2013.''}
+
+\bibitem[\citeproctext]{ref-Norris2019}
+Norris. 2019. {``Norris2019.''}
+
+\bibitem[\citeproctext]{ref-Proferes2021}
+Proferes. 2021. {``Proferes2021.''}
+
+\bibitem[\citeproctext]{ref-Salganik2019}
+Salganik. 2019. {``Salganik2019.''}
+
+\bibitem[\citeproctext]{ref-Semetko2000}
+Semetko. 2000. {``Semetko2000.''}
+
+\bibitem[\citeproctext]{ref-Settle2018}
+Settle. 2018. {``Settle2018.''}
+
+\bibitem[\citeproctext]{ref-Zimmer2017}
+Zimmer. 2017. {``Zimmer2017.''}
+
 \end{CSLReferences}
 
 

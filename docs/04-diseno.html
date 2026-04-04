@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -106,6 +126,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -234,6 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clasificación-de-marcos-interpretativos-framing" id="toc-clasificación-de-marcos-interpretativos-framing" class="nav-link" data-scroll-target="#clasificación-de-marcos-interpretativos-framing">Clasificación de marcos interpretativos (<em>framing</em>)</a></li>
   <li><a href="#análisis-de-redes-de-interacción" id="toc-análisis-de-redes-de-interacción" class="nav-link" data-scroll-target="#análisis-de-redes-de-interacción">Análisis de redes de interacción</a></li>
   <li><a href="#análisis-temporal" id="toc-análisis-temporal" class="nav-link" data-scroll-target="#análisis-temporal">Análisis temporal</a></li>
+  <li><a href="#formalización-matemática-del-modelado-automático" id="toc-formalización-matemática-del-modelado-automático" class="nav-link" data-scroll-target="#formalización-matemática-del-modelado-automático">Formalización matemática del modelado automático</a></li>
   </ul></li>
   <li><a href="#corpus-final-y-pipeline-de-procesamiento" id="toc-corpus-final-y-pipeline-de-procesamiento" class="nav-link" data-scroll-target="#corpus-final-y-pipeline-de-procesamiento"><span class="header-section-number">4.6</span> Corpus final y pipeline de procesamiento</a></li>
   </ul>
@@ -271,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="diseño-de-investigación" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="diseño-de-investigación"><span class="header-section-number">4.1</span> Diseño de investigación</h2>
 <p>Esta investigación adopta un diseño <strong>longitudinal observacional</strong> basado en datos digitales generados por usuarios (<em>user-generated content</em>). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.</p>
-<p>Metodológicamente, la investigación se inscribe en la <strong>ciencia social computacional</strong> <span class="citation" data-cites="Lazer2009 Salganik2019">[@Lazer2009; @Salganik2019]</span>: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes <strong>descriptivos</strong> —caracterizar la conversación política en Reddit durante el período estudiado— con componentes <strong>explicativos</strong>, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.</p>
+<p>Metodológicamente, la investigación se inscribe en la <strong>ciencia social computacional</strong> <span class="citation" data-cites="Lazer2009 Salganik2019">(<a href="references.html#ref-Lazer2009" role="doc-biblioref">Lazer 2009</a>; <a href="references.html#ref-Salganik2019" role="doc-biblioref">Salganik 2019</a>)</span>: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes <strong>descriptivos</strong> —caracterizar la conversación política en Reddit durante el período estudiado— con componentes <strong>explicativos</strong>, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.</p>
 </section>
 <section id="reddit-como-plataforma-de-análisis" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="reddit-como-plataforma-de-análisis"><span class="header-section-number">4.2</span> Reddit como plataforma de análisis</h2>
@@ -377,7 +427,7 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones regex para su detección en el 
 </section>
 <section id="consideraciones-éticas" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="consideraciones-éticas"><span class="header-section-number">4.4</span> Consideraciones éticas</h2>
-<p>La investigación se rige por principios establecidos para la investigación con datos digitales <span class="citation" data-cites="Salganik2019 Zimmer2017">[@Salganik2019; @Zimmer2017]</span>:</p>
+<p>La investigación se rige por principios establecidos para la investigación con datos digitales <span class="citation" data-cites="Salganik2019 Zimmer2017">(<a href="references.html#ref-Salganik2019" role="doc-biblioref">Salganik 2019</a>; <a href="references.html#ref-Zimmer2017" role="doc-biblioref">Zimmer 2017</a>)</span>:</p>
 <p><strong>Datos públicos</strong>: Todo el contenido recolectado proviene de espacios públicos de Reddit. No se accedió a mensajes privados ni a información restringida.</p>
 <p><strong>Privacidad</strong>: El análisis no reporta identificadores individuales ni busca vincular cuentas con identidades reales. Los ejemplos citados son anonimizados cuando resulta pertinente.</p>
 <p><strong>No intervención</strong>: La investigación no actúa sobre las comunidades estudiadas ni expone a sus miembros a riesgos adicionales; el foco es el análisis de dinámicas colectivas.</p>
@@ -404,6 +454,79 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones regex para su detección en el 
 <h3 class="anchored" data-anchor-id="análisis-temporal">Análisis temporal</h3>
 <p>El diseño longitudinal habilita el análisis de <strong>series temporales</strong> de los indicadores de interés: volumen de menciones, tono emocional promedio y distribución de marcos temáticos semana a semana. Se identifican tendencias, ciclos y puntos de quiebre, así como correlaciones entre eventos externos (debates, declaraciones, controversias) y cambios en los patrones discursivos.</p>
 </section>
+<section id="formalización-matemática-del-modelado-automático" class="level3">
+<h3 class="anchored" data-anchor-id="formalización-matemática-del-modelado-automático">Formalización matemática del modelado automático</h3>
+<p>El pipeline de análisis posterior a la anotación (TF-IDF, vectores semánticos, modelos supervisados y no supervisados) puede describirse mediante las expresiones siguientes. Se omiten detalles de implementación específicos de cada librería cuando equivalentes conceptualmente.</p>
+<section id="representación-textual-tf-idf" class="level4">
+<h4 class="anchored" data-anchor-id="representación-textual-tf-idf">Representación textual: TF-IDF</h4>
+<p>Sea (D) el conjunto de documentos (comentarios o fragmentos), (t) un término y (d D) un documento. La frecuencia–inversa de documento se define como el producto de la frecuencia del término en (d) por un factor que penaliza términos muy frecuentes en el corpus:</p>
+<p><span class="math display">\[
+\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t), \qquad
+\text{idf}(t) = \log \frac{|D|}{1 + |\{d' \in D : t \in d'\}|}.
+\]</span></p>
+<p>En la práctica, la implementación puede aplicar transformaciones sublineales a () y variantes suavizadas de () según los hiperparámetros del vectorizador.</p>
+</section>
+<section id="embeddings-de-oraciones-y-similitud-coseno" class="level4">
+<h4 class="anchored" data-anchor-id="embeddings-de-oraciones-y-similitud-coseno">Embeddings de oraciones y similitud coseno</h4>
+<p>Un modelo de oraciones (p.&nbsp;ej. <em>Sentence Transformers</em>) proyecta cada texto en un vector de dimensión fija:</p>
+<p><span class="math display">\[
+\mathbf{e} = f_{\theta}(\text{texto}) \in \mathbb{R}^{d},
+\]</span></p>
+<p>donde (f_{}) es una red neuronal profunda (arquitectura tipo encoder) y () denota los parámetros entrenados externamente. Para asignar un tema por proximidad a enunciados de referencia (_k), se utiliza la similitud coseno:</p>
+<p><span class="math display">\[
+\text{sim}(\mathbf{e}, \mathbf{c}_k) = \frac{\mathbf{e}^{\top} \mathbf{c}_k}{\|\mathbf{e}\| \, \|\mathbf{c}_k\|}, \qquad
+k^{\ast} = \arg\max_k \, \text{sim}(\mathbf{e}, \mathbf{c}_k).
+\]</span></p>
+</section>
+<section id="clasificación-de-sentimiento-y-de-desacuerdo-aprendizaje-supervisado" class="level4">
+<h4 class="anchored" data-anchor-id="clasificación-de-sentimiento-y-de-desacuerdo-aprendizaje-supervisado">Clasificación de sentimiento y de desacuerdo (aprendizaje supervisado)</h4>
+<p>Con un vector de características () —obtenido, según el modelo, como vector TF-IDF concatenado con variables categóricas codificadas y numéricas escaladas— la <strong>regresión logística multinomial</strong> modela</p>
+<p><span class="math display">\[
+P(y = k \mid \mathbf{x}) = \frac{\exp(\mathbf{w}_k^{\top}\mathbf{x} + b_k)}{\sum_{j} \exp(\mathbf{w}_j^{\top}\mathbf{x} + b_j)}.
+\]</span></p>
+<p>Para un <strong>SVM lineal</strong> (clasificación), típicamente se minimiza una función hinge regularizada de la forma</p>
+<p><span class="math display">\[
+\min_{\mathbf{w}, b} \; \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i} \max\bigl(0, 1 - y_i(\mathbf{w}^{\top}\mathbf{x}_i + b)\bigr),
+\]</span></p>
+<p>con (y_i) en la convención ({-1,+1}) según la implementación.</p>
+<p>Un <strong>bosque aleatorio</strong> promedia las predicciones de árboles de decisión; en cada nodo se minimiza una impureza como el índice de Gini,</p>
+<p><span class="math display">\[
+G(S) = 1 - \sum_{k} p_k^2,
+\]</span></p>
+<p>donde (p_k) es la proporción de la clase (k) en el conjunto de instancias (S) del nodo.</p>
+<p>Los métodos de <strong>gradiente sobre árboles</strong> (p.&nbsp;ej. XGBoost) optimizan una función objetivo regularizada del tipo</p>
+<p><span class="math display">\[
+\mathcal{L} = \sum_{i} \ell\bigl(y_i, \hat{y}_i\bigr) + \sum_{t} \Omega(f_t),
+\]</span></p>
+<p>donde () es una pérdida acorde al tipo de tarea (p.&nbsp;ej. log-verosimilitud negativa en clasificación multiclase) y () penaliza la complejidad de cada árbol aditivo (f_t).</p>
+<p>Cuando la entrada es directamente el embedding (), la <strong>regresión logística</strong> sobre () conserva la misma forma softmax o binaria, según la variable respuesta.</p>
+</section>
+<section id="regresión-de-polarización-variable-continua" class="level4">
+<h4 class="anchored" data-anchor-id="regresión-de-polarización-variable-continua">Regresión de polarización (variable continua)</h4>
+<p>La <strong>regresión Ridge</strong> estima coeficientes penalizando la norma (_2):</p>
+<p><span class="math display">\[
+\min_{\mathbf{w}} \; \|\mathbf{y} - X\mathbf{w}\|_2^2 + \alpha \|\mathbf{w}\|_2^2, \qquad \alpha &gt; 0.
+\]</span></p>
+<p>Los <strong>árboles</strong> y <strong>métodos de boosting</strong> para regresión minimizan en cambio errores cuadráticos (u otras pérdidas) mediante particiones recursivas o sumas de árboles débiles, según el algoritmo elegido.</p>
+</section>
+<section id="reducción-de-dimensionalidad-umap" class="level4">
+<h4 class="anchored" data-anchor-id="reducción-de-dimensionalidad-umap">Reducción de dimensionalidad: UMAP</h4>
+<p><strong>UMAP</strong> construye una representación de baja dimensión (en este trabajo, tres dimensiones para visualización) optimizando una función de coste que alinea estructuras de vecindad en el espacio de embeddings de alta dimensión con una distribución en el espacio incrustado; la formulación completa aparece en <span class="citation" data-cites="mcinnes2018umap">McInnes, Healy, y Melville (<a href="references.html#ref-mcinnes2018umap" role="doc-biblioref">2018</a>)</span>. Los hiperparámetros relevantes incluyen el número de vecinos considerados, la métrica de distancia (p.&nbsp;ej. coseno) y la distancia mínima entre puntos en el embedding.</p>
+</section>
+<section id="clustering" class="level4">
+<h4 class="anchored" data-anchor-id="clustering">Clustering</h4>
+<p><strong>K-medias</strong> minimiza la suma de cuadrados intra-cluster:</p>
+<p><span class="math display">\[
+\min_{\{\boldsymbol{\mu}_k\}} \sum_{i} \min_k \|\mathbf{x}_i - \boldsymbol{\mu}_k\|_2^2,
+\]</span></p>
+<p>resuelto de forma aproximada por el algoritmo de Lloyd.</p>
+<p><strong>HDBSCAN</strong> es un método de clustering por densidad jerárquico; no reduce a una única expresión escalar sino que combina distancias de alcance mutuo y un análisis de estabilidad de clusters a lo largo de una jerarquía <span class="citation" data-cites="mcinnes2017hdbscan">(<a href="references.html#ref-mcinnes2017hdbscan" role="doc-biblioref">McInnes, Healy, y Astels 2017</a>)</span>.</p>
+</section>
+<section id="modelos-de-lenguaje-vía-api-anotación" class="level4">
+<h4 class="anchored" data-anchor-id="modelos-de-lenguaje-vía-api-anotación">Modelos de lenguaje vía API (anotación)</h4>
+<p>Las llamadas a modelos generativos de gran tamaño (p.&nbsp;ej. GPT-4o, DeepSeek) <strong>no</strong> admiten una fórmula cerrada equivalente a la de los modelos anteriores: la salida es una función implícita aprendida por entrenamiento masivo. En el diseño empírico, la “formalización” operativa consiste en la definición del prompt, la temperatura, el formato de salida (JSON) y las reglas de post-procesamiento (validación de etiquetas, consenso entre proveedores, agregación de polarización), descritas en los scripts de anotación.</p>
+</section>
+</section>
 </section>
 <section id="corpus-final-y-pipeline-de-procesamiento" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="corpus-final-y-pipeline-de-procesamiento"><span class="header-section-number">4.6</span> Corpus final y pipeline de procesamiento</h2>
@@ -422,6 +545,23 @@ Figura&nbsp;4.1: Flujo de recolección y procesamiento del corpus.
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Lazer2009" class="csl-entry" role="listitem">
+Lazer. 2009. <span>«Lazer2009»</span>.
+</div>
+<div id="ref-mcinnes2017hdbscan" class="csl-entry" role="listitem">
+McInnes, Leland, John Healy, y Steve Astels. 2017. <span>«hdbscan: Hierarchical density based clustering»</span>. <em>The Journal of Open Source Software</em> 2 (11): 205. <a href="https://doi.org/10.21105/joss.00205">https://doi.org/10.21105/joss.00205</a>.
+</div>
+<div id="ref-mcinnes2018umap" class="csl-entry" role="listitem">
+McInnes, Leland, John Healy, y James Melville. 2018. <span>«UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction»</span>. <em>arXiv preprint arXiv:1802.03426</em>. <a href="https://arxiv.org/abs/1802.03426">https://arxiv.org/abs/1802.03426</a>.
+</div>
+<div id="ref-Salganik2019" class="csl-entry" role="listitem">
+Salganik. 2019. <span>«Salganik2019»</span>.
+</div>
+<div id="ref-Zimmer2017" class="csl-entry" role="listitem">
+Zimmer. 2017. <span>«Zimmer2017»</span>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1019,11 +1159,105 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>El diseño longitudinal habilita el análisis de **series temporales** de los indicadores de interés: volumen de menciones, tono emocional promedio y distribución de marcos temáticos semana a semana. Se identifican tendencias, ciclos y puntos de quiebre, así como correlaciones entre eventos externos (debates, declaraciones, controversias) y cambios en los patrones discursivos.</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Corpus final y pipeline de procesamiento</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formalización matemática del modelado automático</span></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>Al cierre de la recolección (31 de diciembre de 2025), el corpus contiene todos los posts y sus árboles completos de comentarios publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una de las cuatro candidaturas de interés, junto con sus metadatos asociados. La estructura del corpus permite análisis longitudinales, de red e interaccionales a lo largo del ciclo electoral completo.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>El pipeline de análisis posterior a la anotación (TF-IDF, vectores semánticos, modelos supervisados y no supervisados) puede describirse mediante las expresiones siguientes. Se omiten detalles de implementación específicos de cada librería cuando equivalentes conceptualmente.</span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="al">![Flujo de recolección y procesamiento del corpus.](images/pipeline_corpus.png)</span>{#fig-pipeline-datos fig-align="center" width="90%"}</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Representación textual: TF-IDF</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Sea <span class="sc">\(</span>D<span class="sc">\)</span> el conjunto de documentos (comentarios o fragmentos), <span class="sc">\(</span>t<span class="sc">\)</span> un término y <span class="sc">\(</span>d \in D<span class="sc">\)</span> un documento. La frecuencia–inversa de documento se define como el producto de la frecuencia del término en <span class="sc">\(</span>d<span class="sc">\)</span> por un factor que penaliza términos muy frecuentes en el corpus:</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t), \qquad</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>\text{idf}(t) = \log \frac{|D|}{1 + |<span class="sc">\{</span>d' \in D : t \in d'<span class="sc">\}</span>|}.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>En la práctica, la implementación puede aplicar transformaciones sublineales a <span class="sc">\(</span>\text{tf}<span class="sc">\)</span> y variantes suavizadas de <span class="sc">\(</span>\text{idf}<span class="sc">\)</span> según los hiperparámetros del vectorizador.</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Embeddings de oraciones y similitud coseno</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>Un modelo de oraciones (p. ej. *Sentence Transformers*) proyecta cada texto en un vector de dimensión fija:</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>\mathbf{e} = f_{\theta}(\text{texto}) \in \mathbb{R}^{d},</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>donde <span class="sc">\(</span>f_{\theta}<span class="sc">\)</span> es una red neuronal profunda (arquitectura tipo encoder) y <span class="sc">\(</span>\theta<span class="sc">\)</span> denota los parámetros entrenados externamente. Para asignar un tema por proximidad a enunciados de referencia <span class="sc">\(</span>\mathbf{c}_k<span class="sc">\)</span>, se utiliza la similitud coseno:</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>\text{sim}(\mathbf{e}, \mathbf{c}_k) = \frac{\mathbf{e}^{\top} \mathbf{c}_k}{\|\mathbf{e}\| \, \|\mathbf{c}_k\|}, \qquad</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>k^{\ast} = \arg\max_k \, \text{sim}(\mathbf{e}, \mathbf{c}_k).</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Clasificación de sentimiento y de desacuerdo (aprendizaje supervisado)</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>Con un vector de características <span class="sc">\(</span>\mathbf{x}<span class="sc">\)</span> —obtenido, según el modelo, como vector TF-IDF concatenado con variables categóricas codificadas y numéricas escaladas— la **regresión logística multinomial** modela</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>P(y = k \mid \mathbf{x}) = \frac{\exp(\mathbf{w}_k^{\top}\mathbf{x} + b_k)}{\sum_{j} \exp(\mathbf{w}_j^{\top}\mathbf{x} + b_j)}.</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>Para un **SVM lineal** (clasificación), típicamente se minimiza una función hinge regularizada de la forma</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>\min_{\mathbf{w}, b} \; \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i} \max\bigl(0, 1 - y_i(\mathbf{w}^{\top}\mathbf{x}_i + b)\bigr),</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>con <span class="sc">\(</span>y_i<span class="sc">\)</span> en la convención <span class="sc">\(\{</span>-1,+1<span class="sc">\}\)</span> según la implementación.</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>Un **bosque aleatorio** promedia las predicciones de árboles de decisión; en cada nodo se minimiza una impureza como el índice de Gini,</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>G(S) = 1 - \sum_{k} p_k^2,</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>donde <span class="sc">\(</span>p_k<span class="sc">\)</span> es la proporción de la clase <span class="sc">\(</span>k<span class="sc">\)</span> en el conjunto de instancias <span class="sc">\(</span>S<span class="sc">\)</span> del nodo.</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>Los métodos de **gradiente sobre árboles** (p. ej. XGBoost) optimizan una función objetivo regularizada del tipo</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>\mathcal{L} = \sum_{i} \ell\bigl(y_i, \hat{y}_i\bigr) + \sum_{t} \Omega(f_t),</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>donde <span class="sc">\(</span>\ell<span class="sc">\)</span> es una pérdida acorde al tipo de tarea (p. ej. log-verosimilitud negativa en clasificación multiclase) y <span class="sc">\(</span>\Omega<span class="sc">\)</span> penaliza la complejidad de cada árbol aditivo <span class="sc">\(</span>f_t<span class="sc">\)</span>.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>Cuando la entrada es directamente el embedding <span class="sc">\(</span>\mathbf{e}<span class="sc">\)</span>, la **regresión logística** sobre <span class="sc">\(</span>\mathbf{e}<span class="sc">\)</span> conserva la misma forma softmax o binaria, según la variable respuesta.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Regresión de polarización (variable continua)</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>La **regresión Ridge** estima coeficientes penalizando la norma <span class="sc">\(</span>\ell_2<span class="sc">\)</span>:</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>\min_{\mathbf{w}} \; \|\mathbf{y} - X\mathbf{w}\|_2^2 + \alpha \|\mathbf{w}\|_2^2, \qquad \alpha &gt; 0.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>Los **árboles** y **métodos de boosting** para regresión minimizan en cambio errores cuadráticos (u otras pérdidas) mediante particiones recursivas o sumas de árboles débiles, según el algoritmo elegido.</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Reducción de dimensionalidad: UMAP</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>**UMAP** construye una representación de baja dimensión (en este trabajo, tres dimensiones para visualización) optimizando una función de coste que alinea estructuras de vecindad en el espacio de embeddings de alta dimensión con una distribución en el espacio incrustado; la formulación completa aparece en @mcinnes2018umap. Los hiperparámetros relevantes incluyen el número de vecinos considerados, la métrica de distancia (p. ej. coseno) y la distancia mínima entre puntos en el embedding.</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Clustering</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>**K-medias** minimiza la suma de cuadrados intra-cluster:</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>\min_{<span class="sc">\{</span>\boldsymbol{\mu}_k\}} \sum_{i} \min_k \|\mathbf{x}_i - \boldsymbol{\mu}_k\|_2^2,</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>resuelto de forma aproximada por el algoritmo de Lloyd.</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>**HDBSCAN** es un método de clustering por densidad jerárquico; no reduce a una única expresión escalar sino que combina distancias de alcance mutuo y un análisis de estabilidad de clusters a lo largo de una jerarquía <span class="co">[</span><span class="ot">@mcinnes2017hdbscan</span><span class="co">]</span>.</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Modelos de lenguaje vía API (anotación)</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>Las llamadas a modelos generativos de gran tamaño (p. ej. GPT-4o, DeepSeek) **no** admiten una fórmula cerrada equivalente a la de los modelos anteriores: la salida es una función implícita aprendida por entrenamiento masivo. En el diseño empírico, la “formalización” operativa consiste en la definición del prompt, la temperatura, el formato de salida (JSON) y las reglas de post-procesamiento (validación de etiquetas, consenso entre proveedores, agregación de polarización), descritas en los scripts de anotación.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Corpus final y pipeline de procesamiento</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>Al cierre de la recolección (31 de diciembre de 2025), el corpus contiene todos los posts y sus árboles completos de comentarios publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una de las cuatro candidaturas de interés, junto con sus metadatos asociados. La estructura del corpus permite análisis longitudinales, de red e interaccionales a lo largo del ciclo electoral completo.</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="al">![Flujo de recolección y procesamiento del corpus.](images/pipeline_corpus.png)</span>{#fig-pipeline-datos fig-align="center" width="90%"}</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

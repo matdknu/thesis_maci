@@ -882,7 +882,7 @@ ui <- dashboardPage(
                 status = "warning",
                 solidHeader = TRUE,
                 width = 12,
-                p("Ejecuta el script 05_aplicacion_api.R para generar datos de imputación de ideología.")
+                p("Ejecuta scripts/analisis/03_aplicacion_api.py para generar datos de imputación de ideología.")
               )
             )
           )

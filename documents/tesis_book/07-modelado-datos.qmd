@@ -11,22 +11,176 @@ knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 5
 )
+base_out <- "../../outputs_modelado"
 ```
 
-[Contenido de modelado de datos]
+Este capítulo sintetiza el **pipeline de modelado** aplicado a los comentarios anotados (capítulo anterior / anotación vía API) y al texto enriquecido: representación TF-IDF y embeddings semánticos, modelos supervisados de **sentimiento** y **polarización**, reducción de dimensionalidad con **UMAP** en tres dimensiones, y **clustering** (K-medias y HDBSCAN). Los artefactos numéricos y figuras se generan con el script `scripts/analisis/05_modelado.py`; las tablas siguientes leen directamente los CSV de salida cuando existen.
 
-## Clustering K-Means
+## Modelos supervisados: clasificación de sentimiento
 
-[Contenido sobre clustering K-Means]
+Se entrenaron clasificadores sobre un **dataset largo** (una fila por candidato–comentario cuando el hilo menciona a ese candidato), con matriz de predictores compuesta por TF-IDF del texto, codificación de la candidatura objetivo y covariables numéricas (longitud, puntuación, etc.). Se compararon regresión logística, SVM lineal y bosque aleatorio (y XGBoost cuando la librería está disponible).
 
-## Clustering DBSCAN
+```{r tab-sentimiento}
+path_csv <- file.path(base_out, "resumen_modelos_sentimiento.csv")
+if (file.exists(path_csv)) {
+  rs <- read.csv(path_csv, stringsAsFactors = FALSE)
+  rs$accuracy <- round(rs$accuracy, 3)
+  rs$f1_macro <- round(rs$f1_macro, 3)
+  knitr::kable(
+    rs,
+    caption = "Desempeño en hold-out (test) de modelos TF-IDF para predecir el sentimiento final.",
+    booktabs = TRUE,
+    col.names = c("Modelo", "Accuracy", "F1 macro")
+  )
+} else {
+  knitr::kable(
+    data.frame(Nota = "Ejecutar 05_modelado.py para generar resumen_modelos_sentimiento.csv"),
+    caption = "Métricas de clasificación (archivo no encontrado)."
+  )
+}
+```
 
-[Contenido sobre clustering DBSCAN]
+::: {.content-visible when-format="pdf"}
+```{r fig-cm-pdf, fig.cap="Matriz de confusión del mejor modelo TF-IDF (sentimiento).", fig.align="center", out.width="75%"}
+if (file.exists(file.path(base_out, "cm_sentimiento_mejor_modelo.png"))) {
+  knitr::include_graphics(file.path(base_out, "cm_sentimiento_mejor_modelo.png"))
+}
+```
+:::
 
-## Clustering Jerárquico
+::: {.content-visible when-format="html"}
+![Matriz de confusión del mejor modelo TF-IDF (sentimiento).](../../outputs_modelado/cm_sentimiento_mejor_modelo.png){fig-align="center" width="75%"}
+:::
 
-[Contenido sobre clustering jerárquico]
+## Regresión de polarización
 
-## Determinación del modelo más óptimo
+La polarización consensuada entre anotadores automáticos se modeló como variable continua con Ridge, bosque aleatorio y gradient boosting (más XGBoost si aplica).
 
-[Contenido sobre determinación del modelo más óptimo]
+```{r tab-polarizacion}
+path_pol <- file.path(base_out, "resumen_modelos_polarizacion.csv")
+if (file.exists(path_pol)) {
+  rp <- read.csv(path_pol, stringsAsFactors = FALSE)
+  rp$MAE <- round(rp$MAE, 4)
+  rp$RMSE <- round(rp$RMSE, 4)
+  rp$R2 <- round(rp$R2, 4)
+  knitr::kable(
+    rp,
+    caption = "Regresión de polarización: error absoluto medio, RMSE y R$^2$ en conjunto de prueba.",
+    booktabs = TRUE,
+    col.names = c("Modelo", "MAE", "RMSE", "R²")
+  )
+} else {
+  knitr::kable(
+    data.frame(Nota = "Ejecutar 05_modelado.py para generar resumen_modelos_polarizacion.csv")
+  )
+}
+```
+
+::: {.content-visible when-format="pdf"}
+```{r fig-pol-tema-pdf, fig.cap="Polarización promedio por tema semántico (embedding).", fig.align="center", out.width="85%"}
+if (file.exists(file.path(base_out, "polarizacion_por_tema.png"))) {
+  knitr::include_graphics(file.path(base_out, "polarizacion_por_tema.png"))
+}
+```
+:::
+
+::: {.content-visible when-format="html"}
+![Polarización promedio por tema semántico (embedding).](../../outputs_modelado/polarizacion_por_tema.png){fig-align="center" width="85%"}
+:::
+
+## UMAP (3D), temas y clustering
+
+Los embeddings de oraciones se proyectan con **UMAP** a tres dimensiones para visualización. En paralelo se obtienen clusters con **K-medias** (K elegido por silueta) y **HDBSCAN**. Las figuras estáticas corresponden a capturas del mismo espacio incrustado coloreado por distintas etiquetas.
+
+::: {.content-visible when-format="pdf"}
+```{r fig-umap-temas-pdf, fig.cap="UMAP 3D (vista estática): comentarios coloreados por tema semántico derivado de similitud con prototipos.", fig.align="center", out.width="100%"}
+if (file.exists(file.path(base_out, "umap_temas.png"))) {
+  knitr::include_graphics(file.path(base_out, "umap_temas.png"))
+}
+```
+
+```{r fig-umap-sent-pdf, fig.cap="UMAP 3D: sentimiento final.", fig.align="center", out.width="100%"}
+if (file.exists(file.path(base_out, "umap_sentimiento.png"))) {
+  knitr::include_graphics(file.path(base_out, "umap_sentimiento.png"))
+}
+```
+
+```{r fig-umap-km-pdf, fig.cap="UMAP 3D: clusters K-medias.", fig.align="center", out.width="100%"}
+if (file.exists(file.path(base_out, "umap_kmeans.png"))) {
+  knitr::include_graphics(file.path(base_out, "umap_kmeans.png"))
+}
+```
+
+```{r fig-umap-hdb-pdf, fig.cap="UMAP 3D: clusters HDBSCAN (etiqueta -1 = ruido).", fig.align="center", out.width="100%"}
+if (file.exists(file.path(base_out, "umap_hdbscan.png"))) {
+  knitr::include_graphics(file.path(base_out, "umap_hdbscan.png"))
+}
+```
+:::
+
+::: {.content-visible when-format="html"}
+```{r umap-html-iframes, results="asis"}
+# Rutas relativas al sitio generado en docs/ (recursos copiados a la raíz del libro)
+src_temas <- "umap_interactivo_temas.html"
+src_sent  <- "umap_interactivo_sentimiento.html"
+if (file.exists(file.path(base_out, "umap_interactivo_temas.html"))) {
+  cat('<p><strong>Visualización interactiva (UMAP 3D)</strong> — rotación y zoom en el navegador.</p>')
+  cat(paste0(
+    '<iframe src="', src_temas, '" title="UMAP temas" width="100%" height="560" style="border:1px solid #dee2e6;border-radius:6px;"></iframe>'
+  ))
+  cat("<p class='text-muted small'>Tema semántico (similitud con enunciados de referencia).</p>")
+}
+if (file.exists(file.path(base_out, "umap_interactivo_sentimiento.html"))) {
+  cat(paste0(
+    '<iframe src="', src_sent, '" title="UMAP sentimiento" width="100%" height="560" style="border:1px solid #dee2e6;border-radius:6px;margin-top:1.5rem;"></iframe>'
+  ))
+  cat("<p class='text-muted small'>Sentimiento final (anotación supervisada por API).</p>")
+}
+if (file.exists(file.path(base_out, "umap_interactivo_temas.html"))) {
+  cat('<p class="small"><a href="umap_interactivo_temas.html" target="_blank" rel="noopener">Abrir tema (nueva pestaña)</a>')
+  if (file.exists(file.path(base_out, "umap_interactivo_sentimiento.html"))) {
+    cat(' · <a href="umap_interactivo_sentimiento.html" target="_blank" rel="noopener">Abrir sentimiento (nueva pestaña)</a>')
+  }
+  cat("</p>")
+}
+if (!file.exists(file.path(base_out, "umap_interactivo_temas.html"))) {
+  cat("<p><em>Ejecutar <code>05_modelado.py</code> y asegurar que los HTML de Plotly estén en <code>outputs_modelado/</code> y declarados como recursos del proyecto Quarto.</em></p>")
+}
+```
+:::
+
+## Indicadores agregados y distribución por candidato
+
+::: {.content-visible when-format="pdf"}
+```{r fig-desacuerdo-pdf, fig.cap="Desacuerdo entre modelos (proxy) por tema.", fig.align="center", out.width="85%"}
+if (file.exists(file.path(base_out, "desacuerdo_por_tema.png"))) {
+  knitr::include_graphics(file.path(base_out, "desacuerdo_por_tema.png"))
+}
+```
+
+```{r fig-sent-cand-pdf, fig.cap="Distribución de sentimiento por candidato (dataset largo).", fig.align="center", out.width="85%"}
+if (file.exists(file.path(base_out, "sentimiento_por_candidato.png"))) {
+  knitr::include_graphics(file.path(base_out, "sentimiento_por_candidato.png"))
+}
+```
+:::
+
+::: {.content-visible when-format="html"}
+![Desacuerdo entre modelos por tema.](../../outputs_modelado/desacuerdo_por_tema.png){fig-align="center" width="85%"}
+
+![Distribución de sentimiento por candidato (dataset largo).](../../outputs_modelado/sentimiento_por_candidato.png){fig-align="center" width="85%"}
+:::
+
+## Esbozo de interpretación de resultados
+
+Los resultados deben leerse en clave **exploratoria y complementaria** a la lectura cualitativa del corpus, no como verdad sustantiva cerrada.
+
+1. **Clasificación de sentimiento.** El F1 macro moderado y la matriz de confusión sugieren que el léxico y el contexto de candidatura capturan parte de la variación, pero persisten confusiones entre clases (p. ej. ironía, matices neutros–negativos). Los pesos de TF-IDF y los errores sistemáticos por tema se profundizan en el capítulo de interpretación.
+
+2. **Polarización.** Los valores de R$^2$ moderados indican que el texto y las covariables explican solo una fracción de la puntuación de polarización; buena parte de la variación queda en factores no modelados o en ruido de medición entre APIs. La comparación por tema ayuda a localizar dónde el tono es más homogéneamente agresivo o informativo.
+
+3. **UMAP y clusters.** Las proyecciones 3D facilitan ver **aglomeraciones** y solapes entre etiquetas; K-medias impone particiones convexas mientras HDBSCAN permite ruido y formas más irregulares. La etiqueta de cluster no tiene por sí sola significado político: requiere inspección de textos representativos y de las tablas de términos asociados a cada cluster (`top_terms_*.csv` en la carpeta de salida).
+
+4. **Coherencia con la anotación previa.** Donde los modelos supervisados replican razonablemente las etiquetas de la API, ganamos capacidad de **generalización** y de abstracción sobre variables derivadas; donde fallan, el desacuerdo señala casos para revisión manual o para refinar prompts y reglas de consenso.
+
+5. **Próximos pasos analíticos.** Este esbozo alimenta el capítulo de **interpretación de resultados**: allí se contrastarán estos hallazgos con preguntas de investigación, eventos de campaña y lectura cualitativa de hilos ilustrativos.

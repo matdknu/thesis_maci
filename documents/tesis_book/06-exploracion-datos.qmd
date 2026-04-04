@@ -12,3 +12,5 @@ knitr::opts_chunk$set(
   fig.height = 5
 )
 ```
+
+![](images/fig_count_facet_candidatos.png){fig-align="center"}

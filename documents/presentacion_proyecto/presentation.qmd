@@ -29,7 +29,7 @@ format:
 
 # ¿Por qué mi interés?
 
-## Ciencias sociales computacionales I
+## Ciencias sociales computacionales / Ciencia de Datos Sociales I
 
 :::: {.columns .slide-img-text}
 ::: {.column width="40%"}
@@ -45,7 +45,7 @@ Matthew J. Salganik
 :::
 ::::
 
-## Ciencias sociales computacionales II
+## Ciencias sociales computacionales / Ciencia de Datos Sociales II
 
 ::: {.columns .slide-img-text}
 ::: {.column width="40%"}
@@ -56,6 +56,8 @@ Matthew J. Salganik
 hola locoooo
 :::
 :::
+
+# Sello de innovación 
 
 ## Datos: conversación política en Reddit
 
@@ -70,6 +72,15 @@ hola locoooo
 ```         
 Scraping → Procesamiento → NLP / modelos → Libro Quarto + Shiny + OSF
 ```
+
+# Depuración de datos
+
+
+# Evidencia
+
+
+# Resultados
+
 
 ## Menciones agregadas por candidato
 

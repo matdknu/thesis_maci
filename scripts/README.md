@@ -38,21 +38,22 @@ Análisis descriptivo, textual y modelado.
 
 | Script | Descripción |
 |--------|-------------|
-| `01_descriptivos.R` | Estadísticas descriptivas generales |
-| `02_visualizaciones.R` | Gráficos para la tesis |
-| `03_analisis_textual.R` | Análisis de texto (TF-IDF, n-gramas, etc.) |
-| `04_apis.R` | Configuración de APIs (R) |
-| `05_aplicacion_api.py` | Clasificación ideológica vía LLM (Python) |
-| `06_deepseek_api.py` | Clasificación con DeepSeek API |
-| `07_modelado.R` | Topic modeling (LDA/STM) |
-| `08_analisis_ideologia.R` | Análisis de scores ideológicos |
-| `09_ml_text_analysis.R` | ML supervisado sobre texto |
-| `10_ml_ideologia.R` | ML para clasificación ideológica |
-| `11_rnn_classifier.py` | Clasificador RNN (PyTorch) |
-| `12_evaluacion_modelos.R` | Evaluación y comparación de modelos |
-| `13_real_data_plots.py` | Visualizaciones con datos reales (Python) |
-| `14_imputar_ideologia.R` | Imputación de ideología para usuarios sin clasificar |
-| `15_dea.R` | Análisis de discurso (DEA) |
+| `01_limpieza.R` | Punto de entrada: ejecuta `procesamiento/01_filtrar_data.R` |
+| `02_descriptivos.R` | Descriptivos + figuras (español, a color); `outputs/thesis_figures/` |
+| `02_visualizaciones.R` | Alias: ejecuta `02_descriptivos.R` |
+| `03_modelado_api.R` | Configuración de APIs (R) |
+| `03_aplicacion_api.py` | Clasificación ideológica vía LLM (Python) |
+| `03_deepseek_api.py` | Clasificación con DeepSeek API |
+| `04_analisis_textual.R` | Análisis textual: diccionario temático, LDA/STM, sentimiento, etc. |
+| `05_modelado.R` | Topic modeling (LDA/STM) |
+| `06_analisis_ideologia.R` | Análisis de scores ideológicos |
+| `07_ml_text_analysis.R` | ML supervisado sobre texto |
+| `08_ml_ideologia.R` | ML para clasificación ideológica |
+| `09_rnn_classifier.py` | Clasificador RNN (PyTorch) |
+| `10_evaluacion_modelos.R` | Evaluación y comparación de modelos |
+| `11_real_data_plots.py` | Visualizaciones con datos reales (Python) |
+| `12_imputar_ideologia.R` | Imputación de ideología para usuarios sin clasificar |
+| `13_dea.R` | Análisis de discurso (DEA) |
 
 ---
 
