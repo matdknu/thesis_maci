@@ -1,0 +1,422 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Derecha fragmentada y un enemigo compartido",
+    "section": "",
+    "text": "Derecha fragmentada y un enemigo compartido\n\n\nAnálisis textual longitudinal de la constación discursiva en las elecciones presidencial de 2025 en Chile\n\n\nTesina presentada para optar al grado deMagíster en Ciencia de Datos\n\n\nMatías Deneken Centro de Datos e Inteligencia Artificial - Universidad de Concepción\n\n\nProfesores Guías:Dr. Carlos Navarrete Dr. Marcela Parada\n\n\nFacultad de Ingeniería  Universidad de ConcepciónMarzo 2026\n\n\n\nAgradecimientos\nEsta tesina no habría sido posible sin el apoyo económico de la beca de excención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.\nAgradezco a mis compañeras y compañeros de generación con los cuáles compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quién constituí un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia el MACI habría sido significativamente más compleja.\nDe la misma forma, agradezco a nivel general mi experiencia en el MACI. La pasantía realizada en la Universidad de Harvard en 2024 brindó una oportunidad y riqueza iniguable para poder conocec un ecosistema que -hasta entoces- me era ajeno. En particular, dar las gracias a mis profesores guías, Marcela Parada y Carlos Navarrete, quiénes me acompañaron en este proceso formativo.\nPor último, darle siempre las gracias a mi familia por estimularla a afrontar nuevas desafíos, incluso cuándo la energía es escasa.\nSin duda está tesis combina mis interéses de la sociología, a nivel de pregrado y de magíster, y la ciencia de datos, que me ha conllevado a esta incipiente área de las ciencias sociales computacionales. Con sus bemoles, espero que esta tesis sirva cómo mi puntapié inicial para poder enfrentar nuevos desafíos que combine los métodos estadísticos avanzado con la revolución de la Inteligencia Artificial que hoy estamos viviendo. El tiempo nos dirá.\n\n\n\nPresentación\nContenido de presentación/introducción general",
+    "crumbs": [
+      "Derecha fragmentada y un enemigo compartido"
+    ]
+  },
+  {
+    "objectID": "01-introduccion.html",
+    "href": "01-introduccion.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "1.1 Justificación y relevancia del estudio\nEn la actualidad las encuestas, en general, y las de opinión, en particular, han sido parte del escrutinio público. Este tipo de medición han sido acusadas de fundar un datos sesgados y , en última instancia, serviles a las tendencias ideológicas a las que se encuentran posicionadas las que la financia o la consultora encargada.\nIndepiente de esos juicios, las encuestas enfrentar problemas más allá. El desafío principal es que las tasas de respuestas cada vez son más bajas y los costos por la realización de la encuesta al individuo es cada vez más caro. La era digital brindan oportunidades nuevas dado la emergencia en del “Big Data”. Es decir, la presencia de datos masivos.\nEsta investigación se justifica en función de tres órdenes de consideraciones: empíricas, teóricas y metodológicas.\nDesde el punto de vista empírico, el ciclo electoral chileno de 2025 ofrece una oportunidad única para observar en tiempo real las dinámicas de competencia intra-derecha en un sistema político en transformación. La coexistencia de tres candidaturas de derecha con perfiles ideológicos y estrategias comunicativas diferenciadas —Evelyn Matthei, José Antonio Kast y Johannes Kaiser— permite analizar comparativamente cómo distintas corrientes construyen sus identidades, movilizan usuarios y se posicionan frente a adversarios internos y externos. La presencia de una candidatura de izquierda asociada al Partido Comunista —Jeannette Jara— añade una dimensión adicional al análisis, habilitando el estudio de los procesos de convergencia discursiva que emergen cuando actores previamente enfrentados deben articular un frente común.\nDesde el punto de vista teórico, la investigación contribuye a debates contemporáneos sobre comunicación política digital, polarización y construcción de antagonismos. Si bien existe abundante literatura sobre el rol de las redes sociales en procesos electorales, la mayor parte de esta investigación se ha concentrado en contextos del Norte Global, particularmente Estados Unidos y Europa Occidental. Los estudios sobre América Latina, aunque crecientes, han tendido a focalizarse en casos de alta visibilidad internacional —Brasil con Bolsonaro, Argentina con Milei— sin atender suficientemente a las variaciones nacionales y a las dinámicas de competencia al interior de familias ideológicas. Esta tesis busca contribuir a llenar ese vacío, ofreciendo un análisis detallado de las especificidades del caso chileno.\nDesde el punto de vista metodológico, la investigación propone una aproximación que integra técnicas de ciencia social computacional con análisis interpretativo del discurso político. Esta combinación permite procesar volúmenes de datos que excederían las capacidades del análisis cualitativo tradicional, sin sacrificar la atención a las dimensiones semánticas y pragmáticas que resultan cruciales para comprender la comunicación política. La elección de Reddit como campo de observación —una plataforma subexplorada en el contexto latinoamericano— ofrece además la posibilidad de acceder a conversaciones políticas con características estructurales distintivas que enriquecen el análisis.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "01-introduccion.html#preguntas-de-investigación",
+    "href": "01-introduccion.html#preguntas-de-investigación",
+    "title": "1  Introducción",
+    "section": "1.2 Preguntas de investigación",
+    "text": "1.2 Preguntas de investigación\nLa pregunta central que orienta esta investigación es:\n\n¿Cómo se configura y evoluciona la conversación política en Reddit durante la campaña presidencial chilena de 2025?\n\nEsta pregunta general se desagrega en las siguientes interrogantes específicas:\n\n¿Qué patrones de encuadre (framing), movilización emocional y construcción de adversarios estructuran el debate político en los subreddits chilenos durante el período electoral?\n¿Cómo varían temporalmente las estrategias discursivas de ataque, defensa y demarcación de fronteras identitarias a lo largo de las distintas fases de la campaña?\n¿Qué dinámicas de competencia, diferenciación y antagonismo se observan entre las tres corrientes de derecha (tradicional, radical-conservadora y libertaria) durante la primera vuelta?\n¿Cómo se produce la convergencia discursiva en torno al Partido Comunista como adversario común durante la segunda vuelta, y qué tensiones persisten bajo esta convergencia aparente?",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "01-introduccion.html#objetivos-de-la-investigación",
+    "href": "01-introduccion.html#objetivos-de-la-investigación",
+    "title": "1  Introducción",
+    "section": "1.3 Objetivos de la investigación",
+    "text": "1.3 Objetivos de la investigación\n\nObjetivo general\nAnalizar la configuración y evolución de la conversación política en Reddit durante la campaña presidencial chilena de 2025, identificando los patrones de encuadre, emoción y construcción de adversarios que estructuran el debate entre las distintas corrientes ideológicas.\n\n\nObjetivos específicos\n\nCaracterizar los marcos interpretativos (frames) predominantes en el discurso de cada corriente ideológica y su variación a lo largo del ciclo electoral.\nIdentificar los patrones de movilización emocional asociados a cada candidatura, distinguiendo emociones de valencia positiva, negativa y las combinaciones que configuran repertorios afectivos específicos\nAnalizar las estrategias de construcción de adversarios, atendiendo tanto a la definición de enemigos externos (inter-bloque) como a las dinámicas de diferenciación interna (intra-bloque).\nExaminar la evolución temporal del debate, identificando puntos de inflexión, eventos catalizadores y patrones de activación discursiva asociados a momentos específicos de la campaña.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html",
+    "href": "02-presentacion-problema.html",
+    "title": "2  Presentación del Problema",
+    "section": "",
+    "text": "2.1 El problema: competencia política digital en un sistema fragmentado\nEl sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.\nEl problema central que aborda esta investigación puede formularse así:\nEste problema es relevante por tres razones:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#el-problema-competencia-política-digital-en-un-sistema-fragmentado",
+    "href": "02-presentacion-problema.html#el-problema-competencia-política-digital-en-un-sistema-fragmentado",
+    "title": "2  Presentación del Problema",
+    "section": "",
+    "text": "En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?\n\n\n\nVacío empírico: Mientras abundan los estudios sobre polarización izquierda-derecha, la competencia intra-bloque —particularmente entre derechas— permanece subexplorada en América Latina.\nTransformación en curso: Las derechas chilenas están en proceso de reconfiguración activa; estudiar este proceso mientras ocurre permite capturar dinámicas que análisis retrospectivos pierden.\nImplicancias democráticas: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#acercamiento-actores-dimensiones-y-niveles-de-análisis",
+    "href": "02-presentacion-problema.html#acercamiento-actores-dimensiones-y-niveles-de-análisis",
+    "title": "2  Presentación del Problema",
+    "section": "2.2 Acercamiento: actores, dimensiones y niveles de análisis",
+    "text": "2.2 Acercamiento: actores, dimensiones y niveles de análisis\n\nLos actores: tres derechas y un adversario\nLa investigación se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:\n\n\n\nTabla 2.1: Candidaturas incluidas en el análisis y su caracterización ideológica.\n\n\n\n\n\n\n\n\n\n\n\nActor\nPosición\nCaracterización sintética\nBase social\n\n\n\n\nEvelyn Matthei\nDerecha tradicional\nPragmatismo, competencia técnica, moderación discursiva\nÉlites empresariales, sectores medios-altos\n\n\nJosé Antonio Kast\nDerecha radical-conservadora\nConservadurismo moral, retórica antielitista, énfasis en seguridad y migración\nSectores populares conservadores, evangélicos\n\n\nJohannes Kaiser\nDerecha libertaria\nUltraliberalismo, provocación deliberada, códigos de subculturas digitales\nJóvenes masculinos, usuarios intensivos de internet\n\n\nJeannette Jara\nIzquierda-PC\nProyecto transformador, defensa del legado del gobierno Boric\nMilitancia de izquierda, sectores sindicalizados\n\n\n\n\n\n\nComo se observa en la Tabla 2.1, el diseño compara tres derechas y un adversario común de izquierda.\nEsta selección permite observar:\n\nCompetencia intra-derecha: Cómo tres proyectos distintos disputan un electorado parcialmente superpuesto.\nConvergencia anti-izquierda: Cómo actores previamente enfrentados articulan un frente común frente al adversario ideológico.\nAsimetrías discursivas: Cómo diferentes corrientes movilizan repertorios retóricos y emocionales distintivos.\n\n\n\nLas dimensiones analíticas\nEl análisis se estructura en torno a tres dimensiones que capturan aspectos complementarios de la comunicación política:\nDimensión 1: Encuadre (framing) - ¿Qué marcos interpretativos predominan en el discurso de cada corriente? - ¿Cómo definen el problema, sus causas y sus soluciones? - ¿Qué está “en juego” según cada actor?\nDimensión 2: Emoción - ¿Qué emociones movilizan las distintas candidaturas? - ¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién se dirigen las emociones negativas?\nDimensión 3: Construcción de adversarios - ¿Quiénes son construidos como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs. izquierda) con los intra-bloque (entre derechas)?\n\n\nLos niveles de análisis\nEl diseño contempla tres niveles de observación:\n\n\n\nTabla 2.2: Niveles de análisis utilizados en la investigación.\n\n\n\n\n\n\n\n\n\n\nNivel\nUnidad\nFoco analítico\n\n\n\n\nMacro\nCorpus completo\nTendencias agregadas, evolución temporal, comparación entre subreddits\n\n\nMeso\nHilos de discusión\nDinámicas conversacionales, patrones de confrontación/consenso\n\n\nMicro\nPosts y comentarios individuales\nEstrategias retóricas específicas, ejemplos ilustrativos\n\n\n\n\n\n\nLa Tabla 2.2 resume cómo se articula el análisis en escalas macro, meso y micro.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#descripción-de-la-propuesta-analítica",
+    "href": "02-presentacion-problema.html#descripción-de-la-propuesta-analítica",
+    "title": "2  Presentación del Problema",
+    "section": "2.3 Descripción de la propuesta analítica",
+    "text": "2.3 Descripción de la propuesta analítica\n\nEnfoque general\nLa propuesta combina ciencia social computacional con análisis interpretativo del discurso político. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos.\nEl flujo analítico puede representarse así:\n\n\n\n\n\n\nFigura 2.1: Pipeline analítico: de la recolección del corpus a los hallazgos sustantivos.\n\n\n\nLa Figura 2.1 sintetiza el encadenamiento entre corpus, procesamiento, modelamiento y hallazgos.\n\n\nArquitectura del análisis\nFase 1: Caracterización del corpus - Estadísticas descriptivas: volumen, distribución temporal, participación por subreddit - Mapeo de actores: frecuencia de mención de cada candidatura - Identificación de eventos: picos de actividad y su correlación con acontecimientos políticos\nFase 2: Análisis de encuadres - Modelado de tópicos para identificar temas estructurantes - Análisis de co-ocurrencias: qué conceptos aparecen asociados a cada candidatura - Comparación inter-temporal: evolución de marcos entre primera y segunda vuelta\nFase 3: Análisis emocional - Clasificación de sentimiento (positivo/negativo/neutro) - Identificación de emociones discretas cuando es posible - Construcción de “perfiles emocionales” por candidatura\nFase 4: Análisis de adversarios - Identificación de menciones cruzadas entre candidaturas - Clasificación de valencia: menciones positivas, negativas, neutras - Mapeo de redes de antagonismo\nFase 5: Síntesis e integración - Triangulación de hallazgos entre dimensiones - Construcción de narrativa analítica - Identificación de mecanismos explicativos\n\n\nOriginalidad de la propuesta\nLa propuesta se distingue de estudios previos en tres aspectos:\n\nFoco en competencia intra-bloque: Mientras la mayoría de estudios examina la polarización entre izquierda y derecha, esta investigación centra la atención en las dinámicas dentro del campo de las derechas.\nPerspectiva procesual: En lugar de fotografías estáticas, el diseño longitudinal permite observar cómo evolucionan las estrategias discursivas a lo largo del ciclo electoral.\nReddit como campo: La plataforma está subexplorada en el contexto latinoamericano, y sus características estructurales (conversaciones anidadas, votación comunitaria) ofrecen posibilidades analíticas distintivas.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#producto-mínimo-viable-mvp-y-objetivos-operacionales",
+    "href": "02-presentacion-problema.html#producto-mínimo-viable-mvp-y-objetivos-operacionales",
+    "title": "2  Presentación del Problema",
+    "section": "2.4 Producto mínimo viable (MVP) y objetivos operacionales",
+    "text": "2.4 Producto mínimo viable (MVP) y objetivos operacionales\n\nDefinición del MVP\nEl producto mínimo viable de esta investigación consiste en:\n\nUn análisis sistemático de la conversación política en Reddit sobre las candidaturas presidenciales chilenas de 2025, que identifique y caracterice los patrones de encuadre, emoción y construcción de adversarios de cada corriente ideológica, y que documente su evolución a lo largo del ciclo electoral (agosto-diciembre 2025).\n\n\n\nObjetivos operacionales y entregables\n\n\n\nTabla 2.3: Objetivos operacionales, entregables e indicadores de cumplimiento del MVP.\n\n\n\n\n\n\n\n\n\n\nObjetivo\nEntregable\nIndicador de cumplimiento\n\n\n\n\nO1: Construir corpus\nBase de datos estructurada\n≥1000 posts y ≥10.000 comentarios con menciones políticas\n\n\nO2: Caracterizar encuadres\nModelo de tópicos interpretado\nIdentificación de ≥5 marcos distintivos por corriente\n\n\nO3: Mapear emociones\nPerfiles emocionales por candidatura\nClasificación de sentimiento del 100% del corpus\n\n\nO4: Analizar adversarios\nRed de antagonismos\nMatriz de menciones cruzadas con valencia\n\n\nO5: Documentar evolución\nSerie temporal\nAnálisis por fase electoral (pre-campaña, campaña, segunda vuelta)\n\n\nO6: Sintetizar hallazgos\nCapítulos de resultados\nRespuesta fundamentada a cada pregunta de investigación\n\n\n\n\n\n\nLa planificación operativa del estudio se detalla en la Tabla 2.3.\n\n\nAlcances y limitaciones anticipadas\nAlcances: - El análisis cubre el debate en dos comunidades de Reddit, que constituyen los principales espacios de discusión política chilena en la plataforma. - El período captura fases clave del ciclo electoral, permitiendo observar dinámicas de cambio. - Las técnicas empleadas permiten procesar el corpus completo, no solo muestras.\nLimitaciones: - Reddit no es representativo del electorado chileno; los hallazgos refieren al debate en esta plataforma específica, no a la opinión pública general. - Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general. - El análisis de sentimiento automatizado tiene márgenes de error, particularmente con ironía, sarcasmo y jerga local. - La atribución ideológica de usuarios es inferida a partir de su comportamiento discursivo, no de autodeclaraciones.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "02-presentacion-problema.html#estrategia-de-validación",
+    "href": "02-presentacion-problema.html#estrategia-de-validación",
+    "title": "2  Presentación del Problema",
+    "section": "2.5 Estrategia de validación",
+    "text": "2.5 Estrategia de validación\n\nValidación interna\nTriangulación metodológica: Los hallazgos de cada técnica (modelado de tópicos, análisis de sentimiento, análisis de redes) son contrastados entre sí. Un patrón se considera robusto cuando emerge consistentemente de múltiples aproximaciones.\nVerificación cualitativa: Los patrones identificados computacionalmente son verificados mediante lectura de casos. Cuando el análisis automatizado clasifica un comentario como “negativo hacia Matthei”, se revisan ejemplos para confirmar que la clasificación captura el fenómeno de interés.\nSensibilidad paramétrica: Las técnicas con parámetros ajustables (número de tópicos, umbrales de clasificación) son ejecutadas con múltiples configuraciones para verificar que los hallazgos no dependan de decisiones arbitrarias.\n\n\nValidación externa\nTriangulación con fuentes externas: Los patrones temporales identificados en Reddit son contrastados con el calendario de eventos políticos documentado en medios de comunicación. La correlación entre picos de actividad y eventos específicos (debates, declaraciones, encuestas) proporciona validación externa.\nConsistencia con literatura: Los hallazgos son discutidos a la luz de estudios previos sobre comunicación política digital, derechas latinoamericanas y polarización. La convergencia con patrones documentados en otros contextos refuerza la validez; las divergencias son examinadas como posibles especificidades del caso chileno.\n\n\nCriterios de éxito\nLa investigación se considerará exitosa si:\n\nResponde las preguntas: Cada pregunta de investigación recibe una respuesta fundamentada empíricamente.\nIdentifica patrones no triviales: Los hallazgos van más allá de lo que podría inferirse sin análisis sistemático.\nDocumenta variación: El análisis captura diferencias significativas entre corrientes ideológicas, entre subreddits y entre fases electorales.\nGenera interpretaciones plausibles: Los patrones identificados son interpretados mediante mecanismos teóricamente informados.\nReconoce limitaciones: El análisis explicita qué puede y qué no puede concluirse a partir de los datos disponibles.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html",
+    "href": "03-marco.html",
+    "title": "3  Marco teórico",
+    "section": "",
+    "text": "3.1 Comunicación política en entornos digitales\nLas plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. boyd (2010) identificó cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la mediación algorítmica (que privilegia contenidos emocionalmente activadores), el colapso de contextos (convergencia de audiencias antes separadas) y las métricas de rendimiento (retroalimentación inmediata que orienta la conducta comunicativa).\nMás allá de sus propiedades técnicas, las plataformas deben entenderse como infraestructuras de poder privadas que ejercen moderación, optimizan el engagement y consolidan efectos de red con consecuencias desproporcionadas para la calidad del debate democrático (Gillespie 2018; Dijck 2018).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#polarización-afectiva",
+    "href": "03-marco.html#polarización-afectiva",
+    "title": "3  Marco teórico",
+    "section": "3.2 Polarización afectiva",
+    "text": "3.2 Polarización afectiva\nLa polarización afectiva designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones (Iyengar 2019). Es analíticamente distinta de la polarización ideológica: ambas pueden variar de manera independiente, y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas (Boxell 2022).\nSus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con likes (Brady 2017; Settle 2018). Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando (Graham 2020).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#teoría-del-framing",
+    "href": "03-marco.html#teoría-del-framing",
+    "title": "3  Marco teórico",
+    "section": "3.3 Teoría del framing",
+    "text": "3.3 Teoría del framing\nEl encuadre consiste en seleccionar aspectos de la realidad y hacerlos prominentes para promover una definición del problema, una interpretación causal y una evaluación moral (Entman 1993). La competencia política es, en parte significativa, competencia entre marcos alternativos: quien establece el marco dominante condiciona las opciones que parecen razonables.\nSe distinguen marcos genéricos (conflicto, interés humano, consecuencias económicas, atribución de responsabilidad, moralidad) y marcos específicos propios de cada controversia (Semetko 2000). Para campañas electorales resulta útil añadir la distinción entre marcos diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).\nEn entornos digitales, el framing es observable como proceso: los marcos son propuestos, contestados y reformulados en tiempo real. La estructura anidada de Reddit —con sistemas de votación y conversaciones persistentes— es particularmente adecuada para este análisis longitudinal (Meraz 2013).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#emociones-políticas",
+    "href": "03-marco.html#emociones-políticas",
+    "title": "3  Marco teórico",
+    "section": "3.4 Emociones políticas",
+    "text": "3.4 Emociones políticas\nLas emociones no son ruido que distorsiona el juicio racional: son componentes constitutivos de la cognición y la acción política (Marcus 2000). La teoría de la inteligencia afectiva distingue un sistema de disposiciones (activado en entornos familiares, refuerza hábitos mediante entusiasmo o aversión) y un sistema de vigilancia (activado ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el procesamiento automático y abrir espacio a la persuasión).\nPara el análisis empírico, el concepto de repertorio afectivo —la configuración característica de emociones movilizadas por un actor, su combinación y los objetos hacia los que se dirigen— resulta más útil que el registro de emociones aisladas (Jasper 2011). Permite preguntar: ¿qué proporción del contenido emocional se dirige al endogrupo versus al exogrupo? ¿Cómo articula el actor emociones positivas y negativas?\nLa indignación moral merece atención especial: combina valencia negativa con alta activación y orientación a la acción, se difunde más que otras emociones y genera bajo costo de expresión con recompensas sociales inmediatas (Crockett 2017).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#construcción-de-adversarios",
+    "href": "03-marco.html#construcción-de-adversarios",
+    "title": "3  Marco teórico",
+    "section": "3.5 Construcción de adversarios",
+    "text": "3.5 Construcción de adversarios\nLas identidades colectivas no son esencias preexistentes: emergen a través de la diferenciación. Todo “nosotros” se constituye en relación con un “ellos” (Laclau 1985). En contextos electorales, analizar cómo se construyen los adversarios —qué atributos se les asignan, qué estrategias se emplean para deslegitimarlos— es una vía privilegiada para comprender la configuración del espacio político.\nMouffe (2005) distingue antagonismo (relación entre enemigos sin espacio común, suma cero) de agonismo (relación entre adversarios que comparten el marco democrático). Esta distinción permite preguntar si los actores construyen a sus oponentes como participantes legítimos o como amenazas existenciales.\nLas estrategias de deslegitimación incluyen: asociación negativa, atribución de intenciones ocultas, ridiculización, esencialización y construcción de amenaza. Para esta investigación resulta además crucial distinguir entre fronteras inter-bloque (izquierda vs. derecha) y fronteras intra-bloque (entre corrientes de derecha), que generan tensiones estratégicas entre diferenciación y convergencia.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#derechas-contemporáneas",
+    "href": "03-marco.html#derechas-contemporáneas",
+    "title": "3  Marco teórico",
+    "section": "3.6 Derechas contemporáneas",
+    "text": "3.6 Derechas contemporáneas\nLa tipología de Mudde (2007) distingue extrema derecha (rechaza principios democráticos) de derecha radical (los acepta nominalmente pero los tensiona mediante nativismo, autoritarismo y populismo). A estas se suman la derecha tradicional (privilegia estabilidad y continuidad institucional) y la derecha libertaria (ultraliberalismo, crítica al establishment, códigos digitales).\nEstas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas: la derecha tradicional emplea registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas de internet (Norris 2019).\nLa coexistencia de las tres derechas en el caso chileno genera dinámicas de competencia intra-bloque —disputa por electorados superpuestos, estrategias de diferenciación, presiones de convergencia frente al adversario común— que constituyen un laboratorio analítico de particular valor.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#reddit-como-espacio-de-deliberación-política",
+    "href": "03-marco.html#reddit-como-espacio-de-deliberación-política",
+    "title": "3  Marco teórico",
+    "section": "3.7 Reddit como espacio de deliberación política",
+    "text": "3.7 Reddit como espacio de deliberación política\nReddit se estructura en torno a comunidades temáticas (subreddits) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación ofrece un indicador de resonancia comunitaria; y la persistencia habilita el análisis longitudinal (Proferes 2021).\nEn el contexto chileno, r/chile (generalista, tendencia centro-izquierda) y r/RepublicadeChile (surgida como escisión, tolerancia de discursos más confrontacionales) constituyen un caso comparativo que permite examinar cómo una misma controversia es procesada de manera diferenciada según la cultura discursiva de la comunidad.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "03-marco.html#modelo-analítico-integrado",
+    "href": "03-marco.html#modelo-analítico-integrado",
+    "title": "3  Marco teórico",
+    "section": "3.8 Modelo analítico integrado",
+    "text": "3.8 Modelo analítico integrado\nEl modelo integrado sigue una secuencia analítica:\n\nContexto: fragmentación partidaria, reconfiguración de derechas y plataformización.\nActores: Matthei, Kast, Kaiser y Jara.\nDimensiones: framing, emoción y construcción de adversarios.\nDinámicas: competencia intra-derecha, convergencia anti-izquierda y evolución temporal.\nResultado: identificación de patrones discursivos por corriente ideológica.\n\n\n\n\n\n\n\nBoxell. 2022. «Boxell2022».\n\n\nBrady. 2017. «Brady2017».\n\n\nCrockett. 2017. «Crockett2017».\n\n\nDijck, van. 2018. «vanDijck2018».\n\n\nEntman. 1993. «Entman1993».\n\n\nGillespie. 2018. «Gillespie2018».\n\n\nGraham. 2020. «Graham2020».\n\n\nIyengar. 2019. «Iyengar2019».\n\n\nJasper. 2011. «Jasper2011».\n\n\nLaclau. 1985. «Laclau1985».\n\n\nMarcus. 2000. «Marcus2000».\n\n\nMeraz. 2013. «Meraz2013».\n\n\nNorris. 2019. «Norris2019».\n\n\nProferes. 2021. «Proferes2021».\n\n\nSemetko. 2000. «Semetko2000».\n\n\nSettle. 2018. «Settle2018».",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html",
+    "href": "04-diseno.html",
+    "title": "4  Diseño metodológico",
+    "section": "",
+    "text": "4.1 Diseño de investigación\nEsta investigación adopta un diseño longitudinal observacional basado en datos digitales generados por usuarios (user-generated content). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.\nMetodológicamente, la investigación se inscribe en la ciencia social computacional (Lazer 2009; Salganik 2019): integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes descriptivos —caracterizar la conversación política en Reddit durante el período estudiado— con componentes explicativos, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html#reddit-como-plataforma-de-análisis",
+    "href": "04-diseno.html#reddit-como-plataforma-de-análisis",
+    "title": "4  Diseño metodológico",
+    "section": "4.2 Reddit como plataforma de análisis",
+    "text": "4.2 Reddit como plataforma de análisis\nReddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas subreddits, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a intereses y temas compartidos, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.\nSu arquitectura de comentarios anidados (threaded discussions) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. El sistema de votación (upvotes/downvotes) ofrece un indicador de resonancia comunitaria, y la persistencia de los hilos habilita el análisis longitudinal de conversaciones en desarrollo.\nLos usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.\nEn el contexto chileno, dos subreddits concentran la discusión política nacional:\n\nr/chile: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática. Ha tendido históricamente hacia posiciones de centro-izquierda, aunque con presencia de voces diversas.\nr/RepublicadeChile: Comunidad surgida como escisión de r/chile, con políticas de moderación más permisivas y una composición ideológica tendiente a la derecha. Tolera discursos más confrontacionales y concentra usuarios críticos de la moderación de r/chile.\n\nEsta dualidad constituye un caso comparativo de valor: permite examinar cómo una misma controversia política es procesada de manera diferenciada según la cultura discursiva de la comunidad.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html#recolección-de-datos-mediante-la-api-de-reddit",
+    "href": "04-diseno.html#recolección-de-datos-mediante-la-api-de-reddit",
+    "title": "4  Diseño metodológico",
+    "section": "4.3 Recolección de datos mediante la API de Reddit",
+    "text": "4.3 Recolección de datos mediante la API de Reddit\n\nProcedimiento técnico\nLos datos fueron extraídos mediante la API pública de Reddit utilizando la librería PRAW (Python Reddit API Wrapper). Esta aproximación —distinta del web scraping no autorizado— accede de forma estructurada a contenido público respetando los límites de uso establecidos por la plataforma y garantizando la trazabilidad y reproducibilidad del proceso.\n\n\nPeríodo de recolección y fases del ciclo electoral\nLa recolección abarcó cinco meses, del 1 de agosto al 31 de diciembre de 2025, cubriendo las siguientes fases del ciclo electoral:\n\n\n\n\n\n\n\nPeríodo\nFase electoral\n\n\n\n\nAgosto – octubre 2025\nEmergencia de candidaturas, posicionamiento inicial, primeras definiciones programáticas\n\n\nNoviembre – diciembre 2025\nEscalamiento de campaña, consolidación electoral, estructuración del debate público\n\n\n\n\n\nEstrategia de extracción incremental\nEl proceso fue incremental y acumulativo, ejecutado en múltiples iteraciones que: (1) recuperaban los posts más recientes de cada subreddit (250–1.000 posts por ejecución); (2) descargaban el árbol completo de comentarios mediante replace_more(limit=None) para capturar todos los niveles de anidación; (3) integraban nuevos datos con extracciones previas en archivos Parquet; y (4) eliminaban duplicados mediante el identificador único nativo de Reddit (post_id), que garantiza unicidad por diseño de la plataforma.\n\n\nContenido extraído y filtrado temático\nPara cada publicación dentro del rango temporal se extrajeron dos niveles:\nPosts: título, cuerpo (selftext), autor, fecha, puntuación, número de comentarios y flair temático.\nComentarios: cuerpo del comentario, autor, fecha, puntuación e identificador del comentario al que responde.\nEl filtrado temático se realizó mediante expresiones regulares que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):\n\n\n\nTabla 4.1: Candidaturas objetivo y patrones regex para su detección en el corpus.\n\n\n\n\n\n\n\n\n\n\nCandidatura\nCorriente ideológica\nPatrones de búsqueda\n\n\n\n\nEvelyn Matthei\nDerecha tradicional\nmatthei, matei, evelyn\n\n\nJosé Antonio Kast\nDerecha radical-conservadora\nkast, jose antonio kast, jak\n\n\nJohannes Kaiser\nDerecha libertaria\nkaiser, johannes, jkaiser\n\n\nJeannette Jara\nIzquierda-PC\njara, jeannette, jeanette\n\n\n\n\n\n\nEsta selección permite analizar tanto la competencia intra-derecha entre tres corrientes como la convergencia discursiva frente al adversario ideológico común (ver Tabla 4.1).",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html#consideraciones-éticas",
+    "href": "04-diseno.html#consideraciones-éticas",
+    "title": "4  Diseño metodológico",
+    "section": "4.4 Consideraciones éticas",
+    "text": "4.4 Consideraciones éticas\nLa investigación se rige por principios establecidos para la investigación con datos digitales (Salganik 2019; Zimmer 2017):\nDatos públicos: Todo el contenido recolectado proviene de espacios públicos de Reddit. No se accedió a mensajes privados ni a información restringida.\nPrivacidad: El análisis no reporta identificadores individuales ni busca vincular cuentas con identidades reales. Los ejemplos citados son anonimizados cuando resulta pertinente.\nNo intervención: La investigación no actúa sobre las comunidades estudiadas ni expone a sus miembros a riesgos adicionales; el foco es el análisis de dinámicas colectivas.\nReproducibilidad: Los scripts de recolección y procesamiento están documentados para permitir la replicación del estudio respetando los términos de uso de la API.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html#técnicas-de-análisis",
+    "href": "04-diseno.html#técnicas-de-análisis",
+    "title": "4  Diseño metodológico",
+    "section": "4.5 Técnicas de análisis",
+    "text": "4.5 Técnicas de análisis\nEl análisis combina la capacidad de procesamiento de modelos de lenguaje de gran escala con validación humana sistemática. Se utilizaron dos APIs de forma complementaria: GPT-4o (OpenAI) y DeepSeek, seleccionados por su capacidad de comprensión del español rioplatense y chileno, su desempeño en tareas de clasificación de texto político y la posibilidad de controlar los prompts con precisión. Ningún modelo reemplaza el juicio analítico: en todos los casos, las clasificaciones automatizadas son revisadas y validadas manualmente sobre muestras representativas antes de escalar al corpus completo.\n\nAnálisis de sentimiento y emociones\nCada fragmento del corpus fue procesado mediante prompts estructurados que solicitaban a los modelos clasificar: polaridad (positiva, negativa, neutra), intensidad emocional (baja, media, alta) y emoción predominante (alegría, miedo, ira, desprecio, indignación, esperanza). Los prompts incluían definiciones operacionales de cada categoría y ejemplos de calibración extraídos del propio corpus de Reddit chileno.\nLa clasificación automática fue validada mediante codificación manual de una muestra aleatoria estratificada por candidatura y subreddit, calculando coeficientes de acuerdo intercalificador (Cohen’s κ) para establecer umbrales de confiabilidad aceptables antes de aplicar el esquema al corpus completo.\n\n\nClasificación de marcos interpretativos (framing)\nPara identificar los marcos interpretativos predominantes, se diseñaron prompts que solicitaban a los modelos asignar cada fragmento a uno o más de los marcos definidos teóricamente: económico, seguridad, identitario, institucional y medioambiental. Los prompts especificaban indicadores lingüísticos de cada marco y pedían justificación de la clasificación, lo que permitió refinar iterativamente las definiciones operacionales.\nAl igual que en el análisis de sentimiento, las clasificaciones fueron validadas manualmente antes de escalar. Los casos de desacuerdo entre GPT-4o y DeepSeek fueron marcados para revisión humana prioritaria, convirtiendo la divergencia entre modelos en un indicador de ambigüedad analítica.\n\n\nAnálisis de redes de interacción\nA partir de la estructura de respuestas anidadas de Reddit, se construyeron redes de réplica donde los nodos representan usuarios y las aristas representan relaciones de respuesta (comentario a comentario). El análisis de estas redes permite identificar subcomunidades discursivas, patrones de confrontación o cooperación entre usuarios de distintas orientaciones ideológicas, y la presencia de estructuras de cámara de eco en cada subreddit.\n\n\nAnálisis temporal\nEl diseño longitudinal habilita el análisis de series temporales de los indicadores de interés: volumen de menciones, tono emocional promedio y distribución de marcos temáticos semana a semana. Se identifican tendencias, ciclos y puntos de quiebre, así como correlaciones entre eventos externos (debates, declaraciones, controversias) y cambios en los patrones discursivos.\n\n\nFormalización matemática del modelado automático\nEl pipeline de análisis posterior a la anotación (TF-IDF, vectores semánticos, modelos supervisados y no supervisados) puede describirse mediante las expresiones siguientes. Se omiten detalles de implementación específicos de cada librería cuando equivalentes conceptualmente.\n\nRepresentación textual: TF-IDF\nSea \\(D\\) el conjunto de documentos (comentarios o fragmentos), \\(t\\) un término y \\(d \\in D\\) un documento. La frecuencia–inversa de documento se define como el producto de la frecuencia del término en \\(d\\) por un factor que penaliza términos muy frecuentes en el corpus:\n\\[\n\\text{tfidf}(t,d) = \\text{tf}(t,d) \\cdot \\text{idf}(t), \\qquad\n\\text{idf}(t) = \\log \\frac{|D|}{1 + |\\{d' \\in D : t \\in d'\\}|}.\n\\]\nEn la práctica, la implementación puede aplicar transformaciones sublineales a \\(\\text{tf}\\) y variantes suavizadas de \\(\\text{idf}\\) según los hiperparámetros del vectorizador.\n\n\nEmbeddings de oraciones y similitud coseno\nUn modelo de oraciones (p. ej. Sentence Transformers) proyecta cada texto en un vector de dimensión fija:\n\\[\n\\mathbf{e} = f_{\\theta}(\\text{texto}) \\in \\mathbb{R}^{d},\n\\]\ndonde \\(f_{\\theta}\\) es una red neuronal profunda (arquitectura tipo encoder) y \\(\\theta\\) denota los parámetros entrenados externamente. Para asignar un tema por proximidad a enunciados de referencia \\(\\mathbf{c}_k\\), se utiliza la similitud coseno:\n\\[\n\\text{sim}(\\mathbf{e}, \\mathbf{c}_k) = \\frac{\\mathbf{e}^{\\top} \\mathbf{c}_k}{\\|\\mathbf{e}\\| \\, \\|\\mathbf{c}_k\\|}, \\qquad\nk^{\\ast} = \\arg\\max_k \\, \\text{sim}(\\mathbf{e}, \\mathbf{c}_k).\n\\]\n\n\nClasificación de sentimiento y de desacuerdo (aprendizaje supervisado)\nCon un vector de características \\(\\mathbf{x}\\) —obtenido, según el modelo, como vector TF-IDF concatenado con variables categóricas codificadas y numéricas escaladas— la regresión logística multinomial modela\n\\[\nP(y = k \\mid \\mathbf{x}) = \\frac{\\exp(\\mathbf{w}_k^{\\top}\\mathbf{x} + b_k)}{\\sum_{j} \\exp(\\mathbf{w}_j^{\\top}\\mathbf{x} + b_j)}.\n\\]\nPara un SVM lineal (clasificación), típicamente se minimiza una función hinge regularizada de la forma\n\\[\n\\min_{\\mathbf{w}, b} \\; \\frac{1}{2}\\|\\mathbf{w}\\|^2 + C \\sum_{i} \\max\\bigl(0, 1 - y_i(\\mathbf{w}^{\\top}\\mathbf{x}_i + b)\\bigr),\n\\]\ncon \\(y_i\\) en la convención \\(\\{-1,+1\\}\\) según la implementación.\nUn bosque aleatorio promedia las predicciones de árboles de decisión; en cada nodo se minimiza una impureza como el índice de Gini,\n\\[\nG(S) = 1 - \\sum_{k} p_k^2,\n\\]\ndonde \\(p_k\\) es la proporción de la clase \\(k\\) en el conjunto de instancias \\(S\\) del nodo.\nLos métodos de gradiente sobre árboles (p. ej. XGBoost) optimizan una función objetivo regularizada del tipo\n\\[\n\\mathcal{L} = \\sum_{i} \\ell\\bigl(y_i, \\hat{y}_i\\bigr) + \\sum_{t} \\Omega(f_t),\n\\]\ndonde \\(\\ell\\) es una pérdida acorde al tipo de tarea (p. ej. log-verosimilitud negativa en clasificación multiclase) y \\(\\Omega\\) penaliza la complejidad de cada árbol aditivo \\(f_t\\).\nCuando la entrada es directamente el embedding \\(\\mathbf{e}\\), la regresión logística sobre \\(\\mathbf{e}\\) conserva la misma forma softmax o binaria, según la variable respuesta.\n\n\nRegresión de polarización (variable continua)\nLa regresión Ridge estima coeficientes penalizando la norma \\(\\ell_2\\):\n\\[\n\\min_{\\mathbf{w}} \\; \\|\\mathbf{y} - X\\mathbf{w}\\|_2^2 + \\alpha \\|\\mathbf{w}\\|_2^2, \\qquad \\alpha &gt; 0.\n\\]\nLos árboles y métodos de boosting para regresión minimizan en cambio errores cuadráticos (u otras pérdidas) mediante particiones recursivas o sumas de árboles débiles, según el algoritmo elegido.\n\n\nReducción de dimensionalidad: UMAP\nUMAP construye una representación de baja dimensión (en este trabajo, tres dimensiones para visualización) optimizando una función de coste que alinea estructuras de vecindad en el espacio de embeddings de alta dimensión con una distribución en el espacio incrustado; la formulación completa aparece en McInnes, Healy, y Melville (2018). Los hiperparámetros relevantes incluyen el número de vecinos considerados, la métrica de distancia (p. ej. coseno) y la distancia mínima entre puntos en el embedding.\n\n\nClustering\nK-medias minimiza la suma de cuadrados intra-cluster:\n\\[\n\\min_{\\{\\boldsymbol{\\mu}_k\\}} \\sum_{i} \\min_k \\|\\mathbf{x}_i - \\boldsymbol{\\mu}_k\\|_2^2,\n\\]\nresuelto de forma aproximada por el algoritmo de Lloyd.\nHDBSCAN es un método de clustering por densidad jerárquico; no reduce a una única expresión escalar sino que combina distancias de alcance mutuo y un análisis de estabilidad de clusters a lo largo de una jerarquía (McInnes, Healy, y Astels 2017).\n\n\nModelos de lenguaje vía API (anotación)\nLas llamadas a modelos generativos de gran tamaño (p. ej. GPT-4o, DeepSeek) no admiten una fórmula cerrada equivalente a la de los modelos anteriores: la salida es una función implícita aprendida por entrenamiento masivo. En el diseño empírico, la “formalización” operativa consiste en la definición del prompt, la temperatura, el formato de salida (JSON) y las reglas de post-procesamiento (validación de etiquetas, consenso entre proveedores, agregación de polarización), descritas en los scripts de anotación.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "04-diseno.html#corpus-final-y-pipeline-de-procesamiento",
+    "href": "04-diseno.html#corpus-final-y-pipeline-de-procesamiento",
+    "title": "4  Diseño metodológico",
+    "section": "4.6 Corpus final y pipeline de procesamiento",
+    "text": "4.6 Corpus final y pipeline de procesamiento\nAl cierre de la recolección (31 de diciembre de 2025), el corpus contiene todos los posts y sus árboles completos de comentarios publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una de las cuatro candidaturas de interés, junto con sus metadatos asociados. La estructura del corpus permite análisis longitudinales, de red e interaccionales a lo largo del ciclo electoral completo.\n\n\n\n\n\n\nFigura 4.1: Flujo de recolección y procesamiento del corpus.\n\n\n\n\n\n\n\n\n\nLazer. 2009. «Lazer2009».\n\n\nMcInnes, Leland, John Healy, y Steve Astels. 2017. «hdbscan: Hierarchical density based clustering». The Journal of Open Source Software 2 (11): 205. https://doi.org/10.21105/joss.00205.\n\n\nMcInnes, Leland, John Healy, y James Melville. 2018. «UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction». arXiv preprint arXiv:1802.03426. https://arxiv.org/abs/1802.03426.\n\n\nSalganik. 2019. «Salganik2019».\n\n\nZimmer. 2017. «Zimmer2017».",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span>"
+    ]
+  },
+  {
+    "objectID": "05-depuracion-datos.html",
+    "href": "05-depuracion-datos.html",
+    "title": "5  Depuración de Datos",
+    "section": "",
+    "text": "5.1 Depuración y preprocesamiento del corpus\nUna vez constituido el corpus filtrado temáticamente, se aplicó una etapa de depuración orientada a garantizar la calidad analítica de los datos. Esta etapa distingue entre dos tipos de decisiones: las que afectan a unidades de observación —posts y comentarios que son excluidos del análisis— y las que afectan al contenido textual —transformaciones aplicadas al texto para mejorar su procesabilidad—.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Depuración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "05-depuracion-datos.html#descripción-general-del-corpus",
+    "href": "05-depuracion-datos.html#descripción-general-del-corpus",
+    "title": "5  Depuración de Datos",
+    "section": "5.2 Descripción general del corpus",
+    "text": "5.2 Descripción general del corpus\nEl corpus previo a la depuración comprende 163.695 comentarios distribuidos en 4.105 posts únicos, publicados entre 05 de August de 2025 y 22 de January de 2026. Participaron 9.845 autores únicos en los comentarios y 1.106 autores únicos en los posts. La Tabla 5.1 resume las estadísticas generales del corpus en esta etapa inicial.\n\n\n\n\nTabla 5.1: Estadísticas generales del corpus antes de depuración.\n\n\n\n\n\n\nIndicador\nValor\n\n\n\n\nComentarios totales\n163.695\n\n\nPosts únicos\n4.105\n\n\nAutores de posts\n1.106\n\n\nAutores de comentarios\n9.845\n\n\nPosts sin cuerpo textual (solo título)\n99.434 (60.7%)\n\n\n\n\n\n\n\n\n\n\nDestaca que una proporción elevada de posts carece de cuerpo textual (post_selftext = NA), lo que implica que la detección de candidaturas mediante expresiones regulares recae principalmente sobre los títulos de los posts y el cuerpo de los comentarios. Este patrón es consistente con la cultura de publicación de Reddit, donde los posts de tipo link o imagen no incluyen texto propio.\nLa distribución exacta por subreddit no se reproduce en esta tabla porque el objeto intermedio reddit_filtrado.rds preserva el contenido textual y las marcas de candidaturas, pero no conserva la columna de comunidad de origen. Esa desagregación sí está disponible en fuentes previas del pipeline y se retoma en el análisis sustantivo cuando corresponde.\n\n\n\n\nTabla 5.2: Frecuencia de menciones por candidatura en el corpus bruto.\n\n\n\n\n\n\nCandidatura\nMenciones\n% del corpus\n\n\n\n\nJosé A. Kast\n102.759\n62.8%\n\n\nJ. Jara\n63.602\n38.9%\n\n\nJ. Kaiser\n26.521\n16.2%\n\n\nE. Matthei\n16.358\n10.0%\n\n\n\nNota:  Un comentario puede mencionar a más de un candidato; los porcentajes no suman 100%.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa Figura 5.1 muestra la evolución semanal de las menciones por candidatura a lo largo del período de estudio. Los picos de actividad permiten identificar visualmente los momentos de mayor intensidad discursiva, que serán contrastados con el calendario de eventos electorales en el capítulo de resultados.\n\n\n\n\n\n\n\n\nFigura 5.1: Volumen semanal de menciones por candidatura (agosto–diciembre 2025).",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Depuración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "05-depuracion-datos.html#criterios-de-exclusión-de-unidades",
+    "href": "05-depuracion-datos.html#criterios-de-exclusión-de-unidades",
+    "title": "5  Depuración de Datos",
+    "section": "5.3 Criterios de exclusión de unidades",
+    "text": "5.3 Criterios de exclusión de unidades\nSe aplicaron cuatro criterios de exclusión secuenciales:\nComentarios eliminados o moderados. Reddit marca con los valores [deleted] o [removed] los comentarios cuyo contenido ha sido eliminado por el autor o por los moderadores de la comunidad. Estas cadenas no contienen información sustantiva y fueron descartadas del análisis textual, aunque se conservan en el corpus estructural para preservar la integridad de los árboles de conversación y no distorsionar las métricas de red.\nContenido automático y bots. Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (AutoModerator, RemindMeBot). La exclusión de este contenido reduce el ruido no-humano en el análisis de sentimiento y en la construcción de redes de interacción.\nComentarios excesivamente cortos. Los comentarios con menos de tres tokens tras la normalización —típicamente reacciones monosilábicas, interjecciones o emojis aislados— aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual. Se conservan, no obstante, en el análisis de redes de interacción, donde su existencia como arista es analíticamente relevante con independencia de su contenido semántico.\nPosts fuera del período de estudio. Aunque la extracción se circunscribió al período agosto–diciembre 2025, la estrategia incremental puede incorporar registros cuya fecha cae fuera del rango por diferencias de zona horaria. Todos los registros fueron verificados contra el período definido usando timestamps convertidos a hora de Santiago (America/Santiago, UTC−3/UTC−4 según horario de verano), descartando aquellos fuera de rango.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Depuración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "05-depuracion-datos.html#normalización-textual",
+    "href": "05-depuracion-datos.html#normalización-textual",
+    "title": "5  Depuración de Datos",
+    "section": "5.4 Normalización textual",
+    "text": "5.4 Normalización textual\nEl texto de posts y comentarios fue sometido a una normalización previa a cualquier clasificación automatizada. Las transformaciones se aplicaron en el siguiente orden:\nEliminación de elementos no textuales. URLs, menciones de usuario (patrones u/nombre), referencias a subreddits (r/nombre) y secuencias de formato Markdown (asteriscos, almohadillas, corchetes) fueron eliminadas mediante expresiones regulares, dado que no aportan contenido semántico al análisis discursivo.\nNormalización de espacios y puntuación. Secuencias de espacios múltiples, saltos de línea redundantes y puntuación repetida fueron colapsadas a su forma canónica mediante str_squish(). Esta operación reduce la variabilidad superficial sin alterar el contenido informativo del texto.\nConservación de tildes y caracteres del español. No se aplicó eliminación de tildes ni de la letra ñ, dado que su presencia es relevante para la correcta tokenización del español chileno y para el funcionamiento de los patrones regex de detección de candidaturas.\nNo aplicación de stopwords ni lematización en esta fase. Estas transformaciones más agresivas se reservan para las técnicas que específicamente las requieren —fundamentalmente el modelado de tópicos— y no se aplican al texto enviado a los modelos de lenguaje para clasificación de sentimiento y marcos interpretativos, donde el contexto completo mejora el desempeño del modelo.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Depuración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-modelado-datos.html",
+    "href": "07-modelado-datos.html",
+    "title": "7  Modelado de Datos",
+    "section": "",
+    "text": "7.1 1) Desempeño de modelos supervisados\nResultados de clasificación de sentimiento (test).\n\n\nmodelo\naccuracy\nf1_macro\n\n\n\n\nLogReg\n0.615\n0.583\nFigura 7.1: Matriz de confusión para clasificación de sentimiento (PNG).\nResultados de regresión para polarización (test).\n\n\nmodelo\nMAE\nRMSE\nR2\n\n\n\n\nRandomForest\n0.0894\n0.1289\n0.6401\n\n\nRidge\n0.1067\n0.1402\n0.5741\n\n\nGBM\n0.1170\n0.1543\n0.4844\nComparación: regresión con texto completo vs solo variables discursivas.\n\n\nmodelo\nmae\nrmse\nr2\n\n\n\n\nrf_texto_full\n0.0894\n0.1289\n0.6401\n\n\nridge_texto_full\n0.1067\n0.1402\n0.5741\n\n\nrf_categoricas\n0.1330\n0.1777\n0.3163\n\n\nridge_categoricas\n0.1369\n0.1800\n0.2986",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-modelado-datos.html#variables-que-más-explican-polarización",
+    "href": "07-modelado-datos.html#variables-que-más-explican-polarización",
+    "title": "7  Modelado de Datos",
+    "section": "7.2 2) Variables que más explican polarización",
+    "text": "7.2 2) Variables que más explican polarización\n\n\n\nTop 20 rasgos de mayor importancia para predecir polarización.\n\n\nfeature\nimportance\n\n\n\n\ncat_estrategia_final_ninguna\n0.1468\n\n\ntfidf_wea\n0.0600\n\n\ncat_tipo_hilo_mixto\n0.0520\n\n\nnum_n_words\n0.0436\n\n\nnum_n_chars\n0.0287\n\n\nnum_comment_score\n0.0285\n\n\ntfidf_nazi\n0.0203\n\n\ntfidf_ctm\n0.0179\n\n\ntfidf_vieja\n0.0178\n\n\nnum_n_upper\n0.0156\n\n\ncat_emocion_final_ironia\n0.0147\n\n\ncat_emocion_final_ira\n0.0131\n\n\ncat_emocion_final_desprecio\n0.0120\n\n\ncat_marco_final_otro\n0.0094\n\n\ntfidf_pinochet\n0.0091\n\n\ntfidf_culiao\n0.0091\n\n\ncat_marco_final_moral\n0.0084\n\n\ncat_tipo_hilo_solo_derecha_multiple\n0.0073\n\n\ntfidf_más\n0.0056\n\n\ncat_estrategia_final_ridiculizacion\n0.0048\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.2: Importancia de variables en modelo de polarización (PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-modelado-datos.html#cartografía-3d-global-v1",
+    "href": "07-modelado-datos.html#cartografía-3d-global-v1",
+    "title": "7  Modelado de Datos",
+    "section": "7.3 3) Cartografía 3D global (v1)",
+    "text": "7.3 3) Cartografía 3D global (v1)\n\n\n\n\n\n\n\n\nFigura 7.3: Espacio 3D global por tema (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.4: Espacio 3D global por candidato (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.5: Espacio 3D global por polarización (v1, PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-modelado-datos.html#dinámica-temporal-y-ajuste-léxico",
+    "href": "07-modelado-datos.html#dinámica-temporal-y-ajuste-léxico",
+    "title": "7  Modelado de Datos",
+    "section": "7.4 4) Dinámica temporal y ajuste léxico",
+    "text": "7.4 4) Dinámica temporal y ajuste léxico\n\n\n\n\n\n\n\n\nFigura 7.6: Serie de polarización por candidato cada 2 días (PNG).\n\n\n\n\n\n\n\n\nTérminos y categorías más activados por el ajuste léxico.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.7: Razón de palabras en alta vs baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.8: Palabras por nivel de polarización (PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html",
+    "href": "08-interpretacion-resultados.html",
+    "title": "8  Interpretación de Resultados",
+    "section": "",
+    "text": "8.1 1) Consistencia de medición\nDesacuerdo entre anotadores automáticos.\n\n\nmodelo\naccuracy\nf1_macro\n\n\n\n\nLogReg\n0.613\n0.579\n\n\nLinearSVM\n0.606\n0.563\n\n\nRandomForest\n0.678\n0.528",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#polarización-modelable",
+    "href": "08-interpretacion-resultados.html#polarización-modelable",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.2 2) Polarización modelable",
+    "text": "8.2 2) Polarización modelable\n\n\n\nModelos de regresión de polarización.\n\n\nmodelo\nMAE\nRMSE\nR2\n\n\n\n\nRandomForest\n0.0894\n0.1289\n0.6401\n\n\nRidge\n0.1067\n0.1402\n0.5741\n\n\nGBM\n0.1170\n0.1543\n0.4844\n\n\n\n\n\n\n\n\nTexto completo vs variables discursivas.\n\n\nmodelo\nmae\nrmse\nr2\n\n\n\n\nrf_texto_full\n0.0894\n0.1289\n0.6401\n\n\nridge_texto_full\n0.1067\n0.1402\n0.5741\n\n\nrf_categoricas\n0.1330\n0.1777\n0.3163\n\n\nridge_categoricas\n0.1369\n0.1800\n0.2986",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#marcos-emociones-y-estrategias",
+    "href": "08-interpretacion-resultados.html#marcos-emociones-y-estrategias",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.3 3) Marcos, emociones y estrategias",
+    "text": "8.3 3) Marcos, emociones y estrategias\n\n\n\n\n\n\n\n\nFigura 8.1: Polarización por marco (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.2: Polarización por emoción (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.3: Polarización por estrategia (PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#todas-las-imágenes-v1-globales",
+    "href": "08-interpretacion-resultados.html#todas-las-imágenes-v1-globales",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.4 4) Todas las imágenes v1 globales",
+    "text": "8.4 4) Todas las imágenes v1 globales\n\n\n\n\n\n\n\n\nFigura 8.4: Espacio 3D global por tema (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.5: Espacio 3D global por candidato (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.6: Espacio 3D global por polarización (v1, PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#atlas-temático-v1-completo",
+    "href": "08-interpretacion-resultados.html#atlas-temático-v1-completo",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.5 5) Atlas temático v1 (completo)",
+    "text": "8.5 5) Atlas temático v1 (completo)\n\n\n\n\n\n\n\n\nFigura 8.7: Espacio 3D por emoción (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.8: Tema seguridad (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.9: Tema democracia (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.10: Tema campaña electoral (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.11: Tema identidad (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.12: Tema economía (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.13: Tema migración (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.14: Tema moral (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.15: Tema Pinochet y DDHH (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.16: Tema religión y valores (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.17: Tema Venezuela y LATAM (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.18: Tema medios y fake news (v1, PNG).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
+    "href": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.6 6) Dinámica temporal y reconfiguración antagonista",
+    "text": "8.6 6) Dinámica temporal y reconfiguración antagonista\n\n\n\n\n\n\n\n\nFigura 8.19: Serie de polarización cada 2 días por candidato (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.20: Probabilidad de negatividad hacia Jara dado tono positivo hacia derecha (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.21: Transiciones de autores para Kast (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.22: Negatividad diaria comparada: Jara vs Kast (PNG).\n\n\n\n\n\n\n\n\nVentana de elección presidencial: Jara vs Kast.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndia\nprob_neg_jara\nprob_neg_kast\nprob_pos_jara\nprob_pos_kast\nn_jara\nn_kast\ndif_neg_jara_menos_kast\ndif_pos_jara_menos_kast\nventana_eleccion\nes_debate\n\n\n\n\n2025-12-13\n0.338\n0.697\n0.2112676\n0.0263158\n71\n76\n-0.359\n0.1849518\nventana_eleccion\n0\n\n\n2025-12-14\n0.449\n0.610\n0.0579710\n0.0410256\n69\n195\n-0.161\n0.0169454\nventana_eleccion\n0\n\n\n2025-12-15\n0.381\n0.624\n0.0158730\n0.0969697\n63\n165\n-0.243\n-0.0810967\nventana_eleccion\n0\n\n\n2025-12-16\n0.750\n0.667\n0.0000000\n0.0740741\n12\n108\n0.083\n-0.0740741\nventana_eleccion\n0\n\n\n2025-12-17\n0.353\n0.589\n0.0588235\n0.0410959\n17\n73\n-0.236\n0.0177276\nventana_eleccion\n0",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
+    "href": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.7 7) Interpretación teórica: pluralización del enemigo",
+    "text": "8.7 7) Interpretación teórica: pluralización del enemigo\nLa evidencia sugiere una convergencia incompleta: hay episodios de mayor ataque al out-group de izquierda, pero coexisten con persistencia de conflicto intra-derecha. Más que un reemplazo lineal del adversario, se observa una pluralización del enemigo (una ecología de demonios activada por coyuntura, emoción y marco discursivo).",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
+    "href": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
+    "title": "8  Interpretación de Resultados",
+    "section": "8.8 8) Léxico hostil y cierre",
+    "text": "8.8 8) Léxico hostil y cierre\n\n\n\nResumen del ajuste léxico hostil.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.23: Razón de palabras entre alta y baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.24: Top de palabras por nivel de polarización (PNG).\n\n\n\n\n\nCon esto, la tesis queda articulada en las tres dimensiones planteadas: consistencia de medición, modelado de polarización y reconfiguración del antagonismo político.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
+    ]
+  },
+  {
+    "objectID": "09-conclusion.html",
+    "href": "09-conclusion.html",
+    "title": "9  Conclusión",
+    "section": "",
+    "text": "[Contenido de la conclusión]",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Conclusión</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "10  Referencias",
+    "section": "",
+    "text": "Boxell. 2022. “Boxell2022.”\n\n\nBrady. 2017. “Brady2017.”\n\n\nCrockett. 2017. “Crockett2017.”\n\n\nDijck, van. 2018. “vanDijck2018.”\n\n\nEntman. 1993. “Entman1993.”\n\n\nGillespie. 2018. “Gillespie2018.”\n\n\nGraham. 2020. “Graham2020.”\n\n\nIyengar. 2019. “Iyengar2019.”\n\n\nJasper. 2011. “Jasper2011.”\n\n\nLaclau. 1985. “Laclau1985.”\n\n\nLazer. 2009. “Lazer2009.”\n\n\nMarcus. 2000. “Marcus2000.”\n\n\nMcInnes, Leland, John Healy, and Steve Astels. 2017. “Hdbscan:\nHierarchical Density Based Clustering.” The Journal of Open\nSource Software 2 (11): 205. https://doi.org/10.21105/joss.00205.\n\n\nMcInnes, Leland, John Healy, and James Melville. 2018. “UMAP:\nUniform Manifold Approximation and Projection for Dimension\nReduction.” arXiv Preprint arXiv:1802.03426. https://arxiv.org/abs/1802.03426.\n\n\nMeraz. 2013. “Meraz2013.”\n\n\nNorris. 2019. “Norris2019.”\n\n\nProferes. 2021. “Proferes2021.”\n\n\nSalganik. 2019. “Salganik2019.”\n\n\nSemetko. 2000. “Semetko2000.”\n\n\nSettle. 2018. “Settle2018.”\n\n\nZimmer. 2017. “Zimmer2017.”",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Referencias</span>"
+    ]
+  }
+]
