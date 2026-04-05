@@ -350,21 +350,11 @@
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#todas-las-imágenes-v1-globales",
-    "href": "08-interpretacion-resultados.html#todas-las-imágenes-v1-globales",
+    "objectID": "08-interpretacion-resultados.html#sec-atlas-3d",
+    "href": "08-interpretacion-resultados.html#sec-atlas-3d",
     "title": "8  Interpretación de Resultados",
-    "section": "8.4 4) Todas las imágenes v1 globales",
-    "text": "8.4 4) Todas las imágenes v1 globales\n\n\n\n\n\n\n\n\nFigura 8.4: Espacio 3D global por tema (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.5: Espacio 3D global por candidato (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.6: Espacio 3D global por polarización (v1, PNG).",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
-    ]
-  },
-  {
-    "objectID": "08-interpretacion-resultados.html#atlas-temático-v1-completo",
-    "href": "08-interpretacion-resultados.html#atlas-temático-v1-completo",
-    "title": "8  Interpretación de Resultados",
-    "section": "8.5 5) Atlas temático v1 (completo)",
-    "text": "8.5 5) Atlas temático v1 (completo)\n\n\n\n\n\n\n\n\nFigura 8.7: Espacio 3D por emoción (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.8: Tema seguridad (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.9: Tema democracia (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.10: Tema campaña electoral (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.11: Tema identidad (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.12: Tema economía (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.13: Tema migración (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.14: Tema moral (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.15: Tema Pinochet y DDHH (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.16: Tema religión y valores (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.17: Tema Venezuela y LATAM (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.18: Tema medios y fake news (v1, PNG).",
+    "section": "8.4 4) Atlas 3D: espacio semántico en tres componentes",
+    "text": "8.4 4) Atlas 3D: espacio semántico en tres componentes\n\nFigura integrada (vista 1)\nEl atlas siguiente concentra en una sola figura todas las vistas v1 (misma cámara 3D) producidas al final del bloque de gráficos 3D en scripts/analisis/07_pipeline_completo.py. Cada comentario se representa en un espacio de tres dimensiones obtenido a partir del texto vectorizado (TF-IDF → reducción de dimensionalidad → PCA en tres componentes), de modo que los subpaneles son la misma proyección coloreada de forma distinta: por tema, por candidato (p. ej. Kast, Kaiser, Matthei, Jara), por polarización consensuada, por emoción inferida y, en la parte inferior, por candidato dentro de cada tema. Las leyendas —a la derecha de cada subpanel, a modo de pie de lectura— identifican esas categorías; en el PDF conviene ampliar la figura si se desea leer cada etiqueta con comodidad.\n\n\n\n\n\n\n\n\n\nFigura 8.4: Atlas 3D (vista 1): panel único que integra todas las figuras *_v1.png (rejilla 3×columnas según cantidad).",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
@@ -373,8 +363,8 @@
     "objectID": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
     "href": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
     "title": "8  Interpretación de Resultados",
-    "section": "8.6 6) Dinámica temporal y reconfiguración antagonista",
-    "text": "8.6 6) Dinámica temporal y reconfiguración antagonista\n\n\n\n\n\n\n\n\nFigura 8.19: Serie de polarización cada 2 días por candidato (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.20: Probabilidad de negatividad hacia Jara dado tono positivo hacia derecha (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.21: Transiciones de autores para Kast (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.22: Negatividad diaria comparada: Jara vs Kast (PNG).\n\n\n\n\n\n\n\n\nVentana de elección presidencial: Jara vs Kast.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndia\nprob_neg_jara\nprob_neg_kast\nprob_pos_jara\nprob_pos_kast\nn_jara\nn_kast\ndif_neg_jara_menos_kast\ndif_pos_jara_menos_kast\nventana_eleccion\nes_debate\n\n\n\n\n2025-12-13\n0.338\n0.697\n0.2112676\n0.0263158\n71\n76\n-0.359\n0.1849518\nventana_eleccion\n0\n\n\n2025-12-14\n0.449\n0.610\n0.0579710\n0.0410256\n69\n195\n-0.161\n0.0169454\nventana_eleccion\n0\n\n\n2025-12-15\n0.381\n0.624\n0.0158730\n0.0969697\n63\n165\n-0.243\n-0.0810967\nventana_eleccion\n0\n\n\n2025-12-16\n0.750\n0.667\n0.0000000\n0.0740741\n12\n108\n0.083\n-0.0740741\nventana_eleccion\n0\n\n\n2025-12-17\n0.353\n0.589\n0.0588235\n0.0410959\n17\n73\n-0.236\n0.0177276\nventana_eleccion\n0",
+    "section": "8.5 5) Dinámica temporal y reconfiguración antagonista",
+    "text": "8.5 5) Dinámica temporal y reconfiguración antagonista\n\n\n\n\n\n\n\n\nFigura 8.5: Serie de polarización cada 2 días por candidato (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.6: Probabilidad de negatividad hacia Jara dado tono positivo hacia derecha (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.7: Transiciones de autores para Kast (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.8: Negatividad diaria comparada: Jara vs Kast (PNG).\n\n\n\n\n\n\n\n\nVentana de elección presidencial: Jara vs Kast.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndia\nprob_neg_jara\nprob_neg_kast\nprob_pos_jara\nprob_pos_kast\nn_jara\nn_kast\ndif_neg_jara_menos_kast\ndif_pos_jara_menos_kast\nventana_eleccion\nes_debate\n\n\n\n\n2025-12-13\n0.338\n0.697\n0.2112676\n0.0263158\n71\n76\n-0.359\n0.1849518\nventana_eleccion\n0\n\n\n2025-12-14\n0.449\n0.610\n0.0579710\n0.0410256\n69\n195\n-0.161\n0.0169454\nventana_eleccion\n0\n\n\n2025-12-15\n0.381\n0.624\n0.0158730\n0.0969697\n63\n165\n-0.243\n-0.0810967\nventana_eleccion\n0\n\n\n2025-12-16\n0.750\n0.667\n0.0000000\n0.0740741\n12\n108\n0.083\n-0.0740741\nventana_eleccion\n0\n\n\n2025-12-17\n0.353\n0.589\n0.0588235\n0.0410959\n17\n73\n-0.236\n0.0177276\nventana_eleccion\n0",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
@@ -383,8 +373,8 @@
     "objectID": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
     "href": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
     "title": "8  Interpretación de Resultados",
-    "section": "8.7 7) Interpretación teórica: pluralización del enemigo",
-    "text": "8.7 7) Interpretación teórica: pluralización del enemigo\nLa evidencia sugiere una convergencia incompleta: hay episodios de mayor ataque al out-group de izquierda, pero coexisten con persistencia de conflicto intra-derecha. Más que un reemplazo lineal del adversario, se observa una pluralización del enemigo (una ecología de demonios activada por coyuntura, emoción y marco discursivo).",
+    "section": "8.6 6) Interpretación teórica: pluralización del enemigo",
+    "text": "8.6 6) Interpretación teórica: pluralización del enemigo\nLa evidencia sugiere una convergencia incompleta: hay episodios de mayor ataque al out-group de izquierda, pero coexisten con persistencia de conflicto intra-derecha. Más que un reemplazo lineal del adversario, se observa una pluralización del enemigo (una ecología de demonios activada por coyuntura, emoción y marco discursivo).",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
@@ -393,8 +383,8 @@
     "objectID": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
     "href": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
     "title": "8  Interpretación de Resultados",
-    "section": "8.8 8) Léxico hostil y cierre",
-    "text": "8.8 8) Léxico hostil y cierre\n\n\n\nResumen del ajuste léxico hostil.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.23: Razón de palabras entre alta y baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.24: Top de palabras por nivel de polarización (PNG).\n\n\n\n\n\nCon esto, la tesis queda articulada en las tres dimensiones planteadas: consistencia de medición, modelado de polarización y reconfiguración del antagonismo político.",
+    "section": "8.7 7) Léxico hostil y cierre",
+    "text": "8.7 7) Léxico hostil y cierre\n\n\n\nResumen del ajuste léxico hostil.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.9: Razón de palabras entre alta y baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.10: Top de palabras por nivel de polarización (PNG).\n\n\n\n\n\nCon esto, la tesis queda articulada en las tres dimensiones planteadas: consistencia de medición, modelado de polarización y reconfiguración del antagonismo político.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
