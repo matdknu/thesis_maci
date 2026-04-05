@@ -284,37 +284,37 @@
     "href": "07-modelado-datos.html",
     "title": "7  Modelado de Datos",
     "section": "",
-    "text": "7.1 1) Desempeño de modelos supervisados\nResultados de clasificación de sentimiento (test).\n\n\nmodelo\naccuracy\nf1_macro\n\n\n\n\nLogReg\n0.615\n0.583\nFigura 7.1: Matriz de confusión para clasificación de sentimiento (PNG).\nResultados de regresión para polarización (test).\n\n\nmodelo\nMAE\nRMSE\nR2\n\n\n\n\nRandomForest\n0.0894\n0.1289\n0.6401\n\n\nRidge\n0.1067\n0.1402\n0.5741\n\n\nGBM\n0.1170\n0.1543\n0.4844\nComparación: regresión con texto completo vs solo variables discursivas.\n\n\nmodelo\nmae\nrmse\nr2\n\n\n\n\nrf_texto_full\n0.0894\n0.1289\n0.6401\n\n\nridge_texto_full\n0.1067\n0.1402\n0.5741\n\n\nrf_categoricas\n0.1330\n0.1777\n0.3163\n\n\nridge_categoricas\n0.1369\n0.1800\n0.2986",
+    "text": "7.1 1) Consistencia de medición",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
     ]
   },
   {
-    "objectID": "07-modelado-datos.html#variables-que-más-explican-polarización",
-    "href": "07-modelado-datos.html#variables-que-más-explican-polarización",
+    "objectID": "07-modelado-datos.html#consistencia-de-medición",
+    "href": "07-modelado-datos.html#consistencia-de-medición",
     "title": "7  Modelado de Datos",
-    "section": "7.2 2) Variables que más explican polarización",
-    "text": "7.2 2) Variables que más explican polarización\n\n\n\nTop 20 rasgos de mayor importancia para predecir polarización.\n\n\nfeature\nimportance\n\n\n\n\ncat_estrategia_final_ninguna\n0.1468\n\n\ntfidf_wea\n0.0600\n\n\ncat_tipo_hilo_mixto\n0.0520\n\n\nnum_n_words\n0.0436\n\n\nnum_n_chars\n0.0287\n\n\nnum_comment_score\n0.0285\n\n\ntfidf_nazi\n0.0203\n\n\ntfidf_ctm\n0.0179\n\n\ntfidf_vieja\n0.0178\n\n\nnum_n_upper\n0.0156\n\n\ncat_emocion_final_ironia\n0.0147\n\n\ncat_emocion_final_ira\n0.0131\n\n\ncat_emocion_final_desprecio\n0.0120\n\n\ncat_marco_final_otro\n0.0094\n\n\ntfidf_pinochet\n0.0091\n\n\ntfidf_culiao\n0.0091\n\n\ncat_marco_final_moral\n0.0084\n\n\ncat_tipo_hilo_solo_derecha_multiple\n0.0073\n\n\ntfidf_más\n0.0056\n\n\ncat_estrategia_final_ridiculizacion\n0.0048\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.2: Importancia de variables en modelo de polarización (PNG).",
+    "section": "",
+    "text": "1.1 Acuerdo entre anotadores automáticos\n\n\n\nAcuerdo entre los dos sistemas de anotación automatizada por dimensión.\n\n\ndimension\nn\nmetrica\nvalor\nacuerdo_exacto\n\n\n\n\npolarizacion\n7946\ncorrelacion_pearson\n0.665\nNA\n\n\nmarco\n7948\nkappa\n0.136\n0.450\n\n\nemocion\n7948\nkappa\n0.076\n0.423\n\n\nestrategia\n7948\nkappa\n0.126\n0.612\n\n\nfrontera\n7948\nkappa\n-0.146\n0.572\n\n\n\n\n\nEl sistema LLM se trata aquí como un instrumento automatizado de medición. La dimensión mejor resuelta es polarización, donde el acuerdo entre salidas continuas es alto, mientras que frontera también muestra una consistencia suficiente para uso analítico. En cambio, emoción y estrategia presentan mayores márgenes de ambigüedad: el sistema las captura, pero con menor nitidez que polarización.\n\n\n1.2 Modelo de desacuerdo\n\n\n\nModelo para predecir desacuerdo entre OA y DS.\n\n\nmodelo\naccuracy\nf1_macro\n\n\n\n\nLogReg\n0.622\n0.593\n\n\nLinearSVM\n0.599\n0.561\n\n\nRandomForest\n0.680\n0.540\n\n\n\n\n\nEl valor del modelo de desacuerdo no está en reemplazar la clasificación principal, sino en identificar cuándo la medición automatizada se vuelve inestable. Esto permite distinguir entre dimensiones más robustas y dimensiones más sensibles a ambigüedad, ironía o baja densidad contextual.\n\n\n1.3 Valor añadido de las variables discursivas\n\n\n\nComparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.\n\n\nconfig\nMAE_mean\nMAE_sd\nR2_mean\nR2_sd\ndelta_vs_texto\n\n\n\n\nA_TF-IDF\n0.1052\n0.0022\n0.4316\n0.0272\n0.0000\n\n\nB_LLM\n0.0922\n0.0014\n0.5539\n0.0095\n0.1223\n\n\nC_combinado\n0.0842\n0.0013\n0.6184\n0.0068\n0.1868\n\n\n\n\n\nEste es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un R² superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.\n\n\n1.4 Calibración de probabilidades\n\n\n\n\n\n\n\n\nFigura 7.1: Diagrama de calibración para polarización alta (PNG).\n\n\n\n\n\n\n\n\nBrier score y log-loss antes y después de calibración.\n\n\n\n\n\n\n\n\n\nmodelo\nbrier_antes\nbrier_despues\nlogloss_antes\nlogloss_despues\n\n\n\n\nRandomForest\n0.1105\n0.1119\n0.3654\n0.3530\n\n\nGBM\n0.1138\n0.1131\n0.3608\n0.3590\n\n\nLogReg\n0.1780\n0.1215\n0.5193\n0.4123\n\n\n\n\n\nLa calibración muestra que los clasificadores ya eran razonablemente confiables sin post-procesamiento fuerte. Esto refuerza la validez práctica del pipeline para producir probabilidades utilizables como insumo analítico.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
     ]
   },
   {
-    "objectID": "07-modelado-datos.html#cartografía-3d-global-v1",
-    "href": "07-modelado-datos.html#cartografía-3d-global-v1",
+    "objectID": "07-modelado-datos.html#modelado-de-polarización",
+    "href": "07-modelado-datos.html#modelado-de-polarización",
     "title": "7  Modelado de Datos",
-    "section": "7.3 3) Cartografía 3D global (v1)",
-    "text": "7.3 3) Cartografía 3D global (v1)\n\n\n\n\n\n\n\n\nFigura 7.3: Espacio 3D global por tema (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.4: Espacio 3D global por candidato (v1, PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.5: Espacio 3D global por polarización (v1, PNG).",
+    "section": "7.2 2) Modelado de polarización",
+    "text": "7.2 2) Modelado de polarización\n\n2.1 Comparación de modelos y estabilidad fuera de muestra\n\n\n\nComparación de modelos de regresión para polarización.\n\n\n\nmodelo\nMAE_CV\nR2_CV\n\n\n\n\n1\nRidge\n0.098 ± 0.001\n0.553 ± 0.006\n\n\n3\nRandomForest\n0.084 ± 0.001\n0.619 ± 0.006\n\n\n5\nGBM\n0.108 ± 0.002\n0.474 ± 0.011\n\n\n11\nStacking\n\n0.646\n\n\n\n\n\nEl resultado central es que RandomForest combina mejor desempeño y estabilidad. El bajo desvío estándar entre folds indica que la señal no depende de un corte favorable del conjunto de datos. El stacking mejora el techo predictivo, pero el benchmark robusto del capítulo sigue siendo el RandomForest.\n\n\n2.2 OLS interpretable\n\n\n\nCoeficientes significativos del modelo OLS para polarización.\n\n\ncoeficiente\ncoef\nci_low\nci_high\np_value\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.2: Coefficient plot del modelo OLS para polarización (PNG).\n\n\n\n\n\nEl OLS no compite con el mejor predictor, pero sí cumple una función crucial de interpretabilidad. El punto importante no es solo qué variables aumentan la polarización, sino que el efecto no se concentra en el candidato como target, sino en configuraciones discursivas como emoción, estrategia y tipo de hilo.\n\n\n2.3 Importancia por permutación y explicación local\n\n\n\n\n\n\n\n\nFigura 7.3: Importancia por permutación para el modelo de polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.4: SHAP summary plot para el modelo de polarización (PNG).\n\n\n\n\n\nLa importancia por permutación permite establecer qué variables sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al nivel individual. Juntas, ambas herramientas muestran que el modelo no está capturando ruido superficial, sino una combinación estable de estructura discursiva y rasgos textuales.\n\n\n2.4 Clasificación de polarización alta\n\n\n\n\n\n\n\n\nFigura 7.5: Curvas ROC para clasificación de polarización alta (PNG).\n\n\n\n\n\n\n\n\nAUC comparado para polarización alta.\n\n\nmodelo\nAUC\n\n\n\n\nLogReg\n0.8107\n\n\nRandomForest\n0.8557\n\n\nGBM\n0.8324\n\n\n\n\n\nLas tres curvas ROC muestran que el problema de clasificación es genuino y no trivial: los modelos lineales funcionan razonablemente bien, pero los no lineales capturan una fracción adicional de señal. Eso es coherente con la estructura heterogénea del discurso hostil.\n\n\n2.5 Estrategia, frontera, perfiles y errores\n\n\n\nF1 por clase para estrategia discursiva.\n\n\n\nmodelo\nclase\nf1_clase\n\n\n\n\n2\nLogReg\natribucion_oculta\n0.338\n\n\n3\nLogReg\nconstruccion_amenaza\n0.521\n\n\n4\nLogReg\ndeslegitimacion\n0.606\n\n\n5\nLogReg\nesencializacion\n0.496\n\n\n6\nLogReg\nridiculizacion\n0.672\n\n\n10\nRandomForest\natribucion_oculta\n0.370\n\n\n11\nRandomForest\nconstruccion_amenaza\n0.537\n\n\n12\nRandomForest\ndeslegitimacion\n0.700\n\n\n13\nRandomForest\nesencializacion\n0.555\n\n\n14\nRandomForest\nridiculizacion\n0.703\n\n\n18\nGBM\natribucion_oculta\n0.230\n\n\n19\nGBM\nconstruccion_amenaza\n0.313\n\n\n20\nGBM\ndeslegitimacion\n0.645\n\n\n21\nGBM\nesencializacion\n0.413\n\n\n22\nGBM\nridiculizacion\n0.661\n\n\n\n\n\n\n\n\nF1 por clase para frontera política.\n\n\n\nmodelo\nclase\nf1\n\n\n\n\n2\nLogReg\ninter_bloque\n0.836\n\n\n3\nLogReg\nintra_bloque\n0.663\n\n\n4\nLogReg\nninguna\n0.674\n\n\n8\nRandomForest\ninter_bloque\n0.845\n\n\n9\nRandomForest\nintra_bloque\n0.653\n\n\n10\nRandomForest\nninguna\n0.657\n\n\n\n\n\n\n\n\nPerfiles discursivos obtenidos por KMeans sobre variables estructuradas.\n\n\n\n\n\n\n\n\n\n\n\ncluster\nn\npolarizacion_media\nmarco_dominante\nemocion_dominante\nestrategia_dominante\ncandidato_moda\n\n\n\n\n0\n1633\n0.201\ndiagnostico\nninguna\nninguna\nkast\n\n\n1\n3991\n0.426\nconflicto\ndesprecio\ndeslegitimacion\njara\n\n\n2\n4627\n0.493\nconflicto\ndesprecio\nridiculizacion\nkast\n\n\n\n\n\n\n\n\nErrores sistemáticos del clasificador de polarización alta.\n\n\ngrupo\nn\npol_real_media\nn_chars_media\nkarma_media\n\n\n\n\nFN\n245\n0.685\n196.478\n5.820\n\n\nFP\n70\n0.434\n219.114\n8.071\n\n\nTP\n156\n0.733\n202.064\n10.590\n\n\n\n\n\nEstos cuatro resultados cierran el corazón técnico de la tesis. Estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. KMeans muestra que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores, finalmente, delimita con precisión dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
     ]
   },
   {
-    "objectID": "07-modelado-datos.html#dinámica-temporal-y-ajuste-léxico",
-    "href": "07-modelado-datos.html#dinámica-temporal-y-ajuste-léxico",
+    "objectID": "07-modelado-datos.html#notas-de-alcance-del-capítulo",
+    "href": "07-modelado-datos.html#notas-de-alcance-del-capítulo",
     "title": "7  Modelado de Datos",
-    "section": "7.4 4) Dinámica temporal y ajuste léxico",
-    "text": "7.4 4) Dinámica temporal y ajuste léxico\n\n\n\n\n\n\n\n\nFigura 7.6: Serie de polarización por candidato cada 2 días (PNG).\n\n\n\n\n\n\n\n\nTérminos y categorías más activados por el ajuste léxico.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.7: Razón de palabras en alta vs baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7.8: Palabras por nivel de polarización (PNG).",
+    "section": "7.3 3) Notas de alcance del capítulo",
+    "text": "7.3 3) Notas de alcance del capítulo\n\nNo se reporta aquí el análisis de sentimiento como eje principal porque, en esta tesis, el sentimiento opera sobre todo como input auxiliar del sistema de medición y no como output sustantivo central.\n\n\nNo se incorpora como resultado principal el clustering directo sobre TF-IDF cuando la separación resulta demasiado débil para sostener inferencia sustantiva; por esa razón, el capítulo privilegia perfiles construidos sobre variables discursivas más interpretables.\n\n\nTampoco se reportan aquí las visualizaciones 3D como hallazgo principal del bloque técnico. Esas figuras se trasladan al capítulo siguiente, donde cumplen una función interpretativa y no meramente demostrativa.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span>"
     ]
@@ -324,67 +324,57 @@
     "href": "08-interpretacion-resultados.html",
     "title": "8  Interpretación de Resultados",
     "section": "",
-    "text": "8.1 1) Consistencia de medición\nDesacuerdo entre anotadores automáticos.\n\n\nmodelo\naccuracy\nf1_macro\n\n\n\n\nLogReg\n0.613\n0.579\n\n\nLinearSVM\n0.606\n0.563\n\n\nRandomForest\n0.678\n0.528",
+    "text": "8.1 1) Reconfiguración del antagonismo: estrategias, marcos y fronteras",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#polarización-modelable",
-    "href": "08-interpretacion-resultados.html#polarización-modelable",
+    "objectID": "08-interpretacion-resultados.html#reconfiguración-del-antagonismo-estrategias-marcos-y-fronteras",
+    "href": "08-interpretacion-resultados.html#reconfiguración-del-antagonismo-estrategias-marcos-y-fronteras",
     "title": "8  Interpretación de Resultados",
-    "section": "8.2 2) Polarización modelable",
-    "text": "8.2 2) Polarización modelable\n\n\n\nModelos de regresión de polarización.\n\n\nmodelo\nMAE\nRMSE\nR2\n\n\n\n\nRandomForest\n0.0894\n0.1289\n0.6401\n\n\nRidge\n0.1067\n0.1402\n0.5741\n\n\nGBM\n0.1170\n0.1543\n0.4844\n\n\n\n\n\n\n\n\nTexto completo vs variables discursivas.\n\n\nmodelo\nmae\nrmse\nr2\n\n\n\n\nrf_texto_full\n0.0894\n0.1289\n0.6401\n\n\nridge_texto_full\n0.1067\n0.1402\n0.5741\n\n\nrf_categoricas\n0.1330\n0.1777\n0.3163\n\n\nridge_categoricas\n0.1369\n0.1800\n0.2986",
+    "section": "",
+    "text": "1.1 Estrategias por candidato\n\n\n\n\n\n\n\n\nFigura 8.1: Distribución de estrategias por candidato (PNG).\n\n\n\n\n\n\n\n\nProporciones de estrategia por tipo de frontera política.\n\n\nestrategia_final\ninter_bloque\nintra_bloque\nninguna\n\n\n\n\natribucion_oculta\n0.548\n0.175\n0.277\n\n\nconstruccion_amenaza\n0.663\n0.101\n0.236\n\n\ndeslegitimacion\n0.578\n0.183\n0.239\n\n\nesencializacion\n0.660\n0.111\n0.229\n\n\nninguna\n0.329\n0.130\n0.540\n\n\nridiculizacion\n0.483\n0.219\n0.298\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.2: Estrategia por frontera política (PNG).\n\n\n\n\n\nLa lógica del antagonismo no se distribuye homogéneamente. Algunas estrategias quedan más asociadas a confrontación inter-bloque y otras funcionan más bien dentro del conflicto intra-bloque. Esto es importante porque muestra que la hostilidad no es una sola: cambia según la arquitectura del adversario construida por el comentario.\n\n\n1.2 Marcos por candidato y por fase\n\n\n\n\n\n\n\n\nFigura 8.3: Distribución de marcos por candidato (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.4: Marcos por fase electoral y candidato (PNG).\n\n\n\n\n\n\n\n\nAsociación entre marcos y fase electoral por candidato.\n\n\ncandidato\nchi2\np_value\ncramers_v\nn_total\n\n\n\n\nkast\n21.903\n0.081\n0.047\n5052\n\n\nkaiser\n23.874\n0.047\n0.096\n1308\n\n\nmatthei\n17.674\n0.222\n0.105\n802\n\n\njara\n31.817\n0.004\n0.072\n3085\n\n\n\n\n\nEl repertorio de marcos no es estable entre candidatos ni entre fases. Esta heterogeneidad sugiere que la polarización no se activa sobre un único relato, sino sobre una combinación variable de conflicto, identidad, moralidad y diagnóstico coyuntural.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#marcos-emociones-y-estrategias",
-    "href": "08-interpretacion-resultados.html#marcos-emociones-y-estrategias",
+    "objectID": "08-interpretacion-resultados.html#combinaciones-discursivas-y-dinámica-temporal",
+    "href": "08-interpretacion-resultados.html#combinaciones-discursivas-y-dinámica-temporal",
     "title": "8  Interpretación de Resultados",
-    "section": "8.3 3) Marcos, emociones y estrategias",
-    "text": "8.3 3) Marcos, emociones y estrategias\n\n\n\n\n\n\n\n\nFigura 8.1: Polarización por marco (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.2: Polarización por emoción (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.3: Polarización por estrategia (PNG).",
+    "section": "8.2 2) Combinaciones discursivas y dinámica temporal",
+    "text": "8.2 2) Combinaciones discursivas y dinámica temporal\n\n2.1 Marco × emoción\n\n\n\nTop 10 combinaciones marco × emoción por frecuencia.\n\n\nmarco_final\nemocion_final\nn\nproporcion\npolarizacion_media\n\n\n\n\nconflicto\ndesprecio\n945\n0.092\n0.463\n\n\ndiagnostico\nindignacion\n844\n0.082\n0.430\n\n\nconflicto\nindignacion\n758\n0.074\n0.448\n\n\nconflicto\nironia\n724\n0.071\n0.386\n\n\nmoral\ndesprecio\n702\n0.069\n0.541\n\n\nmoral\nindignacion\n627\n0.061\n0.503\n\n\ndiagnostico\ndesprecio\n591\n0.058\n0.438\n\n\notro\ndesprecio\n528\n0.052\n0.544\n\n\ndiagnostico\nninguna\n463\n0.045\n0.261\n\n\notro\nninguna\n435\n0.042\n0.296\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.5: Combinaciones marco × emoción (PNG).\n\n\n\n\n\nLas combinaciones entre marco y emoción son especialmente relevantes porque muestran que no toda emoción hostil se acopla del mismo modo al conflicto. Algunas combinaciones son frecuentes y moderadas; otras son raras, pero empujan la polarización a niveles mucho más altos.\n\n\n2.2 Estrategias en el tiempo\n\n\n\n\n\n\n\n\nFigura 8.6: Serie temporal semanal de estrategias discursivas (PNG).\n\n\n\n\n\nLa serie temporal de estrategias permite observar si la arquitectura del adversario cambia en momentos electorales clave. En este punto interesa menos la fluctuación diaria y más la dirección general: si la ridiculización, la deslegitimación o la construcción de amenaza ganan o pierden centralidad a medida que el ciclo avanza.\n\nNo se eleva a figura principal la serie semanal de emociones porque su rendimiento en esta tesis fue sobre todo descriptivo y no añadió un hallazgo interpretativo tan fuerte como el bloque de estrategias o el de frontera.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#sec-atlas-3d",
-    "href": "08-interpretacion-resultados.html#sec-atlas-3d",
+    "objectID": "08-interpretacion-resultados.html#autores-persistencia-y-estructura-del-conflicto",
+    "href": "08-interpretacion-resultados.html#autores-persistencia-y-estructura-del-conflicto",
     "title": "8  Interpretación de Resultados",
-    "section": "8.4 4) Atlas 3D: espacio semántico en tres componentes",
-    "text": "8.4 4) Atlas 3D: espacio semántico en tres componentes\n\nFigura integrada (vista 1)\nEl atlas siguiente concentra en una sola figura todas las vistas v1 (misma cámara 3D) producidas al final del bloque de gráficos 3D en scripts/analisis/07_pipeline_completo.py. Cada comentario se representa en un espacio de tres dimensiones obtenido a partir del texto vectorizado (TF-IDF → reducción de dimensionalidad → PCA en tres componentes), de modo que los subpaneles son la misma proyección coloreada de forma distinta: por tema, por candidato (p. ej. Kast, Kaiser, Matthei, Jara), por polarización consensuada, por emoción inferida y, en la parte inferior, por candidato dentro de cada tema. Las leyendas —a la derecha de cada subpanel, a modo de pie de lectura— identifican esas categorías; en el PDF conviene ampliar la figura si se desea leer cada etiqueta con comodidad.\n\n\n\n\n\n\n\n\n\nFigura 8.4: Atlas 3D (vista 1): panel único que integra todas las figuras *_v1.png (rejilla 3×columnas según cantidad).",
+    "section": "8.3 3) Autores, persistencia y estructura del conflicto",
+    "text": "8.3 3) Autores, persistencia y estructura del conflicto\n\n3.1 Persistencia de negatividad hacia Kast\n\n\n\n\n\n\n\n\nFigura 8.7: Transiciones de sentimiento hacia Kast por autor (PNG).\n\n\n\n\n\n\n\n\nCambio de autores inicialmente negativos hacia Kast.\n\n\n\n\n\n\n\n\n\n\nautores_negativos_pre\nautores_negativos_a_positivos_post\nautores_negativos_a_neutros_post\nautores_negativos_a_negativos_post\nprob_pos_post_dado_neg_pre\nprob_no_neg_post_dado_neg_pre\n\n\n\n\n215\n6\n21\n188\n0.028\n0.126\n\n\n\n\n\n\n\n3.2 Actividad de autores y polarización\n\n\n\n\n\n\n\n\nFigura 8.8: Polarización media por tipo de autor (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.9: Actividad y polarización de autores (PNG).\n\n\n\n\n\nLa lectura de autores permite evaluar si la hostilidad está concentrada en hiperactivos o distribuida en la masa de usuarios. Este punto es teóricamente relevante porque distingue una polarización sostenida por pocos actores intensivos de una polarización más difusa y ambiental.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
-    "href": "08-interpretacion-resultados.html#dinámica-temporal-y-reconfiguración-antagonista",
+    "objectID": "08-interpretacion-resultados.html#espacios-semánticos-acoplados",
+    "href": "08-interpretacion-resultados.html#espacios-semánticos-acoplados",
     "title": "8  Interpretación de Resultados",
-    "section": "8.5 5) Dinámica temporal y reconfiguración antagonista",
-    "text": "8.5 5) Dinámica temporal y reconfiguración antagonista\n\n\n\n\n\n\n\n\nFigura 8.5: Serie de polarización cada 2 días por candidato (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.6: Probabilidad de negatividad hacia Jara dado tono positivo hacia derecha (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.7: Transiciones de autores para Kast (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.8: Negatividad diaria comparada: Jara vs Kast (PNG).\n\n\n\n\n\n\n\n\nVentana de elección presidencial: Jara vs Kast.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndia\nprob_neg_jara\nprob_neg_kast\nprob_pos_jara\nprob_pos_kast\nn_jara\nn_kast\ndif_neg_jara_menos_kast\ndif_pos_jara_menos_kast\nventana_eleccion\nes_debate\n\n\n\n\n2025-12-13\n0.338\n0.697\n0.2112676\n0.0263158\n71\n76\n-0.359\n0.1849518\nventana_eleccion\n0\n\n\n2025-12-14\n0.449\n0.610\n0.0579710\n0.0410256\n69\n195\n-0.161\n0.0169454\nventana_eleccion\n0\n\n\n2025-12-15\n0.381\n0.624\n0.0158730\n0.0969697\n63\n165\n-0.243\n-0.0810967\nventana_eleccion\n0\n\n\n2025-12-16\n0.750\n0.667\n0.0000000\n0.0740741\n12\n108\n0.083\n-0.0740741\nventana_eleccion\n0\n\n\n2025-12-17\n0.353\n0.589\n0.0588235\n0.0410959\n17\n73\n-0.236\n0.0177276\nventana_eleccion\n0",
+    "section": "8.4 4) Espacios semánticos acoplados",
+    "text": "8.4 4) Espacios semánticos acoplados\n\n4.1 Atlas global acoplado\nEl objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino mostrar geometría discursiva. Para que la lectura sea razonable en HTML y PDF, las vistas v1 globales se compilan en una sola imagen grande: tema, candidato, polarización y emociones quedan acoplados en el mismo panel y con la misma cámara.\n\n\n\n\n\n\n\n\n\nFigura 8.10: Atlas global 3D (vista 1): temas, candidatos, polarización y emociones en una sola imagen.\n\n\n\n\n\n\n\n\n4.2 Atlas integrado ampliado\n\n\n\n\n\n\n\n\n\nFigura 8.11: Atlas 3D (vista 1): panel ampliado con todas las figuras *_v1.png.\n\n\n\n\n\n\nEl atlas global acoplado es la pieza principal para lectura de la tesis; el atlas ampliado queda como apoyo de detalle. En ambos casos, las figuras no funcionan como “prueba visual” aislada, sino como apoyo geométrico a la interpretación de que ciertos ejes temáticos y ciertos climas hostiles se concentran diferencialmente.\n\nNo se reportan aquí los HTML interactivos ni una versión puramente 2D del espacio semántico porque el formato de tesis exige priorizar piezas estáticas legibles, reproducibles y consistentes entre HTML y PDF.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]
   },
   {
-    "objectID": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
-    "href": "08-interpretacion-resultados.html#interpretación-teórica-pluralización-del-enemigo",
+    "objectID": "08-interpretacion-resultados.html#cierre-interpretativo",
+    "href": "08-interpretacion-resultados.html#cierre-interpretativo",
     "title": "8  Interpretación de Resultados",
-    "section": "8.6 6) Interpretación teórica: pluralización del enemigo",
-    "text": "8.6 6) Interpretación teórica: pluralización del enemigo\nLa evidencia sugiere una convergencia incompleta: hay episodios de mayor ataque al out-group de izquierda, pero coexisten con persistencia de conflicto intra-derecha. Más que un reemplazo lineal del adversario, se observa una pluralización del enemigo (una ecología de demonios activada por coyuntura, emoción y marco discursivo).",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
-    ]
-  },
-  {
-    "objectID": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
-    "href": "08-interpretacion-resultados.html#léxico-hostil-y-cierre",
-    "title": "8  Interpretación de Resultados",
-    "section": "8.7 7) Léxico hostil y cierre",
-    "text": "8.7 7) Léxico hostil y cierre\n\n\n\nResumen del ajuste léxico hostil.\n\n\ntermino\nn\n\n\n\n\nwea\n296\n\n\nwn\n255\n\n\nweon\n201\n\n\nnazi\n62\n\n\npinochet\n60\n\n\nvieja\n48\n\n\nweona\n41\n\n\nctm\n40\n\n\nculiao\n34\n\n\nviejo\n31\n\n\nfloj*\n15\n\n\nparasit*\n13\n\n\nqliao\n12\n\n\nfeo\n11\n\n\ncuicos\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.9: Razón de palabras entre alta y baja polarización (PNG).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8.10: Top de palabras por nivel de polarización (PNG).\n\n\n\n\n\nCon esto, la tesis queda articulada en las tres dimensiones planteadas: consistencia de medición, modelado de polarización y reconfiguración del antagonismo político.",
+    "section": "8.5 5) Cierre interpretativo",
+    "text": "8.5 5) Cierre interpretativo\nLa lectura conjunta de estas piezas sugiere que la reconfiguración del antagonismo no consiste solo en un cambio de target, sino en una reorganización de estrategias, fronteras y marcos. La confrontación política digital no se expresa únicamente como negatividad, sino como una arquitectura más compleja donde el tipo de enemigo, el tono del ataque y el encuadre del conflicto cambian según coyuntura y candidato.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span>"
     ]

@@ -33,7 +33,7 @@ Este capítulo toma el output del pipeline ya validado y lo traduce en una pregu
 
 ### 1.1 Estrategias por candidato
 
-```{r fig-estrategias-candidato, fig.cap="Distribución de estrategias por candidato (PNG)."}
+```{r fig-estrategias-candidato, fig.cap="Distribución de estrategias por candidato (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "distribucion_estrategias_candidato.png"))) {
   knitr::include_graphics(file.path(base_out, "distribucion_estrategias_candidato.png"))
 }
@@ -46,7 +46,7 @@ if (nrow(ef)) {
 }
 ```
 
-```{r fig-estrategia-frontera, fig.cap="Estrategia por frontera política (PNG)."}
+```{r fig-estrategia-frontera, fig.cap="Estrategia por frontera política (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "estrategia_por_frontera.png"))) {
   knitr::include_graphics(file.path(base_out, "estrategia_por_frontera.png"))
 }
@@ -56,13 +56,13 @@ La lógica del antagonismo no se distribuye homogéneamente. Algunas estrategias
 
 ### 1.2 Marcos por candidato y por fase
 
-```{r fig-marcos-candidato, fig.cap="Distribución de marcos por candidato (PNG)."}
+```{r fig-marcos-candidato, fig.cap="Distribución de marcos por candidato (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "distribucion_marcos_candidato.png"))) {
   knitr::include_graphics(file.path(base_out, "distribucion_marcos_candidato.png"))
 }
 ```
 
-```{r fig-marcos-fase, fig.cap="Marcos por fase electoral y candidato (PNG)."}
+```{r fig-marcos-fase, fig.cap="Marcos por fase electoral y candidato (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "marcos_por_fase_candidato.png"))) {
   knitr::include_graphics(file.path(base_out, "marcos_por_fase_candidato.png"))
 }
@@ -89,7 +89,7 @@ if (nrow(me)) {
 }
 ```
 
-```{r fig-marco-emocion, fig.cap="Combinaciones marco × emoción (PNG)."}
+```{r fig-marco-emocion, fig.cap="Combinaciones marco × emoción (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "combinaciones_marco_emocion.png"))) {
   knitr::include_graphics(file.path(base_out, "combinaciones_marco_emocion.png"))
 }
@@ -99,7 +99,7 @@ Las combinaciones entre marco y emoción son especialmente relevantes porque mue
 
 ### 2.2 Estrategias en el tiempo
 
-```{r fig-serie-estrategias, fig.cap="Serie temporal semanal de estrategias discursivas (PNG)."}
+```{r fig-serie-estrategias, fig.cap="Serie temporal semanal de estrategias discursivas (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "serie_estrategias_semanal.png"))) {
   knitr::include_graphics(file.path(base_out, "serie_estrategias_semanal.png"))
 }
@@ -113,7 +113,7 @@ La serie temporal de estrategias permite observar si la arquitectura del adversa
 
 ### 3.1 Persistencia de negatividad hacia Kast
 
-```{r fig-kast-trans, fig.cap="Transiciones de sentimiento hacia Kast por autor (PNG)."}
+```{r fig-kast-trans, fig.cap="Transiciones de sentimiento hacia Kast por autor (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
   knitr::include_graphics(file.path(base_out, "transiciones_autor_kast_fases.png"))
 }
@@ -122,19 +122,27 @@ if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
 ```{r tab-kast-trans}
 rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
 if (nrow(rk)) {
+  names(rk) <- c(
+    "Negativos_pre",
+    "A_positivos_post",
+    "A_neutros_post",
+    "Siguen_negativos_post",
+    "Prob_pos_post",
+    "Prob_no_neg_post"
+  )
   knitr::kable(round_df(rk, 3), caption = "Cambio de autores inicialmente negativos hacia Kast.", booktabs = TRUE)
 }
 ```
 
 ### 3.2 Actividad de autores y polarización
 
-```{r fig-autores-violin, fig.cap="Polarización media por tipo de autor (PNG)."}
+```{r fig-autores-violin, fig.cap="Polarización media por tipo de autor (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
   knitr::include_graphics(file.path(base_out, "polarizacion_por_tipo_autor.png"))
 }
 ```
 
-```{r fig-autores-scatter, fig.cap="Actividad y polarización de autores (PNG)."}
+```{r fig-autores-scatter, fig.cap="Actividad y polarización de autores (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
   knitr::include_graphics(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))
 }
@@ -144,44 +152,24 @@ La lectura de autores permite evaluar si la hostilidad está concentrada en hipe
 
 ## 4) Espacios semánticos acoplados
 
-### 4.1 Vistas focales
+### 4.1 Atlas global acoplado
 
-El objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino **mostrar geometría discursiva**. Para que la lectura sea razonable en HTML y PDF, se privilegian dos vistas estáticas focales y un atlas amplio, en lugar de recursos interactivos difíciles de integrar al manuscrito.
-
-::: {.column-page}
-::: {layout-ncol=2}
-
-```{r fig-3d-cand-v1, fig.cap="Espacio semántico global por candidato (PNG).", out.width="100%"}
-if (file.exists(file.path(base_out, "3d_candidatos_global_v1.png"))) {
-  knitr::include_graphics(file.path(base_out, "3d_candidatos_global_v1.png"))
-}
-```
-
-```{r fig-3d-pol-v1, fig.cap="Espacio semántico global por polarización (PNG).", out.width="100%"}
-if (file.exists(file.path(base_out, "3d_polarizacion_global_v1.png"))) {
-  knitr::include_graphics(file.path(base_out, "3d_polarizacion_global_v1.png"))
-}
-```
-
-:::
-:::
-
-### 4.2 Atlas integrado
+El objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino **mostrar geometría discursiva**. Para que la lectura sea razonable en HTML y PDF, las vistas **v1 globales** se compilan en una sola imagen grande: tema, candidato, polarización y emociones quedan acoplados en el mismo panel y con la misma cámara.
 
 ::: {.column-page}
 
-```{r fig-3d-atlas-v1, fig.cap="Atlas 3D (vista 1): panel único con todas las figuras `*_v1.png`.", out.width="100%"}
-path_atlas <- file.path(base_out, "3d_atlas_v1_todos.png")
-if (file.exists(path_atlas)) {
-  knitr::include_graphics(path_atlas)
+```{r fig-3d-atlas-global-v1, fig.cap="Atlas global 3D (vista 1): temas, candidatos, polarización y emociones en una sola imagen.", out.width="100%"}
+path_atlas_global <- file.path(base_out, "3d_atlas_v1_globales.png")
+if (file.exists(path_atlas_global)) {
+  knitr::include_graphics(path_atlas_global)
 } else {
-  cat("_(Ejecutar el pipeline `07_pipeline_completo.py` para generar `3d_atlas_v1_todos.png`.)_")
+  cat("_(Ejecutar `scripts/analisis/12_make_global_3d_atlas.py` para generar `3d_atlas_v1_globales.png`.)_")
 }
 ```
 
 :::
 
-El atlas acoplado permite ver qué zonas del espacio semántico aparecen dominadas por determinados candidatos o temas. En este nivel, las figuras no funcionan como “prueba visual” aislada, sino como apoyo geométrico a la interpretación de que ciertos ejes temáticos y ciertos climas hostiles se concentran diferencialmente.
+El atlas global acoplado es la pieza principal para lectura de la tesis. La decisión editorial es no incluir el atlas ampliado con todas las figuras `*_v1.png` en el cuerpo principal, porque agrega detalle visual pero no mejora proporcionalmente la interpretación sustantiva.
 
 > No se reportan aquí los HTML interactivos ni una versión puramente 2D del espacio semántico porque el formato de tesis exige priorizar piezas estáticas legibles, reproducibles y consistentes entre HTML y PDF.
 

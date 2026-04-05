@@ -132,7 +132,7 @@ Este es el argumento técnico central de la primera dimensión. Si las variables
 
 ### 1.4 Calibración de probabilidades
 
-```{r fig-reliability, fig.cap="Diagrama de calibración para polarización alta (PNG)."}
+```{r fig-reliability, fig.cap="Diagrama de calibración para polarización alta (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
   knitr::include_graphics(file.path(base_out, "reliability_diagram_calibracion.png"))
 }
@@ -193,7 +193,7 @@ if (nrow(ols)) {
 }
 ```
 
-```{r fig-coefplot, fig.cap="Coefficient plot del modelo OLS para polarización (PNG)."}
+```{r fig-coefplot, fig.cap="Coefficient plot del modelo OLS para polarización (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "coefplot_ols_polarizacion.png"))
 }
@@ -203,13 +203,13 @@ El OLS no compite con el mejor predictor, pero sí cumple una función crucial d
 
 ### 2.3 Importancia por permutación y explicación local
 
-```{r fig-perm, fig.cap="Importancia por permutación para el modelo de polarización (PNG)."}
+```{r fig-perm, fig.cap="Importancia por permutación para el modelo de polarización (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "permutation_importance_polarizacion.png"))
 }
 ```
 
-```{r fig-shap, fig.cap="SHAP summary plot para el modelo de polarización (PNG)."}
+```{r fig-shap, fig.cap="SHAP summary plot para el modelo de polarización (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "shap_summary_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "shap_summary_polarizacion.png"))
 }
@@ -219,7 +219,7 @@ La importancia por permutación permite establecer qué variables sostienen real
 
 ### 2.4 Clasificación de polarización alta
 
-```{r fig-roc, fig.cap="Curvas ROC para clasificación de polarización alta (PNG)."}
+```{r fig-roc, fig.cap="Curvas ROC para clasificación de polarización alta (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
   knitr::include_graphics(file.path(base_out, "roc_curves_polarizacion_alta.png"))
 }
