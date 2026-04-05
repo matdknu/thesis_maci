@@ -1,0 +1,32 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Candidaturas incluidas en el análisis y su caracterización ideológica. }}{6}{table.2.1}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Niveles de análisis utilizados en la investigación. }}{8}{table.2.2}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Objetivos operacionales, entregables e indicadores de cumplimiento del MVP.}}{11}{table.2.3}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.2}{\ignorespaces Candidaturas objetivo y patrones regex para su detección en el corpus.}}{21}{table.4.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Estadísticas generales del corpus antes de depuración.}}{28}{table.5.1}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Frecuencia de menciones por candidatura en el corpus bruto.}}{29}{table.5.2}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Acuerdo entre los dos sistemas de anotación automatizada por dimensión de codificación.}}{34}{table.7.1}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Coeficientes del modelo orientado a predecir desacuerdo entre OA y DS.}}{35}{table.7.2}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.}}{35}{table.7.3}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Brier score y log-loss antes y después de calibración.}}{36}{table.7.4}%
+\contentsline {table}{\numberline {7.5}{\ignorespaces Comparación de modelos de regresión para polarización.}}{37}{table.7.5}%
+\contentsline {table}{\numberline {7.6}{\ignorespaces Regresión lineal (OLS): coeficientes no estandarizados B e intervalos de confianza del 95 \% para términos con p \textless {} .05 (excluido el intercepto); ordenados por magnitud \textbar B\textbar .}}{38}{table.7.6}%
+\contentsline {table}{\numberline {7.7}{\ignorespaces Área bajo la curva ROC (AUC) para clasificación de polarización alta (umbral ≥ 0,60).}}{42}{table.7.7}%
+\contentsline {table}{\numberline {7.8}{\ignorespaces Clasificación multiclase de estrategia discursiva: F1 por clase y modelo.}}{43}{table.7.8}%
+\contentsline {table}{\numberline {7.9}{\ignorespaces Clasificación de frontera política: F1 por clase y modelo.}}{43}{table.7.9}%
+\contentsline {table}{\numberline {7.10}{\ignorespaces Perfiles discursivos (K-means, variables solo LLM): polarización media y categorías modales por cluster.}}{44}{table.7.10}%
+\contentsline {table}{\numberline {7.11}{\ignorespaces Comparación de falsos negativos, falsos positivos y verdaderos positivos (clasificación polarización alta): medias y distribuciones.}}{44}{table.7.11}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Distribución condicional de estrategias adversariales según el tipo de frontera política construida en el comentario. Cada fila corresponde a una estrategia; las columnas indican la proporción atribuida a cada tipo de frontera.}}{47}{table.8.1}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Asociación entre marco discursivo y fase electoral, desagregada por candidato: estadísticos del contraste de independencia y tamaño del efecto (V de Cramér).}}{50}{table.8.2}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Las diez combinaciones marco × emoción más frecuentes en el corpus, con la polarización consensuada media observada en cada combinación.}}{51}{table.8.3}%
+\contentsline {table}{\numberline {8.4}{\ignorespaces Persistencia y cambio de tono hacia el candidato Kast entre autores con sentimiento negativo previo: conteos de trayectorias y probabilidades condicionadas.}}{54}{table.8.4}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

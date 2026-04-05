@@ -15,15 +15,13 @@ knitr::opts_chunk$set(
 )
 base_out <- "../../outputs_ml"
 
-read_or_empty <- function(path) {
-  if (file.exists(path)) read.csv(path, stringsAsFactors = FALSE) else data.frame()
-}
-
-round_df <- function(df, digits = 3) {
-  if (!nrow(df)) return(df)
-  num_cols <- names(df)[vapply(df, is.numeric, logical(1))]
-  for (cn in num_cols) df[[cn]] <- round(df[[cn]], digits)
-  df
+.apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
+if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
+  source(file.path(.apa, "includes", "apa_tables.R"), local = TRUE)
+} else if (file.exists("includes/apa_tables.R")) {
+  source("includes/apa_tables.R", local = TRUE)
+} else {
+  stop("Falta documents/tesis_book/includes/apa_tables.R")
 }
 ```
 
@@ -39,10 +37,24 @@ if (file.exists(file.path(base_out, "distribucion_estrategias_candidato.png"))) 
 }
 ```
 
-```{r tab-estrategia-frontera}
+```{r tbl-estrategia-frontera}
 ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
 if (nrow(ef)) {
-  knitr::kable(round_df(ef, 3), caption = "Proporciones de estrategia por tipo de frontera política.", booktabs = TRUE)
+  ef <- round_df(ef, 3)
+  kable_apa(
+    ef,
+    col.names = c(
+      "Estrategia discursiva",
+      "Frontera inter-bloque",
+      "Frontera intra-bloque",
+      "Sin frontera / otra"
+    ),
+    caption = paste(
+      "Distribución condicional de estrategias adversariales según el tipo de frontera política construida en el comentario.",
+      "Cada fila corresponde a una estrategia; las columnas indican la proporción atribuida a cada tipo de frontera."
+    ),
+    note = "Proporciones por fila (estrategia): cómo se reparte cada estilo de ataque entre fronteras inter-bloque, intra-bloque y resto."
+  )
 }
 ```
 
@@ -68,10 +80,21 @@ if (file.exists(file.path(base_out, "marcos_por_fase_candidato.png"))) {
 }
 ```
 
-```{r tab-marcos-fase}
+```{r tbl-marcos-fase-candidato}
 mfc <- read_or_empty(file.path(base_out, "marcos_por_fase_candidato.csv"))
 if (nrow(mfc)) {
-  knitr::kable(round_df(mfc, 3), caption = "Asociación entre marcos y fase electoral por candidato.", booktabs = TRUE)
+  mfc <- round_df(mfc, 3)
+  mfc$p <- format_p_apa(mfc$p_value)
+  mfc <- mfc[, c("candidato", "chi2", "p", "cramers_v", "n_total")]
+  kable_apa(
+    mfc,
+    col.names = c("Candidato", "Chi-cuadrado", "p", "V de Cramér", "N"),
+    caption = paste(
+      "Asociación entre marco discursivo y fase electoral, desagregada por candidato:",
+      "estadísticos del contraste de independencia y tamaño del efecto (V de Cramér)."
+    ),
+    note = "p expresado en formato APA (< .001 cuando aplica). N = número de comentarios del candidato en el análisis."
+  )
 }
 ```
 
@@ -81,11 +104,20 @@ El repertorio de marcos no es estable entre candidatos ni entre fases. Esta hete
 
 ### 2.1 Marco × emoción
 
-```{r tab-marco-emocion-top}
+```{r tbl-marco-emocion-top}
 me <- read_or_empty(file.path(base_out, "combinaciones_marco_emocion.csv"))
 if (nrow(me)) {
   top_me <- head(me[order(-me$n), c("marco_final", "emocion_final", "n", "proporcion", "polarizacion_media")], 10)
-  knitr::kable(round_df(top_me, 3), caption = "Top 10 combinaciones marco × emoción por frecuencia.", booktabs = TRUE)
+  top_me <- round_df(top_me, 3)
+  kable_apa(
+    top_me,
+    col.names = c("Marco", "Emoción", "n", "Proporción", "Polarización M"),
+    caption = paste(
+      "Las diez combinaciones marco × emoción más frecuentes en el corpus,",
+      "con la polarización consensuada media observada en cada combinación."
+    ),
+    note = "Proporción = frecuencia de la combinación en el conjunto analizado. Polarización M = media de polarización consensuada (0–1)."
+  )
 }
 ```
 
@@ -119,18 +151,25 @@ if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
 }
 ```
 
-```{r tab-kast-trans}
+```{r tbl-kast-transiciones}
 rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
 if (nrow(rk)) {
   names(rk) <- c(
-    "Negativos_pre",
-    "A_positivos_post",
-    "A_neutros_post",
-    "Siguen_negativos_post",
-    "Prob_pos_post",
-    "Prob_no_neg_post"
+    "Autores negativos (pre)",
+    "Pasaron a positivo",
+    "Pasaron a neutro",
+    "Siguen negativos",
+    "P(positivo | neg. pre)",
+    "P(no negativo | neg. pre)"
   )
-  knitr::kable(round_df(rk, 3), caption = "Cambio de autores inicialmente negativos hacia Kast.", booktabs = TRUE)
+  kable_apa(
+    round_df(rk, 3),
+    caption = paste(
+      "Persistencia y cambio de tono hacia el candidato Kast entre autores con sentimiento negativo previo:",
+      "conteos de trayectorias y probabilidades condicionadas."
+    ),
+    note = "Autores clasificados como negativos hacia Kast en la fase previa; columnas posteriores describen el estado al final del periodo observado."
+  )
 }
 ```
 
