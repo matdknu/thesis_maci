@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -254,7 +220,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></h1>
 <p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
 </div>
 
@@ -328,8 +294,6 @@ div.csl-indent {
 <li><strong>Resultado</strong>: identificación de patrones discursivos por corriente ideológica.</li>
 </ol>
 
-
-<!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Boxell2022" class="csl-entry" role="listitem">
@@ -411,120 +375,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -866,82 +716,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Marco teórico"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">  echo = FALSE,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">  warning = FALSE,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">  message = FALSE,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.width = 7,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">  fig.height = 5</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comunicación política en entornos digitales</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Las plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. boyd (2010) identificó cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la **mediación algorítmica** (que privilegia contenidos emocionalmente activadores), el **colapso de contextos** (convergencia de audiencias antes separadas) y las **métricas de rendimiento** (retroalimentación inmediata que orienta la conducta comunicativa).</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Más allá de sus propiedades técnicas, las plataformas deben entenderse como infraestructuras de poder privadas que ejercen moderación, optimizan el *engagement* y consolidan efectos de red con consecuencias desproporcionadas para la calidad del debate democrático <span class="co">[</span><span class="ot">@Gillespie2018; @vanDijck2018</span><span class="co">]</span>.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Polarización afectiva</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>La **polarización afectiva** designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones <span class="co">[</span><span class="ot">@Iyengar2019</span><span class="co">]</span>. Es analíticamente distinta de la polarización ideológica: ambas pueden variar de manera independiente, y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas <span class="co">[</span><span class="ot">@Boxell2022</span><span class="co">]</span>.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Sus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con *likes* <span class="co">[</span><span class="ot">@Brady2017; @Settle2018</span><span class="co">]</span>. Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando <span class="co">[</span><span class="ot">@Graham2020</span><span class="co">]</span>.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Teoría del *framing*</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>El encuadre consiste en seleccionar aspectos de la realidad y hacerlos prominentes para promover una definición del problema, una interpretación causal y una evaluación moral <span class="co">[</span><span class="ot">@Entman1993</span><span class="co">]</span>. La competencia política es, en parte significativa, competencia entre marcos alternativos: quien establece el marco dominante condiciona las opciones que parecen razonables.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Se distinguen **marcos genéricos** (conflicto, interés humano, consecuencias económicas, atribución de responsabilidad, moralidad) y **marcos específicos** propios de cada controversia <span class="co">[</span><span class="ot">@Semetko2000</span><span class="co">]</span>. Para campañas electorales resulta útil añadir la distinción entre marcos diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>En entornos digitales, el *framing* es observable como proceso: los marcos son propuestos, contestados y reformulados en tiempo real. La estructura anidada de Reddit —con sistemas de votación y conversaciones persistentes— es particularmente adecuada para este análisis longitudinal <span class="co">[</span><span class="ot">@Meraz2013</span><span class="co">]</span>.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Emociones políticas</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Las emociones no son ruido que distorsiona el juicio racional: son componentes constitutivos de la cognición y la acción política <span class="co">[</span><span class="ot">@Marcus2000</span><span class="co">]</span>. La teoría de la inteligencia afectiva distingue un sistema de disposiciones (activado en entornos familiares, refuerza hábitos mediante entusiasmo o aversión) y un sistema de vigilancia (activado ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el procesamiento automático y abrir espacio a la persuasión).</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Para el análisis empírico, el concepto de **repertorio afectivo** —la configuración característica de emociones movilizadas por un actor, su combinación y los objetos hacia los que se dirigen— resulta más útil que el registro de emociones aisladas <span class="co">[</span><span class="ot">@Jasper2011</span><span class="co">]</span>. Permite preguntar: ¿qué proporción del contenido emocional se dirige al endogrupo versus al exogrupo? ¿Cómo articula el actor emociones positivas y negativas?</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>La **indignación moral** merece atención especial: combina valencia negativa con alta activación y orientación a la acción, se difunde más que otras emociones y genera bajo costo de expresión con recompensas sociales inmediatas <span class="co">[</span><span class="ot">@Crockett2017</span><span class="co">]</span>.</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Construcción de adversarios</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Las identidades colectivas no son esencias preexistentes: emergen a través de la diferenciación. Todo "nosotros" se constituye en relación con un "ellos" <span class="co">[</span><span class="ot">@Laclau1985</span><span class="co">]</span>. En contextos electorales, analizar cómo se construyen los adversarios —qué atributos se les asignan, qué estrategias se emplean para deslegitimarlos— es una vía privilegiada para comprender la configuración del espacio político.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Mouffe (2005) distingue **antagonismo** (relación entre enemigos sin espacio común, suma cero) de **agonismo** (relación entre adversarios que comparten el marco democrático). Esta distinción permite preguntar si los actores construyen a sus oponentes como participantes legítimos o como amenazas existenciales.</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Las estrategias de deslegitimación incluyen: asociación negativa, atribución de intenciones ocultas, ridiculización, esencialización y construcción de amenaza. Para esta investigación resulta además crucial distinguir entre **fronteras inter-bloque** (izquierda vs. derecha) y **fronteras intra-bloque** (entre corrientes de derecha), que generan tensiones estratégicas entre diferenciación y convergencia.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Derechas contemporáneas</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>La tipología de Mudde (2007) distingue **extrema derecha** (rechaza principios democráticos) de **derecha radical** (los acepta nominalmente pero los tensiona mediante nativismo, autoritarismo y populismo). A estas se suman la **derecha tradicional** (privilegia estabilidad y continuidad institucional) y la **derecha libertaria** (ultraliberalismo, crítica al establishment, códigos digitales).</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas: la derecha tradicional emplea registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas de internet <span class="co">[</span><span class="ot">@Norris2019</span><span class="co">]</span>.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>La coexistencia de las tres derechas en el caso chileno genera dinámicas de competencia intra-bloque —disputa por electorados superpuestos, estrategias de diferenciación, presiones de convergencia frente al adversario común— que constituyen un laboratorio analítico de particular valor.</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reddit como espacio de deliberación política</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Reddit se estructura en torno a comunidades temáticas (*subreddits*) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación ofrece un indicador de resonancia comunitaria; y la persistencia habilita el análisis longitudinal <span class="co">[</span><span class="ot">@Proferes2021</span><span class="co">]</span>.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>En el contexto chileno, **r/chile** (generalista, tendencia centro-izquierda) y **r/RepublicadeChile** (surgida como escisión, tolerancia de discursos más confrontacionales) constituyen un caso comparativo que permite examinar cómo una misma controversia es procesada de manera diferenciada según la cultura discursiva de la comunidad.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelo analítico integrado</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>El modelo integrado sigue una secuencia analítica:</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Contexto**: fragmentación partidaria, reconfiguración de derechas y plataformización.</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Actores**: Matthei, Kast, Kaiser y Jara.</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Dimensiones**: framing, emoción y construcción de adversarios.</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Dinámicas**: competencia intra-derecha, convergencia anti-izquierda y evolución temporal.</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Resultado**: identificación de patrones discursivos por corriente ideológica.</span></code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 

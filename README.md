@@ -44,7 +44,7 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 ## 📁 Estructura del Proyecto
 
 ```
-📦 thesis_final
+📦 thesis_maci
 ├── 📚 documents/tesis_book/       # Libro de tesis (Quarto)
 │   ├── index.qmd                  # Portada y preliminares
 │   ├── 01-introduccion.qmd
