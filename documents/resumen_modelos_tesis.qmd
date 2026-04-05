@@ -1,0 +1,269 @@
+---
+title: "Resumen de Modelos y Resultados"
+subtitle: "Síntesis del flujo reproducible de análisis y de los principales hallazgos cuantitativos"
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: false
+    code-tools: false
+    theme: cosmo
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{python}
+#| label: setup
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+BASE_DIR = Path.cwd().resolve().parent
+OUT_DIR = BASE_DIR / "outputs_ml"
+SCRIPTS_DIR = BASE_DIR / "scripts" / "analisis"
+
+def read_csv(name: str) -> pd.DataFrame:
+    path = OUT_DIR / name
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+def fmt(df: pd.DataFrame, digits: int = 3) -> pd.DataFrame:
+    out = df.copy()
+    num_cols = out.select_dtypes(include=[np.number]).columns
+    out[num_cols] = out[num_cols].round(digits)
+    return out
+```
+
+Este documento resume el flujo central reproducible de la tesis y organiza los resultados según el script del que emanan. La lógica del proyecto quedó estructurada en cuatro bloques principales: un pipeline base, un módulo de transiciones dirigidas, un módulo de interpretación y robustez de modelos, y un módulo de supervisado avanzado. El clasificador RNN (`scripts/analisis/09_rnn_classifier.py`) se mantiene fuera del flujo principal por su carácter experimental y por usar un stack distinto al resto del pipeline.
+
+## Flujo reproducible
+
+```{python}
+scripts_map = pd.DataFrame(
+    [
+        {
+            "script": "07_pipeline_completo.py",
+            "papel": "Pipeline base",
+            "insumo_principal": "analisis_API.csv / analisis_API_ajustado.csv",
+            "outputs_clave": "dataset_largo_enriquecido.csv, resultados_polarizacion.csv, resultados_clasificacion_polarizacion_alta.csv, gráficos 3D",
+            "lectura": "Genera el dataset analítico principal y los benchmarks base de regresión, clasificación y visualización."
+        },
+        {
+            "script": "08_transiciones_sentimiento_derecha_jara.py",
+            "papel": "Análisis temporal dirigido",
+            "insumo_principal": "analisis_API.csv / analisis_API_ajustado.csv",
+            "outputs_clave": "prob_jara_negativa_dado_derecha_positiva.csv, transiciones_autor_kast_fases.csv",
+            "lectura": "Evalúa asociaciones dirigidas y cambios de sentimiento por fase, con foco en Jara y Kast."
+        },
+        {
+            "script": "09_ml_avanzado.py",
+            "papel": "Interpretabilidad y robustez",
+            "insumo_principal": "dataset_largo_enriquecido.csv",
+            "outputs_clave": "tabla_ols_polarizacion.csv, auc_comparacion_modelos.csv, validacion_cruzada_resumen.csv, perfiles_discursivos_kmeans.csv",
+            "lectura": "Añade OLS, importancia por permutación, SHAP, clustering y validación cruzada."
+        },
+        {
+            "script": "10_ml_supervisado_avanzado.py",
+            "papel": "Supervisado ampliado",
+            "insumo_principal": "dataset_largo_enriquecido.csv + analisis_API.csv",
+            "outputs_clave": "resultados_clasificacion_frontera.csv, resultados_clasificacion_estrategia.csv, comparacion_configuraciones_features.csv",
+            "lectura": "Expande la batería con interacción candidato×emoción, frontera, calibración, errores y stacking."
+        },
+    ]
+)
+scripts_map
+```
+
+## 1. Resultados del pipeline base
+
+### 1.1 Regresión de polarización
+
+```{python}
+res_pol = fmt(read_csv("resultados_polarizacion.csv"), 4)
+res_pol
+```
+
+El mejor modelo base para `polarizacion_consenso` fue el **RandomForest**, con `MAE = 0.0838` y `R² = 0.6266`. Ridge retiene capacidad explicativa razonable (`R² = 0.5568`), mientras que GBM queda por debajo. En términos sustantivos, el pipeline base ya mostraba que la polarización es modelable con buen ajuste usando texto y variables discursivas conjuntamente.
+
+### 1.2 Clasificación de polarización alta
+
+```{python}
+res_pol_alta = fmt(read_csv("resumen_clasificacion_polarizacion_alta.csv"), 4)
+res_pol_alta
+```
+
+```{python}
+auc_base = fmt(read_csv("auc_comparacion_modelos.csv"), 4)
+auc_base
+```
+
+En clasificación de polarización alta (`polarizacion_consenso >= 0.6`), el mejor modelo vuelve a ser **RandomForest**. La lectura importante no es solo la accuracy, sino que el AUC del RF (`0.8557`) supera con claridad a LogReg (`0.8107`) y GBM (`0.8324`). Esto confirma que la señal de hostilidad alta es fuerte, pero no completamente lineal.
+
+## 2. Resultados dirigidos de transiciones y asociaciones
+
+### 2.1 Jara negativa condicionada a positividad hacia la derecha
+
+```{python}
+res_jara = fmt(read_csv("prob_jara_negativa_dado_derecha_positiva.csv"), 3)
+res_jara
+```
+
+El patrón no apunta a una intensificación simple de negatividad hacia Jara cuando aparece positividad hacia candidatos de derecha. A nivel global, la probabilidad condicional de negatividad hacia Jara (`0.134`) es incluso menor que la probabilidad base (`0.176`). Esto sugiere que la relación no es unívoca y cambia por fase.
+
+### 2.2 Transiciones de autores previamente negativos con Kast
+
+```{python}
+res_kast = fmt(read_csv("resumen_cambio_kast_desde_negativos.csv"), 3)
+res_kast
+```
+
+Solo una fracción pequeña de autores inicialmente negativos pasa a una posición positiva hacia Kast (`0.028`). Incluso sumando el paso a neutralidad, el porcentaje de abandono de la negatividad sigue siendo bajo (`0.126`). La implicancia es que la hostilidad inicial hacia Kast es relativamente estable a lo largo del ciclo.
+
+## 3. Interpretabilidad y robustez de modelos
+
+### 3.1 OLS de polarización
+
+```{python}
+ols = read_csv("tabla_ols_polarizacion.csv")
+ols_summary = pd.DataFrame(
+    [
+        {
+            "n_obs": int(ols["n_obs"].dropna().iloc[0]),
+            "R2_ajustado": round(float(ols["r2_adj"].dropna().iloc[0]), 4),
+            "F_stat": round(float(ols["f_stat"].dropna().iloc[0]), 2),
+            "n_coef_sig_p<0.05": int((ols["signif_05"] == True).sum()),
+        }
+    ]
+)
+ols_summary
+```
+
+El OLS interpretable alcanza un `R² ajustado = 0.3233`, claramente inferior a los modelos no lineales, pero suficiente para identificar estructura discursiva sistemática. La lectura metodológica es directa: la variación explicada por categorías discursivas existe, pero una parte importante de la señal permanece en interacciones no lineales y en el componente léxico.
+
+### 3.2 Validación cruzada
+
+```{python}
+cv = fmt(read_csv("validacion_cruzada_resumen.csv"), 4)
+cv
+```
+
+La validación cruzada refuerza la estabilidad del resultado principal. En regresión, **RandomForest** retiene `MAE = 0.0842 ± 0.0012` y `R² = 0.6187 ± 0.0064`. En clasificación de polarización alta, el mismo modelo mantiene `AUC = 0.8516 ± 0.0039`. No se trata de un split afortunado, sino de una señal consistente.
+
+### 3.3 Perfiles discursivos recurrentes
+
+```{python}
+perfiles = fmt(read_csv("perfiles_discursivos_kmeans.csv"), 3)
+perfiles
+```
+
+El clustering confirma tres perfiles distinguibles:
+
+1. Un perfil **informativo/moderado** (`polarización media = 0.201`) dominado por `diagnostico` y ausencia de emoción/estrategia.
+2. Un perfil de **hostilidad moderada** (`0.426`) centrado en `conflicto`, `desprecio` y `deslegitimacion`.
+3. Un perfil de **hostilidad alta** (`0.493`) también articulado por `conflicto` y `desprecio`, pero con mayor peso de `ridiculizacion`.
+
+Esto encaja bien con la hipótesis de que la hostilidad no es homogénea, sino que adopta formas discursivas recurrentes y estructuradas.
+
+### 3.4 Stacking
+
+```{python}
+stacking = fmt(read_csv("resultados_stacking.csv"), 4)
+stacking
+```
+
+El ensemble por stacking mejora tanto en regresión como en clasificación. En regresión, pasa de un mejor modelo individual cercano a `R² = 0.624` a `R² = 0.646`. En clasificación de polarización alta, eleva el AUC hasta `0.8593`. La ganancia no es enorme, pero sí coherente: el techo predictivo mejora cuando se combinan sesgos complementarios de modelos base.
+
+## 4. Supervisado ampliado
+
+### 4.1 Frontera política
+
+```{python}
+frontera = fmt(read_csv("resultados_clasificacion_frontera.csv"), 4)
+frontera
+```
+
+El resultado más importante aquí es que `frontera_final` es **recuperable desde texto**. Tanto LogReg como RandomForest superan `F1-macro = 0.71`, y la clase `inter_bloque` alcanza F1 en torno a `0.84`. Eso valida metodológicamente la noción de frontera política: no se trata solo de una codificación teórica, sino de una señal léxica efectivamente detectable.
+
+### 4.2 Estrategia discursiva
+
+```{python}
+estrategia = fmt(read_csv("resultados_clasificacion_estrategia.csv"), 4)
+estrategia
+```
+
+La mejor clasificación de `estrategia_final` la logra **RandomForest** (`F1-macro = 0.5731`). Las clases más recuperables son `ridiculizacion` y `deslegitimacion` (ambas alrededor de `0.70`), mientras que `atribucion_oculta` es la más difícil (`0.37`). La interpretación sustantiva es clara: las estrategias más explícitas dejan huellas léxicas nítidas; las más implícitas dependen más del contexto.
+
+### 4.3 Términos más predictivos por estrategia
+
+```{python}
+top_words = read_csv("top_words_por_estrategia.csv")
+top_words.groupby("estrategia").head(5).reset_index(drop=True)
+```
+
+La tabla anterior aporta una lectura cualitativa complementaria. Por ejemplo, `atribucion_oculta` aparece asociada a términos como `conviene`, `negocio`, `interés` o `conspiración`, mientras que `construccion_amenaza` se aproxima a vocabulario como `miedo`, `peligro`, `matar` o `pinochetismo`. Esto ayuda a traducir el resultado cuantitativo en mecanismos discursivos reconocibles.
+
+### 4.4 Texto vs variables LLM vs modelo combinado
+
+```{python}
+cfg = fmt(read_csv("comparacion_configuraciones_features.csv"), 4)
+cfg["delta_vs_texto"] = (cfg["R2_mean"] - float(cfg.loc[cfg["config"] == "A_TF-IDF", "R2_mean"].iloc[0])).round(4)
+cfg
+```
+
+Este es probablemente el hallazgo metodológico más fuerte del conjunto. Las variables discursivas estructuradas por LLM, usadas sin texto crudo, alcanzan `R² = 0.5539`, por encima del texto TF-IDF solo (`0.4316`). El modelo combinado llega a `0.6184`. En otras palabras, el sistema de clasificación discursiva no duplica simplemente lo que ya está en el texto: agrega señal propia y complementaria.
+
+### 4.5 Calibración
+
+```{python}
+cal = fmt(read_csv("metricas_calibracion.csv"), 4)
+cal
+```
+
+La calibración isotónica no cambia sustantivamente el rendimiento probabilístico. En RF, el Brier score empeora levemente (`0.1105` a `0.1119`), aunque el log-loss mejora un poco. En GBM la mejora también es mínima. La conclusión razonable es que los modelos ya estaban aceptablemente calibrados y no requieren post-procesamiento fuerte.
+
+### 4.6 Errores sistemáticos
+
+```{python}
+errores = fmt(read_csv("errores_sistematicos_resumen.csv"), 3)
+errores
+```
+
+Los errores del mejor clasificador no son aleatorios. Los **falsos negativos** son más numerosos (`n = 245`) que los falsos positivos (`n = 70`), son más breves y tienen menor karma. Esto es consistente con la idea de un discurso hostil breve, denso y con poco contexto, más difícil de capturar con TF-IDF. En cambio, los falsos positivos son más largos y con mayor apoyo, lo que sugiere que el modelo confunde intensidad argumentativa con hostilidad propiamente tal.
+
+### 4.7 Interacción candidato × emoción
+
+```{python}
+inter = read_csv("interacciones_candidato_emocion.csv")
+sig_inter = inter[inter["p_value"] < 0.05].copy()
+min_p = inter["p_value"].min() if not inter.empty else np.nan
+pd.DataFrame(
+    [{"n_interacciones_sig": len(sig_inter), "min_p_observado": round(float(min_p), 4) if pd.notna(min_p) else np.nan}]
+)
+```
+
+No aparecen interacciones candidato × emoción estadísticamente significativas. El mínimo p observado se acerca a `0.0903`, pero no cruza el umbral convencional. Esto refuerza una conclusión sustantiva importante: la intensidad hostil no parece depender en forma robusta del target político, al menos una vez controladas las demás variables del modelo.
+
+## 5. Síntesis interpretativa
+
+El conjunto del flujo deja cinco conclusiones generales.
+
+1. La polarización discursiva es **altamente modelable**. El benchmark principal se estabiliza en torno a `R² ≈ 0.62` para regresión y `AUC ≈ 0.86` para clasificación de polarización alta.
+2. Las variables discursivas estructuradas por LLM aportan **valor añadido real**. Por sí solas superan al texto crudo, y en combinación con TF-IDF producen el mejor ajuste.
+3. Las estrategias y fronteras no son solo categorías teóricas: tienen **huella léxica observable**. Esto es especialmente claro para `frontera_final`, `ridiculizacion` y `deslegitimacion`.
+4. La hostilidad extrema presenta una zona difícil para el modelo: insultos breves, referencias implícitas y combinaciones de agresión con poco contexto generan más falsos negativos que falsos positivos.
+5. El núcleo del pipeline debe mantenerse **modular**. `07`, `08`, `09` y `10` responden a preguntas analíticas distintas y producen artefactos distintos; un orquestador común es más adecuado que un mega-script único.
+
+## 6. Nota de uso
+
+Este resumen está pensado como documento de trabajo para redactar el capítulo de resultados y para mantener trazabilidad entre:
+
+- el **script** que ejecuta cada análisis,
+- la **tabla o figura** que produce,
+- y la **interpretación sustantiva** que se puede incorporar en la tesis.
+

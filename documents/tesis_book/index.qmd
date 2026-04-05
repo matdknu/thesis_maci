@@ -1,0 +1,79 @@
+---
+format:
+  html:
+    toc: false
+  pdf:
+    toc: false
+---
+
+::: {.content-visible when-format="html"}
+```{=html}
+<style>
+/* Solo HTML: metadatos del libro duplican la portada manual */
+#title-block-header { display: none !important; }
+</style>
+```
+:::
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  dpi = 300
+)
+```
+
+::: {.content-visible when-format="html"}
+::: {style="text-align: center; padding: 1.25rem 1rem 2.5rem; max-width: 36rem; margin-inline: auto;"}
+<img src="logo/logo_udec.png" alt="Logo UdeC" style="width: min(200px, 42vw); height: auto;"/>
+<h1 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: clamp(1.35rem, 4.2vw, 2rem); line-height: 1.25;">Derecha fragmentada y un enemigo compartido</h1>
+<h2 style="font-style: italic; font-size: clamp(0.95rem, 2.8vw, 1.15rem); font-weight: 400; line-height: 1.35; margin-top: 0.75rem;">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</h2>
+<p style="margin-top: 2rem;">Tesina presentada para optar al grado de<br>Magíster en Ciencia de Datos</p>
+<p style="margin-top: 1.75rem;"><strong>Matías Deneken</strong><br> Centro de Datos e Inteligencia Artificial - Universidad de Concepción</p>
+<p style="margin-top: 1.25rem;"><strong>Profesores Guías:</strong><br>Dr. Carlos Navarrete <br>Dr. Marcela Parada</p>
+<p style="margin-top: 1.75rem;">Facultad de Ingeniería <br> Universidad de Concepción<br>Marzo 2026</p>
+:::
+:::
+
+# Agradecimientos {.unnumbered}
+
+Esta tesina no habría sido posible sin el apoyo económico de la beca de excención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.
+
+Agradezco a mis compañeras y compañeros de generación con los cuáles compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quién constituí un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia el MACI habría sido significativamente más compleja.
+
+De la misma forma, agradezco a nivel general mi experiencia en el MACI. La pasantía realizada en la Universidad de Harvard en 2024 brindó una oportunidad y riqueza iniguable para poder conocec un ecosistema que -hasta entoces- me era ajeno. En particular, dar las gracias a mis profesores guías, Marcela Parada y Carlos Navarrete, quiénes me acompañaron en este proceso formativo. 
+
+Por último, darle siempre las gracias a mi familia por estimularla a afrontar nuevas desafíos, incluso cuándo la energía es escasa. 
+
+
+Sin duda está tesis combina mis interéses de la sociología, a nivel de pregrado y de magíster, y la ciencia de datos, que me ha conllevado a esta incipiente área de las *ciencias sociales computacionales*. Con sus bemoles, espero que esta tesis sirva cómo mi puntapié inicial para poder enfrentar nuevos desafíos que combine los métodos estadísticos avanzado con la revolución de la Inteligencia Artificial que hoy estamos viviendo. El tiempo nos dirá. 
+
+
+\newpage
+
+# Presentación {.unnumbered}
+
+Contenido de presentación/introducción general
+
+\newpage
+
+```{=latex}
+% Títulos de índices en español
+\renewcommand{\contentsname}{Índice General}
+\renewcommand{\listfigurename}{Índice de Figuras}
+\renewcommand{\listtablename}{Índice de Tablas}
+% Índices después de las páginas preliminares
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+% Cambiar a numeración arábiga para el contenido principal
+\pagenumbering{arabic}
+\pagestyle{fancy}
+```

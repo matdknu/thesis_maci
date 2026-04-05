@@ -1,0 +1,281 @@
+---
+title: "Modelado de Datos"
+lang: es
+---
+
+```{r setup-modelado, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  fig.align = "center"
+)
+base_out <- "../../outputs_ml"
+base_dir <- normalizePath(file.path(base_out, ".."), winslash = "/", mustWork = FALSE)
+
+read_or_empty <- function(path) {
+  if (file.exists(path)) read.csv(path, stringsAsFactors = FALSE) else data.frame()
+}
+
+round_df <- function(df, digits = 3) {
+  if (!nrow(df)) return(df)
+  num_cols <- names(df)[vapply(df, is.numeric, logical(1))]
+  for (cn in num_cols) df[[cn]] <- round(df[[cn]], digits)
+  df
+}
+
+cohen_kappa_simple <- function(x, y) {
+  ok <- !is.na(x) & !is.na(y) & x != "" & y != ""
+  x <- as.character(x[ok]); y <- as.character(y[ok])
+  if (length(x) < 2) return(NA_real_)
+  tab <- table(x, y)
+  n <- sum(tab)
+  po <- sum(diag(tab)) / n
+  pe <- sum(rowSums(tab) * colSums(tab)) / (n^2)
+  if ((1 - pe) == 0) return(NA_real_)
+  (po - pe) / (1 - pe)
+}
+
+api_path <- file.path(base_dir, "data", "processed", "analisis_API_ajustado.csv")
+if (!file.exists(api_path)) api_path <- file.path(base_dir, "data", "processed", "analisis_API.csv")
+api_df <- read_or_empty(api_path)
+```
+
+Este capítulo presenta el bloque técnico central de la tesis. La pregunta no es solo si existe polarización en la conversación digital, sino si el sistema automatizado logra **medirla de manera consistente**, **modelarla con estabilidad** y **demostrar que las variables discursivas estructuradas agregan información no redundante** respecto del texto crudo. Por esa razón, el orden del capítulo sigue tres dimensiones: consistencia de medición, modelado de polarización y notas de alcance sobre lo que se decide no reportar en el cuerpo principal.
+
+## 1) Consistencia de medición
+
+### 1.1 Acuerdo entre anotadores automáticos
+
+```{r tab-agreement}
+agreement <- data.frame()
+if (nrow(api_df)) {
+  agreement <- rbind(
+    data.frame(
+      dimension = "polarizacion",
+      n = sum(!is.na(api_df$oa_polarizacion) & !is.na(api_df$ds_polarizacion)),
+      metrica = "correlacion_pearson",
+      valor = suppressWarnings(cor(api_df$oa_polarizacion, api_df$ds_polarizacion, use = "complete.obs")),
+      acuerdo_exacto = NA_real_
+    ),
+    data.frame(
+      dimension = "marco",
+      n = sum(!is.na(api_df$oa_marco) & !is.na(api_df$ds_marco)),
+      metrica = "kappa",
+      valor = cohen_kappa_simple(api_df$oa_marco, api_df$ds_marco),
+      acuerdo_exacto = mean(api_df$oa_marco == api_df$ds_marco, na.rm = TRUE)
+    ),
+    data.frame(
+      dimension = "emocion",
+      n = sum(!is.na(api_df$oa_emocion) & !is.na(api_df$ds_emocion)),
+      metrica = "kappa",
+      valor = cohen_kappa_simple(api_df$oa_emocion, api_df$ds_emocion),
+      acuerdo_exacto = mean(api_df$oa_emocion == api_df$ds_emocion, na.rm = TRUE)
+    ),
+    data.frame(
+      dimension = "estrategia",
+      n = sum(!is.na(api_df$oa_estrategia) & !is.na(api_df$ds_estrategia)),
+      metrica = "kappa",
+      valor = cohen_kappa_simple(api_df$oa_estrategia, api_df$ds_estrategia),
+      acuerdo_exacto = mean(api_df$oa_estrategia == api_df$ds_estrategia, na.rm = TRUE)
+    ),
+    data.frame(
+      dimension = "frontera",
+      n = sum(!is.na(api_df$oa_frontera) & !is.na(api_df$ds_frontera)),
+      metrica = "kappa",
+      valor = cohen_kappa_simple(api_df$oa_frontera, api_df$ds_frontera),
+      acuerdo_exacto = mean(api_df$oa_frontera == api_df$ds_frontera, na.rm = TRUE)
+    )
+  )
+  agreement <- round_df(agreement, 3)
+  knitr::kable(
+    agreement,
+    caption = "Acuerdo entre los dos sistemas de anotación automatizada por dimensión.",
+    booktabs = TRUE
+  )
+}
+```
+
+El sistema LLM se trata aquí como un **instrumento automatizado de medición**. La dimensión mejor resuelta es polarización, donde el acuerdo entre salidas continuas es alto, mientras que frontera también muestra una consistencia suficiente para uso analítico. En cambio, emoción y estrategia presentan mayores márgenes de ambigüedad: el sistema las captura, pero con menor nitidez que polarización.
+
+### 1.2 Modelo de desacuerdo
+
+```{r tab-desacuerdo}
+path_d <- file.path(base_out, "resultados_desacuerdo.csv")
+if (file.exists(path_d)) {
+  d <- round_df(read.csv(path_d, stringsAsFactors = FALSE), 3)
+  knitr::kable(d, caption = "Modelo para predecir desacuerdo entre OA y DS.", booktabs = TRUE)
+}
+```
+
+El valor del modelo de desacuerdo no está en reemplazar la clasificación principal, sino en identificar **cuándo la medición automatizada se vuelve inestable**. Esto permite distinguir entre dimensiones más robustas y dimensiones más sensibles a ambigüedad, ironía o baja densidad contextual.
+
+### 1.3 Valor añadido de las variables discursivas
+
+```{r tab-config-features}
+cfg <- read_or_empty(file.path(base_out, "comparacion_configuraciones_features.csv"))
+if (nrow(cfg)) {
+  cfg <- round_df(cfg, 4)
+  cfg$delta_vs_texto <- round(cfg$R2_mean - cfg$R2_mean[cfg$config == "A_TF-IDF"][1], 4)
+  knitr::kable(
+    cfg,
+    caption = "Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.",
+    booktabs = TRUE
+  )
+}
+```
+
+Este es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.
+
+### 1.4 Calibración de probabilidades
+
+```{r fig-reliability, fig.cap="Diagrama de calibración para polarización alta (PNG)."}
+if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
+  knitr::include_graphics(file.path(base_out, "reliability_diagram_calibracion.png"))
+}
+```
+
+```{r tab-calibracion}
+cal <- read_or_empty(file.path(base_out, "metricas_calibracion.csv"))
+if (nrow(cal)) {
+  cal <- round_df(cal, 4)
+  knitr::kable(cal, caption = "Brier score y log-loss antes y después de calibración.", booktabs = TRUE)
+}
+```
+
+La calibración muestra que los clasificadores ya eran razonablemente confiables sin post-procesamiento fuerte. Esto refuerza la validez práctica del pipeline para producir probabilidades utilizables como insumo analítico.
+
+## 2) Modelado de polarización
+
+### 2.1 Comparación de modelos y estabilidad fuera de muestra
+
+```{r tab-cv-reg}
+cv <- read_or_empty(file.path(base_out, "validacion_cruzada_resumen.csv"))
+stack <- read_or_empty(file.path(base_out, "resultados_stacking.csv"))
+if (nrow(cv)) {
+  reg <- cv[cv$tarea == "regresión polarización", ]
+  reg_w <- reshape(
+    reg[, c("modelo", "metrica", "mean", "std")],
+    idvar = "modelo",
+    timevar = "metrica",
+    direction = "wide"
+  )
+  names(reg_w) <- gsub("mean\\.", "", names(reg_w))
+  names(reg_w) <- gsub("std\\.", "sd_", names(reg_w))
+  reg_w$MAE_CV <- sprintf("%.3f ± %.3f", reg_w$MAE, reg_w$sd_MAE)
+  reg_w$R2_CV  <- sprintf("%.3f ± %.3f", reg_w$R2, reg_w$sd_R2)
+  reg_w <- reg_w[, c("modelo", "MAE_CV", "R2_CV")]
+  if (nrow(stack)) {
+    st <- stack[stack$tarea == "regresión" & stack$modelo == "Stacking", ]
+    if (nrow(st)) {
+      reg_w <- rbind(reg_w, data.frame(modelo = "Stacking", MAE_CV = "", R2_CV = round(st$valor[1], 3)))
+    }
+  }
+  knitr::kable(reg_w, caption = "Comparación de modelos de regresión para polarización.", booktabs = TRUE)
+}
+```
+
+El resultado central es que **RandomForest** combina mejor desempeño y estabilidad. El bajo desvío estándar entre folds indica que la señal no depende de un corte favorable del conjunto de datos. El stacking mejora el techo predictivo, pero el benchmark robusto del capítulo sigue siendo el RandomForest.
+
+### 2.2 OLS interpretable
+
+```{r tab-ols-top}
+ols <- read_or_empty(file.path(base_out, "tabla_ols_polarizacion.csv"))
+if (nrow(ols)) {
+  ols_sig <- ols[ols$signif_05 == TRUE & ols$coeficiente != "Intercept", ]
+  ols_sig$abs_coef <- abs(ols_sig$coef)
+  ols_sig <- ols_sig[order(-ols_sig$abs_coef), c("coeficiente", "coef", "ci_low", "ci_high", "p_value")]
+  ols_sig <- head(round_df(ols_sig, 4), 15)
+  knitr::kable(ols_sig, caption = "Coeficientes significativos del modelo OLS para polarización.", booktabs = TRUE)
+}
+```
+
+```{r fig-coefplot, fig.cap="Coefficient plot del modelo OLS para polarización (PNG)."}
+if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
+  knitr::include_graphics(file.path(base_out, "coefplot_ols_polarizacion.png"))
+}
+```
+
+El OLS no compite con el mejor predictor, pero sí cumple una función crucial de **interpretabilidad**. El punto importante no es solo qué variables aumentan la polarización, sino que el efecto no se concentra en el candidato como target, sino en configuraciones discursivas como emoción, estrategia y tipo de hilo.
+
+### 2.3 Importancia por permutación y explicación local
+
+```{r fig-perm, fig.cap="Importancia por permutación para el modelo de polarización (PNG)."}
+if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
+  knitr::include_graphics(file.path(base_out, "permutation_importance_polarizacion.png"))
+}
+```
+
+```{r fig-shap, fig.cap="SHAP summary plot para el modelo de polarización (PNG)."}
+if (file.exists(file.path(base_out, "shap_summary_polarizacion.png"))) {
+  knitr::include_graphics(file.path(base_out, "shap_summary_polarizacion.png"))
+}
+```
+
+La importancia por permutación permite establecer qué variables sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al nivel individual. Juntas, ambas herramientas muestran que el modelo no está capturando ruido superficial, sino una combinación estable de estructura discursiva y rasgos textuales.
+
+### 2.4 Clasificación de polarización alta
+
+```{r fig-roc, fig.cap="Curvas ROC para clasificación de polarización alta (PNG)."}
+if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
+  knitr::include_graphics(file.path(base_out, "roc_curves_polarizacion_alta.png"))
+}
+```
+
+```{r tab-auc}
+auc_tab <- read_or_empty(file.path(base_out, "auc_comparacion_modelos.csv"))
+if (nrow(auc_tab)) {
+  knitr::kable(round_df(auc_tab, 4), caption = "AUC comparado para polarización alta.", booktabs = TRUE)
+}
+```
+
+Las tres curvas ROC muestran que el problema de clasificación es genuino y no trivial: los modelos lineales funcionan razonablemente bien, pero los no lineales capturan una fracción adicional de señal. Eso es coherente con la estructura heterogénea del discurso hostil.
+
+### 2.5 Estrategia, frontera, perfiles y errores
+
+```{r tab-estrategia}
+est <- read_or_empty(file.path(base_out, "resultados_clasificacion_estrategia.csv"))
+if (nrow(est)) {
+  est_main <- est[est$clase == "" | is.na(est$clase), c("modelo", "accuracy", "f1_macro")]
+  est_cls <- est[!(est$clase %in% c("", "macro avg", "weighted avg") | is.na(est$clase)), c("modelo", "clase", "f1_clase")]
+  knitr::kable(round_df(est_main, 3), caption = "Desempeño global de clasificación de estrategia discursiva.", booktabs = TRUE)
+  knitr::kable(round_df(est_cls, 3), caption = "F1 por clase para estrategia discursiva.", booktabs = TRUE)
+}
+```
+
+```{r tab-frontera}
+front <- read_or_empty(file.path(base_out, "resultados_clasificacion_frontera.csv"))
+if (nrow(front)) {
+  front_main <- front[front$clase == "" | is.na(front$clase), c("modelo", "accuracy", "f1_macro")]
+  front_cls <- front[!(front$clase %in% c("", "macro avg", "weighted avg") | is.na(front$clase)), c("modelo", "clase", "f1")]
+  knitr::kable(round_df(front_main, 3), caption = "Desempeño global de clasificación de frontera política.", booktabs = TRUE)
+  knitr::kable(round_df(front_cls, 3), caption = "F1 por clase para frontera política.", booktabs = TRUE)
+}
+```
+
+```{r tab-kmeans}
+perfiles <- read_or_empty(file.path(base_out, "perfiles_discursivos_kmeans.csv"))
+if (nrow(perfiles)) {
+  knitr::kable(round_df(perfiles, 3), caption = "Perfiles discursivos obtenidos por KMeans sobre variables estructuradas.", booktabs = TRUE)
+}
+```
+
+```{r tab-errores}
+err <- read_or_empty(file.path(base_out, "errores_sistematicos_resumen.csv"))
+if (nrow(err)) {
+  knitr::kable(round_df(err, 3), caption = "Errores sistemáticos del clasificador de polarización alta.", booktabs = TRUE)
+}
+```
+
+Estos cuatro resultados cierran el corazón técnico de la tesis. Estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. KMeans muestra que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores, finalmente, delimita con precisión dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.
+
+## 3) Notas de alcance del capítulo
+
+> No se reporta aquí el análisis de sentimiento como eje principal porque, en esta tesis, el sentimiento opera sobre todo como **input auxiliar del sistema de medición** y no como output sustantivo central.
+
+> No se incorpora como resultado principal el clustering directo sobre TF-IDF cuando la separación resulta demasiado débil para sostener inferencia sustantiva; por esa razón, el capítulo privilegia perfiles construidos sobre variables discursivas más interpretables.
+
+> Tampoco se reportan aquí las visualizaciones 3D como hallazgo principal del bloque técnico. Esas figuras se trasladan al capítulo siguiente, donde cumplen una función interpretativa y no meramente demostrativa.

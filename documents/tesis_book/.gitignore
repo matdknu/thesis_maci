@@ -1,0 +1,14 @@
+/.quarto/
+
+# secretos
+scripts/analisis/clave
+.env
+*.key
+
+# caches
+*_cache/
+*.rdb
+*.rdx
+data/processed/reddit_filtrado.csv
+data/processed/reddit_filtrado.rds
+data/processed/analisis_API.csv

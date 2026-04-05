@@ -1,0 +1,15 @@
+{
+  "hash": "af60be09a2048c830d9c3ddcfaf09702",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Exploración de Datos\"\nlang: es\n---\n\n\n\n\n\n\n\n\n\n\n![](images/fig_count_facet_candidatos.png){fig-align=\"center\"}\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

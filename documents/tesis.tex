@@ -1,0 +1,452 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=30mm,bottom=30mm,left=25mm,right=25mm,heightrounded]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+% Configuración de floats
+\floatplacement{table}{H}
+\floatplacement{figure}{H}
+
+% Configuración de encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+\fancyhead[RE]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[LE,RO]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Configuración de títulos
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+
+% Espaciado de títulos
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% Configuración de índice
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\setlength{\cftbeforechapskip}{10pt}
+
+% Páginas frontmatter sin numeración
+\newcommand{\frontmatter}{%
+  \pagenumbering{roman}%
+  \setcounter{page}{1}%
+}
+
+\newcommand{\mainmatter}{%
+  \clearpage
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Título de la Tesis},
+  pdfauthor={Nombre del Autor},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Título de la Tesis}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Subtítulo de la Tesis}
+\author{Nombre del Autor}
+\date{2026-01-21}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\frontmatter
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+% Espacio para logo (descomentar y ajustar ruta)
+% \includegraphics[width=0.25\textwidth]{path/to/logo.png}
+\vspace{1.5cm}
+
+{\Huge\bfseries Título de la Tesis\par}
+\vspace{0.8cm}
+{\Large\itshape Subtítulo de la Tesis\par}
+\vspace{2.5cm}
+
+{\large Tesis para optar al grado de\par}
+\vspace{0.5cm}
+{\large Magíster en Ciencia de Datos\par}
+\vspace{2.5cm}
+
+{\large\bfseries Nombre del Autor\par}
+\vspace{1.5cm}
+
+{\large Universidad de Concepción\par}
+{\large Facultad de [Nombre de la Facultad]\par}
+\vspace{1.5cm}
+
+{\large \@date\par}
+
+\vfill
+
+\end{titlepage}
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\LARGE\bfseries DEDICATORIA}
+\end{center}
+\vspace{1.5cm}
+
+% Espacio para dedicatoria personalizada
+[Escribir aquí la dedicatoria]
+
+\vspace*{\fill}
+\newpage
+\thispagestyle{empty}
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+
+\setstretch{1.5}
+\mainmatter
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\LARGE\bfseries AGRADECIMIENTOS}
+\end{center}
+\vspace{1.5cm}
+
+\% Espacio para agradecimientos personalizados {[}Escribir aquí los
+agradecimientos{]}
+
+\vspace*{\fill}
+\newpage
+\thispagestyle{plain}
+
+\% Índice General \tableofcontents \newpage
+
+\% Índice de Figuras
+
+\listoffigures
+\newpage
+
+\% Índice de Tablas
+
+\listoftables
+\newpage
+
+\% Iniciar numeración arábiga para el contenido principal \mainmatter
+
+\chapter{Introducción}\label{introducciuxf3n}
+
+{[}Contenido de la introducción{]}
+
+\chapter{Presentación de la
+Propuesta}\label{presentaciuxf3n-de-la-propuesta}
+
+\section{Problema}\label{problema}
+
+{[}Descripción del problema{]}
+
+\section{Acercamiento, actores,
+dimensiones}\label{acercamiento-actores-dimensiones}
+
+{[}Descripción del acercamiento, actores y dimensiones{]}
+
+\section{Descripción de la
+propuesta}\label{descripciuxf3n-de-la-propuesta}
+
+\hyperref[descripciuxf3n-de-la-propuesta]{Descripción de la propuesta}
+
+\section{Descripción del MVP y
+objetivos}\label{descripciuxf3n-del-mvp-y-objetivos}
+
+\hyperref[descripciuxf3n-del-mvp-y-objetivos]{Descripción del MVP y
+objetivos}
+
+\section{Descripción de
+validación}\label{descripciuxf3n-de-validaciuxf3n}
+
+\hyperref[descripciuxf3n-de-validaciuxf3n]{Descripción de validación}
+
+\chapter{Obtención de Datos}\label{obtenciuxf3n-de-datos}
+
+{[}Contenido sobre obtención de datos{]}
+
+\chapter{Depuración de Datos}\label{depuraciuxf3n-de-datos}
+
+\section{Eliminación Manual de
+Columnas}\label{eliminaciuxf3n-manual-de-columnas}
+
+{[}Contenido sobre eliminación manual de columnas{]}
+
+\section{Tratado de Valores Nulos}\label{tratado-de-valores-nulos}
+
+{[}Contenido sobre tratamiento de valores nulos{]}
+
+\section{Modificación Valores
+Categóricos}\label{modificaciuxf3n-valores-categuxf3ricos}
+
+{[}Contenido sobre modificación de valores categóricos{]}
+
+\section{Estandarización de Datos}\label{estandarizaciuxf3n-de-datos}
+
+{[}Contenido sobre estandarización de datos{]}
+
+\section{Eliminación de columnas con baja
+variabilidad}\label{eliminaciuxf3n-de-columnas-con-baja-variabilidad}
+
+{[}Contenido sobre eliminación de columnas con baja variabilidad{]}
+
+\section{Eliminación de columnas con correlación
+alta}\label{eliminaciuxf3n-de-columnas-con-correlaciuxf3n-alta}
+
+{[}Contenido sobre eliminación de columnas con correlación alta{]}
+
+\chapter{Exploración de datos}\label{exploraciuxf3n-de-datos}
+
+{[}Contenido sobre exploración de datos{]}
+
+\chapter{Modelado de datos}\label{modelado-de-datos}
+
+\section{Clustering K-Means}\label{clustering-k-means}
+
+{[}Contenido sobre clustering K-Means{]}
+
+\section{Clustering DBSCAN}\label{clustering-dbscan}
+
+{[}Contenido sobre clustering DBSCAN{]}
+
+\section{Clustering Jerárquico}\label{clustering-jeruxe1rquico}
+
+{[}Contenido sobre clustering jerárquico{]}
+
+\section{Determinación de Modelo más
+Optimo}\label{determinaciuxf3n-de-modelo-muxe1s-optimo}
+
+{[}Contenido sobre determinación del modelo más óptimo{]}
+
+\chapter{Interpretación de
+resultados}\label{interpretaciuxf3n-de-resultados}
+
+\section{Interpretación Componentes
+Principales}\label{interpretaciuxf3n-componentes-principales}
+
+{[}Contenido sobre interpretación de componentes principales{]}
+
+\section{Interpretación de
+Clusters}\label{interpretaciuxf3n-de-clusters}
+
+{[}Contenido sobre interpretación de clusters{]}
+
+\section{Validación de los
+Resultados}\label{validaciuxf3n-de-los-resultados}
+
+{[}Contenido sobre validación de resultados{]}
+
+\chapter{Conclusión}\label{conclusiuxf3n}
+
+{[}Contenido de la conclusión{]}
+
+\chapter{Referencias}\label{referencias}
+
+
+\backmatter
+
+
+\end{document}

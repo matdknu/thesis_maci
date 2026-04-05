@@ -1,0 +1,190 @@
+---
+title: "Interpretación de Resultados"
+lang: es
+---
+
+```{r setup-interpretacion, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  fig.align = "center"
+)
+base_out <- "../../outputs_ml"
+
+read_or_empty <- function(path) {
+  if (file.exists(path)) read.csv(path, stringsAsFactors = FALSE) else data.frame()
+}
+
+round_df <- function(df, digits = 3) {
+  if (!nrow(df)) return(df)
+  num_cols <- names(df)[vapply(df, is.numeric, logical(1))]
+  for (cn in num_cols) df[[cn]] <- round(df[[cn]], digits)
+  df
+}
+```
+
+Este capítulo toma el output del pipeline ya validado y lo traduce en una pregunta sustantiva: **cómo se reconfigura el antagonismo político en la conversación digital de derechas**. En esta sección el objetivo no es volver a demostrar que el modelo predice bien, sino mostrar **qué estructura discursiva revela** cuando se observan marcos, emociones, estrategias, fronteras, temporalidad y espacios semánticos.
+
+## 1) Reconfiguración del antagonismo: estrategias, marcos y fronteras
+
+### 1.1 Estrategias por candidato
+
+```{r fig-estrategias-candidato, fig.cap="Distribución de estrategias por candidato (PNG)."}
+if (file.exists(file.path(base_out, "distribucion_estrategias_candidato.png"))) {
+  knitr::include_graphics(file.path(base_out, "distribucion_estrategias_candidato.png"))
+}
+```
+
+```{r tab-estrategia-frontera}
+ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
+if (nrow(ef)) {
+  knitr::kable(round_df(ef, 3), caption = "Proporciones de estrategia por tipo de frontera política.", booktabs = TRUE)
+}
+```
+
+```{r fig-estrategia-frontera, fig.cap="Estrategia por frontera política (PNG)."}
+if (file.exists(file.path(base_out, "estrategia_por_frontera.png"))) {
+  knitr::include_graphics(file.path(base_out, "estrategia_por_frontera.png"))
+}
+```
+
+La lógica del antagonismo no se distribuye homogéneamente. Algunas estrategias quedan más asociadas a confrontación **inter-bloque** y otras funcionan más bien dentro del conflicto **intra-bloque**. Esto es importante porque muestra que la hostilidad no es una sola: cambia según la arquitectura del adversario construida por el comentario.
+
+### 1.2 Marcos por candidato y por fase
+
+```{r fig-marcos-candidato, fig.cap="Distribución de marcos por candidato (PNG)."}
+if (file.exists(file.path(base_out, "distribucion_marcos_candidato.png"))) {
+  knitr::include_graphics(file.path(base_out, "distribucion_marcos_candidato.png"))
+}
+```
+
+```{r fig-marcos-fase, fig.cap="Marcos por fase electoral y candidato (PNG)."}
+if (file.exists(file.path(base_out, "marcos_por_fase_candidato.png"))) {
+  knitr::include_graphics(file.path(base_out, "marcos_por_fase_candidato.png"))
+}
+```
+
+```{r tab-marcos-fase}
+mfc <- read_or_empty(file.path(base_out, "marcos_por_fase_candidato.csv"))
+if (nrow(mfc)) {
+  knitr::kable(round_df(mfc, 3), caption = "Asociación entre marcos y fase electoral por candidato.", booktabs = TRUE)
+}
+```
+
+El repertorio de marcos no es estable entre candidatos ni entre fases. Esta heterogeneidad sugiere que la polarización no se activa sobre un único relato, sino sobre una combinación variable de conflicto, identidad, moralidad y diagnóstico coyuntural.
+
+## 2) Combinaciones discursivas y dinámica temporal
+
+### 2.1 Marco × emoción
+
+```{r tab-marco-emocion-top}
+me <- read_or_empty(file.path(base_out, "combinaciones_marco_emocion.csv"))
+if (nrow(me)) {
+  top_me <- head(me[order(-me$n), c("marco_final", "emocion_final", "n", "proporcion", "polarizacion_media")], 10)
+  knitr::kable(round_df(top_me, 3), caption = "Top 10 combinaciones marco × emoción por frecuencia.", booktabs = TRUE)
+}
+```
+
+```{r fig-marco-emocion, fig.cap="Combinaciones marco × emoción (PNG)."}
+if (file.exists(file.path(base_out, "combinaciones_marco_emocion.png"))) {
+  knitr::include_graphics(file.path(base_out, "combinaciones_marco_emocion.png"))
+}
+```
+
+Las combinaciones entre marco y emoción son especialmente relevantes porque muestran que no toda emoción hostil se acopla del mismo modo al conflicto. Algunas combinaciones son frecuentes y moderadas; otras son raras, pero empujan la polarización a niveles mucho más altos.
+
+### 2.2 Estrategias en el tiempo
+
+```{r fig-serie-estrategias, fig.cap="Serie temporal semanal de estrategias discursivas (PNG)."}
+if (file.exists(file.path(base_out, "serie_estrategias_semanal.png"))) {
+  knitr::include_graphics(file.path(base_out, "serie_estrategias_semanal.png"))
+}
+```
+
+La serie temporal de estrategias permite observar si la arquitectura del adversario cambia en momentos electorales clave. En este punto interesa menos la fluctuación diaria y más la dirección general: si la ridiculización, la deslegitimación o la construcción de amenaza ganan o pierden centralidad a medida que el ciclo avanza.
+
+> No se eleva a figura principal la serie semanal de emociones porque su rendimiento en esta tesis fue sobre todo **descriptivo** y no añadió un hallazgo interpretativo tan fuerte como el bloque de estrategias o el de frontera.
+
+## 3) Autores, persistencia y estructura del conflicto
+
+### 3.1 Persistencia de negatividad hacia Kast
+
+```{r fig-kast-trans, fig.cap="Transiciones de sentimiento hacia Kast por autor (PNG)."}
+if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
+  knitr::include_graphics(file.path(base_out, "transiciones_autor_kast_fases.png"))
+}
+```
+
+```{r tab-kast-trans}
+rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
+if (nrow(rk)) {
+  knitr::kable(round_df(rk, 3), caption = "Cambio de autores inicialmente negativos hacia Kast.", booktabs = TRUE)
+}
+```
+
+### 3.2 Actividad de autores y polarización
+
+```{r fig-autores-violin, fig.cap="Polarización media por tipo de autor (PNG)."}
+if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
+  knitr::include_graphics(file.path(base_out, "polarizacion_por_tipo_autor.png"))
+}
+```
+
+```{r fig-autores-scatter, fig.cap="Actividad y polarización de autores (PNG)."}
+if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
+  knitr::include_graphics(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))
+}
+```
+
+La lectura de autores permite evaluar si la hostilidad está concentrada en hiperactivos o distribuida en la masa de usuarios. Este punto es teóricamente relevante porque distingue una polarización sostenida por pocos actores intensivos de una polarización más difusa y ambiental.
+
+## 4) Espacios semánticos acoplados
+
+### 4.1 Vistas focales
+
+El objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino **mostrar geometría discursiva**. Para que la lectura sea razonable en HTML y PDF, se privilegian dos vistas estáticas focales y un atlas amplio, en lugar de recursos interactivos difíciles de integrar al manuscrito.
+
+::: {.column-page}
+::: {layout-ncol=2}
+
+```{r fig-3d-cand-v1, fig.cap="Espacio semántico global por candidato (PNG).", out.width="100%"}
+if (file.exists(file.path(base_out, "3d_candidatos_global_v1.png"))) {
+  knitr::include_graphics(file.path(base_out, "3d_candidatos_global_v1.png"))
+}
+```
+
+```{r fig-3d-pol-v1, fig.cap="Espacio semántico global por polarización (PNG).", out.width="100%"}
+if (file.exists(file.path(base_out, "3d_polarizacion_global_v1.png"))) {
+  knitr::include_graphics(file.path(base_out, "3d_polarizacion_global_v1.png"))
+}
+```
+
+:::
+:::
+
+### 4.2 Atlas integrado
+
+::: {.column-page}
+
+```{r fig-3d-atlas-v1, fig.cap="Atlas 3D (vista 1): panel único con todas las figuras `*_v1.png`.", out.width="100%"}
+path_atlas <- file.path(base_out, "3d_atlas_v1_todos.png")
+if (file.exists(path_atlas)) {
+  knitr::include_graphics(path_atlas)
+} else {
+  cat("_(Ejecutar el pipeline `07_pipeline_completo.py` para generar `3d_atlas_v1_todos.png`.)_")
+}
+```
+
+:::
+
+El atlas acoplado permite ver qué zonas del espacio semántico aparecen dominadas por determinados candidatos o temas. En este nivel, las figuras no funcionan como “prueba visual” aislada, sino como apoyo geométrico a la interpretación de que ciertos ejes temáticos y ciertos climas hostiles se concentran diferencialmente.
+
+> No se reportan aquí los HTML interactivos ni una versión puramente 2D del espacio semántico porque el formato de tesis exige priorizar piezas estáticas legibles, reproducibles y consistentes entre HTML y PDF.
+
+## 5) Cierre interpretativo
+
+La lectura conjunta de estas piezas sugiere que la reconfiguración del antagonismo no consiste solo en un cambio de target, sino en una reorganización de **estrategias**, **fronteras** y **marcos**. La confrontación política digital no se expresa únicamente como negatividad, sino como una arquitectura más compleja donde el tipo de enemigo, el tono del ataque y el encuadre del conflicto cambian según coyuntura y candidato.

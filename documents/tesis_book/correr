@@ -1,0 +1,12 @@
+cd "/Users/matdknu/Dropbox/MACI-UDEC/thesis_maci/documents/tesis_book"
+
+# 1) Cierra procesos previos de Quarto/Chrome debug
+pkill -f "quarto preview" || true
+pkill -f "remote-debugging-port=9222" || true
+
+# 2) Fuerza el binario de Chrome
+export QUARTO_CHROMIUM="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
+# 3) Render por separado
+quarto render --to html
+quarto render --to pdf

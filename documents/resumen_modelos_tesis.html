@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Resumen de Modelos y Resultados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="resumen_modelos_tesis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="resumen_modelos_tesis_files/libs/quarto-html/quarto.js"></script>
+<script src="resumen_modelos_tesis_files/libs/quarto-html/popper.min.js"></script>
+<script src="resumen_modelos_tesis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="resumen_modelos_tesis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="resumen_modelos_tesis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="resumen_modelos_tesis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="resumen_modelos_tesis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="resumen_modelos_tesis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="resumen_modelos_tesis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#flujo-reproducible" id="toc-flujo-reproducible" class="nav-link active" data-scroll-target="#flujo-reproducible"><span class="header-section-number">1</span> Flujo reproducible</a></li>
+  <li><a href="#resultados-del-pipeline-base" id="toc-resultados-del-pipeline-base" class="nav-link" data-scroll-target="#resultados-del-pipeline-base"><span class="header-section-number">2</span> 1. Resultados del pipeline base</a>
+  <ul class="collapse">
+  <li><a href="#regresión-de-polarización" id="toc-regresión-de-polarización" class="nav-link" data-scroll-target="#regresión-de-polarización"><span class="header-section-number">2.1</span> 1.1 Regresión de polarización</a></li>
+  <li><a href="#clasificación-de-polarización-alta" id="toc-clasificación-de-polarización-alta" class="nav-link" data-scroll-target="#clasificación-de-polarización-alta"><span class="header-section-number">2.2</span> 1.2 Clasificación de polarización alta</a></li>
+  </ul></li>
+  <li><a href="#resultados-dirigidos-de-transiciones-y-asociaciones" id="toc-resultados-dirigidos-de-transiciones-y-asociaciones" class="nav-link" data-scroll-target="#resultados-dirigidos-de-transiciones-y-asociaciones"><span class="header-section-number">3</span> 2. Resultados dirigidos de transiciones y asociaciones</a>
+  <ul class="collapse">
+  <li><a href="#jara-negativa-condicionada-a-positividad-hacia-la-derecha" id="toc-jara-negativa-condicionada-a-positividad-hacia-la-derecha" class="nav-link" data-scroll-target="#jara-negativa-condicionada-a-positividad-hacia-la-derecha"><span class="header-section-number">3.1</span> 2.1 Jara negativa condicionada a positividad hacia la derecha</a></li>
+  <li><a href="#transiciones-de-autores-previamente-negativos-con-kast" id="toc-transiciones-de-autores-previamente-negativos-con-kast" class="nav-link" data-scroll-target="#transiciones-de-autores-previamente-negativos-con-kast"><span class="header-section-number">3.2</span> 2.2 Transiciones de autores previamente negativos con Kast</a></li>
+  </ul></li>
+  <li><a href="#interpretabilidad-y-robustez-de-modelos" id="toc-interpretabilidad-y-robustez-de-modelos" class="nav-link" data-scroll-target="#interpretabilidad-y-robustez-de-modelos"><span class="header-section-number">4</span> 3. Interpretabilidad y robustez de modelos</a>
+  <ul class="collapse">
+  <li><a href="#ols-de-polarización" id="toc-ols-de-polarización" class="nav-link" data-scroll-target="#ols-de-polarización"><span class="header-section-number">4.1</span> 3.1 OLS de polarización</a></li>
+  <li><a href="#validación-cruzada" id="toc-validación-cruzada" class="nav-link" data-scroll-target="#validación-cruzada"><span class="header-section-number">4.2</span> 3.2 Validación cruzada</a></li>
+  <li><a href="#perfiles-discursivos-recurrentes" id="toc-perfiles-discursivos-recurrentes" class="nav-link" data-scroll-target="#perfiles-discursivos-recurrentes"><span class="header-section-number">4.3</span> 3.3 Perfiles discursivos recurrentes</a></li>
+  <li><a href="#stacking" id="toc-stacking" class="nav-link" data-scroll-target="#stacking"><span class="header-section-number">4.4</span> 3.4 Stacking</a></li>
+  </ul></li>
+  <li><a href="#supervisado-ampliado" id="toc-supervisado-ampliado" class="nav-link" data-scroll-target="#supervisado-ampliado"><span class="header-section-number">5</span> 4. Supervisado ampliado</a>
+  <ul class="collapse">
+  <li><a href="#frontera-política" id="toc-frontera-política" class="nav-link" data-scroll-target="#frontera-política"><span class="header-section-number">5.1</span> 4.1 Frontera política</a></li>
+  <li><a href="#estrategia-discursiva" id="toc-estrategia-discursiva" class="nav-link" data-scroll-target="#estrategia-discursiva"><span class="header-section-number">5.2</span> 4.2 Estrategia discursiva</a></li>
+  <li><a href="#términos-más-predictivos-por-estrategia" id="toc-términos-más-predictivos-por-estrategia" class="nav-link" data-scroll-target="#términos-más-predictivos-por-estrategia"><span class="header-section-number">5.3</span> 4.3 Términos más predictivos por estrategia</a></li>
+  <li><a href="#texto-vs-variables-llm-vs-modelo-combinado" id="toc-texto-vs-variables-llm-vs-modelo-combinado" class="nav-link" data-scroll-target="#texto-vs-variables-llm-vs-modelo-combinado"><span class="header-section-number">5.4</span> 4.4 Texto vs variables LLM vs modelo combinado</a></li>
+  <li><a href="#calibración" id="toc-calibración" class="nav-link" data-scroll-target="#calibración"><span class="header-section-number">5.5</span> 4.5 Calibración</a></li>
+  <li><a href="#errores-sistemáticos" id="toc-errores-sistemáticos" class="nav-link" data-scroll-target="#errores-sistemáticos"><span class="header-section-number">5.6</span> 4.6 Errores sistemáticos</a></li>
+  <li><a href="#interacción-candidato-emoción" id="toc-interacción-candidato-emoción" class="nav-link" data-scroll-target="#interacción-candidato-emoción"><span class="header-section-number">5.7</span> 4.7 Interacción candidato × emoción</a></li>
+  </ul></li>
+  <li><a href="#síntesis-interpretativa" id="toc-síntesis-interpretativa" class="nav-link" data-scroll-target="#síntesis-interpretativa"><span class="header-section-number">6</span> 5. Síntesis interpretativa</a></li>
+  <li><a href="#nota-de-uso" id="toc-nota-de-uso" class="nav-link" data-scroll-target="#nota-de-uso"><span class="header-section-number">7</span> 6. Nota de uso</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Resumen de Modelos y Resultados</h1>
+<p class="subtitle lead">Síntesis del flujo reproducible de análisis y de los principales hallazgos cuantitativos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Este documento resume el flujo central reproducible de la tesis y organiza los resultados según el script del que emanan. La lógica del proyecto quedó estructurada en cuatro bloques principales: un pipeline base, un módulo de transiciones dirigidas, un módulo de interpretación y robustez de modelos, y un módulo de supervisado avanzado. El clasificador RNN (<code>scripts/analisis/09_rnn_classifier.py</code>) se mantiene fuera del flujo principal por su carácter experimental y por usar un stack distinto al resto del pipeline.</p>
+<section id="flujo-reproducible" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="flujo-reproducible"><span class="header-section-number">1</span> Flujo reproducible</h2>
+<div id="2f0c436b" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">script</th>
+<th data-quarto-table-cell-role="th">papel</th>
+<th data-quarto-table-cell-role="th">insumo_principal</th>
+<th data-quarto-table-cell-role="th">outputs_clave</th>
+<th data-quarto-table-cell-role="th">lectura</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>07_pipeline_completo.py</td>
+<td>Pipeline base</td>
+<td>analisis_API.csv / analisis_API_ajustado.csv</td>
+<td>dataset_largo_enriquecido.csv, resultados_pola...</td>
+<td>Genera el dataset analítico principal y los be...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>08_transiciones_sentimiento_derecha_jara.py</td>
+<td>Análisis temporal dirigido</td>
+<td>analisis_API.csv / analisis_API_ajustado.csv</td>
+<td>prob_jara_negativa_dado_derecha_positiva.csv, ...</td>
+<td>Evalúa asociaciones dirigidas y cambios de sen...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>09_ml_avanzado.py</td>
+<td>Interpretabilidad y robustez</td>
+<td>dataset_largo_enriquecido.csv</td>
+<td>tabla_ols_polarizacion.csv, auc_comparacion_mo...</td>
+<td>Añade OLS, importancia por permutación, SHAP, ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>10_ml_supervisado_avanzado.py</td>
+<td>Supervisado ampliado</td>
+<td>dataset_largo_enriquecido.csv + analisis_API.csv</td>
+<td>resultados_clasificacion_frontera.csv, resulta...</td>
+<td>Expande la batería con interacción candidato×e...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="resultados-del-pipeline-base" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="resultados-del-pipeline-base"><span class="header-section-number">2</span> 1. Resultados del pipeline base</h2>
+<section id="regresión-de-polarización" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="regresión-de-polarización"><span class="header-section-number">2.1</span> 1.1 Regresión de polarización</h3>
+<div id="e9d7a957" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">MAE</th>
+<th data-quarto-table-cell-role="th">RMSE</th>
+<th data-quarto-table-cell-role="th">R2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>RandomForest</td>
+<td>0.0838</td>
+<td>0.1164</td>
+<td>0.6266</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ridge</td>
+<td>0.0970</td>
+<td>0.1268</td>
+<td>0.5568</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>GBM</td>
+<td>0.1048</td>
+<td>0.1349</td>
+<td>0.4979</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El mejor modelo base para <code>polarizacion_consenso</code> fue el <strong>RandomForest</strong>, con <code>MAE = 0.0838</code> y <code>R² = 0.6266</code>. Ridge retiene capacidad explicativa razonable (<code>R² = 0.5568</code>), mientras que GBM queda por debajo. En términos sustantivos, el pipeline base ya mostraba que la polarización es modelable con buen ajuste usando texto y variables discursivas conjuntamente.</p>
+</section>
+<section id="clasificación-de-polarización-alta" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="clasificación-de-polarización-alta"><span class="header-section-number">2.2</span> 1.2 Clasificación de polarización alta</h3>
+<div id="de096542" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">precision</th>
+<th data-quarto-table-cell-role="th">recall</th>
+<th data-quarto-table-cell-role="th">f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>random_forest</td>
+<td>0.8606</td>
+<td>0.6328</td>
+<td>0.6833</td>
+<td>0.6571</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>logreg</td>
+<td>0.8318</td>
+<td>0.5478</td>
+<td>0.8005</td>
+<td>0.6505</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>gbm</td>
+<td>0.8372</td>
+<td>0.8681</td>
+<td>0.1970</td>
+<td>0.3211</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="29eb3d78" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>LogReg</td>
+<td>0.8107</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>RandomForest</td>
+<td>0.8557</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>GBM</td>
+<td>0.8324</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>En clasificación de polarización alta (<code>polarizacion_consenso &gt;= 0.6</code>), el mejor modelo vuelve a ser <strong>RandomForest</strong>. La lectura importante no es solo la accuracy, sino que el AUC del RF (<code>0.8557</code>) supera con claridad a LogReg (<code>0.8107</code>) y GBM (<code>0.8324</code>). Esto confirma que la señal de hostilidad alta es fuerte, pero no completamente lineal.</p>
+</section>
+</section>
+<section id="resultados-dirigidos-de-transiciones-y-asociaciones" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="resultados-dirigidos-de-transiciones-y-asociaciones"><span class="header-section-number">3</span> 2. Resultados dirigidos de transiciones y asociaciones</h2>
+<section id="jara-negativa-condicionada-a-positividad-hacia-la-derecha" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="jara-negativa-condicionada-a-positividad-hacia-la-derecha"><span class="header-section-number">3.1</span> 2.1 Jara negativa condicionada a positividad hacia la derecha</h3>
+<div id="c294e9b8" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ambito</th>
+<th data-quarto-table-cell-role="th">n_total</th>
+<th data-quarto-table-cell-role="th">n_derecha_positiva</th>
+<th data-quarto-table-cell-role="th">n_jara_negativa</th>
+<th data-quarto-table-cell-role="th">n_derecha_pos_y_jara_neg</th>
+<th data-quarto-table-cell-role="th">prob_jara_neg_dado_derecha_pos</th>
+<th data-quarto-table-cell-role="th">prob_jara_neg_sin_derecha_pos</th>
+<th data-quarto-table-cell-role="th">risk_ratio</th>
+<th data-quarto-table-cell-role="th">odds_ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>global</td>
+<td>7948</td>
+<td>417</td>
+<td>1380</td>
+<td>56</td>
+<td>0.134</td>
+<td>0.176</td>
+<td>0.764</td>
+<td>0.727</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>posicionamiento</td>
+<td>1366</td>
+<td>82</td>
+<td>313</td>
+<td>20</td>
+<td>0.244</td>
+<td>0.228</td>
+<td>1.069</td>
+<td>1.091</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>primera_vuelta</td>
+<td>1920</td>
+<td>131</td>
+<td>310</td>
+<td>12</td>
+<td>0.092</td>
+<td>0.167</td>
+<td>0.550</td>
+<td>0.505</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>segunda_vuelta</td>
+<td>4662</td>
+<td>204</td>
+<td>757</td>
+<td>24</td>
+<td>0.118</td>
+<td>0.164</td>
+<td>0.716</td>
+<td>0.678</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El patrón no apunta a una intensificación simple de negatividad hacia Jara cuando aparece positividad hacia candidatos de derecha. A nivel global, la probabilidad condicional de negatividad hacia Jara (<code>0.134</code>) es incluso menor que la probabilidad base (<code>0.176</code>). Esto sugiere que la relación no es unívoca y cambia por fase.</p>
+</section>
+<section id="transiciones-de-autores-previamente-negativos-con-kast" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="transiciones-de-autores-previamente-negativos-con-kast"><span class="header-section-number">3.2</span> 2.2 Transiciones de autores previamente negativos con Kast</h3>
+<div id="aa1b8eca" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">autores_negativos_pre</th>
+<th data-quarto-table-cell-role="th">autores_negativos_a_positivos_post</th>
+<th data-quarto-table-cell-role="th">autores_negativos_a_neutros_post</th>
+<th data-quarto-table-cell-role="th">autores_negativos_a_negativos_post</th>
+<th data-quarto-table-cell-role="th">prob_pos_post_dado_neg_pre</th>
+<th data-quarto-table-cell-role="th">prob_no_neg_post_dado_neg_pre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>215</td>
+<td>6</td>
+<td>21</td>
+<td>188</td>
+<td>0.028</td>
+<td>0.126</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Solo una fracción pequeña de autores inicialmente negativos pasa a una posición positiva hacia Kast (<code>0.028</code>). Incluso sumando el paso a neutralidad, el porcentaje de abandono de la negatividad sigue siendo bajo (<code>0.126</code>). La implicancia es que la hostilidad inicial hacia Kast es relativamente estable a lo largo del ciclo.</p>
+</section>
+</section>
+<section id="interpretabilidad-y-robustez-de-modelos" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="interpretabilidad-y-robustez-de-modelos"><span class="header-section-number">4</span> 3. Interpretabilidad y robustez de modelos</h2>
+<section id="ols-de-polarización" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="ols-de-polarización"><span class="header-section-number">4.1</span> 3.1 OLS de polarización</h3>
+<div id="c1a79bd1" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">n_obs</th>
+<th data-quarto-table-cell-role="th">R2_ajustado</th>
+<th data-quarto-table-cell-role="th">F_stat</th>
+<th data-quarto-table-cell-role="th">n_coef_sig_p&lt;0.05</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10251</td>
+<td>0.3233</td>
+<td>158.98</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El OLS interpretable alcanza un <code>R² ajustado = 0.3233</code>, claramente inferior a los modelos no lineales, pero suficiente para identificar estructura discursiva sistemática. La lectura metodológica es directa: la variación explicada por categorías discursivas existe, pero una parte importante de la señal permanece en interacciones no lineales y en el componente léxico.</p>
+</section>
+<section id="validación-cruzada" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="validación-cruzada"><span class="header-section-number">4.2</span> 3.2 Validación cruzada</h3>
+<div id="e0046c3d" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">tarea</th>
+<th data-quarto-table-cell-role="th">metrica</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Ridge</td>
+<td>regresión polarización</td>
+<td>MAE</td>
+<td>0.0984</td>
+<td>0.0010</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ridge</td>
+<td>regresión polarización</td>
+<td>R2</td>
+<td>0.5527</td>
+<td>0.0055</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>RandomForest</td>
+<td>regresión polarización</td>
+<td>MAE</td>
+<td>0.0842</td>
+<td>0.0012</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>RandomForest</td>
+<td>regresión polarización</td>
+<td>R2</td>
+<td>0.6187</td>
+<td>0.0064</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>GBM</td>
+<td>regresión polarización</td>
+<td>MAE</td>
+<td>0.1078</td>
+<td>0.0016</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>GBM</td>
+<td>regresión polarización</td>
+<td>R2</td>
+<td>0.4737</td>
+<td>0.0109</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>RandomForest</td>
+<td>clasificación pol. alta</td>
+<td>f1_macro</td>
+<td>0.6926</td>
+<td>0.0029</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>RandomForest</td>
+<td>clasificación pol. alta</td>
+<td>roc_auc</td>
+<td>0.8516</td>
+<td>0.0039</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La validación cruzada refuerza la estabilidad del resultado principal. En regresión, <strong>RandomForest</strong> retiene <code>MAE = 0.0842 ± 0.0012</code> y <code>R² = 0.6187 ± 0.0064</code>. En clasificación de polarización alta, el mismo modelo mantiene <code>AUC = 0.8516 ± 0.0039</code>. No se trata de un split afortunado, sino de una señal consistente.</p>
+</section>
+<section id="perfiles-discursivos-recurrentes" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="perfiles-discursivos-recurrentes"><span class="header-section-number">4.3</span> 3.3 Perfiles discursivos recurrentes</h3>
+<div id="c997a56d" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">cluster</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">polarizacion_media</th>
+<th data-quarto-table-cell-role="th">marco_dominante</th>
+<th data-quarto-table-cell-role="th">emocion_dominante</th>
+<th data-quarto-table-cell-role="th">estrategia_dominante</th>
+<th data-quarto-table-cell-role="th">candidato_moda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1633</td>
+<td>0.201</td>
+<td>diagnostico</td>
+<td>ninguna</td>
+<td>ninguna</td>
+<td>kast</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>3991</td>
+<td>0.426</td>
+<td>conflicto</td>
+<td>desprecio</td>
+<td>deslegitimacion</td>
+<td>jara</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>4627</td>
+<td>0.493</td>
+<td>conflicto</td>
+<td>desprecio</td>
+<td>ridiculizacion</td>
+<td>kast</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El clustering confirma tres perfiles distinguibles:</p>
+<ol type="1">
+<li>Un perfil <strong>informativo/moderado</strong> (<code>polarización media = 0.201</code>) dominado por <code>diagnostico</code> y ausencia de emoción/estrategia.</li>
+<li>Un perfil de <strong>hostilidad moderada</strong> (<code>0.426</code>) centrado en <code>conflicto</code>, <code>desprecio</code> y <code>deslegitimacion</code>.</li>
+<li>Un perfil de <strong>hostilidad alta</strong> (<code>0.493</code>) también articulado por <code>conflicto</code> y <code>desprecio</code>, pero con mayor peso de <code>ridiculizacion</code>.</li>
+</ol>
+<p>Esto encaja bien con la hipótesis de que la hostilidad no es homogénea, sino que adopta formas discursivas recurrentes y estructuradas.</p>
+</section>
+<section id="stacking" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="stacking"><span class="header-section-number">4.4</span> 3.4 Stacking</h3>
+<div id="bb40d9e6" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tarea</th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">metrica</th>
+<th data-quarto-table-cell-role="th">valor</th>
+<th data-quarto-table-cell-role="th">mejora_vs_mejor_ind</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>regresión</td>
+<td>Stacking</td>
+<td>R2</td>
+<td>0.6456</td>
+<td>0.0217</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>clasificación pol_alta</td>
+<td>Stacking</td>
+<td>AUC</td>
+<td>0.8593</td>
+<td>0.0053</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>regresión</td>
+<td>ridge</td>
+<td>R2</td>
+<td>0.5568</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>regresión</td>
+<td>rf</td>
+<td>R2</td>
+<td>0.6239</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>regresión</td>
+<td>gbm</td>
+<td>R2</td>
+<td>0.5228</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>clasificación pol_alta</td>
+<td>lr</td>
+<td>AUC</td>
+<td>0.8107</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>clasificación pol_alta</td>
+<td>rf</td>
+<td>AUC</td>
+<td>0.8540</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>clasificación pol_alta</td>
+<td>gbm</td>
+<td>AUC</td>
+<td>0.8349</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El ensemble por stacking mejora tanto en regresión como en clasificación. En regresión, pasa de un mejor modelo individual cercano a <code>R² = 0.624</code> a <code>R² = 0.646</code>. En clasificación de polarización alta, eleva el AUC hasta <code>0.8593</code>. La ganancia no es enorme, pero sí coherente: el techo predictivo mejora cuando se combinan sesgos complementarios de modelos base.</p>
+</section>
+</section>
+<section id="supervisado-ampliado" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="supervisado-ampliado"><span class="header-section-number">5</span> 4. Supervisado ampliado</h2>
+<section id="frontera-política" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="frontera-política"><span class="header-section-number">5.1</span> 4.1 Frontera política</h3>
+<div id="69a3ebf4" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">f1_macro</th>
+<th data-quarto-table-cell-role="th">clase</th>
+<th data-quarto-table-cell-role="th">f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>LogReg</td>
+<td>0.7522</td>
+<td>0.7245</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>inter_bloque</td>
+<td>0.8362</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>intra_bloque</td>
+<td>0.6629</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ninguna</td>
+<td>0.6745</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>macro avg</td>
+<td>0.7245</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>weighted avg</td>
+<td>0.7578</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>RandomForest</td>
+<td>0.7546</td>
+<td>0.7184</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>inter_bloque</td>
+<td>0.8450</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>intra_bloque</td>
+<td>0.6531</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ninguna</td>
+<td>0.6571</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>macro avg</td>
+<td>0.7184</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>weighted avg</td>
+<td>0.7555</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>El resultado más importante aquí es que <code>frontera_final</code> es <strong>recuperable desde texto</strong>. Tanto LogReg como RandomForest superan <code>F1-macro = 0.71</code>, y la clase <code>inter_bloque</code> alcanza F1 en torno a <code>0.84</code>. Eso valida metodológicamente la noción de frontera política: no se trata solo de una codificación teórica, sino de una señal léxica efectivamente detectable.</p>
+</section>
+<section id="estrategia-discursiva" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="estrategia-discursiva"><span class="header-section-number">5.2</span> 4.2 Estrategia discursiva</h3>
+<div id="f0122b68" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">f1_macro</th>
+<th data-quarto-table-cell-role="th">clase</th>
+<th data-quarto-table-cell-role="th">f1_clase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>LogReg</td>
+<td>0.5886</td>
+<td>0.5267</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>atribucion_oculta</td>
+<td>0.3380</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>construccion_amenaza</td>
+<td>0.5214</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>deslegitimacion</td>
+<td>0.6063</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>esencializacion</td>
+<td>0.4956</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>LogReg</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ridiculizacion</td>
+<td>0.6724</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>RandomForest</td>
+<td>0.6669</td>
+<td>0.5731</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>atribucion_oculta</td>
+<td>0.3697</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>construccion_amenaza</td>
+<td>0.5372</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>deslegitimacion</td>
+<td>0.7005</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>esencializacion</td>
+<td>0.5550</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>RandomForest</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ridiculizacion</td>
+<td>0.7030</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>GBM</td>
+<td>0.5938</td>
+<td>0.4525</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>GBM</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>atribucion_oculta</td>
+<td>0.2295</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>GBM</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>construccion_amenaza</td>
+<td>0.3133</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>GBM</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>deslegitimacion</td>
+<td>0.6451</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>GBM</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>esencializacion</td>
+<td>0.4135</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>GBM</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ridiculizacion</td>
+<td>0.6609</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La mejor clasificación de <code>estrategia_final</code> la logra <strong>RandomForest</strong> (<code>F1-macro = 0.5731</code>). Las clases más recuperables son <code>ridiculizacion</code> y <code>deslegitimacion</code> (ambas alrededor de <code>0.70</code>), mientras que <code>atribucion_oculta</code> es la más difícil (<code>0.37</code>). La interpretación sustantiva es clara: las estrategias más explícitas dejan huellas léxicas nítidas; las más implícitas dependen más del contexto.</p>
+</section>
+<section id="términos-más-predictivos-por-estrategia" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="términos-más-predictivos-por-estrategia"><span class="header-section-number">5.3</span> 4.3 Términos más predictivos por estrategia</h3>
+<div id="5f6de6f1" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">estrategia</th>
+<th data-quarto-table-cell-role="th">rank</th>
+<th data-quarto-table-cell-role="th">term</th>
+<th data-quarto-table-cell-role="th">coef</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>atribucion_oculta</td>
+<td>1</td>
+<td>conviene</td>
+<td>2.978986</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>atribucion_oculta</td>
+<td>2</td>
+<td>negocio</td>
+<td>2.679563</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>atribucion_oculta</td>
+<td>3</td>
+<td>quieran</td>
+<td>2.292504</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>atribucion_oculta</td>
+<td>4</td>
+<td>interés</td>
+<td>2.249414</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>atribucion_oculta</td>
+<td>5</td>
+<td>quieren</td>
+<td>2.233709</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>construccion_amenaza</td>
+<td>1</td>
+<td>derechos</td>
+<td>2.269194</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>construccion_amenaza</td>
+<td>2</td>
+<td>matar</td>
+<td>2.177809</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>construccion_amenaza</td>
+<td>3</td>
+<td>miedo</td>
+<td>2.164908</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>construccion_amenaza</td>
+<td>4</td>
+<td>varios</td>
+<td>1.783399</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>construccion_amenaza</td>
+<td>5</td>
+<td>peligro</td>
+<td>1.737203</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>deslegitimacion</td>
+<td>1</td>
+<td>encuestas</td>
+<td>1.626560</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>deslegitimacion</td>
+<td>2</td>
+<td>qué</td>
+<td>1.500226</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>deslegitimacion</td>
+<td>3</td>
+<td>argumento</td>
+<td>1.320371</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>deslegitimacion</td>
+<td>4</td>
+<td>cargo</td>
+<td>1.214646</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>deslegitimacion</td>
+<td>5</td>
+<td>debates</td>
+<td>1.207140</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>esencializacion</td>
+<td>1</td>
+<td>votantes</td>
+<td>3.828837</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>esencializacion</td>
+<td>2</td>
+<td>nazi</td>
+<td>2.461806</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>esencializacion</td>
+<td>3</td>
+<td>zurdos</td>
+<td>2.364586</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>esencializacion</td>
+<td>4</td>
+<td>gente</td>
+<td>2.204448</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>esencializacion</td>
+<td>5</td>
+<td>votante</td>
+<td>2.183297</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>ridiculizacion</td>
+<td>1</td>
+<td>jajaja</td>
+<td>2.099077</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>ridiculizacion</td>
+<td>2</td>
+<td>wea</td>
+<td>1.671673</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>ridiculizacion</td>
+<td>3</td>
+<td>xddd</td>
+<td>1.444566</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>ridiculizacion</td>
+<td>4</td>
+<td>meme</td>
+<td>1.436206</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>ridiculizacion</td>
+<td>5</td>
+<td>jajajaj</td>
+<td>1.430444</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La tabla anterior aporta una lectura cualitativa complementaria. Por ejemplo, <code>atribucion_oculta</code> aparece asociada a términos como <code>conviene</code>, <code>negocio</code>, <code>interés</code> o <code>conspiración</code>, mientras que <code>construccion_amenaza</code> se aproxima a vocabulario como <code>miedo</code>, <code>peligro</code>, <code>matar</code> o <code>pinochetismo</code>. Esto ayuda a traducir el resultado cuantitativo en mecanismos discursivos reconocibles.</p>
+</section>
+<section id="texto-vs-variables-llm-vs-modelo-combinado" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="texto-vs-variables-llm-vs-modelo-combinado"><span class="header-section-number">5.4</span> 4.4 Texto vs variables LLM vs modelo combinado</h3>
+<div id="0c9d6d9d" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">config</th>
+<th data-quarto-table-cell-role="th">MAE_mean</th>
+<th data-quarto-table-cell-role="th">MAE_sd</th>
+<th data-quarto-table-cell-role="th">R2_mean</th>
+<th data-quarto-table-cell-role="th">R2_sd</th>
+<th data-quarto-table-cell-role="th">delta_vs_texto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A_TF-IDF</td>
+<td>0.1052</td>
+<td>0.0022</td>
+<td>0.4316</td>
+<td>0.0272</td>
+<td>0.0000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>B_LLM</td>
+<td>0.0922</td>
+<td>0.0014</td>
+<td>0.5539</td>
+<td>0.0095</td>
+<td>0.1223</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>C_combinado</td>
+<td>0.0842</td>
+<td>0.0013</td>
+<td>0.6184</td>
+<td>0.0068</td>
+<td>0.1868</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Este es probablemente el hallazgo metodológico más fuerte del conjunto. Las variables discursivas estructuradas por LLM, usadas sin texto crudo, alcanzan <code>R² = 0.5539</code>, por encima del texto TF-IDF solo (<code>0.4316</code>). El modelo combinado llega a <code>0.6184</code>. En otras palabras, el sistema de clasificación discursiva no duplica simplemente lo que ya está en el texto: agrega señal propia y complementaria.</p>
+</section>
+<section id="calibración" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="calibración"><span class="header-section-number">5.5</span> 4.5 Calibración</h3>
+<div id="9374f702" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">modelo</th>
+<th data-quarto-table-cell-role="th">brier_antes</th>
+<th data-quarto-table-cell-role="th">brier_despues</th>
+<th data-quarto-table-cell-role="th">logloss_antes</th>
+<th data-quarto-table-cell-role="th">logloss_despues</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>RandomForest</td>
+<td>0.1105</td>
+<td>0.1119</td>
+<td>0.3654</td>
+<td>0.353</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>GBM</td>
+<td>0.1138</td>
+<td>0.1131</td>
+<td>0.3608</td>
+<td>0.359</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La calibración isotónica no cambia sustantivamente el rendimiento probabilístico. En RF, el Brier score empeora levemente (<code>0.1105</code> a <code>0.1119</code>), aunque el log-loss mejora un poco. En GBM la mejora también es mínima. La conclusión razonable es que los modelos ya estaban aceptablemente calibrados y no requieren post-procesamiento fuerte.</p>
+</section>
+<section id="errores-sistemáticos" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="errores-sistemáticos"><span class="header-section-number">5.6</span> 4.6 Errores sistemáticos</h3>
+<div id="27a1d8e2" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">grupo</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">pol_real_media</th>
+<th data-quarto-table-cell-role="th">n_chars_media</th>
+<th data-quarto-table-cell-role="th">karma_media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>FN</td>
+<td>245</td>
+<td>0.685</td>
+<td>196.478</td>
+<td>5.820</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>FP</td>
+<td>70</td>
+<td>0.434</td>
+<td>219.114</td>
+<td>8.071</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>TP</td>
+<td>156</td>
+<td>0.733</td>
+<td>202.064</td>
+<td>10.590</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Los errores del mejor clasificador no son aleatorios. Los <strong>falsos negativos</strong> son más numerosos (<code>n = 245</code>) que los falsos positivos (<code>n = 70</code>), son más breves y tienen menor karma. Esto es consistente con la idea de un discurso hostil breve, denso y con poco contexto, más difícil de capturar con TF-IDF. En cambio, los falsos positivos son más largos y con mayor apoyo, lo que sugiere que el modelo confunde intensidad argumentativa con hostilidad propiamente tal.</p>
+</section>
+<section id="interacción-candidato-emoción" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="interacción-candidato-emoción"><span class="header-section-number">5.7</span> 4.7 Interacción candidato × emoción</h3>
+<div id="97fe301b" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">n_interacciones_sig</th>
+<th data-quarto-table-cell-role="th">min_p_observado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0.0903</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>No aparecen interacciones candidato × emoción estadísticamente significativas. El mínimo p observado se acerca a <code>0.0903</code>, pero no cruza el umbral convencional. Esto refuerza una conclusión sustantiva importante: la intensidad hostil no parece depender en forma robusta del target político, al menos una vez controladas las demás variables del modelo.</p>
+</section>
+</section>
+<section id="síntesis-interpretativa" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="síntesis-interpretativa"><span class="header-section-number">6</span> 5. Síntesis interpretativa</h2>
+<p>El conjunto del flujo deja cinco conclusiones generales.</p>
+<ol type="1">
+<li>La polarización discursiva es <strong>altamente modelable</strong>. El benchmark principal se estabiliza en torno a <code>R² ≈ 0.62</code> para regresión y <code>AUC ≈ 0.86</code> para clasificación de polarización alta.</li>
+<li>Las variables discursivas estructuradas por LLM aportan <strong>valor añadido real</strong>. Por sí solas superan al texto crudo, y en combinación con TF-IDF producen el mejor ajuste.</li>
+<li>Las estrategias y fronteras no son solo categorías teóricas: tienen <strong>huella léxica observable</strong>. Esto es especialmente claro para <code>frontera_final</code>, <code>ridiculizacion</code> y <code>deslegitimacion</code>.</li>
+<li>La hostilidad extrema presenta una zona difícil para el modelo: insultos breves, referencias implícitas y combinaciones de agresión con poco contexto generan más falsos negativos que falsos positivos.</li>
+<li>El núcleo del pipeline debe mantenerse <strong>modular</strong>. <code>07</code>, <code>08</code>, <code>09</code> y <code>10</code> responden a preguntas analíticas distintas y producen artefactos distintos; un orquestador común es más adecuado que un mega-script único.</li>
+</ol>
+</section>
+<section id="nota-de-uso" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="nota-de-uso"><span class="header-section-number">7</span> 6. Nota de uso</h2>
+<p>Este resumen está pensado como documento de trabajo para redactar el capítulo de resultados y para mantener trazabilidad entre:</p>
+<ul>
+<li>el <strong>script</strong> que ejecuta cada análisis,</li>
+<li>la <strong>tabla o figura</strong> que produce,</li>
+<li>y la <strong>interpretación sustantiva</strong> que se puede incorporar en la tesis.</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

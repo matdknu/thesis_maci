@@ -1,0 +1,74 @@
+---
+title: "Marco teórico"
+lang: es
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+## Comunicación política en entornos digitales
+
+Las plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. boyd (2010) identificó cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la **mediación algorítmica** (que privilegia contenidos emocionalmente activadores), el **colapso de contextos** (convergencia de audiencias antes separadas) y las **métricas de rendimiento** (retroalimentación inmediata que orienta la conducta comunicativa).
+
+Más allá de sus propiedades técnicas, las plataformas deben entenderse como infraestructuras de poder privadas que ejercen moderación, optimizan el *engagement* y consolidan efectos de red con consecuencias desproporcionadas para la calidad del debate democrático [@Gillespie2018; @vanDijck2018].
+
+## Polarización afectiva
+
+La **polarización afectiva** designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones [@Iyengar2019]. Es analíticamente distinta de la polarización ideológica: ambas pueden variar de manera independiente, y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas [@Boxell2022].
+
+Sus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con *likes* [@Brady2017; @Settle2018]. Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando [@Graham2020].
+
+## Teoría del *framing*
+
+El encuadre consiste en seleccionar aspectos de la realidad y hacerlos prominentes para promover una definición del problema, una interpretación causal y una evaluación moral [@Entman1993]. La competencia política es, en parte significativa, competencia entre marcos alternativos: quien establece el marco dominante condiciona las opciones que parecen razonables.
+
+Se distinguen **marcos genéricos** (conflicto, interés humano, consecuencias económicas, atribución de responsabilidad, moralidad) y **marcos específicos** propios de cada controversia [@Semetko2000]. Para campañas electorales resulta útil añadir la distinción entre marcos diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).
+
+En entornos digitales, el *framing* es observable como proceso: los marcos son propuestos, contestados y reformulados en tiempo real. La estructura anidada de Reddit —con sistemas de votación y conversaciones persistentes— es particularmente adecuada para este análisis longitudinal [@Meraz2013].
+
+## Emociones políticas
+
+Las emociones no son ruido que distorsiona el juicio racional: son componentes constitutivos de la cognición y la acción política [@Marcus2000]. La teoría de la inteligencia afectiva distingue un sistema de disposiciones (activado en entornos familiares, refuerza hábitos mediante entusiasmo o aversión) y un sistema de vigilancia (activado ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el procesamiento automático y abrir espacio a la persuasión).
+
+Para el análisis empírico, el concepto de **repertorio afectivo** —la configuración característica de emociones movilizadas por un actor, su combinación y los objetos hacia los que se dirigen— resulta más útil que el registro de emociones aisladas [@Jasper2011]. Permite preguntar: ¿qué proporción del contenido emocional se dirige al endogrupo versus al exogrupo? ¿Cómo articula el actor emociones positivas y negativas?
+
+La **indignación moral** merece atención especial: combina valencia negativa con alta activación y orientación a la acción, se difunde más que otras emociones y genera bajo costo de expresión con recompensas sociales inmediatas [@Crockett2017].
+
+## Construcción de adversarios
+
+Las identidades colectivas no son esencias preexistentes: emergen a través de la diferenciación. Todo "nosotros" se constituye en relación con un "ellos" [@Laclau1985]. En contextos electorales, analizar cómo se construyen los adversarios —qué atributos se les asignan, qué estrategias se emplean para deslegitimarlos— es una vía privilegiada para comprender la configuración del espacio político.
+
+Mouffe (2005) distingue **antagonismo** (relación entre enemigos sin espacio común, suma cero) de **agonismo** (relación entre adversarios que comparten el marco democrático). Esta distinción permite preguntar si los actores construyen a sus oponentes como participantes legítimos o como amenazas existenciales.
+
+Las estrategias de deslegitimación incluyen: asociación negativa, atribución de intenciones ocultas, ridiculización, esencialización y construcción de amenaza. Para esta investigación resulta además crucial distinguir entre **fronteras inter-bloque** (izquierda vs. derecha) y **fronteras intra-bloque** (entre corrientes de derecha), que generan tensiones estratégicas entre diferenciación y convergencia.
+
+## Derechas contemporáneas
+
+La tipología de Mudde (2007) distingue **extrema derecha** (rechaza principios democráticos) de **derecha radical** (los acepta nominalmente pero los tensiona mediante nativismo, autoritarismo y populismo). A estas se suman la **derecha tradicional** (privilegia estabilidad y continuidad institucional) y la **derecha libertaria** (ultraliberalismo, crítica al establishment, códigos digitales).
+
+Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas: la derecha tradicional emplea registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas de internet [@Norris2019].
+
+La coexistencia de las tres derechas en el caso chileno genera dinámicas de competencia intra-bloque —disputa por electorados superpuestos, estrategias de diferenciación, presiones de convergencia frente al adversario común— que constituyen un laboratorio analítico de particular valor.
+
+## Reddit como espacio de deliberación política
+
+Reddit se estructura en torno a comunidades temáticas (*subreddits*) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación ofrece un indicador de resonancia comunitaria; y la persistencia habilita el análisis longitudinal [@Proferes2021].
+
+En el contexto chileno, **r/chile** (generalista, tendencia centro-izquierda) y **r/RepublicadeChile** (surgida como escisión, tolerancia de discursos más confrontacionales) constituyen un caso comparativo que permite examinar cómo una misma controversia es procesada de manera diferenciada según la cultura discursiva de la comunidad.
+
+## Modelo analítico integrado
+
+El modelo integrado sigue una secuencia analítica:
+
+1.  **Contexto**: fragmentación partidaria, reconfiguración de derechas y plataformización.
+2.  **Actores**: Matthei, Kast, Kaiser y Jara.
+3.  **Dimensiones**: framing, emoción y construcción de adversarios.
+4.  **Dinámicas**: competencia intra-derecha, convergencia anti-izquierda y evolución temporal.
+5.  **Resultado**: identificación de patrones discursivos por corriente ideológica.
