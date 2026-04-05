@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
-
-<meta charset="utf-8">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08-interpretacion-resultados.html" rel="next">
+<link href="./06-exploracion-datos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -184,12 +200,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#desempeño-de-modelos-supervisados" id="toc-desempeño-de-modelos-supervisados" class="nav-link active" data-scroll-target="#desempeño-de-modelos-supervisados"><span class="header-section-number">7.1</span> 1) Desempeño de modelos supervisados</a></li>
-  <li><a href="#variables-que-más-explican-polarización" id="toc-variables-que-más-explican-polarización" class="nav-link" data-scroll-target="#variables-que-más-explican-polarización"><span class="header-section-number">7.2</span> 2) Variables que más explican polarización</a></li>
-  <li><a href="#cartografía-3d-global-v1" id="toc-cartografía-3d-global-v1" class="nav-link" data-scroll-target="#cartografía-3d-global-v1"><span class="header-section-number">7.3</span> 3) Cartografía 3D global (v1)</a></li>
-  <li><a href="#dinámica-temporal-y-ajuste-léxico" id="toc-dinámica-temporal-y-ajuste-léxico" class="nav-link" data-scroll-target="#dinámica-temporal-y-ajuste-léxico"><span class="header-section-number">7.4</span> 4) Dinámica temporal y ajuste léxico</a></li>
+  <li><a href="#consistencia-de-medición" id="toc-consistencia-de-medición" class="nav-link active" data-scroll-target="#consistencia-de-medición"><span class="header-section-number">7.1</span> 1) Consistencia de medición</a>
+  <ul class="collapse">
+  <li><a href="#acuerdo-entre-anotadores-automáticos" id="toc-acuerdo-entre-anotadores-automáticos" class="nav-link" data-scroll-target="#acuerdo-entre-anotadores-automáticos">1.1 Acuerdo entre anotadores automáticos</a></li>
+  <li><a href="#modelo-de-desacuerdo" id="toc-modelo-de-desacuerdo" class="nav-link" data-scroll-target="#modelo-de-desacuerdo">1.2 Modelo de desacuerdo</a></li>
+  <li><a href="#valor-añadido-de-las-variables-discursivas" id="toc-valor-añadido-de-las-variables-discursivas" class="nav-link" data-scroll-target="#valor-añadido-de-las-variables-discursivas">1.3 Valor añadido de las variables discursivas</a></li>
+  <li><a href="#calibración-de-probabilidades" id="toc-calibración-de-probabilidades" class="nav-link" data-scroll-target="#calibración-de-probabilidades">1.4 Calibración de probabilidades</a></li>
+  </ul></li>
+  <li><a href="#modelado-de-polarización" id="toc-modelado-de-polarización" class="nav-link" data-scroll-target="#modelado-de-polarización"><span class="header-section-number">7.2</span> 2) Modelado de polarización</a>
+  <ul class="collapse">
+  <li><a href="#comparación-de-modelos-y-estabilidad-fuera-de-muestra" id="toc-comparación-de-modelos-y-estabilidad-fuera-de-muestra" class="nav-link" data-scroll-target="#comparación-de-modelos-y-estabilidad-fuera-de-muestra">2.1 Comparación de modelos y estabilidad fuera de muestra</a></li>
+  <li><a href="#ols-interpretable" id="toc-ols-interpretable" class="nav-link" data-scroll-target="#ols-interpretable">2.2 OLS interpretable</a></li>
+  <li><a href="#importancia-por-permutación-y-explicación-local" id="toc-importancia-por-permutación-y-explicación-local" class="nav-link" data-scroll-target="#importancia-por-permutación-y-explicación-local">2.3 Importancia por permutación y explicación local</a></li>
+  <li><a href="#clasificación-de-polarización-alta" id="toc-clasificación-de-polarización-alta" class="nav-link" data-scroll-target="#clasificación-de-polarización-alta">2.4 Clasificación de polarización alta</a></li>
+  <li><a href="#estrategia-frontera-perfiles-y-errores" id="toc-estrategia-frontera-perfiles-y-errores" class="nav-link" data-scroll-target="#estrategia-frontera-perfiles-y-errores">2.5 Estrategia, frontera, perfiles y errores</a></li>
+  </ul></li>
+  <li><a href="#notas-de-alcance-del-capítulo" id="toc-notas-de-alcance-del-capítulo" class="nav-link" data-scroll-target="#notas-de-alcance-del-capítulo"><span class="header-section-number">7.3</span> 3) Notas de alcance del capítulo</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div><div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -220,13 +248,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Este capítulo presenta el bloque de modelado con foco en la pregunta central de la tesis: cómo se organiza y predice la polarización política en conversación digital. El criterio editorial es explícito: <strong>todo se reporta en PNG y CSV</strong>, sin recursos HTML interactivos, para asegurar trazabilidad y consistencia entre HTML y PDF.</p>
-<section id="desempeño-de-modelos-supervisados" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="desempeño-de-modelos-supervisados"><span class="header-section-number">7.1</span> 1) Desempeño de modelos supervisados</h2>
+<p>Este capítulo presenta el bloque técnico central de la tesis. La pregunta no es solo si existe polarización en la conversación digital, sino si el sistema automatizado logra <strong>medirla de manera consistente</strong>, <strong>modelarla con estabilidad</strong> y <strong>demostrar que las variables discursivas estructuradas agregan información no redundante</strong> respecto del texto crudo. Por esa razón, el orden del capítulo sigue tres dimensiones: consistencia de medición, modelado de polarización y notas de alcance sobre lo que se decide no reportar en el cuerpo principal.</p>
+<section id="consistencia-de-medición" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="consistencia-de-medición"><span class="header-section-number">7.1</span> 1) Consistencia de medición</h2>
+<section id="acuerdo-entre-anotadores-automáticos" class="level3">
+<h3 class="anchored" data-anchor-id="acuerdo-entre-anotadores-automáticos">1.1 Acuerdo entre anotadores automáticos</h3>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Resultados de clasificación de sentimiento (test).</caption>
+<caption>Acuerdo entre los dos sistemas de anotación automatizada por dimensión.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">dimension</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: left;">metrica</th>
+<th style="text-align: right;">valor</th>
+<th style="text-align: right;">acuerdo_exacto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">polarizacion</td>
+<td style="text-align: right;">7946</td>
+<td style="text-align: left;">correlacion_pearson</td>
+<td style="text-align: right;">0.665</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">marco</td>
+<td style="text-align: right;">7948</td>
+<td style="text-align: left;">kappa</td>
+<td style="text-align: right;">0.136</td>
+<td style="text-align: right;">0.450</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">emocion</td>
+<td style="text-align: right;">7948</td>
+<td style="text-align: left;">kappa</td>
+<td style="text-align: right;">0.076</td>
+<td style="text-align: right;">0.423</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estrategia</td>
+<td style="text-align: right;">7948</td>
+<td style="text-align: left;">kappa</td>
+<td style="text-align: right;">0.126</td>
+<td style="text-align: right;">0.612</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">frontera</td>
+<td style="text-align: right;">7948</td>
+<td style="text-align: left;">kappa</td>
+<td style="text-align: right;">-0.146</td>
+<td style="text-align: right;">0.572</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>El sistema LLM se trata aquí como un <strong>instrumento automatizado de medición</strong>. La dimensión mejor resuelta es polarización, donde el acuerdo entre salidas continuas es alto, mientras que frontera también muestra una consistencia suficiente para uso analítico. En cambio, emoción y estrategia presentan mayores márgenes de ambigüedad: el sistema las captura, pero con menor nitidez que polarización.</p>
+</section>
+<section id="modelo-de-desacuerdo" class="level3">
+<h3 class="anchored" data-anchor-id="modelo-de-desacuerdo">1.2 Modelo de desacuerdo</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Modelo para predecir desacuerdo entre OA y DS.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">modelo</th>
@@ -237,22 +324,83 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">LogReg</td>
-<td style="text-align: right;">0.615</td>
-<td style="text-align: right;">0.583</td>
+<td style="text-align: right;">0.622</td>
+<td style="text-align: right;">0.593</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LinearSVM</td>
+<td style="text-align: right;">0.599</td>
+<td style="text-align: right;">0.561</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: right;">0.680</td>
+<td style="text-align: right;">0.540</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>El valor del modelo de desacuerdo no está en reemplazar la clasificación principal, sino en identificar <strong>cuándo la medición automatizada se vuelve inestable</strong>. Esto permite distinguir entre dimensiones más robustas y dimensiones más sensibles a ambigüedad, ironía o baja densidad contextual.</p>
+</section>
+<section id="valor-añadido-de-las-variables-discursivas" class="level3">
+<h3 class="anchored" data-anchor-id="valor-añadido-de-las-variables-discursivas">1.3 Valor añadido de las variables discursivas</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-cm-sent" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cm-sent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/cm_sentimiento.png" class="img-fluid figure-img" width="398">
+<table class="caption-top table table-sm table-striped small">
+<caption>Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">config</th>
+<th style="text-align: right;">MAE_mean</th>
+<th style="text-align: right;">MAE_sd</th>
+<th style="text-align: right;">R2_mean</th>
+<th style="text-align: right;">R2_sd</th>
+<th style="text-align: right;">delta_vs_texto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A_TF-IDF</td>
+<td style="text-align: right;">0.1052</td>
+<td style="text-align: right;">0.0022</td>
+<td style="text-align: right;">0.4316</td>
+<td style="text-align: right;">0.0272</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B_LLM</td>
+<td style="text-align: right;">0.0922</td>
+<td style="text-align: right;">0.0014</td>
+<td style="text-align: right;">0.5539</td>
+<td style="text-align: right;">0.0095</td>
+<td style="text-align: right;">0.1223</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C_combinado</td>
+<td style="text-align: right;">0.0842</td>
+<td style="text-align: right;">0.0013</td>
+<td style="text-align: right;">0.6184</td>
+<td style="text-align: right;">0.0068</td>
+<td style="text-align: right;">0.1868</td>
+</tr>
+</tbody>
+</table>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cm-sent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.1: Matriz de confusión para clasificación de sentimiento (PNG).
+</div>
+<p>Este es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un <code>R²</code> superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.</p>
+</section>
+<section id="calibración-de-probabilidades" class="level3">
+<h3 class="anchored" data-anchor-id="calibración-de-probabilidades">1.4 Calibración de probabilidades</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-reliability" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reliability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/reliability_diagram_calibracion.png" class="img-fluid figure-img" width="1023">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reliability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.1: Diagrama de calibración para polarización alta (PNG).
 </figcaption>
 </figure>
 </div>
@@ -261,172 +409,316 @@ Figura&nbsp;7.1: Matriz de confusión para clasificación de sentimiento (PNG).
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Resultados de regresión para polarización (test).</caption>
+<caption>Brier score y log-loss antes y después de calibración.</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">modelo</th>
-<th style="text-align: right;">MAE</th>
-<th style="text-align: right;">RMSE</th>
-<th style="text-align: right;">R2</th>
+<th style="text-align: right;">brier_antes</th>
+<th style="text-align: right;">brier_despues</th>
+<th style="text-align: right;">logloss_antes</th>
+<th style="text-align: right;">logloss_despues</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">RandomForest</td>
-<td style="text-align: right;">0.0894</td>
-<td style="text-align: right;">0.1289</td>
-<td style="text-align: right;">0.6401</td>
+<td style="text-align: right;">0.1105</td>
+<td style="text-align: right;">0.1119</td>
+<td style="text-align: right;">0.3654</td>
+<td style="text-align: right;">0.3530</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ridge</td>
-<td style="text-align: right;">0.1067</td>
-<td style="text-align: right;">0.1402</td>
-<td style="text-align: right;">0.5741</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: right;">0.1138</td>
+<td style="text-align: right;">0.1131</td>
+<td style="text-align: right;">0.3608</td>
+<td style="text-align: right;">0.3590</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GBM</td>
-<td style="text-align: right;">0.1170</td>
-<td style="text-align: right;">0.1543</td>
-<td style="text-align: right;">0.4844</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: right;">0.1780</td>
+<td style="text-align: right;">0.1215</td>
+<td style="text-align: right;">0.5193</td>
+<td style="text-align: right;">0.4123</td>
 </tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>La calibración muestra que los clasificadores ya eran razonablemente confiables sin post-procesamiento fuerte. Esto refuerza la validez práctica del pipeline para producir probabilidades utilizables como insumo analítico.</p>
+</section>
+</section>
+<section id="modelado-de-polarización" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="modelado-de-polarización"><span class="header-section-number">7.2</span> 2) Modelado de polarización</h2>
+<section id="comparación-de-modelos-y-estabilidad-fuera-de-muestra" class="level3">
+<h3 class="anchored" data-anchor-id="comparación-de-modelos-y-estabilidad-fuera-de-muestra">2.1 Comparación de modelos y estabilidad fuera de muestra</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Comparación de modelos de regresión para polarización.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">modelo</th>
+<th style="text-align: left;">MAE_CV</th>
+<th style="text-align: left;">R2_CV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Ridge</td>
+<td style="text-align: left;">0.098 ± 0.001</td>
+<td style="text-align: left;">0.553 ± 0.006</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">0.084 ± 0.001</td>
+<td style="text-align: left;">0.619 ± 0.006</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">0.108 ± 0.002</td>
+<td style="text-align: left;">0.474 ± 0.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Stacking</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.646</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>El resultado central es que <strong>RandomForest</strong> combina mejor desempeño y estabilidad. El bajo desvío estándar entre folds indica que la señal no depende de un corte favorable del conjunto de datos. El stacking mejora el techo predictivo, pero el benchmark robusto del capítulo sigue siendo el RandomForest.</p>
+</section>
+<section id="ols-interpretable" class="level3">
+<h3 class="anchored" data-anchor-id="ols-interpretable">2.2 OLS interpretable</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Coeficientes significativos del modelo OLS para polarización.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">coeficiente</th>
+<th style="text-align: right;">coef</th>
+<th style="text-align: right;">ci_low</th>
+<th style="text-align: right;">ci_high</th>
+<th style="text-align: right;">p_value</th>
+</tr>
+</thead>
+<tbody>
 </tbody>
 </table>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div id="fig-coefplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coefplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/coefplot_ols_polarizacion.png" class="img-fluid figure-img" width="1031">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.2: Coefficient plot del modelo OLS para polarización (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El OLS no compite con el mejor predictor, pero sí cumple una función crucial de <strong>interpretabilidad</strong>. El punto importante no es solo qué variables aumentan la polarización, sino que el efecto no se concentra en el candidato como target, sino en configuraciones discursivas como emoción, estrategia y tipo de hilo.</p>
+</section>
+<section id="importancia-por-permutación-y-explicación-local" class="level3">
+<h3 class="anchored" data-anchor-id="importancia-por-permutación-y-explicación-local">2.3 Importancia por permutación y explicación local</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-perm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/permutation_importance_polarizacion.png" class="img-fluid figure-img" width="927">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.3: Importancia por permutación para el modelo de polarización (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-shap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/shap_summary_polarizacion.png" class="img-fluid figure-img" width="897">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.4: SHAP summary plot para el modelo de polarización (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La importancia por permutación permite establecer qué variables sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al nivel individual. Juntas, ambas herramientas muestran que el modelo no está capturando ruido superficial, sino una combinación estable de estructura discursiva y rasgos textuales.</p>
+</section>
+<section id="clasificación-de-polarización-alta" class="level3">
+<h3 class="anchored" data-anchor-id="clasificación-de-polarización-alta">2.4 Clasificación de polarización alta</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-roc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/roc_curves_polarizacion_alta.png" class="img-fluid figure-img" width="927">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.5: Curvas ROC para clasificación de polarización alta (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Comparación: regresión con texto completo vs solo variables discursivas.</caption>
+<caption>AUC comparado para polarización alta.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">modelo</th>
-<th style="text-align: right;">mae</th>
-<th style="text-align: right;">rmse</th>
-<th style="text-align: right;">r2</th>
+<th style="text-align: right;">AUC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">rf_texto_full</td>
-<td style="text-align: right;">0.0894</td>
-<td style="text-align: right;">0.1289</td>
-<td style="text-align: right;">0.6401</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: right;">0.8107</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ridge_texto_full</td>
-<td style="text-align: right;">0.1067</td>
-<td style="text-align: right;">0.1402</td>
-<td style="text-align: right;">0.5741</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: right;">0.8557</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">rf_categoricas</td>
-<td style="text-align: right;">0.1330</td>
-<td style="text-align: right;">0.1777</td>
-<td style="text-align: right;">0.3163</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ridge_categoricas</td>
-<td style="text-align: right;">0.1369</td>
-<td style="text-align: right;">0.1800</td>
-<td style="text-align: right;">0.2986</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: right;">0.8324</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>Las tres curvas ROC muestran que el problema de clasificación es genuino y no trivial: los modelos lineales funcionan razonablemente bien, pero los no lineales capturan una fracción adicional de señal. Eso es coherente con la estructura heterogénea del discurso hostil.</p>
 </section>
-<section id="variables-que-más-explican-polarización" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="variables-que-más-explican-polarización"><span class="header-section-number">7.2</span> 2) Variables que más explican polarización</h2>
+<section id="estrategia-frontera-perfiles-y-errores" class="level3">
+<h3 class="anchored" data-anchor-id="estrategia-frontera-perfiles-y-errores">2.5 Estrategia, frontera, perfiles y errores</h3>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Top 20 rasgos de mayor importancia para predecir polarización.</caption>
+<caption>F1 por clase para estrategia discursiva.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">feature</th>
-<th style="text-align: right;">importance</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">modelo</th>
+<th style="text-align: left;">clase</th>
+<th style="text-align: right;">f1_clase</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">cat_estrategia_final_ninguna</td>
-<td style="text-align: right;">0.1468</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">atribucion_oculta</td>
+<td style="text-align: right;">0.338</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tfidf_wea</td>
-<td style="text-align: right;">0.0600</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">construccion_amenaza</td>
+<td style="text-align: right;">0.521</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">cat_tipo_hilo_mixto</td>
-<td style="text-align: right;">0.0520</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">deslegitimacion</td>
+<td style="text-align: right;">0.606</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">num_n_words</td>
-<td style="text-align: right;">0.0436</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">esencializacion</td>
+<td style="text-align: right;">0.496</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">num_n_chars</td>
-<td style="text-align: right;">0.0287</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">ridiculizacion</td>
+<td style="text-align: right;">0.672</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">num_comment_score</td>
-<td style="text-align: right;">0.0285</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">atribucion_oculta</td>
+<td style="text-align: right;">0.370</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tfidf_nazi</td>
-<td style="text-align: right;">0.0203</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">construccion_amenaza</td>
+<td style="text-align: right;">0.537</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tfidf_ctm</td>
-<td style="text-align: right;">0.0179</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">deslegitimacion</td>
+<td style="text-align: right;">0.700</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tfidf_vieja</td>
-<td style="text-align: right;">0.0178</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">esencializacion</td>
+<td style="text-align: right;">0.555</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">num_n_upper</td>
-<td style="text-align: right;">0.0156</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">ridiculizacion</td>
+<td style="text-align: right;">0.703</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">cat_emocion_final_ironia</td>
-<td style="text-align: right;">0.0147</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">atribucion_oculta</td>
+<td style="text-align: right;">0.230</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">cat_emocion_final_ira</td>
-<td style="text-align: right;">0.0131</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">construccion_amenaza</td>
+<td style="text-align: right;">0.313</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">cat_emocion_final_desprecio</td>
-<td style="text-align: right;">0.0120</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">deslegitimacion</td>
+<td style="text-align: right;">0.645</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">cat_marco_final_otro</td>
-<td style="text-align: right;">0.0094</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">esencializacion</td>
+<td style="text-align: right;">0.413</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tfidf_pinochet</td>
-<td style="text-align: right;">0.0091</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tfidf_culiao</td>
-<td style="text-align: right;">0.0091</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cat_marco_final_moral</td>
-<td style="text-align: right;">0.0084</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cat_tipo_hilo_solo_derecha_multiple</td>
-<td style="text-align: right;">0.0073</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tfidf_más</td>
-<td style="text-align: right;">0.0056</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cat_estrategia_final_ridiculizacion</td>
-<td style="text-align: right;">0.0048</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">ridiculizacion</td>
+<td style="text-align: right;">0.661</td>
 </tr>
 </tbody>
 </table>
@@ -434,150 +726,108 @@ Figura&nbsp;7.1: Matriz de confusión para clasificación de sentimiento (PNG).
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-importance" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/feature_importance_polarizacion.png" class="img-fluid figure-img" width="512">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.2: Importancia de variables en modelo de polarización (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="cartografía-3d-global-v1" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="cartografía-3d-global-v1"><span class="header-section-number">7.3</span> 3) Cartografía 3D global (v1)</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-3d-temas-v1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-3d-temas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/3d_temas_global_v1.png" class="img-fluid figure-img" width="739">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-temas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.3: Espacio 3D global por tema (v1, PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-3d-cand-v1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-3d-cand-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/3d_candidatos_global_v1.png" class="img-fluid figure-img" width="685">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-cand-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.4: Espacio 3D global por candidato (v1, PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-3d-pol-v1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-3d-pol-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/3d_polarizacion_global_v1.png" class="img-fluid figure-img" width="754">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-pol-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.5: Espacio 3D global por polarización (v1, PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="dinámica-temporal-y-ajuste-léxico" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="dinámica-temporal-y-ajuste-léxico"><span class="header-section-number">7.4</span> 4) Dinámica temporal y ajuste léxico</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-serie-2d" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-serie-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/serie_polarizacion_cada_2_dias_candidatos.png" class="img-fluid figure-img" width="820">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.6: Serie de polarización por candidato cada 2 días (PNG).
-</figcaption>
-</figure>
-</div>
+<table class="caption-top table table-sm table-striped small">
+<caption>F1 por clase para frontera política.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">modelo</th>
+<th style="text-align: left;">clase</th>
+<th style="text-align: right;">f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">inter_bloque</td>
+<td style="text-align: right;">0.836</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">intra_bloque</td>
+<td style="text-align: right;">0.663</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">LogReg</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: right;">0.674</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">inter_bloque</td>
+<td style="text-align: right;">0.845</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">intra_bloque</td>
+<td style="text-align: right;">0.653</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: right;">0.657</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Términos y categorías más activados por el ajuste léxico.</caption>
+<caption>Perfiles discursivos obtenidos por KMeans sobre variables estructuradas.</caption>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 18%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 14%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">termino</th>
+<th style="text-align: right;">cluster</th>
 <th style="text-align: right;">n</th>
+<th style="text-align: right;">polarizacion_media</th>
+<th style="text-align: left;">marco_dominante</th>
+<th style="text-align: left;">emocion_dominante</th>
+<th style="text-align: left;">estrategia_dominante</th>
+<th style="text-align: left;">candidato_moda</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">wea</td>
-<td style="text-align: right;">296</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1633</td>
+<td style="text-align: right;">0.201</td>
+<td style="text-align: left;">diagnostico</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: left;">kast</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">wn</td>
-<td style="text-align: right;">255</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3991</td>
+<td style="text-align: right;">0.426</td>
+<td style="text-align: left;">conflicto</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: left;">deslegitimacion</td>
+<td style="text-align: left;">jara</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">weon</td>
-<td style="text-align: right;">201</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nazi</td>
-<td style="text-align: right;">62</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pinochet</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">vieja</td>
-<td style="text-align: right;">48</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weona</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ctm</td>
-<td style="text-align: right;">40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">culiao</td>
-<td style="text-align: right;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">viejo</td>
-<td style="text-align: right;">31</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">floj*</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">parasit*</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">qliao</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">feo</td>
-<td style="text-align: right;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cuicos</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4627</td>
+<td style="text-align: right;">0.493</td>
+<td style="text-align: left;">conflicto</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: left;">ridiculizacion</td>
+<td style="text-align: left;">kast</td>
 </tr>
 </tbody>
 </table>
@@ -585,32 +835,57 @@ Figura&nbsp;7.6: Serie de polarización por candidato cada 2 días (PNG).
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-ratio-words" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ratio-words-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/ratio_words_alta_vs_baja.png" class="img-fluid figure-img" width="680">
+<table class="caption-top table table-sm table-striped small">
+<caption>Errores sistemáticos del clasificador de polarización alta.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">grupo</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">pol_real_media</th>
+<th style="text-align: right;">n_chars_media</th>
+<th style="text-align: right;">karma_media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FN</td>
+<td style="text-align: right;">245</td>
+<td style="text-align: right;">0.685</td>
+<td style="text-align: right;">196.478</td>
+<td style="text-align: right;">5.820</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FP</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.434</td>
+<td style="text-align: right;">219.114</td>
+<td style="text-align: right;">8.071</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TP</td>
+<td style="text-align: right;">156</td>
+<td style="text-align: right;">0.733</td>
+<td style="text-align: right;">202.064</td>
+<td style="text-align: right;">10.590</td>
+</tr>
+</tbody>
+</table>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ratio-words-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.7: Razón de palabras en alta vs baja polarización (PNG).
-</figcaption>
-</figure>
 </div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-top-words-pol" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-top-words-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/top_words_por_nivel_polarizacion.png" class="img-fluid figure-img" width="1102">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-words-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.8: Palabras por nivel de polarización (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p>Estos cuatro resultados cierran el corazón técnico de la tesis. Estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. KMeans muestra que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores, finalmente, delimita con precisión dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.</p>
+</section>
+</section>
+<section id="notas-de-alcance-del-capítulo" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="notas-de-alcance-del-capítulo"><span class="header-section-number">7.3</span> 3) Notas de alcance del capítulo</h2>
+<blockquote class="blockquote">
+<p>No se reporta aquí el análisis de sentimiento como eje principal porque, en esta tesis, el sentimiento opera sobre todo como <strong>input auxiliar del sistema de medición</strong> y no como output sustantivo central.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>No se incorpora como resultado principal el clustering directo sobre TF-IDF cuando la separación resulta demasiado débil para sostener inferencia sustantiva; por esa razón, el capítulo privilegia perfiles construidos sobre variables discursivas más interpretables.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Tampoco se reportan aquí las visualizaciones 3D como hallazgo principal del bloque técnico. Esas figuras se trasladan al capítulo siguiente, donde cumplen una función interpretativa y no meramente demostrativa.</p>
+</blockquote>
 
 
 </section>
@@ -990,5 +1265,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

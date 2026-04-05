@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.5.56" />
 
-<meta name="author" content="Matías Deneken">
-<meta name="description" content="Tesis para optar al grado de Magíster en Ciencia de Datos.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-<title>8&nbsp; Interpretación de Resultados</title>
+<meta name="author" content="Matías Deneken" />
+<meta name="description" content="Tesis para optar al grado de Magíster en Ciencia de Datos." />
+
+<title>8  Interpretación de Resultados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +26,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./09-conclusion.html" rel="next">
-<link href="./07-modelado-datos.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,17 +59,22 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-interpretacion-resultados.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
+        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
+        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -103,106 +92,91 @@ ul.task-list li input[type="checkbox"] {
         </div>
         </div>
         <div class="sidebar-tools-collapse">
-    <a href="https://github.com/matdknu/thesis_maci" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./tesis_book.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/matdknu/thesis_maci"  title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="/tesis_book.pdf"  title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Derecha fragmentada y un enemigo compartido</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduccion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  <a href="/01-introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-presentacion-problema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Presentación del Problema</span></span></a>
+  <a href="/02-presentacion-problema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación del Problema</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-marco.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></span></a>
+  <a href="/03-marco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Marco teórico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-diseno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Diseño metodológico</span></span></a>
+  <a href="/04-diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>4</span>  <span class='chapter-title'>Diseño metodológico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-depuracion-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Depuración de Datos</span></span></a>
+  <a href="/05-depuracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>5</span>  <span class='chapter-title'>Depuración de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-exploracion-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploración de Datos</span></span></a>
+  <a href="/06-exploracion-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-modelado-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></span></a>
+  <a href="/07-modelado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-interpretacion-resultados.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></span></a>
+  <a href="/08-interpretacion-resultados.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class='chapter-number'>8</span>  <span class='chapter-title'>Interpretación de Resultados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conclusión</span></span></a>
+  <a href="/09-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>9</span>  <span class='chapter-title'>Conclusión</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+  <a href="/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class='chapter-number'>10</span>  <span class='chapter-title'>Referencias</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contenido</h2>
-   
-  <ul>
-  <li><a href="#consistencia-de-medición" id="toc-consistencia-de-medición" class="nav-link active" data-scroll-target="#consistencia-de-medición"><span class="header-section-number">8.1</span> 1) Consistencia de medición</a></li>
-  <li><a href="#polarización-modelable" id="toc-polarización-modelable" class="nav-link" data-scroll-target="#polarización-modelable"><span class="header-section-number">8.2</span> 2) Polarización modelable</a></li>
-  <li><a href="#marcos-emociones-y-estrategias" id="toc-marcos-emociones-y-estrategias" class="nav-link" data-scroll-target="#marcos-emociones-y-estrategias"><span class="header-section-number">8.3</span> 3) Marcos, emociones y estrategias</a></li>
-  <li><a href="#sec-atlas-3d" id="toc-sec-atlas-3d" class="nav-link" data-scroll-target="#sec-atlas-3d"><span class="header-section-number">8.4</span> 4) Atlas 3D: espacio semántico en tres componentes</a>
-  <ul class="collapse">
-  <li><a href="#sec-atlas-3d-panel" id="toc-sec-atlas-3d-panel" class="nav-link" data-scroll-target="#sec-atlas-3d-panel">Figura integrada (vista 1)</a></li>
-  </ul></li>
-  <li><a href="#dinámica-temporal-y-reconfiguración-antagonista" id="toc-dinámica-temporal-y-reconfiguración-antagonista" class="nav-link" data-scroll-target="#dinámica-temporal-y-reconfiguración-antagonista"><span class="header-section-number">8.5</span> 5) Dinámica temporal y reconfiguración antagonista</a></li>
-  <li><a href="#interpretación-teórica-pluralización-del-enemigo" id="toc-interpretación-teórica-pluralización-del-enemigo" class="nav-link" data-scroll-target="#interpretación-teórica-pluralización-del-enemigo"><span class="header-section-number">8.6</span> 6) Interpretación teórica: pluralización del enemigo</a></li>
-  <li><a href="#léxico-hostil-y-cierre" id="toc-léxico-hostil-y-cierre" class="nav-link" data-scroll-target="#léxico-hostil-y-cierre"><span class="header-section-number">8.7</span> 7) Léxico hostil y cierre</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/08-interpretacion-resultados.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interpretación de Resultados</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></h1>
 <p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
 </div>
 
@@ -225,74 +199,287 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<p>Este capítulo integra resultados con una lectura teórica en tres dimensiones: consistencia de medición, modelado de polarización y reconfiguración del antagonismo.</p>
-<section id="consistencia-de-medición" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="consistencia-de-medición"><span class="header-section-number">8.1</span> 1) Consistencia de medición</h2>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#reconfiguración-del-antagonismo-estrategias-marcos-y-fronteras" id="toc-reconfiguración-del-antagonismo-estrategias-marcos-y-fronteras"><span class="header-section-number">8.1</span> 1) Reconfiguración del antagonismo: estrategias, marcos y fronteras</a>
+  <ul>
+  <li><a href="#estrategias-por-candidato" id="toc-estrategias-por-candidato">1.1 Estrategias por candidato</a></li>
+  <li><a href="#marcos-por-candidato-y-por-fase" id="toc-marcos-por-candidato-y-por-fase">1.2 Marcos por candidato y por fase</a></li>
+  </ul></li>
+  <li><a href="#combinaciones-discursivas-y-dinámica-temporal" id="toc-combinaciones-discursivas-y-dinámica-temporal"><span class="header-section-number">8.2</span> 2) Combinaciones discursivas y dinámica temporal</a>
+  <ul>
+  <li><a href="#marco-emoción" id="toc-marco-emoción">2.1 Marco × emoción</a></li>
+  <li><a href="#estrategias-en-el-tiempo" id="toc-estrategias-en-el-tiempo">2.2 Estrategias en el tiempo</a></li>
+  </ul></li>
+  <li><a href="#autores-persistencia-y-estructura-del-conflicto" id="toc-autores-persistencia-y-estructura-del-conflicto"><span class="header-section-number">8.3</span> 3) Autores, persistencia y estructura del conflicto</a>
+  <ul>
+  <li><a href="#persistencia-de-negatividad-hacia-kast" id="toc-persistencia-de-negatividad-hacia-kast">3.1 Persistencia de negatividad hacia Kast</a></li>
+  <li><a href="#actividad-de-autores-y-polarización" id="toc-actividad-de-autores-y-polarización">3.2 Actividad de autores y polarización</a></li>
+  </ul></li>
+  <li><a href="#espacios-semánticos-acoplados" id="toc-espacios-semánticos-acoplados"><span class="header-section-number">8.4</span> 4) Espacios semánticos acoplados</a>
+  <ul>
+  <li><a href="#vistas-focales" id="toc-vistas-focales">4.1 Vistas focales</a></li>
+  <li><a href="#atlas-integrado" id="toc-atlas-integrado">4.2 Atlas integrado</a></li>
+  </ul></li>
+  <li><a href="#cierre-interpretativo" id="toc-cierre-interpretativo"><span class="header-section-number">8.5</span> 5) Cierre interpretativo</a></li>
+  </ul>
+</nav>
+<p>Este capítulo toma el output del pipeline ya validado y lo traduce en una pregunta sustantiva: <strong>cómo se reconfigura el antagonismo político en la conversación digital de derechas</strong>. En esta sección el objetivo no es volver a demostrar que el modelo predice bien, sino mostrar <strong>qué estructura discursiva revela</strong> cuando se observan marcos, emociones, estrategias, fronteras, temporalidad y espacios semánticos.</p>
+<section id="reconfiguración-del-antagonismo-estrategias-marcos-y-fronteras" class="level2" data-number="8.1">
+<h2 data-number="8.1"><span class="header-section-number">8.1</span> 1) Reconfiguración del antagonismo: estrategias, marcos y fronteras</h2>
+<section id="estrategias-por-candidato" class="level3">
+<h3>1.1 Estrategias por candidato</h3>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Desacuerdo entre anotadores automáticos.</caption>
+<div id="fig-estrategias-candidato" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-estrategias-candidato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/distribucion_estrategias_candidato.png" class="img-fluid" width="1044" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrategias-candidato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.1: Distribución de estrategias por candidato (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Proporciones de estrategia por tipo de frontera política.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">modelo</th>
-<th style="text-align: right;">accuracy</th>
-<th style="text-align: right;">f1_macro</th>
+<th style="text-align: left;">estrategia_final</th>
+<th style="text-align: right;">inter_bloque</th>
+<th style="text-align: right;">intra_bloque</th>
+<th style="text-align: right;">ninguna</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">LogReg</td>
-<td style="text-align: right;">0.613</td>
-<td style="text-align: right;">0.579</td>
+<td style="text-align: left;">atribucion_oculta</td>
+<td style="text-align: right;">0.548</td>
+<td style="text-align: right;">0.175</td>
+<td style="text-align: right;">0.277</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LinearSVM</td>
-<td style="text-align: right;">0.606</td>
-<td style="text-align: right;">0.563</td>
+<td style="text-align: left;">construccion_amenaza</td>
+<td style="text-align: right;">0.663</td>
+<td style="text-align: right;">0.101</td>
+<td style="text-align: right;">0.236</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">RandomForest</td>
-<td style="text-align: right;">0.678</td>
-<td style="text-align: right;">0.528</td>
+<td style="text-align: left;">deslegitimacion</td>
+<td style="text-align: right;">0.578</td>
+<td style="text-align: right;">0.183</td>
+<td style="text-align: right;">0.239</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">esencializacion</td>
+<td style="text-align: right;">0.660</td>
+<td style="text-align: right;">0.111</td>
+<td style="text-align: right;">0.229</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: right;">0.329</td>
+<td style="text-align: right;">0.130</td>
+<td style="text-align: right;">0.540</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ridiculizacion</td>
+<td style="text-align: right;">0.483</td>
+<td style="text-align: right;">0.219</td>
+<td style="text-align: right;">0.298</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</section>
-<section id="polarización-modelable" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="polarización-modelable"><span class="header-section-number">8.2</span> 2) Polarización modelable</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Modelos de regresión de polarización.</caption>
+<div id="fig-estrategia-frontera" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/estrategia_por_frontera.png" class="img-fluid" width="1063" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.2: Estrategia por frontera política (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La lógica del antagonismo no se distribuye homogéneamente. Algunas estrategias quedan más asociadas a confrontación <strong>inter-bloque</strong> y otras funcionan más bien dentro del conflicto <strong>intra-bloque</strong>. Esto es importante porque muestra que la hostilidad no es una sola: cambia según la arquitectura del adversario construida por el comentario.</p>
+</section>
+<section id="marcos-por-candidato-y-por-fase" class="level3">
+<h3>1.2 Marcos por candidato y por fase</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-marcos-candidato" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-marcos-candidato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/distribucion_marcos_candidato.png" class="img-fluid" width="1050" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marcos-candidato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.3: Distribución de marcos por candidato (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-marcos-fase" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-marcos-fase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/marcos_por_fase_candidato.png" class="img-fluid" width="1073" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marcos-fase-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.4: Marcos por fase electoral y candidato (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Asociación entre marcos y fase electoral por candidato.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">modelo</th>
-<th style="text-align: right;">MAE</th>
-<th style="text-align: right;">RMSE</th>
-<th style="text-align: right;">R2</th>
+<th style="text-align: left;">candidato</th>
+<th style="text-align: right;">chi2</th>
+<th style="text-align: right;">p_value</th>
+<th style="text-align: right;">cramers_v</th>
+<th style="text-align: right;">n_total</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">RandomForest</td>
-<td style="text-align: right;">0.0894</td>
-<td style="text-align: right;">0.1289</td>
-<td style="text-align: right;">0.6401</td>
+<td style="text-align: left;">kast</td>
+<td style="text-align: right;">21.903</td>
+<td style="text-align: right;">0.081</td>
+<td style="text-align: right;">0.047</td>
+<td style="text-align: right;">5052</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ridge</td>
-<td style="text-align: right;">0.1067</td>
-<td style="text-align: right;">0.1402</td>
-<td style="text-align: right;">0.5741</td>
+<td style="text-align: left;">kaiser</td>
+<td style="text-align: right;">23.874</td>
+<td style="text-align: right;">0.047</td>
+<td style="text-align: right;">0.096</td>
+<td style="text-align: right;">1308</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GBM</td>
-<td style="text-align: right;">0.1170</td>
-<td style="text-align: right;">0.1543</td>
-<td style="text-align: right;">0.4844</td>
+<td style="text-align: left;">matthei</td>
+<td style="text-align: right;">17.674</td>
+<td style="text-align: right;">0.222</td>
+<td style="text-align: right;">0.105</td>
+<td style="text-align: right;">802</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jara</td>
+<td style="text-align: right;">31.817</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.072</td>
+<td style="text-align: right;">3085</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>El repertorio de marcos no es estable entre candidatos ni entre fases. Esta heterogeneidad sugiere que la polarización no se activa sobre un único relato, sino sobre una combinación variable de conflicto, identidad, moralidad y diagnóstico coyuntural.</p>
+</section>
+</section>
+<section id="combinaciones-discursivas-y-dinámica-temporal" class="level2" data-number="8.2">
+<h2 data-number="8.2"><span class="header-section-number">8.2</span> 2) Combinaciones discursivas y dinámica temporal</h2>
+<section id="marco-emoción" class="level3">
+<h3>2.1 Marco × emoción</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Top 10 combinaciones marco × emoción por frecuencia.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">marco_final</th>
+<th style="text-align: left;">emocion_final</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">proporcion</th>
+<th style="text-align: right;">polarizacion_media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">conflicto</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: right;">945</td>
+<td style="text-align: right;">0.092</td>
+<td style="text-align: right;">0.463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">diagnostico</td>
+<td style="text-align: left;">indignacion</td>
+<td style="text-align: right;">844</td>
+<td style="text-align: right;">0.082</td>
+<td style="text-align: right;">0.430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conflicto</td>
+<td style="text-align: left;">indignacion</td>
+<td style="text-align: right;">758</td>
+<td style="text-align: right;">0.074</td>
+<td style="text-align: right;">0.448</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">conflicto</td>
+<td style="text-align: left;">ironia</td>
+<td style="text-align: right;">724</td>
+<td style="text-align: right;">0.071</td>
+<td style="text-align: right;">0.386</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">moral</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: right;">702</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">0.541</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">moral</td>
+<td style="text-align: left;">indignacion</td>
+<td style="text-align: right;">627</td>
+<td style="text-align: right;">0.061</td>
+<td style="text-align: right;">0.503</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diagnostico</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: right;">591</td>
+<td style="text-align: right;">0.058</td>
+<td style="text-align: right;">0.438</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">otro</td>
+<td style="text-align: left;">desprecio</td>
+<td style="text-align: right;">528</td>
+<td style="text-align: right;">0.052</td>
+<td style="text-align: right;">0.544</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diagnostico</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: right;">463</td>
+<td style="text-align: right;">0.045</td>
+<td style="text-align: right;">0.261</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">otro</td>
+<td style="text-align: left;">ninguna</td>
+<td style="text-align: right;">435</td>
+<td style="text-align: right;">0.042</td>
+<td style="text-align: right;">0.296</td>
 </tr>
 </tbody>
 </table>
@@ -300,153 +487,55 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Texto completo vs variables discursivas.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">modelo</th>
-<th style="text-align: right;">mae</th>
-<th style="text-align: right;">rmse</th>
-<th style="text-align: right;">r2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">rf_texto_full</td>
-<td style="text-align: right;">0.0894</td>
-<td style="text-align: right;">0.1289</td>
-<td style="text-align: right;">0.6401</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ridge_texto_full</td>
-<td style="text-align: right;">0.1067</td>
-<td style="text-align: right;">0.1402</td>
-<td style="text-align: right;">0.5741</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rf_categoricas</td>
-<td style="text-align: right;">0.1330</td>
-<td style="text-align: right;">0.1777</td>
-<td style="text-align: right;">0.3163</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ridge_categoricas</td>
-<td style="text-align: right;">0.1369</td>
-<td style="text-align: right;">0.1800</td>
-<td style="text-align: right;">0.2986</td>
-</tr>
-</tbody>
-</table>
+<div id="fig-marco-emocion" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-marco-emocion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/combinaciones_marco_emocion.png" class="img-fluid" width="1051" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marco-emocion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.5: Combinaciones marco × emoción (PNG).
+</figcaption>
+</figure>
 </div>
 </div>
+</div>
+<p>Las combinaciones entre marco y emoción son especialmente relevantes porque muestran que no toda emoción hostil se acopla del mismo modo al conflicto. Algunas combinaciones son frecuentes y moderadas; otras son raras, pero empujan la polarización a niveles mucho más altos.</p>
 </section>
-<section id="marcos-emociones-y-estrategias" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="marcos-emociones-y-estrategias"><span class="header-section-number">8.3</span> 3) Marcos, emociones y estrategias</h2>
+<section id="estrategias-en-el-tiempo" class="level3">
+<h3>2.2 Estrategias en el tiempo</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-marcos" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-marcos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/polarizacion_por_marco_ic95.png" class="img-fluid figure-img" width="680">
+<div id="fig-serie-estrategias" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-serie-estrategias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/serie_estrategias_semanal.png" class="img-fluid" width="1136" />
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marcos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.1: Polarización por marco (PNG).
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-estrategias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.6: Serie temporal semanal de estrategias discursivas (PNG).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-emociones" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-emociones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/polarizacion_por_emocion.png" class="img-fluid figure-img" width="680">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emociones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.2: Polarización por emoción (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-estrategias" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-estrategias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/polarizacion_por_estrategia.png" class="img-fluid figure-img" width="680">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrategias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.3: Polarización por estrategia (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="sec-atlas-3d" class="level2 page-columns page-full" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="sec-atlas-3d"><span class="header-section-number">8.4</span> 4) Atlas 3D: espacio semántico en tres componentes</h2>
-<section id="sec-atlas-3d-panel" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="sec-atlas-3d-panel">Figura integrada (vista 1)</h3>
-<p>El <strong>atlas</strong> siguiente concentra en <strong>una sola figura</strong> todas las vistas <strong>v1</strong> (misma cámara 3D) producidas al final del bloque de gráficos 3D en <code>scripts/analisis/07_pipeline_completo.py</code>. Cada comentario se representa en un espacio de tres dimensiones obtenido a partir del texto vectorizado (<strong>TF-IDF</strong> → reducción de dimensionalidad → <strong>PCA</strong> en tres componentes), de modo que los subpaneles son <strong>la misma proyección</strong> coloreada de forma distinta: por tema, por candidato (p.&nbsp;ej. Kast, Kaiser, Matthei, Jara), por polarización consensuada, por emoción inferida y, en la parte inferior, por candidato <strong>dentro</strong> de cada tema. Las leyendas —a la derecha de cada subpanel, a modo de pie de lectura— identifican esas categorías; en el PDF conviene ampliar la figura si se desea leer cada etiqueta con comodidad.</p>
-<div class="page-columns page-full">
-<div class="cell page-columns page-full">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-3d-atlas-v1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-3d-atlas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../outputs_ml/3d_atlas_v1_todos.png" class="img-fluid figure-img column-page" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-atlas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.4: Atlas 3D (vista 1): panel único que integra todas las figuras <code>*_v1.png</code> (rejilla 3×columnas según cantidad).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<p>La serie temporal de estrategias permite observar si la arquitectura del adversario cambia en momentos electorales clave. En este punto interesa menos la fluctuación diaria y más la dirección general: si la ridiculización, la deslegitimación o la construcción de amenaza ganan o pierden centralidad a medida que el ciclo avanza.</p>
+<blockquote>
+<p>No se eleva a figura principal la serie semanal de emociones porque su rendimiento en esta tesis fue sobre todo <strong>descriptivo</strong> y no añadió un hallazgo interpretativo tan fuerte como el bloque de estrategias o el de frontera.</p>
+</blockquote>
 </section>
 </section>
-<section id="dinámica-temporal-y-reconfiguración-antagonista" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="dinámica-temporal-y-reconfiguración-antagonista"><span class="header-section-number">8.5</span> 5) Dinámica temporal y reconfiguración antagonista</h2>
+<section id="autores-persistencia-y-estructura-del-conflicto" class="level2" data-number="8.3">
+<h2 data-number="8.3"><span class="header-section-number">8.3</span> 3) Autores, persistencia y estructura del conflicto</h2>
+<section id="persistencia-de-negatividad-hacia-kast" class="level3">
+<h3>3.1 Persistencia de negatividad hacia Kast</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-serie-2d" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-serie-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/serie_polarizacion_cada_2_dias_candidatos.png" class="img-fluid figure-img" width="820">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-serie-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.5: Serie de polarización cada 2 días por candidato (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-prob-jara" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-prob-jara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/prob_jara_negativa_dado_derecha_positiva.png" class="img-fluid figure-img" width="622">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prob-jara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.6: Probabilidad de negatividad hacia Jara dado tono positivo hacia derecha (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-kast-trans" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<div id="fig-kast-trans" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-kast-trans-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/transiciones_autor_kast_fases.png" class="img-fluid figure-img" width="446">
+<img src="../../outputs_ml/transiciones_autor_kast_fases.png" class="img-fluid" width="446" />
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kast-trans-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.7: Transiciones de autores para Kast (PNG).
+Figura 8.7: Transiciones de sentimiento hacia Kast por autor (PNG).
 </figcaption>
 </figure>
 </div>
@@ -454,211 +543,51 @@ Figura&nbsp;8.7: Transiciones de autores para Kast (PNG).
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-jara-vs-kast" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-jara-vs-kast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/serie_diaria_negatividad_jara_kast.png" class="img-fluid figure-img" width="728">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jara-vs-kast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.8: Negatividad diaria comparada: Jara vs Kast (PNG).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Ventana de elección presidencial: Jara vs Kast.</caption>
+<table class="caption-top">
+<caption>Cambio de autores inicialmente negativos hacia Kast.</caption>
 <colgroup>
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 6%">
+<col style="width: 12%" />
+<col style="width: 19%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">dia</th>
-<th style="text-align: right;">prob_neg_jara</th>
-<th style="text-align: right;">prob_neg_kast</th>
-<th style="text-align: right;">prob_pos_jara</th>
-<th style="text-align: right;">prob_pos_kast</th>
-<th style="text-align: right;">n_jara</th>
-<th style="text-align: right;">n_kast</th>
-<th style="text-align: right;">dif_neg_jara_menos_kast</th>
-<th style="text-align: right;">dif_pos_jara_menos_kast</th>
-<th style="text-align: left;">ventana_eleccion</th>
-<th style="text-align: right;">es_debate</th>
+<th style="text-align: right;">autores_negativos_pre</th>
+<th style="text-align: right;">autores_negativos_a_positivos_post</th>
+<th style="text-align: right;">autores_negativos_a_neutros_post</th>
+<th style="text-align: right;">autores_negativos_a_negativos_post</th>
+<th style="text-align: right;">prob_pos_post_dado_neg_pre</th>
+<th style="text-align: right;">prob_no_neg_post_dado_neg_pre</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2025-12-13</td>
-<td style="text-align: right;">0.338</td>
-<td style="text-align: right;">0.697</td>
-<td style="text-align: right;">0.2112676</td>
-<td style="text-align: right;">0.0263158</td>
-<td style="text-align: right;">71</td>
-<td style="text-align: right;">76</td>
-<td style="text-align: right;">-0.359</td>
-<td style="text-align: right;">0.1849518</td>
-<td style="text-align: left;">ventana_eleccion</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2025-12-14</td>
-<td style="text-align: right;">0.449</td>
-<td style="text-align: right;">0.610</td>
-<td style="text-align: right;">0.0579710</td>
-<td style="text-align: right;">0.0410256</td>
-<td style="text-align: right;">69</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">-0.161</td>
-<td style="text-align: right;">0.0169454</td>
-<td style="text-align: left;">ventana_eleccion</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025-12-15</td>
-<td style="text-align: right;">0.381</td>
-<td style="text-align: right;">0.624</td>
-<td style="text-align: right;">0.0158730</td>
-<td style="text-align: right;">0.0969697</td>
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: right;">-0.243</td>
-<td style="text-align: right;">-0.0810967</td>
-<td style="text-align: left;">ventana_eleccion</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2025-12-16</td>
-<td style="text-align: right;">0.750</td>
-<td style="text-align: right;">0.667</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">0.0740741</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">108</td>
-<td style="text-align: right;">0.083</td>
-<td style="text-align: right;">-0.0740741</td>
-<td style="text-align: left;">ventana_eleccion</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025-12-17</td>
-<td style="text-align: right;">0.353</td>
-<td style="text-align: right;">0.589</td>
-<td style="text-align: right;">0.0588235</td>
-<td style="text-align: right;">0.0410959</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">73</td>
-<td style="text-align: right;">-0.236</td>
-<td style="text-align: right;">0.0177276</td>
-<td style="text-align: left;">ventana_eleccion</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">215</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">0.028</td>
+<td style="text-align: right;">0.126</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="interpretación-teórica-pluralización-del-enemigo" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="interpretación-teórica-pluralización-del-enemigo"><span class="header-section-number">8.6</span> 6) Interpretación teórica: pluralización del enemigo</h2>
-<p>La evidencia sugiere una <strong>convergencia incompleta</strong>: hay episodios de mayor ataque al out-group de izquierda, pero coexisten con persistencia de conflicto intra-derecha. Más que un reemplazo lineal del adversario, se observa una <strong>pluralización del enemigo</strong> (una ecología de demonios activada por coyuntura, emoción y marco discursivo).</p>
-</section>
-<section id="léxico-hostil-y-cierre" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="léxico-hostil-y-cierre"><span class="header-section-number">8.7</span> 7) Léxico hostil y cierre</h2>
+<section id="actividad-de-autores-y-polarización" class="level3">
+<h3>3.2 Actividad de autores y polarización</h3>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Resumen del ajuste léxico hostil.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">termino</th>
-<th style="text-align: right;">n</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">wea</td>
-<td style="text-align: right;">296</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">wn</td>
-<td style="text-align: right;">255</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weon</td>
-<td style="text-align: right;">201</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nazi</td>
-<td style="text-align: right;">62</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pinochet</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">vieja</td>
-<td style="text-align: right;">48</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weona</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ctm</td>
-<td style="text-align: right;">40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">culiao</td>
-<td style="text-align: right;">34</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">viejo</td>
-<td style="text-align: right;">31</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">floj*</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">parasit*</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">qliao</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">feo</td>
-<td style="text-align: right;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cuicos</td>
-<td style="text-align: right;">9</td>
-</tr>
-</tbody>
-</table>
+<div id="fig-autores-violin" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-autores-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/polarizacion_por_tipo_autor.png" class="img-fluid" width="1023" />
 </div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-ratio-lex" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ratio-lex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/ratio_words_alta_vs_baja.png" class="img-fluid figure-img" width="680">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ratio-lex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.9: Razón de palabras entre alta y baja polarización (PNG).
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-autores-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.8: Polarización media por tipo de autor (PNG).
 </figcaption>
 </figure>
 </div>
@@ -666,25 +595,101 @@ Figura&nbsp;8.9: Razón de palabras entre alta y baja polarización (PNG).
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-top-lex" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-top-lex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../outputs_ml/top_words_por_nivel_polarizacion.png" class="img-fluid figure-img" width="1102">
+<div id="fig-autores-scatter" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-autores-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/scatter_actividad_polarizacion_autores.png" class="img-fluid" width="1023" />
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-lex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.10: Top de palabras por nivel de polarización (PNG).
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-autores-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.9: Actividad y polarización de autores (PNG).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Con esto, la tesis queda articulada en las tres dimensiones planteadas: consistencia de medición, modelado de polarización y reconfiguración del antagonismo político.</p>
+<p>La lectura de autores permite evaluar si la hostilidad está concentrada en hiperactivos o distribuida en la masa de usuarios. Este punto es teóricamente relevante porque distingue una polarización sostenida por pocos actores intensivos de una polarización más difusa y ambiental.</p>
+</section>
+</section>
+<section id="espacios-semánticos-acoplados" class="level2" data-number="8.4">
+<h2 data-number="8.4"><span class="header-section-number">8.4</span> 4) Espacios semánticos acoplados</h2>
+<section id="vistas-focales" class="level3">
+<h3>4.1 Vistas focales</h3>
+<p>El objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino <strong>mostrar geometría discursiva</strong>. Para que la lectura sea razonable en HTML y PDF, se privilegian dos vistas estáticas focales y un atlas amplio, en lugar de recursos interactivos difíciles de integrar al manuscrito.</p>
+<div class="column-page">
+<div>
 
-
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div id="fig-3d-cand-v1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-3d-cand-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/3d_candidatos_global_v1.png" class="img-fluid" style="width:100.0%" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-cand-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.10: Espacio semántico global por candidato (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div id="fig-3d-pol-v1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-3d-pol-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/3d_polarizacion_global_v1.png" class="img-fluid" style="width:100.0%" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-pol-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.11: Espacio semántico global por polarización (PNG).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="atlas-integrado" class="level3">
+<h3>4.2 Atlas integrado</h3>
+<div class="column-page">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-3d-atlas-v1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-3d-atlas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../outputs_ml/3d_atlas_v1_todos.png" class="img-fluid" style="width:100.0%" />
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-atlas-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura 8.12: Atlas 3D (vista 1): panel único con todas las figuras <code>*_v1.png</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>El atlas acoplado permite ver qué zonas del espacio semántico aparecen dominadas por determinados candidatos o temas. En este nivel, las figuras no funcionan como “prueba visual” aislada, sino como apoyo geométrico a la interpretación de que ciertos ejes temáticos y ciertos climas hostiles se concentran diferencialmente.</p>
+<blockquote>
+<p>No se reportan aquí los HTML interactivos ni una versión puramente 2D del espacio semántico porque el formato de tesis exige priorizar piezas estáticas legibles, reproducibles y consistentes entre HTML y PDF.</p>
+</blockquote>
+</section>
+</section>
+<section id="cierre-interpretativo" class="level2" data-number="8.5">
+<h2 data-number="8.5"><span class="header-section-number">8.5</span> 5) Cierre interpretativo</h2>
+<p>La lectura conjunta de estas piezas sugiere que la reconfiguración del antagonismo no consiste solo en un cambio de target, sino en una reorganización de <strong>estrategias</strong>, <strong>fronteras</strong> y <strong>marcos</strong>. La confrontación política digital no se expresa únicamente como negatividad, sino como una arquitectura más compleja donde el tipo de enemigo, el tono del ataque y el encuadre del conflicto cambian según coyuntura y candidato.</p>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar-title"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-navbar-title"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-next"><span class="chapter-number">9</span>  <span class="chapter-title">Conclusión</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-prev"><span class="chapter-number">7</span>  <span class="chapter-title">Modelado de Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.htmlDerecha-fragmentada-y-un-enemigo-compartido">Derecha fragmentada y un enemigo compartido</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/01-introduccion.html&lt;span-class=&#39;chapter-number&#39;&gt;1&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Introducción&lt;/span&gt;"><span class="chapter-number">1</span>  <span class="chapter-title">Introducción</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/02-presentacion-problema.html&lt;span-class=&#39;chapter-number&#39;&gt;2&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Presentación-del-Problema&lt;/span&gt;"><span class="chapter-number">2</span>  <span class="chapter-title">Presentación del Problema</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/03-marco.html&lt;span-class=&#39;chapter-number&#39;&gt;3&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Marco-teórico&lt;/span&gt;"><span class="chapter-number">3</span>  <span class="chapter-title">Marco teórico</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/04-diseno.html&lt;span-class=&#39;chapter-number&#39;&gt;4&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Diseño-metodológico&lt;/span&gt;"><span class="chapter-number">4</span>  <span class="chapter-title">Diseño metodológico</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/05-depuracion-datos.html&lt;span-class=&#39;chapter-number&#39;&gt;5&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Depuración-de-Datos&lt;/span&gt;"><span class="chapter-number">5</span>  <span class="chapter-title">Depuración de Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/06-exploracion-datos.html&lt;span-class=&#39;chapter-number&#39;&gt;6&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Exploración-de-Datos&lt;/span&gt;"><span class="chapter-number">6</span>  <span class="chapter-title">Exploración de Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/07-modelado-datos.html&lt;span-class=&#39;chapter-number&#39;&gt;7&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Modelado-de-Datos&lt;/span&gt;"><span class="chapter-number">7</span>  <span class="chapter-title">Modelado de Datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/08-interpretacion-resultados.html&lt;span-class=&#39;chapter-number&#39;&gt;8&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Interpretación-de-Resultados&lt;/span&gt;"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/09-conclusion.html&lt;span-class=&#39;chapter-number&#39;&gt;9&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Conclusión&lt;/span&gt;"><span class="chapter-number">9</span>  <span class="chapter-title">Conclusión</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/references.html&lt;span-class=&#39;chapter-number&#39;&gt;10&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Referencias&lt;/span&gt;"><span class="chapter-number">10</span>  <span class="chapter-title">Referencias</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-breadcrumbs-&lt;span-class=&#39;chapter-number&#39;&gt;8&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Interpretación-de-Resultados&lt;/span&gt;"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-metatitle"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercardtitle"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardtitle"><span class="chapter-number">8</span>  <span class="chapter-title">Interpretación de Resultados</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercarddesc">Tesis para optar al grado de Magíster en Ciencia de Datos.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardddesc">Tesis para optar al grado de Magíster en Ciencia de Datos.</span></p>
+</div>
 </section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1043,20 +1048,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-modelado-datos.html" class="pagination-link" aria-label="Modelado de Datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></span>
+      <a  href="/07-modelado-datos.html" class="pagination-link" aria-label="Modelado de Datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>7</span>  <span class='chapter-title'>Modelado de Datos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09-conclusion.html" class="pagination-link" aria-label="Conclusión">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conclusión</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a  href="/09-conclusion.html" class="pagination-link" aria-label="Conclusión">
+        <span class="nav-page-text"><span class='chapter-number'>9</span>  <span class='chapter-title'>Conclusión</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 
+</body>
 
-
-
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/08-interpretacion-resultados.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+</html>
