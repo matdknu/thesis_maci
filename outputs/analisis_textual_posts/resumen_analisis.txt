@@ -1,0 +1,9 @@
+total_posts: 3856
+total_palabras_unicas: 26108
+promedio_palabras_por_post: 80.086877593361
+mediana_palabras_por_post: 19
+topics_lda: 8
+topics_stm: 6
+posts_positivos: 169
+posts_negativos: 533
+posts_neutrales: 3154

@@ -1,0 +1,9 @@
+tarea,modelo,metrica,valor,mejora_vs_mejor_ind
+regresión,Stacking,R2,0.6455856126650332,0.021651589291646234
+clasificación pol_alta,Stacking,AUC,0.8592571601299781,0.005281493236605428
+regresión,ridge,R2,0.5567921482362915,
+regresión,rf,R2,0.623934023373387,
+regresión,gbm,R2,0.5227636991169811,
+clasificación pol_alta,lr,AUC,0.8107405728103982,
+clasificación pol_alta,rf,AUC,0.8539756668933727,
+clasificación pol_alta,gbm,AUC,0.8348945817274994,

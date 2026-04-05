@@ -1,0 +1,11 @@
+feature,importance_mean,importance_std,r2_drop_mean,interpretacion
+tipo_hilo,0.4976167911871262,0.008793218311807958,-0.4976167911871262,Caída media en R² al permutar (mayor = más importante)
+estrategia_final,0.4461829416817946,0.006266789674244265,-0.4461829416817946,Caída media en R² al permutar (mayor = más importante)
+n_words,0.4455635160132448,0.004806971031173646,-0.4455635160132448,Caída media en R² al permutar (mayor = más importante)
+emocion_final,0.42803948620647336,0.008939411084132945,-0.42803948620647336,Caída media en R² al permutar (mayor = más importante)
+marco_final,0.29737260534808946,0.0055847191163274235,-0.29737260534808946,Caída media en R² al permutar (mayor = más importante)
+n_chars,0.2914795185496759,0.002979870969703218,-0.2914795185496759,Caída media en R² al permutar (mayor = más importante)
+comment_score,0.24635727729449508,0.0032746568482523455,-0.24635727729449508,Caída media en R² al permutar (mayor = más importante)
+frontera_final,0.0995103118147113,0.002278733383737122,-0.0995103118147113,Caída media en R² al permutar (mayor = más importante)
+fase,0.08009266179798374,0.0015221795110779376,-0.08009266179798374,Caída media en R² al permutar (mayor = más importante)
+candidato,0.04410187260268026,0.0014481383191899092,-0.04410187260268026,Caída media en R² al permutar (mayor = más importante)

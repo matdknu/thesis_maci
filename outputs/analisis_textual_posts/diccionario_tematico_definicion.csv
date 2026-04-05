@@ -1,0 +1,9 @@
+id,etiqueta,patron
+tema_democracia,Democracia e instituciones,(?i)democrac|constituci|plebiscit|congreso|senado|diputad|gobierno
+tema_economia,Economía,(?i)econom|impuest|inflaci|empleo|pobreza|precio|\buf\b|ipc|dólar
+tema_seguridad,Seguridad y orden público,(?i)delincuenc|carabin|seguridad|violencia|crimen|narcotr
+tema_salud,Salud,(?i)salud|hospital|fonasa|isapre|pandemia|medic
+tema_educacion,Educación,(?i)educaci|universidad|alumno|profesor|liceo|cruch
+tema_corrupcion,Corrupción,(?i)corrupc|cohecho|soborno|coimas
+tema_migracion,Migración,(?i)migraci|venezol|extranj|frontera|refugiad
+tema_medioambiente,Medio ambiente y recursos,(?i)clima|ambient|contamin|agua|sequ[ií]a|miner[ií]a

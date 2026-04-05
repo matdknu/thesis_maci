@@ -1,0 +1,25 @@
+termino,coef,ci_low,ci_high,p_value
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.ERROR]",0.0012154209054045049,-0.43634070159745253,0.4387715434082615,0.9956556995968578
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.ERROR]",0.002922282454650267,-0.4348351587489543,0.4406797236582548,0.9895598841909692
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.ERROR]",0.0062645233134276945,-0.4311707113410764,0.44369975796793176,0.9776052466789197
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.alegria]",0.04922405282581907,-0.11671971588330005,0.2151678215349382,0.5609467327140939
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.alegria]",0.037676314841959824,-0.14005045397269378,0.21540308365661343,0.6777537160187199
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.alegria]",0.06149849757830138,-0.1028642034829156,0.22586119863951837,0.4633107928003468
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.desprecio]",0.01261768014004924,-0.021610886692931333,0.04684624697302982,0.4699499238796506
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.desprecio]",0.03125970138392055,-0.007851823935450808,0.0703712267032919,0.11722103032959176
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.desprecio]",0.010808719857336412,-0.022193097597952835,0.04381053731262566,0.5208866367924222
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.esperanza]",0.005359594384962911,-0.06787315746071323,0.07859234623063904,0.8859309378518228
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.esperanza]",0.012439941606826536,-0.07626937322803304,0.1011492564416861,0.7834112698936578
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.esperanza]",0.013065288305996407,-0.060727551920110534,0.08685812853210334,0.7285534938684771
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.indignacion]",0.001499532945920496,-0.035082866248344266,0.03808193214018525,0.935960823862645
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.indignacion]",0.017301185500439797,-0.02520399979498949,0.059806370795869084,0.42496296062203803
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.indignacion]",0.026483650978597124,-0.008522823042996557,0.061490125000190805,0.13811622114280256
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.ira]",-0.021463691728273365,-0.1722627595383807,0.12933537608183396,0.7802498881795509
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.ira]",-0.08997973215879468,-0.24427694839264943,0.06431748407506008,0.25302169879148817
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.ira]",-0.04582360662777257,-0.18991366423409017,0.09826645097854503,0.5330468637750903
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.ironia]",0.008590883273791252,-0.03232188236932407,0.049503648916906576,0.6806390190153356
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.ironia]",-0.016042461239517213,-0.06246996686673331,0.030385044387698887,0.4982169333697684
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.ironia]",-0.013063572557320935,-0.05216948144973631,0.026042336335094438,0.5126010570160492
+"C(candidato, Treatment('matthei'))[T.jara]:C(emocion_final, Treatment('ninguna'))[T.miedo]",0.022665087833742256,-0.03630225593136803,0.08163243159885254,0.4512062711408146
+"C(candidato, Treatment('matthei'))[T.kaiser]:C(emocion_final, Treatment('ninguna'))[T.miedo]",0.013365437129403954,-0.05216980341667024,0.07890067767547815,0.6893358526372988
+"C(candidato, Treatment('matthei'))[T.kast]:C(emocion_final, Treatment('ninguna'))[T.miedo]",0.04781815016607414,-0.007512748528719804,0.10314904886086808,0.09028745735485598

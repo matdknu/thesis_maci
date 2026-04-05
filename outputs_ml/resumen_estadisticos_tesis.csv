@@ -1,0 +1,5 @@
+bloque,analisis,modelo,valor,estadistico,p_value,efecto
+ML,Sentimiento auxiliar,LogReg,0.571262880819741,,,
+ML,Mejor polarizacion,RandomForest,0.08375087193239066,,,
+A1,Kruskal polarizacion por candidato,,,78.94470495703594,5.16864896725146e-17,0.007411408700793982
+3D,n_proyeccion_global,svd50_pca3,5960.0,,,

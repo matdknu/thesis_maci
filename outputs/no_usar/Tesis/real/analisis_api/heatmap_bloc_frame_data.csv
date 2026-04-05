@@ -1,0 +1,30 @@
+oa_from_bloc,oa_frame,n,p_frame_given_bloc,total_bloc
+Republican right,anti-communism,3,0.04838709677419355,62
+Republican right,debate-politico,3,0.04838709677419355,62
+Republican right,historical-memory/dictatorship,2,0.03225806451612903,62
+Republican right,immigration,11,0.1774193548387097,62
+Republican right,other,8,0.12903225806451613,62
+Republican right,political-strategy/media,23,0.3709677419354839,62
+Republican right,security/crime,8,0.12903225806451613,62
+Republican right,social-rights,3,0.04838709677419355,62
+Traditional right,debate-politico,2,0.4,5
+left/no-PC,anti-communism,2,0.017857142857142856,112
+left/no-PC,corruption/elite,2,0.017857142857142856,112
+left/no-PC,debate-politico,10,0.08928571428571429,112
+left/no-PC,democracy/institutions,2,0.017857142857142856,112
+left/no-PC,economy,10,0.08928571428571429,112
+left/no-PC,historical-memory/dictatorship,15,0.13392857142857142,112
+left/no-PC,human-rights/violence,2,0.017857142857142856,112
+left/no-PC,immigration,4,0.03571428571428571,112
+left/no-PC,other,10,0.08928571428571429,112
+left/no-PC,political-strategy/media,34,0.30357142857142855,112
+left/no-PC,protest/estallido-octubrismo,4,0.03571428571428571,112
+left/no-PC,public-services/state,3,0.026785714285714284,112
+left/no-PC,security/crime,4,0.03571428571428571,112
+left/no-PC,social-rights,5,0.044642857142857144,112
+other-unclear,debate-politico,6,0.10344827586206896,58
+other-unclear,economy,3,0.05172413793103448,58
+other-unclear,fact-checking/clarification,2,0.034482758620689655,58
+other-unclear,immigration,2,0.034482758620689655,58
+other-unclear,other,18,0.3103448275862069,58
+other-unclear,political-strategy/media,24,0.41379310344827586,58

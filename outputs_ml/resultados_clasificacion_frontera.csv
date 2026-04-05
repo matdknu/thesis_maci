@@ -1,0 +1,13 @@
+modelo,accuracy,f1_macro,clase,f1
+LogReg,0.7521951219512195,0.7245259162236405,,
+LogReg,,,inter_bloque,0.8362196932211776
+LogReg,,,intra_bloque,0.6629055007052186
+LogReg,,,ninguna,0.6744525547445256
+LogReg,,,macro avg,0.7245259162236405
+LogReg,,,weighted avg,0.7577836804906248
+RandomForest,0.7546341463414634,0.7183952714031152,,
+RandomForest,,,inter_bloque,0.8450046685340803
+RandomForest,,,intra_bloque,0.653125
+RandomForest,,,ninguna,0.6570561456752656
+RandomForest,,,macro avg,0.7183952714031152
+RandomForest,,,weighted avg,0.755493439443088

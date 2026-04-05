@@ -1,0 +1,36 @@
+script,analisis,modelo,tarea,metrica_principal,valor,n_obs,interpretacion_teorica
+09,ML1 OLS polarización,OLS,regresión,R2_ajustado,0.3233,10251,Modelo interpretable base para efectos discursivos sobre polarización.
+09,ML3 ROC polarización alta,LogReg,clasificación,AUC,0.8107,10251,Comparación de capacidad discriminativa para polarización alta.
+09,ML3 ROC polarización alta,RandomForest,clasificación,AUC,0.8557,10251,Comparación de capacidad discriminativa para polarización alta.
+09,ML3 ROC polarización alta,GBM,clasificación,AUC,0.8324,10251,Comparación de capacidad discriminativa para polarización alta.
+09,ML7 validación cruzada,Ridge,regresión polarización,MAE,0.0984 ± 0.0010,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,Ridge,regresión polarización,R2,0.5527 ± 0.0055,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,RandomForest,regresión polarización,MAE,0.0842 ± 0.0012,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,RandomForest,regresión polarización,R2,0.6187 ± 0.0064,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,GBM,regresión polarización,MAE,0.1078 ± 0.0016,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,GBM,regresión polarización,R2,0.4737 ± 0.0109,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,RandomForest,clasificación pol. alta,f1_macro,0.6926 ± 0.0029,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML7 validación cruzada,RandomForest,clasificación pol. alta,roc_auc,0.8516 ± 0.0039,10251,Estabilidad fuera de muestra del rendimiento del modelo.
+09,ML5 clustering perfiles,KMeans,clustering,n_clusters,3,10251,Perfiles discursivos recurrentes de hostilidad y conflicto.
+09,ML6 emoción multinomial,LogisticRegression,multiclase,F1_macro,0.4319,10251,"Predicción multiclase de emoción desde marco, estrategia y candidato."
+10,A1 moderador candidato×emoción,OLS,regresión,min_p_interacción,0.0903,10251,Evalúa si una misma emoción cambia de intensidad según el target político.
+10,A2 estrategia discursiva,LogReg,multiclase,F1_macro,0.5267,8689,Huella léxica de estrategias adversariales.
+10,A2 estrategia discursiva,RandomForest,multiclase,F1_macro,0.5731,8689,Huella léxica de estrategias adversariales.
+10,A2 estrategia discursiva,GBM,multiclase,F1_macro,0.4525,8689,Huella léxica de estrategias adversariales.
+10,A3 texto vs LLM vs combinado,RandomForest,regresión,R2_A_TF-IDF,0.4316 ± 0.0272,10251,"Compara el valor predictivo del texto, variables LLM y su combinación."
+10,A3 texto vs LLM vs combinado,RandomForest,regresión,R2_B_LLM,0.5539 ± 0.0095,10251,"Compara el valor predictivo del texto, variables LLM y su combinación."
+10,A3 texto vs LLM vs combinado,RandomForest,regresión,R2_C_combinado,0.6184 ± 0.0068,10251,"Compara el valor predictivo del texto, variables LLM y su combinación."
+10,A4 calibración,RandomForest,clasificación,Brier_despues,0.1119,10251,Confiabilidad probabilística del clasificador de polarización alta.
+10,A4 calibración,GBM,clasificación,Brier_despues,0.1131,10251,Confiabilidad probabilística del clasificador de polarización alta.
+10,A4 calibración,LogReg,clasificación,Brier_despues,0.1215,10251,Confiabilidad probabilística del clasificador de polarización alta.
+10,A6 frontera política,LogReg,multiclase,F1_macro,0.7245,10247,Capacidad de recuperar frontera política desde el texto.
+10,A6 frontera política,RandomForest,multiclase,F1_macro,0.7184,10247,Capacidad de recuperar frontera política desde el texto.
+10,A7 stacking,Stacking,regresión,R2,0.6456,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,Stacking,clasificación pol_alta,AUC,0.8593,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,ridge,regresión,R2,0.5568,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,rf,regresión,R2,0.6239,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,gbm,regresión,R2,0.5228,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,lr,clasificación pol_alta,AUC,0.8107,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,rf,clasificación pol_alta,AUC,0.8540,10251,Ceiling performance al combinar modelos base.
+10,A7 stacking,gbm,clasificación pol_alta,AUC,0.8349,10251,Ceiling performance al combinar modelos base.
+10,A9 autores recurrentes,Kruskal-Wallis + descriptivos,comparación grupos,n_autores,3280,8984,Concentración o difusión de la hostilidad según actividad de usuarios.

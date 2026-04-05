@@ -1,0 +1,24 @@
+from,to,n,us_vs_them_weight,us_vs_them_share,mean_intensity
+Left-PC,Kaiser,2,2,1,5
+Left-PC,Kast,2,2,1,5
+Libertarian right,Kaiser,1,0,0,3
+Republican right,Jara,10,9,0.9,3.9
+Republican right,Kaiser,7,7,1,3.4285714285714284
+Republican right,Kast,41,30,0.7317073170731707,3.048780487804878
+Republican right,Matthei,2,2,1,3
+Republican right,Multiple,1,1,1,5
+Republican right,Other,1,0,0,2
+Traditional right,Kaiser,2,1,0.5,3
+Traditional right,Kast,1,1,1,3
+Traditional right,Matthei,2,1,0.5,3
+left/no-PC,Jara,37,30,0.8108108108108109,3.108108108108108
+left/no-PC,Kaiser,17,14,0.8235294117647058,3.4705882352941178
+left/no-PC,Kast,59,52,0.8813559322033898,3.440677966101695
+left/no-PC,Matthei,5,4,0.8,3.2
+left/no-PC,Multiple,1,1,1,4
+other-unclear,Jara,15,0,0,1.8
+other-unclear,Kaiser,4,2,0.5,2.5
+other-unclear,Kast,22,3,0.13636363636363635,1.7727272727272727
+other-unclear,Matthei,3,1,0.3333333333333333,2
+other-unclear,Multiple,11,0,0,1.6363636363636365
+other-unclear,Other,3,0,0,1.6666666666666667

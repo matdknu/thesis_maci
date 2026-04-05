@@ -1,0 +1,9 @@
+modelo,tarea,metrica,mean,std
+Ridge,regresión polarización,MAE,0.09839487840235721,0.0009694984383956768
+Ridge,regresión polarización,R2,0.5526655777006513,0.0055225403788984944
+RandomForest,regresión polarización,MAE,0.08418100887451288,0.0012329153991266608
+RandomForest,regresión polarización,R2,0.6186716097334537,0.0064123220668036544
+GBM,regresión polarización,MAE,0.10783379884985797,0.0015722260735906027
+GBM,regresión polarización,R2,0.473690843826993,0.010942252091878652
+RandomForest,clasificación pol. alta,f1_macro,0.6925961739296576,0.002885305755666527
+RandomForest,clasificación pol. alta,roc_auc,0.851637169382359,0.003919109969237094

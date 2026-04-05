@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-01-11">
+    <creator>NetworkX 3.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="author" type="string" />
+      <attribute id="1" title="stance" type="string" />
+      <attribute id="2" title="score" type="long" />
+      <attribute id="3" title="body" type="string" />
+    </attributes>
+    <nodes>
+      <node id="post_t3_pres2025" label="post_t3_pres2025">
+        <attvalues>
+          <attvalue for="0" value="OP_mod" />
+          <attvalue for="1" value="neutral" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="¿Qué opinan de que la candidata comunista ahora se declare socialdemócrata? ¿Giro real o puro cálculo?" />
+        </attvalues>
+      </node>
+      <node id="c01" label="c01">
+        <attvalues>
+          <attvalue for="0" value="RadRight_Rafa" />
+          <attvalue for="1" value="radical_right" />
+          <attvalue for="2" value="70" />
+          <attvalue for="3" value="Aunque los comunistas chilenos siempre han apoyado su democracia, se declaran marxistas revolucionarios&quot;.. Lo que es contradictorio.&quot;" />
+        </attvalues>
+      </node>
+      <node id="c02" label="c02">
+        <attvalues>
+          <attvalue for="0" value="Left_Lina" />
+          <attvalue for="1" value="left" />
+          <attvalue for="2" value="62" />
+          <attvalue for="3" value="Comunistas de mierda son expertos en camuflarse, no hay que creerles nunca." />
+        </attvalues>
+      </node>
+      <node id="c03" label="c03">
+        <attvalues>
+          <attvalue for="0" value="LibRight_Luca" />
+          <attvalue for="1" value="libertarian_right" />
+          <attvalue for="2" value="58" />
+          <attvalue for="3" value="Socialdemocráta y comunista ¿Lo mismo no?" />
+        </attvalues>
+      </node>
+      <node id="c04" label="c04">
+        <attvalues>
+          <attvalue for="0" value="Civil_Cami" />
+          <attvalue for="1" value="neutral" />
+          <attvalue for="2" value="40" />
+          <attvalue for="3" value="El partido comunista siempre ha defendido la democracia, no como los fascistas chilenos amigos de los gringos." />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="c01" target="post_t3_pres2025" id="0" />
+      <edge source="c02" target="c01" id="1" />
+      <edge source="c03" target="c02" id="2" />
+      <edge source="c04" target="c02" id="3" />
+    </edges>
+  </graph>
+</gexf>

@@ -1,0 +1,9 @@
+Modelo,Tarea,Variables_usadas,Metrica_principal,Valor_mean_std,Interpretacion
+Ridge,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),MAE,0.0984 ± 0.0010,Estabilidad predictiva de polarización en regresión
+Ridge,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),R2,0.5527 ± 0.0055,Estabilidad predictiva de polarización en regresión
+RandomForest,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),MAE,0.0842 ± 0.0012,Estabilidad predictiva de polarización en regresión
+RandomForest,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),R2,0.6187 ± 0.0064,Estabilidad predictiva de polarización en regresión
+GBM,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),MAE,0.1078 ± 0.0016,Estabilidad predictiva de polarización en regresión
+GBM,regresión polarización,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),R2,0.4737 ± 0.0109,Estabilidad predictiva de polarización en regresión
+RandomForest,clasificación pol. alta,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),f1_macro,0.6926 ± 0.0029,Robustez del detector de polarización alta
+RandomForest,clasificación pol. alta,TF-IDF + categóricas + numéricas (reg.) o solo discursivas (clf.),roc_auc,0.8516 ± 0.0039,Robustez del detector de polarización alta

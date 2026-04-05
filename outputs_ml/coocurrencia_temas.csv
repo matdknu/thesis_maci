@@ -1,0 +1,12 @@
+tema,economia,seguridad,democracia,moral,identidad,campana_electoral,migracion,pinochet_ddhh,venezuela_latam,medios_fakenews,religion_valvores
+economia,626,62,71,38,80,173,40,50,69,24,66
+seguridad,62,420,74,29,83,110,164,50,49,26,38
+democracia,71,74,1223,188,267,877,49,213,183,54,77
+moral,38,29,188,420,100,137,16,295,58,22,82
+identidad,80,83,267,100,1165,466,29,136,241,68,132
+campana_electoral,173,110,877,137,466,2217,72,182,452,112,134
+migracion,40,164,49,16,29,72,270,22,38,13,16
+pinochet_ddhh,50,50,213,295,136,182,22,560,78,26,51
+venezuela_latam,69,49,183,58,241,452,38,78,714,31,47
+medios_fakenews,24,26,54,22,68,112,13,26,31,320,79
+religion_valvores,66,38,77,82,132,134,16,51,47,79,442
