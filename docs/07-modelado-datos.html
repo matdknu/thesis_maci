@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#clasificación-de-polarización-alta" id="toc-clasificación-de-polarización-alta" class="nav-link" data-scroll-target="#clasificación-de-polarización-alta">2.4 Clasificación de polarización alta</a></li>
   <li><a href="#estrategia-frontera-perfiles-y-errores" id="toc-estrategia-frontera-perfiles-y-errores" class="nav-link" data-scroll-target="#estrategia-frontera-perfiles-y-errores">2.5 Estrategia, frontera, perfiles y errores</a></li>
   </ul></li>
-  <li><a href="#notas-de-alcance-del-capítulo" id="toc-notas-de-alcance-del-capítulo" class="nav-link" data-scroll-target="#notas-de-alcance-del-capítulo"><span class="header-section-number">7.3</span> 3) Notas de alcance del capítulo</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">7.3</span> </a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/07-modelado-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -245,9 +245,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Este capítulo presenta el bloque técnico central de la tesis. Los resultados se organizan en tres niveles de relevancia editorial:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 23%">
+<col style="width: 45%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -259,12 +259,12 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>Tier 1 — Núcleo metodológico-sustantivo</strong></td>
-<td>Tabla 7.3 (R² por fuente), Figura 7.2 (OLS), Figura 7.3 (permutación), Tabla 7.9 (frontera), Tabla 7.10 (KMeans)</td>
+<td><a href="#fig-r2-configuraciones" class="quarto-xref">Figura&nbsp;<span>7.1</span></a>, <a href="#fig-coefplot" class="quarto-xref">Figura&nbsp;<span>7.3</span></a>, <a href="#fig-perm" class="quarto-xref">Figura&nbsp;<span>7.4</span></a>, frontera política, perfiles KMeans</td>
 <td>Responden directamente las preguntas de investigación</td>
 </tr>
 <tr class="even">
 <td><strong>Tier 2 — Resultados de refuerzo</strong></td>
-<td>Figura 7.5 (ROC), Figura 7.4 (SHAP), Tabla 8.1 (estrategia × frontera), Tabla 8.4 (transiciones), Tabla 7.8 (estrategias)</td>
+<td><a href="#fig-roc" class="quarto-xref">Figura&nbsp;<span>7.6</span></a>, <a href="#fig-shap" class="quarto-xref">Figura&nbsp;<span>7.5</span></a>, estrategia × frontera, transiciones, estrategias discursivas</td>
 <td>Refuerzan o matizan el núcleo</td>
 </tr>
 <tr class="odd">
@@ -274,8 +274,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>El <strong>núcleo metodológico-sustantivo</strong> (Tier 1) comprende cinco outputs que responden directamente las preguntas de investigación: la comparación de R² por fuente de información (Tabla 7.3), que justifica el sistema LLM dual al demostrar que las variables discursivas aportan varianza no recuperable desde el texto crudo; el modelo OLS interpretable (Figura 7.2), que cuantifica el efecto de cada variable discursiva sobre la polarización y establece que el candidato como target no tiene efecto significativo (β ≈ 0) mientras que la ira sí lo tiene (β = 0.369); la importancia por permutación (Figura 7.3), que confirma ese resultado desde una perspectiva no paramétrica y revela que el tipo de hilo supera al candidato como predictor; la clasificación de frontera política (F1-macro = 0.725, Tabla 7.9), que operacionaliza computacionalmente el concepto teórico de frontera política (Mouffe, 2005); y los perfiles discursivos KMeans K=3 (Tabla 7.10), que identifican tres configuraciones recurrentes con interpretación teórica directa.</p>
-<p>Un <strong>segundo nivel</strong> incluye resultados que refuerzan o matizan el núcleo: las curvas ROC para polarización alta (Figura 7.5), el SHAP summary plot (Figura 7.4), la distribución de estrategias por frontera (Tabla 8.1), las transiciones de autores (Tabla 8.4) y la clasificación multiclase de estrategia discursiva (Tabla 7.8).</p>
+<p>El <strong>núcleo metodológico-sustantivo</strong> (Tier 1) comprende cinco outputs que responden directamente las preguntas de investigación: la comparación de R² por fuente de información (<a href="#fig-r2-configuraciones" class="quarto-xref">Figura&nbsp;<span>7.1</span></a>), que justifica el sistema LLM dual al demostrar que las variables discursivas aportan varianza no recuperable desde el texto crudo; el modelo OLS interpretable (<a href="#fig-coefplot" class="quarto-xref">Figura&nbsp;<span>7.3</span></a>), que cuantifica el efecto de cada variable discursiva sobre la polarización y establece que el candidato como target no tiene efecto significativo (β ≈ 0) mientras que la ira sí lo tiene (β = 0.369); la importancia por permutación (<a href="#fig-perm" class="quarto-xref">Figura&nbsp;<span>7.4</span></a>), que confirma ese resultado desde una perspectiva no paramétrica y revela que el tipo de hilo supera al candidato como predictor; la clasificación de frontera política (F1-macro = 0.725), que operacionaliza computacionalmente el concepto teórico de frontera política (Mouffe, 2005); y los perfiles discursivos KMeans K=3, que identifican tres configuraciones recurrentes con interpretación teórica directa.</p>
+<p>Un <strong>segundo nivel</strong> incluye resultados que refuerzan o matizan el núcleo: las curvas ROC para polarización alta (<a href="#fig-roc" class="quarto-xref">Figura&nbsp;<span>7.6</span></a>), el gráfico SHAP (<a href="#fig-shap" class="quarto-xref">Figura&nbsp;<span>7.5</span></a>), la distribución de estrategias por frontera, las transiciones de autores y la clasificación multiclase de estrategia discursiva.</p>
 <p>Los outputs de <strong>estabilidad y techo predictivo</strong> —validación cruzada de cinco pliegues, análisis de errores sistemáticos, calibración probabilística, stacking ensemble y visualizaciones 3D— se presentan en las secciones correspondientes como evidencia de robustez sin modificar la lectura interpretativa principal.</p>
 <section id="consistencia-de-medición" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="consistencia-de-medición"><span class="header-section-number">7.1</span> 1) Consistencia de medición</h2>
@@ -285,66 +285,51 @@ ul.task-list li input[type="checkbox"] {
 <div id="tbl-acuerdo-anotadores" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-acuerdo-anotadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;7.1: Acuerdo entre los dos sistemas de anotación automatizada por dimensión de codificación.
+Tabla&nbsp;7.1: Acuerdo entre ambos sistemas de anotación automatizada por dimensión.
 </figcaption>
 <div aria-describedby="tbl-acuerdo-anotadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Dimensión</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Dim.</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Métrica</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Valor</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Acuerdo exacto (donde aplica)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Est.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Coinc.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">polarizacion</td>
+<td style="text-align: left;">Polarización</td>
 <td style="text-align: right;">7946</td>
-<td style="text-align: right;">correlacion_pearson</td>
-<td style="text-align: right;">0.665</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">r = 0.665</td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">marco</td>
+<td style="text-align: left;">Marco</td>
 <td style="text-align: right;">7948</td>
-<td style="text-align: right;">kappa</td>
-<td style="text-align: right;">0.136</td>
+<td style="text-align: right;">κ = 0.136</td>
 <td style="text-align: right;">0.450</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">emocion</td>
+<td style="text-align: left;">Emoción</td>
 <td style="text-align: right;">7948</td>
-<td style="text-align: right;">kappa</td>
-<td style="text-align: right;">0.076</td>
+<td style="text-align: right;">κ = 0.076</td>
 <td style="text-align: right;">0.423</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">estrategia</td>
+<td style="text-align: left;">Estrategia</td>
 <td style="text-align: right;">7948</td>
-<td style="text-align: right;">kappa</td>
-<td style="text-align: right;">0.126</td>
+<td style="text-align: right;">κ = 0.126</td>
 <td style="text-align: right;">0.612</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">frontera</td>
+<td style="text-align: left;">Frontera</td>
 <td style="text-align: right;">7948</td>
-<td style="text-align: right;">kappa</td>
-<td style="text-align: right;">-0.146</td>
+<td style="text-align: right;">κ = -0.146</td>
 <td style="text-align: right;">0.572</td>
 </tr>
-</tbody><tfoot>
-<tr class="even">
-<td style="text-align: right; padding: 0;"><span style="font-style: italic;">Nota.</span> <sup></sup> Polarización: correlación de Pearson entre puntuaciones OA y DS. Resto: kappa y proporción de coincidencia exacta.</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-</tfoot>
-
+</tbody>
 </table>
 
 
@@ -389,7 +374,7 @@ Figura&nbsp;7.1: Comparación de R² según fuente de información. Las barras d
 <img src="../../outputs_ml/reliability_diagram_calibracion.png" class="img-fluid figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reliability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.2: Diagrama de calibración para polarización alta (PNG).
+Figura&nbsp;7.2: Calibración del clasificador de polarización alta.
 </figcaption>
 </figure>
 </div>
@@ -462,153 +447,143 @@ Tabla&nbsp;7.2: Comparación de modelos de regresión para polarización.
 <div id="tbl-ols-polarizacion" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ols-polarizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;7.3: Regresión lineal (OLS): coeficientes no estandarizados B e intervalos de confianza del 95 % para términos con p
+Tabla&nbsp;7.3: Modelo OLS para polarización: 15 términos significativos con mayor magnitud.
 </figcaption>
 <div aria-describedby="tbl-ols-polarizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Término (vs. categorías de referencia)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Grupo</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Nivel</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">IC 95% inferior</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">IC 95% superior</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">IC95% inf.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">IC95% sup.</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">C(emocion_final, Treatment('ninguna'))[T.ira]</td>
-<td style="text-align: right;">emocion_final: ira</td>
+<td style="text-align: left;">Emo.</td>
+<td style="text-align: left;">ira</td>
 <td style="text-align: right;">0.3687</td>
 <td style="text-align: right;">0.3415</td>
 <td style="text-align: right;">0.3960</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(estrategia_final, Treatment('ninguna'))[T.ridiculizacion]</td>
-<td style="text-align: right;">estrategia_final: ridiculizacion</td>
+<td style="text-align: left;">Estrat.</td>
+<td style="text-align: left;">ridiculización</td>
 <td style="text-align: right;">0.1741</td>
 <td style="text-align: right;">0.1619</td>
 <td style="text-align: right;">0.1863</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(estrategia_final, Treatment('ninguna'))[T.construccion_amenaza]</td>
-<td style="text-align: right;">estrategia_final: construccion_amenaza</td>
+<td style="text-align: left;">Estrat.</td>
+<td style="text-align: left;">amenaza</td>
 <td style="text-align: right;">0.1342</td>
 <td style="text-align: right;">0.1174</td>
 <td style="text-align: right;">0.1510</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(estrategia_final, Treatment('ninguna'))[T.esencializacion]</td>
-<td style="text-align: right;">estrategia_final: esencializacion</td>
+<td style="text-align: left;">Estrat.</td>
+<td style="text-align: left;">esencialización</td>
 <td style="text-align: right;">0.1333</td>
 <td style="text-align: right;">0.1163</td>
 <td style="text-align: right;">0.1504</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(estrategia_final, Treatment('ninguna'))[T.deslegitimacion]</td>
-<td style="text-align: right;">estrategia_final: deslegitimacion</td>
+<td style="text-align: left;">Estrat.</td>
+<td style="text-align: left;">deslegitimación</td>
 <td style="text-align: right;">0.1260</td>
 <td style="text-align: right;">0.1129</td>
 <td style="text-align: right;">0.1392</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(estrategia_final, Treatment('ninguna'))[T.atribucion_oculta]</td>
-<td style="text-align: right;">estrategia_final: atribucion_oculta</td>
+<td style="text-align: left;">Estrat.</td>
+<td style="text-align: left;">atrib. oculta</td>
 <td style="text-align: right;">0.1190</td>
 <td style="text-align: right;">0.1010</td>
 <td style="text-align: right;">0.1371</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(emocion_final, Treatment('ninguna'))[T.desprecio]</td>
-<td style="text-align: right;">emocion_final: desprecio</td>
+<td style="text-align: left;">Emo.</td>
+<td style="text-align: left;">desprecio</td>
 <td style="text-align: right;">0.0980</td>
 <td style="text-align: right;">0.0863</td>
 <td style="text-align: right;">0.1097</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(tipo_hilo, Treatment('solo_izquierda'))[T.mixto]</td>
-<td style="text-align: right;">tipo_hilo: mixto</td>
+<td style="text-align: left;">Hilo</td>
+<td style="text-align: left;">mixto</td>
 <td style="text-align: right;">-0.0890</td>
 <td style="text-align: right;">-0.1003</td>
 <td style="text-align: right;">-0.0778</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(emocion_final, Treatment('ninguna'))[T.indignacion]</td>
-<td style="text-align: right;">emocion_final: indignacion</td>
+<td style="text-align: left;">Emo.</td>
+<td style="text-align: left;">indignación</td>
 <td style="text-align: right;">0.0871</td>
 <td style="text-align: right;">0.0743</td>
 <td style="text-align: right;">0.0998</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(marco_final, Treatment('otro'))[T.identitario]</td>
-<td style="text-align: right;">marco_final: identitario</td>
+<td style="text-align: left;">Marco</td>
+<td style="text-align: left;">identitario</td>
 <td style="text-align: right;">-0.0535</td>
 <td style="text-align: right;">-0.0688</td>
 <td style="text-align: right;">-0.0382</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(marco_final, Treatment('otro'))[T.economico]</td>
-<td style="text-align: right;">marco_final: economico</td>
+<td style="text-align: left;">Marco</td>
+<td style="text-align: left;">económico</td>
 <td style="text-align: right;">-0.0368</td>
 <td style="text-align: right;">-0.0582</td>
 <td style="text-align: right;">-0.0154</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(tipo_hilo, Treatment('solo_izquierda'))[T.solo_derecha_multiple]</td>
-<td style="text-align: right;">tipo_hilo: solo_derecha_multiple</td>
+<td style="text-align: left;">Hilo</td>
+<td style="text-align: left;">der. múltiple</td>
 <td style="text-align: right;">-0.0363</td>
 <td style="text-align: right;">-0.0550</td>
 <td style="text-align: right;">-0.0176</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(marco_final, Treatment('otro'))[T.diagnostico]</td>
-<td style="text-align: right;">marco_final: diagnostico</td>
+<td style="text-align: left;">Marco</td>
+<td style="text-align: left;">diagnóstico</td>
 <td style="text-align: right;">-0.0347</td>
 <td style="text-align: right;">-0.0460</td>
 <td style="text-align: right;">-0.0235</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">C(marco_final, Treatment('otro'))[T.moral]</td>
-<td style="text-align: right;">marco_final: moral</td>
+<td style="text-align: left;">Marco</td>
+<td style="text-align: left;">moral</td>
 <td style="text-align: right;">0.0285</td>
 <td style="text-align: right;">0.0166</td>
 <td style="text-align: right;">0.0404</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">C(frontera_final, Treatment('ninguna'))[T.inter_bloque]</td>
-<td style="text-align: right;">frontera_final: inter_bloque</td>
+<td style="text-align: left;">Front.</td>
+<td style="text-align: left;">inter-bloque</td>
 <td style="text-align: right;">0.0269</td>
 <td style="text-align: right;">0.0178</td>
 <td style="text-align: right;">0.0361</td>
 <td style="text-align: right;">&lt; .001</td>
 </tr>
-</tbody><tfoot>
-<tr class="even">
-<td style="text-align: right; padding: 0;"><span style="font-style: italic;">Nota.</span> <sup></sup> Modelo OLS: polarización consensuada ~ marcos, emociones, estrategias, fronteras, candidato, fase electoral, tipo de hilo y karma (centrado). Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento, hilo solo izquierda. Se listan los 15 términos significativos con mayor |B| (excluido el intercepto). N = 10.251, R² ajustado = 0.323.</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-</tfoot>
-
+</tbody>
 </table>
 
 
@@ -625,7 +600,7 @@ Tabla&nbsp;7.3: Regresión lineal (OLS): coeficientes no estandarizados B e inte
 <img src="../../outputs_ml/coefplot_ols_polarizacion.png" class="img-fluid figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.3: Coefficient plot del modelo OLS para polarización (PNG).
+Figura&nbsp;7.3: Coeficientes del modelo OLS para polarización.
 </figcaption>
 </figure>
 </div>
@@ -643,7 +618,7 @@ Figura&nbsp;7.3: Coefficient plot del modelo OLS para polarización (PNG).
 <img src="../../outputs_ml/permutation_importance_polarizacion.png" class="img-fluid figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.4: Importancia por permutación para el modelo de polarización (PNG).
+Figura&nbsp;7.4: Importancia por permutación en el modelo de polarización.
 </figcaption>
 </figure>
 </div>
@@ -657,7 +632,7 @@ Figura&nbsp;7.4: Importancia por permutación para el modelo de polarización (P
 <img src="../../outputs_ml/shap_summary_polarizacion.png" class="img-fluid figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.5: SHAP summary plot para el modelo de polarización (PNG).
+Figura&nbsp;7.5: Resumen SHAP del modelo de polarización.
 </figcaption>
 </figure>
 </div>
@@ -675,7 +650,7 @@ Figura&nbsp;7.5: SHAP summary plot para el modelo de polarización (PNG).
 <img src="../../outputs_ml/roc_curves_polarizacion_alta.png" class="img-fluid figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.6: Curvas ROC para clasificación de polarización alta (PNG).
+Figura&nbsp;7.6: Curvas ROC para la clasificación de polarización alta.
 </figcaption>
 </figure>
 </div>
@@ -690,17 +665,8 @@ Figura&nbsp;7.6: Curvas ROC para clasificación de polarización alta (PNG).
 <p>En síntesis, estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. K-means indica que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores delimita dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.</p>
 </section>
 </section>
-<section id="notas-de-alcance-del-capítulo" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="notas-de-alcance-del-capítulo"><span class="header-section-number">7.3</span> 3) Notas de alcance del capítulo</h2>
-<blockquote class="blockquote">
-<p>No se reporta aquí el análisis de sentimiento como eje principal porque, en esta tesis, el sentimiento opera sobre todo como <strong>input auxiliar del sistema de medición</strong> y no como output sustantivo central.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>No se incorpora como resultado principal el clustering directo sobre TF-IDF cuando la separación resulta demasiado débil para sostener inferencia sustantiva; por esa razón, el capítulo privilegia perfiles construidos sobre variables discursivas más interpretables.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Tampoco se reportan aquí las visualizaciones 3D como hallazgo principal del bloque técnico. Esas figuras se trasladan al capítulo siguiente, donde cumplen una función interpretativa y no meramente demostrativa.</p>
-</blockquote>
+<section id="section" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="section"><span class="header-section-number">7.3</span> </h2>
 
 
 </section>

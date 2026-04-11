@@ -1,0 +1,35 @@
+# macOS / RStudio cruft
+.DS_Store
+.RData
+.RDataTmp
+.Rhistory
+.Rproj.user/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Datos brutos y procesados (no versionar)
+data/raw/
+data/processed/
+data/**/*.csv
+data/**/*.parquet
+data/**/*.rds
+data/**/*.xlsx
+data/**/*.numbers
+
+# Backups y artefactos temporales
+backups/
+scripts/analisis/__pycache__/
+scripts/analisis/*.pyc
+
+# Cachés de Quarto/knitr (no afectan al PDF final)
+documents/tesis_book/_freeze/
+documents/tesis_book/.quarto/
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata

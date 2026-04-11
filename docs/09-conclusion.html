@@ -186,8 +186,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#síntesis-de-hallazgos" id="toc-síntesis-de-hallazgos" class="nav-link active" data-scroll-target="#síntesis-de-hallazgos"><span class="header-section-number">9.1</span> 9.1 Síntesis de hallazgos</a></li>
+  <li><a href="#implicaciones-teóricas" id="toc-implicaciones-teóricas" class="nav-link" data-scroll-target="#implicaciones-teóricas"><span class="header-section-number">9.2</span> 9.2 Implicaciones teóricas</a></li>
+  <li><a href="#implicaciones-prácticas" id="toc-implicaciones-prácticas" class="nav-link" data-scroll-target="#implicaciones-prácticas"><span class="header-section-number">9.3</span> 9.3 Implicaciones prácticas</a></li>
+  <li><a href="#limitaciones" id="toc-limitaciones" class="nav-link" data-scroll-target="#limitaciones"><span class="header-section-number">9.4</span> 9.4 Limitaciones</a></li>
+  <li><a href="#futuras-investigaciones" id="toc-futuras-investigaciones" class="nav-link" data-scroll-target="#futuras-investigaciones"><span class="header-section-number">9.5</span> 9.5 Futuras investigaciones</a></li>
+  <li><a href="#reflexión-final" id="toc-reflexión-final" class="nav-link" data-scroll-target="#reflexión-final"><span class="header-section-number">9.6</span> 9.6 Reflexión final</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/09-conclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -218,9 +229,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[Contenido de la conclusión]</p>
+<section id="síntesis-de-hallazgos" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="síntesis-de-hallazgos"><span class="header-section-number">9.1</span> 9.1 Síntesis de hallazgos</h2>
+<ul>
+<li><strong>H1 — Contribución metodológica (LLM dual).</strong> El sistema de doble clasificación demostró que las variables discursivas estructuradas aportan varianza propia (R²=+0.122 sobre texto puro) y no son una mera recodificación del texto crudo.</li>
+<li><strong>H2 — Hostilidad ≠ target.</strong> El modelo interpretable (OLS y permutación) muestra que el candidato no explica la polarización (β≈0; caída de R² marginal), mientras que la ira y el tipo de hilo sí sostienen el ajuste.</li>
+<li><strong>H3–H5 — Operacionalización teórica.</strong> La frontera política es recuperable (F1=0.725), las estrategias adversariales se distribuyen según frontera (Tabla 8.1) y los perfiles KMeans (3 grupos) revelan configuraciones discursivas diferenciadas.</li>
+<li><strong>Pilares cuantitativos clave (cap. 7–8).</strong>
+<ul>
+<li>Variables discursivas LLM aportan R²=+0.122 (RandomForest vs TF-IDF puro).</li>
+<li>El candidato no predice polarización (β≈0, p≈0.82) en el OLS; el efecto central es ira/tipo de hilo.</li>
+<li>Frontera política es recuperable con F1=0.725.</li>
+<li>El 84% del corpus adversarial se organiza en dos perfiles (hostilidad alta/ moderada) y su dinámica temporal es estable.</li>
+<li>El 87.4% de autores inicialmente negativos hacia Kast mantiene esa negatividad a lo largo del ciclo.</li>
+</ul></li>
+</ul>
+</section>
+<section id="implicaciones-teóricas" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="implicaciones-teóricas"><span class="header-section-number">9.2</span> 9.2 Implicaciones teóricas</h2>
+<ul>
+<li><strong>Antagonismo y frontera (Mouffe).</strong> La frontera es detectable empíricamente en texto corto y ruidoso; el antagonismo no depende solo del “quién” (candidato), sino del “cómo” (estrategia + hilo).</li>
+<li><strong>Polarización afectiva en Reddit.</strong> La hostilidad es ambiental y difusa, no concentrada en hiperactivos; la persistencia negativa hacia Kast (87.4%) sugiere cristalización más que escalamiento reactivo.</li>
+<li><strong>Reconfiguración de derechas.</strong> La competencia intra-bloque muestra estrategias y marcos diferenciados que convergen frente a un adversario común, pero mantienen huellas propias en emociones y fronteras.</li>
+</ul>
+</section>
+<section id="implicaciones-prácticas" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="implicaciones-prácticas"><span class="header-section-number">9.3</span> 9.3 Implicaciones prácticas</h2>
+<ul>
+<li><strong>Moderación de plataformas.</strong> Señales de hostilidad pueden priorizarse por estrategia y tipo de hilo, más que por volumen de usuarios; la detección de frontera ayuda a focalizar intervenciones.</li>
+<li><strong>Comunicación política.</strong> Mensajes que moderen el tono en hilos mixtos pueden reducir escalamiento; el énfasis en argumentos (marcos) y emociones no hostiles puede desplazar repertorios adversariales.</li>
+</ul>
+</section>
+<section id="limitaciones" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="limitaciones"><span class="header-section-number">9.4</span> 9.4 Limitaciones</h2>
+<ul>
+<li>Reddit no es representativo; sesgos de población (jóvenes, masculinos, politizados).</li>
+<li>Kappa bajo en emoción y marco; medidas menos estables que polarización o frontera.</li>
+<li>Atribución ideológica de usuarios es inferida; puede contener ruido o errores.</li>
+</ul>
+</section>
+<section id="futuras-investigaciones" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="futuras-investigaciones"><span class="header-section-number">9.5</span> 9.5 Futuras investigaciones</h2>
+<ul>
+<li>Replicar en otros contextos y plataformas (incluyendo X/Twitter) para contrastar patrones.</li>
+<li>Análisis dinámico más fino (eventos, ventanas móviles) para captar cambios rápidos.</li>
+<li>Extender a otros tipos de hostilidad (ej. desinformación, coordinaciones) y comparar con resultados aquí obtenidos.</li>
+</ul>
+</section>
+<section id="reflexión-final" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="reflexión-final"><span class="header-section-number">9.6</span> 9.6 Reflexión final</h2>
+<p>La democracia digital se juega en espacios híbridos donde la discusión pública convive con repertorios hostiles. Este trabajo muestra que la frontera política es observable, la hostilidad es ambiental y las derechas se reconfiguran en tensión entre competencia interna y convergencia adversarial. La evidencia sugiere que la moderación y el debate informado requieren atender tanto la estructura discursiva (estrategias, marcos, hilos) como las emociones que la sostienen.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -597,5 +658,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/09-conclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/09-conclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

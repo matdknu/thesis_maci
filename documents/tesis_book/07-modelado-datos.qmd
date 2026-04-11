@@ -1,6 +1,9 @@
 ---
 title: "Modelado de Datos"
 lang: es
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup-modelado, include=FALSE}
@@ -42,43 +45,52 @@ if (!file.exists(api_path)) api_path <- file.path(base_dir, "data", "processed",
 api_df <- read_or_empty(api_path)
 ```
 
-Este capítulo presenta el bloque técnico central de la tesis. La pregunta no es solo si existe polarización en la conversación digital, sino si el sistema automatizado logra **medirla de manera consistente**, **modelarla con estabilidad** y **demostrar que las variables discursivas estructuradas agregan información no redundante** respecto del texto crudo. Por esa razón, el orden del capítulo sigue tres dimensiones: consistencia de medición, modelado de polarización y notas de alcance sobre lo que se decide no reportar en el cuerpo principal.
+Este capítulo presenta el bloque técnico central de la tesis. La
+pregunta no es solo si existe polarización en la conversación digital,
+sino si el sistema automatizado logra **medirla de manera consistente**,
+**modelarla con estabilidad** y **demostrar que las variables
+discursivas estructuradas agregan información no redundante** respecto
+del texto crudo. Por esa razón, el orden del capítulo sigue tres
+dimensiones: consistencia de medición, modelado de polarización y notas
+de alcance sobre lo que se decide no reportar en el cuerpo principal.
 
-Este capítulo presenta el bloque técnico central de la tesis. Los resultados
-se organizan en tres niveles de relevancia editorial:
+Este capítulo presenta el bloque técnico central de la tesis. Los
+resultados se organizan en tres niveles de relevancia editorial:
 
-| Nivel | Outputs | Función |
-|---|---|---|
-| **Tier 1 — Núcleo metodológico-sustantivo** | Tabla 7.3 (R² por fuente), Figura 7.2 (OLS), Figura 7.3 (permutación), Tabla 7.9 (frontera), Tabla 7.10 (KMeans) | Responden directamente las preguntas de investigación |
-| **Tier 2 — Resultados de refuerzo** | Figura 7.5 (ROC), Figura 7.4 (SHAP), Tabla 8.1 (estrategia × frontera), Tabla 8.4 (transiciones), Tabla 7.8 (estrategias) | Refuerzan o matizan el núcleo |
-| **Tier 3 — Estabilidad y techo predictivo** | CV 5-fold, errores FN/FP, calibración, stacking, atlas 3D | Evidencia de robustez sin modificar la lectura principal |
+| Nivel                                       | Outputs                                                                               | Función                                                  |
+|---------------------------------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------|
+| **Tier 1 — Núcleo metodológico-sustantivo** | @fig-r2-configuraciones, @fig-coefplot, @fig-perm, frontera política, perfiles KMeans | Responden directamente las preguntas de investigación    |
+| **Tier 2 — Resultados de refuerzo**         | @fig-roc, @fig-shap, estrategia × frontera, transiciones, estrategias discursivas     | Refuerzan o matizan el núcleo                            |
+| **Tier 3 — Estabilidad y techo predictivo** | CV 5-fold, errores FN/FP, calibración, stacking, atlas 3D                             | Evidencia de robustez sin modificar la lectura principal |
 
-El **núcleo metodológico-sustantivo** (Tier 1) comprende cinco outputs que
-responden directamente las preguntas de investigación: la comparación de R²
-por fuente de información (Tabla 7.3), que justifica el sistema LLM dual al
-demostrar que las variables discursivas aportan varianza no recuperable desde
-el texto crudo; el modelo OLS interpretable (Figura 7.2), que cuantifica el
-efecto de cada variable discursiva sobre la polarización y establece que el
-candidato como target no tiene efecto significativo (β ≈ 0) mientras que la
-ira sí lo tiene (β = 0.369); la importancia por permutación (Figura 7.3),
-que confirma ese resultado desde una perspectiva no paramétrica y revela que
-el tipo de hilo supera al candidato como predictor; la clasificación de
-frontera política (F1-macro = 0.725, Tabla 7.9), que operacionaliza
-computacionalmente el concepto teórico de frontera política (Mouffe, 2005);
-y los perfiles discursivos KMeans K=3 (Tabla 7.10), que identifican tres
-configuraciones recurrentes con interpretación teórica directa.
+El **núcleo metodológico-sustantivo** (Tier 1) comprende cinco outputs
+que responden directamente las preguntas de investigación: la
+comparación de R² por fuente de información (@fig-r2-configuraciones),
+que justifica el sistema LLM dual al demostrar que las variables
+discursivas aportan varianza no recuperable desde el texto crudo; el
+modelo OLS interpretable (@fig-coefplot), que cuantifica el efecto de
+cada variable discursiva sobre la polarización y establece que el
+candidato como target no tiene efecto significativo (β ≈ 0) mientras que
+la ira sí lo tiene (β = 0.369); la importancia por permutación
+(@fig-perm), que confirma ese resultado desde una perspectiva no
+paramétrica y revela que el tipo de hilo supera al candidato como
+predictor; la clasificación de frontera política (F1-macro = 0.725), que
+operacionaliza computacionalmente el concepto teórico de frontera
+política (Mouffe, 2005); y los perfiles discursivos KMeans K=3, que
+identifican tres configuraciones recurrentes con interpretación teórica
+directa.
 
-Un **segundo nivel** incluye resultados que refuerzan o matizan el núcleo:
-las curvas ROC para polarización alta (Figura 7.5), el SHAP summary plot
-(Figura 7.4), la distribución de estrategias por frontera (Tabla 8.1), las
-transiciones de autores (Tabla 8.4) y la clasificación multiclase de
-estrategia discursiva (Tabla 7.8).
+Un **segundo nivel** incluye resultados que refuerzan o matizan el
+núcleo: las curvas ROC para polarización alta (@fig-roc), el gráfico
+SHAP (@fig-shap), la distribución de estrategias por frontera, las
+transiciones de autores y la clasificación multiclase de estrategia
+discursiva.
 
 Los outputs de **estabilidad y techo predictivo** —validación cruzada de
-cinco pliegues, análisis de errores sistemáticos, calibración probabilística,
-stacking ensemble y visualizaciones 3D— se presentan en las secciones
-correspondientes como evidencia de robustez sin modificar la lectura
-interpretativa principal.
+cinco pliegues, análisis de errores sistemáticos, calibración
+probabilística, stacking ensemble y visualizaciones 3D— se presentan en
+las secciones correspondientes como evidencia de robustez sin modificar
+la lectura interpretativa principal.
 
 ## 1) Consistencia de medición
 
@@ -125,29 +137,52 @@ if (nrow(api_df)) {
     )
   )
   agreement <- round_df(agreement, 3)
-  names(agreement) <- c(
-    "Dimensión", "N", "Métrica", "Valor", "Acuerdo exacto (donde aplica)"
+  agreement$dimension <- c("Polarización", "Marco", "Emoción", "Estrategia", "Frontera")
+  agreement$Valor <- ifelse(
+    agreement$dimension == "Polarización",
+    sprintf("r = %.3f", agreement$valor),
+    sprintf("\u03ba = %.3f", agreement$valor)
   )
+  agreement$Coincidencia <- ifelse(
+    is.na(agreement$acuerdo_exacto),
+    "",
+    sprintf("%.3f", agreement$acuerdo_exacto)
+  )
+  agreement <- agreement[, c("dimension", "n", "Valor", "Coincidencia")]
+  rownames(agreement) <- NULL
+  names(agreement) <- c("Dim.", "N", "Est.", "Coinc.")
   kable_apa(
     agreement,
-    caption = "Acuerdo entre los dos sistemas de anotación automatizada por dimensión de codificación.",
-    note = "Polarización: correlación de Pearson entre puntuaciones OA y DS. Resto: kappa y proporción de coincidencia exacta.",
+    caption = "Acuerdo entre ambos sistemas de anotación automatizada por dimensión.",
+    align = "lrrr",
     scale_down = knitr::is_latex_output()
   )
 }
 ```
 
-El sistema LLM se trata aquí como un **instrumento automatizado de medición**. La dimensión mejor resuelta es polarización, donde el acuerdo entre salidas continuas es alto, mientras que frontera también muestra una consistencia suficiente para uso analítico. En cambio, emoción y estrategia presentan mayores márgenes de ambigüedad: el sistema las captura, pero con menor nitidez que polarización.
+El sistema LLM se trata aquí como un **instrumento automatizado de
+medición**. La dimensión mejor resuelta es polarización, donde el
+acuerdo entre salidas continuas es alto, mientras que frontera también
+muestra una consistencia suficiente para uso analítico. En cambio,
+emoción y estrategia presentan mayores márgenes de ambigüedad: el
+sistema las captura, pero con menor nitidez que polarización.
 
 ### 1.2 Modelo de desacuerdo
 
-Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en el Anexo A (@tbl-anexo-desacuerdo), para no saturar el cuerpo del capítulo.
+Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en
+el Anexo A (@tbl-anexo-desacuerdo), para no saturar el cuerpo del
+capítulo.
 
-El valor del modelo de desacuerdo no está en reemplazar la clasificación principal, sino en identificar **cuándo la medición automatizada se vuelve inestable**. Esto permite distinguir entre dimensiones más robustas y dimensiones más sensibles a ambigüedad, ironía o baja densidad contextual.
+El valor del modelo de desacuerdo no está en reemplazar la clasificación
+principal, sino en identificar **cuándo la medición automatizada se
+vuelve inestable**. Esto permite distinguir entre dimensiones más
+robustas y dimensiones más sensibles a ambigüedad, ironía o baja
+densidad contextual.
 
 ### 1.3 Valor añadido de las variables discursivas
 
-La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
+La tabla comparativa de configuraciones (solo TF-IDF, solo variables
+LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
 
 ```{r}
 #| label: fig-r2-configuraciones
@@ -158,19 +193,28 @@ knitr::include_graphics(
 )
 ```
 
-Este es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.
+Este es el argumento técnico central de la primera dimensión. Si las
+variables LLM fueran redundantes, el modelo discursivo no debería
+superar al texto puro. Sin embargo, el bloque de variables discursivas
+alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el
+rendimiento. En otras palabras, el sistema no se limita a recodificar el
+texto: recupera información estructural adicional.
 
 ### 1.4 Calibración de probabilidades
 
-```{r fig-reliability, fig.cap="Diagrama de calibración para polarización alta (PNG).", out.width="82%"}
+```{r fig-reliability, fig.cap="Calibración del clasificador de polarización alta.", out.width="82%"}
 if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
   knitr::include_graphics(file.path(base_out, "reliability_diagram_calibracion.png"))
 }
 ```
 
-Las métricas numéricas de calibración (Brier, log-loss) están en el Anexo A (@tbl-anexo-calibracion).
+Las métricas numéricas de calibración (Brier, log-loss) están en el
+Anexo A (@tbl-anexo-calibracion).
 
-La calibración muestra que los clasificadores ya eran razonablemente confiables sin post-procesamiento fuerte. Esto refuerza la validez práctica del pipeline para producir probabilidades utilizables como insumo analítico.
+La calibración muestra que los clasificadores ya eran razonablemente
+confiables sin post-procesamiento fuerte. Esto refuerza la validez
+práctica del pipeline para producir probabilidades utilizables como
+insumo analítico.
 
 ## 2) Modelado de polarización
 
@@ -207,80 +251,160 @@ if (nrow(cv)) {
 }
 ```
 
-El resultado central es que **RandomForest** combina mejor desempeño y estabilidad. El bajo desvío estándar entre folds indica que la señal no depende de un corte favorable del conjunto de datos. El stacking mejora el techo predictivo, pero el benchmark robusto del capítulo sigue siendo el RandomForest.
+El resultado central es que **RandomForest** combina mejor desempeño y
+estabilidad. El bajo desvío estándar entre folds indica que la señal no
+depende de un corte favorable del conjunto de datos. El stacking mejora
+el techo predictivo, pero el benchmark robusto del capítulo sigue siendo
+el RandomForest.
 
 ### 2.2 OLS interpretable
 
 ```{r tbl-ols-polarizacion}
 ols <- read_or_empty(file.path(base_out, "tabla_ols_polarizacion.csv"))
 if (nrow(ols)) {
+  compact_ols_parts <- function(x) {
+    x0 <- gsub("^\"|\"$", "", as.character(x))
+    if (!grepl("^C\\(", x0)) return(c("Otro", x0))
+    variable <- sub("^C\\(([^,]+),.*", "\\1", x0)
+    nivel <- sub(".*\\[T\\.([^]]+)\\].*", "\\1", x0)
+
+    variable_map <- c(
+      marco_final = "Marco",
+      emocion_final = "Emoción",
+      estrategia_final = "Estrategia",
+      frontera_final = "Frontera",
+      candidato = "Candidato",
+      fase = "Fase",
+      tipo_hilo = "Tipo de hilo"
+    )
+    nivel_map <- c(
+      conflicto = "conflicto",
+      diagnostico = "diagnóstico",
+      economico = "económico",
+      identitario = "identitario",
+      moral = "moral",
+      motivacional = "motivacional",
+      pronostico = "pronóstico",
+      alegria = "alegría",
+      desprecio = "desprecio",
+      esperanza = "esperanza",
+      indignacion = "indignación",
+      ira = "ira",
+      ironia = "ironía",
+      miedo = "miedo",
+      atribucion_oculta = "atrib. oculta",
+      construccion_amenaza = "amenaza",
+      deslegitimacion = "deslegitimación",
+      esencializacion = "esencialización",
+      ridiculizacion = "ridiculización",
+      inter_bloque = "inter-bloque",
+      intra_bloque = "intra-bloque",
+      jara = "Jara",
+      kaiser = "Kaiser",
+      kast = "Kast",
+      primera_vuelta = "primera vuelta",
+      segunda_vuelta = "segunda vuelta",
+      mixto = "mixto",
+      solo_derecha = "solo derecha",
+      solo_derecha_multiple = "derecha múltiple"
+    )
+
+    c(
+      ifelse(variable %in% names(variable_map), unname(variable_map[variable]), variable),
+      ifelse(nivel %in% names(nivel_map), unname(nivel_map[nivel]), nivel)
+    )
+  }
+
   ols_sig <- ols[as_signif_05(ols$signif_05) & ols$coeficiente != "Intercept", ]
   ols_sig$abs_coef <- abs(ols_sig$coef)
   ols_sig <- ols_sig[order(-ols_sig$abs_coef), ]
   ols_sig <- head(ols_sig, 15)
   n_obs <- ols_sig$n_obs[1]
   r2a <- ols_sig$r2_adj[1]
+  ols_parts <- t(vapply(ols_sig$coeficiente, compact_ols_parts, character(2)))
+  # Recode grupo para reducir ancho en PDF
+  ols_parts[, 1] <- dplyr::recode(
+    ols_parts[, 1],
+    "Emoción" = "Emo.",
+    "Estrategia" = "Estrat.",
+    "Tipo de hilo" = "Hilo",
+    "Frontera" = "Front.",
+    .default = ols_parts[, 1]
+  )
+  # Abreviar niveles largos
+  ols_parts[, 2] <- dplyr::recode(
+    ols_parts[, 2],
+    "derecha múltiple" = "der. múltiple",
+    "construcción de amenaza" = "amenaza",
+    "atrib. oculta" = "atrib. oculta",
+    .default = ols_parts[, 2]
+  )
   ols_out <- data.frame(
-    Predictor = vapply(ols_sig$coeficiente, pretty_ols_term, character(1)),
+    Grupo = ols_parts[, 1],
+    Nivel = ols_parts[, 2],
     B = ols_sig$coef,
     IC95_inf = ols_sig$ci_low,
     IC95_sup = ols_sig$ci_high,
     p = format_p_apa(ols_sig$p_value),
     stringsAsFactors = FALSE
   )
+  rownames(ols_out) <- NULL
   ols_out <- round_df(ols_out, 4)
   names(ols_out) <- c(
-    "Término (vs. categorías de referencia)",
-    "B",
-    "IC 95% inferior",
-    "IC 95% superior",
-    "p"
+    "Grupo", "Nivel", "B", "IC95% inf.", "IC95% sup.", "p"
   )
   nota_ols <- paste0(
     "Modelo OLS: polarización consensuada ~ marcos, emociones, estrategias, fronteras, candidato, fase electoral, tipo de hilo y karma (centrado). ",
-    "Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento, hilo solo izquierda. ",
-    "Se listan los 15 términos significativos con mayor |B| (excluido el intercepto). ",
+    "Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento e hilo solo izquierda. ",
+    "Se listan los 15 términos significativos con mayor |B|, excluido el intercepto. ",
     "N = ", format(n_obs, big.mark = "."), ", R² ajustado = ", round(r2a, 3), "."
   )
   kable_apa(
     ols_out,
-    caption = paste(
-      "Regresión lineal (OLS): coeficientes no estandarizados B e intervalos de confianza del 95 %",
-      "para términos con p < .05 (excluido el intercepto); ordenados por magnitud |B|."
-    ),
-    note = nota_ols,
-    scale_down = knitr::is_latex_output()
+    caption = "Modelo OLS para polarización: 15 términos significativos con mayor magnitud.",
+    note = NULL,
+    align = "llrrrr",
+    landscape = FALSE,
+    scale_down = TRUE
   )
 }
 ```
 
-```{r fig-coefplot, fig.cap="Coefficient plot del modelo OLS para polarización (PNG).", out.width="82%"}
+```{r fig-coefplot, fig.cap="Coeficientes del modelo OLS para polarización.", out.width="82%"}
 if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "coefplot_ols_polarizacion.png"))
 }
 ```
 
-El OLS no compite con el mejor predictor, pero sí cumple una función crucial de **interpretabilidad**. El punto importante no es solo qué variables aumentan la polarización, sino que el efecto no se concentra en el candidato como target, sino en configuraciones discursivas como emoción, estrategia y tipo de hilo.
+El OLS no compite con el mejor predictor, pero sí cumple una función
+crucial de **interpretabilidad**. El punto importante no es solo qué
+variables aumentan la polarización, sino que el efecto no se concentra
+en el candidato como target, sino en configuraciones discursivas como
+emoción, estrategia y tipo de hilo.
 
 ### 2.3 Importancia por permutación y explicación local
 
-```{r fig-perm, fig.cap="Importancia por permutación para el modelo de polarización (PNG).", out.width="82%"}
+```{r fig-perm, fig.cap="Importancia por permutación en el modelo de polarización.", out.width="82%"}
 if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "permutation_importance_polarizacion.png"))
 }
 ```
 
-```{r fig-shap, fig.cap="SHAP summary plot para el modelo de polarización (PNG).", out.width="82%"}
+```{r fig-shap, fig.cap="Resumen SHAP del modelo de polarización.", out.width="82%"}
 if (file.exists(file.path(base_out, "shap_summary_polarizacion.png"))) {
   knitr::include_graphics(file.path(base_out, "shap_summary_polarizacion.png"))
 }
 ```
 
-La importancia por permutación permite establecer qué variables sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al nivel individual. Juntas, ambas herramientas muestran que el modelo no está capturando ruido superficial, sino una combinación estable de estructura discursiva y rasgos textuales.
+La importancia por permutación permite establecer qué variables
+sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al
+nivel individual. Juntas, ambas herramientas muestran que el modelo no
+está capturando ruido superficial, sino una combinación estable de
+estructura discursiva y rasgos textuales.
 
 ### 2.4 Clasificación de polarización alta
 
-```{r fig-roc, fig.cap="Curvas ROC para clasificación de polarización alta (PNG).", out.width="82%"}
+```{r fig-roc, fig.cap="Curvas ROC para la clasificación de polarización alta.", out.width="82%"}
 if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
   knitr::include_graphics(file.path(base_out, "roc_curves_polarizacion_alta.png"))
 }
@@ -288,18 +412,23 @@ if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
 
 Los valores AUC por modelo se detallan en el Anexo A (@tbl-anexo-auc).
 
-Las tres curvas ROC muestran que el problema de clasificación es genuino y no trivial: los modelos lineales funcionan razonablemente bien, pero los no lineales capturan una fracción adicional de señal. Eso es coherente con la estructura heterogénea del discurso hostil.
+Las tres curvas ROC muestran que el problema de clasificación es genuino
+y no trivial: los modelos lineales funcionan razonablemente bien, pero
+los no lineales capturan una fracción adicional de señal. Eso es
+coherente con la estructura heterogénea del discurso hostil.
 
 ### 2.5 Estrategia, frontera, perfiles y errores
 
-Las tablas completas de clasificación multiclase de **estrategia**, de **frontera política**, de **perfiles K-means** y del **análisis de errores** sistemáticos se concentran en el **Anexo A** (secciones A.1.5 a A.1.8), en **página horizontal** en el PDF para conservar el formato sin desbordes.
+Las tablas completas de clasificación multiclase de **estrategia**, de
+**frontera política**, de **perfiles K-means** y del **análisis de
+errores** sistemáticos se concentran en el **Anexo A** (secciones A.1.5
+a A.1.8), en **página horizontal** en el PDF para conservar el formato
+sin desbordes.
 
-En síntesis, estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. K-means indica que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores delimita dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.
+En síntesis, estrategia y frontera muestran que categorías teóricas
+complejas son operacionalizables desde el texto. K-means indica que la
+hostilidad no es un continuo homogéneo, sino una ecología de perfiles.
+El análisis de errores delimita dónde el modelo sigue fallando:
+comentarios breves, hostiles y poco contextuales.
 
-## 3) Notas de alcance del capítulo
-
-> No se reporta aquí el análisis de sentimiento como eje principal porque, en esta tesis, el sentimiento opera sobre todo como **input auxiliar del sistema de medición** y no como output sustantivo central.
-
-> No se incorpora como resultado principal el clustering directo sobre TF-IDF cuando la separación resulta demasiado débil para sostener inferencia sustantiva; por esa razón, el capítulo privilegia perfiles construidos sobre variables discursivas más interpretables.
-
-> Tampoco se reportan aquí las visualizaciones 3D como hallazgo principal del bloque técnico. Esas figuras se trasladan al capítulo siguiente, donde cumplen una función interpretativa y no meramente demostrativa.
+## 

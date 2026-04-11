@@ -13,4 +13,41 @@ knitr::opts_chunk$set(
 )
 ```
 
-[Contenido de la conclusión]
+## 9.1 Síntesis de hallazgos
+
+- **H1 — Contribución metodológica (LLM dual).** El sistema de doble clasificación demostró que las variables discursivas estructuradas aportan varianza propia (R²=+0.122 sobre texto puro) y no son una mera recodificación del texto crudo.
+- **H2 — Hostilidad ≠ target.** El modelo interpretable (OLS y permutación) muestra que el candidato no explica la polarización (β≈0; caída de R² marginal), mientras que la ira y el tipo de hilo sí sostienen el ajuste.
+- **H3–H5 — Operacionalización teórica.** La frontera política es recuperable (F1=0.725), las estrategias adversariales se distribuyen según frontera (Tabla 8.1) y los perfiles KMeans (3 grupos) revelan configuraciones discursivas diferenciadas.
+- **Pilares cuantitativos clave (cap. 7–8).**
+  - Variables discursivas LLM aportan R²=+0.122 (RandomForest vs TF-IDF puro).
+  - El candidato no predice polarización (β≈0, p≈0.82) en el OLS; el efecto central es ira/tipo de hilo.
+  - Frontera política es recuperable con F1=0.725.
+  - El 84% del corpus adversarial se organiza en dos perfiles (hostilidad alta/ moderada) y su dinámica temporal es estable.
+  - El 87.4% de autores inicialmente negativos hacia Kast mantiene esa negatividad a lo largo del ciclo.
+
+## 9.2 Implicaciones teóricas
+
+- **Antagonismo y frontera (Mouffe).** La frontera es detectable empíricamente en texto corto y ruidoso; el antagonismo no depende solo del “quién” (candidato), sino del “cómo” (estrategia + hilo).
+- **Polarización afectiva en Reddit.** La hostilidad es ambiental y difusa, no concentrada en hiperactivos; la persistencia negativa hacia Kast (87.4%) sugiere cristalización más que escalamiento reactivo.
+- **Reconfiguración de derechas.** La competencia intra-bloque muestra estrategias y marcos diferenciados que convergen frente a un adversario común, pero mantienen huellas propias en emociones y fronteras.
+
+## 9.3 Implicaciones prácticas
+
+- **Moderación de plataformas.** Señales de hostilidad pueden priorizarse por estrategia y tipo de hilo, más que por volumen de usuarios; la detección de frontera ayuda a focalizar intervenciones.
+- **Comunicación política.** Mensajes que moderen el tono en hilos mixtos pueden reducir escalamiento; el énfasis en argumentos (marcos) y emociones no hostiles puede desplazar repertorios adversariales.
+
+## 9.4 Limitaciones
+
+- Reddit no es representativo; sesgos de población (jóvenes, masculinos, politizados).
+- Kappa bajo en emoción y marco; medidas menos estables que polarización o frontera.
+- Atribución ideológica de usuarios es inferida; puede contener ruido o errores.
+
+## 9.5 Futuras investigaciones
+
+- Replicar en otros contextos y plataformas (incluyendo X/Twitter) para contrastar patrones.
+- Análisis dinámico más fino (eventos, ventanas móviles) para captar cambios rápidos.
+- Extender a otros tipos de hostilidad (ej. desinformación, coordinaciones) y comparar con resultados aquí obtenidos.
+
+## 9.6 Reflexión final
+
+La democracia digital se juega en espacios híbridos donde la discusión pública convive con repertorios hostiles. Este trabajo muestra que la frontera política es observable, la hostilidad es ambiental y las derechas se reconfiguran en tensión entre competencia interna y convergencia adversarial. La evidencia sugiere que la moderación y el debate informado requieren atender tanto la estructura discursiva (estrategias, marcos, hilos) como las emociones que la sostienen.
