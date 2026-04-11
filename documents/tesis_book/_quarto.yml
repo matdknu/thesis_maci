@@ -57,7 +57,10 @@ format:
     lang: es
     css: thesis-html.css
     theme: 
-      light: [cosmo]
+      light: [cosmo, custom.scss]
+    sidebar:
+      pinned: true
+      collapse-level: 1
     toc: true
     toc-depth: 3
     toc-title: "Contenido"
