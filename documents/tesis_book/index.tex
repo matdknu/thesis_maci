@@ -1,0 +1,2671 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode,bookmarksdepth=0}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  numbers=noendperiod,
+  fontsize=11pt,
+  DIV=12,
+  titlepage=false,
+  oneside]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=30mm,bottom=30mm,left=25mm,right=25mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{3}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\captionsetup{font=small,labelfont=bf,skip=8pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Configuración de encabezados
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+\fancyhead[RE]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Títulos de índices en español (después de babel/polyglossia)
+\AtBeginDocument{%
+  \renewcommand{\contentsname}{Índice General}%
+  \renewcommand{\listfigurename}{Índice de Figuras}%
+  \renewcommand{\listtablename}{Índice de Tablas}%
+}
+% Sin encabezado en páginas preliminares
+\AtBeginDocument{
+  \pagenumbering{roman}
+  \pagestyle{plain}
+}
+
+% Configuración para numeración continua de capítulos (las partes no cuentan)
+\makeatletter
+% Ocultar numeración de partes
+\renewcommand{\thepart}{}
+% Remover el reset automático de capítulos por parte para numeración continua
+\@removefromreset{chapter}{part}
+% Hacer que las secciones se numeren basándose en el capítulo, no en la parte
+\@removefromreset{section}{part}
+% Asegurar que las secciones se numeren dentro de cada capítulo
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\makeatother
+
+% Configuración para evitar saltos de página innecesarios
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
+\@ifpackageloaded{marginnote}{}{\usepackage{marginnote}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={NavyBlue},
+  urlcolor={NavyBlue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+
+\begin{document}
+
+% ============================================================================
+% PORTADA - PRIMERA PÁGINA DEL DOCUMENTO
+% ============================================================================
+\thispagestyle{empty}
+\begin{center}
+
+\vspace*{0.2cm}
+
+% Logo
+\includegraphics[width=0.20\textwidth]{logo/logo_udec.png}
+
+\vspace{0.7cm}
+
+% Título y Subtítulo
+{\Huge\bfseries Derecha fragmentada y un enemigo compartido\par}
+\vspace{0.4cm}
+{\Large\itshape Análisis textual longitudinal de la constación discursiva en las elecciones presidencial de 2025 en Chile\par}
+
+\vspace{0.9cm}
+
+% Grado
+{\large Tesis para optar al grado de\par}
+\vspace{0.1cm}
+{\large\bfseries Magíster en Ciencia de Datos\par}
+
+\vspace{0.8cm}
+
+% Autor
+{\large\bfseries Matías Deneken\par}
+\vspace{0.1cm}
+{\normalsize Centro de Datos e Inteligencia Artificial - Universidad de Concepción\par}
+
+\vspace{0.6cm}
+
+% Profesores Guías
+{\normalsize\bfseries Profesores Guías:\par}
+\vspace{0.1cm}
+{\normalsize Dr. Carlos Navarrete \par}
+{\normalsize Dr. Marcela Parada \par}
+
+\vspace{0.6cm}
+
+% Universidad y Fecha
+{\large Universidad de Concepción\par}
+\vspace{0.2cm}
+{\large Enero 2026\par}
+
+\end{center}
+\clearpage
+
+
+\setstretch{1.5}
+\bookmarksetup{startatroot}
+
+\chapter*{Agradecimientos}\label{agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+
+\markboth{Agradecimientos}{Agradecimientos}
+
+Esta tesina no habría sido posible sin el apoyo económico de la beca de
+exención de arancel por el Premio Universidad de Concepción, según
+consta el decreto DIRPOST-021-24.
+
+Agradezco a mis compañeras y compañeros de generación con los cuales
+compartí durante este proceso. En particular a Javiera Baeza y Florencia
+Pampaloni, con quienes formamos un excelente equipo de trabajo desde la
+distancia. Sin este trabajo colaborativo la experiencia en el MACI
+habría sido significativamente más compleja.
+
+De la misma forma, agradezco a nivel general mi experiencia en el MACI.
+La pasantía realizada en la Universidad de Harvard en 2024 brindó una
+oportunidad y riqueza inigualable para poder conocer un ecosistema que
+---hasta entonces--- me era ajeno. En particular, doy las gracias a mis
+profesores guías, Marcela Parada y Carlos Navarrete, quienes me
+acompañaron en este proceso formativo.
+
+Por último, doy siempre las gracias a mi familia por animarme a afrontar
+nuevos desafíos, incluso cuando la energía es escasa.
+
+Sin duda esta tesis combina mis intereses de la sociología, a nivel de
+pregrado y de magíster, y la ciencia de datos, que me ha llevado a esta
+incipiente área de las \emph{ciencias sociales computacionales}. Con sus
+bemoles, espero que esta tesis sirva como mi puntapié inicial para poder
+enfrentar nuevos desafíos que combinen los métodos estadísticos
+avanzados con la revolución de la inteligencia artificial que hoy
+estamos viviendo. El tiempo nos dirá.
+
+\newpage
+
+\bookmarksetup{startatroot}
+
+\chapter*{Presentación}\label{presentaciuxf3n}
+\addcontentsline{toc}{chapter}{Presentación}
+
+\markboth{Presentación}{Presentación}
+
+Este documento expone una investigación sobre la conversación política
+en Reddit durante la campaña presidencial chilena de 2025, con énfasis
+en la reconfiguración de las derechas, la movilización emocional y la
+construcción de adversarios en línea. Los capítulos siguientes
+desarrollan el marco teórico, el diseño metodológico, el modelado
+computacional de los datos y la interpretación de los resultados. El
+capítulo introductorio presenta la justificación, las preguntas de
+investigación y los objetivos que orientan el trabajo.
+
+\newpage
+
+% Títulos de índices en español
+\renewcommand{\contentsname}{Índice General}
+\renewcommand{\listfigurename}{Índice de Figuras}
+\renewcommand{\listtablename}{Índice de Tablas}
+% Solo capítulos en el índice impreso (sin \section ni inferiores)
+\setcounter{tocdepth}{0}
+% Índices después de las páginas preliminares
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+% Cambiar a numeración arábiga para el contenido principal
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+\bookmarksetup{startatroot}
+
+\chapter{Introducción}\label{introducciuxf3n}
+
+Las elecciones presidenciales chilenas de 2025 se desarrollan en un
+contexto de profunda reconfiguración del sistema de partidos y de
+transformación de las condiciones bajo las cuales se produce la
+comunicación política. Tras el ciclo de movilizaciones iniciado en
+octubre de 2019, los procesos constituyentes fallidos de 2022 y 2023, y
+la creciente fragmentación de las coaliciones tradicionales, el
+escenario electoral chileno exhibe niveles de incertidumbre, volatilidad
+y polarización inéditos en la historia reciente del país.
+
+En este contexto, las plataformas digitales han adquirido un
+protagonismo sin precedentes como espacios de debate político, formación
+de opinión y articulación de identidades colectivas. Lo que ocurre en
+redes sociales ya no constituye un reflejo secundario de dinámicas
+políticas que se dirimen en otros ámbitos, sino un terreno constitutivo
+donde se disputan los términos del conflicto, se movilizan emociones
+políticas y se construyen las fronteras simbólicas que delimitan aliados
+y adversarios.
+
+Una de las transformaciones más significativas del período reciente es
+la reconfiguración del campo de las derechas chilenas. Donde antes
+existía una coalición relativamente cohesionada ---heredera de la
+transición democrática y articulada en torno a partidos como la UDI y
+Renovación Nacional---, hoy convergen y compiten al menos tres
+corrientes distinguibles: una derecha tradicional que busca renovar su
+apelación desde la moderación y la competencia técnica; una derecha
+radical-conservadora que articula posiciones morales restrictivas con
+retórica antielitista; y una derecha libertaria de perfil disruptivo que
+desafía las convenciones comunicativas establecidas. La competencia
+entre estas corrientes, y su eventual convergencia frente a adversarios
+comunes, constituye uno de los fenómenos más relevantes ---y menos
+estudiados--- de la política chilena contemporánea.
+
+\section{Justificación y relevancia del
+estudio}\label{justificaciuxf3n-y-relevancia-del-estudio}
+
+En la actualidad las encuestas, en general, y las de opinión, en
+particular, han sido parte del escrutinio público. Este tipo de medición
+han sido acusadas de fundar un datos sesgados y , en última instancia,
+serviles a las tendencias ideológicas a las que se encuentran
+posicionadas las que la financia o la consultora encargada.
+
+Indepiente de esos juicios, las encuestas enfrentar problemas más allá.
+El desafío principal es que las tasas de respuestas cada vez son más
+bajas y los costos por la realización de la encuesta al individuo es
+cada vez más caro. La era digital brindan oportunidades nuevas dado la
+emergencia en del ``Big Data''. Es decir, la presencia de datos masivos.
+
+Esta investigación se justifica en función de tres órdenes de
+consideraciones: empíricas, teóricas y metodológicas.
+
+Desde el punto de vista \textbf{empírico}, el ciclo electoral chileno de
+2025 ofrece una oportunidad única para observar en tiempo real las
+dinámicas de competencia intra-derecha en un sistema político en
+transformación. La coexistencia de tres candidaturas de derecha con
+perfiles ideológicos y estrategias comunicativas diferenciadas ---Evelyn
+Matthei, José Antonio Kast y Johannes Kaiser--- permite analizar
+comparativamente cómo distintas corrientes construyen sus identidades,
+movilizan usuarios y se posicionan frente a adversarios internos y
+externos. La presencia de una candidatura de izquierda asociada al
+Partido Comunista ---Jeannette Jara--- añade una dimensión adicional al
+análisis, habilitando el estudio de los procesos de convergencia
+discursiva que emergen cuando actores previamente enfrentados deben
+articular un frente común.
+
+Desde el punto de vista \textbf{teórico}, la investigación contribuye a
+debates contemporáneos sobre comunicación política digital, polarización
+y construcción de antagonismos. Si bien existe abundante literatura
+sobre el rol de las redes sociales en procesos electorales, la mayor
+parte de esta investigación se ha concentrado en contextos del Norte
+Global, particularmente Estados Unidos y Europa Occidental. Los estudios
+sobre América Latina, aunque crecientes, han tendido a focalizarse en
+casos de alta visibilidad internacional ---Brasil con Bolsonaro,
+Argentina con Milei--- sin atender suficientemente a las variaciones
+nacionales y a las dinámicas de competencia al interior de familias
+ideológicas. Esta tesis busca contribuir a llenar ese vacío, ofreciendo
+un análisis detallado de las especificidades del caso chileno.
+
+Desde el punto de vista \textbf{metodológico}, la investigación propone
+una aproximación que integra técnicas de ciencia social computacional
+con análisis interpretativo del discurso político. Esta combinación
+permite procesar volúmenes de datos que excederían las capacidades del
+análisis cualitativo tradicional, sin sacrificar la atención a las
+dimensiones semánticas y pragmáticas que resultan cruciales para
+comprender la comunicación política. La elección de Reddit como campo de
+observación ---una plataforma subexplorada en el contexto
+latinoamericano--- ofrece además la posibilidad de acceder a
+conversaciones políticas con características estructurales distintivas
+que enriquecen el análisis.
+
+\section{Preguntas de
+investigación}\label{preguntas-de-investigaciuxf3n}
+
+La pregunta central que orienta esta investigación es:
+
+\begin{quote}
+\textbf{¿Cómo se configura y evoluciona la conversación política en
+Reddit durante la campaña presidencial chilena de 2025?}
+\end{quote}
+
+Esta pregunta general se desagrega en las siguientes interrogantes
+específicas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  ¿Qué patrones de encuadre (\emph{framing}), movilización emocional y
+  construcción de adversarios estructuran el debate político en los
+  subreddits chilenos durante el período electoral?
+\item
+  ¿Cómo varían temporalmente las estrategias discursivas de ataque,
+  defensa y demarcación de fronteras identitarias a lo largo de las
+  distintas fases de la campaña?
+\item
+  ¿Qué dinámicas de competencia, diferenciación y antagonismo se
+  observan entre las tres corrientes de derecha (tradicional,
+  radical-conservadora y libertaria) durante la primera vuelta?
+\item
+  ¿Cómo se produce la convergencia discursiva en torno al Partido
+  Comunista como adversario común durante la segunda vuelta, y qué
+  tensiones persisten bajo esta convergencia aparente?
+\end{enumerate}
+
+\section{Objetivos de la
+investigación}\label{objetivos-de-la-investigaciuxf3n}
+
+\subsection{Objetivo general}\label{objetivo-general}
+
+Analizar la configuración y evolución de la conversación política en
+Reddit durante la campaña presidencial chilena de 2025, identificando
+los patrones de encuadre, emoción y construcción de adversarios que
+estructuran el debate entre las distintas corrientes ideológicas.
+
+\subsection{Objetivos específicos}\label{objetivos-especuxedficos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Caracterizar los marcos interpretativos (\emph{frames}) predominantes
+  en el discurso de cada corriente ideológica y su variación a lo largo
+  del ciclo electoral.
+\item
+  Identificar los patrones de movilización emocional asociados a cada
+  candidatura, distinguiendo emociones de valencia positiva, negativa y
+  las combinaciones que configuran repertorios afectivos específicos
+\item
+  Analizar las estrategias de construcción de adversarios, atendiendo
+  tanto a la definición de enemigos externos (inter-bloque) como a las
+  dinámicas de diferenciación interna (intra-bloque).
+\item
+  Examinar la evolución temporal del debate, identificando puntos de
+  inflexión, eventos catalizadores y patrones de activación discursiva
+  asociados a momentos específicos de la campaña.
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter{Presentación del Problema}\label{presentaciuxf3n-del-problema}
+
+\section{El problema: competencia política digital en un sistema
+fragmentado}\label{el-problema-competencia-poluxedtica-digital-en-un-sistema-fragmentado}
+
+El sistema de partidos chileno atraviesa una crisis de representación
+sin precedentes desde el retorno a la democracia. Los indicadores son
+contundentes: la identificación partidaria ha caído sostenidamente desde
+2010, la volatilidad electoral alcanzó máximos históricos en los ciclos
+2021-2023, y la fragmentación parlamentaria dificulta la formación de
+coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de
+desalineamiento, las plataformas digitales han emergido como espacios
+donde se disputa la reconfiguración de las identidades políticas
+---particularmente en el campo de las derechas, donde coexisten
+proyectos en competencia que aún no han estabilizado sus fronteras.
+
+El \textbf{problema central} que aborda esta investigación puede
+formularse así:
+
+\begin{quote}
+En un contexto de fragmentación partidaria y reconfiguración ideológica,
+¿cómo se estructura la competencia política digital entre actores que
+comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué
+estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o
+divergen?
+\end{quote}
+
+Este problema es relevante por tres razones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Vacío empírico}: Mientras abundan los estudios sobre
+  polarización izquierda-derecha, la competencia \emph{intra-bloque}
+  ---particularmente entre derechas--- permanece subexplorada en América
+  Latina.
+\item
+  \textbf{Transformación en curso}: Las derechas chilenas están en
+  proceso de reconfiguración activa; estudiar este proceso mientras
+  ocurre permite capturar dinámicas que análisis retrospectivos pierden.
+\item
+  \textbf{Implicancias democráticas}: Comprender cómo se construyen
+  adversarios y fronteras identitarias en espacios digitales resulta
+  crucial para evaluar la calidad del debate público y anticipar
+  escenarios de polarización.
+\end{enumerate}
+
+\section{Acercamiento: actores, dimensiones y niveles de
+análisis}\label{acercamiento-actores-dimensiones-y-niveles-de-anuxe1lisis}
+
+\subsection{Los actores: tres derechas y un
+adversario}\label{los-actores-tres-derechas-y-un-adversario}
+
+La investigación se focaliza en cuatro candidaturas que representan
+posiciones distintivas en el espectro político chileno:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1237}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4301}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2849}}@{}}
+\caption{Candidaturas incluidas en el análisis y su caracterización
+ideológica. }\label{tbl-candidaturas-actores}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Actor
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Posición
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Caracterización sintética
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Base social
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Actor
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Posición
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Caracterización sintética
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Base social
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Evelyn Matthei} & Derecha tradicional & Pragmatismo, competencia
+técnica, moderación discursiva & Élites empresariales, sectores
+medios-altos \\
+\textbf{José Antonio Kast} & Derecha radical-conservadora &
+Conservadurismo moral, retórica antielitista, énfasis en seguridad y
+migración & Sectores populares conservadores, evangélicos \\
+\textbf{Johannes Kaiser} & Derecha libertaria & Ultraliberalismo,
+provocación deliberada, códigos de subculturas digitales & Jóvenes
+masculinos, usuarios intensivos de internet \\
+\textbf{Jeannette Jara} & Izquierda-PC & Proyecto transformador, defensa
+del legado del gobierno Boric & Militancia de izquierda, sectores
+sindicalizados \\
+\end{longtable}
+
+Como se observa en la Table~\ref{tbl-candidaturas-actores}, el diseño
+compara tres derechas y un adversario común de izquierda.
+
+Esta selección permite observar:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Competencia intra-derecha}: Cómo tres proyectos distintos
+  disputan un electorado parcialmente superpuesto.
+\item
+  \textbf{Convergencia anti-izquierda}: Cómo actores previamente
+  enfrentados articulan un frente común frente al adversario ideológico.
+\item
+  \textbf{Asimetrías discursivas}: Cómo diferentes corrientes movilizan
+  repertorios retóricos y emocionales distintivos.
+\end{itemize}
+
+\subsection{Las dimensiones
+analíticas}\label{las-dimensiones-analuxedticas}
+
+El análisis se estructura en torno a \textbf{tres dimensiones} que
+capturan aspectos complementarios de la comunicación política:
+
+\textbf{Dimensión 1: Encuadre (\emph{framing})} - ¿Qué marcos
+interpretativos predominan en el discurso de cada corriente? - ¿Cómo
+definen el problema, sus causas y sus soluciones? - ¿Qué está ``en
+juego'' según cada actor?
+
+\textbf{Dimensión 2: Emoción} - ¿Qué emociones movilizan las distintas
+candidaturas? - ¿Cuál es la proporción entre emociones positivas
+(entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién
+se dirigen las emociones negativas?
+
+\textbf{Dimensión 3: Construcción de adversarios} - ¿Quiénes son
+construidos como amenazas o enemigos? - ¿Qué estrategias de
+deslegitimación se emplean? - ¿Cómo se articulan los antagonismos
+inter-bloque (derecha vs. izquierda) con los intra-bloque (entre
+derechas)?
+
+\subsection{Los niveles de análisis}\label{los-niveles-de-anuxe1lisis}
+
+El diseño contempla tres niveles de observación:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0940}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2906}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6154}}@{}}
+\caption{Niveles de análisis utilizados en la investigación.
+}\label{tbl-niveles-analisis}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Nivel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unidad
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Foco analítico
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Nivel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unidad
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Foco analítico
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Macro} & Corpus completo & Tendencias agregadas, evolución
+temporal, comparación entre subreddits \\
+\textbf{Meso} & Hilos de discusión & Dinámicas conversacionales,
+patrones de confrontación/consenso \\
+\textbf{Micro} & Posts y comentarios individuales & Estrategias
+retóricas específicas, ejemplos ilustrativos \\
+\end{longtable}
+
+La Table~\ref{tbl-niveles-analisis} resume cómo se articula el análisis
+en escalas macro, meso y micro.
+
+\section{Descripción de la propuesta
+analítica}\label{descripciuxf3n-de-la-propuesta-analuxedtica}
+
+\subsection{Enfoque general}\label{enfoque-general}
+
+La propuesta combina \textbf{ciencia social computacional} con
+\textbf{análisis interpretativo del discurso político}. Esta combinación
+responde a una convicción metodológica: las técnicas computacionales
+permiten identificar patrones a escala que el análisis cualitativo
+tradicional no alcanza, pero requieren interpretación teóricamente
+informada para producir conocimiento sustantivo sobre procesos
+políticos.
+
+El flujo analítico puede representarse así:
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/diagrama.png}
+
+}
+
+\caption{\label{fig-pipeline}Pipeline analítico: de la recolección del
+corpus a los hallazgos sustantivos.}
+
+\end{figure}%
+
+La Figure~\ref{fig-pipeline} sintetiza el encadenamiento entre corpus,
+procesamiento, modelamiento y hallazgos.
+
+\subsection{Arquitectura del
+análisis}\label{arquitectura-del-anuxe1lisis}
+
+\textbf{Fase 1: Caracterización del corpus} - Estadísticas descriptivas:
+volumen, distribución temporal, participación por subreddit - Mapeo de
+actores: frecuencia de mención de cada candidatura - Identificación de
+eventos: picos de actividad y su correlación con acontecimientos
+políticos
+
+\textbf{Fase 2: Análisis de encuadres} - Modelado de tópicos para
+identificar temas estructurantes - Análisis de co-ocurrencias: qué
+conceptos aparecen asociados a cada candidatura - Comparación
+inter-temporal: evolución de marcos entre primera y segunda vuelta
+
+\textbf{Fase 3: Análisis emocional} - Clasificación de sentimiento
+(positivo/negativo/neutro) - Identificación de emociones discretas
+cuando es posible - Construcción de ``perfiles emocionales'' por
+candidatura
+
+\textbf{Fase 4: Análisis de adversarios} - Identificación de menciones
+cruzadas entre candidaturas - Clasificación de valencia: menciones
+positivas, negativas, neutras - Mapeo de redes de antagonismo
+
+\textbf{Fase 5: Síntesis e integración} - Triangulación de hallazgos
+entre dimensiones - Construcción de narrativa analítica - Identificación
+de mecanismos explicativos
+
+\subsection{Originalidad de la
+propuesta}\label{originalidad-de-la-propuesta}
+
+La propuesta se distingue de estudios previos en tres aspectos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Foco en competencia intra-bloque}: Mientras la mayoría de
+  estudios examina la polarización entre izquierda y derecha, esta
+  investigación centra la atención en las dinámicas \emph{dentro} del
+  campo de las derechas.
+\item
+  \textbf{Perspectiva procesual}: En lugar de fotografías estáticas, el
+  diseño longitudinal permite observar cómo evolucionan las estrategias
+  discursivas a lo largo del ciclo electoral.
+\item
+  \textbf{Reddit como campo}: La plataforma está subexplorada en el
+  contexto latinoamericano, y sus características estructurales
+  (conversaciones anidadas, votación comunitaria) ofrecen posibilidades
+  analíticas distintivas.
+\end{enumerate}
+
+\section{Producto mínimo viable (MVP) y objetivos
+operacionales}\label{producto-muxednimo-viable-mvp-y-objetivos-operacionales}
+
+\subsection{Definición del MVP}\label{definiciuxf3n-del-mvp}
+
+El \textbf{producto mínimo viable} de esta investigación consiste en:
+
+\begin{quote}
+Un análisis sistemático de la conversación política en Reddit sobre las
+candidaturas presidenciales chilenas de 2025, que identifique y
+caracterice los patrones de encuadre, emoción y construcción de
+adversarios de cada corriente ideológica, y que documente su evolución a
+lo largo del ciclo electoral (agosto-diciembre 2025).
+\end{quote}
+
+\subsection{Objetivos operacionales y
+entregables}\label{objetivos-operacionales-y-entregables}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2319}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2754}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4928}}@{}}
+\caption{Objetivos operacionales, entregables e indicadores de
+cumplimiento del MVP.}\label{tbl-objetivos-mvp}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Objetivo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Entregable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Indicador de cumplimiento
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Objetivo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Entregable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Indicador de cumplimiento
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{O1}: Construir corpus & Base de datos estructurada & ≥1000 posts
+y ≥10.000 comentarios con menciones políticas \\
+\textbf{O2}: Caracterizar encuadres & Modelo de tópicos interpretado &
+Identificación de ≥5 marcos distintivos por corriente \\
+\textbf{O3}: Mapear emociones & Perfiles emocionales por candidatura &
+Clasificación de sentimiento del 100\% del corpus \\
+\textbf{O4}: Analizar adversarios & Red de antagonismos & Matriz de
+menciones cruzadas con valencia \\
+\textbf{O5}: Documentar evolución & Serie temporal & Análisis por fase
+electoral (pre-campaña, campaña, segunda vuelta) \\
+\textbf{O6}: Sintetizar hallazgos & Capítulos de resultados & Respuesta
+fundamentada a cada pregunta de investigación \\
+\end{longtable}
+
+La planificación operativa del estudio se detalla en la
+Table~\ref{tbl-objetivos-mvp}.
+
+\subsection{Alcances y limitaciones
+anticipadas}\label{alcances-y-limitaciones-anticipadas}
+
+\textbf{Alcances}: - El análisis cubre el debate en dos comunidades de
+Reddit, que constituyen los principales espacios de discusión política
+chilena en la plataforma. - El período captura fases clave del ciclo
+electoral, permitiendo observar dinámicas de cambio. - Las técnicas
+empleadas permiten procesar el corpus completo, no solo muestras.
+
+\textbf{Limitaciones}: - Reddit no es representativo del electorado
+chileno; los hallazgos refieren al debate en esta plataforma específica,
+no a la opinión pública general. - Los usuarios de Reddit tienden a ser
+más jóvenes, más masculinos y más politizados que la población general.
+- El análisis de sentimiento automatizado tiene márgenes de error,
+particularmente con ironía, sarcasmo y jerga local. - La atribución
+ideológica de usuarios es inferida a partir de su comportamiento
+discursivo, no de autodeclaraciones.
+
+\section{Estrategia de validación}\label{estrategia-de-validaciuxf3n}
+
+\subsection{Validación interna}\label{validaciuxf3n-interna}
+
+\textbf{Triangulación metodológica}: Los hallazgos de cada técnica
+(modelado de tópicos, análisis de sentimiento, análisis de redes) son
+contrastados entre sí. Un patrón se considera robusto cuando emerge
+consistentemente de múltiples aproximaciones.
+
+\textbf{Verificación cualitativa}: Los patrones identificados
+computacionalmente son verificados mediante lectura de casos. Cuando el
+análisis automatizado clasifica un comentario como ``negativo hacia
+Matthei'', se revisan ejemplos para confirmar que la clasificación
+captura el fenómeno de interés.
+
+\textbf{Sensibilidad paramétrica}: Las técnicas con parámetros
+ajustables (número de tópicos, umbrales de clasificación) son ejecutadas
+con múltiples configuraciones para verificar que los hallazgos no
+dependan de decisiones arbitrarias.
+
+\subsection{Validación externa}\label{validaciuxf3n-externa}
+
+\textbf{Triangulación con fuentes externas}: Los patrones temporales
+identificados en Reddit son contrastados con el calendario de eventos
+políticos documentado en medios de comunicación. La correlación entre
+picos de actividad y eventos específicos (debates, declaraciones,
+encuestas) proporciona validación externa.
+
+\textbf{Consistencia con literatura}: Los hallazgos son discutidos a la
+luz de estudios previos sobre comunicación política digital, derechas
+latinoamericanas y polarización. La convergencia con patrones
+documentados en otros contextos refuerza la validez; las divergencias
+son examinadas como posibles especificidades del caso chileno.
+
+\subsection{Criterios de éxito}\label{criterios-de-uxe9xito}
+
+La investigación se considerará exitosa si:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Responde las preguntas}: Cada pregunta de investigación recibe
+  una respuesta fundamentada empíricamente.
+\item
+  \textbf{Identifica patrones no triviales}: Los hallazgos van más allá
+  de lo que podría inferirse sin análisis sistemático.
+\item
+  \textbf{Documenta variación}: El análisis captura diferencias
+  significativas entre corrientes ideológicas, entre subreddits y entre
+  fases electorales.
+\item
+  \textbf{Genera interpretaciones plausibles}: Los patrones
+  identificados son interpretados mediante mecanismos teóricamente
+  informados.
+\item
+  \textbf{Reconoce limitaciones}: El análisis explicita qué puede y qué
+  no puede concluirse a partir de los datos disponibles.
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter{Marco teórico}\label{marco-teuxf3rico}
+
+\section{Comunicación política en entornos
+digitales}\label{comunicaciuxf3n-poluxedtica-en-entornos-digitales}
+
+Las plataformas digitales no amplían cuantitativamente la esfera
+pública: la reconfiguran cualitativamente. boyd (2010) identificó cuatro
+propiedades estructurales ---persistencia, replicabilidad, escalabilidad
+y buscabilidad--- que distinguen los entornos digitales de espacios
+comunicativos previos. A estas se suman la \textbf{mediación
+algorítmica} (que privilegia contenidos emocionalmente activadores), el
+\textbf{colapso de contextos} (convergencia de audiencias antes
+separadas) y las \textbf{métricas de rendimiento} (retroalimentación
+inmediata que orienta la conducta comunicativa).
+
+Más allá de sus propiedades técnicas, las plataformas deben entenderse
+como infraestructuras de poder privadas que ejercen moderación,
+optimizan el \emph{engagement} y consolidan efectos de red con
+consecuencias desproporcionadas para la calidad del debate democrático
+(Gillespie 2018; Dijck 2018).
+
+\section{Polarización afectiva}\label{polarizaciuxf3n-afectiva}
+
+La \textbf{polarización afectiva} designa el distanciamiento emocional
+entre grupos políticos: no solo divergen en posiciones, sino que se
+desagradan y se atribuyen mutuamente malas intenciones (Iyengar 2019).
+Es analíticamente distinta de la polarización ideológica: ambas pueden
+variar de manera independiente, y la evidencia comparada sugiere que la
+afectiva ha crecido más rápidamente en democracias contemporáneas
+(Boxell 2022).
+
+Sus principales mecanismos en entornos digitales incluyen la exposición
+selectiva amplificada por algoritmos, la mayor visibilidad de voces
+extremas, la reducción de costos de expresión hostil y las dinámicas de
+señalización grupal recompensadas con \emph{likes} (Brady 2017; Settle
+2018). Las consecuencias para la democracia son significativas: erosión
+de la confianza institucional, resistencia al compromiso y tolerancia a
+la transgresión normativa cuando proviene del propio bando (Graham
+2020).
+
+\section{\texorpdfstring{Teoría del
+\emph{framing}}{Teoría del framing}}\label{teoruxeda-del-framing}
+
+El encuadre consiste en seleccionar aspectos de la realidad y hacerlos
+prominentes para promover una definición del problema, una
+interpretación causal y una evaluación moral (Entman 1993). La
+competencia política es, en parte significativa, competencia entre
+marcos alternativos: quien establece el marco dominante condiciona las
+opciones que parecen razonables.
+
+Se distinguen \textbf{marcos genéricos} (conflicto, interés humano,
+consecuencias económicas, atribución de responsabilidad, moralidad) y
+\textbf{marcos específicos} propios de cada controversia (Semetko 2000).
+Para campañas electorales resulta útil añadir la distinción entre marcos
+diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y
+motivacionales (¿qué está en juego?).
+
+En entornos digitales, el \emph{framing} es observable como proceso: los
+marcos son propuestos, contestados y reformulados en tiempo real. La
+estructura anidada de Reddit ---con sistemas de votación y
+conversaciones persistentes--- es particularmente adecuada para este
+análisis longitudinal (Meraz 2013).
+
+\section{Emociones políticas}\label{emociones-poluxedticas}
+
+Las emociones no son ruido que distorsiona el juicio racional: son
+componentes constitutivos de la cognición y la acción política (Marcus
+2000). La teoría de la inteligencia afectiva distingue un sistema de
+disposiciones (activado en entornos familiares, refuerza hábitos
+mediante entusiasmo o aversión) y un sistema de vigilancia (activado
+ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el
+procesamiento automático y abrir espacio a la persuasión).
+
+Para el análisis empírico, el concepto de \textbf{repertorio afectivo}
+---la configuración característica de emociones movilizadas por un
+actor, su combinación y los objetos hacia los que se dirigen--- resulta
+más útil que el registro de emociones aisladas (Jasper 2011). Permite
+preguntar: ¿qué proporción del contenido emocional se dirige al
+endogrupo versus al exogrupo? ¿Cómo articula el actor emociones
+positivas y negativas?
+
+La \textbf{indignación moral} merece atención especial: combina valencia
+negativa con alta activación y orientación a la acción, se difunde más
+que otras emociones y genera bajo costo de expresión con recompensas
+sociales inmediatas (Crockett 2017).
+
+\section{Construcción de
+adversarios}\label{construcciuxf3n-de-adversarios}
+
+Las identidades colectivas no son esencias preexistentes: emergen a
+través de la diferenciación. Todo ``nosotros'' se constituye en relación
+con un ``ellos'' (Laclau 1985). En contextos electorales, analizar cómo
+se construyen los adversarios ---qué atributos se les asignan, qué
+estrategias se emplean para deslegitimarlos--- es una vía privilegiada
+para comprender la configuración del espacio político.
+
+Mouffe (2005) distingue \textbf{antagonismo} (relación entre enemigos
+sin espacio común, suma cero) de \textbf{agonismo} (relación entre
+adversarios que comparten el marco democrático). Esta distinción permite
+preguntar si los actores construyen a sus oponentes como participantes
+legítimos o como amenazas existenciales.
+
+Las estrategias de deslegitimación incluyen: asociación negativa,
+atribución de intenciones ocultas, ridiculización, esencialización y
+construcción de amenaza. Para esta investigación resulta además crucial
+distinguir entre \textbf{fronteras inter-bloque} (izquierda vs.~derecha)
+y \textbf{fronteras intra-bloque} (entre corrientes de derecha), que
+generan tensiones estratégicas entre diferenciación y convergencia.
+
+\section{Derechas contemporáneas}\label{derechas-contemporuxe1neas}
+
+La tipología de Mudde (2007) distingue \textbf{extrema derecha} (rechaza
+principios democráticos) de \textbf{derecha radical} (los acepta
+nominalmente pero los tensiona mediante nativismo, autoritarismo y
+populismo). A estas se suman la \textbf{derecha tradicional} (privilegia
+estabilidad y continuidad institucional) y la \textbf{derecha
+libertaria} (ultraliberalismo, crítica al establishment, códigos
+digitales).
+
+Estas corrientes difieren no solo ideológicamente sino en sus
+estrategias comunicativas: la derecha tradicional emplea registro
+institucional y moderado; la radical populista moviliza agravios y
+retórica de confrontación; la libertaria combina argumentos económicos
+con estilos provocadores y referencias a subculturas de internet (Norris
+2019).
+
+La coexistencia de las tres derechas en el caso chileno genera dinámicas
+de competencia intra-bloque ---disputa por electorados superpuestos,
+estrategias de diferenciación, presiones de convergencia frente al
+adversario común--- que constituyen un laboratorio analítico de
+particular valor.
+
+\section{Reddit como espacio de deliberación
+política}\label{reddit-como-espacio-de-deliberaciuxf3n-poluxedtica}
+
+Reddit se estructura en torno a comunidades temáticas
+(\emph{subreddits}) antes que en redes de relaciones personales, lo que
+privilegia el debate sustantivo sobre la identidad individual. Sus
+comentarios anidados permiten seguir el desarrollo de argumentos y
+contraargumentos; el sistema de votación ofrece un indicador de
+resonancia comunitaria; y la persistencia habilita el análisis
+longitudinal (Proferes 2021).
+
+En el contexto chileno, \textbf{r/chile} (generalista, tendencia
+centro-izquierda) y \textbf{r/RepublicadeChile} (surgida como escisión,
+tolerancia de discursos más confrontacionales) constituyen un caso
+comparativo que permite examinar cómo una misma controversia es
+procesada de manera diferenciada según la cultura discursiva de la
+comunidad.
+
+\section{Modelo analítico
+integrado}\label{modelo-analuxedtico-integrado}
+
+El modelo integrado sigue una secuencia analítica:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Contexto}: fragmentación partidaria, reconfiguración de
+  derechas y plataformización.
+\item
+  \textbf{Actores}: Matthei, Kast, Kaiser y Jara.
+\item
+  \textbf{Dimensiones}: framing, emoción y construcción de adversarios.
+\item
+  \textbf{Dinámicas}: competencia intra-derecha, convergencia
+  anti-izquierda y evolución temporal.
+\item
+  \textbf{Resultado}: identificación de patrones discursivos por
+  corriente ideológica.
+\end{enumerate}
+
+\bookmarksetup{startatroot}
+
+\chapter{Diseño metodológico}\label{diseuxf1o-metodoluxf3gico}
+
+\section{Diseño de investigación}\label{diseuxf1o-de-investigaciuxf3n}
+
+Esta investigación adopta un diseño \textbf{longitudinal observacional}
+basado en datos digitales generados por usuarios (\emph{user-generated
+content}). El carácter longitudinal permite capturar la evolución del
+debate político a lo largo del ciclo electoral, identificando
+tendencias, puntos de inflexión y dinámicas de cambio. El carácter
+observacional preserva las propiedades naturales de la interacción en
+las plataformas estudiadas, sin intervención experimental.
+
+Metodológicamente, la investigación se inscribe en la \textbf{ciencia
+social computacional} (Lazer 2009; Salganik 2019): integra técnicas de
+procesamiento de datos a gran escala con marcos teóricos y preguntas
+sustantivas de las ciencias sociales. El diseño combina componentes
+\textbf{descriptivos} ---caracterizar la conversación política en Reddit
+durante el período estudiado--- con componentes \textbf{explicativos},
+orientados a identificar los factores y mecanismos que dan cuenta de los
+patrones observados.
+
+\section{Reddit como plataforma de
+análisis}\label{reddit-como-plataforma-de-anuxe1lisis}
+
+Reddit es una plataforma de agregación de contenido y discusión
+organizada en comunidades temáticas denominadas \emph{subreddits}, cada
+una con sus propias normas, moderadores y cultura discursiva. A
+diferencia de plataformas organizadas en torno a redes de seguidores o
+amistades, Reddit estructura la participación en torno a
+\textbf{intereses y temas compartidos}, lo que favorece conversaciones
+más extensas y argumentadas que en otros entornos digitales.
+
+Su arquitectura de \textbf{comentarios anidados} (\emph{threaded
+discussions}) permite seguir el desarrollo de argumentos y
+contraargumentos en múltiples niveles, haciendo visible la estructura
+deliberativa del debate. El sistema de votación
+(\emph{upvotes/downvotes}) ofrece un indicador de resonancia
+comunitaria, y la persistencia de los hilos habilita el análisis
+longitudinal de conversaciones en desarrollo.
+
+Los usuarios operan bajo seudónimos no vinculados a su identidad real,
+lo que puede facilitar la expresión de posiciones polémicas. Las
+comunidades son autogobernadas: cada subreddit define sus propias reglas
+de participación, generando culturas discursivas distintivas que hacen
+de la comparación entre comunidades un ejercicio analíticamente valioso.
+
+En el contexto chileno, dos subreddits concentran la discusión política
+nacional:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{r/chile}: Comunidad generalista sobre temas chilenos, con
+  mayor volumen de usuarios y diversidad temática. Ha tendido
+  históricamente hacia posiciones de centro-izquierda, aunque con
+  presencia de voces diversas.
+\item
+  \textbf{r/RepublicadeChile}: Comunidad surgida como escisión de
+  r/chile, con políticas de moderación más permisivas y una composición
+  ideológica tendiente a la derecha. Tolera discursos más
+  confrontacionales y concentra usuarios críticos de la moderación de
+  r/chile.
+\end{itemize}
+
+Esta dualidad constituye un caso comparativo de valor: permite examinar
+cómo una misma controversia política es procesada de manera diferenciada
+según la cultura discursiva de la comunidad.
+
+\section{Recolección de datos mediante la API de
+Reddit}\label{recolecciuxf3n-de-datos-mediante-la-api-de-reddit}
+
+\subsection{Procedimiento técnico}\label{procedimiento-tuxe9cnico}
+
+Los datos fueron extraídos mediante la API pública de Reddit utilizando
+la librería PRAW (\emph{Python Reddit API Wrapper}). Esta aproximación
+---distinta del \emph{web scraping} no autorizado--- accede de forma
+estructurada a contenido público respetando los límites de uso
+establecidos por la plataforma y garantizando la trazabilidad y
+reproducibilidad del proceso.
+
+\subsection{Período de recolección y fases del ciclo
+electoral}\label{peruxedodo-de-recolecciuxf3n-y-fases-del-ciclo-electoral}
+
+La recolección abarcó \textbf{cinco meses}, del \textbf{1 de agosto al
+31 de diciembre de 2025}, cubriendo las siguientes fases del ciclo
+electoral:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2373}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7627}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Período
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fase electoral
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Agosto -- octubre 2025 & Emergencia de candidaturas, posicionamiento
+inicial, primeras definiciones programáticas \\
+Noviembre -- diciembre 2025 & Escalamiento de campaña, consolidación
+electoral, estructuración del debate público \\
+\end{longtable}
+
+\subsection{Estrategia de extracción
+incremental}\label{estrategia-de-extracciuxf3n-incremental}
+
+El proceso fue \textbf{incremental y acumulativo}, ejecutado en
+múltiples iteraciones que: (1) recuperaban los posts más recientes de
+cada subreddit (250--1.000 posts por ejecución); (2) descargaban el
+árbol completo de comentarios mediante
+\texttt{replace\_more(limit=None)} para capturar todos los niveles de
+anidación; (3) integraban nuevos datos con extracciones previas en
+archivos Parquet; y (4) eliminaban duplicados mediante el identificador
+único nativo de Reddit (\texttt{post\_id}), que garantiza unicidad por
+diseño de la plataforma.
+
+\subsection{Contenido extraído y filtrado
+temático}\label{contenido-extrauxeddo-y-filtrado-temuxe1tico}
+
+Para cada publicación dentro del rango temporal se extrajeron dos
+niveles:
+
+\textbf{Posts}: título, cuerpo (\emph{selftext}), autor, fecha,
+puntuación, número de comentarios y flair temático.
+
+\textbf{Comentarios}: cuerpo del comentario, autor, fecha, puntuación e
+identificador del comentario al que responde.
+
+El filtrado temático se realizó mediante \textbf{expresiones regulares}
+que detectan menciones de las cuatro candidaturas de interés, manejando
+variaciones ortográficas (acentuación, nombres completos vs.~apellidos,
+apodos y errores tipográficos frecuentes):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2235}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3529}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4235}}@{}}
+\caption{Candidaturas objetivo y patrones regex para su detección en el
+corpus.}\label{tbl-candidaturas}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Candidatura
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Corriente ideológica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Patrones de búsqueda
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Candidatura
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Corriente ideológica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Patrones de búsqueda
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Evelyn Matthei & Derecha tradicional & \texttt{matthei}, \texttt{matei},
+\texttt{evelyn} \\
+José Antonio Kast & Derecha radical-conservadora & \texttt{kast},
+\texttt{jose\ antonio\ kast}, \texttt{jak} \\
+Johannes Kaiser & Derecha libertaria & \texttt{kaiser},
+\texttt{johannes}, \texttt{jkaiser} \\
+Jeannette Jara & Izquierda-PC & \texttt{jara}, \texttt{jeannette},
+\texttt{jeanette} \\
+\end{longtable}
+
+Esta selección permite analizar tanto la \textbf{competencia
+intra-derecha} entre tres corrientes como la \textbf{convergencia
+discursiva} frente al adversario ideológico común (ver
+Table~\ref{tbl-candidaturas}).
+
+\section{Consideraciones éticas}\label{consideraciones-uxe9ticas}
+
+La investigación se rige por principios establecidos para la
+investigación con datos digitales (Salganik 2019; Zimmer 2017):
+
+\textbf{Datos públicos}: Todo el contenido recolectado proviene de
+espacios públicos de Reddit. No se accedió a mensajes privados ni a
+información restringida.
+
+\textbf{Privacidad}: El análisis no reporta identificadores individuales
+ni busca vincular cuentas con identidades reales. Los ejemplos citados
+son anonimizados cuando resulta pertinente.
+
+\textbf{No intervención}: La investigación no actúa sobre las
+comunidades estudiadas ni expone a sus miembros a riesgos adicionales;
+el foco es el análisis de dinámicas colectivas.
+
+\textbf{Reproducibilidad}: Los scripts de recolección y procesamiento
+están documentados para permitir la replicación del estudio respetando
+los términos de uso de la API.
+
+\section{Técnicas de Análisis}\label{tuxe9cnicas-de-anuxe1lisis}
+
+El estudio combina \textbf{modelos de lenguaje (GPT-4o y DeepSeek)} con
+\textbf{validación humana sistemática} para analizar discursos políticos
+en Reddit. Las clasificaciones automáticas (sentimiento, emociones,
+marcos y estrategias) se realizan mediante prompts estructurados y luego
+se \textbf{validan con codificación manual} usando métricas de acuerdo
+(Cohen's κ) antes de escalar al corpus completo.
+
+Se analizan cuatro dimensiones principales:
+
+\begin{itemize}
+\item
+  \textbf{Sentimiento y emociones} (polaridad, intensidad y emoción
+  predominante)
+\item
+  \textbf{Marcos interpretativos} (económico, seguridad, identitario,
+  institucional, medioambiental)
+\item
+  \textbf{Interacciones} (redes de respuesta entre usuarios para
+  detectar comunidades y polarización)
+\item
+  \textbf{Evolución temporal} (cambios en tono, temas y volumen a lo
+  largo del tiempo)
+\end{itemize}
+
+El pipeline incluye técnicas de \textbf{procesamiento de texto (TF-IDF,
+bigramas)}, codificación de variables y modelos supervisados como
+\textbf{Regresión Logística, SVM, Random Forest y Gradient Boosting},
+evaluados con validación cruzada. También se aplican métodos de
+\textbf{reducción de dimensionalidad (SVD y PCA)} para visualización.
+
+Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se
+resuelven mediante revisión humana o criterios adicionales. El corpus
+final incluye publicaciones y comentarios de r/chile y
+r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis
+\textbf{longitudinales, relacionales y discursivos integrados}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/pipeline_corpus.png}
+
+}
+
+\caption{\label{fig-pipeline-datos}Flujo de recolección y procesamiento
+del corpus.}
+
+\end{figure}%
+
+\bookmarksetup{startatroot}
+
+\chapter{Depuración de Datos}\label{depuraciuxf3n-de-datos}
+
+\section{Depuración y preprocesamiento del
+corpus}\label{depuraciuxf3n-y-preprocesamiento-del-corpus}
+
+Una vez constituido el corpus filtrado temáticamente, se aplicó una
+etapa de depuración orientada a garantizar la calidad analítica de los
+datos. Esta etapa distingue entre dos tipos de decisiones: las que
+afectan a \textbf{unidades de observación} ---posts y comentarios que
+son excluidos del análisis--- y las que afectan al \textbf{contenido
+textual} ---transformaciones aplicadas al texto para mejorar su
+procesabilidad---.
+
+\section{Descripción general del
+corpus}\label{descripciuxf3n-general-del-corpus}
+
+El corpus previo a la depuración comprende \textbf{163.695 comentarios}
+distribuidos en \textbf{4.105 posts únicos}, publicados entre 05 de
+August de 2025 y 22 de January de 2026. Participaron \textbf{9.845
+autores únicos} en los comentarios y \textbf{1.106 autores únicos} en
+los posts. La Table~\ref{tbl-general} resume las estadísticas generales
+del corpus en esta etapa inicial.
+
+\begin{longtable}[t]{lr}
+
+\caption{\label{tbl-general}Estadísticas generales del corpus antes de
+depuración.}
+
+\tabularnewline
+
+\toprule
+Indicador & Valor\\
+\midrule
+\cellcolor{gray!10}{Comentarios totales} & \cellcolor{gray!10}{163.695}\\
+Posts únicos & 4.105\\
+\cellcolor{gray!10}{Autores de posts} & \cellcolor{gray!10}{1.106}\\
+Autores de comentarios & 9.845\\
+\cellcolor{gray!10}{Posts sin cuerpo textual (solo título)} & \cellcolor{gray!10}{99.434 (60.7\%)}\\
+\bottomrule
+
+\end{longtable}
+
+Destaca que una proporción elevada de posts carece de cuerpo textual
+(\texttt{post\_selftext\ =\ NA}), lo que implica que la detección de
+candidaturas mediante expresiones regulares recae principalmente sobre
+los títulos de los posts y el cuerpo de los comentarios. Este patrón es
+consistente con la cultura de publicación de Reddit, donde los posts de
+tipo \emph{link} o imagen no incluyen texto propio.
+
+La distribución exacta por subreddit no se reproduce en esta tabla
+porque el objeto intermedio \texttt{reddit\_filtrado.rds} preserva el
+contenido textual y las marcas de candidaturas, pero no conserva la
+columna de comunidad de origen. Esa desagregación sí está disponible en
+fuentes previas del pipeline y se retoma en el análisis sustantivo
+cuando corresponde.
+
+\begin{longtable}[t]{lrr}
+
+\caption{\label{tbl-menciones}Frecuencia de menciones por candidatura en
+el corpus bruto.}
+
+\tabularnewline
+
+\toprule
+Candidatura & Menciones & \% del corpus\\
+\midrule
+\cellcolor{gray!10}{José A. Kast} & \cellcolor{gray!10}{102.759} & \cellcolor{gray!10}{62.8\%}\\
+J. Jara & 63.602 & 38.9\%\\
+\cellcolor{gray!10}{J. Kaiser} & \cellcolor{gray!10}{26.521} & \cellcolor{gray!10}{16.2\%}\\
+E. Matthei & 16.358 & 10.0\%\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}\textit{Nota:} Un comentario puede mencionar a más de un candidato; los porcentajes no suman 100\%.}\\
+
+\end{longtable}
+
+La Figure~\ref{fig-serie} muestra la evolución semanal de las menciones
+por candidatura a lo largo del período de estudio. Los picos de
+actividad permiten identificar visualmente los momentos de mayor
+intensidad discursiva, que serán contrastados con el calendario de
+eventos electorales en el capítulo de resultados.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{05-depuracion-datos_files/figure-pdf/fig-serie-1.pdf}
+
+}
+
+\caption{\label{fig-serie}Volumen semanal de menciones por candidatura
+(agosto--diciembre 2025).}
+
+\end{figure}%
+
+\section{Criterios de exclusión de
+unidades}\label{criterios-de-exclusiuxf3n-de-unidades}
+
+Se aplicaron cuatro criterios de exclusión secuenciales:
+
+\textbf{Comentarios eliminados o moderados.} Reddit marca con los
+valores \texttt{{[}deleted{]}} o \texttt{{[}removed{]}} los comentarios
+cuyo contenido ha sido eliminado por el autor o por los moderadores de
+la comunidad. Estas cadenas no contienen información sustantiva y fueron
+descartadas del análisis textual, aunque se conservan en el corpus
+estructural para preservar la integridad de los árboles de conversación
+y no distorsionar las métricas de red.
+
+\textbf{Contenido automático y bots.} Se identificaron y excluyeron
+cuentas con comportamiento consistente con automatización,
+operacionalizadas como usuarios que publican más de cincuenta
+comentarios en un mismo día de forma sostenida, o cuyos nombres de
+usuario coinciden con patrones conocidos de bots en subreddits chilenos
+(\texttt{AutoModerator}, \texttt{RemindMeBot}). La exclusión de este
+contenido reduce el ruido no-humano en el análisis de sentimiento y en
+la construcción de redes de interacción.
+
+\textbf{Comentarios excesivamente cortos.} Los comentarios con menos de
+tres tokens tras la normalización ---típicamente reacciones
+monosilábicas, interjecciones o emojis aislados--- aportan información
+insuficiente para la clasificación de marcos interpretativos o emociones
+y fueron excluidos del análisis textual. Se conservan, no obstante, en
+el análisis de redes de interacción, donde su existencia como arista es
+analíticamente relevante con independencia de su contenido semántico.
+
+\textbf{Posts fuera del período de estudio.} Aunque la extracción se
+circunscribió al período agosto--diciembre 2025, la estrategia
+incremental puede incorporar registros cuya fecha cae fuera del rango
+por diferencias de zona horaria. Todos los registros fueron verificados
+contra el período definido usando \emph{timestamps} convertidos a hora
+de Santiago (America/Santiago, UTC−3/UTC−4 según horario de verano),
+descartando aquellos fuera de rango.
+
+\section{Normalización textual}\label{normalizaciuxf3n-textual}
+
+El texto de posts y comentarios fue sometido a una normalización previa
+a cualquier clasificación automatizada. Las transformaciones se
+aplicaron en el siguiente orden:
+
+\textbf{Eliminación de elementos no textuales.} URLs, menciones de
+usuario (patrones \texttt{u/nombre}), referencias a subreddits
+(\texttt{r/nombre}) y secuencias de formato Markdown (asteriscos,
+almohadillas, corchetes) fueron eliminadas mediante expresiones
+regulares, dado que no aportan contenido semántico al análisis
+discursivo.
+
+\textbf{Normalización de espacios y puntuación.} Secuencias de espacios
+múltiples, saltos de línea redundantes y puntuación repetida fueron
+colapsadas a su forma canónica mediante \texttt{str\_squish()}. Esta
+operación reduce la variabilidad superficial sin alterar el contenido
+informativo del texto.
+
+\textbf{Conservación de tildes y caracteres del español.} No se aplicó
+eliminación de tildes ni de la letra ñ, dado que su presencia es
+relevante para la correcta tokenización del español chileno y para el
+funcionamiento de los patrones regex de detección de candidaturas.
+
+\textbf{No aplicación de \emph{stopwords} ni lematización en esta fase.}
+Estas transformaciones más agresivas se reservan para las técnicas que
+específicamente las requieren ---fundamentalmente el modelado de
+tópicos--- y no se aplican al texto enviado a los modelos de lenguaje
+para clasificación de sentimiento y marcos interpretativos, donde el
+contexto completo mejora el desempeño del modelo.
+
+\bookmarksetup{startatroot}
+
+\chapter{Exploración de Datos}\label{exploraciuxf3n-de-datos}
+
+\begin{center}
+\includegraphics{images/fig_count_facet_candidatos.png}
+\end{center}
+
+\bookmarksetup{startatroot}
+
+\chapter{Modelado de Datos}\label{modelado-de-datos}
+
+Este capítulo presenta el bloque técnico central de la tesis. La
+pregunta no es solo si existe polarización en la conversación digital,
+sino si el sistema automatizado logra \textbf{medirla de manera
+consistente}, \textbf{modelarla con estabilidad} y \textbf{demostrar que
+las variables discursivas estructuradas agregan información no
+redundante} respecto del texto crudo. Por esa razón, el orden del
+capítulo sigue tres dimensiones: consistencia de medición, modelado de
+polarización y notas de alcance sobre lo que se decide no reportar en el
+cuerpo principal.
+
+Este capítulo presenta el bloque técnico central de la tesis. Los
+resultados se organizan en tres niveles de relevancia editorial:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2368}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4579}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3053}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Nivel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Outputs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Función
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Tier 1 --- Núcleo metodológico-sustantivo} &
+Figure~\ref{fig-r2-configuraciones}, Figure~\ref{fig-coefplot},
+Figure~\ref{fig-perm}, frontera política, perfiles KMeans & Responden
+directamente las preguntas de investigación \\
+\textbf{Tier 2 --- Resultados de refuerzo} & Figure~\ref{fig-roc},
+Figure~\ref{fig-shap}, estrategia × frontera, transiciones, estrategias
+discursivas & Refuerzan o matizan el núcleo \\
+\textbf{Tier 3 --- Estabilidad y techo predictivo} & CV 5-fold, errores
+FN/FP, calibración, stacking, atlas 3D & Evidencia de robustez sin
+modificar la lectura principal \\
+\end{longtable}
+
+El \textbf{núcleo metodológico-sustantivo} (Tier 1) comprende cinco
+outputs que responden directamente las preguntas de investigación: la
+comparación de R² por fuente de información
+(Figure~\ref{fig-r2-configuraciones}), que justifica el sistema LLM dual
+al demostrar que las variables discursivas aportan varianza no
+recuperable desde el texto crudo; el modelo OLS interpretable
+(Figure~\ref{fig-coefplot}), que cuantifica el efecto de cada variable
+discursiva sobre la polarización y establece que el candidato como
+target no tiene efecto significativo (β ≈ 0) mientras que la ira sí lo
+tiene (β = 0.369); la importancia por permutación
+(Figure~\ref{fig-perm}), que confirma ese resultado desde una
+perspectiva no paramétrica y revela que el tipo de hilo supera al
+candidato como predictor; la clasificación de frontera política
+(F1-macro = 0.725), que operacionaliza computacionalmente el concepto
+teórico de frontera política (Mouffe, 2005); y los perfiles discursivos
+KMeans K=3, que identifican tres configuraciones recurrentes con
+interpretación teórica directa.
+
+Un \textbf{segundo nivel} incluye resultados que refuerzan o matizan el
+núcleo: las curvas ROC para polarización alta (Figure~\ref{fig-roc}), el
+gráfico SHAP (Figure~\ref{fig-shap}), la distribución de estrategias por
+frontera, las transiciones de autores y la clasificación multiclase de
+estrategia discursiva.
+
+Los outputs de \textbf{estabilidad y techo predictivo} ---validación
+cruzada de cinco pliegues, análisis de errores sistemáticos, calibración
+probabilística, stacking ensemble y visualizaciones 3D--- se presentan
+en las secciones correspondientes como evidencia de robustez sin
+modificar la lectura interpretativa principal.
+
+\section{1) Consistencia de medición}\label{consistencia-de-mediciuxf3n}
+
+\subsection{1.1 Acuerdo entre anotadores
+automáticos}\label{acuerdo-entre-anotadores-automuxe1ticos}
+
+\begin{longtable}[t]{lrrr}
+
+\caption{\label{tbl-acuerdo-anotadores}Acuerdo entre ambos sistemas de
+anotación automatizada por dimensión.}
+
+\tabularnewline
+
+\\
+\toprule
+Dim. & N & Est. & Coinc.\\
+\midrule
+\cellcolor{gray!10}{Polarización} & \cellcolor{gray!10}{7946} & \cellcolor{gray!10}{r = 0.665} & \cellcolor{gray!10}{}\\
+Marco & 7948 & κ = 0.136 & 0.450\\
+\cellcolor{gray!10}{Emoción} & \cellcolor{gray!10}{7948} & \cellcolor{gray!10}{κ = 0.076} & \cellcolor{gray!10}{0.423}\\
+Estrategia & 7948 & κ = 0.126 & 0.612\\
+\cellcolor{gray!10}{Frontera} & \cellcolor{gray!10}{7948} & \cellcolor{gray!10}{κ = -0.146} & \cellcolor{gray!10}{0.572}\\
+\bottomrule
+
+\end{longtable}
+
+El sistema LLM se trata aquí como un \textbf{instrumento automatizado de
+medición}. La dimensión mejor resuelta es polarización, donde el acuerdo
+entre salidas continuas es alto, mientras que frontera también muestra
+una consistencia suficiente para uso analítico. En cambio, emoción y
+estrategia presentan mayores márgenes de ambigüedad: el sistema las
+captura, pero con menor nitidez que polarización.
+
+\subsection{1.2 Modelo de desacuerdo}\label{modelo-de-desacuerdo}
+
+Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en
+el Anexo A (Table~\ref{tbl-anexo-desacuerdo}), para no saturar el cuerpo
+del capítulo.
+
+El valor del modelo de desacuerdo no está en reemplazar la clasificación
+principal, sino en identificar \textbf{cuándo la medición automatizada
+se vuelve inestable}. Esto permite distinguir entre dimensiones más
+robustas y dimensiones más sensibles a ambigüedad, ironía o baja
+densidad contextual.
+
+\subsection{1.3 Valor añadido de las variables
+discursivas}\label{valor-auxf1adido-de-las-variables-discursivas}
+
+La tabla comparativa de configuraciones (solo TF-IDF, solo variables
+LLM, combinado) figura en el Anexo A
+(Table~\ref{tbl-anexo-config-features}).
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{../../outputs_ml/figura_r2_configuraciones.png}
+
+}
+
+\caption{\label{fig-r2-configuraciones}Comparación de R² según fuente de
+información. Las barras de error representan ±1 desviación estándar en
+validación cruzada de cinco pliegues. El sistema LLM aporta R²=+0.122
+sobre el texto puro; el modelo combinado alcanza R²=0.618.}
+
+\end{figure}%
+
+Este es el argumento técnico central de la primera dimensión. Si las
+variables LLM fueran redundantes, el modelo discursivo no debería
+superar al texto puro. Sin embargo, el bloque de variables discursivas
+alcanza un \texttt{R²} superior y, en combinación con TF-IDF, eleva aún
+más el rendimiento. En otras palabras, el sistema no se limita a
+recodificar el texto: recupera información estructural adicional.
+
+\subsection{1.4 Calibración de
+probabilidades}\label{calibraciuxf3n-de-probabilidades}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/reliability_diagram_calibracion.png}
+
+}
+
+\caption{\label{fig-reliability}Calibración del clasificador de
+polarización alta.}
+
+\end{figure}%
+
+Las métricas numéricas de calibración (Brier, log-loss) están en el
+Anexo A (Table~\ref{tbl-anexo-calibracion}).
+
+La calibración muestra que los clasificadores ya eran razonablemente
+confiables sin post-procesamiento fuerte. Esto refuerza la validez
+práctica del pipeline para producir probabilidades utilizables como
+insumo analítico.
+
+\section{2) Modelado de polarización}\label{modelado-de-polarizaciuxf3n}
+
+\subsection{2.1 Comparación de modelos y estabilidad fuera de
+muestra}\label{comparaciuxf3n-de-modelos-y-estabilidad-fuera-de-muestra}
+
+\begin{longtable}[t]{rrrr}
+
+\caption{\label{tbl-cv-regresion}Comparación de modelos de regresión
+para polarización.}
+
+\tabularnewline
+
+\\
+\toprule
+ & Modelo & MAE (CV) & R² (CV)\\
+\midrule
+\cellcolor{gray!10}{1} & \cellcolor{gray!10}{Ridge} & \cellcolor{gray!10}{0.098 ± 0.001} & \cellcolor{gray!10}{0.553 ± 0.006}\\
+3 & RandomForest & 0.084 ± 0.001 & 0.619 ± 0.006\\
+\cellcolor{gray!10}{5} & \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{0.108 ± 0.002} & \cellcolor{gray!10}{0.474 ± 0.011}\\
+11 & Stacking &  & 0.646\\
+\bottomrule
+
+\end{longtable}
+
+El resultado central es que \textbf{RandomForest} combina mejor
+desempeño y estabilidad. El bajo desvío estándar entre folds indica que
+la señal no depende de un corte favorable del conjunto de datos. El
+stacking mejora el techo predictivo, pero el benchmark robusto del
+capítulo sigue siendo el RandomForest.
+
+\subsection{2.2 OLS interpretable}\label{ols-interpretable}
+
+\begin{longtable}[t]{llrrrr}
+
+\caption{\label{tbl-ols-polarizacion}Modelo OLS para polarización: 15
+términos significativos con mayor magnitud.}
+
+\tabularnewline
+
+\\
+\toprule
+Grupo & Nivel & B & IC95\% inf. & IC95\% sup. & p\\
+\midrule
+\cellcolor{gray!10}{Emo.} & \cellcolor{gray!10}{ira} & \cellcolor{gray!10}{0.3687} & \cellcolor{gray!10}{0.3415} & \cellcolor{gray!10}{0.3960} & \cellcolor{gray!10}{< .001}\\
+Estrat. & ridiculización & 0.1741 & 0.1619 & 0.1863 & < .001\\
+\cellcolor{gray!10}{Estrat.} & \cellcolor{gray!10}{amenaza} & \cellcolor{gray!10}{0.1342} & \cellcolor{gray!10}{0.1174} & \cellcolor{gray!10}{0.1510} & \cellcolor{gray!10}{< .001}\\
+Estrat. & esencialización & 0.1333 & 0.1163 & 0.1504 & < .001\\
+\cellcolor{gray!10}{Estrat.} & \cellcolor{gray!10}{deslegitimación} & \cellcolor{gray!10}{0.1260} & \cellcolor{gray!10}{0.1129} & \cellcolor{gray!10}{0.1392} & \cellcolor{gray!10}{< .001}\\
+\addlinespace
+Estrat. & atrib. oculta & 0.1190 & 0.1010 & 0.1371 & < .001\\
+\cellcolor{gray!10}{Emo.} & \cellcolor{gray!10}{desprecio} & \cellcolor{gray!10}{0.0980} & \cellcolor{gray!10}{0.0863} & \cellcolor{gray!10}{0.1097} & \cellcolor{gray!10}{< .001}\\
+Hilo & mixto & -0.0890 & -0.1003 & -0.0778 & < .001\\
+\cellcolor{gray!10}{Emo.} & \cellcolor{gray!10}{indignación} & \cellcolor{gray!10}{0.0871} & \cellcolor{gray!10}{0.0743} & \cellcolor{gray!10}{0.0998} & \cellcolor{gray!10}{< .001}\\
+Marco & identitario & -0.0535 & -0.0688 & -0.0382 & < .001\\
+\addlinespace
+\cellcolor{gray!10}{Marco} & \cellcolor{gray!10}{económico} & \cellcolor{gray!10}{-0.0368} & \cellcolor{gray!10}{-0.0582} & \cellcolor{gray!10}{-0.0154} & \cellcolor{gray!10}{< .001}\\
+Hilo & der. múltiple & -0.0363 & -0.0550 & -0.0176 & < .001\\
+\cellcolor{gray!10}{Marco} & \cellcolor{gray!10}{diagnóstico} & \cellcolor{gray!10}{-0.0347} & \cellcolor{gray!10}{-0.0460} & \cellcolor{gray!10}{-0.0235} & \cellcolor{gray!10}{< .001}\\
+Marco & moral & 0.0285 & 0.0166 & 0.0404 & < .001\\
+\cellcolor{gray!10}{Front.} & \cellcolor{gray!10}{inter-bloque} & \cellcolor{gray!10}{0.0269} & \cellcolor{gray!10}{0.0178} & \cellcolor{gray!10}{0.0361} & \cellcolor{gray!10}{< .001}\\
+\bottomrule
+
+\end{longtable}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/coefplot_ols_polarizacion.png}
+
+}
+
+\caption{\label{fig-coefplot}Coeficientes del modelo OLS para
+polarización.}
+
+\end{figure}%
+
+El OLS no compite con el mejor predictor, pero sí cumple una función
+crucial de \textbf{interpretabilidad}. El punto importante no es solo
+qué variables aumentan la polarización, sino que el efecto no se
+concentra en el candidato como target, sino en configuraciones
+discursivas como emoción, estrategia y tipo de hilo.
+
+\subsection{2.3 Importancia por permutación y explicación
+local}\label{importancia-por-permutaciuxf3n-y-explicaciuxf3n-local}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/permutation_importance_polarizacion.png}
+
+}
+
+\caption{\label{fig-perm}Importancia por permutación en el modelo de
+polarización.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/shap_summary_polarizacion.png}
+
+}
+
+\caption{\label{fig-shap}Resumen SHAP del modelo de polarización.}
+
+\end{figure}%
+
+La importancia por permutación permite establecer qué variables
+sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al
+nivel individual. Juntas, ambas herramientas muestran que el modelo no
+está capturando ruido superficial, sino una combinación estable de
+estructura discursiva y rasgos textuales.
+
+\subsection{2.4 Clasificación de polarización
+alta}\label{clasificaciuxf3n-de-polarizaciuxf3n-alta}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/roc_curves_polarizacion_alta.png}
+
+}
+
+\caption{\label{fig-roc}Curvas ROC para la clasificación de polarización
+alta.}
+
+\end{figure}%
+
+Los valores AUC por modelo se detallan en el Anexo A
+(Table~\ref{tbl-anexo-auc}).
+
+Las tres curvas ROC muestran que el problema de clasificación es genuino
+y no trivial: los modelos lineales funcionan razonablemente bien, pero
+los no lineales capturan una fracción adicional de señal. Eso es
+coherente con la estructura heterogénea del discurso hostil.
+
+\subsection{2.5 Estrategia, frontera, perfiles y
+errores}\label{estrategia-frontera-perfiles-y-errores}
+
+Las tablas completas de clasificación multiclase de \textbf{estrategia},
+de \textbf{frontera política}, de \textbf{perfiles K-means} y del
+\textbf{análisis de errores} sistemáticos se concentran en el
+\textbf{Anexo A} (secciones A.1.5 a A.1.8), en \textbf{página
+horizontal} en el PDF para conservar el formato sin desbordes.
+
+En síntesis, estrategia y frontera muestran que categorías teóricas
+complejas son operacionalizables desde el texto. K-means indica que la
+hostilidad no es un continuo homogéneo, sino una ecología de perfiles.
+El análisis de errores delimita dónde el modelo sigue fallando:
+comentarios breves, hostiles y poco contextuales.
+
+\section{}\label{section}
+
+\bookmarksetup{startatroot}
+
+\chapter{Interpretación de
+Resultados}\label{interpretaciuxf3n-de-resultados}
+
+Este capítulo toma el output del pipeline ya validado y lo traduce en
+una pregunta sustantiva: \textbf{cómo se reconfigura el antagonismo
+político en la conversación digital de derechas}. En esta sección el
+objetivo no es volver a demostrar que el modelo predice bien, sino
+mostrar \textbf{qué estructura discursiva revela} cuando se observan
+marcos, emociones, estrategias, fronteras, temporalidad y espacios
+semánticos.
+
+\section{1) Reconfiguración del antagonismo: estrategias, marcos y
+fronteras}\label{reconfiguraciuxf3n-del-antagonismo-estrategias-marcos-y-fronteras}
+
+\subsection{1.1 Estrategias por
+candidato}\label{estrategias-por-candidato}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/distribucion_estrategias_candidato.png}
+
+}
+
+\caption{\label{fig-estrategias-candidato}Distribución de estrategias
+por candidato (PNG).}
+
+\end{figure}%
+
+\begin{longtable}[t]{lrrr}
+
+\caption{\label{tbl-estrategia-frontera}Distribución de estrategias
+discursivas según tipo de frontera política.}
+
+\tabularnewline
+
+\\
+\toprule
+Estrategia & Inter & Intra & Sin.frontera\\
+\midrule
+\cellcolor{gray!10}{Atribución oculta} & \cellcolor{gray!10}{0.548} & \cellcolor{gray!10}{0.175} & \cellcolor{gray!10}{0.277}\\
+Construcción de amenaza & 0.663 & 0.101 & 0.236\\
+\cellcolor{gray!10}{Deslegitimación} & \cellcolor{gray!10}{0.578} & \cellcolor{gray!10}{0.183} & \cellcolor{gray!10}{0.239}\\
+Esencialización & 0.660 & 0.111 & 0.229\\
+\cellcolor{gray!10}{Ninguna} & \cellcolor{gray!10}{0.329} & \cellcolor{gray!10}{0.130} & \cellcolor{gray!10}{0.540}\\
+\addlinespace
+Ridiculización & 0.483 & 0.219 & 0.298\\
+\bottomrule
+
+\end{longtable}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/estrategia_por_frontera.png}
+
+}
+
+\caption{\label{fig-estrategia-frontera}Estrategia por frontera política
+(PNG).}
+
+\end{figure}%
+
+La lógica del antagonismo no se distribuye homogéneamente. Algunas
+estrategias quedan más asociadas a confrontación \textbf{inter-bloque} y
+otras funcionan más bien dentro del conflicto \textbf{intra-bloque}.
+Esto es importante porque muestra que la hostilidad no es una sola:
+cambia según la arquitectura del adversario construida por el
+comentario.
+
+\subsection{1.2 Marcos por candidato y por
+fase}\label{marcos-por-candidato-y-por-fase}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/distribucion_marcos_candidato.png}
+
+}
+
+\caption{\label{fig-marcos-candidato}Distribución de marcos por
+candidato (PNG).}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/marcos_por_fase_candidato.png}
+
+}
+
+\caption{\label{fig-marcos-fase}Marcos por fase electoral y candidato
+(PNG).}
+
+\end{figure}%
+
+Los contrastes de independencia marco × fase por candidato
+(chi-cuadrado, \emph{p}, V de Cramér) figuran en el Anexo A
+(Table~\ref{tbl-anexo-marcos-fase-candidato}).
+
+El repertorio de marcos no es estable entre candidatos ni entre fases.
+Esta heterogeneidad sugiere que la polarización no se activa sobre un
+único relato, sino sobre una combinación variable de conflicto,
+identidad, moralidad y diagnóstico coyuntural.
+
+\section{2) Combinaciones discursivas y dinámica
+temporal}\label{combinaciones-discursivas-y-dinuxe1mica-temporal}
+
+\subsection{2.1 Marco × emoción}\label{marco-emociuxf3n}
+
+\begin{longtable}[t]{llrrr}
+
+\caption{\label{tbl-marco-emocion-top}Diez combinaciones marco × emoción
+más frecuentes en el corpus.}
+
+\tabularnewline
+
+\\
+\toprule
+Marco & Emoción & n & Prop. & Pol..med.\\
+\midrule
+\cellcolor{gray!10}{Conflicto} & \cellcolor{gray!10}{Desprecio} & \cellcolor{gray!10}{945} & \cellcolor{gray!10}{0.092} & \cellcolor{gray!10}{0.463}\\
+Diagnóstico & Indignación & 844 & 0.082 & 0.430\\
+\cellcolor{gray!10}{Conflicto} & \cellcolor{gray!10}{Indignación} & \cellcolor{gray!10}{758} & \cellcolor{gray!10}{0.074} & \cellcolor{gray!10}{0.448}\\
+Conflicto & Ironía & 724 & 0.071 & 0.386\\
+\cellcolor{gray!10}{Moral} & \cellcolor{gray!10}{Desprecio} & \cellcolor{gray!10}{702} & \cellcolor{gray!10}{0.069} & \cellcolor{gray!10}{0.541}\\
+\addlinespace
+Moral & Indignación & 627 & 0.061 & 0.503\\
+\cellcolor{gray!10}{Diagnóstico} & \cellcolor{gray!10}{Desprecio} & \cellcolor{gray!10}{591} & \cellcolor{gray!10}{0.058} & \cellcolor{gray!10}{0.438}\\
+Otro & Desprecio & 528 & 0.052 & 0.544\\
+\cellcolor{gray!10}{Diagnóstico} & \cellcolor{gray!10}{Ninguna} & \cellcolor{gray!10}{463} & \cellcolor{gray!10}{0.045} & \cellcolor{gray!10}{0.261}\\
+Otro & Ninguna & 435 & 0.042 & 0.296\\
+\bottomrule
+
+\end{longtable}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/combinaciones_marco_emocion.png}
+
+}
+
+\caption{\label{fig-marco-emocion}Combinaciones marco × emoción (PNG).}
+
+\end{figure}%
+
+Las combinaciones entre marco y emoción son especialmente relevantes
+porque muestran que no toda emoción hostil se acopla del mismo modo al
+conflicto. Algunas combinaciones son frecuentes y moderadas; otras son
+raras, pero empujan la polarización a niveles mucho más altos.
+
+\subsection{2.2 Estrategias en el
+tiempo}\label{estrategias-en-el-tiempo}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_ml/serie_estrategias_semanal_mejorada.png}
+
+}
+
+\caption{\label{fig-estrategias-temporal}Evolución semanal de
+estrategias discursivas (proporción normalizada). La deslegitimación es
+la estrategia más estable durante todo el ciclo. La ridiculización
+presenta mayor variabilidad y un peak notable antes de primera vuelta.}
+
+\end{figure}%
+
+La serie temporal de estrategias permite observar si la arquitectura del
+adversario cambia en momentos electorales clave. En este punto interesa
+menos la fluctuación diaria y más la dirección general: si la
+ridiculización, la deslegitimación o la construcción de amenaza ganan o
+pierden centralidad a medida que el ciclo avanza.
+
+\begin{quote}
+No se eleva a figura principal la serie semanal de emociones porque su
+rendimiento en esta tesis fue sobre todo \textbf{descriptivo} y no
+añadió un hallazgo interpretativo tan fuerte como el bloque de
+estrategias o el de frontera.
+\end{quote}
+
+\section{3) Autores, persistencia y estructura del
+conflicto}\label{autores-persistencia-y-estructura-del-conflicto}
+
+\subsection{3.1 Persistencia de negatividad hacia
+Kast}\label{persistencia-de-negatividad-hacia-kast}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/transiciones_autor_kast_fases.png}
+
+}
+
+\caption{\label{fig-kast-trans}Transiciones de sentimiento hacia Kast
+por autor (PNG).}
+
+\end{figure}%
+
+\begin{longtable}[t]{lrrrrr}
+
+\caption{\label{tbl-kast-transiciones}Persistencia y cambio del tono
+hacia Kast entre autores inicialmente negativos.}
+
+\tabularnewline
+
+\\
+\toprule
+Autores neg. & Pasaron a positivo & Pasaron a neutro & Siguen negativos & P(positivo \&\#124; neg. pre) & P(no negativo \&\#124; neg. pre)\\
+\midrule
+\cellcolor{gray!10}{215} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{21} & \cellcolor{gray!10}{188} & \cellcolor{gray!10}{0.028} & \cellcolor{gray!10}{0.126}\\
+\bottomrule
+
+\end{longtable}
+
+\subsection{3.2 Actividad de autores y
+polarización}\label{actividad-de-autores-y-polarizaciuxf3n}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/polarizacion_por_tipo_autor.png}
+
+}
+
+\caption{\label{fig-autores-violin}Polarización media por tipo de autor
+(PNG).}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.82\textwidth,height=\textheight]{../../outputs_ml/scatter_actividad_polarizacion_autores.png}
+
+}
+
+\caption{\label{fig-autores-scatter}Actividad y polarización de autores
+(PNG).}
+
+\end{figure}%
+
+La lectura de autores permite evaluar si la hostilidad está concentrada
+en hiperactivos o distribuida en la masa de usuarios. Este punto es
+teóricamente relevante porque distingue una polarización sostenida por
+pocos actores intensivos de una polarización más difusa y ambiental.
+
+La hostilidad discursiva en Reddit Chile durante la campaña presidencial
+de 2025 no está concentrada en un pequeño grupo de usuarios
+hiperactivos. Los autores clasificados como hiperactivos (más de 20
+comentarios) presentan una polarización media similar a la de los
+usuarios esporádicos, con una tendencia levemente decreciente a medida
+que aumenta el número de comentarios, visible en la línea LOESS de la
+Figura 8.9. Esto sugiere que la hostilidad tiene carácter ambiental y
+difuso: no es producto de trolls coordinados sino de una cultura
+discursiva generalizada donde la crítica hostil es el modo dominante de
+participación política. El 87.4\% de los autores inicialmente negativos
+hacia Kast mantiene esa posición durante todo el ciclo electoral, lo que
+indica cristalización actitudinal más que escalamiento reactivo.
+
+\section{4) Espacios semánticos
+acoplados}\label{espacios-semuxe1nticos-acoplados}
+
+\subsection{4.1 Atlas global acoplado}\label{atlas-global-acoplado}
+
+El objetivo de los gráficos espaciales no es demostrar capacidad
+predictiva, sino \textbf{mostrar geometría discursiva}. Para que la
+lectura sea razonable en HTML y PDF, las vistas \textbf{v1 globales} se
+compilan en una sola imagen grande: tema, candidato, polarización y
+emociones quedan acoplados en el mismo panel y con la misma cámara.
+
+\begin{figure*}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{../../outputs_ml/3d_atlas_v1_globales.png}
+
+}
+
+\caption{\label{fig-3d-atlas-global-v1}Atlas global 3D (vista 1): temas,
+candidatos, polarización y emociones en una sola imagen.}
+
+\end{figure}%
+
+\end{figure*}%
+
+El atlas global acoplado es la pieza principal para lectura de la tesis.
+La decisión editorial es no incluir el atlas ampliado con todas las
+figuras \texttt{*\_v1.png} en el cuerpo principal, porque agrega detalle
+visual pero no mejora proporcionalmente la interpretación sustantiva.
+
+\begin{quote}
+No se reportan aquí los HTML interactivos ni una versión puramente 2D
+del espacio semántico porque el formato de tesis exige priorizar piezas
+estáticas legibles, reproducibles y consistentes entre HTML y PDF.
+\end{quote}
+
+\section{5) Cierre interpretativo}\label{cierre-interpretativo}
+
+La lectura conjunta de estas piezas sugiere que la reconfiguración del
+antagonismo no consiste solo en un cambio de target, sino en una
+reorganización de \textbf{estrategias}, \textbf{fronteras} y
+\textbf{marcos}. La confrontación política digital no se expresa
+únicamente como negatividad, sino como una arquitectura más compleja
+donde el tipo de enemigo, el tono del ataque y el encuadre del conflicto
+cambian según coyuntura y candidato.
+
+\bookmarksetup{startatroot}
+
+\chapter{Conclusión}\label{conclusiuxf3n}
+
+\section{9.1 Síntesis de hallazgos}\label{suxedntesis-de-hallazgos}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{H1 --- Contribución metodológica (LLM dual).} El sistema de
+  doble clasificación demostró que las variables discursivas
+  estructuradas aportan varianza propia (R²=+0.122 sobre texto puro) y
+  no son una mera recodificación del texto crudo.
+\item
+  \textbf{H2 --- Hostilidad ≠ target.} El modelo interpretable (OLS y
+  permutación) muestra que el candidato no explica la polarización (β≈0;
+  caída de R² marginal), mientras que la ira y el tipo de hilo sí
+  sostienen el ajuste.
+\item
+  \textbf{H3--H5 --- Operacionalización teórica.} La frontera política
+  es recuperable (F1=0.725), las estrategias adversariales se
+  distribuyen según frontera (Tabla 8.1) y los perfiles KMeans (3
+  grupos) revelan configuraciones discursivas diferenciadas.
+\item
+  \textbf{Pilares cuantitativos clave (cap. 7--8).}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Variables discursivas LLM aportan R²=+0.122 (RandomForest vs TF-IDF
+    puro).
+  \item
+    El candidato no predice polarización (β≈0, p≈0.82) en el OLS; el
+    efecto central es ira/tipo de hilo.
+  \item
+    Frontera política es recuperable con F1=0.725.
+  \item
+    El 84\% del corpus adversarial se organiza en dos perfiles
+    (hostilidad alta/ moderada) y su dinámica temporal es estable.
+  \item
+    El 87.4\% de autores inicialmente negativos hacia Kast mantiene esa
+    negatividad a lo largo del ciclo.
+  \end{itemize}
+\end{itemize}
+
+\section{9.2 Implicaciones teóricas}\label{implicaciones-teuxf3ricas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Antagonismo y frontera (Mouffe).} La frontera es detectable
+  empíricamente en texto corto y ruidoso; el antagonismo no depende solo
+  del ``quién'' (candidato), sino del ``cómo'' (estrategia + hilo).
+\item
+  \textbf{Polarización afectiva en Reddit.} La hostilidad es ambiental y
+  difusa, no concentrada en hiperactivos; la persistencia negativa hacia
+  Kast (87.4\%) sugiere cristalización más que escalamiento reactivo.
+\item
+  \textbf{Reconfiguración de derechas.} La competencia intra-bloque
+  muestra estrategias y marcos diferenciados que convergen frente a un
+  adversario común, pero mantienen huellas propias en emociones y
+  fronteras.
+\end{itemize}
+
+\section{9.3 Implicaciones prácticas}\label{implicaciones-pruxe1cticas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Moderación de plataformas.} Señales de hostilidad pueden
+  priorizarse por estrategia y tipo de hilo, más que por volumen de
+  usuarios; la detección de frontera ayuda a focalizar intervenciones.
+\item
+  \textbf{Comunicación política.} Mensajes que moderen el tono en hilos
+  mixtos pueden reducir escalamiento; el énfasis en argumentos (marcos)
+  y emociones no hostiles puede desplazar repertorios adversariales.
+\end{itemize}
+
+\section{9.4 Limitaciones}\label{limitaciones}
+
+\begin{itemize}
+\tightlist
+\item
+  Reddit no es representativo; sesgos de población (jóvenes, masculinos,
+  politizados).
+\item
+  Kappa bajo en emoción y marco; medidas menos estables que polarización
+  o frontera.
+\item
+  Atribución ideológica de usuarios es inferida; puede contener ruido o
+  errores.
+\end{itemize}
+
+\section{9.5 Futuras investigaciones}\label{futuras-investigaciones}
+
+\begin{itemize}
+\tightlist
+\item
+  Replicar en otros contextos y plataformas (incluyendo X/Twitter) para
+  contrastar patrones.
+\item
+  Análisis dinámico más fino (eventos, ventanas móviles) para captar
+  cambios rápidos.
+\item
+  Extender a otros tipos de hostilidad (ej. desinformación,
+  coordinaciones) y comparar con resultados aquí obtenidos.
+\end{itemize}
+
+\section{9.6 Reflexión final}\label{reflexiuxf3n-final}
+
+La democracia digital se juega en espacios híbridos donde la discusión
+pública convive con repertorios hostiles. Este trabajo muestra que la
+frontera política es observable, la hostilidad es ambiental y las
+derechas se reconfiguran en tensión entre competencia interna y
+convergencia adversarial. La evidencia sugiere que la moderación y el
+debate informado requieren atender tanto la estructura discursiva
+(estrategias, marcos, hilos) como las emociones que la sostienen.
+
+\bookmarksetup{startatroot}
+
+\chapter{Anexo A. Tablas
+complementarias}\label{anexo-a.-tablas-complementarias}
+
+Este anexo reúne las tablas detalladas del modelado supervisado y de la
+interpretación discursiva que, por su extensión o número de columnas, se
+presentan aquí en \textbf{página horizontal} en el PDF para asegurar
+legibilidad. En el cuerpo de los capítulos 7 y 8 se conservan solo las
+tablas imprescindibles para la línea argumental; el resto se referencia
+desde allí.
+
+\bookmarksetup{startatroot}
+
+\chapter{A.1 Modelado de datos (capítulo
+7)}\label{a.1-modelado-de-datos-capuxedtulo-7}
+
+\section{A.1.1 Desacuerdo entre
+anotadores}\label{a.1.1-desacuerdo-entre-anotadores}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrr}
+
+\caption{\label{tbl-anexo-desacuerdo}Coeficientes del modelo orientado a
+predecir desacuerdo entre el ordenador automático (OA) y el sistema de
+validación (DS).}
+
+\tabularnewline
+
+\\
+\toprule
+modelo & accuracy & f1\_macro\\
+\midrule
+\cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{0.622} & \cellcolor{gray!10}{0.593}\\
+LinearSVM & 0.599 & 0.561\\
+\cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{0.680} & \cellcolor{gray!10}{0.540}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.2 Comparación de configuraciones de características (texto,
+LLM,
+combinado)}\label{a.1.2-comparaciuxf3n-de-configuraciones-de-caracteruxedsticas-texto-llm-combinado}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrrrr}
+
+\caption{\label{tbl-anexo-config-features}Comparación de desempeño según
+fuente de información: texto puro, variables discursivas LLM y modelo
+combinado.}
+
+\tabularnewline
+
+\\
+\toprule
+config & MAE\_mean & MAE\_sd & R2\_mean & R2\_sd & delta\_vs\_texto\\
+\midrule
+\cellcolor{gray!10}{A\_TF-IDF} & \cellcolor{gray!10}{0.1052} & \cellcolor{gray!10}{0.0022} & \cellcolor{gray!10}{0.4316} & \cellcolor{gray!10}{0.0272} & \cellcolor{gray!10}{0.0000}\\
+B\_LLM & 0.0922 & 0.0014 & 0.5539 & 0.0095 & 0.1223\\
+\cellcolor{gray!10}{C\_combinado} & \cellcolor{gray!10}{0.0842} & \cellcolor{gray!10}{0.0013} & \cellcolor{gray!10}{0.6184} & \cellcolor{gray!10}{0.0068} & \cellcolor{gray!10}{0.1868}\\
+\bottomrule
+\multicolumn{6}{l}{\rule{0pt}{1em}\textit{Nota.} delta\_vs\_texto: incremento de R² medio respecto de la configuración solo TF-IDF.}\\
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.3 Calibración de probabilidades (polarización
+alta)}\label{a.1.3-calibraciuxf3n-de-probabilidades-polarizaciuxf3n-alta}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrrr}
+
+\caption{\label{tbl-anexo-calibracion}Brier score y log-loss antes y
+después de calibración isotónica.}
+
+\tabularnewline
+
+\\
+\toprule
+modelo & brier\_antes & brier\_despues & logloss\_antes & logloss\_despues\\
+\midrule
+\cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{0.1105} & \cellcolor{gray!10}{0.1119} & \cellcolor{gray!10}{0.3654} & \cellcolor{gray!10}{0.3530}\\
+GBM & 0.1138 & 0.1131 & 0.3608 & 0.3590\\
+\cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{0.1780} & \cellcolor{gray!10}{0.1215} & \cellcolor{gray!10}{0.5193} & \cellcolor{gray!10}{0.4123}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.4 AUC para clasificación de polarización
+alta}\label{a.1.4-auc-para-clasificaciuxf3n-de-polarizaciuxf3n-alta}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rr}
+
+\caption{\label{tbl-anexo-auc}Área bajo la curva ROC (AUC) para
+clasificación de polarización alta (umbral ≥ 0,60).}
+
+\tabularnewline
+
+\\
+\toprule
+modelo & AUC\\
+\midrule
+\cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{0.8107}\\
+RandomForest & 0.8557\\
+\cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{0.8324}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.5 Clasificación multiclase de estrategia
+discursiva}\label{a.1.5-clasificaciuxf3n-multiclase-de-estrategia-discursiva}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrr}
+
+\caption{\label{tbl-anexo-estrategia-multiclase}Clasificación multiclase
+de estrategia discursiva: F1 por clase y modelo.}
+
+\tabularnewline
+
+\\
+\toprule
+ & modelo & clase & f1\_clase\\
+\midrule
+\cellcolor{gray!10}{2} & \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{atribucion\_oculta} & \cellcolor{gray!10}{0.338}\\
+3 & LogReg & construccion\_amenaza & 0.521\\
+\cellcolor{gray!10}{4} & \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{deslegitimacion} & \cellcolor{gray!10}{0.606}\\
+5 & LogReg & esencializacion & 0.496\\
+\cellcolor{gray!10}{6} & \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{ridiculizacion} & \cellcolor{gray!10}{0.672}\\
+\addlinespace
+10 & RandomForest & atribucion\_oculta & 0.370\\
+\cellcolor{gray!10}{11} & \cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{construccion\_amenaza} & \cellcolor{gray!10}{0.537}\\
+12 & RandomForest & deslegitimacion & 0.700\\
+\cellcolor{gray!10}{13} & \cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{esencializacion} & \cellcolor{gray!10}{0.555}\\
+14 & RandomForest & ridiculizacion & 0.703\\
+\addlinespace
+\cellcolor{gray!10}{18} & \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{atribucion\_oculta} & \cellcolor{gray!10}{0.230}\\
+19 & GBM & construccion\_amenaza & 0.313\\
+\cellcolor{gray!10}{20} & \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{deslegitimacion} & \cellcolor{gray!10}{0.645}\\
+21 & GBM & esencializacion & 0.413\\
+\cellcolor{gray!10}{22} & \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{ridiculizacion} & \cellcolor{gray!10}{0.661}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.6 Clasificación de frontera
+política}\label{a.1.6-clasificaciuxf3n-de-frontera-poluxedtica}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrr}
+
+\caption{\label{tbl-anexo-frontera-politica}Clasificación de frontera
+política: F1 por clase y modelo.}
+
+\tabularnewline
+
+\\
+\toprule
+ & modelo & clase & f1\\
+\midrule
+\cellcolor{gray!10}{2} & \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{inter\_bloque} & \cellcolor{gray!10}{0.836}\\
+3 & LogReg & intra\_bloque & 0.663\\
+\cellcolor{gray!10}{4} & \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{ninguna} & \cellcolor{gray!10}{0.674}\\
+8 & RandomForest & inter\_bloque & 0.845\\
+\cellcolor{gray!10}{9} & \cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{intra\_bloque} & \cellcolor{gray!10}{0.653}\\
+\addlinespace
+10 & RandomForest & ninguna & 0.657\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.7 Perfiles discursivos
+(K-means)}\label{a.1.7-perfiles-discursivos-k-means}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrrrrr}
+
+\caption{\label{tbl-anexo-perfiles-kmeans}Perfiles discursivos (K-means,
+variables solo LLM): polarización media y categorías modales por
+cluster.}
+
+\tabularnewline
+
+\\
+\toprule
+cluster & n & polarizacion\_media & marco\_dominante & emocion\_dominante & estrategia\_dominante & candidato\_moda\\
+\midrule
+\cellcolor{gray!10}{0} & \cellcolor{gray!10}{1633} & \cellcolor{gray!10}{0.201} & \cellcolor{gray!10}{diagnostico} & \cellcolor{gray!10}{ninguna} & \cellcolor{gray!10}{ninguna} & \cellcolor{gray!10}{kast}\\
+1 & 3991 & 0.426 & conflicto & desprecio & deslegitimacion & jara\\
+\cellcolor{gray!10}{2} & \cellcolor{gray!10}{4627} & \cellcolor{gray!10}{0.493} & \cellcolor{gray!10}{conflicto} & \cellcolor{gray!10}{desprecio} & \cellcolor{gray!10}{ridiculizacion} & \cellcolor{gray!10}{kast}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\section{A.1.8 Errores sistemáticos del clasificador de polarización
+alta}\label{a.1.8-errores-sistemuxe1ticos-del-clasificador-de-polarizaciuxf3n-alta}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrrr}
+
+\caption{\label{tbl-anexo-errores-sistematicos}Comparación de falsos
+negativos, falsos positivos y verdaderos positivos (clasificación
+polarización alta): medias y distribuciones.}
+
+\tabularnewline
+
+\\
+\toprule
+grupo & n & pol\_real\_media & n\_chars\_media & karma\_media\\
+\midrule
+\cellcolor{gray!10}{FN} & \cellcolor{gray!10}{245} & \cellcolor{gray!10}{0.685} & \cellcolor{gray!10}{196.478} & \cellcolor{gray!10}{5.820}\\
+FP & 70 & 0.434 & 219.114 & 8.071\\
+\cellcolor{gray!10}{TP} & \cellcolor{gray!10}{156} & \cellcolor{gray!10}{0.733} & \cellcolor{gray!10}{202.064} & \cellcolor{gray!10}{10.590}\\
+\bottomrule
+
+\end{longtable}
+
+\end{landscape}
+
+\bookmarksetup{startatroot}
+
+\chapter{A.2 Interpretación de resultados (capítulo
+8)}\label{a.2-interpretaciuxf3n-de-resultados-capuxedtulo-8}
+
+\section{A.2.1 Asociación marco × fase por
+candidato}\label{a.2.1-asociaciuxf3n-marco-fase-por-candidato}
+
+\begin{landscape}
+
+\begin{longtable}[t]{rrrrr}
+
+\caption{\label{tbl-anexo-marcos-fase-candidato}Asociación entre marco
+discursivo y fase electoral, desagregada por candidato: estadísticos del
+contraste de independencia y tamaño del efecto (V de Cramér).}
+
+\tabularnewline
+
+\\
+\toprule
+Candidato & Chi-cuadrado & p & V de Cramér & N\\
+\midrule
+\cellcolor{gray!10}{kast} & \cellcolor{gray!10}{21.903} & \cellcolor{gray!10}{0.081} & \cellcolor{gray!10}{0.047} & \cellcolor{gray!10}{5052}\\
+kaiser & 23.874 & 0.047 & 0.096 & 1308\\
+\cellcolor{gray!10}{matthei} & \cellcolor{gray!10}{17.674} & \cellcolor{gray!10}{0.222} & \cellcolor{gray!10}{0.105} & \cellcolor{gray!10}{802}\\
+jara & 31.817 & 0.004 & 0.072 & 3085\\
+\bottomrule
+\multicolumn{5}{l}{\rule{0pt}{1em}\textit{Nota.} p en formato APA. N = número de comentarios del candidato en el análisis.}\\
+
+\end{longtable}
+
+\end{landscape}
+
+\bookmarksetup{startatroot}
+
+\chapter{Referencias}\label{referencias}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Boxell2022}
+Boxell. 2022. {``Boxell2022.''}
+
+\bibitem[\citeproctext]{ref-Brady2017}
+Brady. 2017. {``Brady2017.''}
+
+\bibitem[\citeproctext]{ref-Crockett2017}
+Crockett. 2017. {``Crockett2017.''}
+
+\bibitem[\citeproctext]{ref-vanDijck2018}
+Dijck, van. 2018. {``vanDijck2018.''}
+
+\bibitem[\citeproctext]{ref-Entman1993}
+Entman. 1993. {``Entman1993.''}
+
+\bibitem[\citeproctext]{ref-Gillespie2018}
+Gillespie. 2018. {``Gillespie2018.''}
+
+\bibitem[\citeproctext]{ref-Graham2020}
+Graham. 2020. {``Graham2020.''}
+
+\bibitem[\citeproctext]{ref-Iyengar2019}
+Iyengar. 2019. {``Iyengar2019.''}
+
+\bibitem[\citeproctext]{ref-Jasper2011}
+Jasper. 2011. {``Jasper2011.''}
+
+\bibitem[\citeproctext]{ref-Laclau1985}
+Laclau. 1985. {``Laclau1985.''}
+
+\bibitem[\citeproctext]{ref-Lazer2009}
+Lazer. 2009. {``Lazer2009.''}
+
+\bibitem[\citeproctext]{ref-Marcus2000}
+Marcus. 2000. {``Marcus2000.''}
+
+\bibitem[\citeproctext]{ref-Meraz2013}
+Meraz. 2013. {``Meraz2013.''}
+
+\bibitem[\citeproctext]{ref-Norris2019}
+Norris. 2019. {``Norris2019.''}
+
+\bibitem[\citeproctext]{ref-Proferes2021}
+Proferes. 2021. {``Proferes2021.''}
+
+\bibitem[\citeproctext]{ref-Salganik2019}
+Salganik. 2019. {``Salganik2019.''}
+
+\bibitem[\citeproctext]{ref-Semetko2000}
+Semetko. 2000. {``Semetko2000.''}
+
+\bibitem[\citeproctext]{ref-Settle2018}
+Settle. 2018. {``Settle2018.''}
+
+\bibitem[\citeproctext]{ref-Zimmer2017}
+Zimmer. 2017. {``Zimmer2017.''}
+
+\end{CSLReferences}
+
+
+
+
+\end{document}

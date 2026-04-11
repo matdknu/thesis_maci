@@ -1,0 +1,97 @@
+\contentsline {chapter}{Agradecimientos}{ii}{chapter*.1}%
+\contentsline {chapter}{Presentación}{iii}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Justificación y relevancia del estudio}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Preguntas de investigación}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos de la investigación}{4}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Objetivo general}{4}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Objetivos específicos}{4}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Presentación del Problema}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}El problema: competencia política digital en un sistema fragmentado}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Acercamiento: actores, dimensiones y niveles de análisis}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Los actores: tres derechas y un adversario}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Las dimensiones analíticas}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Los niveles de análisis}{7}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Descripción de la propuesta analítica}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Enfoque general}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Arquitectura del análisis}{10}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Originalidad de la propuesta}{10}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Producto mínimo viable (MVP) y objetivos operacionales}{11}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Definición del MVP}{11}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Objetivos operacionales y entregables}{11}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Alcances y limitaciones anticipadas}{12}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Estrategia de validación}{12}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Validación interna}{12}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Validación externa}{13}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Criterios de éxito}{13}{subsection.2.5.3}%
+\contentsline {chapter}{\numberline {3}Marco teórico}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Comunicación política en entornos digitales}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Polarización afectiva}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Teoría del \emph {framing}}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Emociones políticas}{15}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Construcción de adversarios}{16}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Derechas contemporáneas}{16}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Reddit como espacio de deliberación política}{17}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Modelo analítico integrado}{17}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Diseño metodológico}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Diseño de investigación}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Reddit como plataforma de análisis}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Recolección de datos mediante la API de Reddit}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Procedimiento técnico}{19}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Período de recolección y fases del ciclo electoral}{20}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Estrategia de extracción incremental}{20}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Contenido extraído y filtrado temático}{20}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Consideraciones éticas}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Técnicas de Análisis}{21}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Depuración de Datos}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Depuración y preprocesamiento del corpus}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Descripción general del corpus}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Criterios de exclusión de unidades}{26}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Normalización textual}{27}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Exploración de Datos}{29}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Modelado de Datos}{30}{chapter.7}%
+\contentsline {section}{\numberline {7.1}1) Consistencia de medición}{31}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}1.1 Acuerdo entre anotadores automáticos}{31}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}1.2 Modelo de desacuerdo}{32}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}1.3 Valor añadido de las variables discursivas}{32}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}1.4 Calibración de probabilidades}{34}{subsection.7.1.4}%
+\contentsline {section}{\numberline {7.2}2) Modelado de polarización}{34}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}2.1 Comparación de modelos y estabilidad fuera de muestra}{34}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}2.2 OLS interpretable}{35}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}2.3 Importancia por permutación y explicación local}{37}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}2.4 Clasificación de polarización alta}{39}{subsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.2.5}2.5 Estrategia, frontera, perfiles y errores}{39}{subsection.7.2.5}%
+\contentsline {chapter}{\numberline {8}Interpretación de Resultados}{41}{chapter.8}%
+\contentsline {section}{\numberline {8.1}1) Reconfiguración del antagonismo: estrategias, marcos y fronteras}{42}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}1.1 Estrategias por candidato}{42}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}1.2 Marcos por candidato y por fase}{44}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}2) Combinaciones discursivas y dinámica temporal}{45}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}2.1 Marco × emoción}{45}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}2.2 Estrategias en el tiempo}{47}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}3) Autores, persistencia y estructura del conflicto}{48}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}3.1 Persistencia de negatividad hacia Kast}{48}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}3.2 Actividad de autores y polarización}{49}{subsection.8.3.2}%
+\contentsline {section}{\numberline {8.4}4) Espacios semánticos acoplados}{51}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}4.1 Atlas global acoplado}{51}{subsection.8.4.1}%
+\contentsline {section}{\numberline {8.5}5) Cierre interpretativo}{51}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Conclusión}{53}{chapter.9}%
+\contentsline {section}{\numberline {9.1}9.1 Síntesis de hallazgos}{53}{section.9.1}%
+\contentsline {section}{\numberline {9.2}9.2 Implicaciones teóricas}{54}{section.9.2}%
+\contentsline {section}{\numberline {9.3}9.3 Implicaciones prácticas}{54}{section.9.3}%
+\contentsline {section}{\numberline {9.4}9.4 Limitaciones}{54}{section.9.4}%
+\contentsline {section}{\numberline {9.5}9.5 Futuras investigaciones}{54}{section.9.5}%
+\contentsline {section}{\numberline {9.6}9.6 Reflexión final}{55}{section.9.6}%
+\contentsline {chapter}{\numberline {10}Anexo A. Tablas complementarias}{56}{chapter.10}%
+\contentsline {chapter}{\numberline {11}A.1 Modelado de datos (capítulo 7)}{57}{chapter.11}%
+\contentsline {section}{\numberline {11.1}A.1.1 Desacuerdo entre anotadores}{57}{section.11.1}%
+\contentsline {section}{\numberline {11.2}A.1.2 Comparación de configuraciones de características (texto, LLM, combinado)}{59}{section.11.2}%
+\contentsline {section}{\numberline {11.3}A.1.3 Calibración de probabilidades (polarización alta)}{61}{section.11.3}%
+\contentsline {section}{\numberline {11.4}A.1.4 AUC para clasificación de polarización alta}{63}{section.11.4}%
+\contentsline {section}{\numberline {11.5}A.1.5 Clasificación multiclase de estrategia discursiva}{65}{section.11.5}%
+\contentsline {section}{\numberline {11.6}A.1.6 Clasificación de frontera política}{67}{section.11.6}%
+\contentsline {section}{\numberline {11.7}A.1.7 Perfiles discursivos (K-means)}{69}{section.11.7}%
+\contentsline {section}{\numberline {11.8}A.1.8 Errores sistemáticos del clasificador de polarización alta}{71}{section.11.8}%
+\contentsline {chapter}{\numberline {12}A.2 Interpretación de resultados (capítulo 8)}{73}{chapter.12}%
+\contentsline {section}{\numberline {12.1}A.2.1 Asociación marco × fase por candidato}{73}{section.12.1}%
+\contentsline {chapter}{\numberline {13}Referencias}{75}{chapter.13}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

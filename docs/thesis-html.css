@@ -3,14 +3,69 @@ header#title-block-header:has(h1.display-7) {
   display: none !important;
 }
 
-/* Ancho de lectura cómodo con sidebar (GitHub Pages / cosmo) */
-.page-layout-article main#quarto-document-content.content {
-  max-width: 50rem;
+/* Tipografía y ancho de lectura */
+body {
+  font-family: "Georgia", "Merriweather", serif;
+  line-height: 1.7;
 }
 
-/* Espaciado lateral en ventanas estrechas */
-@media (max-width: 991.98px) {
-  .page-layout-article main#quarto-document-content.content {
-    padding-inline: clamp(0.75rem, 3vw, 1.25rem);
-  }
+.page-layout-article main#quarto-document-content.content {
+  max-width: 50rem;
+  padding-inline: clamp(1rem, 3vw, 1.75rem);
+}
+
+/* Sidebar */
+#quarto-sidebar {
+  background: #0c2340; /* azul UdeC */
+  color: #f7f7f7;
+}
+#quarto-sidebar a {
+  color: #f0f4ff;
+}
+#quarto-sidebar .sidebar-link.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+/* Encabezados */
+h1, h2, h3 {
+  font-family: "Merriweather", "Georgia", serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+h1 { margin-top: 2.2rem; margin-bottom: 1rem; }
+h2 { margin-top: 1.8rem; margin-bottom: 0.85rem; }
+h3 { margin-top: 1.4rem; margin-bottom: 0.7rem; }
+
+/* Figuras y tablas */
+figure, .quarto-float {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  background: #fff;
+}
+figcaption, .quarto-float .quarto-figure-center figcaption {
+  font-size: 0.9rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+/* Tablas */
+table.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+table.table th, table.table td {
+  padding: 0.55rem 0.65rem;
+}
+
+/* Portada del libro (index) */
+.content-visible img[src*="logo_udec"] {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+}
+.content-visible h1, .content-visible h2, .content-visible p {
+  text-align: center;
 }
