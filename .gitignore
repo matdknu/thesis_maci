@@ -21,6 +21,9 @@ data/**/*.rds
 data/**/*.xlsx
 data/**/*.numbers
 
+# Mantener figuras de outputs en el repo
+!outputs_ml/*.png
+
 # Backups y artefactos temporales
 backups/
 scripts/analisis/__pycache__/
