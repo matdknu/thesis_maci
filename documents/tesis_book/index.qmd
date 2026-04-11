@@ -2,18 +2,11 @@
 format:
   html:
     toc: false
+    # Evita el bloque automático de título/autor (portada manual debajo)
+    title-block-style: none
   pdf:
     toc: false
 ---
-
-::: {.content-visible when-format="html"}
-```{=html}
-<style>
-/* Solo HTML: metadatos del libro duplican la portada manual */
-#title-block-header { display: none !important; }
-</style>
-```
-:::
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -40,23 +33,22 @@ knitr::opts_chunk$set(
 
 # Agradecimientos {.unnumbered}
 
-Esta tesina no habría sido posible sin el apoyo económico de la beca de excención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.
+Esta tesina no habría sido posible sin el apoyo económico de la beca de exención de arancel por el Premio Universidad de Concepción, según consta el decreto DIRPOST-021-24.
 
-Agradezco a mis compañeras y compañeros de generación con los cuáles compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quién constituí un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia el MACI habría sido significativamente más compleja.
+Agradezco a mis compañeras y compañeros de generación con los cuales compartí durante este proceso. En particular a Javiera Baeza y Florencia Pampaloni, con quienes formamos un excelente equipo de trabajo desde la distancia. Sin este trabajo colaborativo la experiencia en el MACI habría sido significativamente más compleja.
 
-De la misma forma, agradezco a nivel general mi experiencia en el MACI. La pasantía realizada en la Universidad de Harvard en 2024 brindó una oportunidad y riqueza iniguable para poder conocec un ecosistema que -hasta entoces- me era ajeno. En particular, dar las gracias a mis profesores guías, Marcela Parada y Carlos Navarrete, quiénes me acompañaron en este proceso formativo. 
+De la misma forma, agradezco a nivel general mi experiencia en el MACI. La pasantía realizada en la Universidad de Harvard en 2024 brindó una oportunidad y riqueza inigualable para poder conocer un ecosistema que —hasta entonces— me era ajeno. En particular, doy las gracias a mis profesores guías, Marcela Parada y Carlos Navarrete, quienes me acompañaron en este proceso formativo.
 
-Por último, darle siempre las gracias a mi familia por estimularla a afrontar nuevas desafíos, incluso cuándo la energía es escasa. 
+Por último, doy siempre las gracias a mi familia por animarme a afrontar nuevos desafíos, incluso cuando la energía es escasa.
 
-
-Sin duda está tesis combina mis interéses de la sociología, a nivel de pregrado y de magíster, y la ciencia de datos, que me ha conllevado a esta incipiente área de las *ciencias sociales computacionales*. Con sus bemoles, espero que esta tesis sirva cómo mi puntapié inicial para poder enfrentar nuevos desafíos que combine los métodos estadísticos avanzado con la revolución de la Inteligencia Artificial que hoy estamos viviendo. El tiempo nos dirá. 
+Sin duda esta tesis combina mis intereses de la sociología, a nivel de pregrado y de magíster, y la ciencia de datos, que me ha llevado a esta incipiente área de las *ciencias sociales computacionales*. Con sus bemoles, espero que esta tesis sirva como mi puntapié inicial para poder enfrentar nuevos desafíos que combinen los métodos estadísticos avanzados con la revolución de la inteligencia artificial que hoy estamos viviendo. El tiempo nos dirá.
 
 
 \newpage
 
 # Presentación {.unnumbered}
 
-Contenido de presentación/introducción general
+Este documento expone una investigación sobre la conversación política en Reddit durante la campaña presidencial chilena de 2025, con énfasis en la reconfiguración de las derechas, la movilización emocional y la construcción de adversarios en línea. Los capítulos siguientes desarrollan el marco teórico, el diseño metodológico, el modelado computacional de los datos y la interpretación de los resultados. El capítulo introductorio presenta la justificación, las preguntas de investigación y los objetivos que orientan el trabajo.
 
 \newpage
 

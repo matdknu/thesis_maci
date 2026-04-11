@@ -6,6 +6,10 @@ project:
     - ../../outputs_modelado/umap_interactivo_temas.html
     - ../../outputs_modelado/umap_interactivo_sentimiento.html
 
+# URL pública (enlaces canónicos, Open Graph, rutas en GitHub Pages)
+website:
+  site-url: https://matdknu.github.io/thesis_maci/
+
 bibliography: bibliography.bib
 
 book:
@@ -50,6 +54,8 @@ format:
     subtitle: "Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile"
     author: "Matías Deneken"
     language: es
+    lang: es
+    css: thesis-html.css
     theme: 
       light: [cosmo]
     toc: true

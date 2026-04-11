@@ -1,0 +1,16 @@
+/* Portada (solo index): Quarto book aún inserta un title-block junto a la portada manual */
+header#title-block-header:has(h1.display-7) {
+  display: none !important;
+}
+
+/* Ancho de lectura cómodo con sidebar (GitHub Pages / cosmo) */
+.page-layout-article main#quarto-document-content.content {
+  max-width: 50rem;
+}
+
+/* Espaciado lateral en ventanas estrechas */
+@media (max-width: 991.98px) {
+  .page-layout-article main#quarto-document-content.content {
+    padding-inline: clamp(0.75rem, 3vw, 1.25rem);
+  }
+}

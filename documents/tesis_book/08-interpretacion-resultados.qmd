@@ -117,10 +117,13 @@ Las combinaciones entre marco y emoción son especialmente relevantes porque mue
 
 ### 2.2 Estrategias en el tiempo
 
-```{r fig-serie-estrategias, fig.cap="Serie temporal semanal de estrategias discursivas (PNG).", out.width="82%"}
-if (file.exists(file.path(base_out, "serie_estrategias_semanal.png"))) {
-  knitr::include_graphics(file.path(base_out, "serie_estrategias_semanal.png"))
-}
+```{r}
+#| label: fig-estrategias-temporal
+#| fig-cap: "Evolución semanal de estrategias discursivas (proporción normalizada). La deslegitimación es la estrategia más estable durante todo el ciclo. La ridiculización presenta mayor variabilidad y un peak notable antes de primera vuelta."
+#| out-width: "100%"
+knitr::include_graphics(
+  file.path(base_out, "serie_estrategias_semanal_mejorada.png")
+)
 ```
 
 La serie temporal de estrategias permite observar si la arquitectura del adversario cambia en momentos electorales clave. En este punto interesa menos la fluctuación diaria y más la dirección general: si la ridiculización, la deslegitimación o la construcción de amenaza ganan o pierden centralidad a medida que el ciclo avanza.

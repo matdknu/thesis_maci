@@ -44,6 +44,42 @@ api_df <- read_or_empty(api_path)
 
 Este capítulo presenta el bloque técnico central de la tesis. La pregunta no es solo si existe polarización en la conversación digital, sino si el sistema automatizado logra **medirla de manera consistente**, **modelarla con estabilidad** y **demostrar que las variables discursivas estructuradas agregan información no redundante** respecto del texto crudo. Por esa razón, el orden del capítulo sigue tres dimensiones: consistencia de medición, modelado de polarización y notas de alcance sobre lo que se decide no reportar en el cuerpo principal.
 
+Este capítulo presenta el bloque técnico central de la tesis. Los resultados
+se organizan en tres niveles de relevancia editorial:
+
+| Nivel | Outputs | Función |
+|---|---|---|
+| **Tier 1 — Núcleo metodológico-sustantivo** | Tabla 7.3 (R² por fuente), Figura 7.2 (OLS), Figura 7.3 (permutación), Tabla 7.9 (frontera), Tabla 7.10 (KMeans) | Responden directamente las preguntas de investigación |
+| **Tier 2 — Resultados de refuerzo** | Figura 7.5 (ROC), Figura 7.4 (SHAP), Tabla 8.1 (estrategia × frontera), Tabla 8.4 (transiciones), Tabla 7.8 (estrategias) | Refuerzan o matizan el núcleo |
+| **Tier 3 — Estabilidad y techo predictivo** | CV 5-fold, errores FN/FP, calibración, stacking, atlas 3D | Evidencia de robustez sin modificar la lectura principal |
+
+El **núcleo metodológico-sustantivo** (Tier 1) comprende cinco outputs que
+responden directamente las preguntas de investigación: la comparación de R²
+por fuente de información (Tabla 7.3), que justifica el sistema LLM dual al
+demostrar que las variables discursivas aportan varianza no recuperable desde
+el texto crudo; el modelo OLS interpretable (Figura 7.2), que cuantifica el
+efecto de cada variable discursiva sobre la polarización y establece que el
+candidato como target no tiene efecto significativo (β ≈ 0) mientras que la
+ira sí lo tiene (β = 0.369); la importancia por permutación (Figura 7.3),
+que confirma ese resultado desde una perspectiva no paramétrica y revela que
+el tipo de hilo supera al candidato como predictor; la clasificación de
+frontera política (F1-macro = 0.725, Tabla 7.9), que operacionaliza
+computacionalmente el concepto teórico de frontera política (Mouffe, 2005);
+y los perfiles discursivos KMeans K=3 (Tabla 7.10), que identifican tres
+configuraciones recurrentes con interpretación teórica directa.
+
+Un **segundo nivel** incluye resultados que refuerzan o matizan el núcleo:
+las curvas ROC para polarización alta (Figura 7.5), el SHAP summary plot
+(Figura 7.4), la distribución de estrategias por frontera (Tabla 8.1), las
+transiciones de autores (Tabla 8.4) y la clasificación multiclase de
+estrategia discursiva (Tabla 7.8).
+
+Los outputs de **estabilidad y techo predictivo** —validación cruzada de
+cinco pliegues, análisis de errores sistemáticos, calibración probabilística,
+stacking ensemble y visualizaciones 3D— se presentan en las secciones
+correspondientes como evidencia de robustez sin modificar la lectura
+interpretativa principal.
+
 ## 1) Consistencia de medición
 
 ### 1.1 Acuerdo entre anotadores automáticos
@@ -112,6 +148,15 @@ El valor del modelo de desacuerdo no está en reemplazar la clasificación princ
 ### 1.3 Valor añadido de las variables discursivas
 
 La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
+
+```{r}
+#| label: fig-r2-configuraciones
+#| fig-cap: "Comparación de R² según fuente de información. Las barras de error representan ±1 desviación estándar en validación cruzada de cinco pliegues. El sistema LLM aporta R²=+0.122 sobre el texto puro; el modelo combinado alcanza R²=0.618."
+#| out-width: "85%"
+knitr::include_graphics(
+  file.path(base_out, "figura_r2_configuraciones.png")
+)
+```
 
 Este es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.
 
