@@ -23,6 +23,7 @@ data/**/*.numbers
 
 # Mantener figuras de outputs en el repo
 !outputs_ml/*.png
+!outputs_ml/*.csv
 
 # Backups y artefactos temporales
 backups/
