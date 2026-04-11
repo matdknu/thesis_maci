@@ -18,9 +18,9 @@ base_dir <- normalizePath(file.path(base_out, ".."), winslash = "/", mustWork = 
 
 .apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
 if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
-  source(file.path(.apa, "includes", "apa_tables.R"), local = TRUE)
+  source(file.path(.apa, "includes", "apa_tables.R"), local = FALSE)
 } else if (file.exists("includes/apa_tables.R")) {
-  source("includes/apa_tables.R", local = TRUE)
+  source("includes/apa_tables.R", local = FALSE)
 } else {
   stop("Falta documents/tesis_book/includes/apa_tables.R")
 }
@@ -95,7 +95,8 @@ if (nrow(api_df)) {
   kable_apa(
     agreement,
     caption = "Acuerdo entre los dos sistemas de anotación automatizada por dimensión de codificación.",
-    note = "Polarización: correlación de Pearson entre puntuaciones OA y DS. Resto: kappa y proporción de coincidencia exacta."
+    note = "Polarización: correlación de Pearson entre puntuaciones OA y DS. Resto: kappa y proporción de coincidencia exacta.",
+    scale_down = knitr::is_latex_output()
   )
 }
 ```
@@ -104,30 +105,13 @@ El sistema LLM se trata aquí como un **instrumento automatizado de medición**.
 
 ### 1.2 Modelo de desacuerdo
 
-```{r tbl-desacuerdo}
-path_d <- file.path(base_out, "resultados_desacuerdo.csv")
-if (file.exists(path_d)) {
-  d <- round_df(read.csv(path_d, stringsAsFactors = FALSE), 3)
-  kable_apa(d, caption = "Coeficientes del modelo orientado a predecir desacuerdo entre OA y DS.")
-}
-```
+Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en el Anexo A (@tbl-anexo-desacuerdo), para no saturar el cuerpo del capítulo.
 
 El valor del modelo de desacuerdo no está en reemplazar la clasificación principal, sino en identificar **cuándo la medición automatizada se vuelve inestable**. Esto permite distinguir entre dimensiones más robustas y dimensiones más sensibles a ambigüedad, ironía o baja densidad contextual.
 
 ### 1.3 Valor añadido de las variables discursivas
 
-```{r tbl-config-features}
-cfg <- read_or_empty(file.path(base_out, "comparacion_configuraciones_features.csv"))
-if (nrow(cfg)) {
-  cfg <- round_df(cfg, 4)
-  cfg$delta_vs_texto <- round(cfg$R2_mean - cfg$R2_mean[cfg$config == "A_TF-IDF"][1], 4)
-  kable_apa(
-    cfg,
-    caption = "Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.",
-    note = "delta_vs_texto: incremento de R² medio respecto de la configuración solo TF-IDF."
-  )
-}
-```
+La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
 
 Este es el argumento técnico central de la primera dimensión. Si las variables LLM fueran redundantes, el modelo discursivo no debería superar al texto puro. Sin embargo, el bloque de variables discursivas alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el rendimiento. En otras palabras, el sistema no se limita a recodificar el texto: recupera información estructural adicional.
 
@@ -139,13 +123,7 @@ if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
 }
 ```
 
-```{r tbl-calibracion}
-cal <- read_or_empty(file.path(base_out, "metricas_calibracion.csv"))
-if (nrow(cal)) {
-  cal <- round_df(cal, 4)
-  kable_apa(cal, caption = "Brier score y log-loss antes y después de calibración.")
-}
-```
+Las métricas numéricas de calibración (Brier, log-loss) están en el Anexo A (@tbl-anexo-calibracion).
 
 La calibración muestra que los clasificadores ya eran razonablemente confiables sin post-procesamiento fuerte. Esto refuerza la validez práctica del pipeline para producir probabilidades utilizables como insumo analítico.
 
@@ -176,7 +154,11 @@ if (nrow(cv)) {
     }
   }
   names(reg_w) <- c("Modelo", "MAE (CV)", "R² (CV)")
-  kable_apa(reg_w, caption = "Comparación de modelos de regresión para polarización.")
+  kable_apa(
+    reg_w,
+    caption = "Comparación de modelos de regresión para polarización.",
+    scale_down = knitr::is_latex_output()
+  )
 }
 ```
 
@@ -221,7 +203,8 @@ if (nrow(ols)) {
       "Regresión lineal (OLS): coeficientes no estandarizados B e intervalos de confianza del 95 %",
       "para términos con p < .05 (excluido el intercepto); ordenados por magnitud |B|."
     ),
-    note = nota_ols
+    note = nota_ols,
+    scale_down = knitr::is_latex_output()
   )
 }
 ```
@@ -258,73 +241,15 @@ if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
 }
 ```
 
-```{r tbl-auc-polarizacion-alta}
-auc_tab <- read_or_empty(file.path(base_out, "auc_comparacion_modelos.csv"))
-if (nrow(auc_tab)) {
-  kable_apa(
-    round_df(auc_tab, 4),
-    caption = "Área bajo la curva ROC (AUC) para clasificación de polarización alta (umbral ≥ 0,60)."
-  )
-}
-```
+Los valores AUC por modelo se detallan en el Anexo A (@tbl-anexo-auc).
 
 Las tres curvas ROC muestran que el problema de clasificación es genuino y no trivial: los modelos lineales funcionan razonablemente bien, pero los no lineales capturan una fracción adicional de señal. Eso es coherente con la estructura heterogénea del discurso hostil.
 
 ### 2.5 Estrategia, frontera, perfiles y errores
 
-```{r tbl-estrategia-multiclase}
-est <- read_or_empty(file.path(base_out, "resultados_clasificacion_estrategia.csv"))
-if (nrow(est)) {
-  est_main <- est[est$clase == "" | is.na(est$clase), c("modelo", "accuracy", "f1_macro")]
-  est_cls <- est[!(est$clase %in% c("", "macro avg", "weighted avg") | is.na(est$clase)), c("modelo", "clase", "f1_clase")]
-  kable_apa(
-    round_df(est_main, 3),
-    caption = "Clasificación multiclase de estrategia discursiva: exactitud y F1 macro (validación)."
-  )
-  kable_apa(
-    round_df(est_cls, 3),
-    caption = "Clasificación multiclase de estrategia discursiva: F1 por clase y modelo."
-  )
-}
-```
+Las tablas completas de clasificación multiclase de **estrategia**, de **frontera política**, de **perfiles K-means** y del **análisis de errores** sistemáticos se concentran en el **Anexo A** (secciones A.1.5 a A.1.8), en **página horizontal** en el PDF para conservar el formato sin desbordes.
 
-```{r tbl-frontera-politica}
-front <- read_or_empty(file.path(base_out, "resultados_clasificacion_frontera.csv"))
-if (nrow(front)) {
-  front_main <- front[front$clase == "" | is.na(front$clase), c("modelo", "accuracy", "f1_macro")]
-  front_cls <- front[!(front$clase %in% c("", "macro avg", "weighted avg") | is.na(front$clase)), c("modelo", "clase", "f1")]
-  kable_apa(
-    round_df(front_main, 3),
-    caption = "Clasificación de frontera política (inter-bloque, intra-bloque, ninguna): exactitud y F1 macro."
-  )
-  kable_apa(
-    round_df(front_cls, 3),
-    caption = "Clasificación de frontera política: F1 por clase y modelo."
-  )
-}
-```
-
-```{r tbl-perfiles-kmeans}
-perfiles <- read_or_empty(file.path(base_out, "perfiles_discursivos_kmeans.csv"))
-if (nrow(perfiles)) {
-  kable_apa(
-    round_df(perfiles, 3),
-    caption = "Perfiles discursivos (K-means, variables solo LLM): polarización media y categorías modales por cluster."
-  )
-}
-```
-
-```{r tbl-errores-sistematicos}
-err <- read_or_empty(file.path(base_out, "errores_sistematicos_resumen.csv"))
-if (nrow(err)) {
-  kable_apa(
-    round_df(err, 3),
-    caption = "Comparación de falsos negativos, falsos positivos y verdaderos positivos (clasificación polarización alta): medias y distribuciones."
-  )
-}
-```
-
-Estos cuatro resultados cierran el corazón técnico de la tesis. Estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. KMeans muestra que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores, finalmente, delimita con precisión dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.
+En síntesis, estrategia y frontera muestran que categorías teóricas complejas son operacionalizables desde el texto. K-means indica que la hostilidad no es un continuo homogéneo, sino una ecología de perfiles. El análisis de errores delimita dónde el modelo sigue fallando: comentarios breves, hostiles y poco contextuales.
 
 ## 3) Notas de alcance del capítulo
 

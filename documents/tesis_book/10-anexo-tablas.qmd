@@ -1,0 +1,162 @@
+---
+title: "Anexo A. Tablas complementarias"
+lang: es
+---
+
+```{r setup-anexo-tablas, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  fig.align = "center"
+)
+base_out <- "../../outputs_ml"
+
+.apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
+if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
+  source(file.path(.apa, "includes", "apa_tables.R"), local = FALSE)
+} else if (file.exists("includes/apa_tables.R")) {
+  source("includes/apa_tables.R", local = FALSE)
+} else {
+  stop("Falta documents/tesis_book/includes/apa_tables.R")
+}
+```
+
+Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, se presentan aquí en **página horizontal** en el PDF para asegurar legibilidad. En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
+
+# A.1 Modelado de datos (capítulo 7)
+
+## A.1.1 Desacuerdo entre anotadores
+
+```{r tbl-anexo-desacuerdo}
+path_d <- file.path(base_out, "resultados_desacuerdo.csv")
+if (file.exists(path_d)) {
+  d <- round_df(read.csv(path_d, stringsAsFactors = FALSE), 3)
+  kable_apa_anexo(
+    d,
+    caption = "Coeficientes del modelo orientado a predecir desacuerdo entre el ordenador automático (OA) y el sistema de validación (DS)."
+  )
+}
+```
+
+## A.1.2 Comparación de configuraciones de características (texto, LLM, combinado)
+
+```{r tbl-anexo-config-features}
+cfg <- read_or_empty(file.path(base_out, "comparacion_configuraciones_features.csv"))
+if (nrow(cfg)) {
+  cfg <- round_df(cfg, 4)
+  cfg$delta_vs_texto <- round(cfg$R2_mean - cfg$R2_mean[cfg$config == "A_TF-IDF"][1], 4)
+  kable_apa_anexo(
+    cfg,
+    caption = "Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.",
+    note = "delta_vs_texto: incremento de R² medio respecto de la configuración solo TF-IDF."
+  )
+}
+```
+
+## A.1.3 Calibración de probabilidades (polarización alta)
+
+```{r tbl-anexo-calibracion}
+cal <- read_or_empty(file.path(base_out, "metricas_calibracion.csv"))
+if (nrow(cal)) {
+  cal <- round_df(cal, 4)
+  kable_apa_anexo(cal, caption = "Brier score y log-loss antes y después de calibración isotónica.")
+}
+```
+
+## A.1.4 AUC para clasificación de polarización alta
+
+```{r tbl-anexo-auc}
+auc_tab <- read_or_empty(file.path(base_out, "auc_comparacion_modelos.csv"))
+if (nrow(auc_tab)) {
+  kable_apa_anexo(
+    round_df(auc_tab, 4),
+    caption = "Área bajo la curva ROC (AUC) para clasificación de polarización alta (umbral ≥ 0,60)."
+  )
+}
+```
+
+## A.1.5 Clasificación multiclase de estrategia discursiva
+
+```{r tbl-anexo-estrategia-multiclase}
+est <- read_or_empty(file.path(base_out, "resultados_clasificacion_estrategia.csv"))
+if (nrow(est)) {
+  est_main <- est[est$clase == "" | is.na(est$clase), c("modelo", "accuracy", "f1_macro")]
+  est_cls <- est[!(est$clase %in% c("", "macro avg", "weighted avg") | is.na(est$clase)), c("modelo", "clase", "f1_clase")]
+  kable_apa_anexo(
+    round_df(est_main, 3),
+    caption = "Clasificación multiclase de estrategia discursiva: exactitud y F1 macro (validación)."
+  )
+  kable_apa_anexo(
+    round_df(est_cls, 3),
+    caption = "Clasificación multiclase de estrategia discursiva: F1 por clase y modelo."
+  )
+}
+```
+
+## A.1.6 Clasificación de frontera política
+
+```{r tbl-anexo-frontera-politica}
+front <- read_or_empty(file.path(base_out, "resultados_clasificacion_frontera.csv"))
+if (nrow(front)) {
+  front_main <- front[front$clase == "" | is.na(front$clase), c("modelo", "accuracy", "f1_macro")]
+  front_cls <- front[!(front$clase %in% c("", "macro avg", "weighted avg") | is.na(front$clase)), c("modelo", "clase", "f1")]
+  kable_apa_anexo(
+    round_df(front_main, 3),
+    caption = "Clasificación de frontera política (inter-bloque, intra-bloque, ninguna): exactitud y F1 macro."
+  )
+  kable_apa_anexo(
+    round_df(front_cls, 3),
+    caption = "Clasificación de frontera política: F1 por clase y modelo."
+  )
+}
+```
+
+## A.1.7 Perfiles discursivos (K-means)
+
+```{r tbl-anexo-perfiles-kmeans}
+perfiles <- read_or_empty(file.path(base_out, "perfiles_discursivos_kmeans.csv"))
+if (nrow(perfiles)) {
+  kable_apa_anexo(
+    round_df(perfiles, 3),
+    caption = "Perfiles discursivos (K-means, variables solo LLM): polarización media y categorías modales por cluster."
+  )
+}
+```
+
+## A.1.8 Errores sistemáticos del clasificador de polarización alta
+
+```{r tbl-anexo-errores-sistematicos}
+err <- read_or_empty(file.path(base_out, "errores_sistematicos_resumen.csv"))
+if (nrow(err)) {
+  kable_apa_anexo(
+    round_df(err, 3),
+    caption = "Comparación de falsos negativos, falsos positivos y verdaderos positivos (clasificación polarización alta): medias y distribuciones."
+  )
+}
+```
+
+# A.2 Interpretación de resultados (capítulo 8)
+
+## A.2.1 Asociación marco × fase por candidato
+
+```{r tbl-anexo-marcos-fase-candidato}
+mfc <- read_or_empty(file.path(base_out, "marcos_por_fase_candidato.csv"))
+if (nrow(mfc)) {
+  mfc <- round_df(mfc, 3)
+  mfc$p <- format_p_apa(mfc$p_value)
+  mfc <- mfc[, c("candidato", "chi2", "p", "cramers_v", "n_total")]
+  kable_apa_anexo(
+    mfc,
+    col.names = c("Candidato", "Chi-cuadrado", "p", "V de Cramér", "N"),
+    caption = paste(
+      "Asociación entre marco discursivo y fase electoral, desagregada por candidato:",
+      "estadísticos del contraste de independencia y tamaño del efecto (V de Cramér)."
+    ),
+    note = "p en formato APA. N = número de comentarios del candidato en el análisis."
+  )
+}
+```

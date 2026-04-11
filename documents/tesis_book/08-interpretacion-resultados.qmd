@@ -17,9 +17,9 @@ base_out <- "../../outputs_ml"
 
 .apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
 if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
-  source(file.path(.apa, "includes", "apa_tables.R"), local = TRUE)
+  source(file.path(.apa, "includes", "apa_tables.R"), local = FALSE)
 } else if (file.exists("includes/apa_tables.R")) {
-  source("includes/apa_tables.R", local = TRUE)
+  source("includes/apa_tables.R", local = FALSE)
 } else {
   stop("Falta documents/tesis_book/includes/apa_tables.R")
 }
@@ -53,7 +53,8 @@ if (nrow(ef)) {
       "Distribución condicional de estrategias adversariales según el tipo de frontera política construida en el comentario.",
       "Cada fila corresponde a una estrategia; las columnas indican la proporción atribuida a cada tipo de frontera."
     ),
-    note = "Proporciones por fila (estrategia): cómo se reparte cada estilo de ataque entre fronteras inter-bloque, intra-bloque y resto."
+    note = "Proporciones por fila (estrategia): cómo se reparte cada estilo de ataque entre fronteras inter-bloque, intra-bloque y resto.",
+    scale_down = knitr::is_latex_output()
   )
 }
 ```
@@ -80,23 +81,7 @@ if (file.exists(file.path(base_out, "marcos_por_fase_candidato.png"))) {
 }
 ```
 
-```{r tbl-marcos-fase-candidato}
-mfc <- read_or_empty(file.path(base_out, "marcos_por_fase_candidato.csv"))
-if (nrow(mfc)) {
-  mfc <- round_df(mfc, 3)
-  mfc$p <- format_p_apa(mfc$p_value)
-  mfc <- mfc[, c("candidato", "chi2", "p", "cramers_v", "n_total")]
-  kable_apa(
-    mfc,
-    col.names = c("Candidato", "Chi-cuadrado", "p", "V de Cramér", "N"),
-    caption = paste(
-      "Asociación entre marco discursivo y fase electoral, desagregada por candidato:",
-      "estadísticos del contraste de independencia y tamaño del efecto (V de Cramér)."
-    ),
-    note = "p expresado en formato APA (< .001 cuando aplica). N = número de comentarios del candidato en el análisis."
-  )
-}
-```
+Los contrastes de independencia marco × fase por candidato (chi-cuadrado, *p*, V de Cramér) figuran en el Anexo A (@tbl-anexo-marcos-fase-candidato).
 
 El repertorio de marcos no es estable entre candidatos ni entre fases. Esta heterogeneidad sugiere que la polarización no se activa sobre un único relato, sino sobre una combinación variable de conflicto, identidad, moralidad y diagnóstico coyuntural.
 
@@ -116,7 +101,8 @@ if (nrow(me)) {
       "Las diez combinaciones marco × emoción más frecuentes en el corpus,",
       "con la polarización consensuada media observada en cada combinación."
     ),
-    note = "Proporción = frecuencia de la combinación en el conjunto analizado. Polarización M = media de polarización consensuada (0–1)."
+    note = "Proporción = frecuencia de la combinación en el conjunto analizado. Polarización M = media de polarización consensuada (0–1).",
+    scale_down = knitr::is_latex_output()
   )
 }
 ```
@@ -168,7 +154,8 @@ if (nrow(rk)) {
       "Persistencia y cambio de tono hacia el candidato Kast entre autores con sentimiento negativo previo:",
       "conteos de trayectorias y probabilidades condicionadas."
     ),
-    note = "Autores clasificados como negativos hacia Kast en la fase previa; columnas posteriores describen el estado al final del periodo observado."
+    note = "Autores clasificados como negativos hacia Kast en la fase previa; columnas posteriores describen el estado al final del periodo observado.",
+    scale_down = knitr::is_latex_output()
   )
 }
 ```

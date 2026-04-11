@@ -41,20 +41,27 @@ pretty_ols_term <- function(x) {
 }
 
 #' Tabla principal: booktabs + nota al pie tipo APA
-#' @param df data.frame
-#' @param caption Título completo (oración clara, punto final recomendado)
-#' @param note Texto opcional bajo la tabla (Nota.)
-#' @param align Vector align para kable o NULL
-#' @param col.names Nombres de columnas mostrados (reemplaza names(df))
-kable_apa <- function(df, caption, note = NULL, align = NULL, col.names = NULL) {
+#' @param landscape Si TRUE (p. ej. en PDF), página horizontal con pdflscape (tablas anchas).
+#' @param scale_down Si TRUE (LaTeX), escala la tabla al ancho de línea (alternativa a landscape).
+kable_apa <- function(
+    df,
+    caption,
+    note = NULL,
+    align = NULL,
+    col.names = NULL,
+    landscape = FALSE,
+    scale_down = FALSE
+) {
   df <- as.data.frame(df)
   if (!is.null(col.names)) colnames(df) <- col.names
   k <- knitr::kable(df, caption = caption, booktabs = TRUE, align = align)
   if (isTRUE(requireNamespace("kableExtra", quietly = TRUE))) {
+    latex_opts <- c("striped", "hold_position")
+    if (isTRUE(scale_down)) latex_opts <- c(latex_opts, "scale_down")
     k <- kableExtra::kable_styling(
       k,
       bootstrap_options = c("striped", "hover", "condensed"),
-      latex_options = c("striped", "hold_position"),
+      latex_options = latex_opts,
       full_width = FALSE
     )
     if (length(note) && nzchar(note)) {
@@ -65,8 +72,16 @@ kable_apa <- function(df, caption, note = NULL, align = NULL, col.names = NULL) 
         footnote_as_chunk = TRUE
       )
     }
+    if (isTRUE(landscape) && isTRUE(knitr::is_latex_output())) {
+      k <- kableExtra::landscape(k)
+    }
   }
   k
+}
+
+#' Tablas del anexo: en PDF se fuerza página horizontal para evitar desbordes.
+kable_apa_anexo <- function(...) {
+  kable_apa(..., landscape = knitr::is_latex_output(), scale_down = FALSE)
 }
 
 #' Alias semántico para el cuerpo de la tesis

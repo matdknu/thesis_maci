@@ -92,35 +92,6 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -219,8 +190,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10-anexo-tablas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Anexo A. Tablas complementarias</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
   </div>
 </li>
     </ul>
@@ -243,15 +220,7 @@ window.Quarto = {
   <li><a href="#contenido-extraído-y-filtrado-temático" id="toc-contenido-extraído-y-filtrado-temático" class="nav-link" data-scroll-target="#contenido-extraído-y-filtrado-temático">Contenido extraído y filtrado temático</a></li>
   </ul></li>
   <li><a href="#consideraciones-éticas" id="toc-consideraciones-éticas" class="nav-link" data-scroll-target="#consideraciones-éticas"><span class="header-section-number">4.4</span> Consideraciones éticas</a></li>
-  <li><a href="#técnicas-de-análisis" id="toc-técnicas-de-análisis" class="nav-link" data-scroll-target="#técnicas-de-análisis"><span class="header-section-number">4.5</span> Técnicas de análisis</a>
-  <ul class="collapse">
-  <li><a href="#análisis-de-sentimiento-y-emociones" id="toc-análisis-de-sentimiento-y-emociones" class="nav-link" data-scroll-target="#análisis-de-sentimiento-y-emociones">Análisis de sentimiento y emociones</a></li>
-  <li><a href="#clasificación-de-marcos-interpretativos-framing" id="toc-clasificación-de-marcos-interpretativos-framing" class="nav-link" data-scroll-target="#clasificación-de-marcos-interpretativos-framing">Clasificación de marcos interpretativos (<em>framing</em>)</a></li>
-  <li><a href="#análisis-de-redes-de-interacción" id="toc-análisis-de-redes-de-interacción" class="nav-link" data-scroll-target="#análisis-de-redes-de-interacción">Análisis de redes de interacción</a></li>
-  <li><a href="#análisis-temporal" id="toc-análisis-temporal" class="nav-link" data-scroll-target="#análisis-temporal">Análisis temporal</a></li>
-  <li><a href="#formalización-matemática-del-modelado-automático" id="toc-formalización-matemática-del-modelado-automático" class="nav-link" data-scroll-target="#formalización-matemática-del-modelado-automático">Formalización matemática del modelado automático</a></li>
-  </ul></li>
-  <li><a href="#corpus-final-y-pipeline-de-procesamiento" id="toc-corpus-final-y-pipeline-de-procesamiento" class="nav-link" data-scroll-target="#corpus-final-y-pipeline-de-procesamiento"><span class="header-section-number">4.6</span> Corpus final y pipeline de procesamiento</a></li>
+  <li><a href="#técnicas-de-análisis" id="toc-técnicas-de-análisis" class="nav-link" data-scroll-target="#técnicas-de-análisis"><span class="header-section-number">4.5</span> Técnicas de Análisis</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/04-diseno.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -400,103 +369,17 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones regex para su detección en el 
 <p><strong>Reproducibilidad</strong>: Los scripts de recolección y procesamiento están documentados para permitir la replicación del estudio respetando los términos de uso de la API.</p>
 </section>
 <section id="técnicas-de-análisis" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="técnicas-de-análisis"><span class="header-section-number">4.5</span> Técnicas de análisis</h2>
-<p>El análisis combina la capacidad de procesamiento de modelos de lenguaje de gran escala con validación humana sistemática. Se utilizaron dos APIs de forma complementaria: <strong>GPT-4o</strong> (OpenAI) y <strong>DeepSeek</strong>, seleccionados por su capacidad de comprensión del español rioplatense y chileno, su desempeño en tareas de clasificación de texto político y la posibilidad de controlar los prompts con precisión. Ningún modelo reemplaza el juicio analítico: en todos los casos, las clasificaciones automatizadas son revisadas y validadas manualmente sobre muestras representativas antes de escalar al corpus completo.</p>
-<section id="análisis-de-sentimiento-y-emociones" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-sentimiento-y-emociones">Análisis de sentimiento y emociones</h3>
-<p>Cada fragmento del corpus fue procesado mediante prompts estructurados que solicitaban a los modelos clasificar: <strong>polaridad</strong> (positiva, negativa, neutra), <strong>intensidad emocional</strong> (baja, media, alta) y <strong>emoción predominante</strong> (alegría, miedo, ira, desprecio, indignación, esperanza). Los prompts incluían definiciones operacionales de cada categoría y ejemplos de calibración extraídos del propio corpus de Reddit chileno.</p>
-<p>La clasificación automática fue validada mediante codificación manual de una muestra aleatoria estratificada por candidatura y subreddit, calculando coeficientes de acuerdo intercalificador (Cohen’s κ) para establecer umbrales de confiabilidad aceptables antes de aplicar el esquema al corpus completo.</p>
-</section>
-<section id="clasificación-de-marcos-interpretativos-framing" class="level3">
-<h3 class="anchored" data-anchor-id="clasificación-de-marcos-interpretativos-framing">Clasificación de marcos interpretativos (<em>framing</em>)</h3>
-<p>Para identificar los marcos interpretativos predominantes, se diseñaron prompts que solicitaban a los modelos asignar cada fragmento a uno o más de los marcos definidos teóricamente: económico, seguridad, identitario, institucional y medioambiental. Los prompts especificaban indicadores lingüísticos de cada marco y pedían justificación de la clasificación, lo que permitió refinar iterativamente las definiciones operacionales.</p>
-<p>Al igual que en el análisis de sentimiento, las clasificaciones fueron validadas manualmente antes de escalar. Los casos de desacuerdo entre GPT-4o y DeepSeek fueron marcados para revisión humana prioritaria, convirtiendo la divergencia entre modelos en un indicador de ambigüedad analítica.</p>
-</section>
-<section id="análisis-de-redes-de-interacción" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-redes-de-interacción">Análisis de redes de interacción</h3>
-<p>A partir de la estructura de respuestas anidadas de Reddit, se construyeron <strong>redes de réplica</strong> donde los nodos representan usuarios y las aristas representan relaciones de respuesta (comentario a comentario). El análisis de estas redes permite identificar subcomunidades discursivas, patrones de confrontación o cooperación entre usuarios de distintas orientaciones ideológicas, y la presencia de estructuras de cámara de eco en cada subreddit.</p>
-</section>
-<section id="análisis-temporal" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-temporal">Análisis temporal</h3>
-<p>El diseño longitudinal habilita el análisis de <strong>series temporales</strong> de los indicadores de interés: volumen de menciones, tono emocional promedio y distribución de marcos temáticos semana a semana. Se identifican tendencias, ciclos y puntos de quiebre, así como correlaciones entre eventos externos (debates, declaraciones, controversias) y cambios en los patrones discursivos.</p>
-</section>
-<section id="formalización-matemática-del-modelado-automático" class="level3">
-<h3 class="anchored" data-anchor-id="formalización-matemática-del-modelado-automático">Formalización matemática del modelado automático</h3>
-<p>El pipeline de análisis posterior a la anotación (TF-IDF, vectores semánticos, modelos supervisados y no supervisados) puede describirse mediante las expresiones siguientes. Se omiten detalles de implementación específicos de cada librería cuando equivalentes conceptualmente.</p>
-<section id="representación-textual-tf-idf" class="level4">
-<h4 class="anchored" data-anchor-id="representación-textual-tf-idf">Representación textual: TF-IDF</h4>
-<p>Sea <span class="math inline">\(D\)</span> el conjunto de documentos (comentarios o fragmentos), <span class="math inline">\(t\)</span> un término y <span class="math inline">\(d \in D\)</span> un documento. La frecuencia–inversa de documento se define como el producto de la frecuencia del término en <span class="math inline">\(d\)</span> por un factor que penaliza términos muy frecuentes en el corpus:</p>
-<p><span class="math display">\[
-\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t), \qquad
-\text{idf}(t) = \log \frac{|D|}{1 + |\{d' \in D : t \in d'\}|}.
-\]</span></p>
-<p>En la práctica, la implementación puede aplicar transformaciones sublineales a <span class="math inline">\(\text{tf}\)</span> y variantes suavizadas de <span class="math inline">\(\text{idf}\)</span> según los hiperparámetros del vectorizador.</p>
-</section>
-<section id="embeddings-de-oraciones-y-similitud-coseno" class="level4">
-<h4 class="anchored" data-anchor-id="embeddings-de-oraciones-y-similitud-coseno">Embeddings de oraciones y similitud coseno</h4>
-<p>Un modelo de oraciones (p.&nbsp;ej. <em>Sentence Transformers</em>) proyecta cada texto en un vector de dimensión fija:</p>
-<p><span class="math display">\[
-\mathbf{e} = f_{\theta}(\text{texto}) \in \mathbb{R}^{d},
-\]</span></p>
-<p>donde <span class="math inline">\(f_{\theta}\)</span> es una red neuronal profunda (arquitectura tipo encoder) y <span class="math inline">\(\theta\)</span> denota los parámetros entrenados externamente. Para asignar un tema por proximidad a enunciados de referencia <span class="math inline">\(\mathbf{c}_k\)</span>, se utiliza la similitud coseno:</p>
-<p><span class="math display">\[
-\text{sim}(\mathbf{e}, \mathbf{c}_k) = \frac{\mathbf{e}^{\top} \mathbf{c}_k}{\|\mathbf{e}\| \, \|\mathbf{c}_k\|}, \qquad
-k^{\ast} = \arg\max_k \, \text{sim}(\mathbf{e}, \mathbf{c}_k).
-\]</span></p>
-</section>
-<section id="clasificación-de-sentimiento-y-de-desacuerdo-aprendizaje-supervisado" class="level4">
-<h4 class="anchored" data-anchor-id="clasificación-de-sentimiento-y-de-desacuerdo-aprendizaje-supervisado">Clasificación de sentimiento y de desacuerdo (aprendizaje supervisado)</h4>
-<p>Con un vector de características <span class="math inline">\(\mathbf{x}\)</span> —obtenido, según el modelo, como vector TF-IDF concatenado con variables categóricas codificadas y numéricas escaladas— la <strong>regresión logística multinomial</strong> modela</p>
-<p><span class="math display">\[
-P(y = k \mid \mathbf{x}) = \frac{\exp(\mathbf{w}_k^{\top}\mathbf{x} + b_k)}{\sum_{j} \exp(\mathbf{w}_j^{\top}\mathbf{x} + b_j)}.
-\]</span></p>
-<p>Para un <strong>SVM lineal</strong> (clasificación), típicamente se minimiza una función hinge regularizada de la forma</p>
-<p><span class="math display">\[
-\min_{\mathbf{w}, b} \; \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i} \max\bigl(0, 1 - y_i(\mathbf{w}^{\top}\mathbf{x}_i + b)\bigr),
-\]</span></p>
-<p>con <span class="math inline">\(y_i\)</span> en la convención <span class="math inline">\(\{-1,+1\}\)</span> según la implementación.</p>
-<p>Un <strong>bosque aleatorio</strong> promedia las predicciones de árboles de decisión; en cada nodo se minimiza una impureza como el índice de Gini,</p>
-<p><span class="math display">\[
-G(S) = 1 - \sum_{k} p_k^2,
-\]</span></p>
-<p>donde <span class="math inline">\(p_k\)</span> es la proporción de la clase <span class="math inline">\(k\)</span> en el conjunto de instancias <span class="math inline">\(S\)</span> del nodo.</p>
-<p>Los métodos de <strong>gradiente sobre árboles</strong> (p.&nbsp;ej. XGBoost) optimizan una función objetivo regularizada del tipo</p>
-<p><span class="math display">\[
-\mathcal{L} = \sum_{i} \ell\bigl(y_i, \hat{y}_i\bigr) + \sum_{t} \Omega(f_t),
-\]</span></p>
-<p>donde <span class="math inline">\(\ell\)</span> es una pérdida acorde al tipo de tarea (p.&nbsp;ej. log-verosimilitud negativa en clasificación multiclase) y <span class="math inline">\(\Omega\)</span> penaliza la complejidad de cada árbol aditivo <span class="math inline">\(f_t\)</span>.</p>
-<p>Cuando la entrada es directamente el embedding <span class="math inline">\(\mathbf{e}\)</span>, la <strong>regresión logística</strong> sobre <span class="math inline">\(\mathbf{e}\)</span> conserva la misma forma softmax o binaria, según la variable respuesta.</p>
-</section>
-<section id="regresión-de-polarización-variable-continua" class="level4">
-<h4 class="anchored" data-anchor-id="regresión-de-polarización-variable-continua">Regresión de polarización (variable continua)</h4>
-<p>La <strong>regresión Ridge</strong> estima coeficientes penalizando la norma <span class="math inline">\(\ell_2\)</span>:</p>
-<p><span class="math display">\[
-\min_{\mathbf{w}} \; \|\mathbf{y} - X\mathbf{w}\|_2^2 + \alpha \|\mathbf{w}\|_2^2, \qquad \alpha &gt; 0.
-\]</span></p>
-<p>Los <strong>árboles</strong> y <strong>métodos de boosting</strong> para regresión minimizan en cambio errores cuadráticos (u otras pérdidas) mediante particiones recursivas o sumas de árboles débiles, según el algoritmo elegido.</p>
-</section>
-<section id="reducción-de-dimensionalidad-umap" class="level4">
-<h4 class="anchored" data-anchor-id="reducción-de-dimensionalidad-umap">Reducción de dimensionalidad: UMAP</h4>
-<p><strong>UMAP</strong> construye una representación de baja dimensión (en este trabajo, tres dimensiones para visualización) optimizando una función de coste que alinea estructuras de vecindad en el espacio de embeddings de alta dimensión con una distribución en el espacio incrustado; la formulación completa aparece en <span class="citation" data-cites="mcinnes2018umap">McInnes, Healy, y Melville (<a href="references.html#ref-mcinnes2018umap" role="doc-biblioref">2018</a>)</span>. Los hiperparámetros relevantes incluyen el número de vecinos considerados, la métrica de distancia (p.&nbsp;ej. coseno) y la distancia mínima entre puntos en el embedding.</p>
-</section>
-<section id="clustering" class="level4">
-<h4 class="anchored" data-anchor-id="clustering">Clustering</h4>
-<p><strong>K-medias</strong> minimiza la suma de cuadrados intra-cluster:</p>
-<p><span class="math display">\[
-\min_{\{\boldsymbol{\mu}_k\}} \sum_{i} \min_k \|\mathbf{x}_i - \boldsymbol{\mu}_k\|_2^2,
-\]</span></p>
-<p>resuelto de forma aproximada por el algoritmo de Lloyd.</p>
-<p><strong>HDBSCAN</strong> es un método de clustering por densidad jerárquico; no reduce a una única expresión escalar sino que combina distancias de alcance mutuo y un análisis de estabilidad de clusters a lo largo de una jerarquía <span class="citation" data-cites="mcinnes2017hdbscan">(<a href="references.html#ref-mcinnes2017hdbscan" role="doc-biblioref">McInnes, Healy, y Astels 2017</a>)</span>.</p>
-</section>
-<section id="modelos-de-lenguaje-vía-api-anotación" class="level4">
-<h4 class="anchored" data-anchor-id="modelos-de-lenguaje-vía-api-anotación">Modelos de lenguaje vía API (anotación)</h4>
-<p>Las llamadas a modelos generativos de gran tamaño (p.&nbsp;ej. GPT-4o, DeepSeek) <strong>no</strong> admiten una fórmula cerrada equivalente a la de los modelos anteriores: la salida es una función implícita aprendida por entrenamiento masivo. En el diseño empírico, la “formalización” operativa consiste en la definición del prompt, la temperatura, el formato de salida (JSON) y las reglas de post-procesamiento (validación de etiquetas, consenso entre proveedores, agregación de polarización), descritas en los scripts de anotación.</p>
-</section>
-</section>
-</section>
-<section id="corpus-final-y-pipeline-de-procesamiento" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="corpus-final-y-pipeline-de-procesamiento"><span class="header-section-number">4.6</span> Corpus final y pipeline de procesamiento</h2>
-<p>Al cierre de la recolección (31 de diciembre de 2025), el corpus contiene todos los posts y sus árboles completos de comentarios publicados en r/chile y r/RepublicadeChile durante el período que mencionan al menos una de las cuatro candidaturas de interés, junto con sus metadatos asociados. La estructura del corpus permite análisis longitudinales, de red e interaccionales a lo largo del ciclo electoral completo.</p>
+<h2 data-number="4.5" class="anchored" data-anchor-id="técnicas-de-análisis"><span class="header-section-number">4.5</span> Técnicas de Análisis</h2>
+<p>El estudio combina <strong>modelos de lenguaje (GPT-4o y DeepSeek)</strong> con <strong>validación humana sistemática</strong> para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se <strong>validan con codificación manual</strong> usando métricas de acuerdo (Cohen’s κ) antes de escalar al corpus completo.</p>
+<p>Se analizan cuatro dimensiones principales:</p>
+<ul>
+<li><p><strong>Sentimiento y emociones</strong> (polaridad, intensidad y emoción predominante)</p></li>
+<li><p><strong>Marcos interpretativos</strong> (económico, seguridad, identitario, institucional, medioambiental)</p></li>
+<li><p><strong>Interacciones</strong> (redes de respuesta entre usuarios para detectar comunidades y polarización)</p></li>
+<li><p><strong>Evolución temporal</strong> (cambios en tono, temas y volumen a lo largo del tiempo)</p></li>
+</ul>
+<p>El pipeline incluye técnicas de <strong>procesamiento de texto (TF-IDF, bigramas)</strong>, codificación de variables y modelos supervisados como <strong>Regresión Logística, SVM, Random Forest y Gradient Boosting</strong>, evaluados con validación cruzada. También se aplican métodos de <strong>reducción de dimensionalidad (SVD y PCA)</strong> para visualización.</p>
+<p>Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis <strong>longitudinales, relacionales y discursivos integrados</strong></p>
 <div id="fig-pipeline-datos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pipeline-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -512,12 +395,6 @@ Figura&nbsp;4.1: Flujo de recolección y procesamiento del corpus.
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Lazer2009" class="csl-entry" role="listitem">
 Lazer. 2009. <span>«Lazer2009»</span>.
-</div>
-<div id="ref-mcinnes2017hdbscan" class="csl-entry" role="listitem">
-McInnes, Leland, John Healy, y Steve Astels. 2017. <span>«hdbscan: Hierarchical density based clustering»</span>. <em>The Journal of Open Source Software</em> 2 (11): 205. <a href="https://doi.org/10.21105/joss.00205">https://doi.org/10.21105/joss.00205</a>.
-</div>
-<div id="ref-mcinnes2018umap" class="csl-entry" role="listitem">
-McInnes, Leland, John Healy, y James Melville. 2018. <span>«UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction»</span>. <em>arXiv preprint arXiv:1802.03426</em>. <a href="https://arxiv.org/abs/1802.03426">https://arxiv.org/abs/1802.03426</a>.
 </div>
 <div id="ref-Salganik2019" class="csl-entry" role="listitem">
 Salganik. 2019. <span>«Salganik2019»</span>.

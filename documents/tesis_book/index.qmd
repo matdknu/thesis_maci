@@ -65,6 +65,8 @@ Contenido de presentación/introducción general
 \renewcommand{\contentsname}{Índice General}
 \renewcommand{\listfigurename}{Índice de Figuras}
 \renewcommand{\listtablename}{Índice de Tablas}
+% Solo capítulos en el índice impreso (sin \section ni inferiores)
+\setcounter{tocdepth}{0}
 % Índices después de las páginas preliminares
 \tableofcontents
 \newpage

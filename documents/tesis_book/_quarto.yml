@@ -32,6 +32,7 @@ book:
     - 07-modelado-datos.qmd
     - 08-interpretacion-resultados.qmd
     - 09-conclusion.qmd
+    - 10-anexo-tablas.qmd
     - references.qmd
   
   # Configuración del libro
@@ -83,10 +84,13 @@ format:
       - left=25mm
       - right=25mm
     
-    # Tabla de contenidos (controlada manualmente en index.qmd)
+    # Tabla de contenidos (cuerpo en index.qmd); solo capítulos (#), sin secciones
     toc: false
-    toc-depth: 3
+    toc-depth: 1
     toc-title: "Índice General"
+    # Panel lateral / marcadores del PDF: mismo criterio (solo capítulos)
+    hyperrefoptions:
+      - bookmarksdepth=0
     lof: false
     lot: false
     
@@ -120,6 +124,7 @@ format:
         \usepackage{longtable}
         \usepackage{array}
         \usepackage{float}
+        \usepackage{pdflscape}
         \usepackage{colortbl}
         \usepackage{xcolor}
         \usepackage{caption}
