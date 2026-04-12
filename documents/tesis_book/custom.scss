@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 // ============================================
-// TIPOGRAFÍA - Fuentes académicas elegantes
+// TIPOGRAFÍA
 // ============================================
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -9,14 +9,14 @@ $font-family-sans-serif: "Source Sans 3", "Segoe UI", sans-serif;
 $font-family-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
 $font-family-monospace: "JetBrains Mono", "Fira Code", monospace;
 
-// Colores - Paleta académica UdeC inspirada
-$primary: #1a365d;        // Azul profundo
-$secondary: #2d4a7a;      // Azul medio
-$accent: #c53030;         // Rojo UdeC (acento)
-$body-bg: #fdfcfa;        // Crema muy suave
-$body-color: #2d3748;     // Gris oscuro cálido
-$link-color: #2b6cb0;     // Azul link
-$sidebar-bg: #f7f5f0;     // Crema sidebar
+// Colores UdeC
+$primary: #1a365d;
+$secondary: #2d4a7a;
+$accent: #c53030;
+$body-bg: #fdfcfa;
+$body-color: #2d3748;
+$link-color: #2b6cb0;
+$sidebar-bg: #f7f5f0;
 
 // Tamaños
 $font-size-base: 1.05rem;
@@ -24,12 +24,16 @@ $line-height-base: 1.75;
 $h1-font-size: 2rem;
 $h2-font-size: 1.55rem;
 $h3-font-size: 1.25rem;
-$content-max-width: 52rem;
+
+// Nota: no usar $grid-body-width: 100% aquí — Quarto compila min(500px, …) y falla al mezclar unidades.
+// El ancho completo se fuerza en scss:rules con selectores + !important.
 
 /*-- scss:rules --*/
 
+$sidebar-w: 280px;
+
 // ============================================
-// LAYOUT GENERAL
+// LAYOUT - OCUPAR TODO EL ESPACIO
 // ============================================
 
 body {
@@ -39,20 +43,58 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-// Portada index: ocultar bloque de título duplicado (Quarto + portada manual)
+// Portada index: evitar título duplicado (Quarto + bloque manual)
 header#title-block-header:has(h1.display-7) {
   display: none !important;
 }
 
-// ============================================
-// SIDEBAR SIEMPRE VISIBLE (desktop)
-// ============================================
+// === ANCHO COMPLETO: romper restricciones de ancho de Quarto ===
 
-$sidebar-w: 300px;
+#quarto-content,
+#quarto-content > *,
+.page-columns,
+.page-columns .content,
+.body-content,
+#quarto-document-content,
+.col-body,
+.col-body-outset,
+.col-page,
+.col-screen,
+main.content,
+.container,
+.container-fluid {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.page-columns {
+  grid-template-columns: 1fr !important;
+}
+
+.col-body,
+.col-body-outset,
+.col-page,
+.col-screen {
+  grid-column: 1 / -1 !important;
+}
+
+.container,
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// Ocultar TOC derecho para ganar ancho
+#quarto-margin-sidebar {
+  display: none !important;
+}
+
+// ============================================
+// SIDEBAR + CONTENIDO (desktop)
+// ============================================
 
 @media (min-width: 768px) {
   #quarto-sidebar.collapse {
@@ -100,8 +142,9 @@ $sidebar-w: 300px;
 
   #quarto-content {
     margin-left: $sidebar-w !important;
-    padding-left: 0 !important;
-    max-width: 100% !important;
+    padding: 1.5rem 2.5rem 2rem 2rem !important;
+    width: calc(100% - #{$sidebar-w}) !important;
+    max-width: none !important;
   }
 
   #quarto-header {
@@ -112,10 +155,7 @@ $sidebar-w: 300px;
 
   .quarto-btn-toggle,
   button[data-bs-toggle="collapse"][data-bs-target=".quarto-sidebar-collapse-item"],
-  a.flex-grow-1[data-bs-toggle="collapse"][data-bs-target=".quarto-sidebar-collapse-item"] {
-    display: none !important;
-  }
-
+  a.flex-grow-1[data-bs-toggle="collapse"][data-bs-target=".quarto-sidebar-collapse-item"],
   .navbar-toggler,
   .sidebar-toggle,
   .quarto-sidebar-toggle {
@@ -123,10 +163,15 @@ $sidebar-w: 300px;
   }
 }
 
-// Móvil: sidebar colapsable (Bootstrap collapse)
+main,
+.content,
+#quarto-document-content {
+  padding: 0 !important;
+}
+
+// Responsive móvil
 @media (max-width: 767.98px) {
   #quarto-sidebar {
-    background-color: $sidebar-bg !important;
     width: min(280px, 92vw) !important;
     z-index: 1040 !important;
     transition: transform 0.3s ease;
@@ -138,18 +183,12 @@ $sidebar-w: 300px;
     &.show {
       transform: translateX(0);
     }
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgba(26, 54, 93, 0.2);
-      border-radius: 4px;
-    }
   }
 
   #quarto-content {
     margin-left: 0 !important;
+    width: 100% !important;
+    padding: 1rem !important;
   }
 
   #quarto-header {
@@ -158,13 +197,16 @@ $sidebar-w: 300px;
     max-width: 100% !important;
   }
 
-  .quarto-btn-toggle {
+  .quarto-btn-toggle,
+  .navbar-toggler,
+  .sidebar-toggle,
+  .quarto-sidebar-toggle {
     display: inline-flex !important;
   }
 }
 
 // ============================================
-// NAVEGACIÓN SIDEBAR
+// SIDEBAR - Navegación
 // ============================================
 
 #quarto-sidebar .sidebar-title,
@@ -174,7 +216,6 @@ $sidebar-w: 300px;
   font-size: 0.95rem;
   color: $primary;
   padding: 0.75rem 1.25rem;
-  letter-spacing: -0.01em;
   border-bottom: 2px solid rgba(26, 54, 93, 0.1);
   margin-bottom: 0.75rem;
 }
@@ -225,29 +266,6 @@ $sidebar-w: 300px;
   font-weight: 600;
   color: $secondary;
   margin-right: 0.35rem;
-  font-size: 0.85em;
-}
-
-// ============================================
-// CONTENIDO PRINCIPAL
-// ============================================
-
-.page-columns .content {
-  max-width: $content-max-width;
-}
-
-main,
-.content,
-#quarto-document-content {
-  padding: 2.5rem 3rem;
-}
-
-@media (max-width: 767.98px) {
-  main,
-  .content,
-  #quarto-document-content {
-    padding: 1.25rem 1rem;
-  }
 }
 
 // ============================================
@@ -260,11 +278,11 @@ h1,
   font-weight: 700;
   color: $primary;
   font-size: $h1-font-size;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.025em;
   line-height: 1.25;
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid rgba(26, 54, 93, 0.1);
 }
 
@@ -274,10 +292,8 @@ h2,
   font-weight: 600;
   color: $secondary;
   font-size: $h2-font-size;
-  margin-top: 2rem;
-  margin-bottom: 0.9rem;
-  letter-spacing: -0.015em;
-  line-height: 1.3;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
 h3,
@@ -299,11 +315,11 @@ h6 {
 }
 
 // ============================================
-// PÁRRAFOS Y TEXTO
+// TEXTO
 // ============================================
 
 p {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -314,15 +330,6 @@ b {
   font-weight: 600;
   color: #1a202c;
 }
-
-em,
-i {
-  font-style: italic;
-}
-
-// ============================================
-// LINKS
-// ============================================
 
 main a,
 .content a,
@@ -346,7 +353,7 @@ blockquote {
   border-left: 4px solid $accent !important;
   background-color: rgba(26, 54, 93, 0.03) !important;
   padding: 1.25rem 1.5rem !important;
-  margin: 1.75rem 0 !important;
+  margin: 1.5rem 0 !important;
   border-radius: 0 6px 6px 0;
   font-style: italic;
   color: #2d3748;
@@ -382,7 +389,6 @@ thead {
     padding: 0.75rem 1rem;
     font-weight: 600;
     text-align: left;
-    letter-spacing: 0.01em;
     border: none;
   }
 }
@@ -441,12 +447,15 @@ pre {
   }
 }
 
-.cell {
-  margin: 1.5rem 0;
+.cell,
+.cell-output-display {
+  max-width: 100% !important;
 }
 
-.cell-output-display {
-  margin: 1rem 0;
+.cell-output-display img,
+.cell-output-display .plot,
+.cell-output-display iframe {
+  max-width: 100% !important;
 }
 
 // ============================================
@@ -455,8 +464,9 @@ pre {
 
 figure,
 .quarto-figure {
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   text-align: center;
+  max-width: 100% !important;
 }
 
 figcaption,
@@ -465,9 +475,8 @@ figcaption,
   font-family: $font-family-sans-serif;
   font-size: 0.85rem;
   color: #718096;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   font-style: italic;
-  text-align: center;
 }
 
 img {
@@ -477,13 +486,8 @@ img {
 }
 
 // ============================================
-// PORTADA (INDEX)
+// PORTADA
 // ============================================
-
-.quarto-title-meta,
-.quarto-title {
-  margin-bottom: 2rem;
-}
 
 .quarto-title h1.title,
 .title {
@@ -502,24 +506,23 @@ img {
   font-family: $font-family-serif;
   font-size: 1.15rem;
   color: #4a5568;
-  font-weight: 400;
   line-height: 1.55;
-  margin-top: 0.5rem;
 }
 
 // ============================================
-// PAGINACIÓN (Anterior / Siguiente)
+// PAGINACIÓN
 // ============================================
 
 .page-navigation {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
   border-top: 2px solid rgba(26, 54, 93, 0.08);
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: space-between;
 
+  a,
   .pagination-link {
     font-family: $font-family-sans-serif;
     font-size: 0.9rem;
@@ -529,7 +532,6 @@ img {
     border: 1px solid #e2e8f0;
     transition: all 0.2s ease;
     text-decoration: none !important;
-    border-bottom: 1px solid #e2e8f0;
 
     &:hover {
       background-color: $primary;
@@ -575,32 +577,7 @@ img {
 }
 
 // ============================================
-// TOC EN PÁGINA
-// ============================================
-
-#TOC,
-.toc,
-nav[role="doc-toc"] {
-  font-family: $font-family-sans-serif;
-  font-size: 0.85rem;
-
-  a {
-    color: #718096;
-    border-bottom: none;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-
-  .active {
-    color: $primary;
-    font-weight: 600;
-  }
-}
-
-// ============================================
-// REFERENCIAS / BIBLIOGRAFÍA
+// REFERENCIAS
 // ============================================
 
 #refs,
@@ -616,7 +593,7 @@ nav[role="doc-toc"] {
 }
 
 // ============================================
-// SCROLL Y SELECCIÓN
+// UTILIDADES
 // ============================================
 
 html {
@@ -629,10 +606,6 @@ html {
   color: $primary;
 }
 
-// ============================================
-// IMPRESIÓN
-// ============================================
-
 @media print {
   #quarto-sidebar,
   #quarto-sidebar-glass {
@@ -641,6 +614,7 @@ html {
 
   #quarto-content {
     margin-left: 0 !important;
+    width: 100% !important;
   }
 
   #quarto-header {

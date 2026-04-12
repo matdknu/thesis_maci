@@ -57,6 +57,9 @@ format:
     lang: es
     theme:
       light: [cosmo, custom.scss]
+    grid:
+      sidebar-width: 280px
+      margin-width: 0px
     sidebar:
       pinned: true
       collapse-level: 1
