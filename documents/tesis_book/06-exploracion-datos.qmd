@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 )
 base_out <- "fig_thesis"
 base_dir <- normalizePath(file.path(base_out, ".."), winslash = "/", mustWork = FALSE)
-# Misma ruta que el script Python: filename = "outputs_ml/serie_polarizacion_candidatos.png"
 repo_root <- normalizePath(file.path(base_dir, "..", ".."), winslash = "/", mustWork = FALSE)
 base_ml <- file.path(repo_root, "outputs_ml")
+img_dir <- "images"
 ```
 
-Este capítulo ofrece una vista **exploratoria** del corpus antes del modelado formal: volumen de comentarios por candidato, cruces entre **estrategia discursiva y frontera política**, **densidad** de la polarización por candidato, **perfiles** comparados mediante un radar (concentración modal por dimensión) y las **trayectorias** de polarización en el tiempo (serie por candidato y negatividad diaria Jara–Kast).
+Este capítulo ofrece una vista **exploratoria** del corpus antes del modelado formal: volumen de comentarios por candidato, cruces entre **estrategia discursiva y frontera política**, **densidad** de la polarización, **evolución semanal de emociones por candidato** (panel acoplado con tendencia hostil), **perfiles** vía radar y **series temporales** de polarización.
 
 ## Volumen de comentarios por candidato
 
@@ -56,9 +56,25 @@ if (file.exists(file.path(base_out, "fig7_densidad_polarizacion.png"))) {
 }
 ```
 
+## Emociones en el tiempo (facetas por candidato)
+
+La @fig-emociones-candidato-tendencia muestra, para cada candidato objetivo, la **proporción semanal** de las emociones más frecuentes en el corpus (líneas de color). La **línea negra continua** es la proporción de emociones **hostiles** (ira, desprecio, indignación); el **trazo discontinuo** es un suavizado **LOESS** sobre esa fracción hostil. Las semanas con menos de 12 comentarios se excluyen. Figura generada en R con `scripts/analisis/viz_r_tesis.R` (misma salida en `outputs_ml/` y copias a `fig_thesis/` e `images/`). CSV largo: `outputs_ml/emociones_semanal_largo_por_candidato.csv`.
+
+```{r fig-emociones-candidato-tendencia}
+#| results: asis
+#| echo: false
+p1 <- file.path(img_dir, "emociones_candidato_semanal_facet_tendencia.png")
+p2 <- file.path(base_out, "emociones_candidato_semanal_facet_tendencia.png")
+if (file.exists(p1)) {
+  cat('![Proporción semanal de emociones por candidato (facetas 2×2). Línea negra: P(hostil); discontinua: LOESS sobre hostil.](images/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
+} else if (file.exists(p2)) {
+  cat('![Proporción semanal de emociones por candidato (facetas 2×2). Línea negra: P(hostil); discontinua: LOESS sobre hostil.](fig_thesis/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
+}
+```
+
 ## Perfiles discursivos: radar por candidato
 
-Cada eje del radar muestra la **concentración de la categoría modal** en esa dimensión (proporción de la categoría más frecuente, 0–1), calculada **solo sobre los comentarios cuyo target es ese candidato**. El quinto eje corresponde al **grupo de polarización** (baja / media / alta) en lugar del eje «candidato», que sería trivial dentro de cada submuestra. La @fig-radar-candidatos permite comparar en un mismo gráfico a Kast, Kaiser, Matthei y Jara.
+Cada eje del radar muestra la **concentración de la categoría modal** en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el **grupo de polarización** (baja / media / alta). La @fig-radar-candidatos permite comparar a Kast, Kaiser, Matthei y Jara.
 
 ```{r fig-radar-candidatos}
 #| results: asis
@@ -68,35 +84,23 @@ if (file.exists(file.path(base_out, "radar_candidatos_cuatro.png"))) {
 }
 ```
 
-Figura generada con `scripts/analisis/09_ml_avanzado.py` (función `run_radar_por_candidato`). Tabla numérica: `radar_concentracion_modal_candidatos.csv` en `outputs_ml/` y copia en `fig_thesis/` cuando se ejecuta el script.
+Figura generada con `scripts/analisis/09_ml_avanzado.py` (`run_radar_por_candidato`). Tabla: `radar_concentracion_modal_candidatos.csv`.
 
 ## Polarización en el tiempo
 
-Las series siguientes utilizan el mismo calendario electoral y la polarización por consenso entre anotadores que en el capítulo de modelado; aquí sirven como **contexto exploratorio** de la evolución agregada.
+La @fig-explor-pol-serie reproduce la serie **bisegmentada** (cada dos días) de polarización media por candidato, con la misma lógica de calendario que en el capítulo de modelado. El archivo de referencia del pipeline es **`outputs_ml/serie_polarizacion_candidatos.png`** (copia idéntica de `serie_polarizacion_cada_2_dias_candidatos.png`). Para el libro se usa la copia en `images/` (compatible con GitHub Pages).
 
-```{r fig-explor-pol-bi2d}
+```{r fig-explor-pol-serie}
 #| results: asis
 #| echo: false
-# Misma ruta que en Python: filename = "outputs_ml/serie_polarizacion_candidatos.png"
+pol_img <- file.path(img_dir, "serie_polarizacion_candidatos.png")
 pol_ml <- file.path(base_ml, "serie_polarizacion_candidatos.png")
 pol_ft <- file.path(base_out, "serie_polarizacion_candidatos.png")
-pol_alt_ml <- file.path(base_ml, "serie_polarizacion_cada_2_dias_candidatos.png")
-pol_alt_ft <- file.path(base_out, "serie_polarizacion_cada_2_dias_candidatos.png")
-ft1 <- file.path(base_dir, "fig_thesis", "serie_polarizacion_candidatos.png")
-ft2 <- file.path(base_dir, "fig_thesis", "serie_polarizacion_cada_2_dias_candidatos.png")
-img <- if (file.exists(pol_ml) || file.exists(pol_ft) || file.exists(ft1)) {
-  "fig_thesis/serie_polarizacion_candidatos.png"
-} else if (file.exists(pol_alt_ml) || file.exists(pol_alt_ft) || file.exists(ft2)) {
-  "fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png"
-} else {
-  NA_character_
-}
-if (!is.na(img)) {
-  cat(paste0(
-    "![Polarización media cada dos días por candidato (bandas aproximadas al IC 95 %; pipeline: outputs_ml/serie_polarizacion_candidatos.png).](",
-    img,
-    "){#fig-explor-pol-bi2d fig-align=\"center\" width=\"100%\"}\n"
-  ))
+if (file.exists(pol_img)) {
+  cat('![Polarización media cada dos días por candidato (bandas ≈ IC 95 %; pipeline `outputs_ml/serie_polarizacion_candidatos.png`).](images/serie_polarizacion_candidatos.png){#fig-explor-pol-serie fig-align="center" width="100%"}\n')
+} else if (file.exists(pol_ml) || file.exists(pol_ft)) {
+  src <- if (file.exists(pol_ft)) "fig_thesis/serie_polarizacion_candidatos.png" else "fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png"
+  cat(paste0('![Polarización media cada dos días por candidato (bandas ≈ IC 95 %).](', src, '){#fig-explor-pol-serie fig-align="center" width="100%"}\n'))
 }
 ```
 
@@ -108,4 +112,4 @@ if (file.exists(file.path(base_out, "serie_diaria_negatividad_jara_kast.png"))) 
 }
 ```
 
-Fuentes: `scripts/analisis/07_pipeline_completo.py` (guarda `outputs_ml/serie_polarizacion_candidatos.png`, mismo contenido que la serie bisegmentada cada 2 días) y `scripts/analisis/08_transiciones_sentimiento_derecha_jara.py`.
+Fuentes: `scripts/analisis/07_pipeline_completo.py`, `scripts/analisis/08_transiciones_sentimiento_derecha_jara.py`, `scripts/analisis/viz_r_tesis.R` (polarización y emociones), `scripts/analisis/09_ml_avanzado.py` (radar).

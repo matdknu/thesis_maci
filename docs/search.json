@@ -284,7 +284,17 @@
     "href": "06-exploracion-datos.html",
     "title": "6  Exploración de Datos",
     "section": "",
-    "text": "6.1 Volumen de comentarios por candidato\nFigura 6.1: Conteos de comentarios por candidato (facetas).",
+    "text": "6.1 Volumen de comentarios por candidato",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-exploracion-datos.html#volumen-de-comentarios-por-candidato",
+    "href": "06-exploracion-datos.html#volumen-de-comentarios-por-candidato",
+    "title": "6  Exploración de Datos",
+    "section": "",
+    "text": "Figura 6.1: Conteos de comentarios por candidato (facetas).",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
     ]
@@ -294,7 +304,7 @@
     "href": "06-exploracion-datos.html#estrategia-discursiva-y-frontera-política",
     "title": "6  Exploración de Datos",
     "section": "6.2 Estrategia discursiva y frontera política",
-    "text": "6.2 Estrategia discursiva y frontera política\nRelación exploratoria entre tipo de estrategia (eje horizontal) y frontera política (facetas), por candidato. Figura producida con scripts/analisis/03_visualizacion-modelado.R.\n\n\n\n\n\n\n\nFigura 6.2: Estrategia discursiva y frontera política por candidato (facetas).",
+    "text": "6.2 Estrategia discursiva y frontera política\nRelación exploratoria entre tipo de estrategia (eje horizontal) y frontera política (facetas), por candidato. Figura producida con scripts/analisis/03_visualizacion-modelado.R.\n\n\n\n\n\n\nFigura 6.2: Estrategia discursiva y frontera política por candidato (facetas).",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
     ]
@@ -304,7 +314,17 @@
     "href": "06-exploracion-datos.html#densidad-de-polarización-por-candidato",
     "title": "6  Exploración de Datos",
     "section": "6.3 Densidad de polarización por candidato",
-    "text": "6.3 Densidad de polarización por candidato\nDistribución de la polarización (consenso) condicionada al candidato comentado; visualización tipo densidad/ridges. Misma fuente R que la figura anterior.\n\n\n\n\n\n\n\nFigura 6.3: Densidad de polarización por candidato.",
+    "text": "6.3 Densidad de polarización por candidato\nDistribución de la polarización (consenso) condicionada al candidato comentado; visualización tipo densidad/ridges. Misma fuente R que la figura anterior.\n\n\n\n\n\n\nFigura 6.3: Densidad de polarización por candidato.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "06-exploracion-datos.html#emociones-en-el-tiempo-facetas-por-candidato",
+    "href": "06-exploracion-datos.html#emociones-en-el-tiempo-facetas-por-candidato",
+    "title": "6  Exploración de Datos",
+    "section": "6.4 Emociones en el tiempo (facetas por candidato)",
+    "text": "6.4 Emociones en el tiempo (facetas por candidato)\nLa Figura 6.4 muestra, para cada candidato objetivo, la proporción semanal de las emociones más frecuentes en el corpus (líneas de color). La línea negra continua es la proporción de emociones hostiles (ira, desprecio, indignación); el trazo discontinuo es un suavizado LOESS sobre esa fracción hostil. Las semanas con menos de 12 comentarios se excluyen. Figura generada en R con scripts/analisis/viz_r_tesis.R (misma salida en outputs_ml/ y copias a fig_thesis/ e images/). CSV largo: outputs_ml/emociones_semanal_largo_por_candidato.csv.\n\n\n\n\n\n\nFigura 6.4: Proporción semanal de emociones por candidato (facetas 2×2). Línea negra: P(hostil); discontinua: LOESS sobre hostil.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
     ]
@@ -313,8 +333,8 @@
     "objectID": "06-exploracion-datos.html#perfiles-discursivos-radar-por-candidato",
     "href": "06-exploracion-datos.html#perfiles-discursivos-radar-por-candidato",
     "title": "6  Exploración de Datos",
-    "section": "6.4 Perfiles discursivos: radar por candidato",
-    "text": "6.4 Perfiles discursivos: radar por candidato\nCada eje del radar muestra la concentración de la categoría modal en esa dimensión (proporción de la categoría más frecuente, 0–1), calculada solo sobre los comentarios cuyo target es ese candidato. El quinto eje corresponde al grupo de polarización (baja / media / alta) en lugar del eje «candidato», que sería trivial dentro de cada submuestra. La Figura 6.4 permite comparar en un mismo gráfico a Kast, Kaiser, Matthei y Jara.\n\n\n\n\n\n\n\nFigura 6.4: Radar: concentración modal por dimensión (marco, emoción, estrategia, frontera, grupo de polarización), una línea por candidato.\n\n\n\n\nFigura generada con scripts/analisis/09_ml_avanzado.py (función run_radar_por_candidato). Tabla numérica: radar_concentracion_modal_candidatos.csv en outputs_ml/ y copia en fig_thesis/ cuando se ejecuta el script.",
+    "section": "6.5 Perfiles discursivos: radar por candidato",
+    "text": "6.5 Perfiles discursivos: radar por candidato\nCada eje del radar muestra la concentración de la categoría modal en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el grupo de polarización (baja / media / alta). La Figura 6.5 permite comparar a Kast, Kaiser, Matthei y Jara.\n\n\n\n\n\n\nFigura 6.5: Radar: concentración modal por dimensión (marco, emoción, estrategia, frontera, grupo de polarización), una línea por candidato.\n\n\n\nFigura generada con scripts/analisis/09_ml_avanzado.py (run_radar_por_candidato). Tabla: radar_concentracion_modal_candidatos.csv.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
     ]
@@ -323,8 +343,8 @@
     "objectID": "06-exploracion-datos.html#polarización-en-el-tiempo",
     "href": "06-exploracion-datos.html#polarización-en-el-tiempo",
     "title": "6  Exploración de Datos",
-    "section": "6.5 Polarización en el tiempo",
-    "text": "6.5 Polarización en el tiempo\nLas series siguientes utilizan el mismo calendario electoral y la polarización por consenso entre anotadores que en el capítulo de modelado; aquí sirven como contexto exploratorio de la evolución agregada.\n\n\n\n\n\n\n\nFigura 6.5: Polarización media cada dos días por candidato (bandas aproximadas al IC 95 %; pipeline: outputs_ml/serie_polarizacion_candidatos.png).\n\n\n\n\n\n\n\n\n\n\n\nFigura 6.6: Negatividad diaria y polarización media (ejes dual), Jara vs Kast.\n\n\n\n\nFuentes: scripts/analisis/07_pipeline_completo.py (guarda outputs_ml/serie_polarizacion_candidatos.png, mismo contenido que la serie bisegmentada cada 2 días) y scripts/analisis/08_transiciones_sentimiento_derecha_jara.py.",
+    "section": "6.6 Polarización en el tiempo",
+    "text": "6.6 Polarización en el tiempo\nLa Figura 6.6 reproduce la serie bisegmentada (cada dos días) de polarización media por candidato, con la misma lógica de calendario que en el capítulo de modelado. El archivo de referencia del pipeline es outputs_ml/serie_polarizacion_candidatos.png (copia idéntica de serie_polarizacion_cada_2_dias_candidatos.png). Para el libro se usa la copia en images/ (compatible con GitHub Pages).\n\n\n\n\n\n\nFigura 6.6: Polarización media cada dos días por candidato (bandas ≈ IC 95 %; pipeline outputs_ml/serie_polarizacion_candidatos.png).\n\n\n\n\n\n\n\n\n\nFigura 6.7: Negatividad diaria y polarización media (ejes dual), Jara vs Kast.\n\n\n\nFuentes: scripts/analisis/07_pipeline_completo.py, scripts/analisis/08_transiciones_sentimiento_derecha_jara.py, scripts/analisis/viz_r_tesis.R (polarización y emociones), scripts/analisis/09_ml_avanzado.py (radar).",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Exploración de Datos</span>"
     ]
