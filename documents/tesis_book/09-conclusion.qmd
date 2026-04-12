@@ -13,6 +13,32 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Cierre interpretativo
+
+La lectura conjunta de estas piezas sugiere que la reconfiguración del
+antagonismo político en la conversación digital de derechas no consiste
+solo en un cambio de target, sino en una reorganización simultánea de
+estrategias, fronteras y marcos. La confrontación política no se expresa
+únicamente como negatividad difusa, sino como una arquitectura más
+compleja donde el tipo de enemigo construido, el tono del ataque y el
+encuadre del conflicto varían según la coyuntura electoral y el
+candidato en cuestión.
+
+Tres hallazgos articulan esta lectura. Primero, la hostilidad es
+estructuralmente distinta según la frontera: las estrategias de mayor
+carga adversarial se concentran en la confrontación inter-bloque,
+mientras que la ridiculización opera de manera más transversal. Segundo,
+la negatividad hacia Kast es cristalizada y ambiental, no concentrada en
+actores individuales ni escalada progresivamente. Tercero, el espacio
+semántico confirma que la estructura discursiva se organiza más por
+emoción y tema que por candidato, reforzando el resultado central del
+capítulo anterior.
+
+Estas observaciones se retoman en el capítulo de conclusiones, donde se
+discuten sus implicaciones teóricas para la literatura sobre
+polarización afectiva y antagonismo político en entornos digitales.
+
+
 ## Síntesis de hallazgos
 
 - **H1 — Contribución metodológica (LLM dual).** El sistema de doble clasificación demostró que las variables discursivas estructuradas aportan varianza propia (R²=+0.122 sobre texto puro) y no son una mera recodificación del texto crudo.

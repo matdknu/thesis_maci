@@ -232,13 +232,6 @@ reactivo: la negatividad hacia Kast no se construye progresivamente
 durante la campaña, sino que se presenta como una disposición previa que
 el ciclo electoral refuerza pero no origina.
 
-```{r fig-kast-trans}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
-  cat('![Transiciones de sentimiento hacia Kast por autor (PNG).](fig_thesis/transiciones_autor_kast_fases.png){#fig-kast-trans fig-align="center" width="82%"}\n')
-}
-```
 
 ```{r tbl-kast-transiciones}
 rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
@@ -289,25 +282,6 @@ el tono neutro** en origen y en destino y **renormaliza** los porcentajes
 dentro de cada bloque (solo positivo y negativo restantes), de modo que la
 lectura se centre en polaridad clara sin diluir con neutralidad.
 
-```{r tbl-cruce-sentimiento-pares-sv}
-cruce_path <- file.path(base_out, "cruce_segunda_vuelta_sentimiento_kast_jara_pct_sin_neutro.csv")
-if (file.exists(cruce_path)) {
-  cruce <- utils::read.csv(cruce_path, stringsAsFactors = FALSE, check.names = FALSE, encoding = "UTF-8")
-  cruce <- cruce[order(cruce[["Par"]], cruce[[2]], cruce[[3]]), ]
-  kable_apa(
-    cruce,
-    caption = paste(
-      "Probabilidad condicional de tono en segunda vuelta (hacia Kast o Jara) dado el tono de posicionamiento hacia el candidato de origen,",
-      "seis pares; sin tono neutro en origen ni destino (porcentajes renormalizados).",
-      "Agregación por autor-fase; conteos técnicos en `outputs_ml/cruce_posicionamiento_segunda_vuelta_pares_candidatos.csv`."
-    ),
-    note = NULL,
-    align = "lllr",
-    landscape = FALSE,
-    scale_down = knitr::is_latex_output()
-  )
-}
-```
 
 ```{r tbl-cruce-emocion-sin-se-pares-sv}
 emo_path <- file.path(base_out, "cruce_segunda_vuelta_emocion_grupos_kast_jara_pct_sin_sin_emocion.csv")
@@ -363,25 +337,8 @@ izquierda el tono en posicionamiento hacia ese candidato y a la derecha el tono
 hacia Kast o Jara en segunda vuelta; el grosor del flujo es el **porcentaje** del
 total de autores con ese tono hacia el candidato de origen (los enlaces que salen
 de un mismo nodo izquierdo suman 100 %).
-Figura generada con `scripts/analisis/16_alluvial_cruces_segunda_vuelta.py`.
 
 ### Actividad de autores y polarización
-
-```{r fig-autores-violin}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
-  cat('![Polarización media por tipo de autor (PNG).](fig_thesis/polarizacion_por_tipo_autor.png){#fig-autores-violin fig-align="center" width="82%"}\n')
-}
-```
-
-```{r fig-autores-scatter}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
-  cat('![Actividad (número de comentarios) y polarización media por autor: color según candidato con más menciones en sus comentarios (empate en violeta; sin candidato reconocible en gris). Ligero desplazamiento horizontal de los puntos solo para visualizar solapamientos.](fig_thesis/scatter_actividad_polarizacion_autores.png){#fig-autores-scatter fig-align="center" width="82%"}\n')
-}
-```
 
 La lectura de autores permite evaluar si la hostilidad está concentrada
 en hiperactivos o distribuida en la masa de usuarios. Este punto es
@@ -401,6 +358,24 @@ participación política. Como resume la @tbl-kast-transiciones, la gran
 mayoría de quienes partieron negativos **permanece** en negativo; solo
 una minoría pasa a tono positivo o neutro, lo que sugiere cristalización
 actitudinal más que escalamiento reactivo.
+
+
+```{r fig-autores-violin}
+#| results: asis
+#| echo: false
+if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
+  cat('![Polarización media por tipo de autor (PNG).](fig_thesis/polarizacion_por_tipo_autor.png){#fig-autores-violin fig-align="center" width="82%"}\n')
+}
+```
+
+```{r fig-autores-scatter}
+#| results: asis
+#| echo: false
+if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
+  cat('![Actividad (número de comentarios) y polarización media por autor: color según candidato con más menciones en sus comentario](fig_thesis/scatter_actividad_polarizacion_autores.png){#fig-autores-scatter fig-align="center" width="82%"}\n')
+}
+```
+
 
 ## Espacios semánticos acoplados
 
@@ -450,27 +425,4 @@ if (file.exists(path_atlas_global)) {
 ```
 :::
 
-## Cierre interpretativo
 
-La lectura conjunta de estas piezas sugiere que la reconfiguración del
-antagonismo político en la conversación digital de derechas no consiste
-solo en un cambio de target, sino en una reorganización simultánea de
-estrategias, fronteras y marcos. La confrontación política no se expresa
-únicamente como negatividad difusa, sino como una arquitectura más
-compleja donde el tipo de enemigo construido, el tono del ataque y el
-encuadre del conflicto varían según la coyuntura electoral y el
-candidato en cuestión.
-
-Tres hallazgos articulan esta lectura. Primero, la hostilidad es
-estructuralmente distinta según la frontera: las estrategias de mayor
-carga adversarial se concentran en la confrontación inter-bloque,
-mientras que la ridiculización opera de manera más transversal. Segundo,
-la negatividad hacia Kast es cristalizada y ambiental, no concentrada en
-actores individuales ni escalada progresivamente. Tercero, el espacio
-semántico confirma que la estructura discursiva se organiza más por
-emoción y tema que por candidato, reforzando el resultado central del
-capítulo anterior.
-
-Estas observaciones se retoman en el capítulo de conclusiones, donde se
-discuten sus implicaciones teóricas para la literatura sobre
-polarización afectiva y antagonismo político en entornos digitales.
