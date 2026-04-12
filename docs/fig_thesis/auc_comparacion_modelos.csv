@@ -1,0 +1,4 @@
+modelo,AUC
+LogReg,0.8107
+RandomForest,0.8557
+GBM,0.8324

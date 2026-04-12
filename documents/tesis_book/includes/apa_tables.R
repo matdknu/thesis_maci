@@ -136,8 +136,17 @@ kable_apa <- function(
   if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output())) {
     longtable <- FALSE
   }
+  # Sin format explícito, knitr/kableExtra a veces emiten longtable aunque longtable=FALSE.
+  fmt <- if (isTRUE(knitr::is_latex_output())) {
+    "latex"
+  } else if (isTRUE(knitr::is_html_output())) {
+    "html"
+  } else {
+    NULL
+  }
   k <- knitr::kable(
     df,
+    format = fmt,
     caption = caption,
     booktabs = TRUE,
     align = align,

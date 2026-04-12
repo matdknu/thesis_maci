@@ -186,8 +186,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#volumen-de-comentarios-por-candidato" id="toc-volumen-de-comentarios-por-candidato" class="nav-link active" data-scroll-target="#volumen-de-comentarios-por-candidato"><span class="header-section-number">6.1</span> Volumen de comentarios por candidato</a></li>
+  <li><a href="#estrategia-discursiva-y-frontera-política" id="toc-estrategia-discursiva-y-frontera-política" class="nav-link" data-scroll-target="#estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.2</span> Estrategia discursiva y frontera política</a></li>
+  <li><a href="#densidad-de-polarización-por-candidato" id="toc-densidad-de-polarización-por-candidato" class="nav-link" data-scroll-target="#densidad-de-polarización-por-candidato"><span class="header-section-number">6.3</span> Densidad de polarización por candidato</a></li>
+  <li><a href="#perfiles-discursivos-radar-por-candidato" id="toc-perfiles-discursivos-radar-por-candidato" class="nav-link" data-scroll-target="#perfiles-discursivos-radar-por-candidato"><span class="header-section-number">6.4</span> Perfiles discursivos: radar por candidato</a></li>
+  <li><a href="#polarización-en-el-tiempo" id="toc-polarización-en-el-tiempo" class="nav-link" data-scroll-target="#polarización-en-el-tiempo"><span class="header-section-number">6.5</span> Polarización en el tiempo</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/06-exploracion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -218,13 +228,102 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_thesis/fig_count_facet_candidatos.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p>Este capítulo ofrece una vista <strong>exploratoria</strong> del corpus antes del modelado formal: volumen de comentarios por candidato, cruces entre <strong>estrategia discursiva y frontera política</strong>, <strong>densidad</strong> de la polarización por candidato, <strong>perfiles</strong> comparados mediante un radar (concentración modal por dimensión) y las <strong>trayectorias</strong> de polarización en el tiempo (serie por candidato y negatividad diaria Jara–Kast).</p>
+<section id="volumen-de-comentarios-por-candidato" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="volumen-de-comentarios-por-candidato"><span class="header-section-number">6.1</span> Volumen de comentarios por candidato</h2>
+<div class="cell" data-layout-align="center">
+<div id="fig-count-facet-cand" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-count-facet-cand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/fig_count_facet_candidatos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-count-facet-cand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: Conteos de comentarios por candidato (facetas).
+</figcaption>
 </figure>
 </div>
+</div>
+</section>
+<section id="estrategia-discursiva-y-frontera-política" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.2</span> Estrategia discursiva y frontera política</h2>
+<p>Relación exploratoria entre tipo de <strong>estrategia</strong> (eje horizontal) y <strong>frontera política</strong> (facetas), por candidato. Figura producida con <code>scripts/analisis/03_visualizacion-modelado.R</code>.</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-explor-estrategia-frontera" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explor-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/fig4_estrategia_frontera.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Estrategia discursiva y frontera política por candidato (facetas).
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="densidad-de-polarización-por-candidato" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="densidad-de-polarización-por-candidato"><span class="header-section-number">6.3</span> Densidad de polarización por candidato</h2>
+<p>Distribución de la <strong>polarización</strong> (consenso) condicionada al candidato comentado; visualización tipo densidad/ridges. Misma fuente R que la figura anterior.</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-explor-densidad-pol" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explor-densidad-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/fig7_densidad_polarizacion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-densidad-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.3: Densidad de polarización por candidato.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="perfiles-discursivos-radar-por-candidato" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="perfiles-discursivos-radar-por-candidato"><span class="header-section-number">6.4</span> Perfiles discursivos: radar por candidato</h2>
+<p>Cada eje del radar muestra la <strong>concentración de la categoría modal</strong> en esa dimensión (proporción de la categoría más frecuente, 0–1), calculada <strong>solo sobre los comentarios cuyo target es ese candidato</strong>. El quinto eje corresponde al <strong>grupo de polarización</strong> (baja / media / alta) en lugar del eje «candidato», que sería trivial dentro de cada submuestra. La <a href="#fig-radar-candidatos" class="quarto-xref">Figura&nbsp;<span>6.4</span></a> permite comparar en un mismo gráfico a Kast, Kaiser, Matthei y Jara.</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-radar-candidatos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-radar-candidatos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/radar_candidatos_cuatro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:88.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radar-candidatos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.4: Radar: concentración modal por dimensión (marco, emoción, estrategia, frontera, grupo de polarización), una línea por candidato.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Figura generada con <code>scripts/analisis/09_ml_avanzado.py</code> (función <code>run_radar_por_candidato</code>). Tabla numérica: <code>radar_concentracion_modal_candidatos.csv</code> en <code>outputs_ml/</code> y copia en <code>fig_thesis/</code> cuando se ejecuta el script.</p>
+</section>
+<section id="polarización-en-el-tiempo" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="polarización-en-el-tiempo"><span class="header-section-number">6.5</span> Polarización en el tiempo</h2>
+<p>Las series siguientes utilizan el mismo calendario electoral y la polarización por consenso entre anotadores que en el capítulo de modelado; aquí sirven como <strong>contexto exploratorio</strong> de la evolución agregada.</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-explor-pol-bi2d" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explor-pol-bi2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/serie_polarizacion_candidatos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-pol-bi2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.5: Polarización media cada dos días por candidato (bandas aproximadas al IC 95 %; pipeline: outputs_ml/serie_polarizacion_candidatos.png).
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div id="fig-explor-neg-jk" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-explor-neg-jk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_thesis/serie_diaria_negatividad_jara_kast.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-neg-jk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.6: Negatividad diaria y polarización media (ejes dual), Jara vs Kast.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Fuentes: <code>scripts/analisis/07_pipeline_completo.py</code> (guarda <code>outputs_ml/serie_polarizacion_candidatos.png</code>, mismo contenido que la serie bisegmentada cada 2 días) y <code>scripts/analisis/08_transiciones_sentimiento_derecha_jara.py</code>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -601,5 +700,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/06-exploracion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/06-exploracion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

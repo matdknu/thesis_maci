@@ -1,0 +1,21 @@
+LECTURA: sentimiento (POS/NEU/NEG) vs emoción (grupos teóricos)
+============================================================
+
+1) Eje SENTIMIENTO (scripts 08 y 13)
+   - Resume valencia hacia el candidato (moda de scores por autor-fase).
+   - Útil para hipótesis tipo «apoyo / rechazo explícito» o «balance positivo-negativo».
+   - Limitación: dos comentarios con ira y desprecio pueden promediar neutro si se contraponen.
+
+2) Eje EMOCION (este script)
+   - Usa la moda de emocion_final en comentarios donde hay sentimiento hacia el candidato.
+   - Grupos: hostilidad (desprecio, ira, indignación), ironía, miedo, positivo (esperanza, alegría), sin_emoción, otro.
+   - Útil para hipótesis sobre «afecto político», «polarización emocional», «hostilidad moral» vs distancia irónica.
+
+3) Números observados (Kaiser+Matthei → Kast, segunda vuelta)
+   - Origen emocional NO hostil (positivo/sin_emoción/ironía/miedo/otro): N≈23, P(hostilidad hacia Kast en 2.ª vuelta | condición) ≈ 43.5 %.
+   - Origen hostilidad: N≈20, P(hostilidad hacia Kast en 2.ª vuelta | condición) ≈ 70.0 %.
+
+4) Recomendación metodológica (no normativa)
+   - Si la hipótesis es sobre «cómo se expresa el conflicto» (ira, desprecio vs ironía), priorizar EMOCIONES.
+   - Si es sobre «apoyo o rechazo al candidato» en sentido electoral-discursivo amplio, priorizar SENTIMIENTO.
+   - Reportar ambos como robustez si el espacio muestral lo permite; con N bajo, preferir una narrativa principal y la otra en anexo.

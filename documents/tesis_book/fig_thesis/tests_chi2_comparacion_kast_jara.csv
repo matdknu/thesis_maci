@@ -1,0 +1,5 @@
+contraste,n_a,n_b,chi2,p,cramers_v,nota
+Pool Kaiser+Matthei (pos/neu) → Kast  vs  Jara (neg) → Kast,28,67,2.0748,0.35438,0.1478,Al menos una celda esperada < 5; interpretar con cautela.
+Kaiser (pos/neu) → Kast  vs  Jara (neg) → Kast,13,67,0.6132,0.735963,0.0875,Al menos una celda esperada < 5; interpretar con cautela.
+Matthei (pos/neu) → Kast  vs  Jara (neg) → Kast,15,67,2.0703,0.35518,0.1589,Al menos una celda esperada < 5; interpretar con cautela.
+Pool Kaiser+Matthei (pos/neu) → Jara  vs  Pool (pos/neu) → Kast,20,28,3.3626,0.186128,0.2647,Al menos una celda esperada < 5; interpretar con cautela.

@@ -1,0 +1,11 @@
+emocion_normalizada,grupo_emocional
+alegria,positivo
+desprecio,hostilidad
+error,otro
+esperanza,positivo
+indignacion,hostilidad
+ira,hostilidad
+ironia,ironía
+miedo,miedo
+nan,sin_emoción
+ninguna,sin_emoción

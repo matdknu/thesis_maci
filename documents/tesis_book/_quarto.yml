@@ -1,8 +1,10 @@
 project:
   type: book
   output-dir: ../../docs
-  # Plotly HTML del modelado (07-modelado-datos.qmd) para iframes en salida HTML
+  # Copia explícita a docs/ para GitHub Pages (fig_thesis + images: rutas relativas estables)
   resources:
+    - fig_thesis
+    - images
     - ../../outputs_modelado/umap_interactivo_temas.html
     - ../../outputs_modelado/umap_interactivo_sentimiento.html
 
@@ -79,7 +81,7 @@ format:
 # FORMATO PDF
 # ============================================================================
   pdf:
-    keep-tex: true
+    keep-tex: false
     language: es
     documentclass: scrreprt
     classoption: 

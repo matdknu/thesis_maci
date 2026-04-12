@@ -1,0 +1,18 @@
+Interpretación automática (datos observados; no sustituye revisión del autor).
+
+- Kaiser+Matthei: pos/neu → Kast (pool): N=28, % negativo hacia destino en 2.ª vuelta=89.3%, neutro=10.7%, positivo=0.0%.
+- Jara: neg → Kast (comparación): N=67, % negativo hacia destino en 2.ª vuelta=92.5%, neutro=4.5%, positivo=3.0%.
+- Kaiser+Matthei: pos/neu → Jara (pool): N=20, % negativo hacia destino en 2.ª vuelta=70.0%, neutro=25.0%, positivo=5.0%.
+
+Contraste estadístico (homogeneidad de distribución de tono destino):
+- Pool Kaiser+Matthei (pos/neu) → Kast  vs  Jara (neg) → Kast: p=0.35438, V=0.1478, Al menos una celda esperada < 5; interpretar con cautela.
+- Kaiser (pos/neu) → Kast  vs  Jara (neg) → Kast: p=0.735963, V=0.0875, Al menos una celda esperada < 5; interpretar con cautela.
+- Matthei (pos/neu) → Kast  vs  Jara (neg) → Kast: p=0.35518, V=0.1589, Al menos una celda esperada < 5; interpretar con cautela.
+- Pool Kaiser+Matthei (pos/neu) → Jara  vs  Pool (pos/neu) → Kast: p=0.186128, V=0.2647, Al menos una celda esperada < 5; interpretar con cautela.
+
+---
+PÁRRAFO (borrador, revisar redacción):
+
+Entre autores con tono positivo o neutro hacia Kaiser o Matthei en posicionamiento, el tono hacia Kast en segunda vuelta fue mayoritariamente negativo (89.3 %; N=28), en un rango similar al observado entre quienes en posicionamiento fueron negativos hacia Jara y comentaron sobre Kast en la segunda vuelta (92.5 %; N=67). La prueba de homogeneidad entre el pool (Kaiser/Matthei pos/neu → Kast) y el grupo de referencia (Jara negativo → Kast) no rechazó la igualdad de distribuciones (p = 0.3544). El mismo pool, al comentar sobre Jara en segunda vuelta, mostró 70.0 % de tono negativo (N=20); la comparación de distribuciones entre ese subconjunto y el dirigido a Kast arrojó p = 0.1861. Las celdas esperadas bajas en tablas 2×3 aconsejan interpretar estos contrastes como exploratorios.
+
+Limitaciones: N moderado en subgrupos y posibles celdas esperadas < 5 en chi-cuadrado; reportar siempre los tamaños muestrales junto a los porcentajes.

@@ -1,0 +1,16 @@
+Par,Origen (posicionamiento),Tono en 2.ª vuelta (hacia Kast o Jara),Probabilidad condicional (%)
+Jara → Kast,Jara: NEGATIVO,Kast: NEGATIVO,96.9
+Jara → Kast,Jara: NEGATIVO,Kast: POSITIVO,3.1
+Jara → Kast,Jara: POSITIVO,Kast: NEGATIVO,100.0
+Kaiser → Jara,Kaiser: NEGATIVO,Jara: NEGATIVO,85.7
+Kaiser → Jara,Kaiser: NEGATIVO,Jara: POSITIVO,14.3
+Kaiser → Jara,Kaiser: POSITIVO,Jara: NEGATIVO,100.0
+Kaiser → Kast,Kaiser: NEGATIVO,Kast: NEGATIVO,100.0
+Kaiser → Kast,Kaiser: POSITIVO,Kast: NEGATIVO,100.0
+Kast → Jara,Kast: NEGATIVO,Jara: NEGATIVO,91.9
+Kast → Jara,Kast: NEGATIVO,Jara: POSITIVO,8.1
+Kast → Jara,Kast: POSITIVO,Jara: NEGATIVO,100.0
+Matthei → Jara,Matthei: NEGATIVO,Jara: NEGATIVO,100.0
+Matthei → Jara,Matthei: POSITIVO,Jara: NEGATIVO,100.0
+Matthei → Kast,Matthei: NEGATIVO,Kast: NEGATIVO,100.0
+Matthei → Kast,Matthei: POSITIVO,Kast: NEGATIVO,100.0

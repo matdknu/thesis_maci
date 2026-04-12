@@ -1,0 +1,8 @@
+grupo,pct_negativo,pct_neutro,pct_positivo,n
+Kaiser: pos/neu → Kast,92.31,7.69,0.0,13
+Matthei: pos/neu → Kast,86.67,13.33,0.0,15
+Kaiser+Matthei: pos/neu → Kast (pool),89.29,10.71,0.0,28
+Jara: neg → Kast (comparación),92.54,4.48,2.99,67
+Kaiser: pos/neu → Jara,77.78,22.22,0.0,9
+Matthei: pos/neu → Jara,63.64,27.27,9.09,11
+Kaiser+Matthei: pos/neu → Jara (pool),70.0,25.0,5.0,20

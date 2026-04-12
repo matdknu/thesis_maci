@@ -2352,17 +2352,18 @@ desde allí.
 \section{A.1.1 Desacuerdo entre
 anotadores}\label{a.1.1-desacuerdo-entre-anotadores}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lrr}
+\caption{\label{tbl-anexo-desacuerdo}}
 
-\caption{\label{tbl-anexo-desacuerdo}Coeficientes del modelo orientado a
-predecir desacuerdo entre el ordenador automático (OA) y el sistema de
-validación (DS).}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Coeficientes del modelo orientado a predecir desacuerdo entre el ordenador automático (OA) y el sistema de validación (DS).}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrr}
 \toprule
 modelo & accuracy & f1\_macro\\
 \midrule
@@ -2370,26 +2371,28 @@ modelo & accuracy & f1\_macro\\
 LinearSVM & 0.599 & 0.561\\
 \cellcolor{gray!10}{RandomForest} & \cellcolor{gray!10}{0.680} & \cellcolor{gray!10}{0.540}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.2 Comparación de configuraciones de características (texto,
 LLM,
 combinado)}\label{a.1.2-comparaciuxf3n-de-configuraciones-de-caracteruxedsticas-texto-llm-combinado}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lrrrrr}
+\caption{\label{tbl-anexo-config-features}}
 
-\caption{\label{tbl-anexo-config-features}Comparación de desempeño según
-fuente de información: texto puro, variables discursivas LLM y modelo
-combinado.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Comparación de desempeño según fuente de información: texto puro, variables discursivas LLM y modelo combinado.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrrrrr}
 \toprule
 config & MAE\_mean & MAE\_sd & R2\_mean & R2\_sd & delta\_vs\_texto\\
 \midrule
@@ -2398,24 +2401,27 @@ B\_LLM & 0.0922 & 0.0014 & 0.5539 & 0.0095 & 0.1223\\
 \cellcolor{gray!10}{C\_combinado} & \cellcolor{gray!10}{0.0842} & \cellcolor{gray!10}{0.0013} & \cellcolor{gray!10}{0.6184} & \cellcolor{gray!10}{0.0068} & \cellcolor{gray!10}{0.1868}\\
 \bottomrule
 \multicolumn{6}{l}{\rule{0pt}{1em}\textit{Nota.} delta\_vs\_texto: incremento de R² medio respecto de la configuración solo TF-IDF.}\\
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.3 Calibración de probabilidades (polarización
 alta)}\label{a.1.3-calibraciuxf3n-de-probabilidades-polarizaciuxf3n-alta}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lrrrr}
+\caption{\label{tbl-anexo-calibracion}}
 
-\caption{\label{tbl-anexo-calibracion}Brier score y log-loss antes y
-después de calibración isotónica.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Brier score y log-loss antes y después de calibración isotónica.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrrrr}
 \toprule
 modelo & brier\_antes & brier\_despues & logloss\_antes & logloss\_despues\\
 \midrule
@@ -2423,24 +2429,27 @@ modelo & brier\_antes & brier\_despues & logloss\_antes & logloss\_despues\\
 GBM & 0.1138 & 0.1131 & 0.3608 & 0.3590\\
 \cellcolor{gray!10}{LogReg} & \cellcolor{gray!10}{0.1780} & \cellcolor{gray!10}{0.1215} & \cellcolor{gray!10}{0.5193} & \cellcolor{gray!10}{0.4123}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.4 AUC para clasificación de polarización
 alta}\label{a.1.4-auc-para-clasificaciuxf3n-de-polarizaciuxf3n-alta}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lr}
+\caption{\label{tbl-anexo-auc}}
 
-\caption{\label{tbl-anexo-auc}Área bajo la curva ROC (AUC) para
-clasificación de polarización alta (umbral ≥ 0,60).}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Área bajo la curva ROC (AUC) para clasificación de polarización alta (umbral ≥ 0,60).}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lr}
 \toprule
 modelo & AUC\\
 \midrule
@@ -2448,24 +2457,27 @@ modelo & AUC\\
 RandomForest & 0.8557\\
 \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{0.8324}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.5 Clasificación multiclase de estrategia
 discursiva}\label{a.1.5-clasificaciuxf3n-multiclase-de-estrategia-discursiva}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{llr}
+\caption{\label{tbl-anexo-estrategia-multiclase}}
 
-\caption{\label{tbl-anexo-estrategia-multiclase}Clasificación multiclase
-de estrategia discursiva: F1 por clase y modelo.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Clasificación multiclase de estrategia discursiva: F1 por clase y modelo.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{llr}
 \toprule
 modelo & clase & f1\_clase\\
 \midrule
@@ -2487,24 +2499,27 @@ GBM & construccion\_amenaza & 0.313\\
 GBM & esencializacion & 0.413\\
 \cellcolor{gray!10}{GBM} & \cellcolor{gray!10}{ridiculizacion} & \cellcolor{gray!10}{0.661}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.6 Clasificación de frontera
 política}\label{a.1.6-clasificaciuxf3n-de-frontera-poluxedtica}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{llr}
+\caption{\label{tbl-anexo-frontera-politica}}
 
-\caption{\label{tbl-anexo-frontera-politica}Clasificación de frontera
-política: F1 por clase y modelo.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Clasificación de frontera política: F1 por clase y modelo.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{llr}
 \toprule
 modelo & clase & f1\\
 \midrule
@@ -2516,25 +2531,27 @@ RandomForest & inter\_bloque & 0.845\\
 \addlinespace
 RandomForest & ninguna & 0.657\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.7 Perfiles discursivos
 (K-means)}\label{a.1.7-perfiles-discursivos-k-means}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{rrrllll}
+\caption{\label{tbl-anexo-perfiles-kmeans}}
 
-\caption{\label{tbl-anexo-perfiles-kmeans}Perfiles discursivos (K-means,
-variables solo LLM): polarización media y categorías modales por
-cluster.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Perfiles discursivos (K-means, variables solo LLM): polarización media y categorías modales por cluster.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{rrrllll}
 \toprule
 cluster & n & polarizacion\_media & marco\_dominante & emocion\_dominante & estrategia\_dominante & candidato\_moda\\
 \midrule
@@ -2542,25 +2559,27 @@ cluster & n & polarizacion\_media & marco\_dominante & emocion\_dominante & estr
 1 & 3991 & 0.426 & conflicto & desprecio & deslegitimacion & jara\\
 \cellcolor{gray!10}{2} & \cellcolor{gray!10}{4627} & \cellcolor{gray!10}{0.493} & \cellcolor{gray!10}{conflicto} & \cellcolor{gray!10}{desprecio} & \cellcolor{gray!10}{ridiculizacion} & \cellcolor{gray!10}{kast}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \section{A.1.8 Errores sistemáticos del clasificador de polarización
 alta}\label{a.1.8-errores-sistemuxe1ticos-del-clasificador-de-polarizaciuxf3n-alta}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lrrrr}
+\caption{\label{tbl-anexo-errores-sistematicos}}
 
-\caption{\label{tbl-anexo-errores-sistematicos}Comparación de falsos
-negativos, falsos positivos y verdaderos positivos (clasificación
-polarización alta): medias y distribuciones.}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Comparación de falsos negativos, falsos positivos y verdaderos positivos (clasificación polarización alta): medias y distribuciones.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrrrr}
 \toprule
 grupo & n & pol\_real\_media & n\_chars\_media & karma\_media\\
 \midrule
@@ -2568,10 +2587,11 @@ grupo & n & pol\_real\_media & n\_chars\_media & karma\_media\\
 FP & 70 & 0.434 & 219.114 & 8.071\\
 \cellcolor{gray!10}{TP} & \cellcolor{gray!10}{156} & \cellcolor{gray!10}{0.733} & \cellcolor{gray!10}{202.064} & \cellcolor{gray!10}{10.590}\\
 \bottomrule
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \bookmarksetup{startatroot}
 
@@ -2581,17 +2601,18 @@ FP & 70 & 0.434 & 219.114 & 8.071\\
 \section{A.2.1 Asociación marco × fase por
 candidato}\label{a.2.1-asociaciuxf3n-marco-fase-por-candidato}
 
-\begin{landscape}
+\begin{table}
 
-\begin{longtable}[t]{lrlrr}
+\caption{\label{tbl-anexo-marcos-fase-candidato}}
 
-\caption{\label{tbl-anexo-marcos-fase-candidato}Asociación entre marco
-discursivo y fase electoral, desagregada por candidato: estadísticos del
-contraste de independencia y tamaño del efecto (V de Cramér).}
+\centering{
 
-\tabularnewline
-
-\\
+[!h]
+\centering
+\caption{Asociación entre marco discursivo y fase electoral, desagregada por candidato: estadísticos del contraste de independencia y tamaño del efecto (V de Cramér).}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrlrr}
 \toprule
 Candidato & Chi-cuadrado & p & V de Cramér & N\\
 \midrule
@@ -2601,10 +2622,11 @@ kaiser & 23.874 & 0.047 & 0.096 & 1308\\
 jara & 31.817 & 0.004 & 0.072 & 3085\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}\textit{Nota.} p en formato APA. N = número de comentarios del candidato en el análisis.}\\
+\end{tabular}}
 
-\end{longtable}
+}
 
-\end{landscape}
+\end{table}%
 
 \bookmarksetup{startatroot}
 

@@ -1,0 +1,26 @@
+Par,grupo_origen,candidato_destino,n_autores_grupo_origen,pct_destino_hostilidad
+Jara → Kast,hostilidad,kast,64,65.62
+Jara → Kast,ironía,kast,21,66.67
+Jara → Kast,miedo,kast,4,25.0
+Jara → Kast,otro,kast,1,0.0
+Jara → Kast,positivo,kast,4,75.0
+Jara → Kast,sin_emoción,kast,20,60.0
+Kaiser → Jara,hostilidad,jara,9,55.56
+Kaiser → Jara,ironía,jara,5,20.0
+Kaiser → Jara,sin_emoción,jara,5,60.0
+Kaiser → Kast,hostilidad,kast,11,63.64
+Kaiser → Kast,ironía,kast,6,50.0
+Kaiser → Kast,miedo,kast,1,0.0
+Kaiser → Kast,sin_emoción,kast,5,40.0
+Kast → Jara,hostilidad,jara,73,56.16
+Kast → Jara,ironía,jara,20,30.0
+Kast → Jara,miedo,jara,6,50.0
+Kast → Jara,sin_emoción,jara,15,73.33
+Matthei → Jara,hostilidad,jara,7,57.14
+Matthei → Jara,ironía,jara,5,0.0
+Matthei → Jara,positivo,jara,1,100.0
+Matthei → Jara,sin_emoción,jara,3,33.33
+Matthei → Kast,hostilidad,kast,9,77.78
+Matthei → Kast,ironía,kast,6,50.0
+Matthei → Kast,miedo,kast,1,0.0
+Matthei → Kast,sin_emoción,kast,4,50.0

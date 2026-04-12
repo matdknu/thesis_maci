@@ -47,54 +47,31 @@ api_df <- read_or_empty(api_path)
 
 Este capítulo presenta el bloque técnico central de la tesis. La
 pregunta no es solo si existe polarización en la conversación digital,
-sino si el sistema automatizado logra **medirla de manera consistente**,
-**modelarla con estabilidad** y **demostrar que las variables
-discursivas estructuradas agregan información no redundante** respecto
-del texto crudo. Por esa razón, el orden del capítulo sigue tres
-dimensiones: consistencia de medición, modelado de polarización y notas
-de alcance sobre lo que se decide no reportar en el cuerpo principal.
-
-Este capítulo presenta el bloque técnico central de la tesis. Los
-resultados se organizan en tres niveles de relevancia editorial:
+sino si el sistema automatizado logra medirla de manera consistente,
+modelarla con estabilidad y demostrar que las variables discursivas
+estructuradas agregan información no redundante respecto del texto
+crudo. Por esa razón, el orden del capítulo sigue tres dimensiones:
+consistencia de medición, modelado de polarización y notas de alcance
+sobre lo que se decide no reportar en el cuerpo principal.
 
 | Nivel                                       | Outputs                                                                               | Función                                                  |
-|---------------------------------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------|
+|------------------|--------------------------------|----------------------|
 | **Tier 1 — Núcleo metodológico-sustantivo** | @fig-r2-configuraciones, @fig-coefplot, @fig-perm, frontera política, perfiles KMeans | Responden directamente las preguntas de investigación    |
-| **Tier 2 — Resultados de refuerzo**         | @fig-roc, @fig-shap, estrategia × frontera, transiciones, estrategias discursivas     | Refuerzan o matizan el núcleo                            |
+| **Tier 2 — Resultados de refuerzo**         | @fig-roc estrategia × frontera, transiciones, estrategias discursivas                 | Refuerzan o matizan el núcleo                            |
 | **Tier 3 — Estabilidad y techo predictivo** | CV 5-fold, errores FN/FP, calibración, stacking, atlas 3D                             | Evidencia de robustez sin modificar la lectura principal |
 
-El **núcleo metodológico-sustantivo** (Tier 1) comprende cinco outputs
-que responden directamente las preguntas de investigación: la
-comparación de R² por fuente de información (@fig-r2-configuraciones),
-que justifica el sistema LLM dual al demostrar que las variables
-discursivas aportan varianza no recuperable desde el texto crudo; el
-modelo OLS interpretable (@fig-coefplot), que cuantifica el efecto de
-cada variable discursiva sobre la polarización y establece que el
-candidato como target no tiene efecto significativo (β ≈ 0) mientras que
-la ira sí lo tiene (β = 0.369); la importancia por permutación
-(@fig-perm), que confirma ese resultado desde una perspectiva no
-paramétrica y revela que el tipo de hilo supera al candidato como
-predictor; la clasificación de frontera política (F1-macro = 0.725), que
-operacionaliza computacionalmente el concepto teórico de frontera
-política (Mouffe, 2005); y los perfiles discursivos KMeans K=3, que
-identifican tres configuraciones recurrentes con interpretación teórica
-directa.
+El **núcleo metodológico-sustantivo** (Tier 1) comprende cinco outputs que responden directamente las preguntas de investigación: la comparación de R² por fuente de información (@fig-r2-configuraciones), que justifica el sistema LLM dual al mostrar que las variables discursivas aportan varianza no recuperable desde el texto crudo; el modelo OLS interpretable (@fig-coefplot), que cuantifica el efecto de cada variable discursiva sobre la polarización y sugiere que el candidato como target no tiene efecto significativo (β ≈ 0) mientras que la ira sí lo tiene (β = 0.369); la importancia por permutación (@fig-perm), que confirma ese resultado desde una perspectiva no paramétrica y revela que el tipo de hilo supera al candidato como predictor; la clasificación de frontera política (F1-macro = 0.725), que operacionaliza computacionalmente el concepto teórico de frontera política (Mouffe, 2005); y los perfiles discursivos KMeans (K = 3), que identifican tres configuraciones recurrentes con interpretación teórica directa.
 
-Un **segundo nivel** incluye resultados que refuerzan o matizan el
-núcleo: las curvas ROC para polarización alta (@fig-roc), el gráfico
-SHAP (@fig-shap), la distribución de estrategias por frontera, las
-transiciones de autores y la clasificación multiclase de estrategia
-discursiva.
+Un **segundo nivel** incluye resultados que refuerzan o matizan el núcleo: las curvas ROC para polarización alta (@fig-roc), la distribución de estrategias por frontera, las transiciones de autores y la clasificación multiclase de estrategia discursiva.
 
-Los outputs de **estabilidad y techo predictivo** —validación cruzada de
-cinco pliegues, análisis de errores sistemáticos, calibración
-probabilística, stacking ensemble y visualizaciones 3D— se presentan en
-las secciones correspondientes como evidencia de robustez sin modificar
-la lectura interpretativa principal.
+Los outputs de **estabilidad y límite predictivo** —validación cruzada de cinco pliegues, análisis de errores sistemáticos, calibración probabilística, ensamble por stacking y visualizaciones 3D— se presentan en las secciones correspondientes como evidencia de robustez, sin modificar la lectura interpretativa principal.
 
 ## Consistencia de medición
 
 ### Acuerdo entre anotadores automáticos
+
+Antes de utilizar las variables discursivas como predictores, es necesario establecer en qué medida los dos sistemas de clasificación automática —OpenAI (OA) y DeepSeek (DS)— producen resultados convergentes. Si el acuerdo entre ambos fuera sistemáticamente bajo, las variables resultantes podrían reflejar idiosincrasias del modelo más que propiedades del texto. La @tbl-acuerdo-anotadores resume el acuerdo por dimensión.
+
 
 ```{r tbl-acuerdo-anotadores}
 agreement <- data.frame()
@@ -160,65 +137,80 @@ if (nrow(api_df)) {
 }
 ```
 
-El sistema LLM se trata aquí como un **instrumento automatizado de
-medición**. La dimensión mejor resuelta es polarización, donde el
-acuerdo entre salidas continuas es alto, mientras que frontera también
-muestra una consistencia suficiente para uso analítico. En cambio,
-emoción y estrategia presentan mayores márgenes de ambigüedad: el
-sistema las captura, pero con menor nitidez que polarización.
+La polarización alcanza r = 0.665, lo que indica una convergencia moderada-alta entre ambos sistemas en la dimensión continua. Si bien esta correlación no es directamente comparable con estudios de acuerdo inter-anotador humano —que operan bajo condiciones de instrucción y contexto distintas—, el nivel de convergencia sugiere que ambos modelos capturan una señal compartida en la evaluación de hostilidad discursiva.
+
+Para las dimensiones categóricas el panorama es más heterogéneo. Estrategia presenta la coincidencia bruta más alta (61.2%) pero un kappa bajo (κ = 0.126), lo cual refleja una distribución desbalanceada donde la categoría mayoritaria infla la coincidencia sin elevar el acuerdo ajustado por azar. Frontera muestra un kappa negativo (κ = −0.146), un resultado que puede parecer paradójico pero que se explica por la estructura del desacuerdo: ambos sistemas tienden a identificar los mismos comentarios como fronterizos, pero discrepan de manera sistemática sobre la dirección de esa frontera (inter-bloque vs. intra-bloque), lo que genera un patrón de desacuerdo no aleatorio que el estadístico kappa penaliza con valores negativos. Marco y emoción registran los acuerdos más bajos (κ = 0.136 y κ = 0.076, respectivamente), consistente con la mayor ambigüedad inherente a estas categorías: un mismo comentario admite lecturas legítimas en más de una categoría —por ejemplo, como indignación o desprecio, o encuadrado en un marco de conflicto o diagnóstico—, sin que ninguna de las dos lecturas sea incorrecta.
+
+Estos valores de kappa no invalidan el sistema de medición, pero sí delimitan su alcance interpretativo. La estrategia adoptada en esta tesis es el desempate por consenso (v5.1), donde la etiqueta final se asigna por acuerdo entre modelos y, en caso de discrepancia, se prioriza la clasificación del modelo con mayor karma acumulado en la dimensión correspondiente. Las dimensiones con bajo acuerdo inter-modelo no se descartan, sino que se incorporan con la cautela analítica que su nivel de estabilidad exige.
 
 ### Modelo de desacuerdo
 
-Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en
-el Anexo A (@tbl-anexo-desacuerdo), para no saturar el cuerpo del
-capítulo.
-
-El valor del modelo de desacuerdo no está en reemplazar la clasificación
-principal, sino en identificar **cuándo la medición automatizada se
-vuelve inestable**. Esto permite distinguir entre dimensiones más
-robustas y dimensiones más sensibles a ambigüedad, ironía o baja
-densidad contextual.
+Para caracterizar las condiciones bajo las cuales ambos sistemas discrepan, se entrenó un clasificador binario (acuerdo vs. desacuerdo) usando rasgos del comentario como predictores. Los resultados (Anexo A, @tbl-anexo-desacuerdo) muestran que el desacuerdo es parcialmente predecible: RandomForest alcanza un accuracy de 0.680, lo que sugiere que ciertas propiedades del texto —como la brevedad, la ambigüedad tonal o la baja densidad de marcadores explícitos— aumentan sistemáticamente la probabilidad de discrepancia entre los anotadores automáticos.
 
 ### Valor añadido de las variables discursivas
 
-La tabla comparativa de configuraciones (solo TF-IDF, solo variables
-LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
+La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features). La @fig-r2-configuraciones sintetiza el resultado principal.
 
-```{r}
-#| label: fig-r2-configuraciones
-#| fig-cap: "Comparación de R² según fuente de información. Las barras de error representan ±1 desviación estándar en validación cruzada de cinco pliegues. El sistema LLM aporta R²=+0.122 sobre el texto puro; el modelo combinado alcanza R²=0.618."
-#| out-width: "85%"
-knitr::include_graphics(
-  file.path(base_out, "figura_r2_configuraciones.png")
-)
-```
+![Comparación de R² según fuente de información. Las barras de error
+representan ±1 desviación estándar en validación cruzada de cinco
+pliegues. El sistema LLM aporta R²=+0.122 sobre el texto puro; el modelo
+combinado alcanza
+R²=0.618.](fig_thesis/figura_r2_configuraciones.png){#fig-r2-configuraciones
+fig-align="center" width="85%"}
 
-Este es el argumento técnico central de la primera dimensión. Si las
-variables LLM fueran redundantes, el modelo discursivo no debería
-superar al texto puro. Sin embargo, el bloque de variables discursivas
-alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el
-rendimiento. En otras palabras, el sistema no se limita a recodificar el
-texto: recupera información estructural adicional.
+
+Este resultado constituye el argumento técnico central del capítulo. Si las variables LLM fueran redundantes respecto del texto crudo, el bloque discursivo no debería superar al TF-IDF. Sin embargo, las variables LLM por sí solas alcanzan un R² superior (0.554 vs. 0.432), y en combinación con TF-IDF el rendimiento sube a R² = 0.618 — un incremento de +0.187 sobre el texto puro. Esto sugiere que el sistema no solo recodifica la información ya presente en el texto, sino que recupera estructura discursiva adicional que las representaciones de bolsa de palabras no capturan.
 
 ### Calibración de probabilidades
 
-```{r fig-reliability, fig.cap="Calibración del clasificador de polarización alta.", out.width="82%"}
+El diagrama de fiabilidad (@fig-reliability) muestra que tanto RandomForest como GBM se aproximan a la diagonal de calibración perfecta. RandomForest sin calibrar ya presenta un ajuste razonable, mientras que GBM mejora marginalmente en el rango medio tras la corrección isotónica. Esto confirma que el pipeline produce probabilidades suficientemente confiables sin requerir post-procesamiento fuerte. Las métricas numéricas (Brier, log-loss) se detallan en el Anexo A (@tbl-anexo-calibracion).
+
+```{r fig-reliability}
+#| results: asis
+#| echo: false
 if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
-  knitr::include_graphics(file.path(base_out, "reliability_diagram_calibracion.png"))
+  cat('![Calibración del clasificador de polarización alta.](fig_thesis/reliability_diagram_calibracion.png){#fig-reliability fig-align="center" width="82%"}\n')
 }
 ```
 
-Las métricas numéricas de calibración (Brier, log-loss) están en el
-Anexo A (@tbl-anexo-calibracion).
-
-La calibración muestra que los clasificadores ya eran razonablemente
-confiables sin post-procesamiento fuerte. Esto refuerza la validez
-práctica del pipeline para producir probabilidades utilizables como
-insumo analítico.
+Establecida esta base de consistencia y valor añadido, la siguiente sección examina hasta qué punto estas variables permiten modelar la polarización de manera robusta fuera de muestra.
 
 ## Modelado de polarización
 
+### Evolución temporal (calendario electoral)
+
+El núcleo interpretativo combina **dos lecturas complementarias** sobre el mismo corpus: la trayectoria del **tono negativo** hacia los dos candidatos de la segunda vuelta (Jara y Kast) y la trayectoria de la **polarización discursiva** (consenso entre anotadores) tanto en esa comparación diaria como en la serie bisegmentada por candidato. Las figuras se recortan al calendario de la tesis —tres bloques de campaña (posicionamiento, primera vuelta, segunda vuelta)—, incluyen **referencias de elección** (primera y segunda vuelta) y **cierran el 24 de diciembre**, de modo que el postelectoral inmediato quede visible sin extender la ventana más allá de ese corte.
+
+```{r fig-serie-neg-pol-jk}
+#| results: asis
+#| echo: false
+if (file.exists(file.path(base_out, "serie_diaria_negatividad_jara_kast.png"))) {
+  cat('![Negatividad diaria (P(negativo), eje izquierdo) y polarización media por consenso (eje derecho), Jara vs Kast. Sombreado: fases; líneas verticales: referencias de elección; puntos: días de debate. Serie hasta el 24 de diciembre.](fig_thesis/serie_diaria_negatividad_jara_kast.png){#fig-serie-neg-pol-jk fig-align="center" width="100%"}\n')
+}
+```
+
+```{r fig-serie-pol-2d}
+#| results: asis
+#| echo: false
+if (file.exists(file.path(base_out, "serie_polarizacion_cada_2_dias_candidatos.png"))) {
+  cat('![Polarización media cada dos días por candidato (media móvil de dos períodos; banda ≈ IC 95 %). Solo observaciones en fases electorales; misma ventana temporal que la figura anterior.](fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png){#fig-serie-pol-2d fig-align="center" width="100%"}\n')
+}
+```
+
+Las series se generan con `scripts/analisis/08_transiciones_sentimiento_derecha_jara.py` (panel Jara/Kast) y `scripts/analisis/07_pipeline_completo.py` (panel cuatro candidatos).
+
 ### Comparación de modelos y estabilidad fuera de muestra
+
+La @tbl-cv-regresion compara cuatro estrategias de regresión evaluadas
+mediante validación cruzada de cinco pliegues. RandomForest obtiene el
+mejor desempeño (R² = 0.619, MAE = 0.084) con la menor variabilidad
+entre folds, lo que indica que la señal capturada es estable y no
+artefacto de una partición particular. Ridge ofrece un ajuste
+competitivo pero inferior, mientras que GBM muestra mayor inestabilidad
+(sd = 0.011). El ensamble por stacking eleva el techo predictivo a R² =
+0.646; no obstante, se adopta RandomForest como modelo de referencia
+para el resto del capítulo por su combinación de rendimiento,
+estabilidad e interpretabilidad.
 
 ```{r tbl-cv-regresion}
 cv <- read_or_empty(file.path(base_out, "validacion_cruzada_resumen.csv"))
@@ -251,13 +243,11 @@ if (nrow(cv)) {
 }
 ```
 
-El resultado central es que **RandomForest** combina mejor desempeño y
-estabilidad. El bajo desvío estándar entre folds indica que la señal no
-depende de un corte favorable del conjunto de datos. El stacking mejora
-el techo predictivo, pero el benchmark robusto del capítulo sigue siendo
-el RandomForest.
-
 ### OLS interpretable
+
+El OLS no compite con RandomForest en capacidad predictiva, pero cumple una función complementaria de interpretabilidad: permite inspeccionar la dirección y magnitud de cada efecto. La @tbl-ols-polarizacion y la @fig-coefplot muestran los 15 coeficientes significativos de mayor magnitud.
+
+
 
 ```{r tbl-ols-polarizacion}
 ols <- read_or_empty(file.path(base_out, "tabla_ols_polarizacion.csv"))
@@ -370,63 +360,60 @@ if (nrow(ols)) {
 }
 ```
 
-```{r fig-coefplot, fig.cap="Coeficientes del modelo OLS para polarización.", out.width="82%"}
+```{r fig-coefplot}
+#| results: asis
+#| echo: false
 if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
-  knitr::include_graphics(file.path(base_out, "coefplot_ols_polarizacion.png"))
+  cat('![Coeficientes del modelo OLS para polarización.](fig_thesis/coefplot_ols_polarizacion.png){#fig-coefplot fig-align="center" width="82%"}\n')
 }
 ```
 
-El OLS no compite con el mejor predictor, pero sí cumple una función
-crucial de **interpretabilidad**. El punto importante no es solo qué
-variables aumentan la polarización, sino que el efecto no se concentra
-en el candidato como target, sino en configuraciones discursivas como
-emoción, estrategia y tipo de hilo.
+El resultado más relevante es la jerarquía de efectos. La ira domina el modelo (β = 0.369), seguida por las estrategias adversariales —ridiculización, amenaza, esencialización y deslegitimación—, todas con coeficientes positivos entre 0.12 y 0.17. El candidato como target, en cambio, no aparece entre los 15 predictores más fuertes: su efecto es estadísticamente nulo (β ≈ 0, p = 0.818). Esto sugiere que la hostilidad se explica por el *cómo* del discurso —qué emoción lo sostiene, qué estrategia lo articula, en qué tipo de hilo ocurre— y no por el *quién* es atacado. Se trata de un resultado con implicaciones teóricas directas para la discusión sobre polarización afectiva, que se desarrolla en el capítulo siguiente.
+
 
 ### Importancia por permutación y explicación local
 
-```{r fig-perm, fig.cap="Importancia por permutación en el modelo de polarización.", out.width="82%"}
+La @fig-perm confirma desde una perspectiva no paramétrica lo que el OLS sugiere. El tipo de hilo es la variable con mayor importancia (caída de R² ≈ 0.50 al permutarla), seguida por estrategia, número de palabras y emoción, todas con caídas superiores a 0.40. El candidato, en cambio, ocupa el último lugar con una caída marginal (≈ 0.04), lo que refuerza la interpretación de que el target del ataque resulta prácticamente irrelevante para explicar la intensidad de la polarización. Notablemente, rasgos textuales brutos como el largo del comentario (n_words, n_chars) ocupan posiciones altas, lo que contribuye a explicar por qué el modelo combinado supera al puramente discursivo: la extensión del texto captura información que las etiquetas categóricas no recogen.
+
+
+```{r fig-perm}
+#| results: asis
+#| echo: false
 if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
-  knitr::include_graphics(file.path(base_out, "permutation_importance_polarizacion.png"))
+  cat('![Importancia por permutación en el modelo de polarización.](fig_thesis/permutation_importance_polarizacion.png){#fig-perm fig-align="center" width="82%"}\n')
 }
 ```
 
-```{r fig-shap, fig.cap="Resumen SHAP del modelo de polarización.", out.width="82%"}
+```{r fig-shap}
+#| results: asis
+#| eval: false
+#| echo: false
 if (file.exists(file.path(base_out, "shap_summary_polarizacion.png"))) {
-  knitr::include_graphics(file.path(base_out, "shap_summary_polarizacion.png"))
+  cat('![Resumen SHAP del modelo de polarización.](fig_thesis/shap_summary_polarizacion.png){#fig-shap fig-align="center" width="82%"}\n')
 }
 ```
-
-La importancia por permutación permite establecer qué variables
-sostienen realmente el ajuste. SHAP, en cambio, traslada esa lectura al
-nivel individual. Juntas, ambas herramientas muestran que el modelo no
-está capturando ruido superficial, sino una combinación estable de
-estructura discursiva y rasgos textuales.
 
 ### Clasificación de polarización alta
 
-```{r fig-roc, fig.cap="Curvas ROC para la clasificación de polarización alta.", out.width="82%"}
+Para complementar el análisis de regresión, se discretizó la polarización en un problema binario (umbral ≥ 0.6) y se evaluaron tres clasificadores. Las curvas ROC (@fig-roc) muestran que todos superan ampliamente la línea aleatoria, con AUCs entre 0.811 (LogReg) y 0.856 (RandomForest). Que un modelo lineal alcance un AUC de 0.81 indica que buena parte de la señal de hostilidad es linealmente separable: las emociones y estrategias adversariales, por sí solas, trazan una frontera razonable entre comentarios de alta y baja polarización. El incremento adicional de RandomForest (+0.045) sugiere que existen interacciones no aditivas entre variables discursivas —por ejemplo, la combinación de ira con ridiculización en hilos mixtos podría producir niveles de polarización que no se explican por la suma de sus efectos individuales—. GBM queda en una posición intermedia (AUC = 0.832), consistente con su menor estabilidad observada en la regresión. En conjunto, estos resultados indican que la polarización alta es un fenómeno clasificable con precisión moderada-alta, pero cuya estructura heterogénea se beneficia de modelos capaces de capturar no linealidades. Los valores AUC por modelo se detallan en el Anexo A (@tbl-anexo-auc).
+
+
+```{r fig-roc}
+#| results: asis
+#| echo: false
 if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
-  knitr::include_graphics(file.path(base_out, "roc_curves_polarizacion_alta.png"))
+  cat('![Curvas ROC para la clasificación de polarización alta.](fig_thesis/roc_curves_polarizacion_alta.png){#fig-roc fig-align="center" width="82%"}\n')
 }
 ```
 
-Los valores AUC por modelo se detallan en el Anexo A (@tbl-anexo-auc).
 
-Las tres curvas ROC muestran que el problema de clasificación es genuino
-y no trivial: los modelos lineales funcionan razonablemente bien, pero
-los no lineales capturan una fracción adicional de señal. Eso es
-coherente con la estructura heterogénea del discurso hostil.
 
 ### Estrategia, frontera, perfiles y errores
 
-Las tablas completas de clasificación multiclase de **estrategia**, de
-**frontera política**, de **perfiles K-means** y del **análisis de
-errores** sistemáticos se concentran en el **Anexo A** (secciones A.1.5
-a A.1.8), con tablas escaladas al ancho de página en el PDF para conservar el formato
-sin desbordes.
+Las tablas completas de clasificación multiclase de estrategia (@tbl-anexo-estrategia-resumen y @tbl-anexo-estrategia-clases), frontera política (@tbl-anexo-frontera-resumen y @tbl-anexo-frontera-clases), perfiles K-means (@tbl-anexo-perfiles-kmeans) y análisis de errores (@tbl-anexo-errores-sistematicos) se detallan en el Anexo A. Aquí se sintetizan los tres resultados principales.
 
-En síntesis, estrategia y frontera muestran que categorías teóricas
-complejas son operacionalizables desde el texto. K-means indica que la
-hostilidad no es un continuo homogéneo, sino una ecología de perfiles.
-El análisis de errores delimita dónde el modelo sigue fallando:
-comentarios breves, hostiles y poco contextuales.
+Primero, estos resultados indican que la frontera política es parcialmente recuperable desde texto corto y ruidoso (F1-macro = 0.725 en el mejor modelo), lo que sugiere que el concepto teórico de Mouffe deja una huella textual detectable, aunque con las limitaciones propias de un corpus informal y no curado.
+
+Segundo, los perfiles K-means (K = 3) revelan que la hostilidad no se distribuye como un continuo homogéneo, sino que se organiza en configuraciones discursivas diferenciadas: el cluster 0 agrupa comentarios de baja polarización con marcos diagnósticos y sin estrategia adversarial; el cluster 1 combina deslegitimación con desprecio en hilos sobre Jara; y el cluster 2 concentra ridiculización con desprecio dirigida a Kast.
+
+Tercero, el análisis de errores muestra que los falsos negativos presentan polarización real alta (0.685) pero textos más breves que los verdaderos positivos, delimitando las condiciones bajo las cuales el pipeline pierde sensibilidad: comentarios hostiles pero concisos, donde la señal discursiva es insuficiente para superar el umbral de clasificación.

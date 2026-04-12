@@ -81,15 +81,21 @@ if (nrow(auc_tab)) {
 
 ## A.1.5 Clasificación multiclase de estrategia discursiva
 
-```{r tbl-anexo-estrategia-multiclase}
+```{r tbl-anexo-estrategia-resumen}
 est <- read_or_empty(file.path(base_out, "resultados_clasificacion_estrategia.csv"))
 if (nrow(est)) {
   est_main <- est[est$clase == "" | is.na(est$clase), c("modelo", "accuracy", "f1_macro")]
-  est_cls <- est[!(est$clase %in% c("", "macro avg", "weighted avg") | is.na(est$clase)), c("modelo", "clase", "f1_clase")]
   kable_apa_anexo(
     round_df(est_main, 3),
     caption = "Clasificación multiclase de estrategia discursiva: exactitud y F1 macro (validación)."
   )
+}
+```
+
+```{r tbl-anexo-estrategia-clases}
+est <- read_or_empty(file.path(base_out, "resultados_clasificacion_estrategia.csv"))
+if (nrow(est)) {
+  est_cls <- est[!(est$clase %in% c("", "macro avg", "weighted avg") | is.na(est$clase)), c("modelo", "clase", "f1_clase")]
   kable_apa_anexo(
     round_df(est_cls, 3),
     caption = "Clasificación multiclase de estrategia discursiva: F1 por clase y modelo."
@@ -99,15 +105,21 @@ if (nrow(est)) {
 
 ## A.1.6 Clasificación de frontera política
 
-```{r tbl-anexo-frontera-politica}
+```{r tbl-anexo-frontera-resumen}
 front <- read_or_empty(file.path(base_out, "resultados_clasificacion_frontera.csv"))
 if (nrow(front)) {
   front_main <- front[front$clase == "" | is.na(front$clase), c("modelo", "accuracy", "f1_macro")]
-  front_cls <- front[!(front$clase %in% c("", "macro avg", "weighted avg") | is.na(front$clase)), c("modelo", "clase", "f1")]
   kable_apa_anexo(
     round_df(front_main, 3),
     caption = "Clasificación de frontera política (inter-bloque, intra-bloque, ninguna): exactitud y F1 macro."
   )
+}
+```
+
+```{r tbl-anexo-frontera-clases}
+front <- read_or_empty(file.path(base_out, "resultados_clasificacion_frontera.csv"))
+if (nrow(front)) {
+  front_cls <- front[!(front$clase %in% c("", "macro avg", "weighted avg") | is.na(front$clase)), c("modelo", "clase", "f1")]
   kable_apa_anexo(
     round_df(front_cls, 3),
     caption = "Clasificación de frontera política: F1 por clase y modelo."
