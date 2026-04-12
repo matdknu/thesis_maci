@@ -108,7 +108,10 @@ pretty_ols_term <- function(x) {
 
 #' Tabla principal: booktabs + nota al pie tipo APA
 #' @param landscape Si TRUE (p. ej. en PDF), página horizontal con pdflscape (tablas anchas).
-#' @param scale_down Si TRUE (LaTeX), escala la tabla al ancho de línea (alternativa a landscape).
+#' @param scale_down Si TRUE (LaTeX), escala la tabla al ancho de línea. No se combina con
+#'   longtable: kableExtra ante scale_down + longtable termina envolviendo en landscape.
+#' @param longtable Si NULL, se usa longtable solo si nrow(df) > max_rows_longtable (tabular en
+#'   el resto, compatible con scale_down en retrato).
 kable_apa <- function(
     df,
     caption,
@@ -116,23 +119,46 @@ kable_apa <- function(
     align = NULL,
     col.names = NULL,
     landscape = FALSE,
-    scale_down = FALSE
+    scale_down = FALSE,
+    longtable = NULL,
+    max_rows_longtable = 45L
 ) {
   df <- as.data.frame(df)
   if (!is.null(col.names)) colnames(df) <- col.names
   if (is.null(align)) {
     align <- paste(ifelse(vapply(df, is.numeric, logical(1)), "r", "l"), collapse = "")
   }
-  k <- knitr::kable(df, caption = caption, booktabs = TRUE, align = align, row.names = FALSE)
+  if (is.null(longtable)) {
+    longtable <- isTRUE(nrow(df) > max_rows_longtable)
+  }
+  # kableExtra: scale_down sobre longtable dispara aviso y puede envolver en landscape en el PDF.
+  # Si piden scale_down en LaTeX, forzar tabular (sin longtable).
+  if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output())) {
+    longtable <- FALSE
+  }
+  k <- knitr::kable(
+    df,
+    caption = caption,
+    booktabs = TRUE,
+    align = align,
+    row.names = FALSE,
+    longtable = longtable
+  )
   if (isTRUE(requireNamespace("kableExtra", quietly = TRUE))) {
     latex_opts <- c("striped", "hold_position")
-    if (isTRUE(scale_down)) latex_opts <- c(latex_opts, "scale_down")
-    k <- kableExtra::kable_styling(
+    if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output()) && !isTRUE(longtable)) {
+      latex_opts <- c(latex_opts, "scale_down")
+    }
+    ksty <- list(
       k,
       bootstrap_options = c("striped", "hover", "condensed"),
       latex_options = latex_opts,
       full_width = FALSE
     )
+    if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output()) && isTRUE(longtable)) {
+      ksty$font_size <- 8
+    }
+    k <- do.call(kableExtra::kable_styling, ksty)
     if (length(note) && nzchar(note)) {
       k <- kableExtra::footnote(
         k,

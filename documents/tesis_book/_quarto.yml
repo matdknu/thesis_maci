@@ -79,6 +79,7 @@ format:
 # FORMATO PDF
 # ============================================================================
   pdf:
+    keep-tex: true
     language: es
     documentclass: scrreprt
     classoption: 
