@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: ../../docs
+  # Tras `quarto render`, versionar también docs/site_libs/ (Bootstrap, quarto-*.js/css).
+  # Si no está en el repo, GitHub Pages sirve el HTML sin estilos (404 en site_libs/bootstrap/...).
   # Copia explícita a docs/ para GitHub Pages (fig_thesis + images: rutas relativas estables)
   resources:
     - fig_thesis
