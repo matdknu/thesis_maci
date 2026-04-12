@@ -46,8 +46,108 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-// Portada index: evitar título duplicado (Quarto + bloque manual)
+// Portada index: Quarto Book aún inserta title-block; ocultar si existe portada manual
+main#quarto-document-content:has(#portada-libro) > header#title-block-header,
 header#title-block-header:has(h1.display-7) {
+  display: none !important;
+}
+
+// Barra superior (GitHub Pages: se ve genérica sin esto)
+#quarto-header.headroom {
+  background: rgba(253, 252, 250, 0.94) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(26, 54, 93, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.quarto-secondary-nav .breadcrumb {
+  font-family: $font-family-sans-serif;
+  font-size: 0.88rem;
+}
+
+// Portada del sitio (solo index HTML)
+#portada-libro {
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto 3rem;
+  padding: 2.25rem 1.75rem 2.5rem;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(247, 245, 240, 0.75) 55%,
+    rgba(237, 242, 247, 0.35) 100%
+  );
+  border: 1px solid rgba(26, 54, 93, 0.1);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 6px -1px rgba(26, 54, 93, 0.06),
+    0 14px 28px -10px rgba(26, 54, 93, 0.14);
+}
+
+#portada-libro .thesis-cover-logo,
+#portada-libro img.thesis-cover-logo {
+  width: min(200px, 46vw) !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border-radius: 0 !important;
+}
+
+#portada-libro h1.thesis-cover-title {
+  font-family: $font-family-sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3.8vw, 2.05rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: $primary;
+  margin: 1.35rem 0 0.5rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 3px solid $accent !important;
+  border-top: none !important;
+}
+
+#portada-libro h2.thesis-cover-subtitle {
+  font-family: $font-family-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.4vw, 1.2rem);
+  line-height: 1.45;
+  color: #4a5568;
+  margin: 0.65rem 0 0;
+  border: none !important;
+  padding: 0;
+}
+
+#portada-libro .thesis-cover-meta {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(26, 54, 93, 0.12);
+  font-family: $font-family-sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: #2d3748;
+}
+
+#portada-libro .thesis-cover-meta p {
+  margin-bottom: 0.85rem;
+  text-align: center;
+}
+
+#portada-libro .thesis-cover-meta p:last-child {
+  margin-bottom: 0;
+}
+
+// Quarto envuelve la portada en <section> (section-divs); evitar doble “caja”
+#portada-libro section.level1,
+#portada-libro section.level2 {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+#portada-libro a.anchorjs-link {
   display: none !important;
 }
 
@@ -163,10 +263,23 @@ main.content,
   }
 }
 
-main,
-.content,
-#quarto-document-content {
-  padding: 0 !important;
+// Columna de lectura: evita líneas interminables en pantallas anchas (GitHub Pages)
+@media (min-width: 768px) {
+  main#quarto-document-content.content {
+    max-width: min(52rem, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 1.5rem 3rem !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 767.98px) {
+  main#quarto-document-content.content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 2rem !important;
+  }
 }
 
 // Responsive móvil

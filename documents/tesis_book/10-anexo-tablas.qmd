@@ -25,7 +25,7 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 }
 ```
 
-Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, se presentan aquí en **página horizontal** en el PDF para asegurar legibilidad. En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
+Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal. En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
 
 # A.1 Modelado de datos (capítulo 7)
 

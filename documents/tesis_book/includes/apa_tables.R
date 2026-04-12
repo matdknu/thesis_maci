@@ -148,9 +148,13 @@ kable_apa <- function(
   k
 }
 
-#' Tablas del anexo: en PDF se fuerza página horizontal para evitar desbordes.
+#' Tablas del anexo: siempre vertical (retrato); en PDF se escala si hace falta.
 kable_apa_anexo <- function(...) {
-  kable_apa(..., landscape = knitr::is_latex_output(), scale_down = FALSE)
+  kable_apa(
+    ...,
+    landscape = FALSE,
+    scale_down = knitr::is_latex_output()
+  )
 }
 
 #' Alias semántico para el cuerpo de la tesis

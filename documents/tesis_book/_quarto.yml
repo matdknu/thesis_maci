@@ -20,9 +20,7 @@ book:
   description: |
     Tesis para optar al grado de Magíster en Ciencia de Datos.
   
-  # Imágenes (descomentar cuando tengas los archivos)
-  # favicon: logo/logo.png
-  # cover-image: logo/portada.png
+  favicon: fig_thesis/logo_udec.png
   
   # Estructura del libro
   chapters:
@@ -135,7 +133,6 @@ format:
         \usepackage{longtable}
         \usepackage{array}
         \usepackage{float}
-        \usepackage{pdflscape}
         \usepackage{colortbl}
         \usepackage{xcolor}
         \usepackage{caption}

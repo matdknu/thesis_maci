@@ -422,7 +422,7 @@ coherente con la estructura heterogénea del discurso hostil.
 Las tablas completas de clasificación multiclase de **estrategia**, de
 **frontera política**, de **perfiles K-means** y del **análisis de
 errores** sistemáticos se concentran en el **Anexo A** (secciones A.1.5
-a A.1.8), en **página horizontal** en el PDF para conservar el formato
+a A.1.8), con tablas escaladas al ancho de página en el PDF para conservar el formato
 sin desbordes.
 
 En síntesis, estrategia y frontera muestran que categorías teóricas
