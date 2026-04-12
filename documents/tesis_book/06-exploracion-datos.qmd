@@ -13,4 +13,4 @@ knitr::opts_chunk$set(
 )
 ```
 
-![](images/fig_count_facet_candidatos.png){fig-align="center"}
+![](fig_thesis/fig_count_facet_candidatos.png){fig-align="center"}

@@ -25,6 +25,10 @@ data/**/*.numbers
 !outputs_ml/*.png
 !outputs_ml/*.csv
 
+# Copia editorial unificada para la tesis (QMD/HTML/PDF)
+!documents/tesis_book/fig_thesis/*.png
+!documents/tesis_book/fig_thesis/*.csv
+
 # Backups y artefactos temporales
 backups/
 scripts/analisis/__pycache__/

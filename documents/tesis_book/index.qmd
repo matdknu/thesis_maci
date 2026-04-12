@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 ::: {.content-visible when-format="html"}
 ::: {style="text-align: center; padding: 1.25rem 1rem 2.5rem; max-width: 36rem; margin-inline: auto;"}
-<img src="logo/logo_udec.png" alt="Logo UdeC" style="width: min(200px, 42vw); height: auto;"/>
+<img src="fig_thesis/logo_udec.png" alt="Logo UdeC" style="width: min(200px, 42vw); height: auto;"/>
 <h1 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: clamp(1.35rem, 4.2vw, 2rem); line-height: 1.25;">Derecha fragmentada y un enemigo compartido</h1>
 <h2 style="font-style: italic; font-size: clamp(0.95rem, 2.8vw, 1.15rem); font-weight: 400; line-height: 1.35; margin-top: 0.75rem;">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</h2>
 <p style="margin-top: 2rem;">Tesina presentada para optar al grado de<br>Magíster en Ciencia de Datos</p>

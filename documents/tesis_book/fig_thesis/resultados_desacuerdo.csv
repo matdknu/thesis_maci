@@ -1,0 +1,4 @@
+modelo,accuracy,f1_macro
+LogReg,0.6221,0.5929
+LinearSVM,0.5987,0.5612
+RandomForest,0.6802,0.5404

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
   fig.height = 6,
   fig.align = "center"
 )
-base_out <- "../../outputs_ml"
+base_out <- "fig_thesis"
 base_dir <- normalizePath(file.path(base_out, ".."), winslash = "/", mustWork = FALSE)
 
 .apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")

@@ -104,4 +104,4 @@ El pipeline incluye técnicas de **procesamiento de texto (TF-IDF, bigramas)**, 
 
 Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis **longitudinales, relacionales y discursivos integrados**
 
-![Flujo de recolección y procesamiento del corpus.](images/pipeline_corpus.png){#fig-pipeline-datos fig-align="center" width="90%"}
+![Flujo de recolección y procesamiento del corpus.](fig_thesis/pipeline_corpus.png){#fig-pipeline-datos fig-align="center" width="90%"}

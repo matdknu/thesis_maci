@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   fig.height = 6,
   fig.align = "center"
 )
-base_out <- "../../outputs_ml"
+base_out <- "fig_thesis"
 
 .apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
 if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {

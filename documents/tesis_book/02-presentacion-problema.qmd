@@ -133,7 +133,7 @@ producir conocimiento sustantivo sobre procesos políticos.
 El flujo analítico puede representarse así:
 
 ![Pipeline analítico: de la recolección del corpus a los hallazgos
-sustantivos.](images/diagrama.png){#fig-pipeline fig-align="center"
+sustantivos.](fig_thesis/diagrama.png){#fig-pipeline fig-align="center"
 width="90%"}
 
 La @fig-pipeline sintetiza el encadenamiento entre corpus,
