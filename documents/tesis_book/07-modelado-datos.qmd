@@ -92,9 +92,9 @@ probabilística, stacking ensemble y visualizaciones 3D— se presentan en
 las secciones correspondientes como evidencia de robustez sin modificar
 la lectura interpretativa principal.
 
-## 1) Consistencia de medición
+## Consistencia de medición
 
-### 1.1 Acuerdo entre anotadores automáticos
+### Acuerdo entre anotadores automáticos
 
 ```{r tbl-acuerdo-anotadores}
 agreement <- data.frame()
@@ -167,7 +167,7 @@ muestra una consistencia suficiente para uso analítico. En cambio,
 emoción y estrategia presentan mayores márgenes de ambigüedad: el
 sistema las captura, pero con menor nitidez que polarización.
 
-### 1.2 Modelo de desacuerdo
+### Modelo de desacuerdo
 
 Los coeficientes del modelo de desacuerdo entre OA y DS se reportan en
 el Anexo A (@tbl-anexo-desacuerdo), para no saturar el cuerpo del
@@ -179,7 +179,7 @@ vuelve inestable**. Esto permite distinguir entre dimensiones más
 robustas y dimensiones más sensibles a ambigüedad, ironía o baja
 densidad contextual.
 
-### 1.3 Valor añadido de las variables discursivas
+### Valor añadido de las variables discursivas
 
 La tabla comparativa de configuraciones (solo TF-IDF, solo variables
 LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features).
@@ -200,7 +200,7 @@ alcanza un `R²` superior y, en combinación con TF-IDF, eleva aún más el
 rendimiento. En otras palabras, el sistema no se limita a recodificar el
 texto: recupera información estructural adicional.
 
-### 1.4 Calibración de probabilidades
+### Calibración de probabilidades
 
 ```{r fig-reliability, fig.cap="Calibración del clasificador de polarización alta.", out.width="82%"}
 if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
@@ -216,9 +216,9 @@ confiables sin post-procesamiento fuerte. Esto refuerza la validez
 práctica del pipeline para producir probabilidades utilizables como
 insumo analítico.
 
-## 2) Modelado de polarización
+## Modelado de polarización
 
-### 2.1 Comparación de modelos y estabilidad fuera de muestra
+### Comparación de modelos y estabilidad fuera de muestra
 
 ```{r tbl-cv-regresion}
 cv <- read_or_empty(file.path(base_out, "validacion_cruzada_resumen.csv"))
@@ -257,7 +257,7 @@ depende de un corte favorable del conjunto de datos. El stacking mejora
 el techo predictivo, pero el benchmark robusto del capítulo sigue siendo
 el RandomForest.
 
-### 2.2 OLS interpretable
+### OLS interpretable
 
 ```{r tbl-ols-polarizacion}
 ols <- read_or_empty(file.path(base_out, "tabla_ols_polarizacion.csv"))
@@ -382,7 +382,7 @@ variables aumentan la polarización, sino que el efecto no se concentra
 en el candidato como target, sino en configuraciones discursivas como
 emoción, estrategia y tipo de hilo.
 
-### 2.3 Importancia por permutación y explicación local
+### Importancia por permutación y explicación local
 
 ```{r fig-perm, fig.cap="Importancia por permutación en el modelo de polarización.", out.width="82%"}
 if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
@@ -402,7 +402,7 @@ nivel individual. Juntas, ambas herramientas muestran que el modelo no
 está capturando ruido superficial, sino una combinación estable de
 estructura discursiva y rasgos textuales.
 
-### 2.4 Clasificación de polarización alta
+### Clasificación de polarización alta
 
 ```{r fig-roc, fig.cap="Curvas ROC para la clasificación de polarización alta.", out.width="82%"}
 if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
@@ -417,7 +417,7 @@ y no trivial: los modelos lineales funcionan razonablemente bien, pero
 los no lineales capturan una fracción adicional de señal. Eso es
 coherente con la estructura heterogénea del discurso hostil.
 
-### 2.5 Estrategia, frontera, perfiles y errores
+### Estrategia, frontera, perfiles y errores
 
 Las tablas completas de clasificación multiclase de **estrategia**, de
 **frontera política**, de **perfiles K-means** y del **análisis de
@@ -430,5 +430,3 @@ complejas son operacionalizables desde el texto. K-means indica que la
 hostilidad no es un continuo homogéneo, sino una ecología de perfiles.
 El análisis de errores delimita dónde el modelo sigue fallando:
 comentarios breves, hostiles y poco contextuales.
-
-## 

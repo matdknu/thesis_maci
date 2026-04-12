@@ -55,8 +55,7 @@ format:
     author: "Matías Deneken"
     language: es
     lang: es
-    css: thesis-html.css
-    theme: 
+    theme:
       light: [cosmo, custom.scss]
     sidebar:
       pinned: true

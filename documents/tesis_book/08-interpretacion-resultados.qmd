@@ -27,9 +27,9 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 
 Este capítulo toma el output del pipeline ya validado y lo traduce en una pregunta sustantiva: **cómo se reconfigura el antagonismo político en la conversación digital de derechas**. En esta sección el objetivo no es volver a demostrar que el modelo predice bien, sino mostrar **qué estructura discursiva revela** cuando se observan marcos, emociones, estrategias, fronteras, temporalidad y espacios semánticos.
 
-## 1) Reconfiguración del antagonismo: estrategias, marcos y fronteras
+## Reconfiguración del antagonismo: estrategias, marcos y fronteras
 
-### 1.1 Estrategias por candidato
+### Estrategias por candidato
 
 ```{r fig-estrategias-candidato, fig.cap="Distribución de estrategias por candidato (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "distribucion_estrategias_candidato.png"))) {
@@ -72,7 +72,7 @@ if (file.exists(file.path(base_out, "estrategia_por_frontera.png"))) {
 
 La lógica del antagonismo no se distribuye homogéneamente. Algunas estrategias quedan más asociadas a confrontación **inter-bloque** y otras funcionan más bien dentro del conflicto **intra-bloque**. Esto es importante porque muestra que la hostilidad no es una sola: cambia según la arquitectura del adversario construida por el comentario.
 
-### 1.2 Marcos por candidato y por fase
+### Marcos por candidato y por fase
 
 ```{r fig-marcos-candidato, fig.cap="Distribución de marcos por candidato (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "distribucion_marcos_candidato.png"))) {
@@ -90,9 +90,9 @@ Los contrastes de independencia marco × fase por candidato (chi-cuadrado, *p*, 
 
 El repertorio de marcos no es estable entre candidatos ni entre fases. Esta heterogeneidad sugiere que la polarización no se activa sobre un único relato, sino sobre una combinación variable de conflicto, identidad, moralidad y diagnóstico coyuntural.
 
-## 2) Combinaciones discursivas y dinámica temporal
+## Combinaciones discursivas y dinámica temporal
 
-### 2.1 Marco × emoción
+### Marco × emoción
 
 ```{r tbl-marco-emocion-top}
 me <- read_or_empty(file.path(base_out, "combinaciones_marco_emocion.csv"))
@@ -145,7 +145,7 @@ if (file.exists(file.path(base_out, "combinaciones_marco_emocion.png"))) {
 
 Las combinaciones entre marco y emoción son especialmente relevantes porque muestran que no toda emoción hostil se acopla del mismo modo al conflicto. Algunas combinaciones son frecuentes y moderadas; otras son raras, pero empujan la polarización a niveles mucho más altos.
 
-### 2.2 Estrategias en el tiempo
+### Estrategias en el tiempo
 
 ```{r}
 #| label: fig-estrategias-temporal
@@ -160,9 +160,9 @@ La serie temporal de estrategias permite observar si la arquitectura del adversa
 
 > No se eleva a figura principal la serie semanal de emociones porque su rendimiento en esta tesis fue sobre todo **descriptivo** y no añadió un hallazgo interpretativo tan fuerte como el bloque de estrategias o el de frontera.
 
-## 3) Autores, persistencia y estructura del conflicto
+## Autores, persistencia y estructura del conflicto
 
-### 3.1 Persistencia de negatividad hacia Kast
+### Persistencia de negatividad hacia Kast
 
 ```{r fig-kast-trans, fig.cap="Transiciones de sentimiento hacia Kast por autor (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "transiciones_autor_kast_fases.png"))) {
@@ -193,7 +193,7 @@ if (nrow(rk)) {
 }
 ```
 
-### 3.2 Actividad de autores y polarización
+### Actividad de autores y polarización
 
 ```{r fig-autores-violin, fig.cap="Polarización media por tipo de autor (PNG).", out.width="82%"}
 if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
@@ -221,9 +221,9 @@ dominante de participación política. El 87.4% de los autores inicialmente
 negativos hacia Kast mantiene esa posición durante todo el ciclo electoral,
 lo que indica cristalización actitudinal más que escalamiento reactivo.
 
-## 4) Espacios semánticos acoplados
+## Espacios semánticos acoplados
 
-### 4.1 Atlas global acoplado
+### Atlas global acoplado
 
 El objetivo de los gráficos espaciales no es demostrar capacidad predictiva, sino **mostrar geometría discursiva**. Para que la lectura sea razonable en HTML y PDF, las vistas **v1 globales** se compilan en una sola imagen grande: tema, candidato, polarización y emociones quedan acoplados en el mismo panel y con la misma cámara.
 
@@ -244,6 +244,6 @@ El atlas global acoplado es la pieza principal para lectura de la tesis. La deci
 
 > No se reportan aquí los HTML interactivos ni una versión puramente 2D del espacio semántico porque el formato de tesis exige priorizar piezas estáticas legibles, reproducibles y consistentes entre HTML y PDF.
 
-## 5) Cierre interpretativo
+## Cierre interpretativo
 
 La lectura conjunta de estas piezas sugiere que la reconfiguración del antagonismo no consiste solo en un cambio de target, sino en una reorganización de **estrategias**, **fronteras** y **marcos**. La confrontación política digital no se expresa únicamente como negatividad, sino como una arquitectura más compleja donde el tipo de enemigo, el tono del ataque y el encuadre del conflicto cambian según coyuntura y candidato.
