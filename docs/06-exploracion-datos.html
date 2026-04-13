@@ -273,7 +273,7 @@ Figura&nbsp;6.3: Densidad de polarización por candidato.
 </section>
 <section id="emociones-en-el-tiempo-facetas-por-candidato" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="emociones-en-el-tiempo-facetas-por-candidato"><span class="header-section-number">6.4</span> Emociones en el tiempo (facetas por candidato)</h2>
-<p>La <a href="#fig-emociones-candidato-tendencia" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-emociones-candidato-tendencia</span></a> muestra, para cada candidato objetivo, la <strong>proporción semanal</strong> de las emociones más frecuentes en el corpus (líneas de color). La <strong>línea negra continua</strong> es la proporción de emociones <strong>hostiles</strong> (ira, desprecio, indignación); el <strong>trazo discontinuo</strong> es un suavizado <strong>LOESS</strong> sobre esa fracción hostil. Las semanas con menos de 12 comentarios se excluyen. Figura generada en R con <code>scripts/analisis/viz_r_tesis.R</code> (misma salida en <code>outputs_ml/</code> y copias a <code>fig_thesis/</code> e <code>images/</code>). CSV largo: <code>outputs_ml/emociones_semanal_largo_por_candidato.csv</code>.</p>
+<p>La <a href="#fig-emociones-candidato-tendencia" class="quarto-xref">Figura&nbsp;<span>6.4</span></a> muestra, para cada candidato objetivo, la <strong>proporción semanal</strong> de las emociones más frecuentes en el corpus (líneas de color). La <strong>línea negra continua</strong> es la proporción de emociones <strong>hostiles</strong> (ira, desprecio, indignación); el <strong>trazo discontinuo</strong> es un suavizado <strong>LOESS</strong> sobre esa fracción hostil. Las semanas con menos de 12 comentarios se excluyen. Figura generada en R con <code>scripts/analisis/viz_r_tesis.R</code> (misma salida en <code>outputs_ml/</code> y copias a <code>fig_thesis/</code> e <code>images/</code>). CSV largo: <code>outputs_ml/emociones_semanal_largo_por_candidato.csv</code>.</p>
 <div id="fig-emociones-candidato-tendencia" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-emociones-candidato-tendencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -287,43 +287,21 @@ Figura&nbsp;6.4: Proporción semanal de emociones por candidato (facetas 2×2). 
 </section>
 <section id="perfiles-discursivos-radar-por-candidato" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="perfiles-discursivos-radar-por-candidato"><span class="header-section-number">6.5</span> Perfiles discursivos: radar por candidato</h2>
-<p>Cada eje del radar muestra la <strong>concentración de la categoría modal</strong> en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el <strong>grupo de polarización</strong> (baja / media / alta). La <a href="#fig-radar-candidatos" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-radar-candidatos</span></a> permite comparar a Kast, Kaiser, Matthei y Jara.</p>
-<div id="fig-radar-candidatos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-radar-candidatos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/radar_candidatos_cuatro.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:88.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radar-candidatos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.5: Radar: concentración modal por dimensión (marco, emoción, estrategia, frontera, grupo de polarización), una línea por candidato.
-</figcaption>
-</figure>
-</div>
-<p>Figura generada con <code>scripts/analisis/09_ml_avanzado.py</code> (<code>run_radar_por_candidato</code>). Tabla: <code>radar_concentracion_modal_candidatos.csv</code>.</p>
+<p>Cada eje del radar muestra la <strong>concentración de la categoría modal</strong> en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el <strong>grupo de polarización</strong> (baja / media / alta). La <span class="quarto-unresolved-ref">?fig-radar-candidatos</span> permite comparar a Kast, Kaiser, Matthei y Jara.</p>
 </section>
 <section id="polarización-en-el-tiempo" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="polarización-en-el-tiempo"><span class="header-section-number">6.6</span> Polarización en el tiempo</h2>
-<p>La <a href="#fig-explor-pol-serie" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-explor-pol-serie</span></a> reproduce la serie <strong>bisegmentada</strong> (cada dos días) de polarización media por candidato, con la misma lógica de calendario que en el capítulo de modelado. El archivo de referencia del pipeline es <strong><code>outputs_ml/serie_polarizacion_candidatos.png</code></strong> (copia idéntica de <code>serie_polarizacion_cada_2_dias_candidatos.png</code>). Para el libro se usa la copia en <code>images/</code> (compatible con GitHub Pages).</p>
+<p>La <a href="#fig-explor-pol-serie" class="quarto-xref">Figura&nbsp;<span>6.5</span></a> reproduce la serie <strong>bisegmentada</strong> (cada dos días) de polarización media por candidato, con la misma lógica de calendario que en el capítulo de modelado. El archivo de referencia del pipeline es <strong><code>outputs_ml/serie_polarizacion_candidatos.png</code></strong> (copia idéntica de <code>serie_polarizacion_cada_2_dias_candidatos.png</code>). Para el libro se usa la copia en <code>images/</code> (compatible con GitHub Pages).</p>
 <div id="fig-explor-pol-serie" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-explor-pol-serie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/serie_polarizacion_candidatos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-pol-serie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.6: Polarización media cada dos días por candidato (bandas ≈ IC 95 %; pipeline <code>outputs_ml/serie_polarizacion_candidatos.png</code>).
+Figura&nbsp;6.5: Polarización media cada dos días por candidato (bandas ≈ IC 95 %; pipeline <code>outputs_ml/serie_polarizacion_candidatos.png</code>).
 </figcaption>
 </figure>
 </div>
-<div id="fig-explor-neg-jk" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-explor-neg-jk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/serie_diaria_negatividad_jara_kast.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-neg-jk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.7: Negatividad diaria y polarización media (ejes dual), Jara vs Kast.
-</figcaption>
-</figure>
-</div>
-<p>Fuentes: <code>scripts/analisis/07_pipeline_completo.py</code>, <code>scripts/analisis/08_transiciones_sentimiento_derecha_jara.py</code>, <code>scripts/analisis/viz_r_tesis.R</code> (polarización y emociones), <code>scripts/analisis/09_ml_avanzado.py</code> (radar).</p>
 
 
 </section>

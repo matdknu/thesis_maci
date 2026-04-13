@@ -256,14 +256,13 @@ div.csl-indent {
 
 <section id="diseño-de-investigación" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="diseño-de-investigación"><span class="header-section-number">4.1</span> Diseño de investigación</h2>
-<p>Esta investigación adopta un diseño <strong>longitudinal observacional</strong> basado en datos digitales generados por usuarios (<em>user-generated content</em>). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.</p>
+<p>Esta investigación adopta un diseño <strong>l</strong>ongitudinal observacional basado en datos digitales generados por usuarios (<em>user-generated content</em>). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.</p>
 <p>Metodológicamente, la investigación se inscribe en la <strong>ciencia social computacional</strong> <span class="citation" data-cites="Lazer2009 Salganik2019">(<a href="references.html#ref-Lazer2009" role="doc-biblioref">Lazer 2009</a>; <a href="references.html#ref-Salganik2019" role="doc-biblioref">Salganik 2019</a>)</span>: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes <strong>descriptivos</strong> —caracterizar la conversación política en Reddit durante el período estudiado— con componentes <strong>explicativos</strong>, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.</p>
 </section>
 <section id="reddit-como-plataforma-de-análisis" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="reddit-como-plataforma-de-análisis"><span class="header-section-number">4.2</span> Reddit como plataforma de análisis</h2>
-<p>Reddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas <em>subreddits</em>, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a <strong>intereses y temas compartidos</strong>, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.</p>
-<p>Su arquitectura de <strong>comentarios anidados</strong> (<em>threaded discussions</em>) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. El sistema de votación (<em>upvotes/downvotes</em>) ofrece un indicador de resonancia comunitaria, y la persistencia de los hilos habilita el análisis longitudinal de conversaciones en desarrollo.</p>
-<p>Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.</p>
+<p>Reddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas <em>subreddits</em>, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a intereses y temas compartidos, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.</p>
+<p>Su arquitectura de <strong>comentarios anidados</strong> (<em>threaded discussions</em>) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.</p>
 <p>En el contexto chileno, dos subreddits concentran la discusión política nacional:</p>
 <ul>
 <li><strong>r/chile</strong>: Comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática. Ha tendido históricamente hacia posiciones de centro-izquierda, aunque con presencia de voces diversas.</li>
@@ -282,8 +281,8 @@ div.csl-indent {
 <p>La recolección abarcó <strong>cinco meses</strong>, del <strong>1 de agosto al 31 de diciembre de 2025</strong>, cubriendo las siguientes fases del ciclo electoral:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -305,7 +304,7 @@ div.csl-indent {
 </section>
 <section id="estrategia-de-extracción-incremental" class="level3">
 <h3 class="anchored" data-anchor-id="estrategia-de-extracción-incremental">Estrategia de extracción incremental</h3>
-<p>El proceso fue <strong>incremental y acumulativo</strong>, ejecutado en múltiples iteraciones que: (1) recuperaban los posts más recientes de cada subreddit (250–1.000 posts por ejecución); (2) descargaban el árbol completo de comentarios mediante <code>replace_more(limit=None)</code> para capturar todos los niveles de anidación; (3) integraban nuevos datos con extracciones previas en archivos Parquet; y (4) eliminaban duplicados mediante el identificador único nativo de Reddit (<code>post_id</code>), que garantiza unicidad por diseño de la plataforma.</p>
+<p>El proceso fue <strong>incremental y acumulativo</strong>, ejecutado en múltiples iteraciones que: (1) recuperaban los posts más recientes de cada subreddit (250–1.000 posts por ejecución); (2) descargaban el árbol completo de comentarios para capturar todos los niveles de anidación; (3) integraban nuevos datos con extracciones previas en archivos Parquet; y (4) eliminaban duplicados mediante el identificador único nativo de Reddit (<code>post_id</code>), que garantiza unicidad por diseño de la plataforma.</p>
 </section>
 <section id="contenido-extraído-y-filtrado-temático" class="level3">
 <h3 class="anchored" data-anchor-id="contenido-extraído-y-filtrado-temático">Contenido extraído y filtrado temático</h3>
@@ -321,9 +320,9 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones regex para su detección en el 
 <div aria-describedby="tbl-candidaturas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 35%">
-<col style="width: 42%">
+<col style="width: 24%">
+<col style="width: 34%">
+<col style="width: 41%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -358,7 +357,7 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones regex para su detección en el 
 </div>
 </figure>
 </div>
-<p>Esta selección permite analizar tanto la <strong>competencia intra-derecha</strong> entre tres corrientes como la <strong>convergencia discursiva</strong> frente al adversario ideológico común (ver <a href="#tbl-candidaturas" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-candidaturas</span></a>).</p>
+<p>Esta selección permite analizar tanto la <strong>competencia intra-derecha</strong> entre tres corrientes como la <strong>convergencia discursiva</strong> frente al adversario ideológico común (ver <a href="#tbl-candidaturas" class="quarto-xref">Tabla&nbsp;<span>4.1</span></a>).</p>
 </section>
 </section>
 <section id="consideraciones-éticas" class="level2" data-number="4.4">

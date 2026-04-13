@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 ## Comunicación política en entornos digitales
 
-Las plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. boyd (2010) identificó cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la **mediación algorítmica** (que privilegia contenidos emocionalmente activadores), el **colapso de contextos** (convergencia de audiencias antes separadas) y las **métricas de rendimiento** (retroalimentación inmediata que orienta la conducta comunicativa).
+Las plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. La literatura ha identificado (Boyd, 2010) cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la **mediación algorítmica** (que privilegia contenidos emocionalmente activadores), el **colapso de contextos** (convergencia de audiencias antes separadas) y las **métricas de rendimiento** (retroalimentación inmediata que orienta la conducta comunicativa).
 
 Más allá de sus propiedades técnicas, las plataformas deben entenderse como infraestructuras de poder privadas que ejercen moderación, optimizan el *engagement* y consolidan efectos de red con consecuencias desproporcionadas para la calidad del debate democrático [@Gillespie2018; @vanDijck2018].
 

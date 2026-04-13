@@ -162,23 +162,6 @@ Establecida esta base de consistencia y valor añadido, la siguiente sección ex
 
 El núcleo interpretativo combina **dos lecturas complementarias** sobre el mismo corpus: la trayectoria del **tono negativo** hacia los dos candidatos de la segunda vuelta (Jara y Kast) y la trayectoria de la **polarización discursiva** (consenso entre anotadores) tanto en esa comparación diaria como en la serie bisegmentada por candidato. Las figuras se recortan al calendario de la tesis —tres bloques de campaña (posicionamiento, primera vuelta, segunda vuelta)—, incluyen **referencias de elección** (primera y segunda vuelta) y **cierran el 24 de diciembre**, de modo que el postelectoral inmediato quede visible sin extender la ventana más allá de ese corte.
 
-```{r fig-serie-neg-pol-jk}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "serie_diaria_negatividad_jara_kast.png"))) {
-  cat('![Negatividad diaria (P(negativo), eje izquierdo) y polarización media por consenso (eje derecho), Jara vs Kast. Sombreado: fases; líneas verticales: referencias de elección; puntos: días de debate. Serie hasta el 24 de diciembre.](fig_thesis/serie_diaria_negatividad_jara_kast.png){#fig-serie-neg-pol-jk fig-align="center" width="100%"}\n')
-}
-```
-
-```{r fig-serie-pol-2d}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "serie_polarizacion_cada_2_dias_candidatos.png"))) {
-  cat('![Polarización media cada dos días por candidato (media móvil de dos períodos; banda ≈ IC 95 %). Solo observaciones en fases electorales; misma ventana temporal que la figura anterior.](fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png){#fig-serie-pol-2d fig-align="center" width="100%"}\n')
-}
-```
-
-Las series se generan con `scripts/analisis/08_transiciones_sentimiento_derecha_jara.py` (panel Jara/Kast) y `scripts/analisis/07_pipeline_completo.py` (panel cuatro candidatos).
 
 ### Comparación de modelos y estabilidad fuera de muestra
 

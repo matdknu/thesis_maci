@@ -15,17 +15,15 @@ knitr::opts_chunk$set(
 
 ## Diseño de investigación
 
-Esta investigación adopta un diseño **longitudinal observacional** basado en datos digitales generados por usuarios (*user-generated content*). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.
+Esta investigación adopta un diseño **l**ongitudinal observacional basado en datos digitales generados por usuarios (*user-generated content*). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.
 
 Metodológicamente, la investigación se inscribe en la **ciencia social computacional** [@Lazer2009; @Salganik2019]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit durante el período estudiado— con componentes **explicativos**, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.
 
 ## Reddit como plataforma de análisis
 
-Reddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas *subreddits*, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a **intereses y temas compartidos**, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.
+Reddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas *subreddits*, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a intereses y temas compartidos, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.
 
-Su arquitectura de **comentarios anidados** (*threaded discussions*) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. El sistema de votación (*upvotes/downvotes*) ofrece un indicador de resonancia comunitaria, y la persistencia de los hilos habilita el análisis longitudinal de conversaciones en desarrollo.
-
-Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.
+Su arquitectura de **comentarios anidados** (*threaded discussions*) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.
 
 En el contexto chileno, dos subreddits concentran la discusión política nacional:
 
@@ -45,13 +43,13 @@ Los datos fueron extraídos mediante la API pública de Reddit utilizando la lib
 La recolección abarcó **cinco meses**, del **1 de agosto al 31 de diciembre de 2025**, cubriendo las siguientes fases del ciclo electoral:
 
 | Período                    | Fase electoral                                                                           |
-|----------------------------|------------------------------------------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | Agosto – octubre 2025      | Emergencia de candidaturas, posicionamiento inicial, primeras definiciones programáticas |
 | Noviembre – diciembre 2025 | Escalamiento de campaña, consolidación electoral, estructuración del debate público      |
 
 ### Estrategia de extracción incremental
 
-El proceso fue **incremental y acumulativo**, ejecutado en múltiples iteraciones que: (1) recuperaban los posts más recientes de cada subreddit (250–1.000 posts por ejecución); (2) descargaban el árbol completo de comentarios mediante `replace_more(limit=None)` para capturar todos los niveles de anidación; (3) integraban nuevos datos con extracciones previas en archivos Parquet; y (4) eliminaban duplicados mediante el identificador único nativo de Reddit (`post_id`), que garantiza unicidad por diseño de la plataforma.
+El proceso fue **incremental y acumulativo**, ejecutado en múltiples iteraciones que: (1) recuperaban los posts más recientes de cada subreddit (250–1.000 posts por ejecución); (2) descargaban el árbol completo de comentarios para capturar todos los niveles de anidación; (3) integraban nuevos datos con extracciones previas en archivos Parquet; y (4) eliminaban duplicados mediante el identificador único nativo de Reddit (`post_id`), que garantiza unicidad por diseño de la plataforma.
 
 ### Contenido extraído y filtrado temático
 
@@ -64,7 +62,7 @@ Para cada publicación dentro del rango temporal se extrajeron dos niveles:
 El filtrado temático se realizó mediante **expresiones regulares** que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
 
 | Candidatura       | Corriente ideológica         | Patrones de búsqueda               |
-|-------------------|------------------------------|------------------------------------|
+|------------------|-------------------------|------------------------------|
 | Evelyn Matthei    | Derecha tradicional          | `matthei`, `matei`, `evelyn`       |
 | José Antonio Kast | Derecha radical-conservadora | `kast`, `jose antonio kast`, `jak` |
 | Johannes Kaiser   | Derecha libertaria           | `kaiser`, `johannes`, `jkaiser`    |

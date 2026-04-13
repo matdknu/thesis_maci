@@ -25,7 +25,7 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 }
 ```
 
-Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal. En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
+Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal (incluidas las de cruces electorales por autor y la persistencia de tono hacia Kast del capítulo 8). En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
 
 # A.1 Modelado de datos (capítulo 7)
 
@@ -169,6 +169,84 @@ if (nrow(mfc)) {
       "estadísticos del contraste de independencia y tamaño del efecto (V de Cramér)."
     ),
     note = "p en formato APA. N = número de comentarios del candidato en el análisis."
+  )
+}
+```
+
+## A.2.2 Cruces de tono (posicionamiento → segunda vuelta; sin neutro)
+
+```{r tbl-anexo-cruce-sentimiento-pares-sv}
+sent_path <- file.path(base_out, "cruce_segunda_vuelta_sentimiento_kast_jara_pct_sin_neutro.csv")
+if (file.exists(sent_path)) {
+  sent <- utils::read.csv(sent_path, stringsAsFactors = FALSE, check.names = FALSE, encoding = "UTF-8")
+  sent <- sent[order(sent[["Par"]], sent[[2]], sent[[3]]), ]
+  kable_apa_anexo(
+    sent,
+    caption = paste(
+      "Cruces por par de candidatos: tono en posicionamiento hacia el candidato de origen y tono en segunda vuelta hacia Kast o Jara.",
+      "Se excluye el tono neutro en origen y en destino y se renormalizan los porcentajes (`scripts/analisis/08_transiciones_sentimiento_derecha_jara.py`)."
+    ),
+    note = NULL,
+    align = "lllr"
+  )
+}
+```
+
+## A.2.3 Transiciones de tono hacia Kast (autores inicialmente negativos)
+
+```{r tbl-anexo-kast-transiciones}
+rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
+if (nrow(rk)) {
+  n <- as.numeric(rk$autores_negativos_pre[1])
+  n_pos <- as.numeric(rk$autores_negativos_a_positivos_post[1])
+  n_neu <- as.numeric(rk$autores_negativos_a_neutros_post[1])
+  n_neg <- as.numeric(rk$autores_negativos_a_negativos_post[1])
+  pct_of <- function(num) round(100 * num / n, 1)
+  tab_kast <- data.frame(
+    `Destino posterior (tono hacia Kast)` = c(
+      "Positivo",
+      "Neutro",
+      "Negativo (persistencia)"
+    ),
+    `Porcentaje del total` = c(
+      pct_of(n_pos),
+      pct_of(n_neu),
+      pct_of(n_neg)
+    ),
+    stringsAsFactors = FALSE,
+    check.names = FALSE
+  )
+  kable_apa_anexo(
+    tab_kast,
+    caption = "Distribución de transiciones de tono hacia Kast entre autores inicialmente negativos.",
+    note = paste0(
+      "Porcentajes calculados sobre el conjunto de autores con tono negativo hacia Kast en la fase inicial (N = ",
+      format(n, big.mark = "."),
+      "). La columna indica qué fracción pasó a cada destino."
+    ),
+    align = "lr"
+  )
+}
+```
+
+## A.2.4 Cruces emocionales (posicionamiento → segunda vuelta; sin «sin emoción»)
+
+```{r tbl-anexo-cruce-emocion-sin-se-pares-sv}
+emo_path <- file.path(base_out, "cruce_segunda_vuelta_emocion_grupos_kast_jara_pct_sin_sin_emocion.csv")
+if (file.exists(emo_path)) {
+  emo <- utils::read.csv(emo_path, stringsAsFactors = FALSE, check.names = FALSE, encoding = "UTF-8")
+  emo <- emo[order(emo[["Par"]], emo[[2]], emo[[3]]), ]
+  kable_apa_anexo(
+    emo,
+    caption = paste(
+      "Cruces por par de candidatos: grupo emocional en posicionamiento hacia el origen y en segunda vuelta hacia el destino.",
+      "Misma definición que en el capítulo 8: `emocion_final` agregada por moda de autor-fase;",
+      "se excluye la categoría «sin emoción» en origen y destino y se renormalizan los porcentajes (script 14).",
+      "Grupos: hostilidad = desprecio, ira, indignación; positivo = esperanza, alegría.",
+      "Criterio de agrupación: `criterio_agrupacion_emociones_tesis.csv`."
+    ),
+    note = NULL,
+    align = "lllr"
   )
 }
 ```

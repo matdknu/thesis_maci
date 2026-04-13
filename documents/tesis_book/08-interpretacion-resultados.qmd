@@ -230,45 +230,8 @@ hacia un tono positivo (2.8%) y 21 hacia neutralidad (9.8%). Este nivel
 de persistencia indica cristalización actitudinal más que escalamiento
 reactivo: la negatividad hacia Kast no se construye progresivamente
 durante la campaña, sino que se presenta como una disposición previa que
-el ciclo electoral refuerza pero no origina.
-
-
-```{r tbl-kast-transiciones}
-rk <- read_or_empty(file.path(base_out, "resumen_cambio_kast_desde_negativos.csv"))
-if (nrow(rk)) {
-  n <- as.numeric(rk$autores_negativos_pre[1])
-  n_pos <- as.numeric(rk$autores_negativos_a_positivos_post[1])
-  n_neu <- as.numeric(rk$autores_negativos_a_neutros_post[1])
-  n_neg <- as.numeric(rk$autores_negativos_a_negativos_post[1])
-  pct_of <- function(num) round(100 * num / n, 1)
-  tab_kast <- data.frame(
-    `Destino posterior (tono hacia Kast)` = c(
-      "Positivo",
-      "Neutro",
-      "Negativo (persistencia)"
-    ),
-    `Porcentaje del total` = c(
-      pct_of(n_pos),
-      pct_of(n_neu),
-      pct_of(n_neg)
-    ),
-    stringsAsFactors = FALSE,
-    check.names = FALSE
-  )
-  kable_apa(
-    tab_kast,
-    caption = "Distribución de transiciones de tono hacia Kast entre autores inicialmente negativos.",
-    note = paste0(
-      "Porcentajes calculados sobre el conjunto de autores con tono negativo hacia Kast en la fase inicial (N = ",
-      format(n, big.mark = "."),
-      "). La columna indica qué fracción pasó a cada destino."
-    ),
-    align = "lr",
-    landscape = FALSE,
-    scale_down = FALSE
-  )
-}
-```
+el ciclo electoral refuerza pero no origina. La tabla con la distribución
+porcentual completa figura en el Anexo A (@tbl-anexo-kast-transiciones).
 
 ### Cruces de tono entre candidatos (posicionamiento → segunda vuelta hacia Kast o Jara)
 
@@ -280,37 +243,26 @@ segunda vuelta hacia el candidato **de destino**, entre autores con actividad
 en ambas fases respecto a ambos. La @tbl-cruce-sentimiento-pares-sv **excluye
 el tono neutro** en origen y en destino y **renormaliza** los porcentajes
 dentro de cada bloque (solo positivo y negativo restantes), de modo que la
-lectura se centre en polaridad clara sin diluir con neutralidad.
+lectura se centre en polaridad clara sin diluir con neutralidad. La tabla
+completa de cruces con **grupos emocionales** (mismo criterio: exclusión de
+«sin emoción» y porcentajes renormalizados) está en el Anexo A
+(@tbl-anexo-cruce-emocion-sin-se-pares-sv).
 
+La @fig-alluvial-emocion-sv resume en formato **diagrama de flujo** los mismos
+cruces que la @tbl-anexo-cruce-emocion-sin-se-pares-sv (grupos emocionales, sin
+«sin emoción»; renormalización en la tabla; aquí el área es proporcional al
+número de autores y, por grupo a la izquierda, las franjas suman el total de
+autores con ese grupo hacia el candidato de origen al agregar Kast y Jara como
+destinos de segunda vuelta).
 
-```{r tbl-cruce-emocion-sin-se-pares-sv}
-emo_path <- file.path(base_out, "cruce_segunda_vuelta_emocion_grupos_kast_jara_pct_sin_sin_emocion.csv")
-if (file.exists(emo_path)) {
-  emo <- utils::read.csv(emo_path, stringsAsFactors = FALSE, check.names = FALSE, encoding = "UTF-8")
-  emo <- emo[order(emo[["Par"]], emo[[2]], emo[[3]]), ]
-  kable_apa(
-    emo,
-    caption = paste(
-      "Mismo diseño que la tabla anterior, con grupos emocionales (`emocion_final` agregada por moda de autor-fase);",
-      "se excluye la categoría «sin emoción» en origen y destino y se renormalizan los porcentajes (script 14).",
-      "Grupos: hostilidad = desprecio, ira, indignación; positivo = esperanza, alegría.",
-      "Criterio de agrupación: `criterio_agrupacion_emociones_tesis.csv`."
-    ),
-    note = NULL,
-    align = "lllr",
-    landscape = TRUE,
-    scale_down = FALSE
-  )
-}
-```
-
-```{r fig-alluvial-cruces-sv}
+```{r fig-alluvial-emocion-sv}
 #| results: asis
 #| echo: false
-if (file.exists(file.path(base_out, "alluvial_cruces_segunda_vuelta_por_candidato_origen.png"))) {
-  cat('![Diagramas tipo Sankey/alluvial: tono en posicionamiento (izquierda) hacia el candidato de origen del subtítulo, y tono en segunda vuelta hacia Kast o Jara (derecha). Grosor proporcional al porcentaje del total de autores con ese tono hacia el origen (100 % por nodo izquierdo).](fig_thesis/alluvial_cruces_segunda_vuelta_por_candidato_origen.png){#fig-alluvial-cruces-sv fig-align="center" width="100%"}\n')
+if (file.exists(file.path(base_out, "alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png"))) {
+  cat('![Flujos de grupos emocionales (ggplot2/ggalluvial): posicionamiento hacia el candidato de origen (izquierda) y segunda vuelta hacia Kast o Jara (derecha). El color del flujo indica el grupo emocional hacia el destino en 2.ª vuelta. Generado con `scripts/analisis/18_plot_alluvial_emocion_segunda_vuelta.R`.](fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){#fig-alluvial-emocion-sv fig-align="center" width="92%"}\n')
 }
 ```
+
 
 Con este corte (sin neutro), el patrón es claro. **Origen negativo:** hacia
 Kast, la mayoría de los autores que en posicionamiento eran negativos hacia
@@ -354,7 +306,7 @@ que aumenta el número de comentarios, visible en la línea LOESS de la
 Figura 8.9. Esto sugiere que la hostilidad tiene carácter ambiental y
 difuso: no es producto de trolls coordinados sino de una cultura
 discursiva generalizada donde la crítica hostil es el modo dominante de
-participación política. Como resume la @tbl-kast-transiciones, la gran
+participación política. Como resume la @tbl-anexo-kast-transiciones, la gran
 mayoría de quienes partieron negativos **permanece** en negativo; solo
 una minoría pasa a tono positivo o neutro, lo que sugiere cristalización
 actitudinal más que escalamiento reactivo.

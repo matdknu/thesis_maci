@@ -44,7 +44,7 @@ labels_candidatos <- c(
 
 ## Depuración y preprocesamiento del corpus
 
-Una vez constituido el corpus filtrado temáticamente, se aplicó una etapa de depuración orientada a garantizar la calidad analítica de los datos. Esta etapa distingue entre dos tipos de decisiones: las que afectan a **unidades de observación** —posts y comentarios que son excluidos del análisis— y las que afectan al **contenido textual** —transformaciones aplicadas al texto para mejorar su procesabilidad—.
+Una vez constituido el corpus filtrado temáticamente, se aplicó una etapa de depuración orientada a garantizar la calidad analítica de los datos. Esta etapa distingue entre dos tipos de decisiones: las que afectan a unidades de observación —posts y comentarios que son excluidos del análisis— y las que afectan al contenido textual —transformaciones aplicadas al texto para mejorar su procesabilidad—.
 
 ## Descripción general del corpus
 
@@ -93,9 +93,6 @@ tibble(
 ```
 
 Destaca que una proporción elevada de posts carece de cuerpo textual (`post_selftext = NA`), lo que implica que la detección de candidaturas mediante expresiones regulares recae principalmente sobre los títulos de los posts y el cuerpo de los comentarios. Este patrón es consistente con la cultura de publicación de Reddit, donde los posts de tipo *link* o imagen no incluyen texto propio.
-
-La distribución exacta por subreddit no se reproduce en esta tabla porque el objeto intermedio `reddit_filtrado.rds` preserva el contenido textual y las marcas de candidaturas, pero no conserva la columna de comunidad de origen. Esa desagregación sí está disponible en fuentes previas del pipeline y se retoma en el análisis sustantivo cuando corresponde.
-
 
 
 ```{r tbl-menciones}
@@ -156,15 +153,12 @@ reddit_filtrado |>
 
 ## Criterios de exclusión de unidades
 
-Se aplicaron cuatro criterios de exclusión secuenciales:
+Se aplicaron dos criterios de exclusión secuenciales:
 
-**Comentarios eliminados o moderados.** Reddit marca con los valores `[deleted]` o `[removed]` los comentarios cuyo contenido ha sido eliminado por el autor o por los moderadores de la comunidad. Estas cadenas no contienen información sustantiva y fueron descartadas del análisis textual, aunque se conservan en el corpus estructural para preservar la integridad de los árboles de conversación y no distorsionar las métricas de red.
 
 **Contenido automático y bots.** Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (`AutoModerator`, `RemindMeBot`). La exclusión de este contenido reduce el ruido no-humano en el análisis de sentimiento y en la construcción de redes de interacción.
 
-**Comentarios excesivamente cortos.** Los comentarios con menos de tres tokens tras la normalización —típicamente reacciones monosilábicas, interjecciones o emojis aislados— aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual. Se conservan, no obstante, en el análisis de redes de interacción, donde su existencia como arista es analíticamente relevante con independencia de su contenido semántico.
-
-**Posts fuera del período de estudio.** Aunque la extracción se circunscribió al período agosto–diciembre 2025, la estrategia incremental puede incorporar registros cuya fecha cae fuera del rango por diferencias de zona horaria. Todos los registros fueron verificados contra el período definido usando *timestamps* convertidos a hora de Santiago (America/Santiago, UTC−3/UTC−4 según horario de verano), descartando aquellos fuera de rango.
+**Comentarios excesivamente cortos.** Los comentarios con menos de tres tokens tras la normalización (típicamente reacciones monosilábicas, interjecciones o emojis aislados) aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual.
 
 ```{r depuracion}
 # ── 1. Eliminar comentarios borrados/eliminados ──────────────────────────────
@@ -217,8 +211,8 @@ El texto de posts y comentarios fue sometido a una normalización previa a cualq
 
 **Eliminación de elementos no textuales.** URLs, menciones de usuario (patrones `u/nombre`), referencias a subreddits (`r/nombre`) y secuencias de formato Markdown (asteriscos, almohadillas, corchetes) fueron eliminadas mediante expresiones regulares, dado que no aportan contenido semántico al análisis discursivo.
 
-**Normalización de espacios y puntuación.** Secuencias de espacios múltiples, saltos de línea redundantes y puntuación repetida fueron colapsadas a su forma canónica mediante `str_squish()`. Esta operación reduce la variabilidad superficial sin alterar el contenido informativo del texto.
+**Normalización de espacios y puntuación.** Secuencias de espacios múltiples, saltos de línea redundantes y puntuación repetida fueron colapsadas a su forma canónica mediante `str_squish()`.
 
-**Conservación de tildes y caracteres del español.** No se aplicó eliminación de tildes ni de la letra ñ, dado que su presencia es relevante para la correcta tokenización del español chileno y para el funcionamiento de los patrones regex de detección de candidaturas.
+**Conservación de tildes y caracteres del español.** No se aplicó eliminación de tildes ni de la letra ñ, dado que su presencia es relevante para la correcta tokenización del español chileno.
 
-**No aplicación de *stopwords* ni lematización en esta fase.** Estas transformaciones más agresivas se reservan para las técnicas que específicamente las requieren —fundamentalmente el modelado de tópicos— y no se aplican al texto enviado a los modelos de lenguaje para clasificación de sentimiento y marcos interpretativos, donde el contexto completo mejora el desempeño del modelo.
+**No aplicación de *stopwords* ni lematización en esta fase.** Estas transformaciones más agresivas se reservan para las técnicas que específicamente las requieren y no se aplican al texto enviado a los modelos de lenguaje para clasificación de sentimiento y marcos interpretativos, donde el contexto completo mejora el desempeño del modelo.

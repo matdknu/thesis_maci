@@ -76,15 +76,6 @@ if (file.exists(p1)) {
 
 Cada eje del radar muestra la **concentración de la categoría modal** en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el **grupo de polarización** (baja / media / alta). La @fig-radar-candidatos permite comparar a Kast, Kaiser, Matthei y Jara.
 
-```{r fig-radar-candidatos}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "radar_candidatos_cuatro.png"))) {
-  cat('![Radar: concentración modal por dimensión (marco, emoción, estrategia, frontera, grupo de polarización), una línea por candidato.](fig_thesis/radar_candidatos_cuatro.png){#fig-radar-candidatos fig-align="center" width="88%"}\n')
-}
-```
-
-Figura generada con `scripts/analisis/09_ml_avanzado.py` (`run_radar_por_candidato`). Tabla: `radar_concentracion_modal_candidatos.csv`.
 
 ## Polarización en el tiempo
 
@@ -104,12 +95,4 @@ if (file.exists(pol_img)) {
 }
 ```
 
-```{r fig-explor-neg-jk}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "serie_diaria_negatividad_jara_kast.png"))) {
-  cat('![Negatividad diaria y polarización media (ejes dual), Jara vs Kast.](fig_thesis/serie_diaria_negatividad_jara_kast.png){#fig-explor-neg-jk fig-align="center" width="100%"}\n')
-}
-```
 
-Fuentes: `scripts/analisis/07_pipeline_completo.py`, `scripts/analisis/08_transiciones_sentimiento_derecha_jara.py`, `scripts/analisis/viz_r_tesis.R` (polarización y emociones), `scripts/analisis/09_ml_avanzado.py` (radar).

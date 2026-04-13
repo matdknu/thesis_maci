@@ -61,7 +61,7 @@ La investigación se focaliza en cuatro candidaturas que representan
 posiciones distintivas en el espectro político chileno:
 
 | Actor                 | Posición                     | Caracterización sintética                                                      | Base social                                         |
-|-----------------------|------------------------------|--------------------------------------------------------------------------------|-----------------------------------------------------|
+|---------------|---------------|---------------------------|-----------------|
 | **Evelyn Matthei**    | Derecha tradicional          | Pragmatismo, competencia técnica, moderación discursiva                        | Élites empresariales, sectores medios-altos         |
 | **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos       |
 | **Johannes Kaiser**   | Derecha libertaria           | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales     | Jóvenes masculinos, usuarios intensivos de internet |
@@ -108,7 +108,7 @@ izquierda) con los intra-bloque (entre derechas)?
 El diseño contempla tres niveles de observación:
 
 | Nivel     | Unidad                           | Foco analítico                                                         |
-|-----------|----------------------------------|------------------------------------------------------------------------|
+|---------------|------------------|----------------------------------------|
 | **Macro** | Corpus completo                  | Tendencias agregadas, evolución temporal, comparación entre subreddits |
 | **Meso**  | Hilos de discusión               | Dinámicas conversacionales, patrones de confrontación/consenso         |
 | **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos               |
@@ -197,14 +197,13 @@ El **producto mínimo viable** de esta investigación consiste en:
 
 ### Objetivos operacionales y entregables
 
-| Objetivo                       | Entregable                           | Indicador de cumplimiento                                          |
-|--------------------------------|--------------------------------------|--------------------------------------------------------------------|
-| **O1**: Construir corpus       | Base de datos estructurada           | ≥1000 posts y ≥10.000 comentarios con menciones políticas          |
-| **O2**: Caracterizar encuadres | Modelo de tópicos interpretado       | Identificación de ≥5 marcos distintivos por corriente              |
-| **O3**: Mapear emociones       | Perfiles emocionales por candidatura | Clasificación de sentimiento del 100% del corpus                   |
-| **O4**: Analizar adversarios   | Red de antagonismos                  | Matriz de menciones cruzadas con valencia                          |
-| **O5**: Documentar evolución   | Serie temporal                       | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |
-| **O6**: Sintetizar hallazgos   | Capítulos de resultados              | Respuesta fundamentada a cada pregunta de investigación            |
+| Objetivo                     | Entregable                           | Indicador de cumplimiento                                          |
+|------------------|--------------------|-----------------------------------|
+| **O1**: Construir corpus     | Base de datos estructurada           | ≥1000 posts y ≥10.000 comentarios con menciones políticas          |
+| **O2**: Mapear emociones     | Perfiles emocionales por candidatura | Clasificación de polarización y emociones                          |
+| **O4**: Analizar adversarios | Red de antagonismos                  | Matriz de menciones cruzadas con valencia                          |
+| **O5**: Documentar evolución | Serie temporal                       | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |
+| **O6**: Sintetizar hallazgos | Capítulos de resultados              | Respuesta fundamentada a cada pregunta de investigación            |
 
 : Objetivos operacionales, entregables e indicadores de cumplimiento del
 MVP. {#tbl-objetivos-mvp}
@@ -233,10 +232,9 @@ discursivo, no de autodeclaraciones.
 
 ### Validación interna
 
-**Triangulación metodológica**: Los hallazgos de cada técnica (modelado
-de tópicos, análisis de sentimiento, análisis de redes) son contrastados
-entre sí. Un patrón se considera robusto cuando emerge consistentemente
-de múltiples aproximaciones.
+**Triangulación metodológica**: Los hallazgos de cada técnica son
+contrastados entre sí. Un patrón se considera robusto cuando emerge
+consistentemente de múltiples aproximaciones.
 
 **Verificación cualitativa**: Los patrones identificados
 computacionalmente son verificados mediante lectura de casos. Cuando el
@@ -244,10 +242,9 @@ análisis automatizado clasifica un comentario como "negativo hacia
 Matthei", se revisan ejemplos para confirmar que la clasificación
 captura el fenómeno de interés.
 
-**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables
-(número de tópicos, umbrales de clasificación) son ejecutadas con
-múltiples configuraciones para verificar que los hallazgos no dependan
-de decisiones arbitrarias.
+**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables son
+ejecutadas con múltiples configuraciones para verificar que los
+hallazgos no dependan de decisiones arbitrarias.
 
 ### Validación externa
 
