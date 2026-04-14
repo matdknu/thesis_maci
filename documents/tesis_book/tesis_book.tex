@@ -70,6 +70,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -2872,6 +2912,227 @@ Matthei → Kast & ironía & Kast: hostilidad & 75.0\\
 }
 
 \end{table}%
+
+\clearpage
+
+\bookmarksetup{startatroot}
+
+\chapter{Anexo B. Prompts y código del pipeline de
+anotación}\label{anexo-b.-prompts-y-cuxf3digo-del-pipeline-de-anotaciuxf3n}
+
+Este anexo documenta los prompts y el código central del sistema de
+anotación dual (GPT-4o y DeepSeek) utilizado en el pipeline
+computacional de la tesis. Los fragmentos reproducen la versión v5.1 del
+script de clasificación. Las claves de acceso a las APIs han sido
+omitidas.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{B.1 System prompt}\label{b.1-system-prompt}
+
+El \emph{system prompt} define el rol y el formato de respuesta
+esperado:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SYSTEM\_PROMPT }\OperatorTok{=}\NormalTok{ (}
+    \StringTok{"Eres un anotador experto en discurso político chileno. "}
+    \StringTok{"Respondes ÚNICAMENTE con un JSON válido, sin texto adicional ni markdown."}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{B.2 Prompt A --- Sentimiento y
+polarización}\label{b.2-prompt-a-sentimiento-y-polarizaciuxf3n}
+
+El \textbf{Prompt A} clasifica el sentimiento hacia cada candidato
+mencionado en el hilo y estima la intensidad afectiva del comentario
+(0.0--1.0):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PROMPT\_A }\OperatorTok{=} \StringTok{"""Analiza este comentario de Reddit chileno en contexto electoral.}
+
+\StringTok{El hilo trata sobre: }\SpecialCharTok{\{candidatos\_mencionados\}}
+
+\StringTok{━━━ CONTEXTO DEL HILO ━━━}
+\SpecialCharTok{\{contexto\}}
+
+\StringTok{━━━ COMENTARIO ━━━}
+\SpecialCharTok{\{comentario\}}
+
+\StringTok{━━━ KARMA: }\SpecialCharTok{\{comment\_score\}}\StringTok{ ━━━}
+\StringTok{(positivo = comunidad lo apoya | negativo = comunidad lo rechaza)}
+
+\StringTok{(A) SENTIMIENTO hacia cada candidato del hilo — clasifica POR SEPARADO:}
+
+\StringTok{REGLAS DE TARGET (importante):}
+\StringTok{1. Clasifica solo si el comentario evalúa DIRECTAMENTE al candidato}
+\StringTok{   o lo hace de forma implícita pero clara.}
+\StringTok{2. Si critica a sus VOTANTES como extensión del candidato → NEGATIVO.}
+\StringTok{3. Si critica una IDEOLOGÍA o partido en abstracto sin nombrar al candidato → NEUTRO.}
+\StringTok{4. Si el comentario solo describe hechos o resultados electorales sin evaluar → NEUTRO.}
+\StringTok{5. Elogio irónico = NEGATIVO | Crítica irónica que defiende = POSITIVO.}
+\StringTok{6. Si mezcla positivo y negativo → elige el tono dominante.}
+
+\StringTok{(B) POLARIZACIÓN — intensidad afectiva del comentario (0.0 a 1.0):}
+\StringTok{0.0–0.1 = Neutral, informativo, sin carga emocional}
+\StringTok{0.2–0.3 = Opinión moderada, leve sesgo}
+\StringTok{0.4–0.5 = Crítica directa, sarcasmo, ironía política}
+\StringTok{0.6–0.7 = Ataque personal, descalificación fuerte}
+\StringTok{0.8–0.9 = Insulto grave, hostilidad explícita, humillación}
+\StringTok{1.0     = Amenaza, violencia verbal, deshumanización}
+
+\StringTok{USA TODO EL RANGO. No concentres en 0.4.}
+\StringTok{El karma orienta: score negativo → probablemente más hostil.}
+
+\StringTok{Solo los candidatos del hilo. Sin texto extra.}
+\StringTok{\{"candidato": "SENTIMIENTO", "polarizacion": X.X\}}
+\StringTok{"""}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{B.3 Prompt B --- Marco, emoción, estrategia y
+frontera}\label{b.3-prompt-b-marco-emociuxf3n-estrategia-y-frontera}
+
+El \textbf{Prompt B} clasifica cuatro dimensiones discursivas siguiendo
+el esquema de Entman (1993) para marcos, tipologías de emociones
+discretas, estrategias de construcción del adversario y fronteras
+políticas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PROMPT\_B }\OperatorTok{=} \StringTok{"""Analiza este comentario de Reddit chileno en contexto electoral.}
+
+\StringTok{━━━ CONTEXTO ━━━}
+\SpecialCharTok{\{contexto\}}
+
+\StringTok{━━━ COMENTARIO ━━━}
+\SpecialCharTok{\{comentario\}}
+
+\StringTok{━━━ CANDIDATOS EN EL HILO ━━━}
+\SpecialCharTok{\{candidatos\_mencionados\}}
+\StringTok{Bloques: Kast/Kaiser/Matthei = derecha | Jara = izquierda}
+
+\StringTok{Clasifica en cuatro dimensiones:}
+
+\StringTok{━━━ (A) MARCO INTERPRETATIVO (Entman 1993) ━━━}
+\StringTok{diagnostico   → define un problema o señala causas}
+\StringTok{pronostico    → propone solución o alternativa}
+\StringTok{motivacional  → llama a actuar, movilizarse, cambiar algo}
+\StringTok{conflicto     → enfatiza disputa o choque entre actores políticos}
+\StringTok{moral         → juicio ético, corrupción, bien/mal, valores}
+\StringTok{economico     → propuestas económicas, cifras, impacto material}
+\StringTok{identitario   → cultura, ideología, inmigración, estilo de vida}
+\StringTok{otro          → no encaja claramente con ninguno anterior}
+
+\StringTok{━━━ (B) EMOCIÓN PREDOMINANTE ━━━}
+\StringTok{indignacion  → rabia moral ante algo injusto}
+\StringTok{ira          → agresión directa, hostilidad abierta, insulto}
+\StringTok{desprecio    → desdén, superioridad, humillación del otro}
+\StringTok{miedo        → percepción de amenaza, riesgo, incertidumbre}
+\StringTok{esperanza    → expectativa positiva, confianza en un cambio}
+\StringTok{alegria      → entusiasmo, celebración, satisfacción}
+\StringTok{ironia       → sarcasmo, burla implícita, humor político}
+\StringTok{ninguna      → comentario informativo sin emoción dominante}
+
+\StringTok{Distinción clave:}
+\StringTok{{-} desprecio ≠ ira: desprecio es frío y distante; ira es caliente y directa}
+\StringTok{{-} ironia ≠ alegria: ironía tiene intención crítica implícita}
+\StringTok{{-} indignacion ≠ ira: indignación tiene base moral; ira es más visceral}
+
+\StringTok{━━━ (C) ESTRATEGIA DE CONSTRUCCIÓN DEL ADVERSARIO ━━━}
+\StringTok{deslegitimacion      → niega competencia, seriedad o autoridad del candidato}
+\StringTok{ridiculizacion       → lo hace quedar en ridículo o lo burla}
+\StringTok{atribucion\_oculta    → le imputa intenciones escondidas o conspirativas}
+\StringTok{construccion\_amenaza → lo presenta como peligro para el país o la sociedad}
+\StringTok{esencializacion      → reduce al candidato/sus votantes a un rasgo negativo fijo}
+\StringTok{ninguna              → no hay estrategia adversarial identificable}
+
+\StringTok{━━━ (D) FRONTERA POLÍTICA ━━━}
+\StringTok{inter\_bloque  → enfrenta derecha vs izquierda (Kast/Kaiser/Matthei vs Jara)}
+\StringTok{intra\_bloque  → enfrenta candidatos del MISMO bloque de derecha entre sí}
+\StringTok{ninguna       → no hay confrontación entre bloques identificable}
+
+\StringTok{REGLA ESTRICTA:}
+\StringTok{→ NUNCA pongas inter\_bloque si el hilo tiene SOLO candidatos de derecha}
+\StringTok{→ Si compara Kast vs Kaiser o Kast vs Matthei → intra\_bloque}
+\StringTok{→ Si enfrenta candidato de derecha con Jara → inter\_bloque}
+\StringTok{→ Si no hay confrontación clara → ninguna}
+
+\StringTok{\{"marco": "...", "emocion": "...", "estrategia": "...", "frontera": "..."\}}
+\StringTok{"""}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{B.4 Parámetros de configuración del
+pipeline}\label{b.4-paruxe1metros-de-configuraciuxf3n-del-pipeline}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros de llamada a las APIs}
+\NormalTok{TEMPERATURE   }\OperatorTok{=} \FloatTok{0.1}   \CommentTok{\# Baja temperatura para máxima consistencia}
+\NormalTok{MAX\_TOKENS\_A  }\OperatorTok{=} \DecValTok{120}   \CommentTok{\# Límite de tokens para respuesta del Prompt A}
+\NormalTok{MAX\_TOKENS\_B  }\OperatorTok{=} \DecValTok{120}   \CommentTok{\# Límite de tokens para respuesta del Prompt B}
+\NormalTok{MAX\_RETRIES   }\OperatorTok{=} \DecValTok{3}     \CommentTok{\# Reintentos ante fallo de red o parsing}
+\NormalTok{RETRY\_DELAY   }\OperatorTok{=} \DecValTok{5}     \CommentTok{\# Segundos entre reintentos}
+\NormalTok{RATE\_LIMIT    }\OperatorTok{=} \FloatTok{0.5}   \CommentTok{\# Segundos entre llamadas (control de tasa)}
+
+\CommentTok{\# Corpus}
+\NormalTok{NUM\_COMENTARIOS }\OperatorTok{=} \DecValTok{8000}
+\NormalTok{MUESTRA\_RANDOM\_SEED }\OperatorTok{=} \DecValTok{42}
+\NormalTok{FECHA\_INICIO }\OperatorTok{=} \StringTok{"2025{-}11{-}15"}
+\NormalTok{FECHA\_FIN    }\OperatorTok{=} \StringTok{"2025{-}12{-}20"}
+
+\CommentTok{\# Valores válidos por dimensión}
+\NormalTok{MARCOS\_VALIDOS }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{"diagnostico"}\NormalTok{, }\StringTok{"pronostico"}\NormalTok{, }\StringTok{"motivacional"}\NormalTok{, }\StringTok{"conflicto"}\NormalTok{,}
+    \StringTok{"moral"}\NormalTok{, }\StringTok{"economico"}\NormalTok{, }\StringTok{"identitario"}\NormalTok{, }\StringTok{"otro"}
+\NormalTok{\}}
+\NormalTok{EMOCIONES\_VALIDAS }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{"indignacion"}\NormalTok{, }\StringTok{"ira"}\NormalTok{, }\StringTok{"desprecio"}\NormalTok{, }\StringTok{"miedo"}\NormalTok{,}
+    \StringTok{"esperanza"}\NormalTok{, }\StringTok{"alegria"}\NormalTok{, }\StringTok{"ironia"}\NormalTok{, }\StringTok{"ninguna"}
+\NormalTok{\}}
+\NormalTok{ESTRATEGIAS\_VALIDAS }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{"deslegitimacion"}\NormalTok{, }\StringTok{"ridiculizacion"}\NormalTok{, }\StringTok{"atribucion\_oculta"}\NormalTok{,}
+    \StringTok{"construccion\_amenaza"}\NormalTok{, }\StringTok{"esencializacion"}\NormalTok{, }\StringTok{"ninguna"}
+\NormalTok{\}}
+\NormalTok{FRONTERAS\_VALIDAS }\OperatorTok{=}\NormalTok{ \{}\StringTok{"inter\_bloque"}\NormalTok{, }\StringTok{"intra\_bloque"}\NormalTok{, }\StringTok{"ninguna"}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{B.5 Lógica de desempate entre
+modelos}\label{b.5-luxf3gica-de-desempate-entre-modelos}
+
+Cuando OpenAI (GPT-4o) y DeepSeek difieren en una dimensión, se aplica
+la siguiente lógica de consenso por karma del comentario:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ consenso(oa\_val, ds\_val, score):}
+    \CommentTok{"""}
+\CommentTok{    Si los dos modelos coinciden → retorna ese valor.}
+\CommentTok{    Si difieren:}
+\CommentTok{      {-} karma \textgreater{} 0  → preferencia al modelo con valor menos hostil}
+\CommentTok{      {-} karma \textless{}= 0 → preferencia al modelo con valor más hostil}
+\CommentTok{      {-} empate técnico → retorna \textquotesingle{}REVISAR\textquotesingle{}}
+\CommentTok{    """}
+    \ControlFlowTok{if}\NormalTok{ oa\_val }\OperatorTok{==}\NormalTok{ ds\_val:}
+        \ControlFlowTok{return}\NormalTok{ oa\_val}
+    \ControlFlowTok{if}\NormalTok{ score }\OperatorTok{\textgreater{}} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \BuiltInTok{min}\NormalTok{(oa\_val, ds\_val, key}\OperatorTok{=}\NormalTok{hostilidad\_key)}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{return} \BuiltInTok{max}\NormalTok{(oa\_val, ds\_val, key}\OperatorTok{=}\NormalTok{hostilidad\_key)}
+\end{Highlighting}
+\end{Shaded}
 
 \clearpage
 
