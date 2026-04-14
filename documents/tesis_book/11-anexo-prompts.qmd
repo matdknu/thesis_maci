@@ -1,0 +1,197 @@
+---
+title: "Anexo B. Prompts y código del pipeline de anotación"
+lang: es
+---
+
+Este anexo documenta los prompts y el código central del sistema de anotación dual (GPT-4o y DeepSeek) utilizado en el pipeline computacional de la tesis. Los fragmentos reproducen la versión v5.1 del script de clasificación. Las claves de acceso a las APIs han sido omitidas.
+
+---
+
+## B.1 System prompt
+
+El *system prompt* define el rol y el formato de respuesta esperado:
+
+```python
+SYSTEM_PROMPT = (
+    "Eres un anotador experto en discurso político chileno. "
+    "Respondes ÚNICAMENTE con un JSON válido, sin texto adicional ni markdown."
+)
+```
+
+---
+
+## B.2 Prompt A — Sentimiento y polarización
+
+El **Prompt A** clasifica el sentimiento hacia cada candidato mencionado en el hilo y estima la intensidad afectiva del comentario (0.0–1.0):
+
+```python
+PROMPT_A = """Analiza este comentario de Reddit chileno en contexto electoral.
+
+El hilo trata sobre: {candidatos_mencionados}
+
+━━━ CONTEXTO DEL HILO ━━━
+{contexto}
+
+━━━ COMENTARIO ━━━
+{comentario}
+
+━━━ KARMA: {comment_score} ━━━
+(positivo = comunidad lo apoya | negativo = comunidad lo rechaza)
+
+(A) SENTIMIENTO hacia cada candidato del hilo — clasifica POR SEPARADO:
+
+REGLAS DE TARGET (importante):
+1. Clasifica solo si el comentario evalúa DIRECTAMENTE al candidato
+   o lo hace de forma implícita pero clara.
+2. Si critica a sus VOTANTES como extensión del candidato → NEGATIVO.
+3. Si critica una IDEOLOGÍA o partido en abstracto sin nombrar al candidato → NEUTRO.
+4. Si el comentario solo describe hechos o resultados electorales sin evaluar → NEUTRO.
+5. Elogio irónico = NEGATIVO | Crítica irónica que defiende = POSITIVO.
+6. Si mezcla positivo y negativo → elige el tono dominante.
+
+(B) POLARIZACIÓN — intensidad afectiva del comentario (0.0 a 1.0):
+0.0–0.1 = Neutral, informativo, sin carga emocional
+0.2–0.3 = Opinión moderada, leve sesgo
+0.4–0.5 = Crítica directa, sarcasmo, ironía política
+0.6–0.7 = Ataque personal, descalificación fuerte
+0.8–0.9 = Insulto grave, hostilidad explícita, humillación
+1.0     = Amenaza, violencia verbal, deshumanización
+
+USA TODO EL RANGO. No concentres en 0.4.
+El karma orienta: score negativo → probablemente más hostil.
+
+Solo los candidatos del hilo. Sin texto extra.
+{"candidato": "SENTIMIENTO", "polarizacion": X.X}
+"""
+```
+
+---
+
+## B.3 Prompt B — Marco, emoción, estrategia y frontera
+
+El **Prompt B** clasifica cuatro dimensiones discursivas siguiendo el esquema de Entman (1993) para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:
+
+```python
+PROMPT_B = """Analiza este comentario de Reddit chileno en contexto electoral.
+
+━━━ CONTEXTO ━━━
+{contexto}
+
+━━━ COMENTARIO ━━━
+{comentario}
+
+━━━ CANDIDATOS EN EL HILO ━━━
+{candidatos_mencionados}
+Bloques: Kast/Kaiser/Matthei = derecha | Jara = izquierda
+
+Clasifica en cuatro dimensiones:
+
+━━━ (A) MARCO INTERPRETATIVO (Entman 1993) ━━━
+diagnostico   → define un problema o señala causas
+pronostico    → propone solución o alternativa
+motivacional  → llama a actuar, movilizarse, cambiar algo
+conflicto     → enfatiza disputa o choque entre actores políticos
+moral         → juicio ético, corrupción, bien/mal, valores
+economico     → propuestas económicas, cifras, impacto material
+identitario   → cultura, ideología, inmigración, estilo de vida
+otro          → no encaja claramente con ninguno anterior
+
+━━━ (B) EMOCIÓN PREDOMINANTE ━━━
+indignacion  → rabia moral ante algo injusto
+ira          → agresión directa, hostilidad abierta, insulto
+desprecio    → desdén, superioridad, humillación del otro
+miedo        → percepción de amenaza, riesgo, incertidumbre
+esperanza    → expectativa positiva, confianza en un cambio
+alegria      → entusiasmo, celebración, satisfacción
+ironia       → sarcasmo, burla implícita, humor político
+ninguna      → comentario informativo sin emoción dominante
+
+Distinción clave:
+- desprecio ≠ ira: desprecio es frío y distante; ira es caliente y directa
+- ironia ≠ alegria: ironía tiene intención crítica implícita
+- indignacion ≠ ira: indignación tiene base moral; ira es más visceral
+
+━━━ (C) ESTRATEGIA DE CONSTRUCCIÓN DEL ADVERSARIO ━━━
+deslegitimacion      → niega competencia, seriedad o autoridad del candidato
+ridiculizacion       → lo hace quedar en ridículo o lo burla
+atribucion_oculta    → le imputa intenciones escondidas o conspirativas
+construccion_amenaza → lo presenta como peligro para el país o la sociedad
+esencializacion      → reduce al candidato/sus votantes a un rasgo negativo fijo
+ninguna              → no hay estrategia adversarial identificable
+
+━━━ (D) FRONTERA POLÍTICA ━━━
+inter_bloque  → enfrenta derecha vs izquierda (Kast/Kaiser/Matthei vs Jara)
+intra_bloque  → enfrenta candidatos del MISMO bloque de derecha entre sí
+ninguna       → no hay confrontación entre bloques identificable
+
+REGLA ESTRICTA:
+→ NUNCA pongas inter_bloque si el hilo tiene SOLO candidatos de derecha
+→ Si compara Kast vs Kaiser o Kast vs Matthei → intra_bloque
+→ Si enfrenta candidato de derecha con Jara → inter_bloque
+→ Si no hay confrontación clara → ninguna
+
+{"marco": "...", "emocion": "...", "estrategia": "...", "frontera": "..."}
+"""
+```
+
+---
+
+## B.4 Parámetros de configuración del pipeline
+
+```python
+# Parámetros de llamada a las APIs
+TEMPERATURE   = 0.1   # Baja temperatura para máxima consistencia
+MAX_TOKENS_A  = 120   # Límite de tokens para respuesta del Prompt A
+MAX_TOKENS_B  = 120   # Límite de tokens para respuesta del Prompt B
+MAX_RETRIES   = 3     # Reintentos ante fallo de red o parsing
+RETRY_DELAY   = 5     # Segundos entre reintentos
+RATE_LIMIT    = 0.5   # Segundos entre llamadas (control de tasa)
+
+# Corpus
+NUM_COMENTARIOS = 8000
+MUESTRA_RANDOM_SEED = 42
+FECHA_INICIO = "2025-11-15"
+FECHA_FIN    = "2025-12-20"
+
+# Valores válidos por dimensión
+MARCOS_VALIDOS = {
+    "diagnostico", "pronostico", "motivacional", "conflicto",
+    "moral", "economico", "identitario", "otro"
+}
+EMOCIONES_VALIDAS = {
+    "indignacion", "ira", "desprecio", "miedo",
+    "esperanza", "alegria", "ironia", "ninguna"
+}
+ESTRATEGIAS_VALIDAS = {
+    "deslegitimacion", "ridiculizacion", "atribucion_oculta",
+    "construccion_amenaza", "esencializacion", "ninguna"
+}
+FRONTERAS_VALIDAS = {"inter_bloque", "intra_bloque", "ninguna"}
+```
+
+---
+
+## B.5 Lógica de desempate entre modelos
+
+Cuando OpenAI (GPT-4o) y DeepSeek difieren en una dimensión, se aplica la siguiente lógica de consenso por karma del comentario:
+
+```python
+def consenso(oa_val, ds_val, score):
+    """
+    Si los dos modelos coinciden → retorna ese valor.
+    Si difieren:
+      - karma > 0  → preferencia al modelo con valor menos hostil
+      - karma <= 0 → preferencia al modelo con valor más hostil
+      - empate técnico → retorna 'REVISAR'
+    """
+    if oa_val == ds_val:
+        return oa_val
+    if score > 0:
+        return min(oa_val, ds_val, key=hostilidad_key)
+    else:
+        return max(oa_val, ds_val, key=hostilidad_key)
+```
+
+```{=latex}
+\clearpage
+```

@@ -41,6 +41,7 @@ book:
     - 08-interpretacion-resultados.qmd
     - 09-conclusion.qmd
     - 10-anexo-tablas.qmd
+    - 11-anexo-prompts.qmd
     - references.qmd
   
   # Configuración del libro
@@ -169,13 +170,15 @@ format:
           \renewcommand{\listtablename}{Índice de Tablas}%
           \captionsetup{list=yes}%
         }
-        % Forzar color azul en citas bibliográficas
-        \hypersetup{citecolor=Blue, linkcolor=Blue, urlcolor=Blue}
-
-        % Sin encabezado en páginas preliminares
-        \AtBeginDocument{
+        % Redefinir \citeproc de Pandoc para colorear citas en azul.
+        % Pandoc renderiza citas como \citeproc{key}{texto visible};
+        % hyperref/citecolor no las alcanza, hay que colorear el texto directamente.
+        \AtBeginDocument{%
           \pagenumbering{roman}
           \pagestyle{plain}
+          \hypersetup{citecolor=Blue, linkcolor=Blue, urlcolor=Blue}
+          \let\OldCiteproc\citeproc
+          \renewcommand{\citeproc}[2]{\textcolor{Blue}{\OldCiteproc{#1}{#2}}}%
         }
         
         % Configuración para numeración continua de capítulos (las partes no cuentan)

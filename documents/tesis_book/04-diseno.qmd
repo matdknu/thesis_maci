@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 Esta investigación adopta un diseño **l**ongitudinal observacional basado en datos digitales generados por usuarios (*user-generated content*). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.
 
-Metodológicamente, la investigación se inscribe en la **ciencia social computacional** [@Lazer2009; @Salganik2019; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit durante el período estudiado— con componentes **explicativos**, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.
+Metodológicamente, la investigación se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit durante el período estudiado— con componentes **explicativos**, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.
 
 ## Reddit como plataforma de análisis
 
@@ -74,7 +74,7 @@ Esta selección permite analizar tanto la **competencia intra-derecha** entre tr
 
 ## Consideraciones éticas
 
-La investigación se rige por principios establecidos para la investigación con datos digitales [@Salganik2019; @Zimmer2017]:
+La investigación se rige por principios establecidos para la investigación con datos digitales [@salganik2018BitBitSocial]:
 
 **Datos públicos**: Todo el contenido recolectado proviene de espacios públicos de Reddit. No se accedió a mensajes privados ni a información restringida.
 

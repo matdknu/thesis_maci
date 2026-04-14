@@ -173,10 +173,15 @@
   \renewcommand{\listtablename}{Índice de Tablas}%
   \captionsetup{list=yes}%
 }
-% Sin encabezado en páginas preliminares
-\AtBeginDocument{
+% Redefinir \citeproc de Pandoc para colorear citas en azul.
+% Pandoc renderiza citas como \citeproc{key}{texto visible};
+% hyperref/citecolor no las alcanza, hay que colorear el texto directamente.
+\AtBeginDocument{%
   \pagenumbering{roman}
   \pagestyle{plain}
+  \hypersetup{citecolor=Blue, linkcolor=Blue, urlcolor=Blue}
+  \let\OldCiteproc\citeproc
+  \renewcommand{\citeproc}[2]{\textcolor{Blue}{\OldCiteproc{#1}{#2}}}%
 }
 
 % Configuración para numeración continua de capítulos (las partes no cuentan)
@@ -262,10 +267,10 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   colorlinks=true,
-  linkcolor={NavyBlue},
+  linkcolor={Blue},
   filecolor={Maroon},
-  citecolor={NavyBlue},
-  urlcolor={NavyBlue},
+  citecolor={Blue},
+  urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
 
@@ -460,7 +465,8 @@ Tras el ciclo de movilizaciones iniciado en octubre de 2019, los
 procesos constituyentes fallidos de 2022 y 2023, y la creciente
 fragmentación de las coaliciones tradicionales, el escenario electoral
 chileno exhibió niveles de incertidumbre, volatilidad y polarización
-inéditos en la historia reciente del país (Baldassarri and Bearman
+inéditos en la historia reciente del país, lo que ya se condice con el
+fénomo documentado como polarización afectiva (Baldassarri and Bearman
 2007).
 
 En este contexto, las plataformas digitales han adquirido un
@@ -768,7 +774,7 @@ El flujo analítico puede representarse así:
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{fig_thesis/diagrama.png}
+\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/diagrama.png}
 
 }
 
@@ -978,20 +984,19 @@ y se atribuyen mutuamente malas intenciones (Iyengar, 2019). Es
 analíticamente distinta de la polarización ideológica --- ambas pueden
 variar de manera independiente --- y la evidencia comparada sugiere que
 la afectiva ha crecido más rápidamente en democracias contemporáneas
-(Boxell 2022; Garzia, Ferreira Da Silva, and Maye 2023).
+(Garzia, Ferreira Da Silva, and Maye 2023).
 
 Sus principales mecanismos en entornos digitales incluyen la exposición
 selectiva amplificada por algoritmos, la mayor visibilidad de voces
 extremas, la reducción de costos de expresión hostil y las dinámicas de
-señalización grupal recompensadas con métricas de aprobación (Brady,
-2017; Settle, 2018) (Tang, Snijders, and Flache 2025). Las consecuencias
-para la democracia son significativas: erosión de la confianza
-institucional, resistencia al compromiso y tolerancia a la transgresión
-normativa cuando proviene del propio bando (Graham 2020; Kingzette et
-al. 2021). Esta dinámica paradójica ---donde la polarización se
-manifiesta a nivel individual pero puede resultar difusa a escala
-global--- ha sido documentada en contextos comparados (Baldassarri and
-Bearman 2007).
+señalización grupal recompensadas con métricas de aprobación (Tang,
+Snijders, and Flache 2025). Las consecuencias para la democracia son
+significativas: erosión de la confianza institucional, resistencia al
+compromiso y tolerancia a la transgresión normativa cuando proviene del
+propio bando (Kingzette et al. 2021). Esta dinámica paradójica ---donde
+la polarización se manifiesta a nivel individual pero puede resultar
+difusa a escala global--- ha sido documentada en contextos comparados
+(Baldassarri and Bearman 2007).
 
 \section{Construcción de adversarios y frontera
 política}\label{construcciuxf3n-de-adversarios-y-frontera-poluxedtica}
@@ -1033,7 +1038,7 @@ operativo que el registro de emociones aisladas (Jasper, 2011). La
 indignación moral merece atención especial: combina valencia negativa
 con alta activación y orientación a la acción, se difunde más que otras
 emociones y genera bajo costo de expresión con recompensas sociales
-inmediatas (Crockett 2017; Botzer, Gu, and Weninger 2023).
+inmediatas (Botzer, Gu, and Weninger 2023).
 
 Encuadre y emoción se articulan en el análisis como dimensiones
 complementarias: el marco establece \emph{de qué} se habla, la emoción
@@ -1142,8 +1147,8 @@ observacional preserva las propiedades naturales de la interacción en
 las plataformas estudiadas, sin intervención experimental.
 
 Metodológicamente, la investigación se inscribe en la \textbf{ciencia
-social computacional} (Lazer 2009; Salganik 2019; Edelmann et al. 2020;
-Keuschnigg, Lovsjö, and Hedström 2018): integra técnicas de
+social computacional} (Lazer et al. 2009; Salganik 2018; Edelmann et al.
+2020; Keuschnigg, Lovsjö, and Hedström 2018): integra técnicas de
 procesamiento de datos a gran escala con marcos teóricos y preguntas
 sustantivas de las ciencias sociales. El diseño combina componentes
 \textbf{descriptivos} ---caracterizar la conversación política en Reddit
@@ -1307,7 +1312,7 @@ Table~\ref{tbl-candidaturas}).
 \section{Consideraciones éticas}\label{consideraciones-uxe9ticas}
 
 La investigación se rige por principios establecidos para la
-investigación con datos digitales (Salganik 2019; Zimmer 2017):
+investigación con datos digitales (Salganik 2018):
 
 \textbf{Datos públicos}: Todo el contenido recolectado proviene de
 espacios públicos de Reddit. No se accedió a mensajes privados ni a
@@ -1369,7 +1374,7 @@ r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{fig_thesis/pipeline_corpus.png}
+\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/pipeline_corpus.png}
 
 }
 
@@ -1522,7 +1527,7 @@ controla en el diseño del modelado del capítulo siguiente.
 
 \centering{
 
-\includegraphics[width=0.92\textwidth,height=\textheight]{fig_thesis/fig_count_facet_candidatos.png}
+\includegraphics[width=0.83\textwidth,height=\textheight]{fig_thesis/fig_count_facet_candidatos.png}
 
 }
 
@@ -1551,7 +1556,7 @@ formaliza estadísticamente y el capítulo 8 desarrolla teóricamente.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{fig_thesis/fig4_estrategia_frontera.png}
+\includegraphics[width=0.9\textwidth,height=\textheight]{fig_thesis/fig4_estrategia_frontera.png}
 
 }
 
@@ -1580,7 +1585,7 @@ presenta niveles intermedios de hostilidad.
 
 \centering{
 
-\includegraphics[width=0.92\textwidth,height=\textheight]{fig_thesis/fig7_densidad_polarizacion.png}
+\includegraphics[width=0.83\textwidth,height=\textheight]{fig_thesis/fig7_densidad_polarizacion.png}
 
 }
 
@@ -1610,7 +1615,7 @@ sobre las emociones aisladas.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{images/emociones_candidato_semanal_facet_tendencia.png}
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/emociones_candidato_semanal_facet_tendencia.png}
 
 }
 
@@ -1639,7 +1644,7 @@ validación cruzada.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{images/serie_polarizacion_candidatos.png}
+\includegraphics[width=0.9\textwidth,height=\textheight]{images/serie_polarizacion_candidatos.png}
 
 }
 
@@ -1737,7 +1742,7 @@ Figure~\ref{fig-r2-configuraciones} sintetiza el resultado principal.
 
 \centering{
 
-\includegraphics[width=0.85\textwidth,height=\textheight]{fig_thesis/figura_r2_configuraciones.png}
+\includegraphics[width=0.76\textwidth,height=\textheight]{fig_thesis/figura_r2_configuraciones.png}
 
 }
 
@@ -1772,7 +1777,7 @@ detallan en el Anexo A (Table~\ref{tbl-anexo-calibracion}).
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/reliability_diagram_calibracion.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/reliability_diagram_calibracion.png}
 
 }
 
@@ -1875,7 +1880,7 @@ categóricas no recogen.
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/permutation_importance_polarizacion.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/permutation_importance_polarizacion.png}
 
 }
 
@@ -1911,7 +1916,7 @@ Los valores AUC por modelo se detallan en el Anexo A
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/roc_curves_polarizacion_alta.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/roc_curves_polarizacion_alta.png}
 
 }
 
@@ -2029,7 +2034,7 @@ solo.
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/combinaciones_marco_emocion.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/combinaciones_marco_emocion.png}
 
 }
 
@@ -2055,7 +2060,7 @@ transformaciones de fondo.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{fig_thesis/serie_estrategias_semanal_mejorada.png}
+\includegraphics[width=0.9\textwidth,height=\textheight]{fig_thesis/serie_estrategias_semanal_mejorada.png}
 
 }
 
@@ -2099,7 +2104,7 @@ diagrama.
 
 \centering{
 
-\includegraphics[width=0.92\textwidth,height=\textheight]{fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png}
+\includegraphics[width=0.83\textwidth,height=\textheight]{fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png}
 
 }
 
@@ -2145,7 +2150,7 @@ más que escalamiento reactivo (Efstratiou et al. 2023).
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/polarizacion_por_tipo_autor.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/polarizacion_por_tipo_autor.png}
 
 }
 
@@ -2184,7 +2189,7 @@ hostilidad es ambiental, no focalizada.
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{fig_thesis/3d_atlas_v1_globales.png}
+\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/3d_atlas_v1_globales.png}
 
 }
 
@@ -2626,7 +2631,7 @@ Marco & moral & 0.0285 & 0.0166 & 0.0404 & < .001\\
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/coefplot_ols_polarizacion.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/coefplot_ols_polarizacion.png}
 
 }
 
@@ -2676,7 +2681,7 @@ Otro & Ninguna & 435 & 0.042 & 0.296\\
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/distribucion_estrategias_candidato.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/distribucion_estrategias_candidato.png}
 
 }
 
@@ -2689,7 +2694,7 @@ por candidato objetivo.}
 
 \centering{
 
-\includegraphics[width=0.82\textwidth,height=\textheight]{fig_thesis/scatter_actividad_polarizacion_autores.png}
+\includegraphics[width=0.74\textwidth,height=\textheight]{fig_thesis/scatter_actividad_polarizacion_autores.png}
 
 }
 
@@ -2914,18 +2919,12 @@ Botzer, Nicholas, Shawn Gu, and Tim Weninger. 2023. {``Analysis of
 Computational Social Systems} 10 (3): 947--57.
 \url{https://doi.org/10.1109/TCSS.2022.3160677}.
 
-\bibitem[\citeproctext]{ref-Boxell2022}
-Boxell. 2022. {``Boxell2022.''}
-
 \bibitem[\citeproctext]{ref-calderon2020TopicModelingCharacterization}
 Calderón, Carlos Arcila, Gonzalo De La Vega, and David Blanco Herrero.
 2020. {``Topic {Modeling} and {Characterization} of {Hate Speech}
 Against {Immigrants} on {Twitter} Around the {Emergence} of a {Far-Right
 Party} in {Spain}.''} \emph{Social Sciences} 9 (11): 188.
 \url{https://doi.org/10.3390/socsci9110188}.
-
-\bibitem[\citeproctext]{ref-Crockett2017}
-Crockett. 2017. {``Crockett2017.''}
 
 \bibitem[\citeproctext]{ref-defranciscimorales2021NoEchoChambers}
 De Francisci Morales, Gianmarco, Corrado Monti, and Michele Starnini.
@@ -2965,9 +2964,6 @@ González, Roberto. 2024. {``The Role of Norms as Promoters of Social
 Change.''} \emph{Political Psychology}, September, pops.13025.
 \url{https://doi.org/10.1111/pops.13025}.
 
-\bibitem[\citeproctext]{ref-Graham2020}
-Graham. 2020. {``Graham2020.''}
-
 \bibitem[\citeproctext]{ref-hirschbergAdvancesNaturalLanguage}
 Hirschberg, Julia, and Christopher D Manning. n.d. {``Advances in
 Natural Language Processing.''} \emph{ARTIFICIAL INTELLIGENCE}.
@@ -2997,8 +2993,11 @@ Klein, Ofra, and Jasper Muis. 2019. {``Online Discontent: Comparing
 Societies} 21 (4): 540--62.
 \url{https://doi.org/10.1080/14616696.2018.1494293}.
 
-\bibitem[\citeproctext]{ref-Lazer2009}
-Lazer. 2009. {``Lazer2009.''}
+\bibitem[\citeproctext]{ref-lazer2009ComputationalSocialScience}
+Lazer, David, Alex Pentland, Lada Adamic, Sinan Aral, Albert-László
+Barabási, Devon Brewer, Nicholas Christakis, et al. 2009.
+{``Computational Social Science.''} \emph{Science} 323 (5915): 721--23.
+\url{https://doi.org/10.1126/science.1167742}.
 
 \bibitem[\citeproctext]{ref-marwickFarRightOnlineRadicalization}
 Marwick, Alice, Benjamin Clancy, and Katherine Furl. n.d. {``Far-{Right
@@ -3021,8 +3020,9 @@ Setting: {How} the Far Right Influences the Political Mainstream.''}
 \emph{European Journal of Political Research}, September, 1--23.
 \url{https://doi.org/10.1017/S1475676525100066}.
 
-\bibitem[\citeproctext]{ref-Salganik2019}
-Salganik. 2019. {``Salganik2019.''}
+\bibitem[\citeproctext]{ref-salganik2018BitBitSocial}
+Salganik, Matthew J. 2018. \emph{Bit by Bit: Social Research in the
+Digital Age}. Princeton, NJ: Princeton University Press.
 
 \bibitem[\citeproctext]{ref-stanier2024PolarizationMoralityLexical}
 Stanier, Tessa, and Hagyeong Shin. 2024. {``Polarization and {Morality}:
@@ -3053,9 +3053,6 @@ Winter, Aaron. 2019. {``Online {Hate}: {From} the {Far-Right} to the
 Xia, Yan, Corrado Monti, Barbara Keller, and Mikko Kivelä. n.d.
 {``Integrated or {Segregated}? {User Behavior Change After Cross-Party
 Interactions} on {Reddit}.''}
-
-\bibitem[\citeproctext]{ref-Zimmer2017}
-Zimmer. 2017. {``Zimmer2017.''}
 
 \end{CSLReferences}
 
