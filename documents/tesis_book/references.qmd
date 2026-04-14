@@ -5,3 +5,7 @@ lang: es
 
 ::: {#refs}
 :::
+
+```{=latex}
+\nocite{*}
+```
