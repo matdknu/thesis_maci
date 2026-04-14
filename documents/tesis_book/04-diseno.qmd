@@ -43,7 +43,7 @@ Los datos fueron extraídos mediante la API pública de Reddit utilizando la lib
 La recolección abarcó **cinco meses**, del **1 de agosto al 31 de diciembre de 2025**, cubriendo las siguientes fases del ciclo electoral:
 
 | Período                    | Fase electoral                                                                           |
-|------------------|------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------|
 | Agosto – octubre 2025      | Emergencia de candidaturas, posicionamiento inicial, primeras definiciones programáticas |
 | Noviembre – diciembre 2025 | Escalamiento de campaña, consolidación electoral, estructuración del debate público      |
 
@@ -62,13 +62,13 @@ Para cada publicación dentro del rango temporal se extrajeron dos niveles:
 El filtrado temático se realizó mediante **expresiones regulares** que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
 
 | Candidatura       | Corriente ideológica         | Patrones de búsqueda               |
-|------------------|-------------------------|------------------------------|
+|-------------------|------------------------------|------------------------------------|
 | Evelyn Matthei    | Derecha tradicional          | `matthei`, `matei`, `evelyn`       |
 | José Antonio Kast | Derecha radical-conservadora | `kast`, `jose antonio kast`, `jak` |
 | Johannes Kaiser   | Derecha libertaria           | `kaiser`, `johannes`, `jkaiser`    |
 | Jeannette Jara    | Izquierda-PC                 | `jara`, `jeannette`, `jeanette`    |
 
-: Candidaturas objetivo y patrones regex para su detección en el corpus. {#tbl-candidaturas}
+: Candidaturas objetivo y patrones de detección. {#tbl-candidaturas}
 
 Esta selección permite analizar tanto la **competencia intra-derecha** entre tres corrientes como la **convergencia discursiva** frente al adversario ideológico común (ver @tbl-candidaturas).
 

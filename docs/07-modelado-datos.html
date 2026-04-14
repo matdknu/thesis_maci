@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelado de Datos</span></h1>
-<p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
+<p class="subtitle lead">Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025</p>
 </div>
 
 
@@ -246,82 +246,25 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.1" class="anchored" data-anchor-id="consistencia-de-medición"><span class="header-section-number">7.1</span> Consistencia de medición</h2>
 <section id="acuerdo-entre-anotadores-automáticos" class="level3">
 <h3 class="anchored" data-anchor-id="acuerdo-entre-anotadores-automáticos">Acuerdo entre anotadores automáticos</h3>
-<p>Antes de utilizar las variables discursivas como predictores, es necesario establecer en qué medida los dos sistemas de clasificación automática —OpenAI (OA) y DeepSeek (DS)— producen resultados convergentes. Si el acuerdo entre ambos fuera sistemáticamente bajo, las variables resultantes podrían reflejar idiosincrasias del modelo más que propiedades del texto. La <a href="#tbl-acuerdo-anotadores" class="quarto-xref">Tabla&nbsp;<span>7.1</span></a> resume el acuerdo por dimensión.</p>
-<div class="cell">
-<div id="tbl-acuerdo-anotadores" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-acuerdo-anotadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;7.1: Acuerdo entre ambos sistemas de anotación automatizada por dimensión.
-</figcaption>
-<div aria-describedby="tbl-acuerdo-anotadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Dim.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Est.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Coinc.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Polarización</td>
-<td style="text-align: right;">7946</td>
-<td style="text-align: right;">r = 0.665</td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Marco</td>
-<td style="text-align: right;">7948</td>
-<td style="text-align: right;">κ = 0.136</td>
-<td style="text-align: right;">0.450</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Emoción</td>
-<td style="text-align: right;">7948</td>
-<td style="text-align: right;">κ = 0.076</td>
-<td style="text-align: right;">0.423</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estrategia</td>
-<td style="text-align: right;">7948</td>
-<td style="text-align: right;">κ = 0.126</td>
-<td style="text-align: right;">0.612</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Frontera</td>
-<td style="text-align: right;">7948</td>
-<td style="text-align: right;">κ = -0.146</td>
-<td style="text-align: right;">0.572</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</figure>
-</div>
-</div>
+<p>Antes de utilizar las variables discursivas como predictores, es necesario establecer en qué medida los dos sistemas de clasificación automática —OpenAI (OA) y DeepSeek (DS)— producen resultados convergentes. Si el acuerdo entre ambos fuera sistemáticamente bajo, las variables resultantes podrían reflejar idiosincrasias del modelo más que propiedades del texto. La siguiente tabla resume el acuerdo por dimensión.</p>
 <p>La polarización alcanza r = 0.665, lo que indica una convergencia moderada-alta entre ambos sistemas en la dimensión continua. Si bien esta correlación no es directamente comparable con estudios de acuerdo inter-anotador humano —que operan bajo condiciones de instrucción y contexto distintas—, el nivel de convergencia sugiere que ambos modelos capturan una señal compartida en la evaluación de hostilidad discursiva.</p>
 <p>Para las dimensiones categóricas el panorama es más heterogéneo. Estrategia presenta la coincidencia bruta más alta (61.2%) pero un kappa bajo (κ = 0.126), lo cual refleja una distribución desbalanceada donde la categoría mayoritaria infla la coincidencia sin elevar el acuerdo ajustado por azar. Frontera muestra un kappa negativo (κ = −0.146), un resultado que puede parecer paradójico pero que se explica por la estructura del desacuerdo: ambos sistemas tienden a identificar los mismos comentarios como fronterizos, pero discrepan de manera sistemática sobre la dirección de esa frontera (inter-bloque vs.&nbsp;intra-bloque), lo que genera un patrón de desacuerdo no aleatorio que el estadístico kappa penaliza con valores negativos. Marco y emoción registran los acuerdos más bajos (κ = 0.136 y κ = 0.076, respectivamente), consistente con la mayor ambigüedad inherente a estas categorías: un mismo comentario admite lecturas legítimas en más de una categoría —por ejemplo, como indignación o desprecio, o encuadrado en un marco de conflicto o diagnóstico—, sin que ninguna de las dos lecturas sea incorrecta.</p>
 <p>Estos valores de kappa no invalidan el sistema de medición, pero sí delimitan su alcance interpretativo. La estrategia adoptada en esta tesis es el desempate por consenso (v5.1), donde la etiqueta final se asigna por acuerdo entre modelos y, en caso de discrepancia, se prioriza la clasificación del modelo con mayor karma acumulado en la dimensión correspondiente. Las dimensiones con bajo acuerdo inter-modelo no se descartan, sino que se incorporan con la cautela analítica que su nivel de estabilidad exige.</p>
 </section>
 <section id="modelo-de-desacuerdo" class="level3">
 <h3 class="anchored" data-anchor-id="modelo-de-desacuerdo">Modelo de desacuerdo</h3>
-<p>Para caracterizar las condiciones bajo las cuales ambos sistemas discrepan, se entrenó un clasificador binario (acuerdo vs.&nbsp;desacuerdo) usando rasgos del comentario como predictores. Los resultados (Anexo A, <a href="10-anexo-tablas.html#tbl-anexo-desacuerdo" class="quarto-xref">Tabla&nbsp;<span>11.1</span></a>) muestran que el desacuerdo es parcialmente predecible: RandomForest alcanza un accuracy de 0.680, lo que sugiere que ciertas propiedades del texto —como la brevedad, la ambigüedad tonal o la baja densidad de marcadores explícitos— aumentan sistemáticamente la probabilidad de discrepancia entre los anotadores automáticos.</p>
+<p>Para caracterizar las condiciones bajo las cuales ambos sistemas discrepan, se entrenó un clasificador binario (acuerdo vs.&nbsp;desacuerdo) usando rasgos del comentario como predictores. Los resultados (Anexo A, <a href="10-anexo-tablas.html#tbl-anexo-desacuerdo" class="quarto-xref">Tabla&nbsp;<span>10.1</span></a>) muestran que el desacuerdo es parcialmente predecible: RandomForest alcanza un accuracy de 0.680, lo que sugiere que ciertas propiedades del texto —como la brevedad, la ambigüedad tonal o la baja densidad de marcadores explícitos— aumentan sistemáticamente la probabilidad de discrepancia entre los anotadores automáticos.</p>
 </section>
 <section id="valor-añadido-de-las-variables-discursivas" class="level3">
 <h3 class="anchored" data-anchor-id="valor-añadido-de-las-variables-discursivas">Valor añadido de las variables discursivas</h3>
-<p>La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-config-features" class="quarto-xref">Tabla&nbsp;<span>11.2</span></a>). La <a href="#fig-r2-configuraciones" class="quarto-xref">Figura&nbsp;<span>7.1</span></a> sintetiza el resultado principal.</p>
+<p>La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-config-features" class="quarto-xref">Tabla&nbsp;<span>10.2</span></a>). La <a href="#fig-r2-configuraciones" class="quarto-xref">Figura&nbsp;<span>7.1</span></a> sintetiza el resultado principal.</p>
 <div id="fig-r2-configuraciones" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-r2-configuraciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig_thesis/figura_r2_configuraciones.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r2-configuraciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.1: Comparación de R² según fuente de información. Las barras de error representan ±1 desviación estándar en validación cruzada de cinco pliegues. El sistema LLM aporta R²=+0.122 sobre el texto puro; el modelo combinado alcanza R²=0.618.
+Figura&nbsp;7.1: Comparación de R² por configuración de variables.
 </figcaption>
 </figure>
 </div>
@@ -329,7 +272,7 @@ Figura&nbsp;7.1: Comparación de R² según fuente de información. Las barras d
 </section>
 <section id="calibración-de-probabilidades" class="level3">
 <h3 class="anchored" data-anchor-id="calibración-de-probabilidades">Calibración de probabilidades</h3>
-<p>El diagrama de fiabilidad (<a href="#fig-reliability" class="quarto-xref">Figura&nbsp;<span>7.2</span></a>) muestra que tanto RandomForest como GBM se aproximan a la diagonal de calibración perfecta. RandomForest sin calibrar ya presenta un ajuste razonable, mientras que GBM mejora marginalmente en el rango medio tras la corrección isotónica. Esto confirma que el pipeline produce probabilidades suficientemente confiables sin requerir post-procesamiento fuerte. Las métricas numéricas (Brier, log-loss) se detallan en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-calibracion" class="quarto-xref">Tabla&nbsp;<span>11.3</span></a>).</p>
+<p>El diagrama de fiabilidad (<a href="#fig-reliability" class="quarto-xref">Figura&nbsp;<span>7.2</span></a>) muestra que tanto RandomForest como GBM se aproximan a la diagonal de calibración perfecta. RandomForest sin calibrar ya presenta un ajuste razonable, mientras que GBM mejora marginalmente en el rango medio tras la corrección isotónica. Esto confirma que el pipeline produce probabilidades suficientemente confiables sin requerir post-procesamiento fuerte. Las métricas numéricas (Brier, log-loss) se detallan en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-calibracion" class="quarto-xref">Tabla&nbsp;<span>10.3</span></a>).</p>
 <div id="fig-reliability" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-reliability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -351,48 +294,43 @@ Figura&nbsp;7.2: Calibración del clasificador de polarización alta.
 </section>
 <section id="comparación-de-modelos-y-estabilidad-fuera-de-muestra" class="level3">
 <h3 class="anchored" data-anchor-id="comparación-de-modelos-y-estabilidad-fuera-de-muestra">Comparación de modelos y estabilidad fuera de muestra</h3>
-<p>La <a href="#tbl-cv-regresion" class="quarto-xref">Tabla&nbsp;<span>7.2</span></a> compara cuatro estrategias de regresión evaluadas mediante validación cruzada de cinco pliegues. RandomForest obtiene el mejor desempeño (R² = 0.619, MAE = 0.084) con la menor variabilidad entre folds, lo que indica que la señal capturada es estable y no artefacto de una partición particular. Ridge ofrece un ajuste competitivo pero inferior, mientras que GBM muestra mayor inestabilidad (sd = 0.011). El ensamble por stacking eleva el techo predictivo a R² = 0.646; no obstante, se adopta RandomForest como modelo de referencia para el resto del capítulo por su combinación de rendimiento, estabilidad e interpretabilidad.</p>
+<p>La <a href="#tbl-cv-regresion" class="quarto-xref">Tabla&nbsp;<span>7.1</span></a> compara cuatro estrategias de regresión evaluadas mediante validación cruzada de cinco pliegues. RandomForest obtiene el mejor desempeño (R² = 0.619, MAE = 0.084) con la menor variabilidad entre folds, lo que indica que la señal capturada es estable y no artefacto de una partición particular. Ridge ofrece un ajuste competitivo pero inferior, mientras que GBM muestra mayor inestabilidad (sd = 0.011). El ensamble por stacking eleva el techo predictivo a R² = 0.646; no obstante, se adopta RandomForest como modelo de referencia para el resto del capítulo por su combinación de rendimiento, estabilidad e interpretabilidad.</p>
 <div class="cell">
 <div id="tbl-cv-regresion" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cv-regresion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;7.2: Comparación de modelos de regresión para polarización.
+Tabla&nbsp;7.1: Modelos de regresión para polarización.
 </figcaption>
 <div aria-describedby="tbl-cv-regresion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Modelo</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">MAE (CV)</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">R² (CV)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Modelo</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">MAE (CV)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">R² (CV)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Ridge</td>
-<td style="text-align: right;">0.098 ± 0.001</td>
-<td style="text-align: right;">0.553 ± 0.006</td>
+<td style="text-align: left;">Ridge</td>
+<td style="text-align: left;">0.098 ± 0.001</td>
+<td style="text-align: left;">0.553 ± 0.006</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">RandomForest</td>
-<td style="text-align: right;">0.084 ± 0.001</td>
-<td style="text-align: right;">0.619 ± 0.006</td>
+<td style="text-align: left;">RandomForest</td>
+<td style="text-align: left;">0.084 ± 0.001</td>
+<td style="text-align: left;">0.619 ± 0.006</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">GBM</td>
-<td style="text-align: right;">0.108 ± 0.002</td>
-<td style="text-align: right;">0.474 ± 0.011</td>
+<td style="text-align: left;">GBM</td>
+<td style="text-align: left;">0.108 ± 0.002</td>
+<td style="text-align: left;">0.474 ± 0.011</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">Stacking</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">0.646</td>
+<td style="text-align: left;">Stacking</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.646</td>
 </tr>
 </tbody>
 </table>
@@ -406,199 +344,40 @@ Tabla&nbsp;7.2: Comparación de modelos de regresión para polarización.
 </section>
 <section id="ols-interpretable" class="level3">
 <h3 class="anchored" data-anchor-id="ols-interpretable">OLS interpretable</h3>
-<p>El OLS no compite con RandomForest en capacidad predictiva, pero cumple una función complementaria de interpretabilidad: permite inspeccionar la dirección y magnitud de cada efecto. La <a href="#tbl-ols-polarizacion" class="quarto-xref">Tabla&nbsp;<span>7.3</span></a> y la <a href="#fig-coefplot" class="quarto-xref">Figura&nbsp;<span>7.3</span></a> muestran los 15 coeficientes significativos de mayor magnitud.</p>
-<div class="cell">
-<div id="tbl-ols-polarizacion" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ols-polarizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;7.3: Modelo OLS para polarización: 15 términos significativos con mayor magnitud.
-</figcaption>
-<div aria-describedby="tbl-ols-polarizacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Grupo</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nivel</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">IC95% inf.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">IC95% sup.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Emo.</td>
-<td style="text-align: left;">ira</td>
-<td style="text-align: right;">0.3687</td>
-<td style="text-align: right;">0.3415</td>
-<td style="text-align: right;">0.3960</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estrat.</td>
-<td style="text-align: left;">ridiculización</td>
-<td style="text-align: right;">0.1741</td>
-<td style="text-align: right;">0.1619</td>
-<td style="text-align: right;">0.1863</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Estrat.</td>
-<td style="text-align: left;">amenaza</td>
-<td style="text-align: right;">0.1342</td>
-<td style="text-align: right;">0.1174</td>
-<td style="text-align: right;">0.1510</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estrat.</td>
-<td style="text-align: left;">esencialización</td>
-<td style="text-align: right;">0.1333</td>
-<td style="text-align: right;">0.1163</td>
-<td style="text-align: right;">0.1504</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Estrat.</td>
-<td style="text-align: left;">deslegitimación</td>
-<td style="text-align: right;">0.1260</td>
-<td style="text-align: right;">0.1129</td>
-<td style="text-align: right;">0.1392</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estrat.</td>
-<td style="text-align: left;">atrib. oculta</td>
-<td style="text-align: right;">0.1190</td>
-<td style="text-align: right;">0.1010</td>
-<td style="text-align: right;">0.1371</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Emo.</td>
-<td style="text-align: left;">desprecio</td>
-<td style="text-align: right;">0.0980</td>
-<td style="text-align: right;">0.0863</td>
-<td style="text-align: right;">0.1097</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hilo</td>
-<td style="text-align: left;">mixto</td>
-<td style="text-align: right;">-0.0890</td>
-<td style="text-align: right;">-0.1003</td>
-<td style="text-align: right;">-0.0778</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Emo.</td>
-<td style="text-align: left;">indignación</td>
-<td style="text-align: right;">0.0871</td>
-<td style="text-align: right;">0.0743</td>
-<td style="text-align: right;">0.0998</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Marco</td>
-<td style="text-align: left;">identitario</td>
-<td style="text-align: right;">-0.0535</td>
-<td style="text-align: right;">-0.0688</td>
-<td style="text-align: right;">-0.0382</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Marco</td>
-<td style="text-align: left;">económico</td>
-<td style="text-align: right;">-0.0368</td>
-<td style="text-align: right;">-0.0582</td>
-<td style="text-align: right;">-0.0154</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hilo</td>
-<td style="text-align: left;">der. múltiple</td>
-<td style="text-align: right;">-0.0363</td>
-<td style="text-align: right;">-0.0550</td>
-<td style="text-align: right;">-0.0176</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Marco</td>
-<td style="text-align: left;">diagnóstico</td>
-<td style="text-align: right;">-0.0347</td>
-<td style="text-align: right;">-0.0460</td>
-<td style="text-align: right;">-0.0235</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Marco</td>
-<td style="text-align: left;">moral</td>
-<td style="text-align: right;">0.0285</td>
-<td style="text-align: right;">0.0166</td>
-<td style="text-align: right;">0.0404</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Front.</td>
-<td style="text-align: left;">inter-bloque</td>
-<td style="text-align: right;">0.0269</td>
-<td style="text-align: right;">0.0178</td>
-<td style="text-align: right;">0.0361</td>
-<td style="text-align: right;">&lt; .001</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div id="fig-coefplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-coefplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/coefplot_ols_polarizacion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.3: Coeficientes del modelo OLS para polarización.
-</figcaption>
-</figure>
-</div>
+<p>El OLS no compite con RandomForest en capacidad predictiva, pero cumple una función complementaria de interpretabilidad: permite inspeccionar la dirección y magnitud de cada efecto. La tabla de los 15 coeficientes significativos de mayor magnitud y el coefplot figuran en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-ols-polarizacion" class="quarto-xref">Tabla&nbsp;<span>10.11</span></a> y <a href="10-anexo-tablas.html#fig-anexo-coefplot-ols" class="quarto-xref">Figura&nbsp;<span>10.1</span></a>).</p>
 <p>El resultado más relevante es la jerarquía de efectos. La ira domina el modelo (β = 0.369), seguida por las estrategias adversariales —ridiculización, amenaza, esencialización y deslegitimación—, todas con coeficientes positivos entre 0.12 y 0.17. El candidato como target, en cambio, no aparece entre los 15 predictores más fuertes: su efecto es estadísticamente nulo (β ≈ 0, p = 0.818). Esto sugiere que la hostilidad se explica por el <em>cómo</em> del discurso —qué emoción lo sostiene, qué estrategia lo articula, en qué tipo de hilo ocurre— y no por el <em>quién</em> es atacado. Se trata de un resultado con implicaciones teóricas directas para la discusión sobre polarización afectiva, que se desarrolla en el capítulo siguiente.</p>
 </section>
 <section id="importancia-por-permutación-y-explicación-local" class="level3">
 <h3 class="anchored" data-anchor-id="importancia-por-permutación-y-explicación-local">Importancia por permutación y explicación local</h3>
-<p>La <a href="#fig-perm" class="quarto-xref">Figura&nbsp;<span>7.4</span></a> confirma desde una perspectiva no paramétrica lo que el OLS sugiere. El tipo de hilo es la variable con mayor importancia (caída de R² ≈ 0.50 al permutarla), seguida por estrategia, número de palabras y emoción, todas con caídas superiores a 0.40. El candidato, en cambio, ocupa el último lugar con una caída marginal (≈ 0.04), lo que refuerza la interpretación de que el target del ataque resulta prácticamente irrelevante para explicar la intensidad de la polarización. Notablemente, rasgos textuales brutos como el largo del comentario (n_words, n_chars) ocupan posiciones altas, lo que contribuye a explicar por qué el modelo combinado supera al puramente discursivo: la extensión del texto captura información que las etiquetas categóricas no recogen.</p>
+<p>La <a href="#fig-perm" class="quarto-xref">Figura&nbsp;<span>7.3</span></a> confirma desde una perspectiva no paramétrica lo que el OLS sugiere. El tipo de hilo es la variable con mayor importancia (caída de R² ≈ 0.50 al permutarla), seguida por estrategia, número de palabras y emoción, todas con caídas superiores a 0.40. El candidato, en cambio, ocupa el último lugar con una caída marginal (≈ 0.04), lo que refuerza la interpretación de que el target del ataque resulta prácticamente irrelevante para explicar la intensidad de la polarización. Notablemente, rasgos textuales brutos como el largo del comentario (n_words, n_chars) ocupan posiciones altas, lo que contribuye a explicar por qué el modelo combinado supera al puramente discursivo: la extensión del texto captura información que las etiquetas categóricas no recogen.</p>
 <div id="fig-perm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig_thesis/permutation_importance_polarizacion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.4: Importancia por permutación en el modelo de polarización.
+Figura&nbsp;7.3: Importancia por permutación en el modelo de polarización.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="clasificación-de-polarización-alta" class="level3">
 <h3 class="anchored" data-anchor-id="clasificación-de-polarización-alta">Clasificación de polarización alta</h3>
-<p>Para complementar el análisis de regresión, se discretizó la polarización en un problema binario (umbral ≥ 0.6) y se evaluaron tres clasificadores. Las curvas ROC (<a href="#fig-roc" class="quarto-xref">Figura&nbsp;<span>7.5</span></a>) muestran que todos superan ampliamente la línea aleatoria, con AUCs entre 0.811 (LogReg) y 0.856 (RandomForest). Que un modelo lineal alcance un AUC de 0.81 indica que buena parte de la señal de hostilidad es linealmente separable: las emociones y estrategias adversariales, por sí solas, trazan una frontera razonable entre comentarios de alta y baja polarización. El incremento adicional de RandomForest (+0.045) sugiere que existen interacciones no aditivas entre variables discursivas —por ejemplo, la combinación de ira con ridiculización en hilos mixtos podría producir niveles de polarización que no se explican por la suma de sus efectos individuales—. GBM queda en una posición intermedia (AUC = 0.832), consistente con su menor estabilidad observada en la regresión. En conjunto, estos resultados indican que la polarización alta es un fenómeno clasificable con precisión moderada-alta, pero cuya estructura heterogénea se beneficia de modelos capaces de capturar no linealidades. Los valores AUC por modelo se detallan en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-auc" class="quarto-xref">Tabla&nbsp;<span>11.4</span></a>).</p>
+<p>Para complementar el análisis de regresión, se discretizó la polarización en un problema binario (umbral ≥ 0.6) y se evaluaron tres clasificadores. Las curvas ROC (<a href="#fig-roc" class="quarto-xref">Figura&nbsp;<span>7.4</span></a>) muestran que todos superan ampliamente la línea aleatoria, con AUCs entre 0.811 (LogReg) y 0.856 (RandomForest). Que un modelo lineal alcance un AUC de 0.81 indica que buena parte de la señal de hostilidad es linealmente separable: las emociones y estrategias adversariales, por sí solas, trazan una frontera razonable entre comentarios de alta y baja polarización. El incremento adicional de RandomForest (+0.045) sugiere que existen interacciones no aditivas entre variables discursivas —por ejemplo, la combinación de ira con ridiculización en hilos mixtos podría producir niveles de polarización que no se explican por la suma de sus efectos individuales—. GBM queda en una posición intermedia (AUC = 0.832), consistente con su menor estabilidad observada en la regresión. En conjunto, estos resultados indican que la polarización alta es un fenómeno clasificable con precisión moderada-alta, pero cuya estructura heterogénea se beneficia de modelos capaces de capturar no linealidades. Los valores AUC por modelo se detallan en el Anexo A (<a href="10-anexo-tablas.html#tbl-anexo-auc" class="quarto-xref">Tabla&nbsp;<span>10.4</span></a>).</p>
 <div id="fig-roc" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig_thesis/roc_curves_polarizacion_alta.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7.5: Curvas ROC para la clasificación de polarización alta.
+Figura&nbsp;7.4: Curvas ROC para la clasificación de polarización alta.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="estrategia-frontera-perfiles-y-errores" class="level3">
 <h3 class="anchored" data-anchor-id="estrategia-frontera-perfiles-y-errores">Estrategia, frontera, perfiles y errores</h3>
-<p>Las tablas completas de clasificación multiclase de estrategia (<a href="10-anexo-tablas.html#tbl-anexo-estrategia-resumen" class="quarto-xref">Tabla&nbsp;<span>11.5</span></a> y <a href="10-anexo-tablas.html#tbl-anexo-estrategia-clases" class="quarto-xref">Tabla&nbsp;<span>11.6</span></a>), frontera política (<a href="10-anexo-tablas.html#tbl-anexo-frontera-resumen" class="quarto-xref">Tabla&nbsp;<span>11.7</span></a> y <a href="10-anexo-tablas.html#tbl-anexo-frontera-clases" class="quarto-xref">Tabla&nbsp;<span>11.8</span></a>), perfiles K-means (<a href="10-anexo-tablas.html#tbl-anexo-perfiles-kmeans" class="quarto-xref">Tabla&nbsp;<span>11.9</span></a>) y análisis de errores (<a href="10-anexo-tablas.html#tbl-anexo-errores-sistematicos" class="quarto-xref">Tabla&nbsp;<span>11.10</span></a>) se detallan en el Anexo A. Aquí se sintetizan los tres resultados principales.</p>
+<p>Las tablas completas de clasificación multiclase de estrategia (<a href="10-anexo-tablas.html#tbl-anexo-estrategia-resumen" class="quarto-xref">Tabla&nbsp;<span>10.5</span></a> y <a href="10-anexo-tablas.html#tbl-anexo-estrategia-clases" class="quarto-xref">Tabla&nbsp;<span>10.6</span></a>), frontera política (<a href="10-anexo-tablas.html#tbl-anexo-frontera-resumen" class="quarto-xref">Tabla&nbsp;<span>10.7</span></a> y <a href="10-anexo-tablas.html#tbl-anexo-frontera-clases" class="quarto-xref">Tabla&nbsp;<span>10.8</span></a>), perfiles K-means (<a href="10-anexo-tablas.html#tbl-anexo-perfiles-kmeans" class="quarto-xref">Tabla&nbsp;<span>10.9</span></a>) y análisis de errores (<a href="10-anexo-tablas.html#tbl-anexo-errores-sistematicos" class="quarto-xref">Tabla&nbsp;<span>10.10</span></a>) se detallan en el Anexo A. Aquí se sintetizan los tres resultados principales.</p>
 <p>Primero, estos resultados indican que la frontera política es parcialmente recuperable desde texto corto y ruidoso (F1-macro = 0.725 en el mejor modelo), lo que sugiere que el concepto teórico de Mouffe deja una huella textual detectable, aunque con las limitaciones propias de un corpus informal y no curado.</p>
 <p>Segundo, los perfiles K-means (K = 3) revelan que la hostilidad no se distribuye como un continuo homogéneo, sino que se organiza en configuraciones discursivas diferenciadas: el cluster 0 agrupa comentarios de baja polarización con marcos diagnósticos y sin estrategia adversarial; el cluster 1 combina deslegitimación con desprecio en hilos sobre Jara; y el cluster 2 concentra ridiculización con desprecio dirigida a Kast.</p>
 <p>Tercero, el análisis de errores muestra que los falsos negativos presentan polarización real alta (0.685) pero textos más breves que los verdaderos positivos, delimitando las condiciones bajo las cuales el pipeline pierde sensibilidad: comentarios hostiles pero concisos, donde la señal discursiva es insuficiente para superar el umbral de clasificación.</p>

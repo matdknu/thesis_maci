@@ -20,8 +20,6 @@ base_ml <- file.path(repo_root, "outputs_ml")
 img_dir <- "images"
 ```
 
-Este capítulo ofrece una vista **exploratoria** del corpus antes del modelado formal: volumen de comentarios por candidato, cruces entre **estrategia discursiva y frontera política**, **densidad** de la polarización, **evolución semanal de emociones por candidato** (panel acoplado con tendencia hostil), **perfiles** vía radar y **series temporales** de polarización.
-
 ## Volumen de comentarios por candidato
 
 ```{r fig-count-facet}
@@ -32,9 +30,9 @@ if (file.exists(file.path(base_out, "fig_count_facet_candidatos.png"))) {
 }
 ```
 
-## Estrategia discursiva y frontera política
+La @fig-count-facet-cand revela una asimetría marcada en la atención discursiva. Kast concentra el mayor volumen de menciones durante todo el período (62.8% del corpus), seguido por Jara (38.9%), con una brecha considerable respecto de Kaiser (16.2%) y Matthei (10.0%). El volumen de menciones de Jara se incrementa hacia el final del ciclo, coincidiendo con su paso a segunda vuelta, mientras que Kaiser y Matthei disminuyen tras quedar fuera de la competencia. Esta distribución desbalanceada implica que los indicadores agregados de polarización estarán dominados por los comentarios dirigidos a Kast y Jara, lo que se tiene en cuenta en el diseño del modelado.
 
-Relación exploratoria entre tipo de **estrategia** (eje horizontal) y **frontera política** (facetas), por candidato. Figura producida con `scripts/analisis/03_visualizacion-modelado.R`.
+## Estrategia discursiva y frontera política
 
 ```{r fig4-estrategia-frontera}
 #| results: asis
@@ -44,9 +42,9 @@ if (file.exists(file.path(base_out, "fig4_estrategia_frontera.png"))) {
 }
 ```
 
-## Densidad de polarización por candidato
+La @fig-explor-estrategia-frontera muestra la distribución relativa de estrategias de construcción del adversario según tipo de frontera política, separada por candidato. La deslegitimación y la ridiculización son las estrategias dominantes en todos los candidatos, pero su distribución entre fronteras varía: la confrontación inter-bloque (derecha vs. izquierda) concentra proporcionalmente más estrategias de amenaza y esencialización, mientras que la disputa intra-bloque (dentro de la derecha) se canaliza más a través de la ridiculización. Esta diferenciación preliminar sugiere que la hostilidad no opera como un fenómeno unitario — una hipótesis que el capítulo 7 formaliza estadísticamente.
 
-Distribución de la **polarización** (consenso) condicionada al candidato comentado; visualización tipo densidad/ridges. Misma fuente R que la figura anterior.
+## Densidad de polarización por candidato
 
 ```{r fig7-densidad-polarizacion}
 #| results: asis
@@ -56,9 +54,9 @@ if (file.exists(file.path(base_out, "fig7_densidad_polarizacion.png"))) {
 }
 ```
 
-## Emociones en el tiempo (facetas por candidato)
+La @fig-explor-densidad-pol presenta la distribución de polarización condicionada al candidato comentado. Los cuatro candidatos muestran distribuciones unimodales con medianas entre 0.3 y 0.5, pero con diferencias en dispersión y cola derecha. Kast y Jara exhiben distribuciones más anchas y con mayor densidad en valores altos de polarización, mientras que Kaiser y Matthei se concentran en rangos moderados. Esto es consistente con la mayor visibilidad y carga adversarial de los dos candidatos que disputaron la segunda vuelta. Que ningún candidato presente una distribución bimodal sugiere que la polarización opera como un gradiente continuo, no como una dicotomía entre comentarios hostiles y no hostiles.
 
-La @fig-emociones-candidato-tendencia muestra, para cada candidato objetivo, la **proporción semanal** de las emociones más frecuentes en el corpus (líneas de color). La **línea negra continua** es la proporción de emociones **hostiles** (ira, desprecio, indignación); el **trazo discontinuo** es un suavizado **LOESS** sobre esa fracción hostil. Las semanas con menos de 12 comentarios se excluyen. Figura generada en R con `scripts/analisis/viz_r_tesis.R` (misma salida en `outputs_ml/` y copias a `fig_thesis/` e `images/`). CSV largo: `outputs_ml/emociones_semanal_largo_por_candidato.csv`.
+## Emociones en el tiempo (facetas por candidato)
 
 ```{r fig-emociones-candidato-tendencia}
 #| results: asis
@@ -66,20 +64,15 @@ La @fig-emociones-candidato-tendencia muestra, para cada candidato objetivo, la 
 p1 <- file.path(img_dir, "emociones_candidato_semanal_facet_tendencia.png")
 p2 <- file.path(base_out, "emociones_candidato_semanal_facet_tendencia.png")
 if (file.exists(p1)) {
-  cat('![Proporción semanal de emociones por candidato (facetas 2×2). Línea negra: P(hostil); discontinua: LOESS sobre hostil.](images/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
+  cat('![Emociones semanales por candidato (facetas 2×2).](images/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
 } else if (file.exists(p2)) {
-  cat('![Proporción semanal de emociones por candidato (facetas 2×2). Línea negra: P(hostil); discontinua: LOESS sobre hostil.](fig_thesis/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
+  cat('![Emociones semanales por candidato (facetas 2×2).](fig_thesis/emociones_candidato_semanal_facet_tendencia.png){#fig-emociones-candidato-tendencia fig-align="center" width="100%"}\n')
 }
 ```
 
-## Perfiles discursivos: radar por candidato
-
-Cada eje del radar muestra la **concentración de la categoría modal** en esa dimensión (0–1), calculada sobre los comentarios cuyo target es ese candidato. El quinto eje es el **grupo de polarización** (baja / media / alta). La @fig-radar-candidatos permite comparar a Kast, Kaiser, Matthei y Jara.
-
+La @fig-emociones-candidato-tendencia muestra, para cada candidato, la proporción semanal de las emociones más frecuentes en el corpus. La línea negra continua representa la fracción de emociones hostiles (ira, desprecio, indignación); el trazo discontinuo es un suavizado LOESS sobre esa fracción. Dos patrones merecen atención. Primero, la proporción de hostilidad se mantiene relativamente estable a lo largo del ciclo para los cuatro candidatos — no hay un escalamiento progresivo hacia la elección, sino una hostilidad de base que fluctúa en torno a un nivel constante. Segundo, Kast presenta los picos de hostilidad más pronunciados, coincidentes con semanas de alta actividad mediática, mientras que Matthei muestra la fracción hostil más baja y menos volátil. El desprecio y la indignación alternan como emociones dominantes según el candidato, lo que anticipa el hallazgo del capítulo 8 sobre la relevancia de las *configuraciones discursivas* (combinaciones marco × emoción) por sobre las emociones aisladas.
 
 ## Polarización en el tiempo
-
-La @fig-explor-pol-serie reproduce la serie **bisegmentada** (cada dos días) de polarización media por candidato, con la misma lógica de calendario que en el capítulo de modelado. El archivo de referencia del pipeline es **`outputs_ml/serie_polarizacion_candidatos.png`** (copia idéntica de `serie_polarizacion_cada_2_dias_candidatos.png`). Para el libro se usa la copia en `images/` (compatible con GitHub Pages).
 
 ```{r fig-explor-pol-serie}
 #| results: asis
@@ -88,11 +81,11 @@ pol_img <- file.path(img_dir, "serie_polarizacion_candidatos.png")
 pol_ml <- file.path(base_ml, "serie_polarizacion_candidatos.png")
 pol_ft <- file.path(base_out, "serie_polarizacion_candidatos.png")
 if (file.exists(pol_img)) {
-  cat('![Polarización media cada dos días por candidato (bandas ≈ IC 95 %; pipeline `outputs_ml/serie_polarizacion_candidatos.png`).](images/serie_polarizacion_candidatos.png){#fig-explor-pol-serie fig-align="center" width="100%"}\n')
+  cat('![Polarización media cada dos días por candidato.](images/serie_polarizacion_candidatos.png){#fig-explor-pol-serie fig-align="center" width="100%"}\n')
 } else if (file.exists(pol_ml) || file.exists(pol_ft)) {
   src <- if (file.exists(pol_ft)) "fig_thesis/serie_polarizacion_candidatos.png" else "fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png"
   cat(paste0('![Polarización media cada dos días por candidato (bandas ≈ IC 95 %).](', src, '){#fig-explor-pol-serie fig-align="center" width="100%"}\n'))
 }
 ```
 
-
+La @fig-explor-pol-serie reproduce la serie bisegmentada (cada dos días) de polarización media por candidato, con bandas de IC 95%. Las cuatro series oscilan entre 0.3 y 0.5, sin una tendencia ascendente clara hacia la elección. Kast y Jara mantienen los niveles más altos durante la mayor parte del período, con una convergencia notable a partir de noviembre cuando la competencia se reduce a estos dos candidatos. Kaiser y Matthei desaparecen de la serie tras la primera vuelta. Las bandas de confianza se estrechan en las semanas de mayor volumen y se ensanchan en períodos de baja actividad, lo que refleja la variabilidad muestral más que cambios reales en la hostilidad. En conjunto, la serie temporal sugiere estabilidad estructural de la polarización — un hallazgo que el capítulo 7 formaliza mediante validación cruzada y el capítulo 8 interpreta como cristalización actitudinal.

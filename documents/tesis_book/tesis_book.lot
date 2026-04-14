@@ -1,0 +1,36 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Candidaturas analizadas y perfil ideológico. }}{5}{table.2.1}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Niveles de análisis del estudio. }}{6}{table.2.2}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Objetivos operacionales y entregables del estudio.}}{9}{table.2.3}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.2}{\ignorespaces Candidaturas objetivo y patrones de detección.}}{17}{table.4.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Estadísticas generales del corpus.}}{20}{table.5.1}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Frecuencia de menciones por candidatura.}}{20}{table.5.2}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Modelos de regresión para polarización.}}{31}{table.7.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Estrategias discursivas por tipo de frontera política.}}{35}{table.8.1}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces Modelo de desacuerdo (OA vs.~DS).}}{46}{table.caption.25}%
+\contentsline {table}{\numberline {10.2}{\ignorespaces Comparación de configuraciones de variables.}}{47}{table.caption.26}%
+\contentsline {table}{\numberline {10.3}{\ignorespaces Calibración: Brier y log-loss.}}{47}{table.caption.27}%
+\contentsline {table}{\numberline {10.4}{\ignorespaces AUC para polarización alta.}}{47}{table.caption.28}%
+\contentsline {table}{\numberline {10.5}{\ignorespaces Estrategia (multiclase): exactitud y F1 macro.}}{47}{table.caption.29}%
+\contentsline {table}{\numberline {10.6}{\ignorespaces Estrategia (multiclase): F1 por clase.}}{48}{table.caption.30}%
+\contentsline {table}{\numberline {10.7}{\ignorespaces Frontera política: exactitud y F1 macro.}}{48}{table.caption.31}%
+\contentsline {table}{\numberline {10.8}{\ignorespaces Frontera política: F1 por clase.}}{48}{table.caption.32}%
+\contentsline {table}{\numberline {10.9}{\ignorespaces Perfiles discursivos (K-means).}}{49}{table.caption.33}%
+\contentsline {table}{\numberline {10.10}{\ignorespaces Errores de clasificación en polarización alta.}}{49}{table.caption.34}%
+\contentsline {table}{\numberline {10.11}{\ignorespaces OLS de polarización: 15 coeficientes principales.}}{49}{table.caption.35}%
+\contentsline {table}{\numberline {10.12}{\ignorespaces Top 10 combinaciones marco × emoción.}}{51}{table.caption.37}%
+\contentsline {table}{\numberline {10.13}{\ignorespaces Marco × fase por candidato: chi-cuadrado y V de Cramér.}}{52}{table.caption.39}%
+\contentsline {table}{\numberline {10.14}{\ignorespaces Cruces de tono por par de candidatos (sin neutro).}}{52}{table.caption.40}%
+\contentsline {table}{\numberline {10.15}{\ignorespaces Transiciones de tono hacia Kast (autores negativos iniciales).}}{53}{table.caption.41}%
+\contentsline {table}{\numberline {10.16}{\ignorespaces Cruces emocionales por par de candidatos (sin «sin emoción»).}}{53}{table.caption.42}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

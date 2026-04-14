@@ -1,0 +1,106 @@
+\contentsline {chapter}{Agradecimientos}{ii}{chapter*.1}%
+\contentsline {chapter}{Presentación}{iii}{chapter*.2}%
+\contentsline {chapter}{Índice de Figuras}{v}{section*.4}%
+\contentsline {chapter}{Índice de Tablas}{vi}{section*.6}%
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Justificación y relevancia del estudio}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Preguntas de investigación}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos de la investigación}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Objetivo general}{3}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Objetivos específicos}{3}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Presentación del Problema}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}El problema: competencia política digital en un sistema fragmentado}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Acercamiento: actores, dimensiones y niveles de análisis}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Los actores: tres derechas y un adversario}{5}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Las dimensiones analíticas}{5}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Los niveles de análisis}{6}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Descripción de la propuesta analítica}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Enfoque general}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Arquitectura del análisis}{8}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Originalidad de la propuesta}{8}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Producto mínimo viable (MVP) y objetivos operacionales}{9}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Definición del MVP}{9}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Objetivos operacionales y entregables}{9}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Alcances y limitaciones anticipadas}{9}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Estrategia de validación}{10}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Validación interna}{10}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Validación externa}{10}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Criterios de éxito}{10}{subsection.2.5.3}%
+\contentsline {chapter}{\numberline {3}Marco teórico}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Polarización afectiva}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Construcción de adversarios y frontera política}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Encuadre y emociones en el discurso político}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Derechas contemporáneas en Chile}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Reddit como espacio de polarización política}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Modelo analítico integrado}{14}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Diseño metodológico}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Diseño de investigación}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Reddit como plataforma de análisis}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Recolección de datos mediante la API de Reddit}{16}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Procedimiento técnico}{16}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Período de recolección y fases del ciclo electoral}{16}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Estrategia de extracción incremental}{16}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Contenido extraído y filtrado temático}{17}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Consideraciones éticas}{17}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Técnicas de Análisis}{18}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Depuración de Datos}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Depuración y preprocesamiento del corpus}{20}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Descripción general del corpus}{20}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Criterios de exclusión de unidades}{21}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Normalización textual}{21}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Exploración de Datos}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Volumen de comentarios por candidato}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Estrategia discursiva y frontera política}{24}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Densidad de polarización por candidato}{25}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Emociones en el tiempo (facetas por candidato)}{26}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Polarización en el tiempo}{27}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Modelado de Datos}{28}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Consistencia de medición}{28}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Acuerdo entre anotadores automáticos}{28}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Modelo de desacuerdo}{29}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Valor añadido de las variables discursivas}{29}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}Calibración de probabilidades}{30}{subsection.7.1.4}%
+\contentsline {section}{\numberline {7.2}Modelado de polarización}{30}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Evolución temporal (calendario electoral)}{30}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Comparación de modelos y estabilidad fuera de muestra}{31}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}OLS interpretable}{31}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}Importancia por permutación y explicación local}{32}{subsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.2.5}Clasificación de polarización alta}{32}{subsection.7.2.5}%
+\contentsline {subsection}{\numberline {7.2.6}Estrategia, frontera, perfiles y errores}{33}{subsection.7.2.6}%
+\contentsline {chapter}{\numberline {8}Interpretación de Resultados}{35}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Reconfiguración del antagonismo: estrategias, marcos y fronteras}{35}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Estrategias por candidato}{35}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Combinaciones discursivas y dinámica temporal}{36}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Marco × emoción}{36}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Estrategias en el tiempo}{36}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}Autores, persistencia y estructura del conflicto}{37}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Persistencia de negatividad hacia Kast}{37}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Cruces de tono entre candidatos (posicionamiento → segunda vuelta hacia Kast o Jara)}{38}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Actividad de autores y polarización}{39}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Espacios semánticos acoplados}{40}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusión}{42}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Síntesis de hallazgos}{42}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Implicaciones teóricas}{43}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Implicaciones prácticas}{43}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Limitaciones}{44}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Futuras investigaciones}{45}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Reflexión final}{45}{section.9.6}%
+\contentsline {chapter}{\numberline {10}Anexo A. Tablas complementarias}{46}{chapter.10}%
+\contentsline {section}{\numberline {10.1}A.1 Modelado de datos (capítulo 7)}{50}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}A.1.1 Desacuerdo entre anotadores}{50}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}A.1.2 Comparación de configuraciones de características (texto, LLM, combinado)}{50}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}A.1.3 Calibración de probabilidades (polarización alta)}{50}{subsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.1.4}A.1.4 AUC para clasificación de polarización alta}{50}{subsection.10.1.4}%
+\contentsline {subsection}{\numberline {10.1.5}A.1.5 Clasificación multiclase de estrategia discursiva}{50}{subsection.10.1.5}%
+\contentsline {subsection}{\numberline {10.1.6}A.1.6 Clasificación de frontera política}{50}{subsection.10.1.6}%
+\contentsline {subsection}{\numberline {10.1.7}A.1.7 Perfiles discursivos (K-means)}{50}{subsection.10.1.7}%
+\contentsline {subsection}{\numberline {10.1.8}A.1.8 Errores sistemáticos del clasificador de polarización alta}{50}{subsection.10.1.8}%
+\contentsline {subsection}{\numberline {10.1.9}A.1.9 Modelo OLS (polarización): coeficientes y coefplot}{50}{subsection.10.1.9}%
+\contentsline {section}{\numberline {10.2}A.2 Interpretación de resultados (capítulo 8)}{51}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}A.2.0 Diez combinaciones marco × emoción más frecuentes}{51}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}A.2.1 Asociación marco × fase por candidato}{52}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}A.2.2 Cruces de tono (posicionamiento → segunda vuelta; sin neutro)}{52}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}A.2.3 Transiciones de tono hacia Kast (autores inicialmente negativos)}{52}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}A.2.4 Cruces emocionales (posicionamiento → segunda vuelta; sin «sin emoción»)}{52}{subsection.10.2.5}%
+\contentsline {chapter}{\numberline {11}Referencias}{54}{chapter.11}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -62,7 +62,7 @@ en los comentarios y
 en los posts. La @tbl-general resume las estadísticas generales del corpus en esta etapa inicial.
 
 ```{r tbl-general}
-#| tbl-cap: "Estadísticas generales del corpus antes de depuración."
+#| tbl-cap: "Estadísticas generales del corpus."
 
 tibble(
   Indicador = c(
@@ -96,7 +96,7 @@ Destaca que una proporción elevada de posts carece de cuerpo textual (`post_sel
 
 
 ```{r tbl-menciones}
-#| tbl-cap: "Frecuencia de menciones por candidatura en el corpus bruto."
+#| tbl-cap: "Frecuencia de menciones por candidatura."
 
 reddit_filtrado |>
   summarise(across(all_of(candidatos), sum)) |>
@@ -121,35 +121,6 @@ reddit_filtrado |>
   )
 ```
 
-La @fig-serie muestra la evolución semanal de las menciones por candidatura a lo largo del período de estudio. Los picos de actividad permiten identificar visualmente los momentos de mayor intensidad discursiva, que serán contrastados con el calendario de eventos electorales en el capítulo de resultados.
-
-```{r fig-serie}
-#| fig-cap: "Volumen semanal de menciones por candidatura (agosto–diciembre 2025)."
-
-reddit_filtrado |>
-  pivot_longer(cols = all_of(candidatos),
-               names_to  = "candidato",
-               values_to = "menciona") |>
-  filter(menciona == 1) |>
-  mutate(
-    semana    = floor_date(fecha, "week"),
-    candidato = recode(candidato, !!!labels_candidatos)
-  ) |>
-  count(semana, candidato) |>
-  ggplot(aes(semana, n, color = candidato)) +
-  geom_line(linewidth = 0.8) +
-  geom_point(size = 1.5, alpha = 0.7) +
-  scale_color_brewer(palette = "Set1") +
-  scale_x_date(date_labels = "%b %Y", date_breaks = "1 month") +
-  scale_y_continuous(labels = scales::label_comma(big.mark = ".")) +
-  labs(x = NULL, y = "Comentarios por semana", color = NULL) +
-  theme_minimal(base_size = 12) +
-  theme(
-    legend.position  = "bottom",
-    panel.grid.minor = element_blank(),
-    axis.text.x      = element_text(angle = 30, hjust = 1)
-  )
-```
 
 ## Criterios de exclusión de unidades
 

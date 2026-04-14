@@ -60,14 +60,14 @@ Este problema es relevante por tres razones:
 La investigación se focaliza en cuatro candidaturas que representan
 posiciones distintivas en el espectro político chileno:
 
-| Actor                 | Posición                     | Caracterización sintética                                                      | Base social                                         |
-|---------------|---------------|---------------------------|-----------------|
-| **Evelyn Matthei**    | Derecha tradicional          | Pragmatismo, competencia técnica, moderación discursiva                        | Élites empresariales, sectores medios-altos         |
-| **José Antonio Kast** | Derecha radical-conservadora | Conservadurismo moral, retórica antielitista, énfasis en seguridad y migración | Sectores populares conservadores, evangélicos       |
-| **Johannes Kaiser**   | Derecha libertaria           | Ultraliberalismo, provocación deliberada, códigos de subculturas digitales     | Jóvenes masculinos, usuarios intensivos de internet |
-| **Jeannette Jara**    | Izquierda-PC                 | Proyecto transformador, defensa del legado del gobierno Boric                  | Militancia de izquierda, sectores sindicalizados    |
+| Actor                 | Posición                     | Base social                                                                                          |
+|---------------|---------------|------------------------------------------|
+| **Evelyn Matthei**    | Derecha tradicional          | Élites empresariales, sectores medios-altos                                                          |
+| **José Antonio Kast** | Derecha radical-conservadora | Transversal en términos de clase, presencia extensiva en regiones del país, conservadores religiosos |
+| **Johannes Kaiser**   | Derecha libertaria           | Jóvenes masculinos, usuarios intensivos de internet                                                  |
+| **Jeannette Jara**    | Izquierda-PC                 | Militancia de izquierda, sectores medios y populares                                                 |
 
-: Candidaturas incluidas en el análisis y su caracterización ideológica.
+: Candidaturas analizadas y perfil ideológico.
 {#tbl-candidaturas-actores}
 
 Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
@@ -113,8 +113,7 @@ El diseño contempla tres niveles de observación:
 | **Meso**  | Hilos de discusión               | Dinámicas conversacionales, patrones de confrontación/consenso         |
 | **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos               |
 
-: Niveles de análisis utilizados en la investigación.
-{#tbl-niveles-analisis}
+: Niveles de análisis del estudio. {#tbl-niveles-analisis}
 
 La @tbl-niveles-analisis resume cómo se articula el análisis en escalas
 macro, meso y micro.

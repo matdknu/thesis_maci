@@ -51,10 +51,10 @@ Se aplicó...
 
 ### Acuerdo entre anotadores automáticos
 
-Antes de utilizar las variables discursivas como predictores, es necesario establecer en qué medida los dos sistemas de clasificación automática —OpenAI (OA) y DeepSeek (DS)— producen resultados convergentes. Si el acuerdo entre ambos fuera sistemáticamente bajo, las variables resultantes podrían reflejar idiosincrasias del modelo más que propiedades del texto. La @tbl-acuerdo-anotadores resume el acuerdo por dimensión.
+Antes de utilizar las variables discursivas como predictores, es necesario establecer en qué medida los dos sistemas de clasificación automática —OpenAI (OA) y DeepSeek (DS)— producen resultados convergentes. Si el acuerdo entre ambos fuera sistemáticamente bajo, las variables resultantes podrían reflejar idiosincrasias del modelo más que propiedades del texto. La siguiente tabla resume el acuerdo por dimensión.
 
 
-```{r tbl-acuerdo-anotadores}
+```{r tab-acuerdo-anotadores}
 agreement <- data.frame()
 if (nrow(api_df)) {
   agreement <- rbind(
@@ -111,7 +111,7 @@ if (nrow(api_df)) {
   names(agreement) <- c("Dim.", "N", "Est.", "Coinc.")
   kable_apa(
     agreement,
-    caption = "Acuerdo entre ambos sistemas de anotación automatizada por dimensión.",
+    caption = "Acuerdo entre sistemas de anotación por dimensión.",
     align = "lrrr",
     scale_down = knitr::is_latex_output()
   )
@@ -132,11 +132,7 @@ Para caracterizar las condiciones bajo las cuales ambos sistemas discrepan, se e
 
 La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features). La @fig-r2-configuraciones sintetiza el resultado principal.
 
-![Comparación de R² según fuente de información. Las barras de error
-representan ±1 desviación estándar en validación cruzada de cinco
-pliegues. El sistema LLM aporta R²=+0.122 sobre el texto puro; el modelo
-combinado alcanza
-R²=0.618.](fig_thesis/figura_r2_configuraciones.png){#fig-r2-configuraciones
+![Comparación de R² por configuración de variables.](fig_thesis/figura_r2_configuraciones.png){#fig-r2-configuraciones
 fig-align="center" width="85%"}
 
 
@@ -201,7 +197,7 @@ if (nrow(cv)) {
   names(reg_w) <- c("Modelo", "MAE (CV)", "R² (CV)")
   kable_apa(
     reg_w,
-    caption = "Comparación de modelos de regresión para polarización.",
+    caption = "Modelos de regresión para polarización.",
     scale_down = knitr::is_latex_output()
   )
 }
@@ -209,128 +205,7 @@ if (nrow(cv)) {
 
 ### OLS interpretable
 
-El OLS no compite con RandomForest en capacidad predictiva, pero cumple una función complementaria de interpretabilidad: permite inspeccionar la dirección y magnitud de cada efecto. La @tbl-ols-polarizacion y la @fig-coefplot muestran los 15 coeficientes significativos de mayor magnitud.
-
-
-
-```{r tbl-ols-polarizacion}
-ols <- read_or_empty(file.path(base_out, "tabla_ols_polarizacion.csv"))
-if (nrow(ols)) {
-  compact_ols_parts <- function(x) {
-    x0 <- gsub("^\"|\"$", "", as.character(x))
-    if (!grepl("^C\\(", x0)) return(c("Otro", x0))
-    variable <- sub("^C\\(([^,]+),.*", "\\1", x0)
-    nivel <- sub(".*\\[T\\.([^]]+)\\].*", "\\1", x0)
-
-    variable_map <- c(
-      marco_final = "Marco",
-      emocion_final = "Emoción",
-      estrategia_final = "Estrategia",
-      frontera_final = "Frontera",
-      candidato = "Candidato",
-      fase = "Fase",
-      tipo_hilo = "Tipo de hilo"
-    )
-    nivel_map <- c(
-      conflicto = "conflicto",
-      diagnostico = "diagnóstico",
-      economico = "económico",
-      identitario = "identitario",
-      moral = "moral",
-      motivacional = "motivacional",
-      pronostico = "pronóstico",
-      alegria = "alegría",
-      desprecio = "desprecio",
-      esperanza = "esperanza",
-      indignacion = "indignación",
-      ira = "ira",
-      ironia = "ironía",
-      miedo = "miedo",
-      atribucion_oculta = "atrib. oculta",
-      construccion_amenaza = "amenaza",
-      deslegitimacion = "deslegitimación",
-      esencializacion = "esencialización",
-      ridiculizacion = "ridiculización",
-      inter_bloque = "inter-bloque",
-      intra_bloque = "intra-bloque",
-      jara = "Jara",
-      kaiser = "Kaiser",
-      kast = "Kast",
-      primera_vuelta = "primera vuelta",
-      segunda_vuelta = "segunda vuelta",
-      mixto = "mixto",
-      solo_derecha = "solo derecha",
-      solo_derecha_multiple = "derecha múltiple"
-    )
-
-    c(
-      ifelse(variable %in% names(variable_map), unname(variable_map[variable]), variable),
-      ifelse(nivel %in% names(nivel_map), unname(nivel_map[nivel]), nivel)
-    )
-  }
-
-  ols_sig <- ols[as_signif_05(ols$signif_05) & ols$coeficiente != "Intercept", ]
-  ols_sig$abs_coef <- abs(ols_sig$coef)
-  ols_sig <- ols_sig[order(-ols_sig$abs_coef), ]
-  ols_sig <- head(ols_sig, 15)
-  n_obs <- ols_sig$n_obs[1]
-  r2a <- ols_sig$r2_adj[1]
-  ols_parts <- t(vapply(ols_sig$coeficiente, compact_ols_parts, character(2)))
-  # Recode grupo para reducir ancho en PDF
-  ols_parts[, 1] <- dplyr::recode(
-    ols_parts[, 1],
-    "Emoción" = "Emo.",
-    "Estrategia" = "Estrat.",
-    "Tipo de hilo" = "Hilo",
-    "Frontera" = "Front.",
-    .default = ols_parts[, 1]
-  )
-  # Abreviar niveles largos
-  ols_parts[, 2] <- dplyr::recode(
-    ols_parts[, 2],
-    "derecha múltiple" = "der. múltiple",
-    "construcción de amenaza" = "amenaza",
-    "atrib. oculta" = "atrib. oculta",
-    .default = ols_parts[, 2]
-  )
-  ols_out <- data.frame(
-    Grupo = ols_parts[, 1],
-    Nivel = ols_parts[, 2],
-    B = ols_sig$coef,
-    IC95_inf = ols_sig$ci_low,
-    IC95_sup = ols_sig$ci_high,
-    p = format_p_apa(ols_sig$p_value),
-    stringsAsFactors = FALSE
-  )
-  rownames(ols_out) <- NULL
-  ols_out <- round_df(ols_out, 4)
-  names(ols_out) <- c(
-    "Grupo", "Nivel", "B", "IC95% inf.", "IC95% sup.", "p"
-  )
-  nota_ols <- paste0(
-    "Modelo OLS: polarización consensuada ~ marcos, emociones, estrategias, fronteras, candidato, fase electoral, tipo de hilo y karma (centrado). ",
-    "Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento e hilo solo izquierda. ",
-    "Se listan los 15 términos significativos con mayor |B|, excluido el intercepto. ",
-    "N = ", format(n_obs, big.mark = "."), ", R² ajustado = ", round(r2a, 3), "."
-  )
-  kable_apa(
-    ols_out,
-    caption = "Modelo OLS para polarización: 15 términos significativos con mayor magnitud.",
-    note = NULL,
-    align = "llrrrr",
-    landscape = FALSE,
-    scale_down = TRUE
-  )
-}
-```
-
-```{r fig-coefplot}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
-  cat('![Coeficientes del modelo OLS para polarización.](fig_thesis/coefplot_ols_polarizacion.png){#fig-coefplot fig-align="center" width="82%"}\n')
-}
-```
+El OLS no compite con RandomForest en capacidad predictiva, pero cumple una función complementaria de interpretabilidad: permite inspeccionar la dirección y magnitud de cada efecto. La tabla de los 15 coeficientes significativos de mayor magnitud y el coefplot figuran en el Anexo A (@tbl-anexo-ols-polarizacion y @fig-anexo-coefplot-ols).
 
 El resultado más relevante es la jerarquía de efectos. La ira domina el modelo (β = 0.369), seguida por las estrategias adversariales —ridiculización, amenaza, esencialización y deslegitimación—, todas con coeficientes positivos entre 0.12 y 0.17. El candidato como target, en cambio, no aparece entre los 15 predictores más fuertes: su efecto es estadísticamente nulo (β ≈ 0, p = 0.818). Esto sugiere que la hostilidad se explica por el *cómo* del discurso —qué emoción lo sostiene, qué estrategia lo articula, en qué tipo de hilo ocurre— y no por el *quién* es atacado. Se trata de un resultado con implicaciones teóricas directas para la discusión sobre polarización afectiva, que se desarrolla en el capítulo siguiente.
 

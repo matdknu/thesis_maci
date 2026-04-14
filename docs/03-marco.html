@@ -22,27 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -211,14 +191,12 @@ div.csl-indent {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#comunicación-política-en-entornos-digitales" id="toc-comunicación-política-en-entornos-digitales" class="nav-link active" data-scroll-target="#comunicación-política-en-entornos-digitales"><span class="header-section-number">3.1</span> Comunicación política en entornos digitales</a></li>
-  <li><a href="#polarización-afectiva" id="toc-polarización-afectiva" class="nav-link" data-scroll-target="#polarización-afectiva"><span class="header-section-number">3.2</span> Polarización afectiva</a></li>
-  <li><a href="#teoría-del-framing" id="toc-teoría-del-framing" class="nav-link" data-scroll-target="#teoría-del-framing"><span class="header-section-number">3.3</span> Teoría del <em>framing</em></a></li>
-  <li><a href="#emociones-políticas" id="toc-emociones-políticas" class="nav-link" data-scroll-target="#emociones-políticas"><span class="header-section-number">3.4</span> Emociones políticas</a></li>
-  <li><a href="#construcción-de-adversarios" id="toc-construcción-de-adversarios" class="nav-link" data-scroll-target="#construcción-de-adversarios"><span class="header-section-number">3.5</span> Construcción de adversarios</a></li>
-  <li><a href="#derechas-contemporáneas" id="toc-derechas-contemporáneas" class="nav-link" data-scroll-target="#derechas-contemporáneas"><span class="header-section-number">3.6</span> Derechas contemporáneas</a></li>
-  <li><a href="#reddit-como-espacio-de-deliberación-política" id="toc-reddit-como-espacio-de-deliberación-política" class="nav-link" data-scroll-target="#reddit-como-espacio-de-deliberación-política"><span class="header-section-number">3.7</span> Reddit como espacio de deliberación política</a></li>
-  <li><a href="#modelo-analítico-integrado" id="toc-modelo-analítico-integrado" class="nav-link" data-scroll-target="#modelo-analítico-integrado"><span class="header-section-number">3.8</span> Modelo analítico integrado</a></li>
+  <li><a href="#polarización-afectiva" id="toc-polarización-afectiva" class="nav-link active" data-scroll-target="#polarización-afectiva"><span class="header-section-number">3.1</span> Polarización afectiva</a></li>
+  <li><a href="#construcción-de-adversarios-y-frontera-política" id="toc-construcción-de-adversarios-y-frontera-política" class="nav-link" data-scroll-target="#construcción-de-adversarios-y-frontera-política"><span class="header-section-number">3.2</span> Construcción de adversarios y frontera política</a></li>
+  <li><a href="#encuadre-y-emociones-en-el-discurso-político" id="toc-encuadre-y-emociones-en-el-discurso-político" class="nav-link" data-scroll-target="#encuadre-y-emociones-en-el-discurso-político"><span class="header-section-number">3.3</span> Encuadre y emociones en el discurso político</a></li>
+  <li><a href="#derechas-contemporáneas-en-chile" id="toc-derechas-contemporáneas-en-chile" class="nav-link" data-scroll-target="#derechas-contemporáneas-en-chile"><span class="header-section-number">3.4</span> Derechas contemporáneas en Chile</a></li>
+  <li><a href="#reddit-como-espacio-de-polarización-política" id="toc-reddit-como-espacio-de-polarización-política" class="nav-link" data-scroll-target="#reddit-como-espacio-de-polarización-política"><span class="header-section-number">3.5</span> Reddit como espacio de polarización política</a></li>
+  <li><a href="#modelo-analítico-integrado" id="toc-modelo-analítico-integrado" class="nav-link" data-scroll-target="#modelo-analítico-integrado"><span class="header-section-number">3.6</span> Modelo analítico integrado</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/03-marco.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -228,7 +206,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Marco teórico</span></h1>
-<p class="subtitle lead">Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile</p>
+<p class="subtitle lead">Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025</p>
 </div>
 
 
@@ -251,107 +229,38 @@ div.csl-indent {
 </header>
 
 
-<section id="comunicación-política-en-entornos-digitales" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="comunicación-política-en-entornos-digitales"><span class="header-section-number">3.1</span> Comunicación política en entornos digitales</h2>
-<p>Las plataformas digitales no amplían cuantitativamente la esfera pública: la reconfiguran cualitativamente. La literatura ha identificado (Boyd, 2010) cuatro propiedades estructurales —persistencia, replicabilidad, escalabilidad y buscabilidad— que distinguen los entornos digitales de espacios comunicativos previos. A estas se suman la <strong>mediación algorítmica</strong> (que privilegia contenidos emocionalmente activadores), el <strong>colapso de contextos</strong> (convergencia de audiencias antes separadas) y las <strong>métricas de rendimiento</strong> (retroalimentación inmediata que orienta la conducta comunicativa).</p>
-<p>Más allá de sus propiedades técnicas, las plataformas deben entenderse como infraestructuras de poder privadas que ejercen moderación, optimizan el <em>engagement</em> y consolidan efectos de red con consecuencias desproporcionadas para la calidad del debate democrático <span class="citation" data-cites="Gillespie2018 vanDijck2018">(<a href="references.html#ref-Gillespie2018" role="doc-biblioref">Gillespie 2018</a>; <a href="references.html#ref-vanDijck2018" role="doc-biblioref">Dijck 2018</a>)</span>.</p>
+<section id="polarización-afectiva" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="polarización-afectiva"><span class="header-section-number">3.1</span> Polarización afectiva</h2>
+<p>La polarización afectiva designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones (Iyengar, 2019). Es analíticamente distinta de la polarización ideológica — ambas pueden variar de manera independiente — y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas (Boxell, 2022).</p>
+<p>Sus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con métricas de aprobación (Brady, 2017; Settle, 2018). Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando (Graham, 2020).</p>
 </section>
-<section id="polarización-afectiva" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="polarización-afectiva"><span class="header-section-number">3.2</span> Polarización afectiva</h2>
-<p>La <strong>polarización afectiva</strong> designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones <span class="citation" data-cites="Iyengar2019">(<a href="references.html#ref-Iyengar2019" role="doc-biblioref">Iyengar 2019</a>)</span>. Es analíticamente distinta de la polarización ideológica: ambas pueden variar de manera independiente, y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas <span class="citation" data-cites="Boxell2022">(<a href="references.html#ref-Boxell2022" role="doc-biblioref">Boxell 2022</a>)</span>.</p>
-<p>Sus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con <em>likes</em> <span class="citation" data-cites="Brady2017 Settle2018">(<a href="references.html#ref-Brady2017" role="doc-biblioref">Brady 2017</a>; <a href="references.html#ref-Settle2018" role="doc-biblioref">Settle 2018</a>)</span>. Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando <span class="citation" data-cites="Graham2020">(<a href="references.html#ref-Graham2020" role="doc-biblioref">Graham 2020</a>)</span>.</p>
+<section id="construcción-de-adversarios-y-frontera-política" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="construcción-de-adversarios-y-frontera-política"><span class="header-section-number">3.2</span> Construcción de adversarios y frontera política</h2>
+<p>Las identidades colectivas no son esencias preexistentes: emergen a través de la diferenciación. Todo “nosotros” se constituye en relación con un “ellos” (Laclau, 1985). Mouffe (2005) distingue antagonismo — relación entre enemigos sin espacio común — de agonismo — relación entre adversarios que comparten el marco democrático. Esta distinción permite preguntar si los actores construyen a sus oponentes como participantes legítimos o como amenazas existenciales.</p>
+<p>Las estrategias de deslegitimación incluyen asociación negativa, atribución de intenciones ocultas, ridiculización, esencialización y construcción de amenaza. Para esta investigación resulta crucial distinguir entre fronteras inter-bloque (izquierda vs.&nbsp;derecha) y fronteras intra-bloque (entre corrientes de derecha), que generan tensiones estratégicas entre diferenciación y convergencia.</p>
 </section>
-<section id="teoría-del-framing" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="teoría-del-framing"><span class="header-section-number">3.3</span> Teoría del <em>framing</em></h2>
-<p>El encuadre consiste en seleccionar aspectos de la realidad y hacerlos prominentes para promover una definición del problema, una interpretación causal y una evaluación moral <span class="citation" data-cites="Entman1993">(<a href="references.html#ref-Entman1993" role="doc-biblioref">Entman 1993</a>)</span>. La competencia política es, en parte significativa, competencia entre marcos alternativos: quien establece el marco dominante condiciona las opciones que parecen razonables.</p>
-<p>Se distinguen <strong>marcos genéricos</strong> (conflicto, interés humano, consecuencias económicas, atribución de responsabilidad, moralidad) y <strong>marcos específicos</strong> propios de cada controversia <span class="citation" data-cites="Semetko2000">(<a href="references.html#ref-Semetko2000" role="doc-biblioref">Semetko 2000</a>)</span>. Para campañas electorales resulta útil añadir la distinción entre marcos diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).</p>
-<p>En entornos digitales, el <em>framing</em> es observable como proceso: los marcos son propuestos, contestados y reformulados en tiempo real. La estructura anidada de Reddit —con sistemas de votación y conversaciones persistentes— es particularmente adecuada para este análisis longitudinal <span class="citation" data-cites="Meraz2013">(<a href="references.html#ref-Meraz2013" role="doc-biblioref">Meraz 2013</a>)</span>.</p>
+<section id="encuadre-y-emociones-en-el-discurso-político" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="encuadre-y-emociones-en-el-discurso-político"><span class="header-section-number">3.3</span> Encuadre y emociones en el discurso político</h2>
+<p>El encuadre consiste en seleccionar aspectos de la realidad y hacerlos prominentes para promover una definición del problema, una interpretación causal y una evaluación moral (Entman, 1993). Se distinguen marcos genéricos — conflicto, consecuencias económicas, atribución de responsabilidad, moralidad — y marcos específicos propios de cada controversia (Semetko, 2000). Para campañas electorales resulta útil añadir la distinción entre marcos diagnósticos (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y motivacionales (¿qué está en juego?).</p>
+<p>Las emociones, por su parte, no son ruido que distorsiona el juicio racional: son componentes constitutivos de la cognición y la acción política (Marcus, 2000). El concepto de repertorio afectivo — la configuración característica de emociones movilizadas por un actor, su combinación y los objetos hacia los que se dirigen — resulta más operativo que el registro de emociones aisladas (Jasper, 2011). La indignación moral merece atención especial: combina valencia negativa con alta activación y orientación a la acción, se difunde más que otras emociones y genera bajo costo de expresión con recompensas sociales inmediatas (Crockett, 2017).</p>
+<p>Encuadre y emoción se articulan en el análisis como dimensiones complementarias: el marco establece <em>de qué</em> se habla, la emoción determina <em>con qué intensidad y valencia</em> se habla. Su combinación — por ejemplo, un marco de conflicto acoplado con desprecio versus un marco diagnóstico acoplado con indignación — constituye lo que esta tesis denomina <em>configuración discursiva</em>, unidad de análisis central en los capítulos de resultados.</p>
 </section>
-<section id="emociones-políticas" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="emociones-políticas"><span class="header-section-number">3.4</span> Emociones políticas</h2>
-<p>Las emociones no son ruido que distorsiona el juicio racional: son componentes constitutivos de la cognición y la acción política <span class="citation" data-cites="Marcus2000">(<a href="references.html#ref-Marcus2000" role="doc-biblioref">Marcus 2000</a>)</span>. La teoría de la inteligencia afectiva distingue un sistema de disposiciones (activado en entornos familiares, refuerza hábitos mediante entusiasmo o aversión) y un sistema de vigilancia (activado ante amenaza o incertidumbre, genera ansiedad que puede interrumpir el procesamiento automático y abrir espacio a la persuasión).</p>
-<p>Para el análisis empírico, el concepto de <strong>repertorio afectivo</strong> —la configuración característica de emociones movilizadas por un actor, su combinación y los objetos hacia los que se dirigen— resulta más útil que el registro de emociones aisladas <span class="citation" data-cites="Jasper2011">(<a href="references.html#ref-Jasper2011" role="doc-biblioref">Jasper 2011</a>)</span>. Permite preguntar: ¿qué proporción del contenido emocional se dirige al endogrupo versus al exogrupo? ¿Cómo articula el actor emociones positivas y negativas?</p>
-<p>La <strong>indignación moral</strong> merece atención especial: combina valencia negativa con alta activación y orientación a la acción, se difunde más que otras emociones y genera bajo costo de expresión con recompensas sociales inmediatas <span class="citation" data-cites="Crockett2017">(<a href="references.html#ref-Crockett2017" role="doc-biblioref">Crockett 2017</a>)</span>.</p>
+<section id="derechas-contemporáneas-en-chile" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="derechas-contemporáneas-en-chile"><span class="header-section-number">3.4</span> Derechas contemporáneas en Chile</h2>
+<p>La coexistencia de múltiples corrientes de derecha en Chile genera dinámicas de competencia intra-bloque que constituyen un laboratorio analítico de particular valor. Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas: la derecha tradicional emplea un registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas digitales (Norris, 2019). En el contexto de la campaña presidencial de 2025, los candidatos Matthei, Kast, Kaiser y Jara representan posiciones diferenciadas dentro de este espectro, con estrategias de diferenciación interna que conviven con presiones de convergencia frente al adversario común de izquierda.</p>
 </section>
-<section id="construcción-de-adversarios" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="construcción-de-adversarios"><span class="header-section-number">3.5</span> Construcción de adversarios</h2>
-<p>Las identidades colectivas no son esencias preexistentes: emergen a través de la diferenciación. Todo “nosotros” se constituye en relación con un “ellos” <span class="citation" data-cites="Laclau1985">(<a href="references.html#ref-Laclau1985" role="doc-biblioref">Laclau 1985</a>)</span>. En contextos electorales, analizar cómo se construyen los adversarios —qué atributos se les asignan, qué estrategias se emplean para deslegitimarlos— es una vía privilegiada para comprender la configuración del espacio político.</p>
-<p>Mouffe (2005) distingue <strong>antagonismo</strong> (relación entre enemigos sin espacio común, suma cero) de <strong>agonismo</strong> (relación entre adversarios que comparten el marco democrático). Esta distinción permite preguntar si los actores construyen a sus oponentes como participantes legítimos o como amenazas existenciales.</p>
-<p>Las estrategias de deslegitimación incluyen: asociación negativa, atribución de intenciones ocultas, ridiculización, esencialización y construcción de amenaza. Para esta investigación resulta además crucial distinguir entre <strong>fronteras inter-bloque</strong> (izquierda vs.&nbsp;derecha) y <strong>fronteras intra-bloque</strong> (entre corrientes de derecha), que generan tensiones estratégicas entre diferenciación y convergencia.</p>
+<section id="reddit-como-espacio-de-polarización-política" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="reddit-como-espacio-de-polarización-política"><span class="header-section-number">3.5</span> Reddit como espacio de polarización política</h2>
+<p>Reddit se estructura en torno a comunidades temáticas (subreddits) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación (karma) ofrece un indicador de resonancia comunitaria; y la persistencia temporal del contenido habilita el análisis longitudinal (Proferes, 2021).</p>
+<p>Estas propiedades hacen de Reddit un espacio particularmente adecuado para estudiar la polarización afectiva por tres razones. Primero, el pseudonimato reduce los costos de expresión hostil en comparación con plataformas donde la identidad real es visible, lo que puede amplificar la intensidad del discurso adversarial. Segundo, la estructura anidada de conversación permite observar el <em>framing</em> como proceso: los marcos son propuestos, contestados y reformulados en tiempo real, a diferencia de plataformas de flujo lineal como X/Twitter (Meraz, 2013). Tercero, la coexistencia de comunidades con culturas discursivas contrastantes dentro de un mismo tema político permite la comparación controlada.</p>
+<p>En el contexto chileno, r/chile (generalista, tendencia centro-izquierda) y r/RepublicadeChile (surgida como escisión, mayor tolerancia a discursos confrontacionales) constituyen un caso comparativo natural. Ambas comunidades procesan las mismas controversias electorales, pero con normas de moderación, composición ideológica y umbrales de hostilidad diferenciados. Esta variación permite examinar si los patrones de polarización observados responden a la estructura del debate político o a la cultura discursiva específica de cada comunidad.</p>
+<p>No obstante, Reddit presenta limitaciones conocidas como corpus de investigación: sesgo demográfico hacia usuarios jóvenes, masculinos y con mayor nivel educativo; imposibilidad de verificar identidades reales; y ausencia de representatividad respecto de la opinión pública general (Zimmer, 2017). Estas limitaciones se discuten en el capítulo de conclusiones como acotaciones del alcance interpretativo de los hallazgos.</p>
 </section>
-<section id="derechas-contemporáneas" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="derechas-contemporáneas"><span class="header-section-number">3.6</span> Derechas contemporáneas</h2>
-<p>La tipología de Mudde (2007) distingue <strong>extrema derecha</strong> (rechaza principios democráticos) de <strong>derecha radical</strong> (los acepta nominalmente pero los tensiona mediante nativismo, autoritarismo y populismo). A estas se suman la <strong>derecha tradicional</strong> (privilegia estabilidad y continuidad institucional) y la <strong>derecha libertaria</strong> (ultraliberalismo, crítica al establishment, códigos digitales).</p>
-<p>Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas: la derecha tradicional emplea registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas de internet <span class="citation" data-cites="Norris2019">(<a href="references.html#ref-Norris2019" role="doc-biblioref">Norris 2019</a>)</span>.</p>
-<p>La coexistencia de las tres derechas en el caso chileno genera dinámicas de competencia intra-bloque —disputa por electorados superpuestos, estrategias de diferenciación, presiones de convergencia frente al adversario común— que constituyen un laboratorio analítico de particular valor.</p>
-</section>
-<section id="reddit-como-espacio-de-deliberación-política" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="reddit-como-espacio-de-deliberación-política"><span class="header-section-number">3.7</span> Reddit como espacio de deliberación política</h2>
-<p>Reddit se estructura en torno a comunidades temáticas (<em>subreddits</em>) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación ofrece un indicador de resonancia comunitaria; y la persistencia habilita el análisis longitudinal <span class="citation" data-cites="Proferes2021">(<a href="references.html#ref-Proferes2021" role="doc-biblioref">Proferes 2021</a>)</span>.</p>
-<p>En el contexto chileno, <strong>r/chile</strong> (generalista, tendencia centro-izquierda) y <strong>r/RepublicadeChile</strong> (surgida como escisión, tolerancia de discursos más confrontacionales) constituyen un caso comparativo que permite examinar cómo una misma controversia es procesada de manera diferenciada según la cultura discursiva de la comunidad.</p>
-</section>
-<section id="modelo-analítico-integrado" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="modelo-analítico-integrado"><span class="header-section-number">3.8</span> Modelo analítico integrado</h2>
-<p>El modelo integrado sigue una secuencia analítica:</p>
-<ol type="1">
-<li><strong>Contexto</strong>: fragmentación partidaria, reconfiguración de derechas y plataformización.</li>
-<li><strong>Actores</strong>: Matthei, Kast, Kaiser y Jara.</li>
-<li><strong>Dimensiones</strong>: framing, emoción y construcción de adversarios.</li>
-<li><strong>Dinámicas</strong>: competencia intra-derecha, convergencia anti-izquierda y evolución temporal.</li>
-<li><strong>Resultado</strong>: identificación de patrones discursivos por corriente ideológica.</li>
-</ol>
+<section id="modelo-analítico-integrado" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="modelo-analítico-integrado"><span class="header-section-number">3.6</span> Modelo analítico integrado</h2>
+<p>El modelo integrado de esta tesis articula las dimensiones anteriores en una secuencia analítica orientada por la pregunta central: cómo se reconfigura el antagonismo político en la conversación digital de derechas. La polarización afectiva opera como fenómeno a explicar; la construcción de adversarios y la frontera política como mecanismo central; el encuadre y las emociones como dimensiones observables del discurso; y Reddit como espacio empírico donde estas dinámicas se despliegan. Los capítulos de modelado e interpretación traducen este esquema en variables operacionales y resultados cuantificables.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-Boxell2022" class="csl-entry" role="listitem">
-Boxell. 2022. <span>«Boxell2022»</span>.
-</div>
-<div id="ref-Brady2017" class="csl-entry" role="listitem">
-Brady. 2017. <span>«Brady2017»</span>.
-</div>
-<div id="ref-Crockett2017" class="csl-entry" role="listitem">
-Crockett. 2017. <span>«Crockett2017»</span>.
-</div>
-<div id="ref-vanDijck2018" class="csl-entry" role="listitem">
-Dijck, van. 2018. <span>«vanDijck2018»</span>.
-</div>
-<div id="ref-Entman1993" class="csl-entry" role="listitem">
-Entman. 1993. <span>«Entman1993»</span>.
-</div>
-<div id="ref-Gillespie2018" class="csl-entry" role="listitem">
-Gillespie. 2018. <span>«Gillespie2018»</span>.
-</div>
-<div id="ref-Graham2020" class="csl-entry" role="listitem">
-Graham. 2020. <span>«Graham2020»</span>.
-</div>
-<div id="ref-Iyengar2019" class="csl-entry" role="listitem">
-Iyengar. 2019. <span>«Iyengar2019»</span>.
-</div>
-<div id="ref-Jasper2011" class="csl-entry" role="listitem">
-Jasper. 2011. <span>«Jasper2011»</span>.
-</div>
-<div id="ref-Laclau1985" class="csl-entry" role="listitem">
-Laclau. 1985. <span>«Laclau1985»</span>.
-</div>
-<div id="ref-Marcus2000" class="csl-entry" role="listitem">
-Marcus. 2000. <span>«Marcus2000»</span>.
-</div>
-<div id="ref-Meraz2013" class="csl-entry" role="listitem">
-Meraz. 2013. <span>«Meraz2013»</span>.
-</div>
-<div id="ref-Norris2019" class="csl-entry" role="listitem">
-Norris. 2019. <span>«Norris2019»</span>.
-</div>
-<div id="ref-Proferes2021" class="csl-entry" role="listitem">
-Proferes. 2021. <span>«Proferes2021»</span>.
-</div>
-<div id="ref-Semetko2000" class="csl-entry" role="listitem">
-Semetko. 2000. <span>«Semetko2000»</span>.
-</div>
-<div id="ref-Settle2018" class="csl-entry" role="listitem">
-Settle. 2018. <span>«Settle2018»</span>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->

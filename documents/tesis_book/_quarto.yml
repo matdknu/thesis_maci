@@ -53,7 +53,7 @@ book:
 format:
   html:
     title: "Derecha fragmentada y un enemigo compartido"
-    subtitle: "Análisis textual longitudinal de la contestación discursiva en las elecciones presidenciales de 2025 en Chile"
+    subtitle: "Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025"
     author: "Matías Deneken"
     language: es
     lang: es
@@ -83,7 +83,10 @@ format:
 # FORMATO PDF
 # ============================================================================
   pdf:
-    keep-tex: false
+    keep-tex: true
+    # Listas de figuras/tablas: varias pasadas para poblar .lof/.lot desde el .aux
+    latex-min-runs: 4
+    latex-max-runs: 10
     language: es
     documentclass: scrreprt
     classoption: 
@@ -124,8 +127,8 @@ format:
     fig-dpi: 300
     fig-pos: "H"
     
-    # Fuente y espaciado
-    linestretch: 1.5
+    # Fuente y espaciado (1,35 ≈ un tercio más que sencillo; antes 1,5)
+    linestretch: 1.25
     
     # Portada antes del contenido
     include-before-body:
@@ -134,6 +137,8 @@ format:
     # Cabecera LaTeX
     include-in-header:
       text: |
+        % Compatibilidad caption/listings/etc. con KOMA (evita listas vacías o captions rotos)
+        \usepackage{scrhack}
         \usepackage{booktabs}
         \usepackage{longtable}
         \usepackage{array}
@@ -142,7 +147,7 @@ format:
         \usepackage{xcolor}
         \usepackage{caption}
         \usepackage{fancyhdr}
-        \captionsetup{font=small,labelfont=bf,skip=8pt}
+        \captionsetup{font=small,labelfont=bf,skip=8pt,list=yes}
         \renewcommand{\arraystretch}{1.2}
         
         % Configuración de encabezados
@@ -153,11 +158,13 @@ format:
         \fancyhead[RE]{\nouppercase{\rightmark}}
         \renewcommand{\headrulewidth}{0.4pt}
         
-        % Títulos de índices en español (después de babel/polyglossia)
-        \AtBeginDocument{%
+        % Pandoc inyecta otro \AtBeginDocument que vuelve a poner nombres en inglés;
+        % este hook corre al final de begin document y deja los títulos en español.
+        \AddToHook{begindocument/end}{%
           \renewcommand{\contentsname}{Índice General}%
           \renewcommand{\listfigurename}{Índice de Figuras}%
           \renewcommand{\listtablename}{Índice de Tablas}%
+          \captionsetup{list=yes}%
         }
         % Sin encabezado en páginas preliminares
         \AtBeginDocument{
@@ -181,6 +188,13 @@ format:
         \clubpenalty=10000
         \widowpenalty=10000
         \displaywidowpenalty=10000
+        
+        % Menos espacio en blanco antes del título de capítulo (empieza más arriba)
+        \makeatletter
+        \@ifundefined{chapter}{}{%
+          \renewcommand*{\chapterheadstartvskip}{\vspace*{-2.5\baselineskip}}%
+        }
+        \makeatother
 
 # ============================================================================
 # CONFIGURACIÓN DE EJECUCIÓN

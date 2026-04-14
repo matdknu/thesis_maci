@@ -33,6 +33,28 @@ read_or_empty <- function(path) {
   if (file.exists(path)) read.csv(path, stringsAsFactors = FALSE) else data.frame()
 }
 
+#' En salida LaTeX, los guiones bajos en títulos/notas de tabla activan subíndices
+#' ("Missing $ inserted"). Escapa como \\_ fuera de modo matemático.
+latex_escape_underscores <- function(text) {
+  if (!length(text)) {
+    return(text)
+  }
+  if (!isTRUE(knitr::is_latex_output())) {
+    return(text)
+  }
+  vapply(
+    as.character(text),
+    function(x) {
+      if (!nzchar(x)) {
+        return(x)
+      }
+      gsub("_", "\\_", x, fixed = TRUE)
+    },
+    character(1),
+    USE.NAMES = FALSE
+  )
+}
+
 # Pandas/CSV: TRUE/FALSE como texto; o 0/1 desde scripts Python
 as_signif_05 <- function(x) {
   if (is.logical(x)) return(x)
@@ -124,12 +146,24 @@ kable_apa <- function(
     max_rows_longtable = 45L
 ) {
   df <- as.data.frame(df)
+  chunk_label <- tryCatch(knitr::opts_current$get("label"), error = function(e) NULL)
+  # En tablas del anexo con label tbl-anexo-*, Quarto genera el float/caption
+  # externo. Evitamos una caption interna duplicada (que crea entradas vacías en LoT).
+  if (isTRUE(knitr::is_latex_output()) &&
+      !is.null(chunk_label) &&
+      startsWith(as.character(chunk_label), "tbl-anexo-")) {
+    caption <- NULL
+  }
   if (!is.null(col.names)) colnames(df) <- col.names
   if (is.null(align)) {
     align <- paste(ifelse(vapply(df, is.numeric, logical(1)), "r", "l"), collapse = "")
   }
   if (is.null(longtable)) {
     longtable <- isTRUE(nrow(df) > max_rows_longtable)
+  }
+  caption <- latex_escape_underscores(caption)
+  if (length(note)) {
+    note <- latex_escape_underscores(note)
   }
   # kableExtra: scale_down sobre longtable dispara aviso y puede envolver en landscape en el PDF.
   # Si piden scale_down en LaTeX, forzar tabular (sin longtable).

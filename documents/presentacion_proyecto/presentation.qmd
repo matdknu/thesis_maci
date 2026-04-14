@@ -160,6 +160,13 @@ hola locoooo
 
 ![](../../outputs/thesis_figures/fig2_evolucion_temporal.png){.r-stretch fig-align="center"}
 
+# Tres historias
+
+## La polarización en el texto: OpenAI y DeepSeek
+## Marcos interpretativos y predicción de la polarización
+## Identificación de los polarizantes y uso de palabras.
+
+
 ## Actividad y polarización de uso (exploratorio)
 
 ![](../../outputs/thesis_figures/fig_engagement_candidatos.png){.r-stretch fig-align="center"}
