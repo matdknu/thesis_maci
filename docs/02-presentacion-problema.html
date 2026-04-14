@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -196,7 +216,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#los-actores-tres-derechas-y-un-adversario" id="toc-los-actores-tres-derechas-y-un-adversario" class="nav-link" data-scroll-target="#los-actores-tres-derechas-y-un-adversario">Los actores: tres derechas y un adversario</a></li>
   <li><a href="#las-dimensiones-analíticas" id="toc-las-dimensiones-analíticas" class="nav-link" data-scroll-target="#las-dimensiones-analíticas">Las dimensiones analíticas</a></li>
-  <li><a href="#los-niveles-de-análisis" id="toc-los-niveles-de-análisis" class="nav-link" data-scroll-target="#los-niveles-de-análisis">Los niveles de análisis</a></li>
   </ul></li>
   <li><a href="#descripción-de-la-propuesta-analítica" id="toc-descripción-de-la-propuesta-analítica" class="nav-link" data-scroll-target="#descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> Descripción de la propuesta analítica</a>
   <ul class="collapse">
@@ -250,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.1</span> El problema: competencia política digital en un sistema fragmentado</h2>
-<p>El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.</p>
+<p>El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas <span class="citation" data-cites="gonzalez2024RoleNormsPromoters">(<a href="references.html#ref-gonzalez2024RoleNormsPromoters" role="doc-biblioref">González 2024</a>)</span> —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.</p>
 <p>El <strong>problema central</strong> que aborda esta investigación puede formularse así:</p>
 <blockquote class="blockquote">
 <p>En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?</p>
@@ -259,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p><strong>Vacío empírico</strong>: Mientras abundan los estudios sobre polarización izquierda-derecha, la competencia <em>intra-bloque</em> —particularmente entre derechas— permanece subexplorada en América Latina.</p></li>
 <li><p><strong>Transformación en curso</strong>: Las derechas chilenas están en proceso de reconfiguración activa; estudiar este proceso mientras ocurre permite capturar dinámicas que análisis retrospectivos pierden.</p></li>
-<li><p><strong>Implicancias democráticas</strong>: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización.</p></li>
+<li><p><strong>Implicancias democráticas</strong>: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización <span class="citation" data-cites="kingzette2021HowAffectivePolarization">(<a href="references.html#ref-kingzette2021HowAffectivePolarization" role="doc-biblioref">Kingzette et&nbsp;al. 2021</a>)</span>.</p></li>
 </ol>
 </section>
 <section id="acercamiento-actores-dimensiones-y-niveles-de-análisis" class="level2" data-number="2.2">
@@ -327,62 +346,17 @@ Tabla&nbsp;2.1: Candidaturas analizadas y perfil ideológico.
 <p><strong>Dimensión 2: Emoción</strong> - ¿Qué emociones movilizan las distintas candidaturas? - ¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién se dirigen las emociones negativas?</p>
 <p><strong>Dimensión 3: Construcción de adversarios</strong> - ¿Quiénes son construidos como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs. izquierda) con los intra-bloque (entre derechas)?</p>
 </section>
-<section id="los-niveles-de-análisis" class="level3">
-<h3 class="anchored" data-anchor-id="los-niveles-de-análisis">Los niveles de análisis</h3>
-<p>El diseño contempla tres niveles de observación:</p>
-<div id="tbl-niveles-analisis" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-niveles-analisis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;2.2: Niveles de análisis del estudio.
-</figcaption>
-<div aria-describedby="tbl-niveles-analisis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 24%">
-<col style="width: 54%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Nivel</th>
-<th>Unidad</th>
-<th>Foco analítico</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Macro</strong></td>
-<td>Corpus completo</td>
-<td>Tendencias agregadas, evolución temporal, comparación entre subreddits</td>
-</tr>
-<tr class="even">
-<td><strong>Meso</strong></td>
-<td>Hilos de discusión</td>
-<td>Dinámicas conversacionales, patrones de confrontación/consenso</td>
-</tr>
-<tr class="odd">
-<td><strong>Micro</strong></td>
-<td>Posts y comentarios individuales</td>
-<td>Estrategias retóricas específicas, ejemplos ilustrativos</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>La <a href="#tbl-niveles-analisis" class="quarto-xref">Tabla&nbsp;<span>2.2</span></a> resume cómo se articula el análisis en escalas macro, meso y micro.</p>
-</section>
 </section>
 <section id="descripción-de-la-propuesta-analítica" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> Descripción de la propuesta analítica</h2>
 <section id="enfoque-general" class="level3">
 <h3 class="anchored" data-anchor-id="enfoque-general">Enfoque general</h3>
-<p>La propuesta combina <strong>ciencia social computacional</strong> con <strong>análisis interpretativo del discurso político</strong>. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos.</p>
+<p>La propuesta combina <strong>ciencia social computacional</strong> con <strong>análisis interpretativo del discurso político</strong> <span class="citation" data-cites="keuschnigg2018AnalyticalSociologyComputational">(<a href="references.html#ref-keuschnigg2018AnalyticalSociologyComputational" role="doc-biblioref">Keuschnigg, Lovsjö, y Hedström 2018</a>)</span>. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos <span class="citation" data-cites="hofman2021IntegratingExplanationPrediction">(<a href="references.html#ref-hofman2021IntegratingExplanationPrediction" role="doc-biblioref">Hofman et&nbsp;al. 2021</a>)</span>.</p>
 <p>El flujo analítico puede representarse así:</p>
 <div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/diagrama.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+<img src="fig_thesis/diagrama.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:81.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2.1: Pipeline analítico: de la recolección del corpus a los hallazgos sustantivos.
@@ -423,7 +397,7 @@ Figura&nbsp;2.1: Pipeline analítico: de la recolección del corpus a los hallaz
 <div id="tbl-objetivos-mvp" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-objetivos-mvp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;2.3: Objetivos operacionales, entregables e indicadores de cumplimiento del MVP.
+Tabla&nbsp;2.2: Objetivos operacionales, entregables e indicadores de cumplimiento del MVP.
 </figcaption>
 <div aria-describedby="tbl-objetivos-mvp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -470,7 +444,7 @@ Tabla&nbsp;2.3: Objetivos operacionales, entregables e indicadores de cumplimien
 </div>
 </figure>
 </div>
-<p>La planificación operativa del estudio se detalla en la <a href="#tbl-objetivos-mvp" class="quarto-xref">Tabla&nbsp;<span>2.3</span></a>.</p>
+<p>La planificación operativa del estudio se detalla en la <a href="#tbl-objetivos-mvp" class="quarto-xref">Tabla&nbsp;<span>2.2</span></a>.</p>
 </section>
 <section id="alcances-y-limitaciones-anticipadas" class="level3">
 <h3 class="anchored" data-anchor-id="alcances-y-limitaciones-anticipadas">Alcances y limitaciones anticipadas</h3>
@@ -503,6 +477,20 @@ Tabla&nbsp;2.3: Objetivos operacionales, entregables e indicadores de cumplimien
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gonzalez2024RoleNormsPromoters" class="csl-entry" role="listitem">
+González, Roberto. 2024. <span>«The Role of Norms as Promoters of Social Change»</span>. <em>Political Psychology</em>, septiembre, pops.13025. <a href="https://doi.org/10.1111/pops.13025">https://doi.org/10.1111/pops.13025</a>.
+</div>
+<div id="ref-hofman2021IntegratingExplanationPrediction" class="csl-entry" role="listitem">
+Hofman, Jake M., Duncan J. Watts, Susan Athey, Filiz Garip, Thomas L. Griffiths, Jon Kleinberg, Helen Margetts, et&nbsp;al. 2021. <span>«Integrating Explanation and Prediction in Computational Social Science»</span>. <em>Nature</em> 595 (7866): 181-88. <a href="https://doi.org/10.1038/s41586-021-03659-0">https://doi.org/10.1038/s41586-021-03659-0</a>.
+</div>
+<div id="ref-keuschnigg2018AnalyticalSociologyComputational" class="csl-entry" role="listitem">
+Keuschnigg, Marc, Niclas Lovsjö, y Peter Hedström. 2018. <span>«Analytical Sociology and Computational Social Science»</span>. <em>Journal of Computational Social Science</em> 1 (1): 3-14. <a href="https://doi.org/10.1007/s42001-017-0006-5">https://doi.org/10.1007/s42001-017-0006-5</a>.
+</div>
+<div id="ref-kingzette2021HowAffectivePolarization" class="csl-entry" role="listitem">
+Kingzette, Jon, James N Druckman, Samara Klar, Yanna Krupnikov, Matthew Levendusky, y John Barry Ryan. 2021. <span>«How <span>Affective Polarization Undermines Support</span> for <span>Democratic Norms</span>»</span>. <em>Public Opinion Quarterly</em> 85 (2): 663-77. <a href="https://doi.org/10.1093/poq/nfab029">https://doi.org/10.1093/poq/nfab029</a>.
+</div>
+</div>
 </section>
 </section>
 

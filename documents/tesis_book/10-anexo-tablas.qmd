@@ -274,7 +274,7 @@ if (nrow(ols)) {
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "coefplot_ols_polarizacion.png"))) {
-  cat('![Coeficientes OLS para polarización.](fig_thesis/coefplot_ols_polarizacion.png){#fig-anexo-coefplot-ols fig-align="center" width="82%"}\n')
+  cat('![Coeficientes OLS para polarización.](fig_thesis/coefplot_ols_polarizacion.png){#fig-anexo-coefplot-ols fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -328,7 +328,15 @@ if (nrow(me)) {
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "distribucion_estrategias_candidato.png"))) {
-  cat('![Estrategias discursivas por candidato objetivo.](fig_thesis/distribucion_estrategias_candidato.png){#fig-anexo-estrategias-candidato fig-align="center" width="82%"}\n')
+  cat('![Estrategias discursivas por candidato objetivo.](fig_thesis/distribucion_estrategias_candidato.png){#fig-anexo-estrategias-candidato fig-align="center" width="74%"}\n')
+}
+```
+
+```{r fig-anexo-autores-scatter}
+#| results: asis
+#| echo: false
+if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
+  cat('![Actividad y polarización media por autor.](fig_thesis/scatter_actividad_polarizacion_autores.png){#fig-anexo-autores-scatter fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -420,4 +428,8 @@ if (file.exists(emo_path)) {
     align = "lllr"
   )
 }
+```
+
+```{=latex}
+\clearpage
 ```

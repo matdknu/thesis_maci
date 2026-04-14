@@ -45,7 +45,7 @@ if (!file.exists(api_path)) api_path <- file.path(base_dir, "data", "processed",
 api_df <- read_or_empty(api_path)
 ```
 
-Se aplicó...
+Este capítulo traduce las dimensiones descriptivas del capítulo anterior en un ejercicio de modelado formal orientado por tres preguntas secuenciales. Primero, ¿son confiables las variables producidas por el sistema de anotación dual? Segundo, ¿qué capacidad predictiva tienen esas variables sobre la polarización discursiva? Tercero, ¿qué factores explican la intensidad de la hostilidad en los comentarios? Para responderlas, el capítulo se organiza en dos bloques: consistencia de medición — donde se evalúa el acuerdo entre anotadores, se modela el desacuerdo y se cuantifica el valor añadido de las variables LLM y ,modelado de polarización, donde se comparan estrategias de regresión y clasificación, se inspecciona la importancia de cada predictor y se identifican los perfiles discursivos que estructuran el corpus.
 
 ## Consistencia de medición
 
@@ -133,7 +133,7 @@ Para caracterizar las condiciones bajo las cuales ambos sistemas discrepan, se e
 La tabla comparativa de configuraciones (solo TF-IDF, solo variables LLM, combinado) figura en el Anexo A (@tbl-anexo-config-features). La @fig-r2-configuraciones sintetiza el resultado principal.
 
 ![Comparación de R² por configuración de variables.](fig_thesis/figura_r2_configuraciones.png){#fig-r2-configuraciones
-fig-align="center" width="85%"}
+fig-align="center" width="76%"}
 
 
 Este resultado constituye el argumento técnico central del capítulo. Si las variables LLM fueran redundantes respecto del texto crudo, el bloque discursivo no debería superar al TF-IDF. Sin embargo, las variables LLM por sí solas alcanzan un R² superior (0.554 vs. 0.432), y en combinación con TF-IDF el rendimiento sube a R² = 0.618 — un incremento de +0.187 sobre el texto puro. Esto sugiere que el sistema no solo recodifica la información ya presente en el texto, sino que recupera estructura discursiva adicional que las representaciones de bolsa de palabras no capturan.
@@ -146,7 +146,7 @@ El diagrama de fiabilidad (@fig-reliability) muestra que tanto RandomForest como
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "reliability_diagram_calibracion.png"))) {
-  cat('![Calibración del clasificador de polarización alta.](fig_thesis/reliability_diagram_calibracion.png){#fig-reliability fig-align="center" width="82%"}\n')
+  cat('![Calibración del clasificador de polarización alta.](fig_thesis/reliability_diagram_calibracion.png){#fig-reliability fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -219,7 +219,7 @@ La @fig-perm confirma desde una perspectiva no paramétrica lo que el OLS sugier
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png"))) {
-  cat('![Importancia por permutación en el modelo de polarización.](fig_thesis/permutation_importance_polarizacion.png){#fig-perm fig-align="center" width="82%"}\n')
+  cat('![Importancia por permutación en el modelo de polarización.](fig_thesis/permutation_importance_polarizacion.png){#fig-perm fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -228,7 +228,7 @@ if (file.exists(file.path(base_out, "permutation_importance_polarizacion.png")))
 #| eval: false
 #| echo: false
 if (file.exists(file.path(base_out, "shap_summary_polarizacion.png"))) {
-  cat('![Resumen SHAP del modelo de polarización.](fig_thesis/shap_summary_polarizacion.png){#fig-shap fig-align="center" width="82%"}\n')
+  cat('![Resumen SHAP del modelo de polarización.](fig_thesis/shap_summary_polarizacion.png){#fig-shap fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -241,7 +241,7 @@ Para complementar el análisis de regresión, se discretizó la polarización en
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
-  cat('![Curvas ROC para la clasificación de polarización alta.](fig_thesis/roc_curves_polarizacion_alta.png){#fig-roc fig-align="center" width="82%"}\n')
+  cat('![Curvas ROC para la clasificación de polarización alta.](fig_thesis/roc_curves_polarizacion_alta.png){#fig-roc fig-align="center" width="74%"}\n')
 }
 ```
 

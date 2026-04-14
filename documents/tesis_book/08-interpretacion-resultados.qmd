@@ -28,25 +28,28 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 }
 ```
 
-
 ## Reconfiguración del antagonismo: estrategias, marcos y fronteras
 
 ### Estrategias por candidato
 
-En este apartado conviene distinguir dos agregaciones: la **frontera política** del comentario (inter-bloque, intra-bloque o sin frontera) y el **candidato objetivo** al que se dirige el mensaje. La @tbl-estrategia-frontera cuantifica la primera: proporción de cada estrategia discursiva según tipo de frontera. La distribución por candidato se incluye en el Anexo A (@fig-anexo-estrategias-candidato).
+En este apartado conviene distinguir dos agregaciones: la **frontera
+política** del comentario (inter-bloque, intra-bloque o sin frontera) y
+el **candidato objetivo** al que se dirige el mensaje. La
+@tbl-estrategia-frontera cuantifica la primera: proporción de cada
+estrategia discursiva según tipo de frontera. La distribución por
+candidato se incluye en el Anexo A (@fig-anexo-estrategias-candidato).
 
-Esa lectura por frontera revela un patrón
-que merece atención: la lógica del antagonismo no se distribuye
-homogéneamente. Las estrategias de mayor carga adversarial —
-construcción de amenaza (66.3% inter-bloque) y esencialización (66.0%) —
-se concentran abrumadoramente en la confrontación entre bloques
-ideológicos, mientras que la ridiculización presenta una distribución
-más equilibrada (48.3% inter, 21.9% intra). Esto sugiere que la
-hostilidad no opera como un fenómeno unitario: su forma cambia según la
-arquitectura del adversario que el comentario construye. Cuando el
-enemigo es externo al bloque, se recurre a estrategias que lo presentan
-como amenaza esencial; cuando la disputa es interna, predomina un
-registro más irónico y deslegitimador.
+Esa lectura por frontera revela un patrón que merece atención: la lógica
+del antagonismo no se distribuye homogéneamente. Las estrategias de
+mayor carga adversarial — construcción de amenaza (66.3% inter-bloque) y
+esencialización (66.0%) — se concentran abrumadoramente en la
+confrontación entre bloques ideológicos, mientras que la ridiculización
+presenta una distribución más equilibrada (48.3% inter, 21.9% intra).
+Esto sugiere que la hostilidad no opera como un fenómeno unitario: su
+forma cambia según la arquitectura del adversario que el comentario
+construye. Cuando el enemigo es externo al bloque, se recurre a
+estrategias que lo presentan como amenaza esencial; cuando la disputa es
+interna, predomina un registro más irónico y deslegitimador.
 
 ```{r tbl-estrategia-frontera}
 ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
@@ -79,23 +82,25 @@ if (nrow(ef)) {
 
 ### Marco × emoción
 
-Las combinaciones entre marco y emoción (valores numéricos en el Anexo A, @tbl-anexo-marco-emocion-top; visualización en @fig-marco-emocion) permiten ir más allá de las distribuciones
-marginales y observar cómo se acoplan ambas dimensiones. No toda emoción
-hostil se acopla del mismo modo al conflicto. Las combinaciones más
-frecuentes — conflicto + desprecio (n = 945) y diagnóstico + indignación
-(n = 844) — presentan niveles de polarización moderados (0.46 y 0.43
-respectivamente). En cambio, combinaciones menos frecuentes como moral +
-desprecio (n = 702, pol. = 0.541) y otro + desprecio (n = 528, pol. =
-0.544) empujan la polarización a niveles notablemente más altos. Este
-patrón sugiere que el desprecio acoplado a marcos morales constituye una
-configuración discursiva particularmente hostil, más que el conflicto
-explícito por sí solo.
+Las combinaciones entre marco y emoción (valores numéricos en el Anexo
+A, @tbl-anexo-marco-emocion-top; visualización en @fig-marco-emocion)
+permiten ir más allá de las distribuciones marginales y observar cómo se
+acoplan ambas dimensiones. No toda emoción hostil se acopla del mismo
+modo al conflicto. Las combinaciones más frecuentes — conflicto +
+desprecio (n = 945) y diagnóstico + indignación (n = 844) — presentan
+niveles de polarización moderados (0.46 y 0.43 respectivamente). En
+cambio, combinaciones menos frecuentes como moral + desprecio (n = 702,
+pol. = 0.541) y otro + desprecio (n = 528, pol. = 0.544) empujan la
+polarización a niveles notablemente más altos. Este patrón sugiere que
+el desprecio acoplado a marcos morales constituye una configuración
+discursiva particularmente hostil, más que el conflicto explícito por sí
+solo.
 
 ```{r fig-marco-emocion}
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "combinaciones_marco_emocion.png"))) {
-  cat('![Combinaciones marco × emoción.](fig_thesis/combinaciones_marco_emocion.png){#fig-marco-emocion fig-align="center" width="82%"}\n')
+  cat('![Combinaciones marco × emoción.](fig_thesis/combinaciones_marco_emocion.png){#fig-marco-emocion fig-align="center" width="74%"}\n')
 }
 ```
 
@@ -113,8 +118,9 @@ y más la dirección general: la estructura adversarial del debate se
 mantiene fundamentalmente estable, con ajustes tácticos más que
 transformaciones de fondo.
 
-![Evolución semanal de estrategias discursivas.](fig_thesis/serie_estrategias_semanal_mejorada.png){#fig-estrategias-temporal
-fig-align="center" width="100%"}
+![Evolución semanal de estrategias
+discursivas.](fig_thesis/serie_estrategias_semanal_mejorada.png){#fig-estrategias-temporal
+fig-align="center" width="90%"}
 
 ## Autores, persistencia y estructura del conflicto
 
@@ -128,24 +134,34 @@ hacia un tono positivo (2.8%) y 21 hacia neutralidad (9.8%). Este nivel
 de persistencia indica cristalización actitudinal más que escalamiento
 reactivo: la negatividad hacia Kast no se construye progresivamente
 durante la campaña, sino que se presenta como una disposición previa que
-el ciclo electoral refuerza pero no origina. La tabla con la distribución
-porcentual completa figura en el Anexo A (@tbl-anexo-kast-transiciones).
+el ciclo electoral refuerza pero no origina. La tabla con la
+distribución porcentual completa figura en el Anexo A
+(@tbl-anexo-kast-transiciones).
 
 ### Cruces de tono entre candidatos (posicionamiento → segunda vuelta hacia Kast o Jara)
 
-En la segunda vuelta solo compiten Kast y Jara, por lo que el destino del cruce es siempre el tono hacia uno de ellos en esa fase. La tabla de cruces de tono (sin neutro) figura en el Anexo A (@tbl-anexo-cruce-sentimiento-pares-sv). La tabla de cruces emocionales figura en el Anexo A (@tbl-anexo-cruce-emocion-sin-se-pares-sv). La @fig-alluvial-emocion-sv resume los flujos en formato diagrama.
-
+En la segunda vuelta solo compiten Kast y Jara, por lo que el destino
+del cruce es siempre el tono hacia uno de ellos en esa fase. La tabla de
+cruces de tono (sin neutro) figura en el Anexo A
+(@tbl-anexo-cruce-sentimiento-pares-sv). La tabla de cruces emocionales
+figura en el Anexo A (@tbl-anexo-cruce-emocion-sin-se-pares-sv). La
+@fig-alluvial-emocion-sv resume los flujos en formato diagrama.
 
 ```{r fig-alluvial-emocion-sv}
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png"))) {
-  cat('![Flujos emocionales entre posicionamiento y segunda vuelta.](fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){#fig-alluvial-emocion-sv fig-align="center" width="92%"}\n')
+  cat('![Flujos emocionales entre posicionamiento y segunda vuelta.](fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){#fig-alluvial-emocion-sv fig-align="center" width="83%"}\n')
 }
 ```
 
-
-El patrón es nítido. Los autores negativos hacia cualquier candidato en posicionamiento permanecen negativos al transitar hacia Kast (97% en Jara → Kast) o hacia Jara (86–100% según el par). Más revelador aún: en todos los pares observados, los autores positivos hacia un candidato se vuelven negativos al cambiar de target — la positividad no sobrevive al cruce adversarial. La polarización aparece así ligada al marco del duelo electoral más que a trayectorias individuales de simpatía.
+El patrón es nítido. Los autores negativos hacia cualquier candidato en
+posicionamiento permanecen negativos al transitar hacia Kast (97% en
+Jara → Kast) o hacia Jara (86–100% según el par). Más revelador aún: en
+todos los pares observados, los autores positivos hacia un candidato se
+vuelven negativos al cambiar de target — la positividad no sobrevive al
+cruce adversarial. La polarización aparece así ligada al marco del duelo
+electoral más que a trayectorias individuales de simpatía.
 
 ### Actividad de autores y polarización
 
@@ -159,50 +175,55 @@ de 2025 no está concentrada en un pequeño grupo de usuarios
 hiperactivos. Los autores clasificados como hiperactivos (más de 20
 comentarios) presentan una polarización media similar a la de los
 usuarios esporádicos, con una tendencia levemente decreciente a medida
-que aumenta el número de comentarios, visible en la línea LOESS de la
-Figura 8.9. Esto sugiere que la hostilidad tiene carácter ambiental y
-difuso: no es producto de trolls coordinados sino de una cultura
-discursiva generalizada donde la crítica hostil es el modo dominante de
-participación política. Como resume la @tbl-anexo-kast-transiciones, la gran
-mayoría de quienes partieron negativos **permanece** en negativo; solo
-una minoría pasa a tono positivo o neutro, lo que sugiere cristalización
-actitudinal más que escalamiento reactivo.
-
+que aumenta el número de comentarios, visible en la línea LOESS de
+@fig-anexo-autores-scatter (ubicada en el anexo). Esto sugiere que la
+hostilidad tiene carácter ambiental y difuso: no es producto de trolls
+coordinados sino de una cultura discursiva generalizada donde la crítica
+hostil es el modo dominante de participación política. Como resume la
+@tbl-anexo-kast-transiciones, la gran mayoría de quienes partieron
+negativos **permanece** en negativo; solo una minoría pasa a tono
+positivo o neutro, lo que sugiere cristalización actitudinal más que
+escalamiento reactivo [@efstratiou2023NonpolarOppositesAnalyzing].
 
 ```{r fig-autores-violin}
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
-  cat('![Polarización media por tipo de autor.](fig_thesis/polarizacion_por_tipo_autor.png){#fig-autores-violin fig-align="center" width="82%"}\n')
+  cat('![Polarización media por tipo de autor.](fig_thesis/polarizacion_por_tipo_autor.png){#fig-autores-violin fig-align="center" width="74%"}\n')
 }
 ```
-
-```{r fig-autores-scatter}
-#| results: asis
-#| echo: false
-if (file.exists(file.path(base_out, "scatter_actividad_polarizacion_autores.png"))) {
-  cat('![Actividad y polarización media por autor.](fig_thesis/scatter_actividad_polarizacion_autores.png){#fig-autores-scatter fig-align="center" width="82%"}\n')
-}
-```
-
 
 ## Espacios semánticos acoplados
 
-El atlas (@fig-3d-atlas-global-v1) ofrece una lectura visual que complementa los hallazgos estadísticos anteriores. El panel de candidatos (superior derecho) muestra una superposición casi completa de los cuatro colores: no existen regiones exclusivas por candidato. Desde la perspectiva de Mouffe, esto sugiere que la frontera política no se traza entre vocabularios diferenciados, sino a través de un repertorio léxico compartido — la polarización es una propiedad del discurso, no del target.
+El atlas (@fig-3d-atlas-global-v1) ofrece una lectura visual que
+complementa los hallazgos estadísticos anteriores. El panel de
+candidatos (superior derecho) muestra una superposición casi completa de
+los cuatro colores: no existen regiones exclusivas por candidato [@defranciscimorales2021NoEchoChambers]. Desde
+la perspectiva de Mouffe, esto sugiere que la frontera política no se
+traza entre vocabularios diferenciados, sino a través de un repertorio
+léxico compartido — la polarización es una propiedad del discurso, no
+del target.
 
-El panel de emociones (inferior derecho), en cambio, presenta agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas distintas del espacio, indicando que se vehiculizan a través de vocabularios diferenciados. La dimensión emocional organiza el espacio discursivo con mayor poder que la dimensión del adversario, consistente con la literatura sobre polarización afectiva (Iyengar, 2019).
+El panel de emociones (inferior derecho), en cambio, presenta
+agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas
+distintas del espacio, indicando que se vehiculizan a través de
+vocabularios diferenciados. La dimensión emocional organiza el espacio
+discursivo con mayor poder que la dimensión del adversario, consistente
+con la literatura sobre polarización afectiva (Iyengar, 2019).
 
-El panel de polarización (inferior izquierdo) completa la lectura: la hostilidad se distribuye de manera difusa a lo largo de todo el espacio, sin concentrarse en un cluster específico. Esta dispersión constituye la representación geométrica del hallazgo central de la tesis: la hostilidad es ambiental, no focalizada.
+El panel de polarización (inferior izquierdo) completa la lectura: la
+hostilidad se distribuye de manera difusa a lo largo de todo el espacio,
+sin concentrarse en un cluster específico. Esta dispersión constituye la
+representación geométrica del hallazgo central de la tesis: la
+hostilidad es ambiental, no focalizada.
 
 ```{r fig-3d-atlas-global-v1}
 #| results: asis
 #| echo: false
 path_atlas_global <- file.path(base_out, "3d_atlas_v1_globales.png")
 if (file.exists(path_atlas_global)) {
-  cat('![Atlas global 3D: temas, candidatos, polarización y emociones.](fig_thesis/3d_atlas_v1_globales.png){#fig-3d-atlas-global-v1 fig-align="center" width="100%"}\n')
+  cat('![Atlas global 3D: temas, candidatos, polarización y emociones.](fig_thesis/3d_atlas_v1_globales.png){#fig-3d-atlas-global-v1 fig-align="center" width="81%"}\n')
 } else {
   cat("_(Ejecutar `scripts/analisis/12_make_global_3d_atlas.py` para generar `3d_atlas_v1_globales.png`.)_\n")
 }
 ```
-
-

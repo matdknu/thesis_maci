@@ -26,7 +26,7 @@ contundentes: la identificación partidaria ha caído sostenidamente desde
 coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de
 desalineamiento, las plataformas digitales han emergido como espacios
 donde se disputa la reconfiguración de las identidades políticas
-—particularmente en el campo de las derechas, donde coexisten proyectos
+[@gonzalez2024RoleNormsPromoters] —particularmente en el campo de las derechas, donde coexisten proyectos
 en competencia que aún no han estabilizado sus fronteras.
 
 El **problema central** que aborda esta investigación puede formularse
@@ -51,7 +51,7 @@ Este problema es relevante por tres razones:
 3.  **Implicancias democráticas**: Comprender cómo se construyen
     adversarios y fronteras identitarias en espacios digitales resulta
     crucial para evaluar la calidad del debate público y anticipar
-    escenarios de polarización.
+    escenarios de polarización [@kingzette2021HowAffectivePolarization].
 
 ## Acercamiento: actores, dimensiones y niveles de análisis
 
@@ -103,37 +103,23 @@ como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se
 emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs.
 izquierda) con los intra-bloque (entre derechas)?
 
-### Los niveles de análisis
-
-El diseño contempla tres niveles de observación:
-
-| Nivel     | Unidad                           | Foco analítico                                                         |
-|---------------|------------------|----------------------------------------|
-| **Macro** | Corpus completo                  | Tendencias agregadas, evolución temporal, comparación entre subreddits |
-| **Meso**  | Hilos de discusión               | Dinámicas conversacionales, patrones de confrontación/consenso         |
-| **Micro** | Posts y comentarios individuales | Estrategias retóricas específicas, ejemplos ilustrativos               |
-
-: Niveles de análisis del estudio. {#tbl-niveles-analisis}
-
-La @tbl-niveles-analisis resume cómo se articula el análisis en escalas
-macro, meso y micro.
 
 ## Descripción de la propuesta analítica
 
 ### Enfoque general
 
 La propuesta combina **ciencia social computacional** con **análisis
-interpretativo del discurso político**. Esta combinación responde a una
+interpretativo del discurso político** [@keuschnigg2018AnalyticalSociologyComputational]. Esta combinación responde a una
 convicción metodológica: las técnicas computacionales permiten
 identificar patrones a escala que el análisis cualitativo tradicional no
 alcanza, pero requieren interpretación teóricamente informada para
-producir conocimiento sustantivo sobre procesos políticos.
+producir conocimiento sustantivo sobre procesos políticos [@hofman2021IntegratingExplanationPrediction].
 
 El flujo analítico puede representarse así:
 
 ![Pipeline analítico: de la recolección del corpus a los hallazgos
 sustantivos.](fig_thesis/diagrama.png){#fig-pipeline fig-align="center"
-width="90%"}
+width="81%"}
 
 La @fig-pipeline sintetiza el encadenamiento entre corpus,
 procesamiento, modelamiento y hallazgos.

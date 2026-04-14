@@ -14,7 +14,9 @@ project:
 website:
   site-url: https://matdknu.github.io/thesis_maci/
 
-bibliography: bibliography.bib
+bibliography:
+  - bibliography.bib
+  - ../../bibliografia/bittex.bib
 
 book:
   # Nota: título, subtítulo y autor se definen solo para HTML
@@ -117,9 +119,9 @@ format:
     
     # Enlaces
     colorlinks: true
-    linkcolor: "NavyBlue"
-    urlcolor: "NavyBlue"
-    citecolor: "NavyBlue"
+    linkcolor: "Blue"
+    urlcolor: "Blue"
+    citecolor: "Blue"
     
     # Figuras
     fig-width: 7
@@ -139,6 +141,7 @@ format:
       text: |
         % Compatibilidad caption/listings/etc. con KOMA (evita listas vacías o captions rotos)
         \usepackage{scrhack}
+        \usepackage{etoolbox}
         \usepackage{booktabs}
         \usepackage{longtable}
         \usepackage{array}
@@ -166,6 +169,9 @@ format:
           \renewcommand{\listtablename}{Índice de Tablas}%
           \captionsetup{list=yes}%
         }
+        % Forzar color azul en citas bibliográficas
+        \hypersetup{citecolor=Blue, linkcolor=Blue, urlcolor=Blue}
+
         % Sin encabezado en páginas preliminares
         \AtBeginDocument{
           \pagenumbering{roman}
@@ -174,6 +180,11 @@ format:
         
         % Configuración para numeración continua de capítulos (las partes no cuentan)
         \makeatletter
+        % Evita que los capítulos fuercen salto de página (KOMA + Pandoc).
+        \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+        \patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+        % Deja 1 cm antes de cada capítulo para evitar traslapes.
+        \RedeclareSectionCommand[beforeskip=1cm]{chapter}
         % Ocultar numeración de partes
         \renewcommand{\thepart}{}
         % Remover el reset automático de capítulos por parte para numeración continua
@@ -189,10 +200,10 @@ format:
         \widowpenalty=10000
         \displaywidowpenalty=10000
         
-        % Menos espacio en blanco antes del título de capítulo (empieza más arriba)
+        % Mantener inicio de capítulo sin desplazamiento negativo (evita traslapes).
         \makeatletter
         \@ifundefined{chapter}{}{%
-          \renewcommand*{\chapterheadstartvskip}{\vspace*{-2.5\baselineskip}}%
+          \renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}%
         }
         \makeatother
 

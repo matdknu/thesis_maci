@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -320,7 +340,7 @@ Tabla&nbsp;8.1: Estrategias discursivas por tipo de frontera política.
 <div id="fig-marco-emocion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-marco-emocion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/combinaciones_marco_emocion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
+<img src="fig_thesis/combinaciones_marco_emocion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:74.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marco-emocion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;8.1: Combinaciones marco × emoción.
@@ -334,7 +354,7 @@ Figura&nbsp;8.1: Combinaciones marco × emoción.
 <div id="fig-estrategias-temporal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-estrategias-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/serie_estrategias_semanal_mejorada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+<img src="fig_thesis/serie_estrategias_semanal_mejorada.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estrategias-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;8.2: Evolución semanal de estrategias discursivas.
@@ -355,7 +375,7 @@ Figura&nbsp;8.2: Evolución semanal de estrategias discursivas.
 <div id="fig-alluvial-emocion-sv" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-alluvial-emocion-sv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%">
+<img src="fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:83.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alluvial-emocion-sv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;8.3: Flujos emocionales entre posicionamiento y segunda vuelta.
@@ -367,24 +387,14 @@ Figura&nbsp;8.3: Flujos emocionales entre posicionamiento y segunda vuelta.
 <section id="actividad-de-autores-y-polarización" class="level3">
 <h3 class="anchored" data-anchor-id="actividad-de-autores-y-polarización">Actividad de autores y polarización</h3>
 <p>La lectura de autores permite evaluar si la hostilidad está concentrada en hiperactivos o distribuida en la masa de usuarios. Este punto es teóricamente relevante porque distingue una polarización sostenida por pocos actores intensivos de una polarización más difusa y ambiental.</p>
-<p>La hostilidad discursiva en Reddit Chile durante la campaña presidencial de 2025 no está concentrada en un pequeño grupo de usuarios hiperactivos. Los autores clasificados como hiperactivos (más de 20 comentarios) presentan una polarización media similar a la de los usuarios esporádicos, con una tendencia levemente decreciente a medida que aumenta el número de comentarios, visible en la línea LOESS de la Figura 8.9. Esto sugiere que la hostilidad tiene carácter ambiental y difuso: no es producto de trolls coordinados sino de una cultura discursiva generalizada donde la crítica hostil es el modo dominante de participación política. Como resume la <a href="10-anexo-tablas.html#tbl-anexo-kast-transiciones" class="quarto-xref">Tabla&nbsp;<span>10.15</span></a>, la gran mayoría de quienes partieron negativos <strong>permanece</strong> en negativo; solo una minoría pasa a tono positivo o neutro, lo que sugiere cristalización actitudinal más que escalamiento reactivo.</p>
+<p>La hostilidad discursiva en Reddit Chile durante la campaña presidencial de 2025 no está concentrada en un pequeño grupo de usuarios hiperactivos. Los autores clasificados como hiperactivos (más de 20 comentarios) presentan una polarización media similar a la de los usuarios esporádicos, con una tendencia levemente decreciente a medida que aumenta el número de comentarios, visible en la línea LOESS de <a href="10-anexo-tablas.html#fig-anexo-autores-scatter" class="quarto-xref">Figura&nbsp;<span>10.3</span></a> (ubicada en el anexo). Esto sugiere que la hostilidad tiene carácter ambiental y difuso: no es producto de trolls coordinados sino de una cultura discursiva generalizada donde la crítica hostil es el modo dominante de participación política. Como resume la <a href="10-anexo-tablas.html#tbl-anexo-kast-transiciones" class="quarto-xref">Tabla&nbsp;<span>10.15</span></a>, la gran mayoría de quienes partieron negativos <strong>permanece</strong> en negativo; solo una minoría pasa a tono positivo o neutro, lo que sugiere cristalización actitudinal más que escalamiento reactivo <span class="citation" data-cites="efstratiou2023NonpolarOppositesAnalyzing">(<a href="references.html#ref-efstratiou2023NonpolarOppositesAnalyzing" role="doc-biblioref">Efstratiou et&nbsp;al. 2023</a>)</span>.</p>
 <div id="fig-autores-violin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-autores-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/polarizacion_por_tipo_autor.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
+<img src="fig_thesis/polarizacion_por_tipo_autor.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:74.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-autores-violin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;8.4: Polarización media por tipo de autor.
-</figcaption>
-</figure>
-</div>
-<div id="fig-autores-scatter" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-autores-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/scatter_actividad_polarizacion_autores.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-autores-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.5: Actividad y polarización media por autor.
 </figcaption>
 </figure>
 </div>
@@ -392,21 +402,29 @@ Figura&nbsp;8.5: Actividad y polarización media por autor.
 </section>
 <section id="espacios-semánticos-acoplados" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="espacios-semánticos-acoplados"><span class="header-section-number">8.4</span> Espacios semánticos acoplados</h2>
-<p>El atlas (<a href="#fig-3d-atlas-global-v1" class="quarto-xref">Figura&nbsp;<span>8.6</span></a>) ofrece una lectura visual que complementa los hallazgos estadísticos anteriores. El panel de candidatos (superior derecho) muestra una superposición casi completa de los cuatro colores: no existen regiones exclusivas por candidato. Desde la perspectiva de Mouffe, esto sugiere que la frontera política no se traza entre vocabularios diferenciados, sino a través de un repertorio léxico compartido — la polarización es una propiedad del discurso, no del target.</p>
+<p>El atlas (<a href="#fig-3d-atlas-global-v1" class="quarto-xref">Figura&nbsp;<span>8.5</span></a>) ofrece una lectura visual que complementa los hallazgos estadísticos anteriores. El panel de candidatos (superior derecho) muestra una superposición casi completa de los cuatro colores: no existen regiones exclusivas por candidato <span class="citation" data-cites="defranciscimorales2021NoEchoChambers">(<a href="references.html#ref-defranciscimorales2021NoEchoChambers" role="doc-biblioref">De Francisci Morales, Monti, y Starnini 2021</a>)</span>. Desde la perspectiva de Mouffe, esto sugiere que la frontera política no se traza entre vocabularios diferenciados, sino a través de un repertorio léxico compartido — la polarización es una propiedad del discurso, no del target.</p>
 <p>El panel de emociones (inferior derecho), en cambio, presenta agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas distintas del espacio, indicando que se vehiculizan a través de vocabularios diferenciados. La dimensión emocional organiza el espacio discursivo con mayor poder que la dimensión del adversario, consistente con la literatura sobre polarización afectiva (Iyengar, 2019).</p>
 <p>El panel de polarización (inferior izquierdo) completa la lectura: la hostilidad se distribuye de manera difusa a lo largo de todo el espacio, sin concentrarse en un cluster específico. Esta dispersión constituye la representación geométrica del hallazgo central de la tesis: la hostilidad es ambiental, no focalizada.</p>
 <div id="fig-3d-atlas-global-v1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3d-atlas-global-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/3d_atlas_v1_globales.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+<img src="fig_thesis/3d_atlas_v1_globales.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:81.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-atlas-global-v1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;8.6: Atlas global 3D: temas, candidatos, polarización y emociones.
+Figura&nbsp;8.5: Atlas global 3D: temas, candidatos, polarización y emociones.
 </figcaption>
 </figure>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-defranciscimorales2021NoEchoChambers" class="csl-entry" role="listitem">
+De Francisci Morales, Gianmarco, Corrado Monti, y Michele Starnini. 2021. <span>«No Echo in the Chambers of Political Interactions on <span>Reddit</span>»</span>. <em>Scientific Reports</em> 11 (1): 2818. <a href="https://doi.org/10.1038/s41598-021-81531-x">https://doi.org/10.1038/s41598-021-81531-x</a>.
+</div>
+<div id="ref-efstratiou2023NonpolarOppositesAnalyzing" class="csl-entry" role="listitem">
+Efstratiou, Alexandros, Jeremy Blackburn, Tristan Caulfield, Gianluca Stringhini, Savvas Zannettou, y Emiliano De Cristofaro. 2023. <span>«Non-Polar <span>Opposites</span>: <span>Analyzing</span> the <span>Relationship</span> Between <span>Echo Chambers</span> and <span>Hostile Intergroup Interactions</span> on <span>Reddit</span>»</span>. <em>Proceedings of the International AAAI Conference on Web and Social Media</em> 17 (junio): 197-208. <a href="https://doi.org/10.1609/icwsm.v17i1.22138">https://doi.org/10.1609/icwsm.v17i1.22138</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
