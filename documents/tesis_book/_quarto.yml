@@ -62,7 +62,8 @@ format:
     author: "Matías Deneken"
     language: es
     lang: es
-    theme: [cosmo, custom.scss]
+    theme: cosmo
+    css: custom.scss
     page-layout: article
     grid:
       sidebar-width: 280px
