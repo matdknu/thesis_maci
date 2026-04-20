@@ -63,7 +63,7 @@ format:
     language: es
     lang: es
     theme: cosmo
-    css: custom.scss
+    css: custom.css
     page-layout: article
     grid:
       sidebar-width: 280px

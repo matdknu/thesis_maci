@@ -4,14 +4,15 @@ Este ajuste mantiene la infraestructura Quarto intacta y solo modifica la capa v
 
 ## Cambios realizados
 
-- Se reemplazó `custom.scss` para emular un look tipo `bookdown::gitbook`:
+- Se reemplazó `custom.scss` para emular un look tipo `bookdown::gitbook` y se generó `custom.css` para asegurar carga directa en navegador:
   - columna central de lectura (`max-width: 800px`);
   - sidebar izquierdo jerárquico y sobrio;
   - TOC derecho minimalista;
   - tipografía académica serif en contenido y sans-serif en navegación;
   - bloques de código, tablas, citas, figuras, callouts y paginación inferior con estilo sobrio.
 - Se ajustó `_quarto.yml` con cambios mínimos:
-  - `theme: [cosmo, custom.scss]`;
+  - `theme: cosmo`;
+  - `css: custom.css`;
   - `book.sidebar.style: docked`;
   - `page-layout: article`;
   - `toc-location: right`;
