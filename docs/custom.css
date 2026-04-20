@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap");
+
+
+
+html,
+body {
+  font-family: "Merriweather", "Bitter", "PT Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333333;
+  background: #fff;
+}
+
+/* Sin navbar superior en desktop, visible en móvil para hamburguesa */
+@media (min-width: 769px) {
+  #quarto-header {
+    display: none !important;
+  }
+}
+
+#quarto-content {
+  max-width: 1360px;
+}
+
+main#quarto-document-content.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", "Bitter", "PT Serif", Georgia, serif;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+h1 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.95rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: #3884ff;
+}
+
+a:hover {
+  color: #0056d6;
+}
+
+/* Sidebar izquierdo */
+#quarto-sidebar {
+  width: 300px;
+  min-width: 300px;
+  background: #fafafa !important;
+  border-right: 1px solid #e5e5e5;
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+  font-size: 14px;
+}
+
+#quarto-sidebar .sidebar-search,
+#quarto-sidebar .sidebar-tools-collapse {
+  display: none;
+}
+
+#quarto-sidebar .sidebar-menu-container {
+  padding-top: 0;
+}
+
+/* Nivel 0: título del libro (primer item del menú) */
+#quarto-sidebar .sidebar-menu-container > ul > li:first-child .sidebar-item-text {
+  display: block;
+  padding: 1.5rem 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a !important;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#quarto-sidebar .sidebar-item-container {
+  margin: 0;
+}
+
+#quarto-sidebar .sidebar-item-text.sidebar-link {
+  display: block;
+  padding: 0.4rem 1rem;
+  color: #303030;
+  border-left: 3px solid transparent;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#quarto-sidebar .sidebar-item-text.sidebar-link:hover {
+  background: #f0f0f0;
+}
+
+#quarto-sidebar .sidebar-item-text .chapter-number {
+  font-weight: 700;
+}
+
+#quarto-sidebar .sidebar-item-text.sidebar-link.active {
+  border-left-color: #3884ff;
+  background: #f5f5f5;
+  color: #3884ff;
+}
+
+/* TOC derecho minimalista */
+#quarto-margin-sidebar {
+  width: 220px;
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+  font-size: 14px;
+}
+
+#quarto-margin-sidebar nav#TOC {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+#quarto-margin-sidebar #toc-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #666666;
+  font-weight: 600;
+}
+
+#quarto-margin-sidebar nav#TOC ul {
+  padding-left: 0;
+}
+
+#quarto-margin-sidebar nav#TOC li {
+  list-style: none;
+  margin: 0.2rem 0;
+}
+
+#quarto-margin-sidebar nav#TOC a.nav-link {
+  color: #666666;
+  padding: 0.1rem 0;
+}
+
+#quarto-margin-sidebar nav#TOC a.nav-link.active {
+  color: #3884ff;
+  font-weight: 600;
+}
+
+#quarto-margin-sidebar .toc-actions {
+  display: none;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 4px solid #e5e5e5;
+  color: #555;
+  font-style: italic;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "Fira Code", "Source Code Pro", Consolas, monospace;
+  font-size: 13px;
+}
+
+p code,
+li code,
+td code {
+  background: #f5f5f5;
+  border-radius: 3px;
+  padding: 0.12rem 0.3rem;
+  color: #2a2a2a;
+}
+
+pre,
+div.sourceCode,
+div.cell-output pre {
+  background: #f8f8f8 !important;
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #3884ff !important;
+  border-radius: 0;
+  padding: 1rem;
+  box-shadow: none;
+}
+
+table,
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e5e5;
+}
+
+table th,
+table td,
+.table th,
+.table td {
+  border: 1px solid #e5e5e5;
+  padding: 0.55rem 0.75rem;
+}
+
+table thead th,
+.table thead th {
+  background: #fafafa;
+}
+
+table tbody tr:nth-child(even),
+.table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+figure,
+.quarto-figure {
+  text-align: center;
+}
+
+figcaption,
+.figure-caption {
+  margin-top: 0.65rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666666;
+}
+
+a[role="doc-noteref"] {
+  color: #3884ff;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.callout {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Paginación inferior simple */
+nav.page-navigation {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eeeeee;
+  background: transparent;
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+}
+
+nav.page-navigation .nav-page {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+nav.page-navigation .nav-page-previous a::before {
+  content: "← ";
+}
+
+nav.page-navigation .nav-page-next a::after {
+  content: " →";
+}
+
+@media (max-width: 768px) {
+  main#quarto-document-content.content {
+    max-width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  #quarto-sidebar {
+    width: min(85vw, 320px);
+    min-width: 0;
+  }
+
+  #quarto-margin-sidebar {
+    display: none;
+  }
+}
