@@ -1,539 +1,382 @@
 /*-- scss:defaults --*/
 
-// ============================================================================
-// TIPOGRAFÍA ACADÉMICA
-// ============================================================================
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap");
 
-$font-family-sans-serif: "Source Sans 3", "Helvetica Neue", Helvetica, sans-serif;
-$font-family-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-$font-family-monospace: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+$primary: #3884ff;
+$text: #333333;
+$text-muted: #666666;
+$border: #e5e5e5;
+$bg-sidebar: #fafafa;
+$bg-code: #f5f5f5;
+$bg-code-block: #f8f8f8;
+$link: $primary;
+$link-hover: #0056d6;
 
-// Cuerpo del texto en serif (académico)
-$font-size-base: 1.05rem;
-$line-height-base: 1.75;
-$headings-font-family: $font-family-sans-serif;
-$headings-font-weight: 600;
+$font-family-serif: "Merriweather", "Bitter", "PT Serif", Georgia, serif;
+$font-family-sans-serif: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+$font-family-monospace: "Fira Code", "Source Code Pro", Consolas, monospace;
 
-// ============================================================================
-// PALETA ACADÉMICA — tonos sobrios, profesionales
-// ============================================================================
-$body-bg: #ffffff;
-$body-color: #2c2c2c;
-$link-color: #1a5276;
-$link-hover-color: #0e3a5c;
-
-// Sidebar
-$sidebar-bg: #f8f9fa;
-
-// Quarto variables
-$primary: #1a5276;
-$secondary: #5d6d7e;
+$font-size-base: 1rem;
+$line-height-base: 1.7;
+$body-color: $text;
+$link-color: $link;
+$link-hover-color: $link-hover;
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 700;
 
 /*-- scss:rules --*/
 
-// ============================================================================
-// CUERPO — tipografía serif para texto, sans para UI
-// ============================================================================
+html,
 body {
+  color: $text;
+  background-color: #fff;
   font-family: $font-family-serif;
-  color: $body-color;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// ============================================================================
-// SIDEBAR — limpia, elegante, con borde sutil
-// ============================================================================
-.sidebar {
-  background-color: $sidebar-bg !important;
-  border-right: 1px solid #e8e8e8 !important;
-  font-family: $font-family-sans-serif;
-  font-size: 0.9rem;
+/* Keep global top nav out of the way: gitbook-like frame */
+header#quarto-header,
+.navbar.navbar-expand-lg {
+  display: none !important;
 }
 
-.sidebar-title {
-  font-family: $font-family-sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 1.05rem !important;
-  color: $primary !important;
-  letter-spacing: -0.01em;
-  padding-bottom: 0.75rem !important;
-  border-bottom: 2px solid $primary !important;
-  margin-bottom: 0.5rem !important;
+#quarto-content .page-columns,
+#quarto-content .page-layout-article {
+  max-width: 1360px;
 }
 
-.sidebar-item-text {
-  color: #4a4a4a !important;
-  font-size: 0.88rem !important;
-  transition: color 0.15s ease;
+main.content,
+#quarto-document-content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.sidebar-item-text:hover {
-  color: $primary !important;
+p,
+li,
+dd {
+  color: $text;
 }
 
-.sidebar .active .sidebar-item-text {
-  color: $primary !important;
-  font-weight: 600 !important;
-}
-
-.sidebar-navigation .sidebar-section .sidebar-item {
-  padding: 0.2rem 0;
-}
-
-// ============================================================================
-// CONTENIDO PRINCIPAL
-// ============================================================================
-#quarto-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.content {
-  padding-top: 2rem;
-}
-
-// ============================================================================
-// HEADINGS — sans-serif, proporcionados, con acento sutil
-// ============================================================================
-h1, .h1 {
-  font-family: $font-family-sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #1a1a1a;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-h2, .h2 {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #2c2c2c;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-h3, .h3 {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #3d3d3d;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-h4, .h4, h5, .h5, h6, .h6 {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  color: #4a4a4a;
-}
-
-// Número de capítulo discreto
-.header-section-number {
-  color: $primary;
-  font-weight: 400;
-  margin-right: 0.4em;
-}
-
-// ============================================================================
-// PORTADA — sobria, académica, sin card
-// ============================================================================
-.quarto-title-block {
-  text-align: center;
-  padding: 3rem 2rem 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.quarto-title-block .quarto-title-banner {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-// Eliminar cualquier card o contenedor con fondo
-.quarto-title-meta-container,
-.quarto-title-block .quarto-title {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-.quarto-title-block .title {
-  font-family: $font-family-sans-serif;
-  font-weight: 700;
-  font-size: 2.4rem;
-  color: #1a1a1a;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-.quarto-title-block .subtitle {
-  font-family: $font-family-serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.15rem;
-  color: #5d6d7e;
-  line-height: 1.5;
-  max-width: 650px;
-  margin: 0 auto 1.5rem;
-}
-
-.quarto-title-block .quarto-title-author-name,
-.quarto-title-block .author {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #2c2c2c;
-}
-
-.quarto-title-block .quarto-title-affiliation {
-  font-family: $font-family-sans-serif;
-  font-weight: 400;
-  font-size: 0.95rem;
-  color: #5d6d7e;
-}
-
-// ============================================================================
-// PÁRRAFOS Y TEXTO
-// ============================================================================
-p {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  margin-bottom: 1rem;
-}
-
-// Blockquotes — acento lateral sutil
-blockquote {
-  border-left: 3px solid $primary !important;
-  padding: 0.75rem 1.25rem !important;
-  margin: 1.5rem 0 !important;
-  background-color: #f8f9fb !important;
-  font-style: italic;
-  color: #4a4a4a;
-}
-
-blockquote p {
-  margin-bottom: 0.5rem;
-}
-
-// ============================================================================
-// TABLAS — limpias, académicas
-// ============================================================================
-.table, table {
-  font-family: $font-family-sans-serif;
-  font-size: 0.9rem;
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1.5rem 0;
-}
-
-.table thead th, table thead th {
-  border-bottom: 2px solid #2c2c2c;
-  font-weight: 600;
-  color: #1a1a1a;
-  padding: 0.6rem 0.75rem;
-  text-align: left;
-  background-color: transparent;
-}
-
-.table tbody td, table tbody td {
-  border-bottom: 1px solid #e8e8e8;
-  padding: 0.5rem 0.75rem;
-  color: #3d3d3d;
-}
-
-.table tbody tr:hover, table tbody tr:hover {
-  background-color: #f5f7fa;
-}
-
-// Caption de tabla
-caption, .table-caption {
-  font-family: $font-family-sans-serif;
-  font-size: 0.88rem;
-  color: #5d6d7e;
-  font-style: italic;
-  text-align: left;
-  padding: 0.5rem 0;
-  caption-side: top;
-}
-
-// ============================================================================
-// FIGURAS
-// ============================================================================
-.quarto-figure {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.figure-img, .quarto-figure img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 2px;
-}
-
-figcaption, .figure-caption {
-  font-family: $font-family-sans-serif;
-  font-size: 0.88rem;
-  color: #5d6d7e;
-  font-style: italic;
-  margin-top: 0.75rem;
-  text-align: left;
-  line-height: 1.5;
-}
-
-// Salida knitr: asegurar visibilidad en GitHub Pages (evita reglas globales que oculten img)
-.cell-output-display img,
-.cell-output-display .plot {
-  max-width: 100%;
-  height: auto;
-}
-
-// ============================================================================
-// CÓDIGO
-// ============================================================================
-code {
-  font-family: $font-family-monospace;
-  font-size: 0.88em;
-  color: #c0392b;
-  background-color: #f6f6f6;
-  padding: 0.15em 0.35em;
-  border-radius: 3px;
-}
-
-pre {
-  background-color: #f8f8f8 !important;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  padding: 1rem 1.25rem;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  overflow-x: auto;
-}
-
-pre code {
-  color: #2c2c2c;
-  background-color: transparent;
-  padding: 0;
-}
-
-// ============================================================================
-// LINKS
-// ============================================================================
 a {
-  color: $link-color;
+  color: $link;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.15s ease, border-bottom-color 0.15s ease;
 }
 
 a:hover {
-  color: $link-hover-color;
-  border-bottom-color: $link-hover-color;
+  color: $link-hover;
+  text-decoration: underline;
 }
 
-// ============================================================================
-// NAVBAR SUPERIOR (si aplica)
-// ============================================================================
-.navbar {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid #e0e0e0 !important;
-  font-family: $font-family-sans-serif;
-  box-shadow: none !important;
-}
-
-.navbar-brand {
-  font-weight: 600;
-  color: #1a1a1a !important;
-}
-
-// ============================================================================
-// FOOTER
-// ============================================================================
-.nav-footer {
-  font-family: $font-family-sans-serif;
-  font-size: 0.85rem;
-  border-top: 1px solid #e0e0e0;
-  color: #5d6d7e;
-}
-
-// ============================================================================
-// PAGINACIÓN (anterior / siguiente)
-// ============================================================================
-.page-navigation {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1.5rem;
-  margin-top: 3rem;
-  font-family: $font-family-sans-serif;
-}
-
-.page-navigation .nav-page-text {
-  font-size: 0.9rem;
-  color: $primary;
-}
-
-// ============================================================================
-// TOC LATERAL (dentro del capítulo)
-// ============================================================================
-#TOC, .sidebar-toc {
-  font-family: $font-family-sans-serif;
-  font-size: 0.85rem;
-}
-
-#TOC a {
-  color: #5d6d7e;
-  border-bottom: none;
-}
-
-#TOC a:hover {
-  color: $primary;
-}
-
-#TOC .active a {
-  color: $primary;
-  font-weight: 600;
-}
-
-// ============================================================================
-// CALLOUTS
-// ============================================================================
-.callout {
-  font-family: $font-family-sans-serif;
-  border-radius: 4px;
-  font-size: 0.92rem;
-}
-
-// ============================================================================
-// LOGO EN PORTADA — tamaño controlado
-// ============================================================================
-.quarto-title-block img {
-  max-height: 120px;
-  width: auto;
-  margin: 1rem auto;
-  display: block;
-}
-
-// ============================================================================
-// Portada manual index.qmd (#portada-libro; no usa .quarto-title-block)
-// ============================================================================
-main#quarto-document-content:has(#portada-libro) > header#title-block-header,
-header#title-block-header:has(h1.display-7) {
-  display: none !important;
-}
-
-#portada-libro {
-  text-align: center;
-  max-width: 38rem;
-  margin: 0 auto 3rem;
-  padding: 2.25rem 1.75rem 2.5rem;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(248, 249, 250, 0.85) 55%,
-    rgba(237, 242, 247, 0.35) 100%
-  );
-  border: 1px solid rgba(26, 82, 118, 0.12);
-  border-radius: 12px;
-  box-shadow:
-    0 4px 6px -1px rgba(26, 82, 118, 0.06),
-    0 14px 28px -10px rgba(26, 82, 118, 0.12);
-}
-
-#portada-libro .thesis-cover-logo,
-#portada-libro img.thesis-cover-logo {
-  width: min(200px, 46vw) !important;
-  height: auto !important;
-  margin: 0 auto !important;
-  display: block !important;
-  border-radius: 0 !important;
-}
-
-#portada-libro h1.thesis-cover-title {
-  font-family: $font-family-sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.4rem, 3.8vw, 2.05rem);
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: $primary;
-  margin: 1.35rem 0 0.5rem;
-  padding-bottom: 0.65rem;
-  border-bottom: 2px solid $primary !important;
-  border-top: none !important;
-}
-
-#portada-libro h2.thesis-cover-subtitle {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-family-serif;
-  font-weight: 400;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.35;
+}
+
+h1 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.85rem;
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 1.25rem;
+}
+
+.header-section-number {
+  font-weight: 700;
+}
+
+/* Left chapter sidebar */
+#quarto-sidebar,
+.sidebar.navigation {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+  width: 300px;
+  min-width: 300px;
+  background: $bg-sidebar !important;
+  border-right: 1px solid $border !important;
+  font-family: $font-family-sans-serif;
+  font-size: 14px;
+}
+
+#quarto-sidebar .sidebar-title,
+#quarto-sidebar .sidebar-title > a {
+  display: block;
+  font-family: $font-family-sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a !important;
+  padding: 1.5rem 1rem !important;
+  margin: 0 !important;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#quarto-sidebar .sidebar-navigation {
+  padding-top: 0.6rem;
+  padding-bottom: 1rem;
+}
+
+#quarto-sidebar .sidebar-item-container {
+  margin: 0;
+}
+
+#quarto-sidebar .sidebar-item {
+  font-family: $font-family-sans-serif;
+  font-size: 14px;
+  padding: 0.4rem 1rem;
+  border-left: 3px solid transparent;
+}
+
+#quarto-sidebar .sidebar-item .sidebar-item-text {
+  color: #303030;
+}
+
+#quarto-sidebar .sidebar-item:hover {
+  background: #f0f0f0;
+}
+
+/* Chapter and section hierarchy (bookdown-like indentation) */
+#quarto-sidebar .sidebar-item.section {
+  padding-left: 2rem;
+  font-size: 13px;
+}
+
+#quarto-sidebar .sidebar-item.section.section-level-3,
+#quarto-sidebar .sidebar-item[data-level="3"] {
+  padding-left: 3rem;
+  font-size: 12.5px;
+}
+
+#quarto-sidebar .sidebar-item .chapter-number,
+#quarto-sidebar .sidebar-item .section-number {
+  font-weight: 700;
+}
+
+#quarto-sidebar .sidebar-item.active,
+#quarto-sidebar .sidebar-item-container .active {
+  border-left-color: $primary;
+  background: #f5f5f5;
+}
+
+#quarto-sidebar .sidebar-item.active .sidebar-item-text,
+#quarto-sidebar .sidebar-item-container .active .sidebar-item-text {
+  color: $primary;
+}
+
+/* Right ToC */
+#quarto-margin-sidebar,
+#TOC,
+nav#TOC {
+  font-family: $font-family-sans-serif;
+  font-size: 14px;
+}
+
+#quarto-margin-sidebar .toc-actions {
+  display: none;
+}
+
+nav#TOC {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  width: 220px;
+}
+
+nav#TOC .toc-title {
+  margin-bottom: 0.75rem;
+  color: $text-muted;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+nav#TOC a {
+  color: $text-muted;
+  text-decoration: none;
+}
+
+nav#TOC a:hover {
+  color: $primary;
+  text-decoration: none;
+}
+
+nav#TOC .active > a,
+nav#TOC .active > .nav-link {
+  color: $primary;
+  font-weight: 600;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 4px solid $border;
+  font-family: $font-family-serif;
   font-style: italic;
-  font-size: clamp(0.95rem, 2.4vw, 1.2rem);
-  line-height: 1.45;
-  color: #5d6d7e;
-  margin: 0.65rem 0 0;
-  border: none !important;
+  color: #555555;
+}
+
+code,
+kbd,
+samp {
+  font-family: $font-family-monospace;
+  font-size: 13px;
+}
+
+p code,
+li code,
+td code {
+  background: $bg-code;
+  color: #2b2b2b;
+  border-radius: 3px;
+  padding: 0.12rem 0.32rem;
+}
+
+pre,
+div.sourceCode,
+div.cell-output pre {
+  background: $bg-code-block !important;
+  border: 1px solid $border;
+  border-left: 3px solid $primary !important;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1rem;
+}
+
+pre code {
+  background: transparent;
   padding: 0;
 }
 
-#portada-libro .thesis-cover-meta {
-  margin-top: 2rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid rgba(26, 82, 118, 0.12);
-  font-family: $font-family-sans-serif;
-  font-size: 0.94rem;
-  line-height: 1.65;
-  color: #2c2c2c;
+table,
+.table {
+  border-collapse: collapse;
+  border: 1px solid $border;
+  margin: 1.5rem 0;
+  width: 100%;
 }
 
-#portada-libro .thesis-cover-meta p {
-  margin-bottom: 0.85rem;
+table th,
+table td,
+.table th,
+.table td {
+  border: 1px solid $border;
+  padding: 0.55rem 0.75rem;
+}
+
+table thead th,
+.table thead th {
+  background: $bg-sidebar;
+}
+
+table tbody tr:nth-child(even),
+.table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+figure,
+.quarto-figure {
   text-align: center;
 }
 
-#portada-libro .thesis-cover-meta p:last-child {
-  margin-bottom: 0;
+figcaption,
+.figure-caption {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: $text-muted;
+  margin-top: 0.6rem;
 }
 
-#portada-libro section.level1,
-#portada-libro section.level2 {
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
+a[role="doc-noteref"] {
+  color: $primary;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.footnotes {
+  font-size: 0.9rem;
+}
+
+.callout {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-width: 1px;
+}
+
+/* Previous / next chapter links */
+.page-navigation,
+.nav-page {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eeeeee;
+  font-family: $font-family-sans-serif;
   background: transparent !important;
 }
 
-#portada-libro a.anchorjs-link {
-  display: none !important;
+.page-navigation .nav-page-previous,
+.page-navigation .nav-page-next,
+.nav-page .nav-page-previous,
+.nav-page .nav-page-next {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-// ============================================================================
-// RESPONSIVE
-// ============================================================================
+.page-navigation .nav-page-previous a::before,
+.nav-page .nav-page-previous a::before {
+  content: "← ";
+}
+
+.page-navigation .nav-page-next a::after,
+.nav-page .nav-page-next a::after {
+  content: " →";
+}
+
 @media (max-width: 768px) {
-  .quarto-title-block .title {
-    font-size: 1.8rem;
-  }
-
-  .quarto-title-block .subtitle {
-    font-size: 1rem;
-  }
-
-  #quarto-content {
+  #quarto-content,
+  main.content,
+  #quarto-document-content {
     max-width: 100%;
-    padding: 0 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  p {
-    text-align: left;
-    hyphens: none;
+  #quarto-sidebar,
+  .sidebar.navigation {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  nav#TOC {
+    width: 100%;
+    max-height: none;
+    position: static;
   }
 }

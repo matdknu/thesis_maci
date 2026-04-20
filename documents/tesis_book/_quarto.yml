@@ -46,6 +46,8 @@ book:
   
   # Configuración del libro
   language: es
+  sidebar:
+    style: docked
   repo-url: https://github.com/matdknu/thesis_maci
   repo-actions: [source, issue]
   downloads: [pdf]
@@ -60,8 +62,8 @@ format:
     author: "Matías Deneken"
     language: es
     lang: es
-    theme:
-      light: [cosmo, custom.scss]
+    theme: [cosmo, custom.scss]
+    page-layout: article
     grid:
       sidebar-width: 280px
       margin-width: 0px
@@ -69,6 +71,7 @@ format:
       pinned: true
       collapse-level: 1
     toc: true
+    toc-location: right
     toc-depth: 3
     toc-title: "Contenido"
     number-sections: true
@@ -222,3 +225,7 @@ execute:
   freeze: auto
 
 editor: visual
+
+language:
+  es:
+    section-title-chapter: "Capítulo"
