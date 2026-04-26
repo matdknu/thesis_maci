@@ -60,22 +60,46 @@ donde se disputa la reconfiguración de las identidades políticas
 en competencia que aún no han estabilizado sus fronteras.
 
 El **problema central** que aborda esta investigación puede formularse
-así:
+así —con **delimitación explícita al caso chileno**, pues la motivación
+empírica nace del ciclo electoral y del mapa de partidos descritos en
+el párrafo anterior:
 
-> En un contexto de fragmentación partidaria y de reconfiguración
-> ideológica en el sistema político chileno —en paralelo a procesos de
-> desalineamiento y realineamiento electoral documentados en otras
-> democracias contemporáneas [@garzia2023AffectivePolarizationComparative;
-> @norris2019culturalbacklash]—, ¿cómo se estructura la competencia
-> política digital entre actores que comparten un espacio ideológico pero
-> compiten por diferenciarse? ¿Qué estrategias discursivas despliegan?
-> ¿Bajo qué condiciones convergen o divergen?
+> En **Chile**, en un contexto de fragmentación partidaria y de
+> reconfiguración ideológica del **sistema político chileno** —donde la
+> competencia es especialmente visible al interior del campo de las
+> derechas—, ¿cómo se estructura la competencia política digital entre
+> actores que comparten un espacio ideológico pero compiten por
+> diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué
+> condiciones convergen o divergen?
+
+Esa formulación no pretende sugerir un fenómeno aislado: el
+desalineamiento, el realineamiento y la polarización afectiva han sido
+documentados como dinámicas transnacionales con matices nacionales
+[@garzia2023AffectivePolarizationComparative; @norris2019culturalbacklash].
+En paralelo, la literatura comparada sobre vínculos entre éxitos de la
+derecha radical y la agenda identitaria de partidos mayoritarios
+[@weeksAllen2022BacklashIdentityPoliticsFarRight], sobre cómo la
+exposición mediática se asocia a creencias y actitudes frente a la
+derecha radical en democracias occidentales
+[@selvanathan2025FarRightMovementsWesternWorld] y sobre marcos para
+investigar la radical derecha en tiempos de *mainstreaming*
+[@newth2025ResearchingUnderstandingFarRightMainstreaming] aporta
+antecedentes útiles para interpretar tensiones intra-bloque y su
+expresión digital; la contribución de esta tesis es **situar y medir**
+esas tensiones en el **debate chileno en Reddit** durante 2025.
 
 Este problema es relevante por tres razones:
 
 1.  **Vacío empírico**: Mientras abundan los estudios sobre polarización
     izquierda-derecha, la competencia *intra-bloque* —particularmente
-    entre derechas— permanece subexplorada en América Latina.
+    entre derechas— permanece subexplorada en América Latina, pese a
+    que la agenda internacional ya examina la articulación entre
+    radicalización derecha, identidad y atención de los partidos
+    mayoritarios [@weeksAllen2022BacklashIdentityPoliticsFarRight], la
+    mediación y las actitudes en contextos occidentales
+    [@selvanathan2025FarRightMovementsWesternWorld] y los marcos
+    analíticos recientes para estudiar la radical derecha en procesos de
+    mainstreaming [@newth2025ResearchingUnderstandingFarRightMainstreaming].
 
 2.  **Transformación en curso**: Las derechas chilenas están en proceso
     de reconfiguración activa; estudiar este proceso mientras ocurre

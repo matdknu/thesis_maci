@@ -251,7 +251,7 @@ if (file.exists(file.path(base_out, "roc_curves_polarizacion_alta.png"))) {
 
 Las tablas completas de clasificación multiclase de estrategia (@tbl-anexo-estrategia-resumen y @tbl-anexo-estrategia-clases), frontera política (@tbl-anexo-frontera-resumen y @tbl-anexo-frontera-clases), perfiles K-means (@tbl-anexo-perfiles-kmeans) y análisis de errores (@tbl-anexo-errores-sistematicos) se detallan en el Anexo A. Aquí se sintetizan los tres resultados principales.
 
-Primero, estos resultados indican que la frontera política es parcialmente recuperable desde texto corto y ruidoso ($\mbox{F1-macro} = 0.725$ en el mejor modelo), lo que sugiere que el concepto teórico de Mouffe deja una huella textual detectable, aunque con las limitaciones propias de un corpus informal y no curado.
+Primero, estos resultados indican que la frontera política es parcialmente recuperable desde texto corto y ruidoso ($\mbox{F1-macro} = 0.725$ en el mejor modelo), lo que sugiere que el concepto teórico de Mouffe [@mouffe2005OnThePolitical] deja una huella textual detectable, aunque con las limitaciones propias de un corpus informal y no curado.
 
 Segundo, los perfiles K-means (K = 3) revelan que la hostilidad no se distribuye como un continuo homogéneo, sino que se organiza en configuraciones discursivas diferenciadas: el cluster 0 agrupa comentarios de baja polarización con marcos diagnósticos y sin estrategia adversarial; el cluster 1 combina deslegitimación con desprecio en hilos sobre Jara; y el cluster 2 concentra ridiculización con desprecio dirigida a Kast.
 

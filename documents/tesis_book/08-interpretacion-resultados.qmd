@@ -199,7 +199,7 @@ El atlas (@fig-3d-atlas-global-v1) ofrece una lectura visual que
 complementa los hallazgos estadísticos anteriores. El panel de
 candidatos (superior derecho) muestra una superposición casi completa de
 los cuatro colores: no existen regiones exclusivas por candidato [@defranciscimorales2021NoEchoChambers]. Desde
-la perspectiva de Mouffe, esto sugiere que la frontera política no se
+la perspectiva de Mouffe [@mouffe2005OnThePolitical], esto sugiere que la frontera política no se
 traza entre vocabularios diferenciados, sino a través de un repertorio
 léxico compartido — la polarización es una propiedad del discurso, no
 del target.
