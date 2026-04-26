@@ -16,34 +16,34 @@ knitr::opts_chunk$set(
 ## Diseño de investigación {#sec-diseno}
 
 Toda la evidencia presentada a partir de los capítulos de exploración y
-resultados se apoya en un **mismo cuerpo de datos digital**: comentarios
-y publicaciones **extraídos de Reddit mediante su API pública** en el
-**período electoral de la campaña presidencial de Chile en 2025**,
-concretamente **del 1 de agosto al 31 de diciembre de 2025**, con
+resultados se apoya en un mismo cuerpo de datos digital: comentarios
+y publicaciones extraídos de Reddit mediante su API pública en el
+período electoral de la campaña presidencial de Chile en 2025,
+concretamente del 1 de agosto al 31 de diciembre de 2025, con
 cobertura de las fases de precampaña, campaña y segunda vuelta, tal como
 se detalla en las secciones que siguen. Este anclaje temporal y de
-**fuente** no es un detalle técnico: deja claro qué sostiene el
+fuente no es un detalle técnico: deja claro qué sostiene el
 argumento (discurso observable en plataforma, no otra medición
 paralela) y por qué el diseño aporta rigor: se observa el debate
 político mientras se desarrolla el proceso electoral, con trazabilidad
 desde la plataforma hasta el análisis.
 
-En paralelo, la investigación adopta un **diseño longitudinal
-observacional** basado en *contenido generado por los usuarios*. Ese carácter
+En paralelo, la investigación adopta un diseño longitudinal
+observacional basado en *contenido generado por los usuarios*. Ese carácter
 longitudinal permite capturar la evolución del debate a lo largo del
 ciclo electoral, identificando tendencias, puntos de inflexión y
 dinámicas de cambio. El carácter observacional preserva las propiedades
 naturales de la interacción en Reddit, sin intervención experimental.
 
-Metodológicamente, se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** (caracterizar la conversación política en Reddit en la ventana de campaña 2025) con componentes **explicativos**, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
+Metodológicamente, se inscribe en la ciencia social computacional [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes descriptivos (caracterizar la conversación política en Reddit en la ventana de campaña 2025) con componentes explicativos, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
 
 ## Reddit como plataforma de análisis
 
 Reddit es una plataforma de agregación de contenido y discusión organizada en comunidades temáticas denominadas *subreddits*, cada una con sus propias normas, moderadores y cultura discursiva. A diferencia de plataformas organizadas en torno a redes de seguidores o amistades, Reddit estructura la participación en torno a intereses y temas compartidos, lo que favorece conversaciones más extensas y argumentadas que en otros entornos digitales.
 
-Su arquitectura de **comentarios anidados** (*threaded discussions*) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.
+Su arquitectura de comentarios anidados (*threaded discussions*) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.
 
-En el contexto chileno, dos subreddits concentran la discusión política nacional. **r/chile** es una comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática, y ha tendido históricamente hacia posiciones de centro e izquierda, aunque con presencia de voces diversas. **r/RepublicadeChile** surgió como escisión de r/chile, con políticas de moderación más permisivas y una composición ideológica tendiente a la derecha; tolera discursos más confrontacionales y concentra a usuarios críticos de la moderación de r/chile. Esta dualidad constituye un caso comparativo de valor, pues permite examinar cómo una misma controversia política es procesada de manera diferenciada según la cultura discursiva de la comunidad.
+En el contexto chileno, dos subreddits concentran la discusión política nacional. r/chile es una comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática, y ha tendido históricamente hacia posiciones de centro e izquierda, aunque con presencia de voces diversas. r/RepublicadeChile surgió como escisión de r/chile, con políticas de moderación más permisivas y una composición ideológica tendiente a la derecha; tolera discursos más confrontacionales y concentra a usuarios críticos de la moderación de r/chile. Esta dualidad constituye un caso comparativo de valor, pues permite examinar cómo una misma controversia política es procesada de manera diferenciada según la cultura discursiva de la comunidad.
 
 ## Recolección de datos mediante la API de Reddit
 
@@ -53,7 +53,7 @@ Los datos fueron extraídos mediante la API pública de Reddit utilizando la lib
 
 ### Período de recolección y fases del ciclo electoral
 
-La recolección abarcó **cinco meses**, del **1 de agosto al 31 de diciembre de 2025**, cubriendo las siguientes fases del ciclo electoral:
+La recolección abarcó cinco meses, del 1 de agosto al 31 de diciembre de 2025, cubriendo las siguientes fases del ciclo electoral:
 
 | Período                    | Fase electoral                                                                           |
 |----------------------------|------------------------------------------------------------------------------------------|
@@ -62,13 +62,13 @@ La recolección abarcó **cinco meses**, del **1 de agosto al 31 de diciembre de
 
 ### Estrategia de extracción incremental
 
-El proceso fue **incremental y acumulativo**, ejecutado en múltiples iteraciones encadenadas. En cada ciclo se recuperaban los *posts* más recientes de cada *subreddit* (250–1.000 por ejecución), se descargaba el árbol completo de comentarios para capturar todos los niveles de anidación, se integraban los nuevos datos con extracciones previas en archivos Parquet y se eliminaban duplicados mediante el identificador único nativo de Reddit (`post_id`), que garantiza unicidad por diseño de la plataforma.
+El proceso fue incremental y acumulativo, ejecutado en múltiples iteraciones encadenadas. En cada ciclo se recuperaban los *posts* más recientes de cada *subreddit* (250–1.000 por ejecución), se descargaba el árbol completo de comentarios para capturar todos los niveles de anidación, se integraban los nuevos datos con extracciones previas en archivos Parquet y se eliminaban duplicados mediante el identificador único nativo de Reddit (`post_id`), que garantiza unicidad por diseño de la plataforma.
 
 ### Contenido extraído y filtrado temático
 
-Para cada publicación dentro del rango temporal se extrajeron dos niveles de registro. A nivel de **publicación** se conservaron el título, el cuerpo (*selftext*), el autor, la fecha, la puntuación, el número de comentarios y el *flair* temático. A nivel de **comentario** se conservaron el cuerpo, el autor, la fecha, la puntuación y el identificador del comentario al que responde.
+Para cada publicación dentro del rango temporal se extrajeron dos niveles de registro. A nivel de publicación se conservaron el título, el cuerpo (*selftext*), el autor, la fecha, la puntuación, el número de comentarios y el *flair* temático. A nivel de comentario se conservaron el cuerpo, el autor, la fecha, la puntuación y el identificador del comentario al que responde.
 
-El filtrado temático se realizó mediante **expresiones regulares** que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
+El filtrado temático se realizó mediante expresiones regulares que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
 
 | Candidatura       | Corriente ideológica         | Patrones de búsqueda               |
 |-------------------|------------------------------|------------------------------------|
@@ -79,20 +79,20 @@ El filtrado temático se realizó mediante **expresiones regulares** que detecta
 
 : Candidaturas objetivo y patrones de detección. {#tbl-candidaturas}
 
-Esta selección permite analizar tanto la **competencia al interior de la derecha** entre tres corrientes como la **convergencia discursiva** frente al adversario ideológico común (ver @tbl-candidaturas).
+Esta selección permite analizar tanto la competencia al interior de la derecha entre tres corrientes como la convergencia discursiva frente al adversario ideológico común (ver @tbl-candidaturas).
 
 ## Consideraciones éticas
 
-La investigación se rige por principios establecidos para la investigación con datos digitales [@salganik2018BitBitSocial]. En lo sustantivo, todo el contenido proviene de **espacios públicos** de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la **privacidad** en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de **no intervención**: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la **reproducibilidad** se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.
+La investigación se rige por principios establecidos para la investigación con datos digitales [@salganik2018BitBitSocial]. En lo sustantivo, todo el contenido proviene de espacios públicos de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la privacidad en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de no intervención: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la reproducibilidad se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.
 
 ## Técnicas de Análisis
 
-El estudio combina **modelos de lenguaje (GPT-4o y DeepSeek)** [@ali2025SocialMediaPolarization; @arslan2025PoliticalRAGUsingGenerative] con **validación humana sistemática** para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se **validan con codificación manual** usando métricas de acuerdo (kappa de Cohen, $\kappa$) [@ajala2022CombiningArtificialIntelligence] antes de escalar al corpus completo.
+El estudio combina modelos de lenguaje (GPT-4o y DeepSeek) [@ali2025SocialMediaPolarization; @arslan2025PoliticalRAGUsingGenerative] con validación humana sistemática para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se validan con codificación manual usando métricas de acuerdo (kappa de Cohen, $\kappa$) [@ajala2022CombiningArtificialIntelligence] antes de escalar al corpus completo.
 
 El análisis se organiza en torno a cuatro dimensiones principales que capturan aspectos complementarios del corpus. La primera es el sentimiento y las emociones, abordados en términos de polaridad, intensidad y emoción predominante en cada comentario. La segunda son los marcos interpretativos, clasificados en categorías que distinguen los registros económico, securitario, identitario, institucional y medioambiental. La tercera son las interacciones entre usuarios, examinadas como redes de respuesta que permiten detectar comunidades y patrones de polarización relacional. La cuarta es la evolución temporal, que rastrea cambios en tono, temas y volumen a lo largo del ciclo electoral. Esas cuatro dimensiones se traducen en variables operacionales que alimentan el modelado y la interpretación subsiguientes.
 
-El pipeline incluye técnicas de **procesamiento de texto (TF-IDF, bigramas)** [@hirschbergAdvancesNaturalLanguage], codificación de variables y modelos supervisados como **Regresión Logística, SVM, Random Forest y Gradient Boosting**, evaluados con validación cruzada. También se aplican métodos de **reducción de dimensionalidad (SVD y PCA)** para visualización.
+El pipeline incluye técnicas de procesamiento de texto (TF-IDF, bigramas) [@hirschbergAdvancesNaturalLanguage], codificación de variables y modelos supervisados como Regresión Logística, SVM, Random Forest y Gradient Boosting, evaluados con validación cruzada. También se aplican métodos de reducción de dimensionalidad (SVD y PCA) para visualización.
 
-Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis **longitudinales, relacionales y discursivos integrados**.
+Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis longitudinales, relacionales y discursivos integrados.
 
 ![Flujo de recolección y procesamiento del corpus.](fig_thesis/pipeline_corpus.png){#fig-pipeline-datos fig-align="center" width="81%"}

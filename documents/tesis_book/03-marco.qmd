@@ -13,15 +13,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-Este capítulo expone el **marco conceptual** (polarización afectiva,
+Este capítulo expone el marco conceptual (polarización afectiva,
 adversarios, encuadre, emociones, derechas en Chile) que guía la
 lectura de los resultados. Para evitar confusión con el plan empírico:
 todos los hallazgos de conversación, polarización y adversarios
-**provienen de mensajes de usuarios de Reddit** (foro y plataforma en
-*subreddits*, ya descritos al inicio de la **presentación del problema**, capítulo
-anterior, y en el capítulo de **diseño y datos**), **obtenidos por
-extracción vía API en el calendario de la elección presidencial 2025**
-(de agosto a diciembre). La teoría de este capítulo no asume aún **qué** se
+provienen de mensajes de usuarios de Reddit (foro y plataforma en
+*subreddits*, ya descritos al inicio de la presentación del problema, capítulo
+anterior, y en el capítulo de diseño y datos), obtenidos por
+extracción vía API en el calendario de la elección presidencial 2025
+(de agosto a diciembre). La teoría de este capítulo no asume aún qué se
 dijo en Chile en 2025; asigna, en cambio, los conceptos con los que
 interpretaremos luego el corpus.
 

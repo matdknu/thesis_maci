@@ -128,12 +128,14 @@ pretty_ols_term <- function(x) {
   paste(vn_lbl, lev_lbl, sep = ": ")
 }
 
-#' Tabla principal: booktabs + nota al pie tipo APA
+#' Tabla principal: booktabs (sin nota al pie: en PDF con Quarto, kableExtra::footnote
+#' rompe el float y puede mostrar artefactos como "[!h]" o desalinear columnas).
 #' @param landscape Si TRUE (p. ej. en PDF), página horizontal con pdflscape (tablas anchas).
 #' @param scale_down Si TRUE (LaTeX), escala la tabla al ancho de línea. No se combina con
 #'   longtable: kableExtra ante scale_down + longtable termina envolviendo en landscape.
 #' @param longtable Si NULL, se usa longtable solo si nrow(df) > max_rows_longtable (tabular en
 #'   el resto, compatible con scale_down en retrato).
+#' @param note Ignorado (reservado por compatibilidad; no se renderiza).
 kable_apa <- function(
     df,
     caption,
@@ -162,9 +164,6 @@ kable_apa <- function(
     longtable <- isTRUE(nrow(df) > max_rows_longtable)
   }
   caption <- latex_escape_underscores(caption)
-  if (length(note)) {
-    note <- latex_escape_underscores(note)
-  }
   # kableExtra: scale_down sobre longtable dispara aviso y puede envolver en landscape en el PDF.
   # Si piden scale_down en LaTeX, forzar tabular (sin longtable).
   if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output())) {
@@ -188,7 +187,9 @@ kable_apa <- function(
     longtable = longtable
   )
   if (isTRUE(requireNamespace("kableExtra", quietly = TRUE))) {
-    latex_opts <- c("striped", "hold_position")
+    # Sin "hold_position": con Quarto + entorno table de crossref, kableExtra
+    # puede dejar "[!h]" como texto visible en el PDF (fragmento fuera de \begin{table}[!h]).
+    latex_opts <- c("striped")
     if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output()) && !isTRUE(longtable)) {
       latex_opts <- c(latex_opts, "scale_down")
     }
@@ -202,14 +203,6 @@ kable_apa <- function(
       ksty$font_size <- 8
     }
     k <- do.call(kableExtra::kable_styling, ksty)
-    if (length(note) && nzchar(note)) {
-      k <- kableExtra::footnote(
-        k,
-        general = note,
-        general_title = "Nota.",
-        footnote_as_chunk = TRUE
-      )
-    }
     if (isTRUE(landscape) && isTRUE(knitr::is_latex_output())) {
       k <- kableExtra::landscape(k)
     }

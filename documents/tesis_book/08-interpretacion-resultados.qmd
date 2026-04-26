@@ -32,9 +32,9 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 
 ### Estrategias por candidato
 
-En este apartado conviene distinguir dos agregaciones: la **frontera
-política** del comentario (entre bloques, al interior del bloque o sin frontera) y
-el **candidato objetivo** al que se dirige el mensaje. La
+En este apartado conviene distinguir dos agregaciones: la frontera
+política del comentario (entre bloques, al interior del bloque o sin frontera) y
+el candidato objetivo al que se dirige el mensaje. La
 @tbl-estrategia-frontera cuantifica la primera: proporción de cada
 estrategia discursiva según tipo de frontera. La distribución por
 candidato se incluye en el Anexo A (@fig-anexo-estrategias-candidato).
@@ -70,7 +70,6 @@ if (nrow(ef)) {
   kable_apa(
     ef,
     caption = "Estrategias discursivas por tipo de frontera política.",
-    note = NULL,
     align = "lrrr",
     landscape = FALSE,
     scale_down = FALSE
@@ -181,7 +180,7 @@ hostilidad tiene carácter ambiental y difuso: no es producto de trolls
 coordinados sino de una cultura discursiva generalizada donde la crítica
 hostil es el modo dominante de participación política. Como resume la
 @tbl-anexo-kast-transiciones, la gran mayoría de quienes partieron
-negativos **permanece** en negativo; solo una minoría pasa a tono
+negativos permanece en negativo; solo una minoría pasa a tono
 positivo o neutro, lo que sugiere cristalización actitudinal más que
 escalamiento reactivo [@efstratiou2023NonpolarOppositesAnalyzing].
 

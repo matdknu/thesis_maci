@@ -49,16 +49,16 @@ Una vez constituido el corpus filtrado temáticamente, se aplicó una etapa de d
 ## Descripción general del corpus
 
 El corpus previo a la depuración comprende
-**`r format(nrow(reddit_filtrado), big.mark = ".")` comentarios**
+`r format(nrow(reddit_filtrado), big.mark = ".")` comentarios
 distribuidos en
-**`r format(dplyr::n_distinct(reddit_filtrado$post_id), big.mark = ".")` posts únicos**,
+`r format(dplyr::n_distinct(reddit_filtrado$post_id), big.mark = ".")` posts únicos,
 publicados entre
 `r format(min(reddit_filtrado$fecha, na.rm = TRUE), "%d de %B de %Y")` y
 `r format(max(reddit_filtrado$fecha, na.rm = TRUE), "%d de %B de %Y")`.
 Participaron
-**`r format(dplyr::n_distinct(reddit_filtrado$comment_author), big.mark = ".")` autores únicos**
+`r format(dplyr::n_distinct(reddit_filtrado$comment_author), big.mark = ".")` autores únicos
 en los comentarios y
-**`r format(dplyr::n_distinct(reddit_filtrado$post_author), big.mark = ".")` autores únicos**
+`r format(dplyr::n_distinct(reddit_filtrado$post_author), big.mark = ".")` autores únicos
 en los posts. La @tbl-general resume las estadísticas generales del corpus en esta etapa inicial.
 
 ```{r tbl-general}
@@ -87,7 +87,7 @@ tibble(
   knitr::kable(align = c("l", "r")) |>
   kableExtra::kable_styling(
     bootstrap_options = c("striped", "hover", "condensed"),
-    latex_options     = c("striped", "hold_position"),
+    latex_options     = c("striped"),
     full_width        = FALSE
   )
 ```
@@ -111,13 +111,8 @@ reddit_filtrado |>
   knitr::kable(align = c("l", "r", "r")) |>
   kableExtra::kable_styling(
     bootstrap_options = c("striped", "hover", "condensed"),
-    latex_options     = c("striped", "hold_position"),
+    latex_options     = c("striped"),
     full_width        = FALSE
-  ) |>
-  kableExtra::footnote(
-    general       = "Un comentario puede mencionar a más de un candidato; los porcentajes no suman 100%.",
-    general_title = "Nota:",
-    footnote_as_chunk = TRUE
   )
 ```
 
@@ -127,9 +122,9 @@ reddit_filtrado |>
 Se aplicaron dos criterios de exclusión secuenciales:
 
 
-**Contenido automático y bots.** Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (`AutoModerator`, `RemindMeBot`). La exclusión de este contenido reduce el ruido no humano en el análisis de sentimiento y en la construcción de redes de interacción.
+Contenido automático y bots. Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (`AutoModerator`, `RemindMeBot`). La exclusión de este contenido reduce el ruido no humano en el análisis de sentimiento y en la construcción de redes de interacción.
 
-**Comentarios excesivamente cortos.** Los comentarios con menos de tres tokens tras la normalización (típicamente reacciones monosilábicas, interjecciones o emojis aislados) aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual.
+Comentarios excesivamente cortos. Los comentarios con menos de tres tokens tras la normalización (típicamente reacciones monosilábicas, interjecciones o emojis aislados) aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual.
 
 ```{r depuracion}
 # ── 1. Eliminar comentarios borrados/eliminados ──────────────────────────────
@@ -180,10 +175,10 @@ n_final       <- nrow(reddit_dep4)
 
 El texto de posts y comentarios fue sometido a una normalización previa a cualquier clasificación automatizada. Las transformaciones se aplicaron en el siguiente orden:
 
-**Eliminación de elementos no textuales.** URLs, menciones de usuario (patrones `u/nombre`), referencias a subreddits (`r/nombre`) y secuencias de formato Markdown (asteriscos, almohadillas, corchetes) fueron eliminadas mediante expresiones regulares, dado que no aportan contenido semántico al análisis discursivo.
+Eliminación de elementos no textuales. URLs, menciones de usuario (patrones `u/nombre`), referencias a subreddits (`r/nombre`) y secuencias de formato Markdown (asteriscos, almohadillas, corchetes) fueron eliminadas mediante expresiones regulares, dado que no aportan contenido semántico al análisis discursivo.
 
-**Normalización de espacios y puntuación.** Secuencias de espacios múltiples, saltos de línea redundantes y puntuación repetida fueron colapsadas a su forma canónica mediante `str_squish()`.
+Normalización de espacios y puntuación. Secuencias de espacios múltiples, saltos de línea redundantes y puntuación repetida fueron colapsadas a su forma canónica mediante `str_squish()`.
 
-**Conservación de tildes y caracteres del español.** No se aplicó eliminación de tildes ni de la letra ñ, dado que su presencia es relevante para la correcta tokenización del español chileno.
+Conservación de tildes y caracteres del español. No se aplicó eliminación de tildes ni de la letra ñ, dado que su presencia es relevante para la correcta tokenización del español chileno.
 
-**No aplicación de *stopwords* ni lematización en esta fase.** Estas transformaciones más agresivas se reservan para las técnicas que específicamente las requieren y no se aplican al texto enviado a los modelos de lenguaje para clasificación de sentimiento y marcos interpretativos, donde el contexto completo mejora el desempeño del modelo.
+No aplicación de *stopwords* ni lematización en esta fase. Estas transformaciones más agresivas se reservan para las técnicas que específicamente las requieren y no se aplican al texto enviado a los modelos de lenguaje para clasificación de sentimiento y marcos interpretativos, donde el contexto completo mejora el desempeño del modelo.

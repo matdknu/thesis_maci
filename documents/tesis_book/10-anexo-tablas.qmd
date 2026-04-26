@@ -25,7 +25,7 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 }
 ```
 
-Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal (incluidas la tabla y el coefplot del modelo OLS de polarización del capítulo 7, el listado de las diez combinaciones marco × emoción más frecuentes del capítulo 8, y las de cruces electorales por autor y la persistencia de tono hacia Kast). En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí.
+Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal (incluidas la tabla y el coefplot del modelo OLS de polarización del capítulo 7, el listado de las diez combinaciones marco × emoción más frecuentes del capítulo 8, y las de cruces electorales por autor y la persistencia de tono hacia Kast). En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí. Las precisiones metodológicas que antes figuraban como notas bajo tablas (definición de variables, N, referencias de categorías) están desarrolladas en esos capítulos o en el texto que encabeza cada sección del anexo.
 
 **A.1 Modelado de datos (capítulo 7)**
 
@@ -53,8 +53,7 @@ if (nrow(cfg)) {
   cfg$delta_vs_texto <- round(cfg$R2_mean - cfg$R2_mean[cfg$config == "A_TF-IDF"][1], 4)
   kable_apa_anexo(
     cfg,
-    caption = NULL,
-    note = "delta_vs_texto: incremento de R^2 medio respecto de la configuración solo TF-IDF."
+    caption = NULL
   )
 }
 ```
@@ -259,12 +258,6 @@ if (nrow(ols)) {
   kable_apa_anexo(
     ols_out,
     caption = NULL,
-    note = paste0(
-      "Modelo OLS: polarización consensuada ~ marcos, emociones, estrategias, fronteras, candidato, fase electoral, tipo de hilo y karma (centrado). ",
-      "Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento e hilo solo izquierda. ",
-      "Se listan los 15 términos significativos con mayor |B|, excluido el intercepto. ",
-      "N = ", format(n_obs, big.mark = "."), ", R^2 ajustado = ", round(r2a, 3), "."
-    ),
     align = "llrrrr"
   )
 }
@@ -318,7 +311,6 @@ if (nrow(me)) {
   kable_apa_anexo(
     top_me,
     caption = NULL,
-    note = "Pol. med.: polarización consensuada media en esa combinación. Mismos valores que en el análisis del capítulo 8.",
     align = "llrrr"
   )
 }
@@ -352,8 +344,7 @@ if (nrow(mfc)) {
   kable_apa_anexo(
     mfc,
     col.names = c("Candidato", "Chi-cuadrado", "p", "V de Cramér", "N"),
-    caption = NULL,
-    note = "p en formato APA. N = número de comentarios del candidato en el análisis."
+    caption = NULL
   )
 }
 ```
@@ -369,7 +360,6 @@ if (file.exists(sent_path)) {
   kable_apa_anexo(
     sent,
     caption = NULL,
-    note = NULL,
     align = "lllr"
   )
 }
@@ -403,11 +393,6 @@ if (nrow(rk)) {
   kable_apa_anexo(
     tab_kast,
     caption = NULL,
-    note = paste0(
-      "Porcentajes calculados sobre el conjunto de autores con tono negativo hacia Kast en la fase inicial (N = ",
-      format(n, big.mark = "."),
-      "). La columna indica qué fracción pasó a cada destino."
-    ),
     align = "lr"
   )
 }
@@ -424,7 +409,6 @@ if (file.exists(emo_path)) {
   kable_apa_anexo(
     emo,
     caption = NULL,
-    note = NULL,
     align = "lllr"
   )
 }
