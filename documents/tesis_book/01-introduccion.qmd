@@ -58,11 +58,5 @@ Analizar la configuración y evolución de la conversación política en Reddit 
 
 ### Objetivos específicos
 
-1. Describir las tendencias en los niveles de polarización afectiva hacia los candidatos en Reddit durante el proceso electoral.
-
-2. Caracterizar los marcos interpretativos (*frames*) predominantes en el discurso de cada corriente ideológica y su variación a lo largo del ciclo electoral.
-
-3. Identificar los patrones de movilización emocional asociados a cada candidatura, distinguiendo emociones de valencia positiva, negativa y las combinaciones que configuran repertorios afectivos específicos.
-
-
+En primer lugar, el estudio se propone **describir las tendencias** en los niveles de polarización afectiva hacia los candidatos en Reddit a lo largo del proceso electoral, de modo que la evolución temporal de la hostilidad quede documentada antes de pasar a interpretaciones más finas. En segundo lugar, busca **caracterizar los marcos interpretativos** (*frames*) predominantes en el discurso de cada corriente ideológica y su variación en el ciclo electoral, lo que conecta la pregunta por el encuadre con la comparación entre derechas y con el adversario de izquierda. En tercer lugar, pretende **identificar los patrones de movilización emocional** asociados a cada candidatura, distinguiendo emociones de valencia positiva y negativa y las combinaciones que configuran repertorios afectivos específicos. Los tres objetivos se encadenan en una secuencia lógica: primero del tono afectivo global, luego del contenido semántico del conflicto, por último del registro emocional que sostiene la competencia discursiva.
 

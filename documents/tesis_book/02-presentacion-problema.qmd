@@ -88,27 +88,7 @@ antecedentes útiles para interpretar tensiones intra-bloque y su
 expresión digital; la contribución de esta tesis es **situar y medir**
 esas tensiones en el **debate chileno en Reddit** durante 2025.
 
-Este problema es relevante por tres razones:
-
-1.  **Vacío empírico**: Mientras abundan los estudios sobre polarización
-    izquierda-derecha, la competencia *intra-bloque* —particularmente
-    entre derechas— permanece subexplorada en América Latina, pese a
-    que la agenda internacional ya examina la articulación entre
-    radicalización derecha, identidad y atención de los partidos
-    mayoritarios [@weeksAllen2022BacklashIdentityPoliticsFarRight], la
-    mediación y las actitudes en contextos occidentales
-    [@selvanathan2025FarRightMovementsWesternWorld] y los marcos
-    analíticos recientes para estudiar la radical derecha en procesos de
-    mainstreaming [@newth2025ResearchingUnderstandingFarRightMainstreaming].
-
-2.  **Transformación en curso**: Las derechas chilenas están en proceso
-    de reconfiguración activa; estudiar este proceso mientras ocurre
-    permite capturar dinámicas que análisis retrospectivos pierden.
-
-3.  **Implicancias democráticas**: Comprender cómo se construyen
-    adversarios y fronteras identitarias en espacios digitales resulta
-    crucial para evaluar la calidad del debate público y anticipar
-    escenarios de polarización [@kingzette2021HowAffectivePolarization].
+Este problema es relevante por tres órdenes de razones que conviene tener presentes a la vez. En primer lugar, por un **vacío empírico**: mientras abundan los estudios sobre polarización izquierda-derecha, la competencia *intra-bloque* —particularmente entre derechas— permanece subexplorada en América Latina, pese a que la agenda internacional ya examina la articulación entre radicalización derecha, identidad y atención de los partidos mayoritarios [@weeksAllen2022BacklashIdentityPoliticsFarRight], la mediación y las actitudes en contextos occidentales [@selvanathan2025FarRightMovementsWesternWorld] y los marcos analíticos recientes para estudiar la radical derecha en procesos de *mainstreaming* [@newth2025ResearchingUnderstandingFarRightMainstreaming]. En segundo lugar, por una **transformación en curso**: las derechas chilenas están en proceso de reconfiguración activa, y estudiar ese proceso mientras ocurre permite capturar dinámicas que los análisis retrospectivos tienden a diluir. En tercer lugar, por **implicancias democráticas**: comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización [@kingzette2021HowAffectivePolarization].
 
 ## Acercamiento: actores, dimensiones y niveles de análisis
 
@@ -144,15 +124,7 @@ anidación de comentarios, énfasis relativo en el argumento) han
 facilitado el análisis de polarización y *framing* en contextos
 comparados [@defranciscimorales2021NoEchoChambers; @duguay2022ReadItReddit].
 
-Esta selección permite observar:
-
--   **Competencia intra-derecha**: Cómo tres proyectos distintos
-    disputan un electorado parcialmente superpuesto.
--   **Convergencia anti-izquierda**: Cómo actores previamente
-    enfrentados articulan un frente común frente al adversario
-    ideológico.
--   **Asimetrías discursivas**: Cómo diferentes corrientes movilizan
-    repertorios retóricos y emocionales distintivos.
+Esta selección permite observar, en primer término, la **competencia intra-derecha**, es decir, cómo tres proyectos distintos disputan un electorado parcialmente superpuesto; en segundo término, la **convergencia anti-izquierda**, esto es, cómo actores previamente enfrentados articulan un frente común frente al adversario ideológico; y, en tercer término, las **asimetrías discursivas**, es decir, cómo corrientes distintas movilizan repertorios retóricos y emocionales diferenciados.
 
 ### Las dimensiones analíticas
 
@@ -226,21 +198,7 @@ explicativos sustentados en la evidencia acumulada.
 
 ### Originalidad de la propuesta
 
-La propuesta se distingue de estudios previos en tres aspectos:
-
-1.  **Foco en competencia intra-bloque**: Mientras la mayoría de
-    estudios examina la polarización entre izquierda y derecha, esta
-    investigación centra la atención en las dinámicas *dentro* del campo
-    de las derechas.
-
-2.  **Perspectiva procesual**: En lugar de fotografías estáticas, el
-    diseño longitudinal permite observar cómo evolucionan las
-    estrategias discursivas a lo largo del ciclo electoral.
-
-3.  **Reddit como campo**: La plataforma está subexplorada en el
-    contexto latinoamericano, y sus características estructurales
-    (conversaciones anidadas, votación comunitaria) ofrecen
-    posibilidades analíticas distintivas.
+La propuesta se distingue de estudios previos en tres aspectos que conviene articular en conjunto. En primer lugar, adopta un **foco en la competencia intra-bloque**: mientras la mayoría de la literatura examina la polarización entre izquierda y derecha, esta investigación centra la atención en las dinámicas *dentro* del campo de las derechas. En segundo lugar, adopta una **perspectiva procesual**: en lugar de fotografías estáticas, el diseño longitudinal permite observar cómo evolucionan las estrategias discursivas a lo largo del ciclo electoral. En tercer lugar, sitúa **Reddit como campo empírico**: la plataforma está subexplorada en el contexto latinoamericano, y sus características estructurales (conversaciones anidadas, votación comunitaria) ofrecen posibilidades analíticas distintivas frente a redes centradas en el contacto personal o en el *microtexto*.
 
 ## Producto mínimo viable (MVP) y objetivos operacionales
 
@@ -272,69 +230,20 @@ La planificación operativa del estudio se detalla en la
 
 ### Alcances y limitaciones anticipadas
 
-**Alcances**: - El análisis cubre el debate en dos comunidades de
-Reddit, que constituyen los principales espacios de discusión política
-chilena en la plataforma. - El período captura fases clave del ciclo
-electoral, permitiendo observar dinámicas de cambio. - Las técnicas
-empleadas permiten procesar el corpus completo, no solo muestras.
+En cuanto a **alcances**, el análisis cubre el debate en dos comunidades de Reddit que constituyen los principales espacios de discusión política chilena en la plataforma; el período temporal captura fases clave del ciclo electoral, lo que permite observar dinámicas de cambio; y las técnicas empleadas procesan el corpus completo en lugar de depender de muestras parciales que podrían sesgar la lectura de fenómenos raros pero relevantes.
 
-**Limitaciones**: - Reddit no es representativo del electorado chileno;
-los hallazgos refieren al debate en esta plataforma específica, no a la
-opinión pública general. - Los usuarios de Reddit tienden a ser más
-jóvenes, más masculinos y más politizados que la población general. - El
-análisis de sentimiento automatizado tiene márgenes de error,
-particularmente con ironía, sarcasmo y jerga local. - La atribución
-ideológica de usuarios es inferida a partir de su comportamiento
-discursivo, no de autodeclaraciones.
+Las **limitaciones** merecen explicitarse con la misma claridad. Reddit no es representativo del electorado chileno, de modo que los hallazgos refieren al debate en esta plataforma y no a la opinión pública general. Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general. El análisis de sentimiento automatizado conserva márgenes de error, en particular frente a ironía, sarcasmo y jerga local. Por último, la atribución ideológica de usuarios se infiere a partir de su comportamiento discursivo y no de autodeclaraciones, lo que acota la interpretación de “perfiles” de audiencia.
 
 ## Estrategia de validación
 
 ### Validación interna
 
-**Triangulación metodológica**: Los hallazgos de cada técnica son
-contrastados entre sí. Un patrón se considera robusto cuando emerge
-consistentemente de múltiples aproximaciones.
-
-**Verificación cualitativa**: Los patrones identificados
-computacionalmente son verificados mediante lectura de casos. Cuando el
-análisis automatizado clasifica un comentario como "negativo hacia
-Matthei", se revisan ejemplos para confirmar que la clasificación
-captura el fenómeno de interés.
-
-**Sensibilidad paramétrica**: Las técnicas con parámetros ajustables son
-ejecutadas con múltiples configuraciones para verificar que los
-hallazgos no dependan de decisiones arbitrarias.
+La **triangulación metodológica** opera contrastando los hallazgos de cada técnica entre sí, de tal modo que un patrón se considera robusto cuando emerge de manera consistente desde aproximaciones distintas. La **verificación cualitativa** complementa lo anterior: los patrones identificados computacionalmente se revisan mediante lectura de casos; cuando, por ejemplo, el análisis automatizado clasifica un comentario como negativo hacia Matthei, se inspeccionan ejemplos para confirmar que la etiqueta captura el fenómeno sustantivo de interés. Por último, la **sensibilidad paramétrica** exige ejecutar las técnicas con parámetros ajustables en más de una configuración, de forma que los resultados no dependan de una decisión técnica arbitraria aislada.
 
 ### Validación externa
 
-**Triangulación con fuentes externas**: Los patrones temporales
-identificados en Reddit son contrastados con el calendario de eventos
-políticos documentado en medios de comunicación. La correlación entre
-picos de actividad y eventos específicos (debates, declaraciones,
-encuestas) proporciona validación externa.
-
-**Consistencia con literatura**: Los hallazgos son discutidos a la luz
-de estudios previos sobre comunicación política digital, derechas
-latinoamericanas y polarización. La convergencia con patrones
-documentados en otros contextos refuerza la validez; las divergencias
-son examinadas como posibles especificidades del caso chileno.
+La **triangulación con fuentes externas** contrasta los patrones temporales observados en Reddit con el calendario de eventos políticos documentado en medios de comunicación; la correlación entre picos de actividad y acontecimientos puntuales (debates, declaraciones, encuestas) aporta una comprobación independiente del ritmo del debate en la plataforma. En paralelo, la **consistencia con la literatura** orienta la discusión de los hallazgos frente a estudios previos sobre comunicación política digital, derechas latinoamericanas y polarización: la convergencia con patrones descritos en otros contextos refuerza la validez interpretativa, mientras que las divergencias se examinan como posibles especificidades del caso chileno.
 
 ### Criterios de éxito
 
-La investigación se considerará exitosa si:
-
-1.  **Responde las preguntas**: Cada pregunta de investigación recibe
-    una respuesta fundamentada empíricamente.
-
-2.  **Identifica patrones no triviales**: Los hallazgos van más allá de
-    lo que podría inferirse sin análisis sistemático.
-
-3.  **Documenta variación**: El análisis captura diferencias
-    significativas entre corrientes ideológicas, entre subreddits y
-    entre fases electorales.
-
-4.  **Genera interpretaciones plausibles**: Los patrones identificados
-    son interpretados mediante mecanismos teóricamente informados.
-
-5.  **Reconoce limitaciones**: El análisis explicita qué puede y qué no
-    puede concluirse a partir de los datos disponibles.
+La investigación se considerará exitosa cuando, en conjunto, se cumplan cinco condiciones. Debe **responder las preguntas**, en el sentido de que cada pregunta de investigación reciba una respuesta fundamentada empíricamente; debe **identificar patrones no triviales**, de modo que los hallazgos vayan más allá de lo que podría inferirse sin análisis sistemático; debe **documentar variación**, capturando diferencias significativas entre corrientes ideológicas, entre *subreddits* y entre fases electorales; debe **generar interpretaciones plausibles**, articulando los patrones con mecanismos teóricamente informados; y debe **reconocer limitaciones**, explicitando con honestidad qué puede y qué no puede concluirse a partir de los datos disponibles.
