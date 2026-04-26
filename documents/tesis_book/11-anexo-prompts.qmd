@@ -69,7 +69,7 @@ Solo los candidatos del hilo. Sin texto extra.
 
 ## B.3 Prompt B: marco, emoción, estrategia y frontera
 
-El **Prompt B** clasifica cuatro dimensiones discursivas siguiendo el esquema de Entman (1993) para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:
+El **Prompt B** clasifica cuatro dimensiones discursivas siguiendo el esquema de @entman1993Framing para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:
 
 ```python
 PROMPT_B = """Analiza este comentario de Reddit chileno en contexto electoral.

@@ -53,7 +53,7 @@ sin precedentes desde el retorno a la democracia. Los indicadores son
 contundentes: la identificación partidaria ha caído sostenidamente desde
 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos
 2021-2023, y la fragmentación parlamentaria dificulta la formación de
-coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de
+coaliciones estables [@pnud2024InformeDH; @luna2024DemocraciaMuerta]. En este contexto de
 desalineamiento, las plataformas digitales han emergido como espacios
 donde se disputa la reconfiguración de las identidades políticas
 [@gonzalez2024RoleNormsPromoters], en particular en el campo de las derechas, donde coexisten proyectos

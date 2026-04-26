@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -325,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="b.3-prompt-b-marco-emoción-estrategia-y-frontera" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="b.3-prompt-b-marco-emoción-estrategia-y-frontera"><span class="header-section-number">11.3</span> B.3 Prompt B: marco, emoción, estrategia y frontera</h2>
-<p>El <strong>Prompt B</strong> clasifica cuatro dimensiones discursivas siguiendo el esquema de Entman (1993) para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:</p>
+<p>El <strong>Prompt B</strong> clasifica cuatro dimensiones discursivas siguiendo el esquema de <span class="citation" data-cites="entman1993Framing">Entman (<a href="references.html#ref-entman1993Framing" role="doc-biblioref">1993</a>)</span> para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PROMPT_B <span class="op">=</span> <span class="st">"""Analiza este comentario de Reddit chileno en contexto electoral.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">━━━ CONTEXTO ━━━</span></span>
@@ -439,6 +459,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">max</span>(oa_val, ds_val, key<span class="op">=</span>hostilidad_key)</span></code></pre></div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-entman1993Framing" class="csl-entry" role="listitem">
+Entman, Robert M. 1993. <span>«Framing: Toward Clarification of a Fractured Paradigm»</span>. <em>Journal of Communication</em> 43 (4): 51-58. <a href="https://doi.org/10.1111/j.1460-2466.1993.tb01304.x">https://doi.org/10.1111/j.1460-2466.1993.tb01304.x</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
