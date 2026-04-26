@@ -121,8 +121,11 @@ a:hover {
   display: block;
   padding: 1.5rem 1rem;
   margin-bottom: 0.35rem;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  hyphens: auto;
   color: #1a1a1a !important;
   border-bottom: 1px solid #eeeeee;
 }
@@ -322,4 +325,105 @@ nav.page-navigation .nav-page-next a::after {
   #quarto-margin-sidebar {
     display: none;
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Portada HTML (index): Quarto inyecta #title-block-header + #portada-libro */
+/* Solo index usa body.fullcontent — ocultar el bloque automático duplicado. */
+/* -------------------------------------------------------------------------- */
+body.fullcontent #title-block-header {
+  display: none !important;
+}
+
+body.fullcontent main#quarto-document-content {
+  padding-top: 0.75rem;
+}
+
+body.fullcontent #portada-libro {
+  max-width: 680px;
+  margin: 0 auto 2.75rem;
+  padding: 2.25rem 1.5rem 2.5rem;
+  text-align: center;
+  background: linear-gradient(165deg, #f1f5f9 0%, #ffffff 55%);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 6px 28px rgba(15, 23, 42, 0.07);
+}
+
+body.fullcontent #portada-libro > p:first-child {
+  margin: 0 0 1rem;
+}
+
+body.fullcontent #portada-libro .thesis-cover-logo {
+  max-height: 92px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+body.fullcontent #portada-libro .thesis-cover-title {
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 0.85rem;
+  border: none;
+}
+
+body.fullcontent #portada-libro .thesis-cover-subtitle {
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+  font-size: clamp(0.98rem, 2.1vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0 auto;
+  max-width: 38rem;
+  border: none;
+}
+
+body.fullcontent #portada-libro .thesis-cover-meta {
+  margin-top: 1.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+body.fullcontent #portada-libro .thesis-cover-meta p {
+  margin: 0.45rem 0;
+}
+
+body.fullcontent #portada-libro .thesis-cover-meta p:first-child {
+  margin-top: 0;
+}
+
+body.fullcontent #portada-libro .thesis-cover-meta p:last-child {
+  margin-bottom: 0;
+}
+
+/* Barra superior móvil: más legible */
+#quarto-header.headroom {
+  border-bottom: 1px solid #e8ecf1;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+#quarto-header .breadcrumb {
+  font-size: 0.88rem;
+  font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
+}
+
+/* Capítulos: el subtítulo y metadatos del libro se repetían bajo cada título */
+header#title-block-header.quarto-title-block .subtitle,
+header#title-block-header.quarto-title-block .quarto-title-meta {
+  display: none;
+}
+
+header#title-block-header.quarto-title-block .quarto-title .title {
+  margin-bottom: 0.35rem;
 }
