@@ -83,9 +83,43 @@ a:hover {
   font-size: 14px;
 }
 
-#quarto-sidebar .sidebar-search,
-#quarto-sidebar .sidebar-tools-collapse {
+#quarto-sidebar .sidebar-search {
   display: none;
+}
+
+#quarto-sidebar .sidebar-tools-collapse {
+  display: block;
+  padding: 0.75rem 1rem 0.9rem;
+  margin-bottom: 0.15rem;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#quarto-sidebar .sidebar-tools-collapse a:not([href$=".pdf"]) {
+  display: none;
+}
+
+#quarto-sidebar .sidebar-tools-collapse a[href$=".pdf"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.78rem;
+  border: 1px solid $primary;
+  border-radius: 4px;
+  background: #ffffff;
+  color: $primary;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#quarto-sidebar .sidebar-tools-collapse a[href$=".pdf"]::after {
+  content: "Descargar PDF";
+}
+
+#quarto-sidebar .sidebar-tools-collapse a[href$=".pdf"]:hover {
+  background: $primary;
+  color: #ffffff;
 }
 
 #quarto-sidebar .sidebar-menu-container {

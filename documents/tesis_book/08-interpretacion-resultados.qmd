@@ -209,7 +209,7 @@ agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas
 distintas del espacio, indicando que se vehiculizan a través de
 vocabularios diferenciados. La dimensión emocional organiza el espacio
 discursivo con mayor poder que la dimensión del adversario, consistente
-con la literatura sobre polarización afectiva (Iyengar, 2019).
+con la literatura sobre polarización afectiva [@iyengar2019OriginsConsequencesAffectivePolarization].
 
 El panel de polarización (inferior izquierdo) completa la lectura: la
 hostilidad se distribuye de manera difusa a lo largo de todo el espacio,

@@ -54,7 +54,7 @@ if (nrow(cfg)) {
   kable_apa_anexo(
     cfg,
     caption = NULL,
-    note = "delta_vs_texto: incremento de R² medio respecto de la configuración solo TF-IDF."
+    note = "delta_vs_texto: incremento de R^2 medio respecto de la configuración solo TF-IDF."
   )
 }
 ```
@@ -263,7 +263,7 @@ if (nrow(ols)) {
       "Modelo OLS: polarización consensuada ~ marcos, emociones, estrategias, fronteras, candidato, fase electoral, tipo de hilo y karma (centrado). ",
       "Referencias: marco «otro», emoción «ninguna», estrategia «ninguna», frontera «ninguna», candidato Matthei, fase posicionamiento e hilo solo izquierda. ",
       "Se listan los 15 términos significativos con mayor |B|, excluido el intercepto. ",
-      "N = ", format(n_obs, big.mark = "."), ", R² ajustado = ", round(r2a, 3), "."
+      "N = ", format(n_obs, big.mark = "."), ", R^2 ajustado = ", round(r2a, 3), "."
     ),
     align = "llrrrr"
   )

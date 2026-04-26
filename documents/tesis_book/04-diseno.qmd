@@ -13,11 +13,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Diseño de investigación
+## Diseño de investigación {#sec-diseno}
 
-Esta investigación adopta un diseño **l**ongitudinal observacional basado en datos digitales generados por usuarios (*user-generated content*). El carácter longitudinal permite capturar la evolución del debate político a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en las plataformas estudiadas, sin intervención experimental.
+Toda la evidencia presentada a partir de los capítulos de exploración y
+resultados se apoya en un **mismo cuerpo de datos digital**: comentarios
+y publicaciones **extraídos de Reddit mediante su API pública** en el
+**período electoral de la campaña presidencial de Chile en 2025**
+ concretamente **del 1 de agosto al 31 de diciembre de 2025**, con
+cobertura de las fases de precampaña, campaña y segunda vuelta, tal como
+se detalla en las secciones que siguen. Este anclaje temporal y de
+**fuente** no es un detalle técnico: deja claro qué sostiene el
+argumento (discurso observable en plataforma, no otra medición
+paralela) y por qué el diseño aporta rigor: se observa el debate
+político mientras se desarrolla el proceso electoral, con trazabilidad
+desde la plataforma hasta el análisis.
 
-Metodológicamente, la investigación se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit durante el período estudiado— con componentes **explicativos**, orientados a identificar los factores y mecanismos que dan cuenta de los patrones observados.
+En paralelo, la investigación adopta un **diseño longitudinal
+observacional** basado en *user-generated content*. Ese carácter
+longitudinal permite capturar la evolución del debate a lo largo del
+ciclo electoral, identificando tendencias, puntos de inflexión y
+dinámicas de cambio. El carácter observacional preserva las propiedades
+naturales de la interacción en Reddit, sin intervención experimental.
+
+Metodológicamente, se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit en la ventana de campaña 2025— con componentes **explicativos**, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
 
 ## Reddit como plataforma de análisis
 
@@ -86,7 +104,7 @@ La investigación se rige por principios establecidos para la investigación con
 
 ## Técnicas de Análisis
 
-El estudio combina **modelos de lenguaje (GPT-4o y DeepSeek)** [@ali2025SocialMediaPolarization; @arslan2025PoliticalRAGUsingGenerative] con **validación humana sistemática** para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se **validan con codificación manual** usando métricas de acuerdo (Cohen’s κ) [@ajala2022CombiningArtificialIntelligence] antes de escalar al corpus completo.
+El estudio combina **modelos de lenguaje (GPT-4o y DeepSeek)** [@ali2025SocialMediaPolarization; @arslan2025PoliticalRAGUsingGenerative] con **validación humana sistemática** para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se **validan con codificación manual** usando métricas de acuerdo (kappa de Cohen, $\kappa$) [@ajala2022CombiningArtificialIntelligence] antes de escalar al corpus completo.
 
 Se analizan cuatro dimensiones principales:
 

@@ -16,6 +16,36 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Dónde y con qué datos se estudia el fenómeno
+
+El aporte distintivo de esta tesis es
+analizar la **conversación política tal como aparece en Reddit** durante
+la **campaña presidencial chilena de 2025**. **Reddit** es un sitio web de
+agregación de contenido y foros, organizado en comunidades temáticas
+denominadas *subreddits*, donde quienes participan publican bajo
+seudónimo y sostienen discusiones en hilos de comentarios anidados. No
+es una red de “amigos” como Facebook ni un canal de *microtexto* como
+X/Twitter: privilegia el debate asociado a temas e intereses compartidos,
+lo que lo hace adecuado para observar encuadres, emociones y antagonismos
+a escala y en el tiempo.
+
+**Los datos** no provienen de entrevistas ni de encuestas, sino de la
+**extracción sistemática, mediante la API pública de Reddit, de
+publicaciones y comentarios** almacenados de forma pública en la
+plataforma. El registro se construyó **coincidiendo con el calendario
+electoral** relevante: el trabajo cubre, en lo sustantivo, el período
+**del 1 de agosto al 31 de diciembre de 2025** (cinco meses que abarcan
+desde el posicionamiento de candidaturas hasta el cierre de la
+contienda en segunda vuelta), tal como se documenta técnicamente en el
+@sec-diseno. Las comunidades analizadas son **r/chile** y
+**r/RepublicadeChile**, principales espacios de discusión política
+nacional chilena en la plataforma, comparables entre sí pese a
+culturas y normas de moderación distintas. Describir con claridad qué
+es Reddit y de dónde salen las observaciones **da valor a la
+investigación** porque fija el terreno empírico: lo que se interpreta
+en capítulos posteriores es siempre *discurso en Reddit en ese
+intervalo*, no un retrato directo de la opinión pública offline.
+
 ## El problema: competencia política digital en un sistema fragmentado
 
 El sistema de partidos chileno atraviesa una crisis de representación
@@ -32,11 +62,14 @@ en competencia que aún no han estabilizado sus fronteras.
 El **problema central** que aborda esta investigación puede formularse
 así:
 
-> En un contexto de fragmentación partidaria y reconfiguración
-> ideológica, ¿cómo se estructura la competencia política digital entre
-> actores que comparten un espacio ideológico pero compiten por
-> diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué
-> condiciones convergen o divergen?
+> En un contexto de fragmentación partidaria y de reconfiguración
+> ideológica en el sistema político chileno —en paralelo a procesos de
+> desalineamiento y realineamiento electoral documentados en otras
+> democracias contemporáneas [@garzia2023AffectivePolarizationComparative;
+> @norris2019culturalbacklash]—, ¿cómo se estructura la competencia
+> política digital entre actores que comparten un espacio ideológico pero
+> compiten por diferenciarse? ¿Qué estrategias discursivas despliegan?
+> ¿Bajo qué condiciones convergen o divergen?
 
 Este problema es relevante por tres razones:
 
@@ -73,6 +106,20 @@ posiciones distintivas en el espectro político chileno:
 Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
 derechas y un adversario común de izquierda.
 
+Más allá de la síntesis del inicio de este capítulo, conviene afinar el
+papel de los datos. El **corpus** se alimenta **solo** de contenido
+público en **Reddit** (definido arriba), reunido con la **API oficial**,
+sometido a criterio de filtrado por mención de candidaturas; el
+procedimiento, la ventana exacta, la lógica incremental de descarga y
+las salvaguardas éticas se exponen con detalle en el
+@sec-diseno. En síntesis, el estudio observa el
+debate político donde deja rastro trazable en **r/chile** y
+**r/RepublicadeChile**, sin confundirlo con el electorado completo. En
+la literatura, las propiedades de Reddit (comunidades temáticas,
+anidación de comentarios, énfasis relativo en el argumento) han
+facilitado el análisis de polarización y *framing* en contextos
+comparados [@defranciscimorales2021NoEchoChambers; @duguay2022ReadItReddit].
+
 Esta selección permite observar:
 
 -   **Competencia intra-derecha**: Cómo tres proyectos distintos
@@ -86,22 +133,21 @@ Esta selección permite observar:
 ### Las dimensiones analíticas
 
 El análisis se estructura en torno a **tres dimensiones** que capturan
-aspectos complementarios de la comunicación política:
+aspectos complementarios de la comunicación política.
 
-**Dimensión 1: Encuadre (*framing*)** - ¿Qué marcos interpretativos
-predominan en el discurso de cada corriente? - ¿Cómo definen el
-problema, sus causas y sus soluciones? - ¿Qué está "en juego" según cada
-actor?
-
-**Dimensión 2: Emoción** - ¿Qué emociones movilizan las distintas
-candidaturas? - ¿Cuál es la proporción entre emociones positivas
-(entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién
-se dirigen las emociones negativas?
-
-**Dimensión 3: Construcción de adversarios** - ¿Quiénes son construidos
-como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se
-emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs.
-izquierda) con los intra-bloque (entre derechas)?
+La **dimensión de encuadre (*framing*)** pregunta qué marcos
+interpretativos predominan en el discurso de cada corriente, cómo
+definen el problema, sus causas y sus soluciones, y qué queda
+implícitamente "en juego" según cada actor. La **dimensión emocional**
+indaga qué emociones movilizan las distintas candidaturas, cuál es la
+proporción entre emociones de valencia positiva (por ejemplo,
+entusiasmo o esperanza) y negativa (por ejemplo, miedo o indignación), y
+hacia qué objetivos se canalizan sobre todo las emociones negativas. La
+**dimensión de construcción de adversarios** examina quiénes son
+presentados como amenazas o enemigos, qué estrategias de
+deslegitimación se emplean y cómo se articulan los antagonismos entre
+bloques (derecha frente a izquierda) con las tensiones dentro del
+propio campo de la derecha.
 
 
 ## Descripción de la propuesta analítica
@@ -115,6 +161,15 @@ identificar patrones a escala que el análisis cualitativo tradicional no
 alcanza, pero requieren interpretación teóricamente informada para
 producir conocimiento sustantivo sobre procesos políticos [@hofman2021IntegratingExplanationPrediction].
 
+En términos empíricos, el insumo principal son textos públicos
+(comentarios y publicaciones) recolectados desde Reddit mediante la API
+de la plataforma, almacenados y procesados en un pipeline reproducible
+que incluye limpieza, enriquecimiento con modelos de lenguaje y
+validación. Este capítulo fija el alcance conceptual del análisis; la
+operacionalización (fuentes exactas, ventana temporal, comunidades
+muestreadas y parámetros de extracción) se expone con detalle en el
+capítulo de diseño y datos.
+
 El flujo analítico puede representarse así:
 
 ![Pipeline analítico: de la recolección del corpus a los hallazgos
@@ -126,29 +181,24 @@ procesamiento, modelamiento y hallazgos.
 
 ### Arquitectura del análisis
 
-**Fase 1: Caracterización del corpus** - Estadísticas descriptivas:
-volumen, distribución temporal, participación por subreddit - Mapeo de
-actores: frecuencia de mención de cada candidatura - Identificación de
-eventos: picos de actividad y su correlación con acontecimientos
-políticos
+La **fase de caracterización del corpus** aporta estadísticas
+descriptivas (volumen, distribución temporal, participación por
+*subreddit*), un mapeo de actores según la frecuencia de mención de
+cada candidatura y la identificación de eventos, en particular picos de
+actividad y su correlación con acontecimientos políticos. La **fase de
+análisis de encuadres** combina modelado de tópicos para detectar temas
+estructurantes, análisis de co-ocurrencias entre conceptos y candidaturas,
+y comparación inter-temporal de marcos entre primera y segunda vuelta.
 
-**Fase 2: Análisis de encuadres** - Modelado de tópicos para identificar
-temas estructurantes - Análisis de co-ocurrencias: qué conceptos
-aparecen asociados a cada candidatura - Comparación inter-temporal:
-evolución de marcos entre primera y segunda vuelta
-
-**Fase 3: Análisis emocional** - Clasificación de sentimiento
-(positivo/negativo/neutro) - Identificación de emociones discretas
-cuando es posible - Construcción de "perfiles emocionales" por
-candidatura
-
-**Fase 4: Análisis de adversarios** - Identificación de menciones
-cruzadas entre candidaturas - Clasificación de valencia: menciones
-positivas, negativas, neutras - Mapeo de redes de antagonismo
-
-**Fase 5: Síntesis e integración** - Triangulación de hallazgos entre
-dimensiones - Construcción de narrativa analítica - Identificación de
-mecanismos explicativos
+La **fase de análisis emocional** comprende clasificación de
+sentimiento (positivo, negativo o neutro), identificación de emociones
+discretas cuando el material lo permite y construcción de perfiles
+emocionales por candidatura. La **fase de análisis de adversarios**
+identifica menciones cruzadas entre candidaturas, clasifica la valencia
+de esas menciones y construye un mapeo de redes de antagonismo. Por
+último, la **fase de síntesis** triangula hallazgos entre dimensiones,
+ordena una narrativa analítica coherente y apunta a mecanismos
+explicativos sustentados en la evidencia acumulada.
 
 ### Originalidad de la propuesta
 
@@ -184,7 +234,7 @@ El **producto mínimo viable** de esta investigación consiste en:
 
 | Objetivo                     | Entregable                           | Indicador de cumplimiento                                          |
 |------------------|--------------------|-----------------------------------|
-| **O1**: Construir corpus     | Base de datos estructurada           | ≥1000 posts y ≥10.000 comentarios con menciones políticas          |
+| **O1**: Construir corpus     | Base de datos estructurada           | $\geq 1000$ posts y $\geq 10.000$ comentarios con menciones políticas          |
 | **O2**: Mapear emociones     | Perfiles emocionales por candidatura | Clasificación de polarización y emociones                          |
 | **O4**: Analizar adversarios | Red de antagonismos                  | Matriz de menciones cruzadas con valencia                          |
 | **O5**: Documentar evolución | Serie temporal                       | Análisis por fase electoral (pre-campaña, campaña, segunda vuelta) |

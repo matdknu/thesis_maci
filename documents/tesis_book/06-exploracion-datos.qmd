@@ -93,7 +93,7 @@ if (file.exists(pol_img)) {
   cat('![Polarización media cada dos días por candidato.](images/serie_polarizacion_candidatos.png){#fig-explor-pol-serie fig-align="center" width="90%"}\n')
 } else if (file.exists(pol_ml) || file.exists(pol_ft)) {
   src <- if (file.exists(pol_ft)) "fig_thesis/serie_polarizacion_candidatos.png" else "fig_thesis/serie_polarizacion_cada_2_dias_candidatos.png"
-  cat(paste0('![Polarización media cada dos días por candidato (bandas ≈ IC 95 %).](', src, '){#fig-explor-pol-serie fig-align="center" width="90%"}\n'))
+  cat(paste0('![Polarización media cada dos días por candidato (bandas $\\approx$ IC 95 \\%).](', src, '){#fig-explor-pol-serie fig-align="center" width="90%"}\n'))
 }
 ```
 

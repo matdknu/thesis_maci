@@ -107,9 +107,9 @@ ironia       → sarcasmo, burla implícita, humor político
 ninguna      → comentario informativo sin emoción dominante
 
 Distinción clave:
-- desprecio ≠ ira: desprecio es frío y distante; ira es caliente y directa
-- ironia ≠ alegria: ironía tiene intención crítica implícita
-- indignacion ≠ ira: indignación tiene base moral; ira es más visceral
+- desprecio $\neq$ ira: desprecio es frío y distante; ira es caliente y directa
+- ironia $\neq$ alegria: ironía tiene intención crítica implícita
+- indignacion $\neq$ ira: indignación tiene base moral; ira es más visceral
 
 ━━━ (C) ESTRATEGIA DE CONSTRUCCIÓN DEL ADVERSARIO ━━━
 deslegitimacion      → niega competencia, seriedad o autoridad del candidato

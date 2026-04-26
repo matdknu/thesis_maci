@@ -93,6 +93,35 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -246,9 +275,9 @@ div.csl-indent {
 
 
 <p>Esta tesis examinó la conversación política en Reddit durante la campaña presidencial chilena de 2025 a partir de una pregunta que articula simultáneamente lo teórico y lo metodológico: ¿es posible medir computacionalmente la polarización afectiva y la construcción de adversarios en texto digital informal, y qué revela dicha medición sobre la reconfiguración del antagonismo en las derechas chilenas?</p>
-<p>Abordar esta pregunta exigió tender un puente entre dos tradiciones que rara vez dialogan con suficiente profundidad. La ciencia de datos proporcionó la escala: un corpus de más de 160.000 comentarios clasificados en cuatro dimensiones discursivas mediante un sistema de anotación LLM dual, evaluado con modelos supervisados. Las ciencias sociales proporcionaron el significado: sin los conceptos de frontera política (Mouffe, 2005), polarización afectiva (Iyengar, 2019) y repertorio emocional (Jasper, 2011), las métricas del pipeline carecerían de interpretación sustantiva. Esta articulación no es accesoria — sin la teoría, un R² de 0.618 no informa sobre la democracia; sin los modelos, la teoría carece de evidencia a la escala que el fenómeno requiere <span class="citation" data-cites="hofman2021IntegratingExplanationPrediction">(<a href="references.html#ref-hofman2021IntegratingExplanationPrediction" role="doc-biblioref">Hofman et&nbsp;al. 2021</a>)</span>.</p>
-<p>El sistema de doble clasificación demostró que las variables discursivas estructuradas aportan varianza propia sobre la polarización (R² = +0.187 respecto del texto puro), resultado que justifica el uso de LLMs como instrumentos de medición discursiva. No obstante, esta justificación conlleva cautelas relevantes: el acuerdo inter-modelo es bajo en emoción (κ = 0.076) y marco (κ = 0.136), la validación humana es limitada en escala, y la fiabilidad del pipeline decae ante comentarios breves, irónicos o con baja densidad de marcadores explícitos. Se trata, en consecuencia, de una aproximación probabilística cuya utilidad reside en la escala — permite detectar patrones que una anotación manual restringida no revelaría, al costo de una incertidumbre que debe explicitarse.</p>
-<p>Los patrones identificados son sustantivos. El candidato como target no predice la polarización (β ≈ 0, p = 0.818); lo que la predice es la ira (β = 0.369), las estrategias adversariales y el tipo de hilo. La frontera política resulta computacionalmente recuperable desde texto corto y ruidoso (F1-macro = 0.725), constituyendo una de las primeras operacionalizaciones cuantitativas del concepto mouffiano en corpus digitales informales. El atlas semántico 3D confirma visualmente lo que los modelos establecen numéricamente: el espacio discursivo se organiza por emoción y tema antes que por candidato. La frontera política no delimita vocabularios diferenciados, sino que atraviesa un repertorio léxico compartido.</p>
+<p>Abordar esta pregunta exigió tender un puente entre dos tradiciones que rara vez dialogan con suficiente profundidad. La ciencia de datos proporcionó la escala: un corpus de más de 160.000 comentarios clasificados en cuatro dimensiones discursivas mediante un sistema de anotación LLM dual, evaluado con modelos supervisados. Las ciencias sociales proporcionaron el significado: sin los conceptos de frontera política (Mouffe, 2005), polarización afectiva <span class="citation" data-cites="iyengar2019OriginsConsequencesAffectivePolarization">(<a href="references.html#ref-iyengar2019OriginsConsequencesAffectivePolarization" role="doc-biblioref">Iyengar et&nbsp;al. 2019</a>)</span> y repertorio emocional (Jasper, 2011), las métricas del pipeline carecerían de interpretación sustantiva. Esta articulación no es accesoria — sin la teoría, un <span class="math inline">\(R^2\)</span> de 0.618 no informa sobre la democracia; sin los modelos, la teoría carece de evidencia a la escala que el fenómeno requiere <span class="citation" data-cites="hofman2021IntegratingExplanationPrediction">(<a href="references.html#ref-hofman2021IntegratingExplanationPrediction" role="doc-biblioref">Hofman et&nbsp;al. 2021</a>)</span>.</p>
+<p>El sistema de doble clasificación demostró que las variables discursivas estructuradas aportan varianza propia sobre la polarización (<span class="math inline">\(R^2 = +0.187\)</span> respecto del texto puro), resultado que justifica el uso de LLMs como instrumentos de medición discursiva. Sin embargo, esta justificación conlleva cautelas relevantes: el acuerdo inter-modelo es bajo en emoción (<span class="math inline">\(\kappa = 0.076\)</span>) y marco (<span class="math inline">\(\kappa = 0.136\)</span>), la validación humana es limitada en escala, y la fiabilidad del pipeline decae ante comentarios breves, irónicos o con baja densidad de marcadores explícitos. Se trata, en consecuencia, de una aproximación probabilística cuya utilidad reside en la escala — permite detectar patrones que una anotación manual restringida no revelaría, al costo de una incertidumbre que debe explicitarse.</p>
+<p>Los patrones identificados son sustantivos. El candidato como target no predice la polarización (<span class="math inline">\(\beta \approx 0\)</span>, <span class="math inline">\(p = 0.818\)</span>); lo que la predice es la ira (<span class="math inline">\(\beta = 0.369\)</span>), las estrategias adversariales y el tipo de hilo. La frontera política resulta computacionalmente recuperable desde texto corto y ruidoso (<span class="math inline">\(\mbox{F1-macro} = 0.725\)</span>), constituyendo una de las primeras operacionalizaciones cuantitativas del concepto mouffiano en corpus digitales informales. El atlas semántico 3D confirma visualmente lo que los modelos establecen numéricamente: el espacio discursivo se organiza por emoción y tema antes que por candidato. La frontera política no delimita vocabularios diferenciados, sino que atraviesa un repertorio léxico compartido.</p>
 <p>El análisis de autores incorpora una dimensión temporal que complementa el modelado textual. El 87.4% de los autores inicialmente negativos hacia Kast mantiene esa posición durante todo el ciclo, y en todos los cruces observados la positividad hacia un candidato se transforma en negatividad al transitar hacia el adversario de segunda vuelta. La polarización opera así como disposición cristalizada más que como escalamiento reactivo, consistente con la noción de que la polarización afectiva constituye una disposición previa que el ciclo electoral refuerza pero no origina.</p>
 <p>La competencia intra-derecha se expresa mediante estrategias diferenciadas — ridiculización en la disputa interna, amenaza y esencialización en la confrontación inter-bloque —, pero estas diferencias se subordinan a una convergencia adversarial frente a Jara y la izquierda. La fragmentación es estratégica; la convergencia, emocional.</p>
 <p>En el plano aplicado, priorizar intervenciones de moderación por estrategia discursiva y tipo de hilo podría ser más eficaz que filtrar por volumen o identidad de usuarios <span class="citation" data-cites="patberg2025WhatSocialMedias">(<a href="references.html#ref-patberg2025WhatSocialMedias" role="doc-biblioref">Patberg 2025</a>)</span>. Asimismo, la evidencia de que los hilos mixtos presentan coeficientes negativos sugiere que la exposición a posiciones cruzadas no necesariamente escala la hostilidad.</p>
@@ -259,6 +288,9 @@ div.csl-indent {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-hofman2021IntegratingExplanationPrediction" class="csl-entry" role="listitem">
 Hofman, Jake M., Duncan J. Watts, Susan Athey, Filiz Garip, Thomas L. Griffiths, Jon Kleinberg, Helen Margetts, et&nbsp;al. 2021. <span>«Integrating Explanation and Prediction in Computational Social Science»</span>. <em>Nature</em> 595 (7866): 181-88. <a href="https://doi.org/10.1038/s41586-021-03659-0">https://doi.org/10.1038/s41586-021-03659-0</a>.
+</div>
+<div id="ref-iyengar2019OriginsConsequencesAffectivePolarization" class="csl-entry" role="listitem">
+Iyengar, Shanto, Yphtach Lelkes, Matthew Levendusky, Neil Malhotra, y Sean J. Westwood. 2019. <span>«The Origins and Consequences of Affective Polarization in the <span>United States</span>»</span>. <em>Annual Review of Political Science</em> 22: 129-46. <a href="https://doi.org/10.1146/annurev-polisci-051117-073034">https://doi.org/10.1146/annurev-polisci-051117-073034</a>.
 </div>
 <div id="ref-patberg2025WhatSocialMedias" class="csl-entry" role="listitem">
 Patberg, Markus. 2025. <span>«What Is <span>Social Media</span>’s <span>Place</span> in <span>Democracy</span>?»</span> <em>The Review of Politics</em> 87 (2): 236-57. <a href="https://doi.org/10.1017/S0034670524000706">https://doi.org/10.1017/S0034670524000706</a>.

@@ -93,6 +93,35 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -218,25 +247,26 @@ div.csl-indent {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#el-problema-competencia-política-digital-en-un-sistema-fragmentado" id="toc-el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="nav-link active" data-scroll-target="#el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.1</span> El problema: competencia política digital en un sistema fragmentado</a></li>
-  <li><a href="#acercamiento-actores-dimensiones-y-niveles-de-análisis" id="toc-acercamiento-actores-dimensiones-y-niveles-de-análisis" class="nav-link" data-scroll-target="#acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.2</span> Acercamiento: actores, dimensiones y niveles de análisis</a>
+  <li><a href="#dónde-y-con-qué-datos-se-estudia-el-fenómeno" id="toc-dónde-y-con-qué-datos-se-estudia-el-fenómeno" class="nav-link active" data-scroll-target="#dónde-y-con-qué-datos-se-estudia-el-fenómeno"><span class="header-section-number">2.1</span> Dónde y con qué datos se estudia el fenómeno</a></li>
+  <li><a href="#el-problema-competencia-política-digital-en-un-sistema-fragmentado" id="toc-el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="nav-link" data-scroll-target="#el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.2</span> El problema: competencia política digital en un sistema fragmentado</a></li>
+  <li><a href="#acercamiento-actores-dimensiones-y-niveles-de-análisis" id="toc-acercamiento-actores-dimensiones-y-niveles-de-análisis" class="nav-link" data-scroll-target="#acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.3</span> Acercamiento: actores, dimensiones y niveles de análisis</a>
   <ul class="collapse">
   <li><a href="#los-actores-tres-derechas-y-un-adversario" id="toc-los-actores-tres-derechas-y-un-adversario" class="nav-link" data-scroll-target="#los-actores-tres-derechas-y-un-adversario">Los actores: tres derechas y un adversario</a></li>
   <li><a href="#las-dimensiones-analíticas" id="toc-las-dimensiones-analíticas" class="nav-link" data-scroll-target="#las-dimensiones-analíticas">Las dimensiones analíticas</a></li>
   </ul></li>
-  <li><a href="#descripción-de-la-propuesta-analítica" id="toc-descripción-de-la-propuesta-analítica" class="nav-link" data-scroll-target="#descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> Descripción de la propuesta analítica</a>
+  <li><a href="#descripción-de-la-propuesta-analítica" id="toc-descripción-de-la-propuesta-analítica" class="nav-link" data-scroll-target="#descripción-de-la-propuesta-analítica"><span class="header-section-number">2.4</span> Descripción de la propuesta analítica</a>
   <ul class="collapse">
   <li><a href="#enfoque-general" id="toc-enfoque-general" class="nav-link" data-scroll-target="#enfoque-general">Enfoque general</a></li>
   <li><a href="#arquitectura-del-análisis" id="toc-arquitectura-del-análisis" class="nav-link" data-scroll-target="#arquitectura-del-análisis">Arquitectura del análisis</a></li>
   <li><a href="#originalidad-de-la-propuesta" id="toc-originalidad-de-la-propuesta" class="nav-link" data-scroll-target="#originalidad-de-la-propuesta">Originalidad de la propuesta</a></li>
   </ul></li>
-  <li><a href="#producto-mínimo-viable-mvp-y-objetivos-operacionales" id="toc-producto-mínimo-viable-mvp-y-objetivos-operacionales" class="nav-link" data-scroll-target="#producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.4</span> Producto mínimo viable (MVP) y objetivos operacionales</a>
+  <li><a href="#producto-mínimo-viable-mvp-y-objetivos-operacionales" id="toc-producto-mínimo-viable-mvp-y-objetivos-operacionales" class="nav-link" data-scroll-target="#producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.5</span> Producto mínimo viable (MVP) y objetivos operacionales</a>
   <ul class="collapse">
   <li><a href="#definición-del-mvp" id="toc-definición-del-mvp" class="nav-link" data-scroll-target="#definición-del-mvp">Definición del MVP</a></li>
   <li><a href="#objetivos-operacionales-y-entregables" id="toc-objetivos-operacionales-y-entregables" class="nav-link" data-scroll-target="#objetivos-operacionales-y-entregables">Objetivos operacionales y entregables</a></li>
   <li><a href="#alcances-y-limitaciones-anticipadas" id="toc-alcances-y-limitaciones-anticipadas" class="nav-link" data-scroll-target="#alcances-y-limitaciones-anticipadas">Alcances y limitaciones anticipadas</a></li>
   </ul></li>
-  <li><a href="#estrategia-de-validación" id="toc-estrategia-de-validación" class="nav-link" data-scroll-target="#estrategia-de-validación"><span class="header-section-number">2.5</span> Estrategia de validación</a>
+  <li><a href="#estrategia-de-validación" id="toc-estrategia-de-validación" class="nav-link" data-scroll-target="#estrategia-de-validación"><span class="header-section-number">2.6</span> Estrategia de validación</a>
   <ul class="collapse">
   <li><a href="#validación-interna" id="toc-validación-interna" class="nav-link" data-scroll-target="#validación-interna">Validación interna</a></li>
   <li><a href="#validación-externa" id="toc-validación-externa" class="nav-link" data-scroll-target="#validación-externa">Validación externa</a></li>
@@ -274,12 +304,17 @@ div.csl-indent {
 </header>
 
 
-<section id="el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.1</span> El problema: competencia política digital en un sistema fragmentado</h2>
+<section id="dónde-y-con-qué-datos-se-estudia-el-fenómeno" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="dónde-y-con-qué-datos-se-estudia-el-fenómeno"><span class="header-section-number">2.1</span> Dónde y con qué datos se estudia el fenómeno</h2>
+<p>El aporte distintivo de esta tesis es analizar la <strong>conversación política tal como aparece en Reddit</strong> durante la <strong>campaña presidencial chilena de 2025</strong>. <strong>Reddit</strong> es un sitio web de agregación de contenido y foros, organizado en comunidades temáticas denominadas <em>subreddits</em>, donde quienes participan publican bajo seudónimo y sostienen discusiones en hilos de comentarios anidados. No es una red de “amigos” como Facebook ni un canal de <em>microtexto</em> como X/Twitter: privilegia el debate asociado a temas e intereses compartidos, lo que lo hace adecuado para observar encuadres, emociones y antagonismos a escala y en el tiempo.</p>
+<p><strong>Los datos</strong> no provienen de entrevistas ni de encuestas, sino de la <strong>extracción sistemática, mediante la API pública de Reddit, de publicaciones y comentarios</strong> almacenados de forma pública en la plataforma. El registro se construyó <strong>coincidiendo con el calendario electoral</strong> relevante: el trabajo cubre, en lo sustantivo, el período <strong>del 1 de agosto al 31 de diciembre de 2025</strong> (cinco meses que abarcan desde el posicionamiento de candidaturas hasta el cierre de la contienda en segunda vuelta), tal como se documenta técnicamente en el <a href="04-diseno.html#sec-diseno" class="quarto-xref"><span>Sección 4.1</span></a>. Las comunidades analizadas son <strong>r/chile</strong> y <strong>r/RepublicadeChile</strong>, principales espacios de discusión política nacional chilena en la plataforma, comparables entre sí pese a culturas y normas de moderación distintas. Describir con claridad qué es Reddit y de dónde salen las observaciones <strong>da valor a la investigación</strong> porque fija el terreno empírico: lo que se interpreta en capítulos posteriores es siempre <em>discurso en Reddit en ese intervalo</em>, no un retrato directo de la opinión pública offline.</p>
+</section>
+<section id="el-problema-competencia-política-digital-en-un-sistema-fragmentado" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="el-problema-competencia-política-digital-en-un-sistema-fragmentado"><span class="header-section-number">2.2</span> El problema: competencia política digital en un sistema fragmentado</h2>
 <p>El sistema de partidos chileno atraviesa una crisis de representación sin precedentes desde el retorno a la democracia. Los indicadores son contundentes: la identificación partidaria ha caído sostenidamente desde 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos 2021-2023, y la fragmentación parlamentaria dificulta la formación de coaliciones estables (PNUD, 2024; Luna, 2023). En este contexto de desalineamiento, las plataformas digitales han emergido como espacios donde se disputa la reconfiguración de las identidades políticas <span class="citation" data-cites="gonzalez2024RoleNormsPromoters">(<a href="references.html#ref-gonzalez2024RoleNormsPromoters" role="doc-biblioref">González 2024</a>)</span> —particularmente en el campo de las derechas, donde coexisten proyectos en competencia que aún no han estabilizado sus fronteras.</p>
 <p>El <strong>problema central</strong> que aborda esta investigación puede formularse así:</p>
 <blockquote class="blockquote">
-<p>En un contexto de fragmentación partidaria y reconfiguración ideológica, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?</p>
+<p>En un contexto de fragmentación partidaria y de reconfiguración ideológica en el sistema político chileno —en paralelo a procesos de desalineamiento y realineamiento electoral documentados en otras democracias contemporáneas <span class="citation" data-cites="garzia2023AffectivePolarizationComparative norris2019culturalbacklash">(<a href="references.html#ref-garzia2023AffectivePolarizationComparative" role="doc-biblioref">Garzia, Ferreira Da Silva, y Maye 2023</a>; <a href="references.html#ref-norris2019culturalbacklash" role="doc-biblioref">Norris y Inglehart 2019</a>)</span>—, ¿cómo se estructura la competencia política digital entre actores que comparten un espacio ideológico pero compiten por diferenciarse? ¿Qué estrategias discursivas despliegan? ¿Bajo qué condiciones convergen o divergen?</p>
 </blockquote>
 <p>Este problema es relevante por tres razones:</p>
 <ol type="1">
@@ -288,8 +323,8 @@ div.csl-indent {
 <li><p><strong>Implicancias democráticas</strong>: Comprender cómo se construyen adversarios y fronteras identitarias en espacios digitales resulta crucial para evaluar la calidad del debate público y anticipar escenarios de polarización <span class="citation" data-cites="kingzette2021HowAffectivePolarization">(<a href="references.html#ref-kingzette2021HowAffectivePolarization" role="doc-biblioref">Kingzette et&nbsp;al. 2021</a>)</span>.</p></li>
 </ol>
 </section>
-<section id="acercamiento-actores-dimensiones-y-niveles-de-análisis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.2</span> Acercamiento: actores, dimensiones y niveles de análisis</h2>
+<section id="acercamiento-actores-dimensiones-y-niveles-de-análisis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.3</span> Acercamiento: actores, dimensiones y niveles de análisis</h2>
 <section id="los-actores-tres-derechas-y-un-adversario" class="level3">
 <h3 class="anchored" data-anchor-id="los-actores-tres-derechas-y-un-adversario">Los actores: tres derechas y un adversario</h3>
 <p>La investigación se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:</p>
@@ -339,6 +374,7 @@ Tabla&nbsp;2.1: Candidaturas analizadas y perfil ideológico.
 </figure>
 </div>
 <p>Como se observa en la <a href="#tbl-candidaturas-actores" class="quarto-xref">Tabla&nbsp;<span>2.1</span></a>, el diseño compara tres derechas y un adversario común de izquierda.</p>
+<p>Más allá de la síntesis del inicio de este capítulo, conviene afinar el papel de los datos. El <strong>corpus</strong> se alimenta <strong>solo</strong> de contenido público en <strong>Reddit</strong> (definido arriba), reunido con la <strong>API oficial</strong>, sometido a criterio de filtrado por mención de candidaturas; el procedimiento, la ventana exacta, la lógica incremental de descarga y las salvaguardas éticas se exponen con detalle en el <a href="04-diseno.html#sec-diseno" class="quarto-xref"><span>Sección 4.1</span></a>. En síntesis, el estudio observa el debate político donde deja rastro trazable en <strong>r/chile</strong> y <strong>r/RepublicadeChile</strong>, sin confundirlo con el electorado completo. En la literatura, las propiedades de Reddit (comunidades temáticas, anidación de comentarios, énfasis relativo en el argumento) han facilitado el análisis de polarización y <em>framing</em> en contextos comparados <span class="citation" data-cites="defranciscimorales2021NoEchoChambers duguay2022ReadItReddit">(<a href="references.html#ref-defranciscimorales2021NoEchoChambers" role="doc-biblioref">De Francisci Morales, Monti, y Starnini 2021</a>; <a href="references.html#ref-duguay2022ReadItReddit" role="doc-biblioref">Duguay 2022</a>)</span>.</p>
 <p>Esta selección permite observar:</p>
 <ul>
 <li><strong>Competencia intra-derecha</strong>: Cómo tres proyectos distintos disputan un electorado parcialmente superpuesto.</li>
@@ -348,17 +384,16 @@ Tabla&nbsp;2.1: Candidaturas analizadas y perfil ideológico.
 </section>
 <section id="las-dimensiones-analíticas" class="level3">
 <h3 class="anchored" data-anchor-id="las-dimensiones-analíticas">Las dimensiones analíticas</h3>
-<p>El análisis se estructura en torno a <strong>tres dimensiones</strong> que capturan aspectos complementarios de la comunicación política:</p>
-<p><strong>Dimensión 1: Encuadre (<em>framing</em>)</strong> - ¿Qué marcos interpretativos predominan en el discurso de cada corriente? - ¿Cómo definen el problema, sus causas y sus soluciones? - ¿Qué está “en juego” según cada actor?</p>
-<p><strong>Dimensión 2: Emoción</strong> - ¿Qué emociones movilizan las distintas candidaturas? - ¿Cuál es la proporción entre emociones positivas (entusiasmo, esperanza) y negativas (miedo, indignación)? - ¿Hacia quién se dirigen las emociones negativas?</p>
-<p><strong>Dimensión 3: Construcción de adversarios</strong> - ¿Quiénes son construidos como amenazas o enemigos? - ¿Qué estrategias de deslegitimación se emplean? - ¿Cómo se articulan los antagonismos inter-bloque (derecha vs. izquierda) con los intra-bloque (entre derechas)?</p>
+<p>El análisis se estructura en torno a <strong>tres dimensiones</strong> que capturan aspectos complementarios de la comunicación política.</p>
+<p>La <strong>dimensión de encuadre (<em>framing</em>)</strong> pregunta qué marcos interpretativos predominan en el discurso de cada corriente, cómo definen el problema, sus causas y sus soluciones, y qué queda implícitamente “en juego” según cada actor. La <strong>dimensión emocional</strong> indaga qué emociones movilizan las distintas candidaturas, cuál es la proporción entre emociones de valencia positiva (por ejemplo, entusiasmo o esperanza) y negativa (por ejemplo, miedo o indignación), y hacia qué objetivos se canalizan sobre todo las emociones negativas. La <strong>dimensión de construcción de adversarios</strong> examina quiénes son presentados como amenazas o enemigos, qué estrategias de deslegitimación se emplean y cómo se articulan los antagonismos entre bloques (derecha frente a izquierda) con las tensiones dentro del propio campo de la derecha.</p>
 </section>
 </section>
-<section id="descripción-de-la-propuesta-analítica" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="descripción-de-la-propuesta-analítica"><span class="header-section-number">2.3</span> Descripción de la propuesta analítica</h2>
+<section id="descripción-de-la-propuesta-analítica" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="descripción-de-la-propuesta-analítica"><span class="header-section-number">2.4</span> Descripción de la propuesta analítica</h2>
 <section id="enfoque-general" class="level3">
 <h3 class="anchored" data-anchor-id="enfoque-general">Enfoque general</h3>
 <p>La propuesta combina <strong>ciencia social computacional</strong> con <strong>análisis interpretativo del discurso político</strong> <span class="citation" data-cites="keuschnigg2018AnalyticalSociologyComputational">(<a href="references.html#ref-keuschnigg2018AnalyticalSociologyComputational" role="doc-biblioref">Keuschnigg, Lovsjö, y Hedström 2018</a>)</span>. Esta combinación responde a una convicción metodológica: las técnicas computacionales permiten identificar patrones a escala que el análisis cualitativo tradicional no alcanza, pero requieren interpretación teóricamente informada para producir conocimiento sustantivo sobre procesos políticos <span class="citation" data-cites="hofman2021IntegratingExplanationPrediction">(<a href="references.html#ref-hofman2021IntegratingExplanationPrediction" role="doc-biblioref">Hofman et&nbsp;al. 2021</a>)</span>.</p>
+<p>En términos empíricos, el insumo principal son textos públicos (comentarios y publicaciones) recolectados desde Reddit mediante la API de la plataforma, almacenados y procesados en un pipeline reproducible que incluye limpieza, enriquecimiento con modelos de lenguaje y validación. Este capítulo fija el alcance conceptual del análisis; la operacionalización (fuentes exactas, ventana temporal, comunidades muestreadas y parámetros de extracción) se expone con detalle en el capítulo de diseño y datos.</p>
 <p>El flujo analítico puede representarse así:</p>
 <div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -374,11 +409,8 @@ Figura&nbsp;2.1: Pipeline analítico: de la recolección del corpus a los hallaz
 </section>
 <section id="arquitectura-del-análisis" class="level3">
 <h3 class="anchored" data-anchor-id="arquitectura-del-análisis">Arquitectura del análisis</h3>
-<p><strong>Fase 1: Caracterización del corpus</strong> - Estadísticas descriptivas: volumen, distribución temporal, participación por subreddit - Mapeo de actores: frecuencia de mención de cada candidatura - Identificación de eventos: picos de actividad y su correlación con acontecimientos políticos</p>
-<p><strong>Fase 2: Análisis de encuadres</strong> - Modelado de tópicos para identificar temas estructurantes - Análisis de co-ocurrencias: qué conceptos aparecen asociados a cada candidatura - Comparación inter-temporal: evolución de marcos entre primera y segunda vuelta</p>
-<p><strong>Fase 3: Análisis emocional</strong> - Clasificación de sentimiento (positivo/negativo/neutro) - Identificación de emociones discretas cuando es posible - Construcción de “perfiles emocionales” por candidatura</p>
-<p><strong>Fase 4: Análisis de adversarios</strong> - Identificación de menciones cruzadas entre candidaturas - Clasificación de valencia: menciones positivas, negativas, neutras - Mapeo de redes de antagonismo</p>
-<p><strong>Fase 5: Síntesis e integración</strong> - Triangulación de hallazgos entre dimensiones - Construcción de narrativa analítica - Identificación de mecanismos explicativos</p>
+<p>La <strong>fase de caracterización del corpus</strong> aporta estadísticas descriptivas (volumen, distribución temporal, participación por <em>subreddit</em>), un mapeo de actores según la frecuencia de mención de cada candidatura y la identificación de eventos, en particular picos de actividad y su correlación con acontecimientos políticos. La <strong>fase de análisis de encuadres</strong> combina modelado de tópicos para detectar temas estructurantes, análisis de co-ocurrencias entre conceptos y candidaturas, y comparación inter-temporal de marcos entre primera y segunda vuelta.</p>
+<p>La <strong>fase de análisis emocional</strong> comprende clasificación de sentimiento (positivo, negativo o neutro), identificación de emociones discretas cuando el material lo permite y construcción de perfiles emocionales por candidatura. La <strong>fase de análisis de adversarios</strong> identifica menciones cruzadas entre candidaturas, clasifica la valencia de esas menciones y construye un mapeo de redes de antagonismo. Por último, la <strong>fase de síntesis</strong> triangula hallazgos entre dimensiones, ordena una narrativa analítica coherente y apunta a mecanismos explicativos sustentados en la evidencia acumulada.</p>
 </section>
 <section id="originalidad-de-la-propuesta" class="level3">
 <h3 class="anchored" data-anchor-id="originalidad-de-la-propuesta">Originalidad de la propuesta</h3>
@@ -390,8 +422,8 @@ Figura&nbsp;2.1: Pipeline analítico: de la recolección del corpus a los hallaz
 </ol>
 </section>
 </section>
-<section id="producto-mínimo-viable-mvp-y-objetivos-operacionales" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.4</span> Producto mínimo viable (MVP) y objetivos operacionales</h2>
+<section id="producto-mínimo-viable-mvp-y-objetivos-operacionales" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="producto-mínimo-viable-mvp-y-objetivos-operacionales"><span class="header-section-number">2.5</span> Producto mínimo viable (MVP) y objetivos operacionales</h2>
 <section id="definición-del-mvp" class="level3">
 <h3 class="anchored" data-anchor-id="definición-del-mvp">Definición del MVP</h3>
 <p>El <strong>producto mínimo viable</strong> de esta investigación consiste en:</p>
@@ -424,7 +456,7 @@ Tabla&nbsp;2.2: Objetivos operacionales, entregables e indicadores de cumplimien
 <tr class="odd">
 <td><strong>O1</strong>: Construir corpus</td>
 <td>Base de datos estructurada</td>
-<td>≥1000 posts y ≥10.000 comentarios con menciones políticas</td>
+<td><span class="math inline">\(\geq 1000\)</span> posts y <span class="math inline">\(\geq 10.000\)</span> comentarios con menciones políticas</td>
 </tr>
 <tr class="even">
 <td><strong>O2</strong>: Mapear emociones</td>
@@ -459,8 +491,8 @@ Tabla&nbsp;2.2: Objetivos operacionales, entregables e indicadores de cumplimien
 <p><strong>Limitaciones</strong>: - Reddit no es representativo del electorado chileno; los hallazgos refieren al debate en esta plataforma específica, no a la opinión pública general. - Los usuarios de Reddit tienden a ser más jóvenes, más masculinos y más politizados que la población general. - El análisis de sentimiento automatizado tiene márgenes de error, particularmente con ironía, sarcasmo y jerga local. - La atribución ideológica de usuarios es inferida a partir de su comportamiento discursivo, no de autodeclaraciones.</p>
 </section>
 </section>
-<section id="estrategia-de-validación" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="estrategia-de-validación"><span class="header-section-number">2.5</span> Estrategia de validación</h2>
+<section id="estrategia-de-validación" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="estrategia-de-validación"><span class="header-section-number">2.6</span> Estrategia de validación</h2>
 <section id="validación-interna" class="level3">
 <h3 class="anchored" data-anchor-id="validación-interna">Validación interna</h3>
 <p><strong>Triangulación metodológica</strong>: Los hallazgos de cada técnica son contrastados entre sí. Un patrón se considera robusto cuando emerge consistentemente de múltiples aproximaciones.</p>
@@ -485,6 +517,15 @@ Tabla&nbsp;2.2: Objetivos operacionales, entregables e indicadores de cumplimien
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-defranciscimorales2021NoEchoChambers" class="csl-entry" role="listitem">
+De Francisci Morales, Gianmarco, Corrado Monti, y Michele Starnini. 2021. <span>«No Echo in the Chambers of Political Interactions on <span>Reddit</span>»</span>. <em>Scientific Reports</em> 11 (1): 2818. <a href="https://doi.org/10.1038/s41598-021-81531-x">https://doi.org/10.1038/s41598-021-81531-x</a>.
+</div>
+<div id="ref-duguay2022ReadItReddit" class="csl-entry" role="listitem">
+Duguay, Philippe A. 2022. <span>«Read It on <span>Reddit</span>: <span>Homogeneity</span> and <span>Ideological Segregation</span> in the <span>Age</span> of <span>Social News</span>»</span>. <em>Social Science Computer Review</em> 40 (5): 1186-1202. <a href="https://doi.org/10.1177/08944393211001053">https://doi.org/10.1177/08944393211001053</a>.
+</div>
+<div id="ref-garzia2023AffectivePolarizationComparative" class="csl-entry" role="listitem">
+Garzia, Diego, Frederico Ferreira Da Silva, y Simon Maye. 2023. <span>«Affective <span>Polarization</span> in <span>Comparative</span> and <span>Longitudinal Perspective</span>»</span>. <em>Public Opinion Quarterly</em> 87 (1): 219-31. <a href="https://doi.org/10.1093/poq/nfad004">https://doi.org/10.1093/poq/nfad004</a>.
+</div>
 <div id="ref-gonzalez2024RoleNormsPromoters" class="csl-entry" role="listitem">
 González, Roberto. 2024. <span>«The Role of Norms as Promoters of Social Change»</span>. <em>Political Psychology</em>, septiembre, pops.13025. <a href="https://doi.org/10.1111/pops.13025">https://doi.org/10.1111/pops.13025</a>.
 </div>
@@ -496,6 +537,9 @@ Keuschnigg, Marc, Niclas Lovsjö, y Peter Hedström. 2018. <span>«Analytical So
 </div>
 <div id="ref-kingzette2021HowAffectivePolarization" class="csl-entry" role="listitem">
 Kingzette, Jon, James N Druckman, Samara Klar, Yanna Krupnikov, Matthew Levendusky, y John Barry Ryan. 2021. <span>«How <span>Affective Polarization Undermines Support</span> for <span>Democratic Norms</span>»</span>. <em>Public Opinion Quarterly</em> 85 (2): 663-77. <a href="https://doi.org/10.1093/poq/nfab029">https://doi.org/10.1093/poq/nfab029</a>.
+</div>
+<div id="ref-norris2019culturalbacklash" class="csl-entry" role="listitem">
+Norris, Pippa, y Ronald Inglehart. 2019. <em>Cultural Backlash: <span>Trump</span>, <span>Brexit</span>, and Authoritarian Populism</em>. Cambridge: Cambridge University Press.
 </div>
 </div>
 </section>

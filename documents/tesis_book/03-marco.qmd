@@ -13,10 +13,21 @@ knitr::opts_chunk$set(
 )
 ```
 
+Este capítulo expone el **marco conceptual** (polarización afectiva,
+adversarios, encuadre, emociones, derechas en Chile) que guía la
+lectura de los resultados. Para evitar confusión con el plan empírico:
+todos los hallazgos de conversación, polarización y adversarios
+**provienen de mensajes de usuarios de Reddit** —foro y plataforma de
+*subreddits* descritas al inicio de la **presentación del problema** (capítulo
+anterior) y en el capítulo de **diseño y datos**—, **obtenidos por
+extracción vía API en el calendario de la elección presidencial 2025**
+(agosto–diciembre). La teoría de este capítulo no asume aún **qué** se
+dijo en Chile en 2025; asigna, en cambio, los conceptos con los que
+interpretaremos luego el corpus.
 
 ## Polarización afectiva
 
-La polarización afectiva designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones (Iyengar, 2019). Es analíticamente distinta de la polarización ideológica — ambas pueden variar de manera independiente — y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas [@garzia2023AffectivePolarizationComparative].
+La polarización afectiva designa el distanciamiento emocional entre grupos políticos: no solo divergen en posiciones, sino que se desagradan y se atribuyen mutuamente malas intenciones [@iyengar2019OriginsConsequencesAffectivePolarization]. Es analíticamente distinta de la polarización ideológica — ambas pueden variar de manera independiente — y la evidencia comparada sugiere que la afectiva ha crecido más rápidamente en democracias contemporáneas [@garzia2023AffectivePolarizationComparative].
 
 Sus principales mecanismos en entornos digitales incluyen la exposición selectiva amplificada por algoritmos, la mayor visibilidad de voces extremas, la reducción de costos de expresión hostil y las dinámicas de señalización grupal recompensadas con métricas de aprobación [@tang2025EmpiricalSimulationInvestigation]. Las consecuencias para la democracia son significativas: erosión de la confianza institucional, resistencia al compromiso y tolerancia a la transgresión normativa cuando proviene del propio bando [@kingzette2021HowAffectivePolarization]. Esta dinámica paradójica —donde la polarización se manifiesta a nivel individual pero puede resultar difusa a escala global— ha sido documentada en contextos comparados [@baldassarri2007DynamicsPoliticalPolarization].
 
@@ -36,17 +47,9 @@ Encuadre y emoción se articulan en el análisis como dimensiones complementaria
 
 ## Derechas contemporáneas en Chile
 
-La coexistencia de múltiples corrientes de derecha en Chile genera dinámicas de competencia intra-bloque que constituyen un laboratorio analítico de particular valor. Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas [@klein2019OnlineDiscontentComparing]: la derecha tradicional emplea un registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas digitales [@winter2019OnlineHateFarRight; @baele2023UncoveringFarRightOnline] (Norris, 2019). Los procesos de radicalización online que han acompañado esta transformación han sido estudiados en el ecosistema digital de la extrema derecha [@marwickFarRightOnlineRadicalization]. En el contexto hispanohablante, aproximaciones de topic modeling al discurso de la derecha radical ofrecen antecedentes metodológicos relevantes [@calderon2020TopicModelingCharacterization]. En el contexto de la campaña presidencial de 2025, los candidatos Matthei, Kast, Kaiser y Jara representan posiciones diferenciadas dentro de este espectro, con estrategias de diferenciación interna que conviven con presiones de convergencia frente al adversario común de izquierda [@saldiviagonzatti2025FarrightAgendaSetting].
+La coexistencia de múltiples corrientes de derecha en Chile genera dinámicas de competencia intra-bloque que constituyen un laboratorio analítico de particular valor. Estas corrientes difieren no solo ideológicamente sino en sus estrategias comunicativas [@klein2019OnlineDiscontentComparing]: la derecha tradicional emplea un registro institucional y moderado; la radical populista moviliza agravios y retórica de confrontación; la libertaria combina argumentos económicos con estilos provocadores y referencias a subculturas digitales [@winter2019OnlineHateFarRight; @baele2023UncoveringFarRightOnline; @norris2019culturalbacklash]. Los procesos de radicalización online que han acompañado esta transformación han sido estudiados en el ecosistema digital de la extrema derecha [@marwickFarRightOnlineRadicalization]. En el contexto hispanohablante, aproximaciones de topic modeling al discurso de la derecha radical ofrecen antecedentes metodológicos relevantes [@calderon2020TopicModelingCharacterization]. En el contexto de la campaña presidencial de 2025, los candidatos Matthei, Kast, Kaiser y Jara representan posiciones diferenciadas dentro de este espectro, con estrategias de diferenciación interna que conviven con presiones de convergencia frente al adversario común de izquierda [@saldiviagonzatti2025FarrightAgendaSetting].
 
-## Reddit como espacio de polarización política
-
-Reddit se estructura en torno a comunidades temáticas (subreddits) antes que en redes de relaciones personales, lo que privilegia el debate sustantivo sobre la identidad individual. Sus comentarios anidados permiten seguir el desarrollo de argumentos y contraargumentos; el sistema de votación (karma) ofrece un indicador de resonancia comunitaria; y la persistencia temporal del contenido habilita el análisis longitudinal (Proferes, 2021).
-
-Estas propiedades hacen de Reddit un espacio particularmente adecuado para estudiar la polarización afectiva por tres razones. Primero, el pseudonimato reduce los costos de expresión hostil en comparación con plataformas donde la identidad real es visible, lo que puede amplificar la intensidad del discurso adversarial [@defranciscimorales2021NoEchoChambers]. Segundo, la estructura anidada de conversación permite observar el *framing* como proceso: los marcos son propuestos, contestados y reformulados en tiempo real, a diferencia de plataformas de flujo lineal como X/Twitter (Meraz, 2013). Tercero, la coexistencia de comunidades con culturas discursivas contrastantes dentro de un mismo tema político permite la comparación controlada [@duguay2022ReadItReddit; @morini2021StandardApproachEcho].
-
-En el contexto chileno, r/chile (generalista, tendencia centro-izquierda) y r/RepublicadeChile (surgida como escisión, mayor tolerancia a discursos confrontacionales) constituyen un caso comparativo natural. Ambas comunidades procesan las mismas controversias electorales, pero con normas de moderación, composición ideológica y umbrales de hostilidad diferenciados. Esta variación permite examinar si los patrones de polarización observados responden a la estructura del debate político o a la cultura discursiva específica de cada comunidad. Investigación reciente muestra que la hostilidad en Reddit puede ser más pronunciada al interior de bloques que entre bloques ideológicos opuestos [@efstratiou2023NonpolarOppositesAnalyzing], y que la exposición a interacciones cross-party no necesariamente depolariza a los usuarios [@xiaIntegratedSegregatedUser]. El análisis léxico de polarización moral en plataformas como Reddit ofrece evidencia sobre cómo las comunidades se organizan en torno a valores diferenciados [@stanier2024PolarizationMoralityLexical].
-
-No obstante, Reddit presenta limitaciones conocidas como corpus de investigación: sesgo demográfico hacia usuarios jóvenes, masculinos y con mayor nivel educativo; imposibilidad de verificar identidades reales; y ausencia de representatividad respecto de la opinión pública general (Zimmer, 2017). Estas limitaciones se discuten en el capítulo de conclusiones como acotaciones del alcance interpretativo de los hallazgos.
+La elección de Reddit como sitio de observación, las razones por las que su arquitectura conviene al estudio de la polarización discursiva y las limitaciones del corpus se presentan, con enfoque en el caso chileno, en el capítulo de presentación del problema (acercamiento empírico) y se operacionalizan en el capítulo de diseño y datos.
 
 ## Modelo analítico integrado
 
