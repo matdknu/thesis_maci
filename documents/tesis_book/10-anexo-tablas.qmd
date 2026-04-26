@@ -62,7 +62,7 @@ if (nrow(cfg)) {
 **A.1.3 Calibración de probabilidades (polarización alta)**
 
 ```{r tbl-anexo-calibracion}
-#| tbl-cap: "Calibración: Brier y log-loss."
+#| tbl-cap: "Calibración: Brier y log loss."
 cal <- read_or_empty(file.path(base_out, "metricas_calibracion.csv"))
 if (nrow(cal)) {
   cal <- round_df(cal, 4)
@@ -202,8 +202,8 @@ if (nrow(ols)) {
       deslegitimacion = "deslegitimación",
       esencializacion = "esencialización",
       ridiculizacion = "ridiculización",
-      inter_bloque = "inter-bloque",
-      intra_bloque = "intra-bloque",
+      inter_bloque = "Entre bloques",
+      intra_bloque = "Interior del bloque",
       jara = "Jara",
       kaiser = "Kaiser",
       kast = "Kast",

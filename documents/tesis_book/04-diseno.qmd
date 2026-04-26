@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 Toda la evidencia presentada a partir de los capítulos de exploración y
 resultados se apoya en un **mismo cuerpo de datos digital**: comentarios
 y publicaciones **extraídos de Reddit mediante su API pública** en el
-**período electoral de la campaña presidencial de Chile en 2025**
- concretamente **del 1 de agosto al 31 de diciembre de 2025**, con
+**período electoral de la campaña presidencial de Chile en 2025**,
+concretamente **del 1 de agosto al 31 de diciembre de 2025**, con
 cobertura de las fases de precampaña, campaña y segunda vuelta, tal como
 se detalla en las secciones que siguen. Este anclaje temporal y de
 **fuente** no es un detalle técnico: deja claro qué sostiene el
@@ -29,13 +29,13 @@ político mientras se desarrolla el proceso electoral, con trazabilidad
 desde la plataforma hasta el análisis.
 
 En paralelo, la investigación adopta un **diseño longitudinal
-observacional** basado en *user-generated content*. Ese carácter
+observacional** basado en *contenido generado por los usuarios*. Ese carácter
 longitudinal permite capturar la evolución del debate a lo largo del
 ciclo electoral, identificando tendencias, puntos de inflexión y
 dinámicas de cambio. El carácter observacional preserva las propiedades
 naturales de la interacción en Reddit, sin intervención experimental.
 
-Metodológicamente, se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** —caracterizar la conversación política en Reddit en la ventana de campaña 2025— con componentes **explicativos**, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
+Metodológicamente, se inscribe en la **ciencia social computacional** [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes **descriptivos** (caracterizar la conversación política en Reddit en la ventana de campaña 2025) con componentes **explicativos**, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
 
 ## Reddit como plataforma de análisis
 
@@ -43,13 +43,13 @@ Reddit es una plataforma de agregación de contenido y discusión organizada en 
 
 Su arquitectura de **comentarios anidados** (*threaded discussions*) permite seguir el desarrollo de argumentos y contraargumentos en múltiples niveles, haciendo visible la estructura deliberativa del debate. Los usuarios operan bajo seudónimos no vinculados a su identidad real, lo que puede facilitar la expresión de posiciones polémicas. Las comunidades son autogobernadas: cada subreddit define sus propias reglas de participación, generando culturas discursivas distintivas que hacen de la comparación entre comunidades un ejercicio analíticamente valioso.
 
-En el contexto chileno, dos subreddits concentran la discusión política nacional. **r/chile** es una comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática, y ha tendido históricamente hacia posiciones de centro-izquierda aunque con presencia de voces diversas. **r/RepublicadeChile** surgió como escisión de r/chile, con políticas de moderación más permisivas y una composición ideológica tendiente a la derecha; tolera discursos más confrontacionales y concentra a usuarios críticos de la moderación de r/chile. Esta dualidad constituye un caso comparativo de valor, pues permite examinar cómo una misma controversia política es procesada de manera diferenciada según la cultura discursiva de la comunidad.
+En el contexto chileno, dos subreddits concentran la discusión política nacional. **r/chile** es una comunidad generalista sobre temas chilenos, con mayor volumen de usuarios y diversidad temática, y ha tendido históricamente hacia posiciones de centro e izquierda, aunque con presencia de voces diversas. **r/RepublicadeChile** surgió como escisión de r/chile, con políticas de moderación más permisivas y una composición ideológica tendiente a la derecha; tolera discursos más confrontacionales y concentra a usuarios críticos de la moderación de r/chile. Esta dualidad constituye un caso comparativo de valor, pues permite examinar cómo una misma controversia política es procesada de manera diferenciada según la cultura discursiva de la comunidad.
 
 ## Recolección de datos mediante la API de Reddit
 
 ### Procedimiento técnico
 
-Los datos fueron extraídos mediante la API pública de Reddit utilizando la librería PRAW (*Python Reddit API Wrapper*). Esta aproximación —distinta del *web scraping* no autorizado— accede de forma estructurada a contenido público respetando los límites de uso establecidos por la plataforma y garantizando la trazabilidad y reproducibilidad del proceso.
+Los datos fueron extraídos mediante la API pública de Reddit utilizando la librería PRAW (*Python Reddit API Wrapper*). Esta aproximación, distinta del *web scraping* no autorizado, accede de forma estructurada a contenido público respetando los límites de uso establecidos por la plataforma y garantizando la trazabilidad y reproducibilidad del proceso.
 
 ### Período de recolección y fases del ciclo electoral
 
@@ -73,13 +73,13 @@ El filtrado temático se realizó mediante **expresiones regulares** que detecta
 | Candidatura       | Corriente ideológica         | Patrones de búsqueda               |
 |-------------------|------------------------------|------------------------------------|
 | Evelyn Matthei    | Derecha tradicional          | `matthei`, `matei`, `evelyn`       |
-| José Antonio Kast | Derecha radical-conservadora | `kast`, `jose antonio kast`, `jak` |
+| José Antonio Kast | Derecha radical y conservadora | `kast`, `jose antonio kast`, `jak` |
 | Johannes Kaiser   | Derecha libertaria           | `kaiser`, `johannes`, `jkaiser`    |
-| Jeannette Jara    | Izquierda-PC                 | `jara`, `jeannette`, `jeanette`    |
+| Jeannette Jara    | Izquierda (PC)               | `jara`, `jeannette`, `jeanette`    |
 
 : Candidaturas objetivo y patrones de detección. {#tbl-candidaturas}
 
-Esta selección permite analizar tanto la **competencia intra-derecha** entre tres corrientes como la **convergencia discursiva** frente al adversario ideológico común (ver @tbl-candidaturas).
+Esta selección permite analizar tanto la **competencia al interior de la derecha** entre tres corrientes como la **convergencia discursiva** frente al adversario ideológico común (ver @tbl-candidaturas).
 
 ## Consideraciones éticas
 
@@ -89,10 +89,10 @@ La investigación se rige por principios establecidos para la investigación con
 
 El estudio combina **modelos de lenguaje (GPT-4o y DeepSeek)** [@ali2025SocialMediaPolarization; @arslan2025PoliticalRAGUsingGenerative] con **validación humana sistemática** para analizar discursos políticos en Reddit. Las clasificaciones automáticas (sentimiento, emociones, marcos y estrategias) se realizan mediante prompts estructurados y luego se **validan con codificación manual** usando métricas de acuerdo (kappa de Cohen, $\kappa$) [@ajala2022CombiningArtificialIntelligence] antes de escalar al corpus completo.
 
-El análisis aborda de forma integrada **sentimiento y emociones** (polaridad, intensidad y emoción predominante), **marcos interpretativos** (económico, seguridad, identitario, institucional, medioambiental), **interacciones** en forma de redes de respuesta entre usuarios para detectar comunidades y polarización, y **evolución temporal** (cambios en tono, temas y volumen a lo largo del tiempo). Esas cuatro dimensiones se traducen en variables operacionales que alimentan el modelado y la interpretación subsiguientes.
+El análisis se organiza en torno a cuatro dimensiones principales que capturan aspectos complementarios del corpus. La primera es el sentimiento y las emociones, abordados en términos de polaridad, intensidad y emoción predominante en cada comentario. La segunda son los marcos interpretativos, clasificados en categorías que distinguen los registros económico, securitario, identitario, institucional y medioambiental. La tercera son las interacciones entre usuarios, examinadas como redes de respuesta que permiten detectar comunidades y patrones de polarización relacional. La cuarta es la evolución temporal, que rastrea cambios en tono, temas y volumen a lo largo del ciclo electoral. Esas cuatro dimensiones se traducen en variables operacionales que alimentan el modelado y la interpretación subsiguientes.
 
 El pipeline incluye técnicas de **procesamiento de texto (TF-IDF, bigramas)** [@hirschbergAdvancesNaturalLanguage], codificación de variables y modelos supervisados como **Regresión Logística, SVM, Random Forest y Gradient Boosting**, evaluados con validación cruzada. También se aplican métodos de **reducción de dimensionalidad (SVD y PCA)** para visualización.
 
-Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis **longitudinales, relacionales y discursivos integrados**
+Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis **longitudinales, relacionales y discursivos integrados**.
 
 ![Flujo de recolección y procesamiento del corpus.](fig_thesis/pipeline_corpus.png){#fig-pipeline-datos fig-align="center" width="81%"}

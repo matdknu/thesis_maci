@@ -44,7 +44,7 @@ labels_candidatos <- c(
 
 ## Depuración y preprocesamiento del corpus
 
-Una vez constituido el corpus filtrado temáticamente, se aplicó una etapa de depuración orientada a garantizar la calidad analítica de los datos. Esta etapa distingue entre dos tipos de decisiones: las que afectan a unidades de observación —posts y comentarios que son excluidos del análisis— y las que afectan al contenido textual —transformaciones aplicadas al texto para mejorar su procesabilidad—.
+Una vez constituido el corpus filtrado temáticamente, se aplicó una etapa de depuración orientada a garantizar la calidad analítica de los datos. Esta etapa distingue entre dos tipos de decisiones: las que afectan a unidades de observación (publicaciones y comentarios que se excluyen del análisis) y las que afectan al contenido textual (transformaciones aplicadas al texto para mejorar su procesabilidad).
 
 ## Descripción general del corpus
 
@@ -127,7 +127,7 @@ reddit_filtrado |>
 Se aplicaron dos criterios de exclusión secuenciales:
 
 
-**Contenido automático y bots.** Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (`AutoModerator`, `RemindMeBot`). La exclusión de este contenido reduce el ruido no-humano en el análisis de sentimiento y en la construcción de redes de interacción.
+**Contenido automático y bots.** Se identificaron y excluyeron cuentas con comportamiento consistente con automatización, operacionalizadas como usuarios que publican más de cincuenta comentarios en un mismo día de forma sostenida, o cuyos nombres de usuario coinciden con patrones conocidos de bots en subreddits chilenos (`AutoModerator`, `RemindMeBot`). La exclusión de este contenido reduce el ruido no humano en el análisis de sentimiento y en la construcción de redes de interacción.
 
 **Comentarios excesivamente cortos.** Los comentarios con menos de tres tokens tras la normalización (típicamente reacciones monosilábicas, interjecciones o emojis aislados) aportan información insuficiente para la clasificación de marcos interpretativos o emociones y fueron excluidos del análisis textual.
 

@@ -233,8 +233,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#b.1-system-prompt" id="toc-b.1-system-prompt" class="nav-link active" data-scroll-target="#b.1-system-prompt"><span class="header-section-number">11.1</span> B.1 System prompt</a></li>
-  <li><a href="#b.2-prompt-a-sentimiento-y-polarización" id="toc-b.2-prompt-a-sentimiento-y-polarización" class="nav-link" data-scroll-target="#b.2-prompt-a-sentimiento-y-polarización"><span class="header-section-number">11.2</span> B.2 Prompt A — Sentimiento y polarización</a></li>
-  <li><a href="#b.3-prompt-b-marco-emoción-estrategia-y-frontera" id="toc-b.3-prompt-b-marco-emoción-estrategia-y-frontera" class="nav-link" data-scroll-target="#b.3-prompt-b-marco-emoción-estrategia-y-frontera"><span class="header-section-number">11.3</span> B.3 Prompt B — Marco, emoción, estrategia y frontera</a></li>
+  <li><a href="#b.2-prompt-a-sentimiento-y-polarización" id="toc-b.2-prompt-a-sentimiento-y-polarización" class="nav-link" data-scroll-target="#b.2-prompt-a-sentimiento-y-polarización"><span class="header-section-number">11.2</span> B.2 Prompt A: sentimiento y polarización</a></li>
+  <li><a href="#b.3-prompt-b-marco-emoción-estrategia-y-frontera" id="toc-b.3-prompt-b-marco-emoción-estrategia-y-frontera" class="nav-link" data-scroll-target="#b.3-prompt-b-marco-emoción-estrategia-y-frontera"><span class="header-section-number">11.3</span> B.3 Prompt B: marco, emoción, estrategia y frontera</a></li>
   <li><a href="#b.4-parámetros-de-configuración-del-pipeline" id="toc-b.4-parámetros-de-configuración-del-pipeline" class="nav-link" data-scroll-target="#b.4-parámetros-de-configuración-del-pipeline"><span class="header-section-number">11.4</span> B.4 Parámetros de configuración del pipeline</a></li>
   <li><a href="#b.5-lógica-de-desempate-entre-modelos" id="toc-b.5-lógica-de-desempate-entre-modelos" class="nav-link" data-scroll-target="#b.5-lógica-de-desempate-entre-modelos"><span class="header-section-number">11.5</span> B.5 Lógica de desempate entre modelos</a></li>
   </ul>
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 <section id="b.2-prompt-a-sentimiento-y-polarización" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="b.2-prompt-a-sentimiento-y-polarización"><span class="header-section-number">11.2</span> B.2 Prompt A — Sentimiento y polarización</h2>
+<h2 data-number="11.2" class="anchored" data-anchor-id="b.2-prompt-a-sentimiento-y-polarización"><span class="header-section-number">11.2</span> B.2 Prompt A: sentimiento y polarización</h2>
 <p>El <strong>Prompt A</strong> clasifica el sentimiento hacia cada candidato mencionado en el hilo y estima la intensidad afectiva del comentario (0.0–1.0):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PROMPT_A <span class="op">=</span> <span class="st">"""Analiza este comentario de Reddit chileno en contexto electoral.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -296,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">━━━ KARMA: </span><span class="sc">{comment_score}</span><span class="st"> ━━━</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">(positivo = comunidad lo apoya | negativo = comunidad lo rechaza)</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">(A) SENTIMIENTO hacia cada candidato del hilo — clasifica POR SEPARADO:</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">(A) SENTIMIENTO hacia cada candidato del hilo: clasifica POR SEPARADO:</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">REGLAS DE TARGET (importante):</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">1. Clasifica solo si el comentario evalúa DIRECTAMENTE al candidato</span></span>
@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">5. Elogio irónico = NEGATIVO | Crítica irónica que defiende = POSITIVO.</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">6. Si mezcla positivo y negativo → elige el tono dominante.</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">(B) POLARIZACIÓN — intensidad afectiva del comentario (0.0 a 1.0):</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">(B) POLARIZACIÓN: intensidad afectiva del comentario (0.0 a 1.0):</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">0.0–0.1 = Neutral, informativo, sin carga emocional</span></span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">0.2–0.3 = Opinión moderada, leve sesgo</span></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">0.4–0.5 = Crítica directa, sarcasmo, ironía política</span></span>
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 <section id="b.3-prompt-b-marco-emoción-estrategia-y-frontera" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="b.3-prompt-b-marco-emoción-estrategia-y-frontera"><span class="header-section-number">11.3</span> B.3 Prompt B — Marco, emoción, estrategia y frontera</h2>
+<h2 data-number="11.3" class="anchored" data-anchor-id="b.3-prompt-b-marco-emoción-estrategia-y-frontera"><span class="header-section-number">11.3</span> B.3 Prompt B: marco, emoción, estrategia y frontera</h2>
 <p>El <strong>Prompt B</strong> clasifica cuatro dimensiones discursivas siguiendo el esquema de Entman (1993) para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PROMPT_B <span class="op">=</span> <span class="st">"""Analiza este comentario de Reddit chileno en contexto electoral.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -361,9 +361,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="st">ninguna      → comentario informativo sin emoción dominante</span></span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="st">Distinción clave:</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="st">- desprecio ≠ ira: desprecio es frío y distante; ira es caliente y directa</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="st">- ironia ≠ alegria: ironía tiene intención crítica implícita</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">- indignacion ≠ ira: indignación tiene base moral; ira es más visceral</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="st">- desprecio $</span><span class="ch">\n</span><span class="st">eq$ ira: desprecio es frío y distante; ira es caliente y directa</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="st">- ironia $</span><span class="ch">\n</span><span class="st">eq$ alegria: ironía tiene intención crítica implícita</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">- indignacion $</span><span class="ch">\n</span><span class="st">eq$ ira: indignación tiene base moral; ira es más visceral</span></span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="st">━━━ (C) ESTRATEGIA DE CONSTRUCCIÓN DEL ADVERSARIO ━━━</span></span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="st">deslegitimacion      → niega competencia, seriedad o autoridad del candidato</span></span>

@@ -33,7 +33,7 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 ### Estrategias por candidato
 
 En este apartado conviene distinguir dos agregaciones: la **frontera
-política** del comentario (inter-bloque, intra-bloque o sin frontera) y
+política** del comentario (entre bloques, al interior del bloque o sin frontera) y
 el **candidato objetivo** al que se dirige el mensaje. La
 @tbl-estrategia-frontera cuantifica la primera: proporción de cada
 estrategia discursiva según tipo de frontera. La distribución por
@@ -41,10 +41,10 @@ candidato se incluye en el Anexo A (@fig-anexo-estrategias-candidato).
 
 Esa lectura por frontera revela un patrón que merece atención: la lógica
 del antagonismo no se distribuye homogéneamente. Las estrategias de
-mayor carga adversarial — construcción de amenaza (66.3% inter-bloque) y
-esencialización (66.0%) — se concentran abrumadoramente en la
+mayor carga adversarial, esto es, construcción de amenaza (66.3% en la frontera entre bloques) y
+esencialización (66.0%), se concentran abrumadoramente en la
 confrontación entre bloques ideológicos, mientras que la ridiculización
-presenta una distribución más equilibrada (48.3% inter, 21.9% intra).
+presenta una distribución más equilibrada (48.3% en la frontera entre bloques, 21.9% al interior del bloque).
 Esto sugiere que la hostilidad no opera como un fenómeno unitario: su
 forma cambia según la arquitectura del adversario que el comentario
 construye. Cuando el enemigo es externo al bloque, se recurre a
@@ -86,8 +86,8 @@ Las combinaciones entre marco y emoción (valores numéricos en el Anexo
 A, @tbl-anexo-marco-emocion-top; visualización en @fig-marco-emocion)
 permiten ir más allá de las distribuciones marginales y observar cómo se
 acoplan ambas dimensiones. No toda emoción hostil se acopla del mismo
-modo al conflicto. Las combinaciones más frecuentes — conflicto +
-desprecio (n = 945) y diagnóstico + indignación (n = 844) — presentan
+modo al conflicto. Las combinaciones más frecuentes (conflicto +
+desprecio, n = 945; y diagnóstico + indignación, n = 844) presentan
 niveles de polarización moderados (0.46 y 0.43 respectivamente). En
 cambio, combinaciones menos frecuentes como moral + desprecio (n = 702,
 pol. = 0.541) y otro + desprecio (n = 528, pol. = 0.544) empujan la
@@ -159,7 +159,7 @@ El patrón es nítido. Los autores negativos hacia cualquier candidato en
 posicionamiento permanecen negativos al transitar hacia Kast (97% en
 Jara → Kast) o hacia Jara (86–100% según el par). Más revelador aún: en
 todos los pares observados, los autores positivos hacia un candidato se
-vuelven negativos al cambiar de target — la positividad no sobrevive al
+vuelven negativos al cambiar de target: la positividad no sobrevive al
 cruce adversarial. La polarización aparece así ligada al marco del duelo
 electoral más que a trayectorias individuales de simpatía.
 
@@ -201,7 +201,7 @@ candidatos (superior derecho) muestra una superposición casi completa de
 los cuatro colores: no existen regiones exclusivas por candidato [@defranciscimorales2021NoEchoChambers]. Desde
 la perspectiva de Mouffe [@mouffe2005OnThePolitical], esto sugiere que la frontera política no se
 traza entre vocabularios diferenciados, sino a través de un repertorio
-léxico compartido — la polarización es una propiedad del discurso, no
+léxico compartido: la polarización es una propiedad del discurso, no
 del target.
 
 El panel de emociones (inferior derecho), en cambio, presenta

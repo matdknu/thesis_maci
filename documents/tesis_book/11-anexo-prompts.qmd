@@ -20,7 +20,7 @@ SYSTEM_PROMPT = (
 
 ---
 
-## B.2 Prompt A — Sentimiento y polarización
+## B.2 Prompt A: sentimiento y polarización
 
 El **Prompt A** clasifica el sentimiento hacia cada candidato mencionado en el hilo y estima la intensidad afectiva del comentario (0.0–1.0):
 
@@ -38,7 +38,7 @@ El hilo trata sobre: {candidatos_mencionados}
 ━━━ KARMA: {comment_score} ━━━
 (positivo = comunidad lo apoya | negativo = comunidad lo rechaza)
 
-(A) SENTIMIENTO hacia cada candidato del hilo — clasifica POR SEPARADO:
+(A) SENTIMIENTO hacia cada candidato del hilo: clasifica POR SEPARADO:
 
 REGLAS DE TARGET (importante):
 1. Clasifica solo si el comentario evalúa DIRECTAMENTE al candidato
@@ -49,7 +49,7 @@ REGLAS DE TARGET (importante):
 5. Elogio irónico = NEGATIVO | Crítica irónica que defiende = POSITIVO.
 6. Si mezcla positivo y negativo → elige el tono dominante.
 
-(B) POLARIZACIÓN — intensidad afectiva del comentario (0.0 a 1.0):
+(B) POLARIZACIÓN: intensidad afectiva del comentario (0.0 a 1.0):
 0.0–0.1 = Neutral, informativo, sin carga emocional
 0.2–0.3 = Opinión moderada, leve sesgo
 0.4–0.5 = Crítica directa, sarcasmo, ironía política
@@ -67,7 +67,7 @@ Solo los candidatos del hilo. Sin texto extra.
 
 ---
 
-## B.3 Prompt B — Marco, emoción, estrategia y frontera
+## B.3 Prompt B: marco, emoción, estrategia y frontera
 
 El **Prompt B** clasifica cuatro dimensiones discursivas siguiendo el esquema de Entman (1993) para marcos, tipologías de emociones discretas, estrategias de construcción del adversario y fronteras políticas:
 
