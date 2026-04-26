@@ -5,7 +5,6 @@ format:
   html:
     toc: true
     toc-depth: 2
-    self-contained: true
   pdf:
     toc: false
     fontsize: 11pt
