@@ -260,36 +260,36 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
-  \renewcommand*\contentsname{Table of contents}
+  \renewcommand*\contentsname{Tabla de contenidos}
 \else
-  \newcommand\contentsname{Table of contents}
+  \newcommand\contentsname{Tabla de contenidos}
 \fi
 \ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
+  \renewcommand*\listfigurename{Listado de Figuras}
 \else
-  \newcommand\listfigurename{List of Figures}
+  \newcommand\listfigurename{Listado de Figuras}
 \fi
 \ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
+  \renewcommand*\listtablename{Listado de Tablas}
 \else
-  \newcommand\listtablename{List of Tables}
+  \newcommand\listtablename{Listado de Tablas}
 \fi
 \ifdefined\figurename
-  \renewcommand*\figurename{Figure}
+  \renewcommand*\figurename{Figura}
 \else
-  \newcommand\figurename{Figure}
+  \newcommand\figurename{Figura}
 \fi
 \ifdefined\tablename
-  \renewcommand*\tablename{Table}
+  \renewcommand*\tablename{Tabla}
 \else
-  \newcommand\tablename{Table}
+  \newcommand\tablename{Tabla}
 \fi
 }
 \@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \makeatother
 \makeatletter
 \makeatother
@@ -299,6 +299,15 @@
 \makeatother
 
 \ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{spanish}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage{bookmark}
@@ -306,6 +315,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
+  pdflang={es},
   colorlinks=true,
   linkcolor={Blue},
   filecolor={Maroon},
@@ -508,7 +518,7 @@ procesos constituyentes fallidos de 2022 y 2023, y la creciente
 fragmentación de las coaliciones tradicionales, el escenario electoral
 chileno exhibió niveles de incertidumbre, volatilidad y polarización
 inéditos en la historia reciente del país, lo que ya se condice con el
-fenómeno documentado como polarización afectiva (Baldassarri and Bearman
+fenómeno documentado como polarización afectiva (Baldassarri y Bearman,
 2007).
 
 En este contexto, las plataformas digitales han adquirido un
@@ -518,7 +528,7 @@ redes sociales ya no constituye un reflejo secundario de dinámicas
 políticas que se dirimen en otros ámbitos, sino un terreno constitutivo
 donde se disputan los términos del conflicto, se movilizan emociones
 políticas y se construyen las fronteras simbólicas que delimitan aliados
-y adversarios (Patberg 2025).
+y adversarios (Patberg, 2025).
 
 Una de las transformaciones más significativas del período reciente es
 la reconfiguración del campo de las derechas chilenas. Donde antes
@@ -530,7 +540,7 @@ tradicional que busca renovar su apelación desde la moderación y la
 competencia técnica; una derecha radical conservadora que articula
 posiciones morales restrictivas con retórica antielitista; y una derecha
 libertaria de perfil disruptivo que desafía las convenciones
-comunicativas establecidas (Saldivia Gonzatti and Völker 2025). La
+comunicativas establecidas (Saldivia Gonzatti y Völker, 2025). La
 competencia entre estas corrientes, y su eventual convergencia frente a
 adversarios comunes, constituye uno de los fenómenos más relevantes y,
 escasamente estudiados, de la política chilena contemporánea.
@@ -546,9 +556,9 @@ documentado limitaciones inherentes al instrumento: los sesgos de
 respuesta y, en particular, la deseabilidad social tienden a
 distorsionar la medición en temas sensibles, donde los entrevistados
 ajustan sus respuestas a lo que perciben como socialmente aceptable
-(Mayer 2021). A estos desafíos se suman dificultades operativas
+(Mayer, 2021). A estos desafíos se suman dificultades operativas
 crecientes, como la caída sostenida en las tasas de respuesta y el
-aumento del costo por entrevista (Rousset et al. 2025).
+aumento del costo por entrevista (Rousset et~al., 2025).
 
 La era digital brinda oportunidades nuevas ante la emergencia del
 \emph{Big Data}. Las redes sociales generan información que, una vez
@@ -560,7 +570,7 @@ cámaras de eco.
 
 Esta tesina se sitúa en la intersección entre los datos digitales y las
 oportunidades que estos ofrecen para el estudio de la política
-contemporánea (Edelmann et al. 2020). A partir del análisis de
+contemporánea (Edelmann et~al., 2020). A partir del análisis de
 comentarios en Reddit (foro en línea de agregación de contenido y
 discusión, organizado en comunidades temáticas {[}\emph{subreddits}{]} y
 ampliamente utilizado en países de habla inglesa y, en menor medida, en
@@ -591,12 +601,12 @@ Desde el punto de vista teórico, la investigación contribuye a debates
 contemporáneos sobre comunicación política digital, polarización y
 construcción de antagonismos. Si bien existe abundante literatura sobre
 el rol de las redes sociales en procesos electorales, la mayor parte de
-esta investigación se ha concentrado en Estados Unidos (Garzia, Ferreira
-Da Silva, and Maye 2023), país dónde la dicotomía entre los bloques
-Republicanos y Democrátas ha sido una ventaja comparativa para describir
-antagonismos. Los estudios sobre América Latina, aunque crecientes, han
-tendido a focalizarse en casos de alta visibilidad internacional (Brasil
-con Bolsonaro, Argentina con Milei) sin atender suficientemente a las
+esta investigación se ha concentrado en Estados Unidos (Garzia et~al.,
+2023), país dónde la dicotomía entre los bloques Republicanos y
+Democrátas ha sido una ventaja comparativa para describir antagonismos.
+Los estudios sobre América Latina, aunque crecientes, han tendido a
+focalizarse en casos de alta visibilidad internacional (Brasil con
+Bolsonaro, Argentina con Milei) sin atender suficientemente a las
 variaciones nacionales y a las dinámicas de competencia al interior de
 familias ideológicas.
 
@@ -692,7 +702,7 @@ electoral relevante: el trabajo cubre, en lo sustantivo, el período del
 1 de agosto al 31 de diciembre de 2025 (cinco meses que abarcan desde el
 posicionamiento de candidaturas hasta el cierre de la contienda en
 segunda vuelta), tal como se documenta técnicamente en el
-Section~\ref{sec-diseno}. Las comunidades analizadas son r/chile y
+Sección~\ref{sec-diseno}. Las comunidades analizadas son r/chile y
 r/RepublicadeChile, principales espacios de discusión política nacional
 chilena en la plataforma, comparables entre sí pese a culturas y normas
 de moderación distintas. Describir con claridad qué es Reddit y de dónde
@@ -709,12 +719,12 @@ sin precedentes desde el retorno a la democracia. Los indicadores son
 contundentes: la identificación partidaria ha caído sostenidamente desde
 2010, la volatilidad electoral alcanzó máximos históricos en los ciclos
 2021-2023, y la fragmentación parlamentaria dificulta la formación de
-coaliciones estables (Programa de las Naciones Unidas para el Desarrollo
-2024; Luna 2024). En este contexto de desalineamiento, las plataformas
-digitales han emergido como espacios donde se disputa la reconfiguración
-de las identidades políticas (González 2024), en particular en el campo
-de las derechas, donde coexisten proyectos en competencia que aún no han
-estabilizado sus fronteras.
+coaliciones estables (Luna, 2024; Programa de las Naciones Unidas para
+el Desarrollo, 2024). En este contexto de desalineamiento, las
+plataformas digitales han emergido como espacios donde se disputa la
+reconfiguración de las identidades políticas (González, 2024), en
+particular en el campo de las derechas, donde coexisten proyectos en
+competencia que aún no han estabilizado sus fronteras.
 
 El problema central que aborda esta investigación puede formularse así,
 con delimitación explícita al caso chileno, pues la motivación empírica
@@ -734,17 +744,16 @@ condiciones convergen o divergen?
 Esa formulación no pretende sugerir un fenómeno aislado: el
 desalineamiento, el realineamiento y la polarización afectiva han sido
 documentados como dinámicas transnacionales con matices nacionales
-(Garzia, Ferreira Da Silva, and Maye 2023; Norris and Inglehart 2019).
-En paralelo, la literatura comparada sobre vínculos entre éxitos de la
-derecha radical y la agenda identitaria de partidos mayoritarios (Weeks
-and Allen 2022), sobre cómo la exposición mediática se asocia a
-creencias y actitudes frente a la derecha radical en democracias
-occidentales (Selvanathan et al. 2025) y sobre marcos para investigar la
-radical derecha en tiempos de \emph{mainstreaming} (Newth, Brown, and
-Mondon 2025) aporta antecedentes útiles para interpretar tensiones al
-interior del bloque y su expresión digital; la contribución de esta
-tesis es situar y medir esas tensiones en el debate chileno en Reddit
-durante 2025.
+(Garzia et~al., 2023; Norris y Inglehart, 2019). En paralelo, la
+literatura comparada sobre vínculos entre éxitos de la derecha radical y
+la agenda identitaria de partidos mayoritarios (Weeks y Allen, 2022),
+sobre cómo la exposición mediática se asocia a creencias y actitudes
+frente a la derecha radical en democracias occidentales (Selvanathan
+et~al., 2025) y sobre marcos para investigar la radical derecha en
+tiempos de \emph{mainstreaming} (Newth et~al., 2025) aporta antecedentes
+útiles para interpretar tensiones al interior del bloque y su expresión
+digital; la contribución de esta tesis es situar y medir esas tensiones
+en el debate chileno en Reddit durante 2025.
 
 Este problema resulta relevante por tres razones convergentes. La
 primera es un vacío empírico: si bien abundan los estudios sobre la
@@ -758,7 +767,7 @@ análisis retrospectivos tienden a perder o a estabilizar prematuramente.
 La tercera es de orden democrático: comprender cómo se construyen
 adversarios y fronteras identitarias en espacios digitales resulta
 crucial para evaluar la calidad del debate público y anticipar
-escenarios de polarización (Kingzette et al. 2021).
+escenarios de polarización (Kingzette et~al., 2021).
 
 \section{Acercamiento: actores, dimensiones y niveles de
 análisis}\label{acercamiento-actores-dimensiones-y-niveles-de-anuxe1lisis}
@@ -808,7 +817,7 @@ Jeannette Jara & Izquierda (PC) & Militancia de izquierda, sectores
 medios y populares \\
 \end{longtable}
 
-Como se observa en la Table~\ref{tbl-candidaturas-actores}, el diseño
+Como se observa en la Tabla~\ref{tbl-candidaturas-actores}, el diseño
 compara tres derechas y un adversario común de izquierda.
 
 Más allá de la síntesis del inicio de este capítulo, conviene afinar el
@@ -816,14 +825,14 @@ papel de los datos. El corpus se alimenta solo de contenido público en
 Reddit (definido arriba), reunido con la API oficial, sometido a
 criterio de filtrado por mención de candidaturas; el procedimiento, la
 ventana exacta, la lógica incremental de descarga y las salvaguardas
-éticas se exponen con detalle en el Section~\ref{sec-diseno}. En
+éticas se exponen con detalle en el Sección~\ref{sec-diseno}. En
 síntesis, el estudio observa el debate político donde deja rastro
 trazable en r/chile y r/RepublicadeChile, sin confundirlo con el
 electorado completo. En la literatura, las propiedades de Reddit
 (comunidades temáticas, anidación de comentarios, énfasis relativo en el
 argumento) han facilitado el análisis de polarización y \emph{framing}
-en contextos comparados (De Francisci Morales, Monti, and Starnini 2021;
-Duguay 2022).
+en contextos comparados (De Francisci Morales et~al., 2021; Duguay,
+2022).
 
 \subsubsection{Selección de actores (lo que la selección permite
 observar)}\label{selecciuxf3n-de-actores-lo-que-la-selecciuxf3n-permite-observar}
@@ -864,12 +873,12 @@ analítica}\label{descripciuxf3n-de-la-propuesta-analuxedtica}
 \subsection{Enfoque general}\label{enfoque-general}
 
 La propuesta combina ciencia social computacional con análisis
-interpretativo del discurso político (Keuschnigg, Lovsjö, and Hedström
-2018). Esta combinación responde a una convicción metodológica: las
-técnicas computacionales permiten identificar patrones a escala que el
-análisis cualitativo tradicional no alcanza, pero requieren
-interpretación teóricamente informada para producir conocimiento
-sustantivo sobre procesos políticos (Hofman et al. 2021).
+interpretativo del discurso político (Keuschnigg et~al., 2018). Esta
+combinación responde a una convicción metodológica: las técnicas
+computacionales permiten identificar patrones a escala que el análisis
+cualitativo tradicional no alcanza, pero requieren interpretación
+teóricamente informada para producir conocimiento sustantivo sobre
+procesos políticos (Hofman et~al., 2021).
 
 En términos empíricos, el insumo principal son textos públicos
 (comentarios y publicaciones) recolectados desde Reddit mediante la API
@@ -895,7 +904,7 @@ corpus a los hallazgos sustantivos.}
 
 \end{figure}%
 
-La Figure~\ref{fig-pipeline} sintetiza el encadenamiento entre corpus,
+La Figura~\ref{fig-pipeline} sintetiza el encadenamiento entre corpus,
 procesamiento, modelamiento y hallazgos.
 
 \subsection{Arquitectura del
@@ -1000,7 +1009,7 @@ fundamentada a cada pregunta de investigación \\
 \end{longtable}
 
 La planificación operativa del estudio se detalla en la
-Table~\ref{tbl-objetivos-mvp}.
+Tabla~\ref{tbl-objetivos-mvp}.
 
 \subsection{Alcances y limitaciones
 anticipadas}\label{alcances-y-limitaciones-anticipadas}
@@ -1090,34 +1099,34 @@ luego el corpus.
 
 La polarización afectiva designa el distanciamiento emocional entre
 grupos políticos: no solo divergen en posiciones, sino que se desagradan
-y se atribuyen mutuamente malas intenciones (Iyengar et al. 2019). Es
+y se atribuyen mutuamente malas intenciones (Iyengar et~al., 2019). Es
 analíticamente distinta de la polarización ideológica (ambas pueden
 variar de manera independiente), y la evidencia comparada sugiere que la
 afectiva ha crecido más rápidamente en democracias contemporáneas
-(Garzia, Ferreira Da Silva, and Maye 2023).
+(Garzia et~al., 2023).
 
 Sus principales mecanismos en entornos digitales incluyen la exposición
 selectiva amplificada por algoritmos, la mayor visibilidad de voces
 extremas, la reducción de costos de expresión hostil y las dinámicas de
-señalización grupal recompensadas con métricas de aprobación (Tang,
-Snijders, and Flache 2025). Las consecuencias para la democracia son
-significativas: erosión de la confianza institucional, resistencia al
-compromiso y tolerancia a la transgresión normativa cuando proviene del
-propio bando (Kingzette et al. 2021). Esta dinámica paradójica, en la
-que la polarización se manifiesta a nivel individual pero puede resultar
-difusa a escala global, ha sido documentada en contextos comparados
-(Baldassarri and Bearman 2007).
+señalización grupal recompensadas con métricas de aprobación (Tang
+et~al., 2025). Las consecuencias para la democracia son significativas:
+erosión de la confianza institucional, resistencia al compromiso y
+tolerancia a la transgresión normativa cuando proviene del propio bando
+(Kingzette et~al., 2021). Esta dinámica paradójica, en la que la
+polarización se manifiesta a nivel individual pero puede resultar difusa
+a escala global, ha sido documentada en contextos comparados
+(Baldassarri y Bearman, 2007).
 
 \section{Construcción de adversarios y frontera
 política}\label{construcciuxf3n-de-adversarios-y-frontera-poluxedtica}
 
 Las identidades colectivas no son esencias preexistentes: emergen a
 través de la diferenciación. Todo «nosotros» se constituye en relación
-con un «ellos» (Laclau and Mouffe 1985). Trabajos recientes en ciencia
+con un «ellos» (Laclau y Mouffe, 1985). Trabajos recientes en ciencia
 política comparada muestran cómo esas polarizaciones simbólicas entre
 «nosotros» y «ellos» se vinculan con la estructura social, las
-identidades y la elección electoral (Bornschier et al. 2021). Siguiendo
-a Mouffe en \emph{On the Political} (Mouffe 2005), conviene distinguir
+identidades y la elección electoral (Bornschier et~al., 2021). Siguiendo
+a Mouffe en \emph{On the Political} (Mouffe, 2005), conviene distinguir
 el antagonismo (relación entre enemigos sin espacio común) del agonismo
 (relación entre adversarios que comparten el marco democrático). Esta
 distinción permite preguntar si los actores construyen a sus oponentes
@@ -1125,35 +1134,35 @@ como participantes legítimos o como amenazas existenciales.
 
 Las estrategias de deslegitimación incluyen asociación negativa,
 atribución de intenciones ocultas, ridiculización, esencialización y
-construcción de amenaza (González 2024). Para esta investigación resulta
-crucial distinguir, por un lado, las fronteras que oponen bloques
-(izquierda frente a derecha) y, por otro, las que recorren el interior
-del mismo bloque (entre corrientes de derecha), pues generan tensiones
-estratégicas entre diferenciación y convergencia.
+construcción de amenaza (González, 2024). Para esta investigación
+resulta crucial distinguir, por un lado, las fronteras que oponen
+bloques (izquierda frente a derecha) y, por otro, las que recorren el
+interior del mismo bloque (entre corrientes de derecha), pues generan
+tensiones estratégicas entre diferenciación y convergencia.
 
 \section{Encuadre y emociones en el discurso
 político}\label{encuadre-y-emociones-en-el-discurso-poluxedtico}
 
 El encuadre consiste en seleccionar aspectos de la realidad y hacerlos
 prominentes para promover una definición del problema, una
-interpretación causal y una evaluación moral (Entman 1993). Se
+interpretación causal y una evaluación moral (Entman, 1993). Se
 distinguen marcos genéricos (conflicto, consecuencias económicas,
 atribución de responsabilidad, moralidad) y marcos específicos propios
-de cada controversia (Semetko and Valkenburg 2000). Para campañas
+de cada controversia (Semetko y Valkenburg, 2000). Para campañas
 electorales resulta útil añadir la distinción entre marcos diagnósticos
 (¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y
 motivacionales (¿qué está en juego?).
 
 Las emociones, por su parte, no son ruido que distorsiona el juicio
 racional: son componentes constitutivos de la cognición y la acción
-política (Marcus, Neuman, and MacKuen 2000). El concepto de repertorio
-afectivo (la configuración característica de emociones movilizadas por
-un actor, su combinación y los objetos hacia los que se dirigen) resulta
-más operativo que el registro de emociones aisladas (Jasper 2011). La
+política (Marcus et~al., 2000). El concepto de repertorio afectivo (la
+configuración característica de emociones movilizadas por un actor, su
+combinación y los objetos hacia los que se dirigen) resulta más
+operativo que el registro de emociones aisladas (Jasper, 2011). La
 indignación moral merece atención especial: combina valencia negativa
 con alta activación y orientación a la acción, se difunde más que otras
 emociones y genera bajo costo de expresión con recompensas sociales
-inmediatas (Botzer, Gu, and Weninger 2023).
+inmediatas (Botzer et~al., 2023).
 
 Encuadre y emoción se articulan en el análisis como dimensiones
 complementarias: el marco establece \emph{de qué} se habla, la emoción
@@ -1169,22 +1178,21 @@ Chile}\label{derechas-contemporuxe1neas-en-chile}
 La coexistencia de múltiples corrientes de derecha en Chile genera
 dinámicas de competencia al interior del bloque que constituyen un
 laboratorio analítico de particular valor. Estas corrientes difieren no
-solo ideológicamente sino en sus estrategias comunicativas (Klein and
-Muis 2019): la derecha tradicional emplea un registro institucional y
+solo ideológicamente sino en sus estrategias comunicativas (Klein y
+Muis, 2019): la derecha tradicional emplea un registro institucional y
 moderado; la radical populista moviliza agravios y retórica de
 confrontación; la libertaria combina argumentos económicos con estilos
-provocadores y referencias a subculturas digitales (Winter 2019; Baele,
-Brace, and Coan 2023; Norris and Inglehart 2019). Los procesos de
-radicalización online que han acompañado esta transformación han sido
-estudiados en el ecosistema digital de la extrema derecha (Marwick,
-Clancy, and Furl, n.d.). En el contexto hispanohablante, aproximaciones
-de topic modeling al discurso de la derecha radical ofrecen antecedentes
-metodológicos relevantes (Calderón, De La Vega, and Herrero 2020). En el
-contexto de la campaña presidencial de 2025, los candidatos Matthei,
-Kast, Kaiser y Jara representan posiciones diferenciadas dentro de este
-espectro, con estrategias de diferenciación interna que conviven con
-presiones de convergencia frente al adversario común de izquierda
-(Saldivia Gonzatti and Völker 2025).
+provocadores y referencias a subculturas digitales (Baele et~al., 2023;
+Norris y Inglehart, 2019; Winter, 2019). Los procesos de radicalización
+online que han acompañado esta transformación han sido estudiados en el
+ecosistema digital de la extrema derecha (Marwick et~al., s.~f.). En el
+contexto hispanohablante, aproximaciones de topic modeling al discurso
+de la derecha radical ofrecen antecedentes metodológicos relevantes
+(Calderón et~al., 2020). En el contexto de la campaña presidencial de
+2025, los candidatos Matthei, Kast, Kaiser y Jara representan posiciones
+diferenciadas dentro de este espectro, con estrategias de diferenciación
+interna que conviven con presiones de convergencia frente al adversario
+común de izquierda (Saldivia Gonzatti y Völker, 2025).
 
 La elección de Reddit como sitio de observación, las razones por las que
 su arquitectura conviene al estudio de la polarización discursiva y las
@@ -1231,9 +1239,9 @@ y dinámicas de cambio. El carácter observacional preserva las
 propiedades naturales de la interacción en Reddit, sin intervención
 experimental.
 
-Metodológicamente, se inscribe en la ciencia social computacional (Lazer
-et al. 2009; Salganik 2018; Edelmann et al. 2020; Keuschnigg, Lovsjö,
-and Hedström 2018): integra técnicas de procesamiento de datos a gran
+Metodológicamente, se inscribe en la ciencia social computacional
+(Edelmann et~al., 2020; Keuschnigg et~al., 2018; Lazer et~al., 2009;
+Salganik, 2018): integra técnicas de procesamiento de datos a gran
 escala con marcos teóricos y preguntas sustantivas de las ciencias
 sociales. El diseño combina componentes descriptivos (caracterizar la
 conversación política en Reddit en la ventana de campaña 2025) con
@@ -1376,12 +1384,12 @@ Jeannette Jara & Izquierda (PC) & \texttt{jara}, \texttt{jeannette},
 
 Esta selección permite analizar tanto la competencia al interior de la
 derecha entre tres corrientes como la convergencia discursiva frente al
-adversario ideológico común (ver Table~\ref{tbl-candidaturas}).
+adversario ideológico común (ver Tabla~\ref{tbl-candidaturas}).
 
 \section{Consideraciones éticas}\label{consideraciones-uxe9ticas}
 
 La investigación se rige por principios establecidos para la
-investigación con datos digitales (Salganik 2018). En lo sustantivo,
+investigación con datos digitales (Salganik, 2018). En lo sustantivo,
 todo el contenido proviene de espacios públicos de Reddit, sin acceso a
 mensajes privados ni a información restringida. El análisis respeta la
 privacidad en el sentido de no reportar identificadores individuales ni
@@ -1395,13 +1403,13 @@ procedimiento pueda replicarse respetando los términos de uso de la API.
 
 \section{Técnicas de Análisis}\label{tuxe9cnicas-de-anuxe1lisis}
 
-El estudio combina modelos de lenguaje (GPT-4o y DeepSeek) (Ali et al.
-2025; Arslan, Munawar, and Cruz 2025) con validación humana sistemática
-para analizar discursos políticos en Reddit. Las clasificaciones
-automáticas (sentimiento, emociones, marcos y estrategias) se realizan
-mediante prompts estructurados y luego se validan con codificación
-manual usando métricas de acuerdo (kappa de Cohen, \(\kappa\)) (Ajala et
-al. 2022) antes de escalar al corpus completo.
+El estudio combina modelos de lenguaje (GPT-4o y DeepSeek) (Ali et~al.,
+2025; Arslan et~al., 2025) con validación humana sistemática para
+analizar discursos políticos en Reddit. Las clasificaciones automáticas
+(sentimiento, emociones, marcos y estrategias) se realizan mediante
+prompts estructurados y luego se validan con codificación manual usando
+métricas de acuerdo (kappa de Cohen, \(\kappa\)) (Ajala et~al., 2022)
+antes de escalar al corpus completo.
 
 El análisis se organiza en torno a cuatro dimensiones principales que
 capturan aspectos complementarios del corpus. La primera es el
@@ -1418,7 +1426,7 @@ operacionales que alimentan el modelado y la interpretación
 subsiguientes.
 
 El pipeline incluye técnicas de procesamiento de texto (TF-IDF,
-bigramas) (Hirschberg and Manning 2015), codificación de variables y
+bigramas) (Hirschberg y Manning, 2015), codificación de variables y
 modelos supervisados como Regresión Logística, SVM, Random Forest y
 Gradient Boosting, evaluados con validación cruzada. También se aplican
 métodos de reducción de dimensionalidad (SVD y PCA) para visualización.
@@ -1463,7 +1471,7 @@ El corpus previo a la depuración comprende 163.695 comentarios
 distribuidos en 4.105 posts únicos, publicados entre 05 de August de
 2025 y 22 de January de 2026. Participaron 9.845 autores únicos en los
 comentarios y 1.106 autores únicos en los posts. La
-Table~\ref{tbl-general} resume las estadísticas generales del corpus en
+Tabla~\ref{tbl-general} resume las estadísticas generales del corpus en
 esta etapa inicial.
 
 \begin{longtable}[t]{lr}
@@ -1568,7 +1576,7 @@ decisiones de modelado y contextualicen los hallazgos posteriores.
 \section{Volumen de comentarios por
 candidato}\label{volumen-de-comentarios-por-candidato}
 
-La Figure~\ref{fig-count-facet-cand} revela una asimetría marcada en la
+La Figura~\ref{fig-count-facet-cand} revela una asimetría marcada en la
 atención discursiva. Kast concentra el mayor volumen de menciones
 durante todo el período (62.8\% del corpus), seguido por Jara (38.9\%),
 mientras que Kaiser (16.2\%) y Matthei (10.0\%) ocupan posiciones
@@ -1596,7 +1604,7 @@ candidato (facetas).}
 \section{Estrategia discursiva y frontera
 política}\label{estrategia-discursiva-y-frontera-poluxedtica}
 
-La Figure~\ref{fig-explor-estrategia-frontera} cruza estrategias de
+La Figura~\ref{fig-explor-estrategia-frontera} cruza estrategias de
 construcción del adversario con tipo de frontera política, separada por
 candidato. La deslegitimación y la ridiculización dominan en los cuatro
 candidatos, pero su distribución entre fronteras difiere: la
@@ -1625,7 +1633,7 @@ frontera política por candidato (facetas).}
 \section{Densidad de polarización por
 candidato}\label{densidad-de-polarizaciuxf3n-por-candidato}
 
-La Figure~\ref{fig-explor-densidad-pol} presenta la distribución de
+La Figura~\ref{fig-explor-densidad-pol} presenta la distribución de
 polarización condicionada al candidato comentado. Los cuatro candidatos
 muestran distribuciones unimodales con medianas entre 0.3 y 0.5, pero
 con diferencias en dispersión. Kast y Jara exhiben colas derechas más
@@ -1654,7 +1662,7 @@ candidato.}
 \section{Emociones en el tiempo (facetas por
 candidato)}\label{emociones-en-el-tiempo-facetas-por-candidato}
 
-La Figure~\ref{fig-emociones-candidato-tendencia} muestra la proporción
+La Figura~\ref{fig-emociones-candidato-tendencia} muestra la proporción
 semanal de emociones por candidato. La línea negra continua representa
 la fracción de emociones hostiles (ira, desprecio, indignación); el
 trazo discontinuo, un suavizado LOESS sobre esa fracción. Dos patrones
@@ -1683,7 +1691,7 @@ por candidato (facetas 2×2).}
 
 \section{Polarización en el tiempo}\label{polarizaciuxf3n-en-el-tiempo}
 
-La Figure~\ref{fig-explor-pol-serie} presenta la serie bisegmentada de
+La Figura~\ref{fig-explor-pol-serie} presenta la serie bisegmentada de
 polarización media por candidato con bandas de IC 95\%. Las cuatro
 series oscilan entre 0.3 y 0.5 sin tendencia ascendente clara hacia la
 elección: la polarización no se intensifica con la campaña, sino que se
@@ -1779,7 +1787,7 @@ de estabilidad exige.
 Para caracterizar las condiciones bajo las cuales ambos sistemas
 discrepan, se entrenó un clasificador binario (acuerdo vs.~desacuerdo)
 usando rasgos del comentario como predictores. Los resultados (Anexo A,
-Table~\ref{tbl-anexo-desacuerdo}) muestran que el desacuerdo es
+Tabla~\ref{tbl-anexo-desacuerdo}) muestran que el desacuerdo es
 parcialmente predecible: RandomForest alcanza un accuracy de 0.680, lo
 que sugiere que ciertas propiedades del texto, como la brevedad, la
 ambigüedad tonal o la baja densidad de marcadores explícitos, aumentan
@@ -1791,8 +1799,8 @@ discursivas}\label{valor-auxf1adido-de-las-variables-discursivas}
 
 La tabla comparativa de configuraciones (solo TF-IDF, solo variables
 LLM, combinado) figura en el Anexo A
-(Table~\ref{tbl-anexo-config-features}). La
-Figure~\ref{fig-r2-configuraciones} sintetiza el resultado principal.
+(Tabla~\ref{tbl-anexo-config-features}). La
+Figura~\ref{fig-r2-configuraciones} sintetiza el resultado principal.
 
 \begin{figure}[H]
 
@@ -1820,14 +1828,14 @@ bolsa de palabras no capturan.
 \subsection{Calibración de
 probabilidades}\label{calibraciuxf3n-de-probabilidades}
 
-El diagrama de fiabilidad (Figure~\ref{fig-reliability}) muestra que
+El diagrama de fiabilidad (Figura~\ref{fig-reliability}) muestra que
 tanto RandomForest como GBM se aproximan a la diagonal de calibración
 perfecta. RandomForest sin calibrar ya presenta un ajuste razonable,
 mientras que GBM mejora marginalmente en el rango medio tras la
 corrección isotónica. Esto confirma que el pipeline produce
 probabilidades suficientemente confiables sin requerir un procesamiento
 posterior fuerte. Las métricas numéricas (Brier, log loss) se detallan
-en el Anexo A (Table~\ref{tbl-anexo-calibracion}).
+en el Anexo A (Tabla~\ref{tbl-anexo-calibracion}).
 
 \begin{figure}[H]
 
@@ -1865,7 +1873,7 @@ de ese corte.
 \subsection{Comparación de modelos y estabilidad fuera de
 muestra}\label{comparaciuxf3n-de-modelos-y-estabilidad-fuera-de-muestra}
 
-La Table~\ref{tbl-cv-regresion} compara cuatro estrategias de regresión
+La Tabla~\ref{tbl-cv-regresion} compara cuatro estrategias de regresión
 evaluadas mediante validación cruzada de cinco pliegues. RandomForest
 obtiene el mejor desempeño (\(R^2 = 0.619\), MAE = 0.084) con la menor
 variabilidad entre folds, lo que indica que la señal capturada es
@@ -1902,8 +1910,8 @@ El OLS no compite con RandomForest en capacidad predictiva, pero cumple
 una función complementaria de interpretabilidad: permite inspeccionar la
 dirección y magnitud de cada efecto. La tabla de los 15 coeficientes
 significativos de mayor magnitud y el coefplot figuran en el Anexo A
-(Table~\ref{tbl-anexo-ols-polarizacion} y
-Figure~\ref{fig-anexo-coefplot-ols}).
+(Tabla~\ref{tbl-anexo-ols-polarizacion} y
+Figura~\ref{fig-anexo-coefplot-ols}).
 
 El resultado más relevante es la jerarquía de efectos. La ira domina el
 modelo (\(\beta = 0.369\)), seguida por las estrategias adversariales
@@ -1920,7 +1928,7 @@ afectiva, que se desarrolla en el capítulo siguiente.
 \subsection{Importancia por permutación y explicación
 local}\label{importancia-por-permutaciuxf3n-y-explicaciuxf3n-local}
 
-La Figure~\ref{fig-perm} confirma desde una perspectiva no paramétrica
+La Figura~\ref{fig-perm} confirma desde una perspectiva no paramétrica
 lo que el OLS sugiere. El tipo de hilo es la variable con mayor
 importancia (caída de \(R^2 \approx 0.50\) al permutarla), seguida por
 estrategia, número de palabras y emoción, todas con caídas superiores a
@@ -1951,7 +1959,7 @@ alta}\label{clasificaciuxf3n-de-polarizaciuxf3n-alta}
 
 Para complementar el análisis de regresión, se discretizó la
 polarización en un problema binario (umbral \(\geq 0.6\)) y se evaluaron
-tres clasificadores. Las curvas ROC (Figure~\ref{fig-roc}) muestran que
+tres clasificadores. Las curvas ROC (Figura~\ref{fig-roc}) muestran que
 todos superan ampliamente la línea aleatoria, con AUCs entre 0.811
 (LogReg) y 0.856 (RandomForest). Que un modelo lineal alcance un AUC de
 0.81 indica que buena parte de la señal de hostilidad es linealmente
@@ -1967,7 +1975,7 @@ En conjunto, estos resultados indican que la polarización alta es un
 fenómeno clasificable con precisión moderada a alta, pero cuya
 estructura heterogénea se beneficia de modelos capaces de capturar no
 linealidades. Los valores AUC por modelo se detallan en el Anexo A
-(Table~\ref{tbl-anexo-auc}).
+(Tabla~\ref{tbl-anexo-auc}).
 
 \begin{figure}[H]
 
@@ -1986,18 +1994,18 @@ alta.}
 errores}\label{estrategia-frontera-perfiles-y-errores}
 
 Las tablas completas de clasificación multiclase de estrategia
-(Table~\ref{tbl-anexo-estrategia-resumen} y
-Table~\ref{tbl-anexo-estrategia-clases}), frontera política
-(Table~\ref{tbl-anexo-frontera-resumen} y
-Table~\ref{tbl-anexo-frontera-clases}), perfiles K-means
-(Table~\ref{tbl-anexo-perfiles-kmeans}) y análisis de errores
-(Table~\ref{tbl-anexo-errores-sistematicos}) se detallan en el Anexo A.
+(Tabla~\ref{tbl-anexo-estrategia-resumen} y
+Tabla~\ref{tbl-anexo-estrategia-clases}), frontera política
+(Tabla~\ref{tbl-anexo-frontera-resumen} y
+Tabla~\ref{tbl-anexo-frontera-clases}), perfiles K-means
+(Tabla~\ref{tbl-anexo-perfiles-kmeans}) y análisis de errores
+(Tabla~\ref{tbl-anexo-errores-sistematicos}) se detallan en el Anexo A.
 Aquí se sintetizan los tres resultados principales.
 
 Primero, estos resultados indican que la frontera política es
 parcialmente recuperable desde texto corto y ruidoso
 (\(\mbox{F1-macro} = 0.725\) en el mejor modelo), lo que sugiere que el
-concepto teórico de Mouffe (Mouffe 2005) deja una huella textual
+concepto teórico de Mouffe (Mouffe, 2005) deja una huella textual
 detectable, aunque con las limitaciones propias de un corpus informal y
 no curado.
 
@@ -2029,10 +2037,10 @@ fronteras}\label{reconfiguraciuxf3n-del-antagonismo-estrategias-marcos-y-fronter
 En este apartado conviene distinguir dos agregaciones: la frontera
 política del comentario (entre bloques, al interior del bloque o sin
 frontera) y el candidato objetivo al que se dirige el mensaje. La
-Table~\ref{tbl-estrategia-frontera} cuantifica la primera: proporción de
+Tabla~\ref{tbl-estrategia-frontera} cuantifica la primera: proporción de
 cada estrategia discursiva según tipo de frontera. La distribución por
 candidato se incluye en el Anexo A
-(Figure~\ref{fig-anexo-estrategias-candidato}).
+(Figura~\ref{fig-anexo-estrategias-candidato}).
 
 Esa lectura por frontera revela un patrón que merece atención: la lógica
 del antagonismo no se distribuye homogéneamente. Las estrategias de
@@ -2075,8 +2083,8 @@ temporal}\label{combinaciones-discursivas-y-dinuxe1mica-temporal}
 \subsection{Marco × emoción}\label{marco-emociuxf3n}
 
 Las combinaciones entre marco y emoción (valores numéricos en el Anexo
-A, Table~\ref{tbl-anexo-marco-emocion-top}; visualización en
-Figure~\ref{fig-marco-emocion}) permiten ir más allá de las
+A, Tabla~\ref{tbl-anexo-marco-emocion-top}; visualización en
+Figura~\ref{fig-marco-emocion}) permiten ir más allá de las
 distribuciones marginales y observar cómo se acoplan ambas dimensiones.
 No toda emoción hostil se acopla del mismo modo al conflicto. Las
 combinaciones más frecuentes (conflicto + desprecio, n = 945; y
@@ -2102,7 +2110,7 @@ hostil, más que el conflicto explícito por sí solo.
 
 \subsection{Estrategias en el tiempo}\label{estrategias-en-el-tiempo}
 
-La serie temporal de estrategias (Figure~\ref{fig-estrategias-temporal})
+La serie temporal de estrategias (Figura~\ref{fig-estrategias-temporal})
 permite observar si la arquitectura del adversario cambia en momentos
 electorales clave. La deslegitimación se mantiene como la estrategia más
 estable durante todo el ciclo, lo que sugiere un repertorio adversarial
@@ -2143,7 +2151,7 @@ escalamiento reactivo: la negatividad hacia Kast no se construye
 progresivamente durante la campaña, sino que se presenta como una
 disposición previa que el ciclo electoral refuerza pero no origina. La
 tabla con la distribución porcentual completa figura en el Anexo A
-(Table~\ref{tbl-anexo-kast-transiciones}).
+(Tabla~\ref{tbl-anexo-kast-transiciones}).
 
 \subsection{Cruces de tono entre candidatos (posicionamiento → segunda
 vuelta hacia Kast o
@@ -2152,10 +2160,10 @@ Jara)}\label{cruces-de-tono-entre-candidatos-posicionamiento-segunda-vuelta-haci
 En la segunda vuelta solo compiten Kast y Jara, por lo que el destino
 del cruce es siempre el tono hacia uno de ellos en esa fase. La tabla de
 cruces de tono (sin neutro) figura en el Anexo A
-(Table~\ref{tbl-anexo-cruce-sentimiento-pares-sv}). La tabla de cruces
+(Tabla~\ref{tbl-anexo-cruce-sentimiento-pares-sv}). La tabla de cruces
 emocionales figura en el Anexo A
-(Table~\ref{tbl-anexo-cruce-emocion-sin-se-pares-sv}). La
-Figure~\ref{fig-alluvial-emocion-sv} resume los flujos en formato
+(Tabla~\ref{tbl-anexo-cruce-emocion-sin-se-pares-sv}). La
+Figura~\ref{fig-alluvial-emocion-sv} resume los flujos en formato
 diagrama.
 
 \begin{figure}[H]
@@ -2193,15 +2201,15 @@ hiperactivos. Los autores clasificados como hiperactivos (más de 20
 comentarios) presentan una polarización media similar a la de los
 usuarios esporádicos, con una tendencia levemente decreciente a medida
 que aumenta el número de comentarios, visible en la línea LOESS de
-Figure~\ref{fig-anexo-autores-scatter} (ubicada en el anexo). Esto
+Figura~\ref{fig-anexo-autores-scatter} (ubicada en el anexo). Esto
 sugiere que la hostilidad tiene carácter ambiental y difuso: no es
 producto de trolls coordinados sino de una cultura discursiva
 generalizada donde la crítica hostil es el modo dominante de
 participación política. Como resume la
-Table~\ref{tbl-anexo-kast-transiciones}, la gran mayoría de quienes
+Tabla~\ref{tbl-anexo-kast-transiciones}, la gran mayoría de quienes
 partieron negativos permanece en negativo; solo una minoría pasa a tono
 positivo o neutro, lo que sugiere cristalización actitudinal más que
-escalamiento reactivo (Efstratiou et al. 2023).
+escalamiento reactivo (Efstratiou et~al., 2023).
 
 \begin{figure}[H]
 
@@ -2219,13 +2227,13 @@ autor.}
 \section{Espacios semánticos
 acoplados}\label{espacios-semuxe1nticos-acoplados}
 
-El atlas (Figure~\ref{fig-3d-atlas-global-v1}) ofrece una lectura visual
+El atlas (Figura~\ref{fig-3d-atlas-global-v1}) ofrece una lectura visual
 que complementa los hallazgos estadísticos anteriores. El panel de
 candidatos (superior derecho) muestra una superposición casi completa de
 los cuatro colores: no existen regiones exclusivas por candidato (De
-Francisci Morales, Monti, and Starnini 2021). Desde la perspectiva de
-Mouffe (Mouffe 2005), esto sugiere que la frontera política no se traza
-entre vocabularios diferenciados, sino a través de un repertorio léxico
+Francisci Morales et~al., 2021). Desde la perspectiva de Mouffe (Mouffe,
+2005), esto sugiere que la frontera política no se traza entre
+vocabularios diferenciados, sino a través de un repertorio léxico
 compartido: la polarización es una propiedad del discurso, no del
 target.
 
@@ -2234,7 +2242,7 @@ agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas
 distintas del espacio, indicando que se vehiculizan a través de
 vocabularios diferenciados. La dimensión emocional organiza el espacio
 discursivo con mayor poder que la dimensión del adversario, consistente
-con la literatura sobre polarización afectiva (Iyengar et al. 2019).
+con la literatura sobre polarización afectiva (Iyengar et~al., 2019).
 
 El panel de polarización (inferior izquierdo) completa la lectura: la
 hostilidad se distribuye de manera difusa a lo largo de todo el espacio,
@@ -2272,12 +2280,12 @@ proporcionó la escala: un corpus de más de 160.000 comentarios
 clasificados en cuatro dimensiones discursivas mediante un sistema de
 anotación LLM dual, evaluado con modelos supervisados. Las ciencias
 sociales proporcionaron el significado: sin los conceptos de frontera
-política (Mouffe 2005), polarización afectiva (Iyengar et al. 2019) y
-repertorio emocional (Jasper 2011), las métricas del pipeline carecerían
-de interpretación sustantiva. Esta articulación no es accesoria: sin la
-teoría, un \(R^2\) de 0.618 no informa sobre la democracia; sin los
-modelos, la teoría carece de evidencia a la escala que el fenómeno
-requiere (Hofman et al. 2021).
+política (Mouffe, 2005), polarización afectiva (Iyengar et~al., 2019) y
+repertorio emocional (Jasper, 2011), las métricas del pipeline
+carecerían de interpretación sustantiva. Esta articulación no es
+accesoria: sin la teoría, un \(R^2\) de 0.618 no informa sobre la
+democracia; sin los modelos, la teoría carece de evidencia a la escala
+que el fenómeno requiere (Hofman et~al., 2021).
 
 El sistema de doble clasificación demostró que las variables discursivas
 estructuradas aportan varianza propia sobre la polarización
@@ -2323,7 +2331,7 @@ emocional.
 
 En el plano aplicado, priorizar intervenciones de moderación por
 estrategia discursiva y tipo de hilo podría ser más eficaz que filtrar
-por volumen o identidad de usuarios (Patberg 2025). Asimismo, la
+por volumen o identidad de usuarios (Patberg, 2025). Asimismo, la
 evidencia de que los hilos mixtos presentan coeficientes negativos
 sugiere que la exposición a posiciones cruzadas no necesariamente escala
 la hostilidad.
@@ -2342,7 +2350,7 @@ como desinformación y coordinación inorgánica.
 Esta tesis muestra que los repertorios hostiles del debate digital son
 medibles (imperfectamente, pero a escala), que la frontera política es
 observable en texto informal, y que la hostilidad es ambiental antes que
-focalizada (Tsvetkova et al. 2024). El candidato importa menos que el
+focalizada (Tsvetkova et~al., 2024). El candidato importa menos que el
 modo en que se habla de él; la emoción organiza el espacio discursivo
 con mayor poder que la identidad del adversario; y la negatividad, una
 vez cristalizada, no se revierte por efecto de la campaña. Estas
@@ -3158,252 +3166,249 @@ la siguiente lógica de consenso por karma del comentario:
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
 \bibitem[\citeproctext]{ref-ajala2022CombiningArtificialIntelligence}
-Ajala, Imene, Shanaz Feroze, May El Barachi, Farhad Oroumchian, Sujith
-Mathew, Rand Yasin, and Saad Lutfi. 2022. {``Combining Artificial
-Intelligence and Expert Content Analysis to Explore Radical Views on
-Twitter: {Case} Study on Far-Right Discourse.''} \emph{Journal of
-Cleaner Production} 362 (August): 132263.
-\url{https://doi.org/10.1016/j.jclepro.2022.132263}.
+Ajala, I., Feroze, S., El Barachi, M., Oroumchian, F., Mathew, S.,
+Yasin, R., y Lutfi, S. (2022). Combining Artificial Intelligence and
+Expert Content Analysis to Explore Radical Views on Twitter: {Case}
+Study on Far-Right Discourse. \emph{Journal of Cleaner Production},
+\emph{362}, 132263. \url{https://doi.org/10.1016/j.jclepro.2022.132263}
 
 \bibitem[\citeproctext]{ref-ali2025SocialMediaPolarization}
-Ali, Hasin Jawad, Ajwad Abrar, S. M. Hozaifa Hossain, and M. Firoz
-Mridha. 2025. {``Social Media Polarization During Conflict: {Insights}
-from an Ideological Stance Dataset on {Israel-Palestine Reddit}
-Comments.''} arXiv. \url{https://doi.org/10.48550/arXiv.2502.00414}.
+Ali, H. J., Abrar, A., Hossain, S. M. H., y Mridha, M. F. (2025).
+\emph{Social Media Polarization during Conflict: {Insights} from an
+Ideological Stance Dataset on {Israel-Palestine Reddit} Comments}
+(arXiv:2502.00414). arXiv.
+\url{https://doi.org/10.48550/arXiv.2502.00414}
 
 \bibitem[\citeproctext]{ref-arslan2025PoliticalRAGUsingGenerative}
-Arslan, Muhammad, Saba Munawar, and Christophe Cruz. 2025.
-{``Political-{RAG}: Using Generative {AI} to Extract Political
-Information from Media Content.''} \emph{Journal of Information
-Technology \& Politics} 22 (4): 479--94.
-\url{https://doi.org/10.1080/19331681.2024.2417263}.
+Arslan, M., Munawar, S., y Cruz, C. (2025). Political-{RAG}: Using
+Generative {AI} to Extract Political Information from Media Content.
+\emph{Journal of Information Technology \& Politics}, \emph{22}(4),
+479-494. \url{https://doi.org/10.1080/19331681.2024.2417263}
 
 \bibitem[\citeproctext]{ref-baele2023UncoveringFarRightOnline}
-Baele, Stephane J., Lewys Brace, and Travis G. Coan. 2023. {``Uncovering
-the {Far-Right Online Ecosystem}: {An Analytical Framework} and
-{Research Agenda}.''} \emph{Studies in Conflict \& Terrorism} 46 (9):
-1599--1623. \url{https://doi.org/10.1080/1057610X.2020.1862895}.
+Baele, S. J., Brace, L., y Coan, T. G. (2023). Uncovering the {Far-Right
+Online Ecosystem}: {An Analytical Framework} and {Research Agenda}.
+\emph{Studies in Conflict \& Terrorism}, \emph{46}(9), 1599-1623.
+\url{https://doi.org/10.1080/1057610X.2020.1862895}
 
 \bibitem[\citeproctext]{ref-baldassarri2007DynamicsPoliticalPolarization}
-Baldassarri, Delia, and Peter Bearman. 2007. {``Dynamics of {Political
-Polarization}.''} \emph{American Sociological Review} 72 (5): 784--811.
-\url{https://doi.org/10.1177/000312240707200507}.
+Baldassarri, D., y Bearman, P. (2007). Dynamics of {Political
+Polarization}. \emph{American Sociological Review}, \emph{72}(5),
+784-811. \url{https://doi.org/10.1177/000312240707200507}
 
 \bibitem[\citeproctext]{ref-bornschier2021HowUsThemVotingBehavior}
-Bornschier, Simon, Silja Häusermann, Delia Zollinger, and Céline
-Colombo. 2021. {``How {`{Us}'} and {`{Them}'} Relates to Voting
-Behavior---Social Structure, Social Identities, and Electoral Choice.''}
-\emph{Comparative Political Studies} 54 (12): 2087--2122.
-\url{https://doi.org/10.1177/0010414021997504}.
+Bornschier, S., Häusermann, S., Zollinger, D., y Colombo, C. (2021). How
+{«{Us}»} and {«{Them}»} Relates to Voting Behavior---Social Structure,
+Social Identities, and Electoral Choice. \emph{Comparative Political
+Studies}, \emph{54}(12), 2087-2122.
+\url{https://doi.org/10.1177/0010414021997504}
 
 \bibitem[\citeproctext]{ref-botzer2023AnalysisMoralJudgment}
-Botzer, Nicholas, Shawn Gu, and Tim Weninger. 2023. {``Analysis of
-{Moral Judgment} on {Reddit}.''} \emph{IEEE Transactions on
-Computational Social Systems} 10 (3): 947--57.
-\url{https://doi.org/10.1109/TCSS.2022.3160677}.
+Botzer, N., Gu, S., y Weninger, T. (2023). Analysis of {Moral Judgment}
+on {Reddit}. \emph{IEEE Transactions on Computational Social Systems},
+\emph{10}(3), 947-957. \url{https://doi.org/10.1109/TCSS.2022.3160677}
 
 \bibitem[\citeproctext]{ref-calderon2020TopicModelingCharacterization}
-Calderón, Carlos Arcila, Gonzalo De La Vega, and David Blanco Herrero.
-2020. {``Topic {Modeling} and {Characterization} of {Hate Speech}
-Against {Immigrants} on {Twitter} Around the {Emergence} of a {Far-Right
-Party} in {Spain}.''} \emph{Social Sciences} 9 (11): 188.
-\url{https://doi.org/10.3390/socsci9110188}.
+Calderón, C. A., De La Vega, G., y Herrero, D. B. (2020). Topic
+{Modeling} and {Characterization} of {Hate Speech} against {Immigrants}
+on {Twitter} around the {Emergence} of a {Far-Right Party} in {Spain}.
+\emph{Social Sciences}, \emph{9}(11), 188.
+\url{https://doi.org/10.3390/socsci9110188}
 
 \bibitem[\citeproctext]{ref-defranciscimorales2021NoEchoChambers}
-De Francisci Morales, Gianmarco, Corrado Monti, and Michele Starnini.
-2021. {``No Echo in the Chambers of Political Interactions on
-{Reddit}.''} \emph{Scientific Reports} 11 (1): 2818.
-\url{https://doi.org/10.1038/s41598-021-81531-x}.
+De Francisci Morales, G., Monti, C., y Starnini, M. (2021). No Echo in
+the Chambers of Political Interactions on {Reddit}. \emph{Scientific
+Reports}, \emph{11}(1), 2818.
+\url{https://doi.org/10.1038/s41598-021-81531-x}
 
 \bibitem[\citeproctext]{ref-duguay2022ReadItReddit}
-Duguay, Philippe A. 2022. {``Read It on {Reddit}: {Homogeneity} and
-{Ideological Segregation} in the {Age} of {Social News}.''} \emph{Social
-Science Computer Review} 40 (5): 1186--1202.
-\url{https://doi.org/10.1177/08944393211001053}.
+Duguay, P. A. (2022). Read It on {Reddit}: {Homogeneity} and
+{Ideological Segregation} in the {Age} of {Social News}. \emph{Social
+Science Computer Review}, \emph{40}(5), 1186-1202.
+\url{https://doi.org/10.1177/08944393211001053}
 
 \bibitem[\citeproctext]{ref-edelmann2020ComputationalSocialScience}
-Edelmann, Achim, Tom Wolff, Danielle Montagne, and Christopher A. Bail.
-2020. {``Computational {Social Science} and {Sociology}.''} \emph{Annual
-Review of Sociology} 46 (1): 61--81.
-\url{https://doi.org/10.1146/annurev-soc-121919-054621}.
+Edelmann, A., Wolff, T., Montagne, D., y Bail, C. A. (2020).
+Computational {Social Science} and {Sociology}. \emph{Annual Review of
+Sociology}, \emph{46}(1), 61-81.
+\url{https://doi.org/10.1146/annurev-soc-121919-054621}
 
 \bibitem[\citeproctext]{ref-efstratiou2023NonpolarOppositesAnalyzing}
-Efstratiou, Alexandros, Jeremy Blackburn, Tristan Caulfield, Gianluca
-Stringhini, Savvas Zannettou, and Emiliano De Cristofaro. 2023.
-{``Non-Polar {Opposites}: {Analyzing} the {Relationship} Between {Echo
-Chambers} and {Hostile Intergroup Interactions} on {Reddit}.''}
-\emph{Proceedings of the International AAAI Conference on Web and Social
-Media} 17 (June): 197--208.
-\url{https://doi.org/10.1609/icwsm.v17i1.22138}.
+Efstratiou, A., Blackburn, J., Caulfield, T., Stringhini, G., Zannettou,
+S., y De Cristofaro, E. (2023). Non-Polar {Opposites}: {Analyzing} the
+{Relationship} between {Echo Chambers} and {Hostile Intergroup
+Interactions} on {Reddit}. \emph{Proceedings of the International AAAI
+Conference on Web and Social Media}, \emph{17}, 197-208.
+\url{https://doi.org/10.1609/icwsm.v17i1.22138}
 
 \bibitem[\citeproctext]{ref-entman1993Framing}
-Entman, Robert M. 1993. {``Framing: Toward Clarification of a Fractured
-Paradigm.''} \emph{Journal of Communication} 43 (4): 51--58.
-\url{https://doi.org/10.1111/j.1460-2466.1993.tb01304.x}.
+Entman, R. M. (1993). Framing: Toward Clarification of a Fractured
+Paradigm. \emph{Journal of Communication}, \emph{43}(4), 51-58.
+\url{https://doi.org/10.1111/j.1460-2466.1993.tb01304.x}
 
 \bibitem[\citeproctext]{ref-garzia2023AffectivePolarizationComparative}
-Garzia, Diego, Frederico Ferreira Da Silva, and Simon Maye. 2023.
-{``Affective {Polarization} in {Comparative} and {Longitudinal
-Perspective}.''} \emph{Public Opinion Quarterly} 87 (1): 219--31.
-\url{https://doi.org/10.1093/poq/nfad004}.
+Garzia, D., Ferreira Da Silva, F., y Maye, S. (2023). Affective
+{Polarization} in {Comparative} and {Longitudinal Perspective}.
+\emph{Public Opinion Quarterly}, \emph{87}(1), 219-231.
+\url{https://doi.org/10.1093/poq/nfad004}
 
 \bibitem[\citeproctext]{ref-gonzalez2024RoleNormsPromoters}
-González, Roberto. 2024. {``The Role of Norms as Promoters of Social
-Change.''} \emph{Political Psychology}, September, pops.13025.
-\url{https://doi.org/10.1111/pops.13025}.
+González, R. (2024). The Role of Norms as Promoters of Social Change.
+\emph{Political Psychology}, pops.13025.
+\url{https://doi.org/10.1111/pops.13025}
 
 \bibitem[\citeproctext]{ref-hirschbergAdvancesNaturalLanguage}
-Hirschberg, Julia, and Christopher D. Manning. 2015. {``Advances in
-Natural Language Processing.''} \emph{Science} 349 (6245): 261--66.
-\url{https://doi.org/10.1126/science.aaa8685}.
+Hirschberg, J., y Manning, C. D. (2015). Advances in Natural Language
+Processing. \emph{Science}, \emph{349}(6245), 261-266.
+\url{https://doi.org/10.1126/science.aaa8685}
 
 \bibitem[\citeproctext]{ref-hofman2021IntegratingExplanationPrediction}
-Hofman, Jake M., Duncan J. Watts, Susan Athey, Filiz Garip, Thomas L.
-Griffiths, Jon Kleinberg, Helen Margetts, et al. 2021. {``Integrating
-Explanation and Prediction in Computational Social Science.''}
-\emph{Nature} 595 (7866): 181--88.
-\url{https://doi.org/10.1038/s41586-021-03659-0}.
+Hofman, J. M., Watts, D. J., Athey, S., Garip, F., Griffiths, T. L.,
+Kleinberg, J., Margetts, H., Mullainathan, S., Salganik, M. J., Vazire,
+S., Vespignani, A., y Yarkoni, T. (2021). Integrating Explanation and
+Prediction in Computational Social Science. \emph{Nature},
+\emph{595}(7866), 181-188.
+\url{https://doi.org/10.1038/s41586-021-03659-0}
 
 \bibitem[\citeproctext]{ref-iyengar2019OriginsConsequencesAffectivePolarization}
-Iyengar, Shanto, Yphtach Lelkes, Matthew Levendusky, Neil Malhotra, and
-Sean J. Westwood. 2019. {``The Origins and Consequences of Affective
-Polarization in the {United States}.''} \emph{Annual Review of Political
-Science} 22: 129--46.
-\url{https://doi.org/10.1146/annurev-polisci-051117-073034}.
+Iyengar, S., Lelkes, Y., Levendusky, M., Malhotra, N., y Westwood, S. J.
+(2019). The Origins and Consequences of Affective Polarization in the
+{United States}. \emph{Annual Review of Political Science}, \emph{22},
+129-146. \url{https://doi.org/10.1146/annurev-polisci-051117-073034}
 
 \bibitem[\citeproctext]{ref-jasper2011EmotionsSocialMovements}
-Jasper, James M. 2011. {``Emotions and Social Movements: Twenty Years of
-Theory and Research.''} \emph{Annual Review of Sociology} 37: 285--303.
-\url{https://doi.org/10.1146/annurev-soc-081309-150229}.
+Jasper, J. M. (2011). Emotions and Social Movements: Twenty Years of
+Theory and Research. \emph{Annual Review of Sociology}, \emph{37},
+285-303. \url{https://doi.org/10.1146/annurev-soc-081309-150229}
 
 \bibitem[\citeproctext]{ref-keuschnigg2018AnalyticalSociologyComputational}
-Keuschnigg, Marc, Niclas Lovsjö, and Peter Hedström. 2018. {``Analytical
-Sociology and Computational Social Science.''} \emph{Journal of
-Computational Social Science} 1 (1): 3--14.
-\url{https://doi.org/10.1007/s42001-017-0006-5}.
+Keuschnigg, M., Lovsjö, N., y Hedström, P. (2018). Analytical Sociology
+and Computational Social Science. \emph{Journal of Computational Social
+Science}, \emph{1}(1), 3-14.
+\url{https://doi.org/10.1007/s42001-017-0006-5}
 
 \bibitem[\citeproctext]{ref-kingzette2021HowAffectivePolarization}
-Kingzette, Jon, James N Druckman, Samara Klar, Yanna Krupnikov, Matthew
-Levendusky, and John Barry Ryan. 2021. {``How {Affective Polarization
-Undermines Support} for {Democratic Norms}.''} \emph{Public Opinion
-Quarterly} 85 (2): 663--77. \url{https://doi.org/10.1093/poq/nfab029}.
+Kingzette, J., Druckman, J. N., Klar, S., Krupnikov, Y., Levendusky, M.,
+y Ryan, J. B. (2021). How {Affective Polarization Undermines Support}
+for {Democratic Norms}. \emph{Public Opinion Quarterly}, \emph{85}(2),
+663-677. \url{https://doi.org/10.1093/poq/nfab029}
 
 \bibitem[\citeproctext]{ref-klein2019OnlineDiscontentComparing}
-Klein, Ofra, and Jasper Muis. 2019. {``Online Discontent: Comparing
-{Western European} Far-Right Groups on {Facebook}.''} \emph{European
-Societies} 21 (4): 540--62.
-\url{https://doi.org/10.1080/14616696.2018.1494293}.
+Klein, O., y Muis, J. (2019). Online Discontent: Comparing {Western
+European} Far-Right Groups on {Facebook}. \emph{European Societies},
+\emph{21}(4), 540-562.
+\url{https://doi.org/10.1080/14616696.2018.1494293}
 
 \bibitem[\citeproctext]{ref-laclauMouffe1985HegemonySocialistStrategy}
-Laclau, Ernesto, and Chantal Mouffe. 1985. \emph{Hegemony and Socialist
-Strategy: Towards a Radical Democratic Politics}. London: Verso.
+Laclau, E., y Mouffe, C. (1985). \emph{Hegemony and Socialist Strategy:
+Towards a Radical Democratic Politics}. Verso.
 
 \bibitem[\citeproctext]{ref-lazer2009ComputationalSocialScience}
-Lazer, David, Alex Pentland, Lada Adamic, Sinan Aral, Albert-László
-Barabási, Devon Brewer, Nicholas Christakis, et al. 2009.
-{``Computational Social Science.''} \emph{Science} 323 (5915): 721--23.
-\url{https://doi.org/10.1126/science.1167742}.
+Lazer, D., Pentland, A., Adamic, L., Aral, S., Barabási, A.-L., Brewer,
+D., Christakis, N., Contractor, N., Fowler, J., Gutmann, M., Jebara, T.,
+King, G., Macy, M., Roy, D., y Van Alstyne, M. (2009). Computational
+Social Science. \emph{Science}, \emph{323}(5915), 721-723.
+\url{https://doi.org/10.1126/science.1167742}
 
 \bibitem[\citeproctext]{ref-luna2024DemocraciaMuerta}
-Luna, Juan Pablo. 2024. \emph{¿Democracia muerta? {Chile}, {América
-Latina} y un modelo estallado}. Santiago: Editorial Ariel.
+Luna, J. P. (2024). \emph{¿Democracia muerta? {Chile}, {América Latina}
+y un modelo estallado}. Editorial Ariel.
 
 \bibitem[\citeproctext]{ref-marcus2000AffectiveIntelligence}
-Marcus, George E., W. Russell Neuman, and Michael MacKuen. 2000.
-\emph{Affective Intelligence and Political Judgment}. Chicago, IL:
-University of Chicago Press.
+Marcus, G. E., Neuman, W. R., y MacKuen, M. (2000). \emph{Affective
+Intelligence and Political Judgment}. University of Chicago Press.
 
 \bibitem[\citeproctext]{ref-marwickFarRightOnlineRadicalization}
-Marwick, Alice, Benjamin Clancy, and Katherine Furl. n.d. {``Far-{Right
-Online Radicalization}.''}
+Marwick, A., Clancy, B., y Furl, K. (s.~f.). \emph{Far-{Right Online
+Radicalization}}.
 
 \bibitem[\citeproctext]{ref-mayer2021ReducingRespondentsPerceptionsBiasSurveyResearch}
-Mayer, Adam. 2021. {``Reducing Respondents' Perceptions of Bias in
-Survey Research.''} \emph{Methodological Innovations} 14 (3).
-\url{https://doi.org/10.1177/20597991211055952}.
+Mayer, A. (2021). Reducing Respondents' Perceptions of Bias in Survey
+Research. \emph{Methodological Innovations}, \emph{14}(3).
+\url{https://doi.org/10.1177/20597991211055952}
 
 \bibitem[\citeproctext]{ref-mouffe2005OnThePolitical}
-Mouffe, Chantal. 2005. \emph{On the Political}. London: Routledge.
+Mouffe, C. (2005). \emph{On the Political}. Routledge.
 
 \bibitem[\citeproctext]{ref-newth2025ResearchingUnderstandingFarRightMainstreaming}
-Newth, George Henry, Katy Brown, and Aurelien Mondon. 2025.
-{``Researching and Understanding Far-Right Politics in Times of
-Mainstreaming.''} \emph{The Journal of Race, Ethnicity, and Politics} 10
-(3): 814--37. \url{https://doi.org/10.1017/rep.2025.32}.
+Newth, G. H., Brown, K., y Mondon, A. (2025). Researching and
+Understanding Far-Right Politics in Times of Mainstreaming. \emph{The
+Journal of Race, Ethnicity, and Politics}, \emph{10}(3), 814-837.
+\url{https://doi.org/10.1017/rep.2025.32}
 
 \bibitem[\citeproctext]{ref-norris2019culturalbacklash}
-Norris, Pippa, and Ronald Inglehart. 2019. \emph{Cultural Backlash:
-{Trump}, {Brexit}, and Authoritarian Populism}. Cambridge: Cambridge
-University Press.
+Norris, P., y Inglehart, R. (2019). \emph{Cultural Backlash: {Trump},
+{Brexit}, and Authoritarian Populism}. Cambridge University Press.
 
 \bibitem[\citeproctext]{ref-patberg2025WhatSocialMedias}
-Patberg, Markus. 2025. {``What Is {Social Media}'s {Place} in
-{Democracy}?''} \emph{The Review of Politics} 87 (2): 236--57.
-\url{https://doi.org/10.1017/S0034670524000706}.
+Patberg, M. (2025). What Is {Social Media}'s {Place} in {Democracy}?
+\emph{The Review of Politics}, \emph{87}(2), 236-257.
+\url{https://doi.org/10.1017/S0034670524000706}
 
 \bibitem[\citeproctext]{ref-pnud2024InformeDH}
-Programa de las Naciones Unidas para el Desarrollo. 2024. {``Informe
-sobre desarrollo humano en {Chile} 2024: ¿{Por qué} nos cuesta cambiar?
-{Conducir} los cambios para un desarrollo humano sostenible.''}
-Santiago.
-\url{https://www.undp.org/es/chile/publicaciones/informe-sobre-desarrollo-humano-en-chile-2024}.
+Programa de las Naciones Unidas para el Desarrollo. (2024).
+\emph{Informe sobre desarrollo humano en {Chile} 2024: ¿{Por qué} nos
+cuesta cambiar? {Conducir} los cambios para un desarrollo humano
+sostenible}.
+\url{https://www.undp.org/es/chile/publicaciones/informe-sobre-desarrollo-humano-en-chile-2024}
 
 \bibitem[\citeproctext]{ref-rousset2025EnhancingRepresentativenessPopulationBasedSurveys}
-Rousset, Stefano, Lorena Charrier, Michela Bersia, Rosanna Irene
-Comoretto, and Paola Dalmasso. 2025. {``Enhancing Representativeness in
-Population-Based Surveys to Improve Data Quality and Decision-Making.''}
-\emph{Scientific Reports} 15: 31605.
-\url{https://doi.org/10.1038/s41598-025-17298-2}.
+Rousset, S., Charrier, L., Bersia, M., Comoretto, R. I., y Dalmasso, P.
+(2025). Enhancing Representativeness in Population-Based Surveys to
+Improve Data Quality and Decision-Making. \emph{Scientific Reports},
+\emph{15}, 31605. \url{https://doi.org/10.1038/s41598-025-17298-2}
 
 \bibitem[\citeproctext]{ref-saldiviagonzatti2025FarrightAgendaSetting}
-Saldivia Gonzatti, Daniel, and Teresa Völker. 2025. {``Far-Right Agenda
-Setting: {How} the Far Right Influences the Political Mainstream.''}
-\emph{European Journal of Political Research}, September, 1--23.
-\url{https://doi.org/10.1017/S1475676525100066}.
+Saldivia Gonzatti, D., y Völker, T. (2025). Far-Right Agenda Setting:
+{How} the Far Right Influences the Political Mainstream. \emph{European
+Journal of Political Research}, 1-23.
+\url{https://doi.org/10.1017/S1475676525100066}
 
 \bibitem[\citeproctext]{ref-salganik2018BitBitSocial}
-Salganik, Matthew J. 2018. \emph{Bit by Bit: Social Research in the
-Digital Age}. Princeton, NJ: Princeton University Press.
+Salganik, M. J. (2018). \emph{Bit by Bit: Social Research in the Digital
+Age}. Princeton University Press.
 
 \bibitem[\citeproctext]{ref-selvanathan2025FarRightMovementsWesternWorld}
-Selvanathan, Hema Preya, Bernhard Leidner, Stylianos Syropoulos,
-Winnifred Louis, Levi Adelman, Aphrodite Baka, Christina Bauer, et al.
-2025. {``Far-Right Movements in the {Western World}: How Media Exposure
-Relates to Normative Beliefs and Attitudes Toward the Far-Right.''}
-\emph{Group Processes \& Intergroup Relations} 28 (4): 774--94.
-\url{https://doi.org/10.1177/13684302241309554}.
+Selvanathan, H. P., Leidner, B., Syropoulos, S., Louis, W., Adelman, L.,
+Baka, A., Bauer, C., Blikmans, M., Becker, M., Beran, E., Bilewicz, M.,
+Chekroun, P., Greitemeyer, T., Hannover, B., Jasinskaja-Lahti, I.,
+Kardos, P., Li, M., Lindholm, T., Loughnan, S., \ldots{} Zomeren, M.
+van. (2025). Far-Right Movements in the {Western World}: How Media
+Exposure Relates to Normative Beliefs and Attitudes toward the
+Far-Right. \emph{Group Processes \& Intergroup Relations}, \emph{28}(4),
+774-794. \url{https://doi.org/10.1177/13684302241309554}
 
 \bibitem[\citeproctext]{ref-semetko2000FramingEuropeanPolitics}
-Semetko, Holli A., and Patti M. Valkenburg. 2000. {``Framing {European}
-Politics: {A} Content Analysis of Press and Television News.''}
-\emph{Journal of Communication} 50 (2): 93--109.
-\url{https://doi.org/10.1111/1460-2466.00228}.
+Semetko, H. A., y Valkenburg, P. M. (2000). Framing {European} politics:
+{A} content analysis of press and television news. \emph{Journal of
+Communication}, \emph{50}(2), 93-109.
+\url{https://doi.org/10.1111/1460-2466.00228}
 
 \bibitem[\citeproctext]{ref-tang2025EmpiricalSimulationInvestigation}
-Tang, Tanzhe, Tom Snijders, and Andreas Flache. 2025. {``An {Empirical}
-and {Simulation Investigation} of {Bounded Confidence} and {Negative
-Influence} in {Opinion Dynamics Using Stochastic Actor-Oriented
-Model}.''} \emph{Journal of Artificial Societies and Social Simulation}
-28 (1): 2. \url{https://doi.org/10.18564/jasss.5566}.
+Tang, T., Snijders, T., y Flache, A. (2025). An {Empirical} and
+{Simulation Investigation} of {Bounded Confidence} and {Negative
+Influence} in {Opinion Dynamics Using Stochastic Actor-Oriented Model}.
+\emph{Journal of Artificial Societies and Social Simulation},
+\emph{28}(1), 2. \url{https://doi.org/10.18564/jasss.5566}
 
 \bibitem[\citeproctext]{ref-tsvetkova2024NewSociologyHumans}
-Tsvetkova, Milena, Taha Yasseri, Niccolo Pescetelli, and Tobias Werner.
-2024. {``A New Sociology of Humans and Machines.''} \emph{Nature Human
-Behaviour} 8 (10): 1864--76.
-\url{https://doi.org/10.1038/s41562-024-02001-8}.
+Tsvetkova, M., Yasseri, T., Pescetelli, N., y Werner, T. (2024). A New
+Sociology of Humans and Machines. \emph{Nature Human Behaviour},
+\emph{8}(10), 1864-1876.
+\url{https://doi.org/10.1038/s41562-024-02001-8}
 
 \bibitem[\citeproctext]{ref-weeksAllen2022BacklashIdentityPoliticsFarRight}
-Weeks, Ana Catalano, and Peter Allen. 2022. {``Backlash Against
-{`Identity Politics'}: Far Right Success and Mainstream Party Attention
-to Identity Groups.''} \emph{Politics, Groups, and Identities} 11 (5):
-935--53. \url{https://doi.org/10.1080/21565503.2022.2065318}.
+Weeks, A. C., y Allen, P. (2022). Backlash against {«Identity
+Politics»}: Far Right Success and Mainstream Party Attention to Identity
+Groups. \emph{Politics, Groups, and Identities}, \emph{11}(5), 935-953.
+\url{https://doi.org/10.1080/21565503.2022.2065318}
 
 \bibitem[\citeproctext]{ref-winter2019OnlineHateFarRight}
-Winter, Aaron. 2019. {``Online {Hate}: {From} the {Far-Right} to the
-{`{Alt-Right}'} and from the {Margins} to the {Mainstream}.''} In
-\emph{Online {Othering}}, edited by Karen Lumsden and Emily Harmer,
-39--63. Cham: Springer International Publishing.
-\url{https://doi.org/10.1007/978-3-030-12633-9_2}.
+Winter, A. (2019). Online {Hate}: {From} the {Far-Right} to the
+{«{Alt-Right}»} and from the {Margins} to the {Mainstream}. En K.
+Lumsden y E. Harmer (Eds.), \emph{Online {Othering}} (pp. 39-63).
+Springer International Publishing.
+\url{https://doi.org/10.1007/978-3-030-12633-9_2}
 
 \end{CSLReferences}
 

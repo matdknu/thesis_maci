@@ -62,6 +62,8 @@ format:
     author: "Matías Deneken"
     language: es
     lang: es
+    # Citas: locale es-ES (p. ej. «y» entre autores) y formato autor-fecha (Autor, año)
+    csl: csl/apa.csl
     theme: cosmo
     css: custom.css
     page-layout: article
@@ -95,6 +97,8 @@ format:
     latex-min-runs: 4
     latex-max-runs: 10
     language: es
+    lang: es
+    csl: csl/apa.csl
     documentclass: scrreprt
     classoption: 
       - fontsize=11pt
