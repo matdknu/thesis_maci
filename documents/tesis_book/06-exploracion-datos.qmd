@@ -35,6 +35,27 @@ if (file.exists(file.path(base_out, "fig_count_facet_candidatos.png"))) {
 ```
 
 
+## Resultados de encuestas presidenciales 
+
+Antes de entrar al modelado, conviene situar el ciclo electoral con un
+indicador externo al corpus de Reddit. La @fig-encuestas-presidenciales resume
+la consolidación bi-semanal de sondeos presidenciales de 2025 y marca,
+con una línea de corte, el inicio de la segunda vuelta. En este
+sentido, funciona como una "luz" contextual: no se usa para inferir
+causalidad sobre la conversación digital, pero sí para ubicar los
+momentos de mayor competencia y leer con mayor precisión los cambios de
+atención y tono observados en las series del corpus.
+
+```{r fig-encuestas-presidenciales}
+#| results: asis
+#| echo: false
+sondeos_img <- file.path(img_dir, "tendencia_panel_bisemanal_primera_segunda.png")
+if (file.exists(sondeos_img)) {
+  cat('![Resultados de encuestas presidenciales 2025 (consolidación bi-semanal y corte de segunda vuelta).](images/tendencia_panel_bisemanal_primera_segunda.png){#fig-encuestas-presidenciales fig-align="center" width="92%"}\n')
+}
+```
+
+
 ## Estrategia discursiva y frontera política
 
 

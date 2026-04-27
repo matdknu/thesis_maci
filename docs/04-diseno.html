@@ -293,7 +293,7 @@ window.Quarto = {
 <section id="sec-diseno" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-diseno"><span class="header-section-number">4.1</span> Diseño de investigación</h2>
 <p>Toda la evidencia presentada a partir de los capítulos de exploración y resultados se apoya en un mismo cuerpo de datos digital: comentarios y publicaciones extraídos de Reddit mediante su API pública en el período electoral de la campaña presidencial de Chile en 2025, concretamente del 1 de agosto al 31 de diciembre de 2025, con cobertura de las fases de precampaña, campaña y segunda vuelta, tal como se detalla en las secciones que siguen. Este anclaje temporal y de fuente no es un detalle técnico: deja claro qué sostiene el argumento (discurso observable en plataforma, no otra medición paralela) y por qué el diseño aporta rigor: se observa el debate político mientras se desarrolla el proceso electoral, con trazabilidad desde la plataforma hasta el análisis.</p>
-<p>En paralelo, la investigación adopta un diseño longitudinal observacional basado en <em>contenido generado por los usuarios</em>. Ese carácter longitudinal permite capturar la evolución del debate a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en Reddit, sin intervención experimental.</p>
+<p>En paralelo, la tesina adopta un diseño longitudinal observacional basado en <em>contenido generado por los usuarios</em>. Ese carácter longitudinal permite capturar la evolución del debate a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en Reddit, sin intervención experimental.</p>
 <p>Metodológicamente, se inscribe en la ciencia social computacional <span class="citation" data-cites="lazer2009ComputationalSocialScience salganik2018BitBitSocial edelmann2020ComputationalSocialScience keuschnigg2018AnalyticalSociologyComputational">(<a href="references.html#ref-edelmann2020ComputationalSocialScience" role="doc-biblioref">Edelmann et&nbsp;al., 2020</a>; <a href="references.html#ref-keuschnigg2018AnalyticalSociologyComputational" role="doc-biblioref">Keuschnigg et&nbsp;al., 2018</a>; <a href="references.html#ref-lazer2009ComputationalSocialScience" role="doc-biblioref">Lazer et&nbsp;al., 2009</a>; <a href="references.html#ref-salganik2018BitBitSocial" role="doc-biblioref">Salganik, 2018</a>)</span>: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes descriptivos (caracterizar la conversación política en Reddit en la ventana de campaña 2025) con componentes explicativos, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.</p>
 </section>
 <section id="reddit-como-plataforma-de-análisis" class="level2" data-number="4.2">
@@ -350,9 +350,9 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones de detección.
 <div aria-describedby="tbl-candidaturas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 35%">
-<col style="width: 42%">
+<col style="width: 21%">
+<col style="width: 36%">
+<col style="width: 41%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -392,7 +392,7 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones de detección.
 </section>
 <section id="consideraciones-éticas" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="consideraciones-éticas"><span class="header-section-number">4.4</span> Consideraciones éticas</h2>
-<p>La investigación se rige por principios establecidos para la investigación con datos digitales <span class="citation" data-cites="salganik2018BitBitSocial">(<a href="references.html#ref-salganik2018BitBitSocial" role="doc-biblioref">Salganik, 2018</a>)</span>. En lo sustantivo, todo el contenido proviene de espacios públicos de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la privacidad en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de no intervención: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la reproducibilidad se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.</p>
+<p>La tesina se rige por principios establecidos para la tesina con datos digitales <span class="citation" data-cites="salganik2018BitBitSocial">(<a href="references.html#ref-salganik2018BitBitSocial" role="doc-biblioref">Salganik, 2018</a>)</span>. En lo sustantivo, todo el contenido proviene de espacios públicos de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la privacidad en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de no intervención: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la reproducibilidad se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.</p>
 </section>
 <section id="técnicas-de-análisis" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="técnicas-de-análisis"><span class="header-section-number">4.5</span> Técnicas de Análisis</h2>
@@ -400,16 +400,7 @@ Tabla&nbsp;4.1: Candidaturas objetivo y patrones de detección.
 <p>El análisis se organiza en torno a cuatro dimensiones principales que capturan aspectos complementarios del corpus. La primera es el sentimiento y las emociones, abordados en términos de polaridad, intensidad y emoción predominante en cada comentario. La segunda son los marcos interpretativos, clasificados en categorías que distinguen los registros económico, securitario, identitario, institucional y medioambiental. La tercera son las interacciones entre usuarios, examinadas como redes de respuesta que permiten detectar comunidades y patrones de polarización relacional. La cuarta es la evolución temporal, que rastrea cambios en tono, temas y volumen a lo largo del ciclo electoral. Esas cuatro dimensiones se traducen en variables operacionales que alimentan el modelado y la interpretación subsiguientes.</p>
 <p>El pipeline incluye técnicas de procesamiento de texto (TF-IDF, bigramas) <span class="citation" data-cites="hirschbergAdvancesNaturalLanguage">(<a href="references.html#ref-hirschbergAdvancesNaturalLanguage" role="doc-biblioref">Hirschberg y Manning, 2015</a>)</span>, codificación de variables y modelos supervisados como Regresión Logística, SVM, Random Forest y Gradient Boosting, evaluados con validación cruzada. También se aplican métodos de reducción de dimensionalidad (SVD y PCA) para visualización.</p>
 <p>Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis longitudinales, relacionales y discursivos integrados.</p>
-<div id="fig-pipeline-datos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-pipeline-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig_thesis/pipeline_corpus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:81.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pipeline-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.1: Flujo de recolección y procesamiento del corpus.
-</figcaption>
-</figure>
-</div>
+<p>Como esquema general del proceso, véase la Figura 2.1 (<a href="10-anexo-tablas.html#fig-pipeline" class="quarto-xref">Figura&nbsp;<span>10.1</span></a>), presentada en el capítulo de presentación del problema.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">

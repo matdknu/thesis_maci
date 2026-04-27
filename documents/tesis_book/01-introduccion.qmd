@@ -27,17 +27,17 @@ La era digital brinda oportunidades nuevas ante la emergencia del *Big Data*. La
 
 Esta tesina se sitúa en la intersección entre los datos digitales y las oportunidades que estos ofrecen para el estudio de la política contemporánea [@edelmann2020ComputationalSocialScience]. A partir del análisis de comentarios en Reddit (foro en línea de agregación de contenido y discusión, organizado en comunidades temáticas [*subreddits*] y ampliamente utilizado en países de habla inglesa y, en menor medida, en contextos hispanohablantes) se examinaron las dinámicas discursivas del ciclo electoral chileno de 2025, desde la oficialización de las candidaturas hasta el triunfo de José Antonio Kast, identificando patrones de polarización, movilización emocional y construcción de adversarios en la conversación política digital.
 
-Esta investigación se justifica en función de tres órdenes de consideraciones: empíricas, teóricas y metodológicas.
+Esta tesina se justifica en función de tres órdenes de consideraciones: empíricas, teóricas y metodológicas.
 
 Desde el punto de vista empírico, el ciclo electoral chileno de 2025 ofrece una oportunidad única para observar en tiempo real las dinámicas de competencia al interior de la derecha en un sistema político en transformación. La coexistencia de tres candidaturas de derecha con perfiles ideológicos y estrategias comunicativas diferenciadas (Evelyn Matthei, José Antonio Kast y Johannes Kaiser) permite analizar comparativamente cómo distintas corrientes construyen sus identidades, movilizan usuarios y se posicionan frente a adversarios internos y externos. La presencia de una candidatura de izquierda asociada al Partido Comunista (Jeannette Jara) añade una dimensión adicional al análisis, habilitando el estudio de los procesos de convergencia discursiva que emergen cuando actores previamente enfrentados deben articular un frente común.
 
-Desde el punto de vista teórico, la investigación contribuye a debates contemporáneos sobre comunicación política digital, polarización y construcción de antagonismos. Si bien existe abundante literatura sobre el rol de las redes sociales en procesos electorales, la mayor parte de esta investigación se ha concentrado en Estados Unidos [@garzia2023AffectivePolarizationComparative], país dónde la dicotomía entre los bloques Republicanos y Democrátas ha sido una ventaja comparativa para describir antagonismos. Los estudios sobre América Latina, aunque crecientes, han tendido a focalizarse en casos de alta visibilidad internacional (Brasil con Bolsonaro, Argentina con Milei) sin atender suficientemente a las variaciones nacionales y a las dinámicas de competencia al interior de familias ideológicas.
+Desde el punto de vista teórico, la tesina contribuye a debates contemporáneos sobre comunicación política digital, polarización y construcción de antagonismos. Si bien existe abundante literatura sobre el rol de las redes sociales en procesos electorales, la mayor parte de esta tesina se ha concentrado en Estados Unidos [@garzia2023AffectivePolarizationComparative], país dónde la dicotomía entre los bloques Republicanos y Democrátas ha sido una ventaja comparativa para describir antagonismos. Los estudios sobre América Latina, aunque crecientes, han tendido a focalizarse en casos de alta visibilidad internacional (Brasil con Bolsonaro, Argentina con Milei) sin atender suficientemente a las variaciones nacionales y a las dinámicas de competencia al interior de familias ideológicas.
 
-Desde el punto de vista metodológico, la investigación propone una aproximación que integra técnicas de ciencia social computacional con análisis interpretativo del discurso político. Esta combinación permite procesar volúmenes de datos que excederían las capacidades del análisis cualitativo tradicional, sin sacrificar la atención a las dimensiones semánticas y pragmáticas que resultan cruciales para comprender la comunicación política. La elección de Reddit como campo de observación, una plataforma subexplorada en el contexto latinoamericano, ofrece además la posibilidad de acceder a conversaciones políticas con características estructurales distintivas que enriquecen el análisis.
+Desde el punto de vista metodológico, la tesina propone una aproximación que integra técnicas de ciencia social computacional con análisis interpretativo del discurso político. Esta combinación permite procesar volúmenes de datos que excederían las capacidades del análisis cualitativo tradicional, sin sacrificar la atención a las dimensiones semánticas y pragmáticas que resultan cruciales para comprender la comunicación política. La elección de Reddit como campo de observación, una plataforma subexplorada en el contexto latinoamericano, ofrece además la posibilidad de acceder a conversaciones políticas con características estructurales distintivas que enriquecen el análisis.
 
 ## Preguntas de investigación
 
-La pregunta central que orienta esta investigación es:
+La pregunta central que orienta esta tesina es:
 
 > ¿Cómo se configura y evoluciona la conversación política en Reddit durante la campaña presidencial chilena de 2025?
 
@@ -50,7 +50,7 @@ Esta pregunta general se desagrega en las siguientes interrogantes específicas:
 3.  ¿Cómo varían temporalmente las estrategias discursivas de ataque, defensa y demarcación de fronteras identitarias a lo largo de las distintas fases de la campaña?
 
 
-## Objetivos de la investigación
+## Objetivos de la tesina
 
 ### Objetivo general
 

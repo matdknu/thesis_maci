@@ -199,10 +199,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#volumen-de-comentarios-por-candidato" id="toc-volumen-de-comentarios-por-candidato" class="nav-link active" data-scroll-target="#volumen-de-comentarios-por-candidato"><span class="header-section-number">6.1</span> Volumen de comentarios por candidato</a></li>
-  <li><a href="#estrategia-discursiva-y-frontera-política" id="toc-estrategia-discursiva-y-frontera-política" class="nav-link" data-scroll-target="#estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.2</span> Estrategia discursiva y frontera política</a></li>
-  <li><a href="#densidad-de-polarización-por-candidato" id="toc-densidad-de-polarización-por-candidato" class="nav-link" data-scroll-target="#densidad-de-polarización-por-candidato"><span class="header-section-number">6.3</span> Densidad de polarización por candidato</a></li>
-  <li><a href="#emociones-en-el-tiempo-facetas-por-candidato" id="toc-emociones-en-el-tiempo-facetas-por-candidato" class="nav-link" data-scroll-target="#emociones-en-el-tiempo-facetas-por-candidato"><span class="header-section-number">6.4</span> Emociones en el tiempo (facetas por candidato)</a></li>
-  <li><a href="#polarización-en-el-tiempo" id="toc-polarización-en-el-tiempo" class="nav-link" data-scroll-target="#polarización-en-el-tiempo"><span class="header-section-number">6.5</span> Polarización en el tiempo</a></li>
+  <li><a href="#resultados-de-encuestas-presidenciales" id="toc-resultados-de-encuestas-presidenciales" class="nav-link" data-scroll-target="#resultados-de-encuestas-presidenciales"><span class="header-section-number">6.2</span> Resultados de encuestas presidenciales</a></li>
+  <li><a href="#estrategia-discursiva-y-frontera-política" id="toc-estrategia-discursiva-y-frontera-política" class="nav-link" data-scroll-target="#estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.3</span> Estrategia discursiva y frontera política</a></li>
+  <li><a href="#densidad-de-polarización-por-candidato" id="toc-densidad-de-polarización-por-candidato" class="nav-link" data-scroll-target="#densidad-de-polarización-por-candidato"><span class="header-section-number">6.4</span> Densidad de polarización por candidato</a></li>
+  <li><a href="#emociones-en-el-tiempo-facetas-por-candidato" id="toc-emociones-en-el-tiempo-facetas-por-candidato" class="nav-link" data-scroll-target="#emociones-en-el-tiempo-facetas-por-candidato"><span class="header-section-number">6.5</span> Emociones en el tiempo (facetas por candidato)</a></li>
+  <li><a href="#polarización-en-el-tiempo" id="toc-polarización-en-el-tiempo" class="nav-link" data-scroll-target="#polarización-en-el-tiempo"><span class="header-section-number">6.6</span> Polarización en el tiempo</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/matdknu/thesis_maci/blob/main/06-exploracion-datos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/matdknu/thesis_maci/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -250,58 +251,72 @@ Figura&nbsp;6.1: Conteos de comentarios por candidato (facetas).
 </figure>
 </div>
 </section>
-<section id="estrategia-discursiva-y-frontera-política" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.2</span> Estrategia discursiva y frontera política</h2>
-<p>La <a href="#fig-explor-estrategia-frontera" class="quarto-xref">Figura&nbsp;<span>6.2</span></a> cruza estrategias de construcción del adversario con tipo de frontera política, separada por candidato. La deslegitimación y la ridiculización dominan en los cuatro candidatos, pero su distribución entre fronteras difiere: la confrontación entre bloques (derecha vs.&nbsp;izquierda) concentra proporcionalmente más amenaza y esencialización (estrategias que presentan al adversario como peligro existencial), mientras que la disputa al interior de la derecha se canaliza más a través de la ridiculización, un registro irónico y menos visceral. Esta diferenciación preliminar sugiere que la forma de la hostilidad varía según el tipo de adversario construido, una hipótesis que el capítulo 7 formaliza estadísticamente y el capítulo 8 desarrolla teóricamente.</p>
+<section id="resultados-de-encuestas-presidenciales" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="resultados-de-encuestas-presidenciales"><span class="header-section-number">6.2</span> Resultados de encuestas presidenciales</h2>
+<p>Antes de entrar al modelado, conviene situar el ciclo electoral con un indicador externo al corpus de Reddit. La <a href="#fig-encuestas-presidenciales" class="quarto-xref">Figura&nbsp;<span>6.2</span></a> resume la consolidación bi-semanal de sondeos presidenciales de 2025 y marca, con una línea de corte, el inicio de la segunda vuelta. En este sentido, funciona como una “luz” contextual: no se usa para inferir causalidad sobre la conversación digital, pero sí para ubicar los momentos de mayor competencia y leer con mayor precisión los cambios de atención y tono observados en las series del corpus.</p>
+<div id="fig-encuestas-presidenciales" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-encuestas-presidenciales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tendencia_panel_bisemanal_primera_segunda.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-encuestas-presidenciales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Resultados de encuestas presidenciales 2025 (consolidación bi-semanal y corte de segunda vuelta).
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="estrategia-discursiva-y-frontera-política" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="estrategia-discursiva-y-frontera-política"><span class="header-section-number">6.3</span> Estrategia discursiva y frontera política</h2>
+<p>La <a href="#fig-explor-estrategia-frontera" class="quarto-xref">Figura&nbsp;<span>6.3</span></a> cruza estrategias de construcción del adversario con tipo de frontera política, separada por candidato. La deslegitimación y la ridiculización dominan en los cuatro candidatos, pero su distribución entre fronteras difiere: la confrontación entre bloques (derecha vs.&nbsp;izquierda) concentra proporcionalmente más amenaza y esencialización (estrategias que presentan al adversario como peligro existencial), mientras que la disputa al interior de la derecha se canaliza más a través de la ridiculización, un registro irónico y menos visceral. Esta diferenciación preliminar sugiere que la forma de la hostilidad varía según el tipo de adversario construido, una hipótesis que el capítulo 7 formaliza estadísticamente y el capítulo 8 desarrolla teóricamente.</p>
 <div id="fig-explor-estrategia-frontera" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-explor-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig_thesis/fig4_estrategia_frontera.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-estrategia-frontera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.2: Estrategia discursiva y frontera política por candidato (facetas).
+Figura&nbsp;6.3: Estrategia discursiva y frontera política por candidato (facetas).
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="densidad-de-polarización-por-candidato" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="densidad-de-polarización-por-candidato"><span class="header-section-number">6.3</span> Densidad de polarización por candidato</h2>
-<p>La <a href="#fig-explor-densidad-pol" class="quarto-xref">Figura&nbsp;<span>6.3</span></a> presenta la distribución de polarización condicionada al candidato comentado. Los cuatro candidatos muestran distribuciones unimodales con medianas entre 0.3 y 0.5, pero con diferencias en dispersión. Kast y Jara exhiben colas derechas más pesadas, con mayor proporción de comentarios en valores altos de polarización, mientras que Kaiser y Matthei se concentran en rangos moderados. Esta diferencia es consistente con la mayor carga adversarial que reciben los dos candidatos que disputaron la segunda vuelta. Que ninguna distribución sea bimodal sugiere que la polarización no separa el corpus en dos grupos discretos (hostiles vs.&nbsp;no hostiles), sino que opera como un gradiente continuo donde la mayoría de los comentarios presenta niveles intermedios de hostilidad.</p>
+<section id="densidad-de-polarización-por-candidato" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="densidad-de-polarización-por-candidato"><span class="header-section-number">6.4</span> Densidad de polarización por candidato</h2>
+<p>La <a href="#fig-explor-densidad-pol" class="quarto-xref">Figura&nbsp;<span>6.4</span></a> presenta la distribución de polarización condicionada al candidato comentado. Los cuatro candidatos muestran distribuciones unimodales con medianas entre 0.3 y 0.5, pero con diferencias en dispersión. Kast y Jara exhiben colas derechas más pesadas, con mayor proporción de comentarios en valores altos de polarización, mientras que Kaiser y Matthei se concentran en rangos moderados. Esta diferencia es consistente con la mayor carga adversarial que reciben los dos candidatos que disputaron la segunda vuelta. Que ninguna distribución sea bimodal sugiere que la polarización no separa el corpus en dos grupos discretos (hostiles vs.&nbsp;no hostiles), sino que opera como un gradiente continuo donde la mayoría de los comentarios presenta niveles intermedios de hostilidad.</p>
 <div id="fig-explor-densidad-pol" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-explor-densidad-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig_thesis/fig7_densidad_polarizacion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:83.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-densidad-pol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.3: Densidad de polarización por candidato.
+Figura&nbsp;6.4: Densidad de polarización por candidato.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="emociones-en-el-tiempo-facetas-por-candidato" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="emociones-en-el-tiempo-facetas-por-candidato"><span class="header-section-number">6.4</span> Emociones en el tiempo (facetas por candidato)</h2>
-<p>La <a href="#fig-emociones-candidato-tendencia" class="quarto-xref">Figura&nbsp;<span>6.4</span></a> muestra la proporción semanal de emociones por candidato. La línea negra continua representa la fracción de emociones hostiles (ira, desprecio, indignación); el trazo discontinuo, un suavizado LOESS sobre esa fracción. Dos patrones merecen atención. Primero, la proporción de hostilidad se mantiene relativamente estable para los cuatro candidatos a lo largo del ciclo: no hay un escalamiento progresivo hacia la elección, sino una hostilidad de base que fluctúa en torno a un nivel constante, un primer indicio de lo que el capítulo 8 interpreta como cristalización actitudinal. Segundo, el desprecio y la indignación alternan como emociones dominantes según el candidato y la semana, lo que anticipa la relevancia de las configuraciones discursivas (combinaciones marco × emoción) por sobre las emociones aisladas.</p>
+<section id="emociones-en-el-tiempo-facetas-por-candidato" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="emociones-en-el-tiempo-facetas-por-candidato"><span class="header-section-number">6.5</span> Emociones en el tiempo (facetas por candidato)</h2>
+<p>La <a href="#fig-emociones-candidato-tendencia" class="quarto-xref">Figura&nbsp;<span>6.5</span></a> muestra la proporción semanal de emociones por candidato. La línea negra continua representa la fracción de emociones hostiles (ira, desprecio, indignación); el trazo discontinuo, un suavizado LOESS sobre esa fracción. Dos patrones merecen atención. Primero, la proporción de hostilidad se mantiene relativamente estable para los cuatro candidatos a lo largo del ciclo: no hay un escalamiento progresivo hacia la elección, sino una hostilidad de base que fluctúa en torno a un nivel constante, un primer indicio de lo que el capítulo 8 interpreta como cristalización actitudinal. Segundo, el desprecio y la indignación alternan como emociones dominantes según el candidato y la semana, lo que anticipa la relevancia de las configuraciones discursivas (combinaciones marco × emoción) por sobre las emociones aisladas.</p>
 <div id="fig-emociones-candidato-tendencia" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-emociones-candidato-tendencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/emociones_candidato_semanal_facet_tendencia.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emociones-candidato-tendencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.4: Emociones semanales por candidato (facetas 2×2).
+Figura&nbsp;6.5: Emociones semanales por candidato (facetas 2×2).
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="polarización-en-el-tiempo" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="polarización-en-el-tiempo"><span class="header-section-number">6.5</span> Polarización en el tiempo</h2>
-<p>La <a href="#fig-explor-pol-serie" class="quarto-xref">Figura&nbsp;<span>6.5</span></a> presenta la serie bisegmentada de polarización media por candidato con bandas de IC 95%. Las cuatro series oscilan entre 0.3 y 0.5 sin tendencia ascendente clara hacia la elección: la polarización no se intensifica con la campaña, sino que se mantiene en un rango estable. Kast y Jara registran los niveles más altos durante la mayor parte del período, con una convergencia notable a partir de noviembre cuando la competencia se reduce a estos dos candidatos. Las bandas de confianza se estrechan en semanas de mayor volumen y se ensanchan en períodos de baja actividad, reflejando variabilidad muestral más que cambios sustantivos en la hostilidad. En conjunto, la exploración temporal refuerza una lectura de estabilidad estructural de la polarización que el capítulo 7 formaliza mediante validación cruzada.</p>
+<section id="polarización-en-el-tiempo" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="polarización-en-el-tiempo"><span class="header-section-number">6.6</span> Polarización en el tiempo</h2>
+<p>La <a href="#fig-explor-pol-serie" class="quarto-xref">Figura&nbsp;<span>6.6</span></a> presenta la serie bisegmentada de polarización media por candidato con bandas de IC 95%. Las cuatro series oscilan entre 0.3 y 0.5 sin tendencia ascendente clara hacia la elección: la polarización no se intensifica con la campaña, sino que se mantiene en un rango estable. Kast y Jara registran los niveles más altos durante la mayor parte del período, con una convergencia notable a partir de noviembre cuando la competencia se reduce a estos dos candidatos. Las bandas de confianza se estrechan en semanas de mayor volumen y se ensanchan en períodos de baja actividad, reflejando variabilidad muestral más que cambios sustantivos en la hostilidad. En conjunto, la exploración temporal refuerza una lectura de estabilidad estructural de la polarización que el capítulo 7 formaliza mediante validación cruzada.</p>
 <div id="fig-explor-pol-serie" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-explor-pol-serie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/serie_polarizacion_candidatos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explor-pol-serie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6.5: Polarización media cada dos días por candidato.
+Figura&nbsp;6.6: Polarización media cada dos días por candidato.
 </figcaption>
 </figure>
 </div>

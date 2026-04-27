@@ -33,23 +33,24 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 ### Estrategias por candidato
 
 En este apartado conviene distinguir dos agregaciones: la frontera
-política del comentario (entre bloques, al interior del bloque o sin frontera) y
-el candidato objetivo al que se dirige el mensaje. La
+política del comentario (entre bloques, al interior del bloque o sin
+frontera) y el candidato objetivo al que se dirige el mensaje. La
 @tbl-estrategia-frontera cuantifica la primera: proporción de cada
 estrategia discursiva según tipo de frontera. La distribución por
 candidato se incluye en el Anexo A (@fig-anexo-estrategias-candidato).
 
 Esa lectura por frontera revela un patrón que merece atención: la lógica
 del antagonismo no se distribuye homogéneamente. Las estrategias de
-mayor carga adversarial, esto es, construcción de amenaza (66.3% en la frontera entre bloques) y
-esencialización (66.0%), se concentran abrumadoramente en la
-confrontación entre bloques ideológicos, mientras que la ridiculización
-presenta una distribución más equilibrada (48.3% en la frontera entre bloques, 21.9% al interior del bloque).
-Esto sugiere que la hostilidad no opera como un fenómeno unitario: su
-forma cambia según la arquitectura del adversario que el comentario
-construye. Cuando el enemigo es externo al bloque, se recurre a
-estrategias que lo presentan como amenaza esencial; cuando la disputa es
-interna, predomina un registro más irónico y deslegitimador.
+mayor carga adversarial, esto es, construcción de amenaza (66.3% en la
+frontera entre bloques) y esencialización (66.0%), se concentran
+abrumadoramente en la confrontación entre bloques ideológicos, mientras
+que la ridiculización presenta una distribución más equilibrada (48.3%
+en la frontera entre bloques, 21.9% al interior del bloque). Esto
+sugiere que la hostilidad no opera como un fenómeno unitario: su forma
+cambia según la arquitectura del adversario que el comentario construye.
+Cuando el enemigo es externo al bloque, se recurre a estrategias que lo
+presentan como amenaza esencial; cuando la disputa es interna, predomina
+un registro más irónico y deslegitimador.
 
 ```{r tbl-estrategia-frontera}
 ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
@@ -137,6 +138,16 @@ el ciclo electoral refuerza pero no origina. La tabla con la
 distribución porcentual completa figura en el Anexo A
 (@tbl-anexo-kast-transiciones).
 
+Este patrón de cristalización actitudinal es coherente con la
+trayectoria de las encuestas presidenciales documentada en el capítulo
+exploratorio (@fig-encuestas-presidenciales): las preferencias por Kast
+se mantuvieron relativamente estables durante toda la campaña y solo se
+consolidaron de forma pronunciada tras el inicio de la segunda vuelta.
+La estabilidad observada en las encuestas y la estabilidad observada en
+el tono de los comentarios no son fenómenos independientes; ambas
+apuntan a que las posiciones hacia este candidato estaban fijadas antes
+del arranque formal de la campaña.
+
 ### Cruces de tono entre candidatos (posicionamiento → segunda vuelta hacia Kast o Jara)
 
 En la segunda vuelta solo compiten Kast y Jara, por lo que el destino
@@ -150,7 +161,7 @@ figura en el Anexo A (@tbl-anexo-cruce-emocion-sin-se-pares-sv). La
 #| results: asis
 #| echo: false
 if (file.exists(file.path(base_out, "alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png"))) {
-  cat('![Flujos emocionales entre posicionamiento y segunda vuelta.](fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){#fig-alluvial-emocion-sv fig-align="center" width="83%"}\n')
+  cat('![Flujos emocionales entre posicionamiento y segunda vuelta.](fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){#fig-alluvial-emocion-sv fig-align="center" width="85%"}\n')
 }
 ```
 
@@ -180,9 +191,9 @@ hostilidad tiene carácter ambiental y difuso: no es producto de trolls
 coordinados sino de una cultura discursiva generalizada donde la crítica
 hostil es el modo dominante de participación política. Como resume la
 @tbl-anexo-kast-transiciones, la gran mayoría de quienes partieron
-negativos permanece en negativo; solo una minoría pasa a tono
-positivo o neutro, lo que sugiere cristalización actitudinal más que
-escalamiento reactivo [@efstratiou2023NonpolarOppositesAnalyzing].
+negativos permanece en negativo; solo una minoría pasa a tono positivo o
+neutro, lo que sugiere cristalización actitudinal más que escalamiento
+reactivo [@efstratiou2023NonpolarOppositesAnalyzing].
 
 ```{r fig-autores-violin}
 #| results: asis
@@ -197,18 +208,20 @@ if (file.exists(file.path(base_out, "polarizacion_por_tipo_autor.png"))) {
 El atlas (@fig-3d-atlas-global-v1) ofrece una lectura visual que
 complementa los hallazgos estadísticos anteriores. El panel de
 candidatos (superior derecho) muestra una superposición casi completa de
-los cuatro colores: no existen regiones exclusivas por candidato [@defranciscimorales2021NoEchoChambers]. Desde
-la perspectiva de Mouffe [@mouffe2005OnThePolitical], esto sugiere que la frontera política no se
+los cuatro colores: no existen regiones exclusivas por candidato
+[@defranciscimorales2021NoEchoChambers]. Desde la perspectiva de Mouffe
+[@mouffe2005OnThePolitical], esto sugiere que la frontera política no se
 traza entre vocabularios diferenciados, sino a través de un repertorio
-léxico compartido: la polarización es una propiedad del discurso, no
-del target.
+léxico compartido: la polarización es una propiedad del discurso, no del
+target.
 
 El panel de emociones (inferior derecho), en cambio, presenta
 agrupaciones parciales reconocibles: la ira y el desprecio ocupan zonas
 distintas del espacio, indicando que se vehiculizan a través de
 vocabularios diferenciados. La dimensión emocional organiza el espacio
 discursivo con mayor poder que la dimensión del adversario, consistente
-con la literatura sobre polarización afectiva [@iyengar2019OriginsConsequencesAffectivePolarization].
+con la literatura sobre polarización afectiva
+[@iyengar2019OriginsConsequencesAffectivePolarization].
 
 El panel de polarización (inferior izquierdo) completa la lectura: la
 hostilidad se distribuye de manera difusa a lo largo de todo el espacio,

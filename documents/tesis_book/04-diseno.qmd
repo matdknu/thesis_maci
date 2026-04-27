@@ -15,25 +15,9 @@ knitr::opts_chunk$set(
 
 ## Diseño de investigación {#sec-diseno}
 
-Toda la evidencia presentada a partir de los capítulos de exploración y
-resultados se apoya en un mismo cuerpo de datos digital: comentarios
-y publicaciones extraídos de Reddit mediante su API pública en el
-período electoral de la campaña presidencial de Chile en 2025,
-concretamente del 1 de agosto al 31 de diciembre de 2025, con
-cobertura de las fases de precampaña, campaña y segunda vuelta, tal como
-se detalla en las secciones que siguen. Este anclaje temporal y de
-fuente no es un detalle técnico: deja claro qué sostiene el
-argumento (discurso observable en plataforma, no otra medición
-paralela) y por qué el diseño aporta rigor: se observa el debate
-político mientras se desarrolla el proceso electoral, con trazabilidad
-desde la plataforma hasta el análisis.
+Toda la evidencia presentada a partir de los capítulos de exploración y resultados se apoya en un mismo cuerpo de datos digital: comentarios y publicaciones extraídos de Reddit mediante su API pública en el período electoral de la campaña presidencial de Chile en 2025, concretamente del 1 de agosto al 31 de diciembre de 2025, con cobertura de las fases de precampaña, campaña y segunda vuelta, tal como se detalla en las secciones que siguen. Este anclaje temporal y de fuente no es un detalle técnico: deja claro qué sostiene el argumento (discurso observable en plataforma, no otra medición paralela) y por qué el diseño aporta rigor: se observa el debate político mientras se desarrolla el proceso electoral, con trazabilidad desde la plataforma hasta el análisis.
 
-En paralelo, la investigación adopta un diseño longitudinal
-observacional basado en *contenido generado por los usuarios*. Ese carácter
-longitudinal permite capturar la evolución del debate a lo largo del
-ciclo electoral, identificando tendencias, puntos de inflexión y
-dinámicas de cambio. El carácter observacional preserva las propiedades
-naturales de la interacción en Reddit, sin intervención experimental.
+En paralelo, la tesina adopta un diseño longitudinal observacional basado en *contenido generado por los usuarios*. Ese carácter longitudinal permite capturar la evolución del debate a lo largo del ciclo electoral, identificando tendencias, puntos de inflexión y dinámicas de cambio. El carácter observacional preserva las propiedades naturales de la interacción en Reddit, sin intervención experimental.
 
 Metodológicamente, se inscribe en la ciencia social computacional [@lazer2009ComputationalSocialScience; @salganik2018BitBitSocial; @edelmann2020ComputationalSocialScience; @keuschnigg2018AnalyticalSociologyComputational]: integra técnicas de procesamiento de datos a gran escala con marcos teóricos y preguntas sustantivas de las ciencias sociales. El diseño combina componentes descriptivos (caracterizar la conversación política en Reddit en la ventana de campaña 2025) con componentes explicativos, orientados a identificar factores y mecanismos que den cuenta de los patrones observados.
 
@@ -70,12 +54,12 @@ Para cada publicación dentro del rango temporal se extrajeron dos niveles de re
 
 El filtrado temático se realizó mediante expresiones regulares que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
 
-| Candidatura       | Corriente ideológica         | Patrones de búsqueda               |
-|-------------------|------------------------------|------------------------------------|
-| Evelyn Matthei    | Derecha tradicional          | `matthei`, `matei`, `evelyn`       |
+| Candidatura       | Corriente ideológica           | Patrones de búsqueda               |
+|-------------------|--------------------------------|------------------------------------|
+| Evelyn Matthei    | Derecha tradicional            | `matthei`, `matei`, `evelyn`       |
 | José Antonio Kast | Derecha radical y conservadora | `kast`, `jose antonio kast`, `jak` |
-| Johannes Kaiser   | Derecha libertaria           | `kaiser`, `johannes`, `jkaiser`    |
-| Jeannette Jara    | Izquierda (PC)               | `jara`, `jeannette`, `jeanette`    |
+| Johannes Kaiser   | Derecha libertaria             | `kaiser`, `johannes`, `jkaiser`    |
+| Jeannette Jara    | Izquierda (PC)                 | `jara`, `jeannette`, `jeanette`    |
 
 : Candidaturas objetivo y patrones de detección. {#tbl-candidaturas}
 
@@ -83,7 +67,7 @@ Esta selección permite analizar tanto la competencia al interior de la derecha 
 
 ## Consideraciones éticas
 
-La investigación se rige por principios establecidos para la investigación con datos digitales [@salganik2018BitBitSocial]. En lo sustantivo, todo el contenido proviene de espacios públicos de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la privacidad en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de no intervención: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la reproducibilidad se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.
+La tesina se rige por principios establecidos para la tesina con datos digitales [@salganik2018BitBitSocial]. En lo sustantivo, todo el contenido proviene de espacios públicos de Reddit, sin acceso a mensajes privados ni a información restringida. El análisis respeta la privacidad en el sentido de no reportar identificadores individuales ni de buscar vincular cuentas con identidades reales, y los ejemplos citados se anonimizan cuando resulta pertinente. Se cumple un criterio de no intervención: el estudio no actúa sobre las comunidades ni expone a sus miembros a riesgos adicionales, pues el foco recae en dinámicas colectivas. Por último, la reproducibilidad se apoya en la documentación de los scripts de recolección y procesamiento, de modo que el procedimiento pueda replicarse respetando los términos de uso de la API.
 
 ## Técnicas de Análisis
 
@@ -95,4 +79,4 @@ El pipeline incluye técnicas de procesamiento de texto (TF-IDF, bigramas) [@hir
 
 Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis longitudinales, relacionales y discursivos integrados.
 
-![Flujo de recolección y procesamiento del corpus.](fig_thesis/pipeline_corpus.png){#fig-pipeline-datos fig-align="center" width="81%"}
+Como esquema general del proceso, véase la Figura 2.1 (@fig-pipeline), presentada en el capítulo de presentación del problema.

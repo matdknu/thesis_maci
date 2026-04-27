@@ -27,6 +27,17 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 
 Este anexo reúne las tablas detalladas del modelado supervisado y de la interpretación discursiva que, por su extensión o número de columnas, no cabían en el cuerpo principal (incluidas la tabla y el coefplot del modelo OLS de polarización del capítulo 7, el listado de las diez combinaciones marco × emoción más frecuentes del capítulo 8, y las de cruces electorales por autor y la persistencia de tono hacia Kast). En el PDF, las tablas anchas se **escalan al ancho de página** (orientación vertical en todas las páginas). En el cuerpo de los capítulos 7 y 8 se conservan solo las tablas imprescindibles para la línea argumental; el resto se referencia desde allí. Las precisiones metodológicas que antes figuraban como notas bajo tablas (definición de variables, N, referencias de categorías) están desarrolladas en esos capítulos o en el texto que encabeza cada sección del anexo.
 
+## Presentación de resultados
+
+Para facilitar la lectura del anexo, se incluye a continuación una vista
+de conjunto del flujo analítico utilizado en la tesina.
+
+![Pipeline analítico: de la recolección del corpus a los hallazgos
+sustantivos.](fig_thesis/diagrama.png){#fig-pipeline fig-align="center"
+width="81%"}
+
+
+
 **A.1 Modelado de datos (capítulo 7)**
 
 **A.1.1 Desacuerdo entre anotadores**

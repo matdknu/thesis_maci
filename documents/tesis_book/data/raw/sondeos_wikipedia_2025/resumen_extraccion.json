@@ -1,0 +1,24 @@
+{
+  "url": "https://es.wikipedia.org/wiki/Anexo:Sondeos_de_intenci%C3%B3n_de_voto_para_la_elecci%C3%B3n_presidencial_de_Chile_de_2025",
+  "tablas_total_filtradas": 16,
+  "primera_vuelta_tablas": 1,
+  "segunda_vuelta_tablas": 15,
+  "archivos_raw": [
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t01.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/primera_vuelta__primera_vuelta__t01.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t02.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t03.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t04.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t05.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t06.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t07.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t08.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t09.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t10.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t11.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t12.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t13.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t14.csv",
+    "data/raw/sondeos_wikipedia_2025/tablas_raw/segunda_vuelta__segunda_vuelta__t15.csv"
+  ]
+}

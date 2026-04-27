@@ -169,20 +169,6 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 % Compatibilidad caption/listings/etc. con KOMA (evita listas vacías o captions rotos)
 \usepackage{scrhack}
 \usepackage{etoolbox}
@@ -460,15 +446,16 @@ Al final del viaje partiremos de nuevo.
 \markboth{Presentación}{Presentación}
 
 Esta investigación analiza la conversación política en Reddit durante la
-campaña presidencial chilena de 2025, centrándose en tres fenómenos
+campaña presidencial chilena de 2025, con foco en tres fenómenos
 interrelacionados: la polarización afectiva en el debate digital, la
 reconfiguración discursiva de las derechas chilenas y la construcción de
-adversarios políticos en plataformas pseudónimas. El estudio propone un
-sistema de anotación dual basado en modelos de lenguaje (GPT-4o y
-DeepSeek) para clasificar marcos interpretativos, emociones, estrategias
-adversariales y fronteras políticas en un corpus de más de 160.000
-comentarios, y evalúa su capacidad predictiva mediante modelos
-supervisados de aprendizaje automático.
+adversarios políticos en plataformas pseudónimas.
+
+El trabajo propone un sistema de anotación dual basado en modelos de
+lenguaje (GPT-4o y DeepSeek) para clasificar marcos interpretativos,
+emociones, estrategias adversariales y fronteras políticas en un corpus
+de más de 160.000 comentarios, y evalúa su capacidad predictiva mediante
+modelos supervisados de aprendizaje automático.
 
 Los capítulos se organizan en una secuencia que va del marco conceptual
 al hallazgo empírico: introducción y justificación del problema, marco
@@ -580,8 +567,8 @@ candidaturas hasta el triunfo de José Antonio Kast, identificando
 patrones de polarización, movilización emocional y construcción de
 adversarios en la conversación política digital.
 
-Esta investigación se justifica en función de tres órdenes de
-consideraciones: empíricas, teóricas y metodológicas.
+Esta tesina se justifica en función de tres órdenes de consideraciones:
+empíricas, teóricas y metodológicas.
 
 Desde el punto de vista empírico, el ciclo electoral chileno de 2025
 ofrece una oportunidad única para observar en tiempo real las dinámicas
@@ -597,23 +584,22 @@ análisis, habilitando el estudio de los procesos de convergencia
 discursiva que emergen cuando actores previamente enfrentados deben
 articular un frente común.
 
-Desde el punto de vista teórico, la investigación contribuye a debates
+Desde el punto de vista teórico, la tesina contribuye a debates
 contemporáneos sobre comunicación política digital, polarización y
 construcción de antagonismos. Si bien existe abundante literatura sobre
 el rol de las redes sociales en procesos electorales, la mayor parte de
-esta investigación se ha concentrado en Estados Unidos (Garzia et~al.,
-2023), país dónde la dicotomía entre los bloques Republicanos y
-Democrátas ha sido una ventaja comparativa para describir antagonismos.
-Los estudios sobre América Latina, aunque crecientes, han tendido a
-focalizarse en casos de alta visibilidad internacional (Brasil con
-Bolsonaro, Argentina con Milei) sin atender suficientemente a las
-variaciones nacionales y a las dinámicas de competencia al interior de
-familias ideológicas.
+esta tesina se ha concentrado en Estados Unidos (Garzia et~al., 2023),
+país dónde la dicotomía entre los bloques Republicanos y Democrátas ha
+sido una ventaja comparativa para describir antagonismos. Los estudios
+sobre América Latina, aunque crecientes, han tendido a focalizarse en
+casos de alta visibilidad internacional (Brasil con Bolsonaro, Argentina
+con Milei) sin atender suficientemente a las variaciones nacionales y a
+las dinámicas de competencia al interior de familias ideológicas.
 
-Desde el punto de vista metodológico, la investigación propone una
-aproximación que integra técnicas de ciencia social computacional con
-análisis interpretativo del discurso político. Esta combinación permite
-procesar volúmenes de datos que excederían las capacidades del análisis
+Desde el punto de vista metodológico, la tesina propone una aproximación
+que integra técnicas de ciencia social computacional con análisis
+interpretativo del discurso político. Esta combinación permite procesar
+volúmenes de datos que excederían las capacidades del análisis
 cualitativo tradicional, sin sacrificar la atención a las dimensiones
 semánticas y pragmáticas que resultan cruciales para comprender la
 comunicación política. La elección de Reddit como campo de observación,
@@ -624,7 +610,7 @@ características estructurales distintivas que enriquecen el análisis.
 \section{Preguntas de
 investigación}\label{preguntas-de-investigaciuxf3n}
 
-La pregunta central que orienta esta investigación es:
+La pregunta central que orienta esta tesina es:
 
 \begin{quote}
 ¿Cómo se configura y evoluciona la conversación política en Reddit
@@ -649,8 +635,7 @@ específicas:
   distintas fases de la campaña?
 \end{enumerate}
 
-\section{Objetivos de la
-investigación}\label{objetivos-de-la-investigaciuxf3n}
+\section{Objetivos de la tesina}\label{objetivos-de-la-tesina}
 
 \subsection{Objetivo general}\label{objetivo-general}
 
@@ -706,10 +691,10 @@ Sección~\ref{sec-diseno}. Las comunidades analizadas son r/chile y
 r/RepublicadeChile, principales espacios de discusión política nacional
 chilena en la plataforma, comparables entre sí pese a culturas y normas
 de moderación distintas. Describir con claridad qué es Reddit y de dónde
-salen las observaciones da valor a la investigación porque fija el
-terreno empírico: lo que se interpreta en capítulos posteriores es
-siempre \emph{discurso en Reddit en ese intervalo}, no un retrato
-directo de la opinión pública offline.
+salen las observaciones da valor a la tesina porque fija el terreno
+empírico: lo que se interpreta en capítulos posteriores es siempre
+\emph{discurso en Reddit en ese intervalo}, no un retrato directo de la
+opinión pública offline.
 
 \section{El problema: competencia política digital en un sistema
 fragmentado}\label{el-problema-competencia-poluxedtica-digital-en-un-sistema-fragmentado}
@@ -726,9 +711,9 @@ reconfiguración de las identidades políticas (González, 2024), en
 particular en el campo de las derechas, donde coexisten proyectos en
 competencia que aún no han estabilizado sus fronteras.
 
-El problema central que aborda esta investigación puede formularse así,
-con delimitación explícita al caso chileno, pues la motivación empírica
-nace del ciclo electoral y del mapa de partidos descritos en el párrafo
+El problema central que aborda esta tesina puede formularse así, con
+delimitación explícita al caso chileno, pues la motivación empírica nace
+del ciclo electoral y del mapa de partidos descritos en el párrafo
 anterior:
 
 \begin{quote}
@@ -775,15 +760,16 @@ análisis}\label{acercamiento-actores-dimensiones-y-niveles-de-anuxe1lisis}
 \subsection{Los actores: tres derechas y un
 adversario}\label{los-actores-tres-derechas-y-un-adversario}
 
-La investigación se focaliza en cuatro candidaturas que representan
-posiciones distintivas en el espectro político chileno:
+La tesina se focaliza en cuatro candidaturas que representan posiciones
+distintivas en el espectro político chileno:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2083}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2083}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5833}}@{}}
-\caption{Candidaturas analizadas y perfil ideológico.
-}\label{tbl-candidaturas-actores}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0872}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1468}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7661}}@{}}
+\caption{Candidaturas analizadas y perfil electoral. Fuente: Pulso
+Ciudadano / Activa Research, 15--17 de octubre de
+2024.}\label{tbl-candidaturas-actores}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Actor
@@ -806,15 +792,19 @@ Base social
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Evelyn Matthei & Derecha tradicional & Élites empresariales, sectores
-medios altos \\
+Evelyn Matthei & Derecha tradicional & Mayoría femenina (60,4\%),
+mayores de 50 años (54\%), estratos medios-altos (C1--C2); alta
+proporción sin identificación política (40,1\%). \\
 José Antonio Kast & Derecha radical y conservadora & Transversal en
-términos de clase, presencia extensiva en regiones del país,
-conservadores religiosos \\
-Johannes Kaiser & Derecha libertaria & Jóvenes masculinos, usuarios
-intensivos de internet \\
-Jeannette Jara & Izquierda (PC) & Militancia de izquierda, sectores
-medios y populares \\
+términos de clase; fuerte presencia en regiones del sur (31,8\%);
+electorado joven y mayor de 50; alta proporción sin identificación
+política (35,1\%). \\
+Johannes Kaiser & Derecha libertaria & Mayoría masculina (55,5\%);
+concentrado en mayores de 50 años (50,2\%) y estratos bajos (C3--D/E);
+presencia en sur y centro del país. \\
+Jeannette Jara & Izquierda (PC) & Fuerte en Región Metropolitana
+(56,9\%); estratos medios (C2--C3); electorado altamente ideologizado
+(62,6\% se identifica como centroizquierda). \\
 \end{longtable}
 
 Como se observa en la Tabla~\ref{tbl-candidaturas-actores}, el diseño
@@ -889,23 +879,8 @@ operacionalización (fuentes exactas, ventana temporal, comunidades
 muestreadas y parámetros de extracción) se expone con detalle en el
 capítulo de diseño y datos.
 
-El flujo analítico puede representarse así:
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/diagrama.png}
-
-}
-
-\caption{\label{fig-pipeline}Pipeline analítico: de la recolección del
-corpus a los hallazgos sustantivos.}
-
-\end{figure}%
-
-La Figura~\ref{fig-pipeline} sintetiza el encadenamiento entre corpus,
-procesamiento, modelamiento y hallazgos.
+La Figura~\ref{fig-pipeline} (anexo) sintetiza el encadenamiento entre
+corpus, procesamiento, modelamiento y hallazgos.
 
 \subsection{Arquitectura del
 análisis}\label{arquitectura-del-anuxe1lisis}
@@ -933,7 +908,7 @@ evidencia acumulada.
 \subsection{Originalidad de la
 propuesta}\label{originalidad-de-la-propuesta}
 
-La investigación se distingue de los estudios previos en tres aspectos
+La tesina se distingue de los estudios previos en tres aspectos
 articulados entre sí. En primer lugar, su foco está puesto en la
 competencia al interior del bloque: mientras la mayor parte de la
 literatura examina la polarización entre izquierda y derecha, este
@@ -955,7 +930,7 @@ operacionales}\label{producto-muxednimo-viable-mvp-y-objetivos-operacionales}
 
 \subsection{Definición del MVP}\label{definiciuxf3n-del-mvp}
 
-El producto mínimo viable de esta investigación consiste en:
+El producto mínimo viable de esta tesina consiste en:
 
 \begin{quote}
 Un análisis sistemático de la conversación política en Reddit sobre las
@@ -969,9 +944,9 @@ lo largo del ciclo electoral (de agosto a diciembre de 2025).
 entregables}\label{objetivos-operacionales-y-entregables}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2740}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4795}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2778}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4583}}@{}}
 \caption{Objetivos operacionales, entregables e indicadores de
 cumplimiento del MVP.}\label{tbl-objetivos-mvp}\tabularnewline
 \toprule\noalign{}
@@ -1000,6 +975,8 @@ O1: Construir corpus & Base de datos estructurada & \(\geq 1000\) posts
 y \(\geq 10.000\) comentarios con menciones políticas \\
 O2: Mapear emociones & Perfiles emocionales por candidatura &
 Clasificación de polarización y emociones \\
+O3: Analizar encuadres & Distribución de marcos por corriente &
+Comparación de frames entre candidaturas y fases electorales \\
 O4: Analizar adversarios & Red de antagonismos & Matriz de menciones
 cruzadas con valencia \\
 O5: Documentar evolución & Serie temporal & Análisis por fase electoral
@@ -1067,9 +1044,9 @@ del caso chileno.
 
 \subsection{Criterios de éxito}\label{criterios-de-uxe9xito}
 
-La investigación se considerará exitosa cuando, en conjunto, se cumplan
-cinco condiciones. Debe responder las preguntas, en el sentido de que
-cada pregunta de investigación reciba una respuesta fundamentada
+La tesina se considerará exitosa cuando, en conjunto, se cumplan cinco
+condiciones. Debe responder las preguntas, en el sentido de que cada
+pregunta de investigación reciba una respuesta fundamentada
 empíricamente; debe identificar patrones no triviales, de modo que los
 hallazgos vayan más allá de lo que podría inferirse sin análisis
 sistemático; debe documentar variación, capturando diferencias
@@ -1083,26 +1060,29 @@ puede concluirse a partir de los datos disponibles.
 
 \chapter{Marco teórico}\label{marco-teuxf3rico}
 
-Este capítulo expone el marco conceptual (polarización afectiva,
-adversarios, encuadre, emociones, derechas en Chile) que guía la lectura
-de los resultados. Para evitar confusión con el plan empírico: todos los
-hallazgos de conversación, polarización y adversarios provienen de
-mensajes de usuarios de Reddit (foro y plataforma en \emph{subreddits},
-ya descritos al inicio de la presentación del problema, capítulo
-anterior, y en el capítulo de diseño y datos), obtenidos por extracción
-vía API en el calendario de la elección presidencial 2025 (de agosto a
-diciembre). La teoría de este capítulo no asume aún qué se dijo en Chile
-en 2025; asigna, en cambio, los conceptos con los que interpretaremos
-luego el corpus.
+\section{Marco teórico}\label{marco-teuxf3rico-1}
 
-\section{Polarización afectiva}\label{polarizaciuxf3n-afectiva}
+\subsection{Modelo analítico
+integrado}\label{modelo-analuxedtico-integrado}
+
+La arquitectura conceptual de esta tesis articula cuatro nodos en
+secuencia explicativa: la polarización afectiva opera como fenómeno a
+explicar; la construcción de adversarios y la frontera política como
+mecanismo central que lo produce; el encuadre y las emociones como
+dimensiones observables del discurso donde ese mecanismo deja huella; y
+Reddit como espacio empírico donde estas dinámicas se despliegan durante
+el ciclo electoral de 2025. Los capítulos de modelado e interpretación
+traducen el esquema en variables operacionales y resultados
+cuantificables.
+
+\subsection{Polarización afectiva}\label{polarizaciuxf3n-afectiva}
 
 La polarización afectiva designa el distanciamiento emocional entre
 grupos políticos: no solo divergen en posiciones, sino que se desagradan
 y se atribuyen mutuamente malas intenciones (Iyengar et~al., 2019). Es
-analíticamente distinta de la polarización ideológica (ambas pueden
-variar de manera independiente), y la evidencia comparada sugiere que la
-afectiva ha crecido más rápidamente en democracias contemporáneas
+analíticamente distinta de la polarización ideológica ---ambas pueden
+variar de manera independiente--- y la evidencia comparada sugiere que
+la afectiva ha crecido más rápidamente en democracias contemporáneas
 (Garzia et~al., 2023).
 
 Sus principales mecanismos en entornos digitales incluyen la exposición
@@ -1112,106 +1092,87 @@ señalización grupal recompensadas con métricas de aprobación (Tang
 et~al., 2025). Las consecuencias para la democracia son significativas:
 erosión de la confianza institucional, resistencia al compromiso y
 tolerancia a la transgresión normativa cuando proviene del propio bando
-(Kingzette et~al., 2021). Esta dinámica paradójica, en la que la
-polarización se manifiesta a nivel individual pero puede resultar difusa
-a escala global, ha sido documentada en contextos comparados
-(Baldassarri y Bearman, 2007).
+(Kingzette et~al., 2021). Esta dinámica puede manifestarse de forma
+difusa a escala agregada aun cuando es intensa a nivel individual
+(Baldassarri y Bearman, 2007), lo que hace de la medición a escala un
+problema metodológico no trivial.
 
-\section{Construcción de adversarios y frontera
+\subsection{Construcción de adversarios y frontera
 política}\label{construcciuxf3n-de-adversarios-y-frontera-poluxedtica}
 
-Las identidades colectivas no son esencias preexistentes: emergen a
-través de la diferenciación. Todo «nosotros» se constituye en relación
-con un «ellos» (Laclau y Mouffe, 1985). Trabajos recientes en ciencia
-política comparada muestran cómo esas polarizaciones simbólicas entre
-«nosotros» y «ellos» se vinculan con la estructura social, las
-identidades y la elección electoral (Bornschier et~al., 2021). Siguiendo
-a Mouffe en \emph{On the Political} (Mouffe, 2005), conviene distinguir
-el antagonismo (relación entre enemigos sin espacio común) del agonismo
-(relación entre adversarios que comparten el marco democrático). Esta
-distinción permite preguntar si los actores construyen a sus oponentes
-como participantes legítimos o como amenazas existenciales.
+Las identidades colectivas emergen a través de la diferenciación: todo
+«nosotros» se constituye en relación con un «ellos» (Laclau y Mouffe,
+1985), y esas polarizaciones simbólicas se vinculan con la estructura
+social, las identidades y la elección electoral (Bornschier et~al.,
+2021). Siguiendo a Mouffe (Mouffe, 2005), conviene distinguir el
+antagonismo ---relación entre enemigos sin espacio común--- del agonismo
+---relación entre adversarios que comparten el marco democrático---.
+Esta distinción permite preguntar si los actores construyen a sus
+oponentes como participantes legítimos o como amenazas existenciales.
 
 Las estrategias de deslegitimación incluyen asociación negativa,
 atribución de intenciones ocultas, ridiculización, esencialización y
-construcción de amenaza (González, 2024). Para esta investigación
-resulta crucial distinguir, por un lado, las fronteras que oponen
-bloques (izquierda frente a derecha) y, por otro, las que recorren el
-interior del mismo bloque (entre corrientes de derecha), pues generan
-tensiones estratégicas entre diferenciación y convergencia.
+construcción de amenaza (González, 2024). Para esta tesis resulta
+crucial distinguir las fronteras que oponen bloques (izquierda frente a
+derecha) de las que recorren el interior del mismo bloque (entre
+corrientes de derecha), pues generan tensiones estratégicas entre
+diferenciación y convergencia que constituyen el objeto central del
+análisis.
 
-\section{Encuadre y emociones en el discurso
+\subsection{Encuadre y emociones en el discurso
 político}\label{encuadre-y-emociones-en-el-discurso-poluxedtico}
 
 El encuadre consiste en seleccionar aspectos de la realidad y hacerlos
 prominentes para promover una definición del problema, una
 interpretación causal y una evaluación moral (Entman, 1993). Se
-distinguen marcos genéricos (conflicto, consecuencias económicas,
-atribución de responsabilidad, moralidad) y marcos específicos propios
-de cada controversia (Semetko y Valkenburg, 2000). Para campañas
-electorales resulta útil añadir la distinción entre marcos diagnósticos
-(¿cuál es el problema?), pronósticos (¿qué debe hacerse?) y
-motivacionales (¿qué está en juego?).
+distinguen marcos genéricos ---conflicto, consecuencias económicas,
+atribución de responsabilidad, moralidad--- y marcos específicos propios
+de cada controversia (Semetko y Valkenburg, 2000), a los que se añade,
+para contextos electorales, la distinción entre marcos diagnósticos,
+pronósticos y motivacionales.
 
-Las emociones, por su parte, no son ruido que distorsiona el juicio
-racional: son componentes constitutivos de la cognición y la acción
-política (Marcus et~al., 2000). El concepto de repertorio afectivo (la
-configuración característica de emociones movilizadas por un actor, su
-combinación y los objetos hacia los que se dirigen) resulta más
-operativo que el registro de emociones aisladas (Jasper, 2011). La
-indignación moral merece atención especial: combina valencia negativa
-con alta activación y orientación a la acción, se difunde más que otras
-emociones y genera bajo costo de expresión con recompensas sociales
-inmediatas (Botzer et~al., 2023).
+Las emociones no son ruido que distorsiona el juicio racional: son
+componentes constitutivos de la cognición y la acción política (Marcus
+et~al., 2000). El concepto de repertorio afectivo ---la configuración
+característica de emociones movilizadas por un actor, su combinación y
+los objetos hacia los que se dirigen--- resulta más operativo que el
+registro de emociones aisladas (Jasper, 2011). La indignación moral
+merece atención especial: combina valencia negativa con alta activación
+y orientación a la acción, se difunde más que otras emociones y genera
+bajo costo de expresión con recompensas sociales inmediatas (Botzer
+et~al., 2023).
 
-Encuadre y emoción se articulan en el análisis como dimensiones
-complementarias: el marco establece \emph{de qué} se habla, la emoción
-determina \emph{con qué intensidad y valencia} se habla. Su combinación,
-por ejemplo un marco de conflicto acoplado con desprecio frente a un
-marco diagnóstico acoplado con indignación, constituye lo que esta tesis
-denomina \emph{configuración discursiva}, unidad de análisis central en
-los capítulos de resultados.
+Encuadre y emoción se articulan como dimensiones complementarias: el
+marco establece \emph{de qué} se habla, la emoción determina \emph{con
+qué intensidad y valencia} se habla. Su combinación ---por ejemplo,
+marco de conflicto acoplado con desprecio frente a marco diagnóstico
+acoplado con indignación--- constituye lo que esta tesis denomina
+\emph{configuración discursiva}, unidad de análisis central en los
+capítulos de resultados.
 
-\section{Derechas contemporáneas en
+\subsection{Derechas contemporáneas en
 Chile}\label{derechas-contemporuxe1neas-en-chile}
 
-La coexistencia de múltiples corrientes de derecha en Chile genera
-dinámicas de competencia al interior del bloque que constituyen un
-laboratorio analítico de particular valor. Estas corrientes difieren no
-solo ideológicamente sino en sus estrategias comunicativas (Klein y
+La coexistencia de múltiples corrientes de derecha en Chile constituye
+un laboratorio analítico de particular valor. Estas corrientes difieren
+no solo ideológicamente sino en sus estrategias comunicativas (Klein y
 Muis, 2019): la derecha tradicional emplea un registro institucional y
 moderado; la radical populista moviliza agravios y retórica de
 confrontación; la libertaria combina argumentos económicos con estilos
 provocadores y referencias a subculturas digitales (Baele et~al., 2023;
-Norris y Inglehart, 2019; Winter, 2019). Los procesos de radicalización
-online que han acompañado esta transformación han sido estudiados en el
-ecosistema digital de la extrema derecha (Marwick et~al., s.~f.). En el
-contexto hispanohablante, aproximaciones de topic modeling al discurso
-de la derecha radical ofrecen antecedentes metodológicos relevantes
-(Calderón et~al., 2020). En el contexto de la campaña presidencial de
-2025, los candidatos Matthei, Kast, Kaiser y Jara representan posiciones
-diferenciadas dentro de este espectro, con estrategias de diferenciación
-interna que conviven con presiones de convergencia frente al adversario
-común de izquierda (Saldivia Gonzatti y Völker, 2025).
+Norris y Inglehart, 2019). Los procesos de radicalización online han
+sido estudiados en el ecosistema digital de la extrema derecha (Marwick
+et~al., 2022) y, en el contexto hispanohablante, aproximaciones de topic
+modeling al discurso de la derecha radical ofrecen antecedentes
+metodológicos relevantes (Calderón et~al., 2020).
 
-La elección de Reddit como sitio de observación, las razones por las que
-su arquitectura conviene al estudio de la polarización discursiva y las
-limitaciones del corpus se presentan, con enfoque en el caso chileno, en
-el capítulo de presentación del problema (acercamiento empírico) y se
-operacionalizan en el capítulo de diseño y datos.
-
-\section{Modelo analítico
-integrado}\label{modelo-analuxedtico-integrado}
-
-El modelo integrado de esta tesis articula las dimensiones anteriores en
-una secuencia analítica orientada por la pregunta central: cómo se
-reconfigura el antagonismo político en la conversación digital de
-derechas. La polarización afectiva opera como fenómeno a explicar; la
-construcción de adversarios y la frontera política como mecanismo
-central; el encuadre y las emociones como dimensiones observables del
-discurso; y Reddit como espacio empírico donde estas dinámicas se
-despliegan. Los capítulos de modelado e interpretación traducen este
-esquema en variables operacionales y resultados cuantificables.
+En la campaña presidencial de 2025, Matthei, Kast, Kaiser y Jara
+representan posiciones diferenciadas dentro de este espectro, con
+estrategias de diferenciación interna que conviven con presiones de
+convergencia frente al adversario común de izquierda (Saldivia Gonzatti
+y Völker, 2025). Esta tensión entre fragmentación interna y convergencia
+adversarial es la dinámica que el análisis empírico busca medir y
+explicar.
 
 \bookmarksetup{startatroot}
 
@@ -1231,13 +1192,12 @@ plataforma, no otra medición paralela) y por qué el diseño aporta rigor:
 se observa el debate político mientras se desarrolla el proceso
 electoral, con trazabilidad desde la plataforma hasta el análisis.
 
-En paralelo, la investigación adopta un diseño longitudinal
-observacional basado en \emph{contenido generado por los usuarios}. Ese
-carácter longitudinal permite capturar la evolución del debate a lo
-largo del ciclo electoral, identificando tendencias, puntos de inflexión
-y dinámicas de cambio. El carácter observacional preserva las
-propiedades naturales de la interacción en Reddit, sin intervención
-experimental.
+En paralelo, la tesina adopta un diseño longitudinal observacional
+basado en \emph{contenido generado por los usuarios}. Ese carácter
+longitudinal permite capturar la evolución del debate a lo largo del
+ciclo electoral, identificando tendencias, puntos de inflexión y
+dinámicas de cambio. El carácter observacional preserva las propiedades
+naturales de la interacción en Reddit, sin intervención experimental.
 
 Metodológicamente, se inscribe en la ciencia social computacional
 (Edelmann et~al., 2020; Keuschnigg et~al., 2018; Lazer et~al., 2009;
@@ -1345,9 +1305,9 @@ variaciones ortográficas (acentuación, nombres completos vs.~apellidos,
 apodos y errores tipográficos frecuentes):
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2235}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3529}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4235}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2184}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3678}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4138}}@{}}
 \caption{Candidaturas objetivo y patrones de
 detección.}\label{tbl-candidaturas}\tabularnewline
 \toprule\noalign{}
@@ -1388,18 +1348,18 @@ adversario ideológico común (ver Tabla~\ref{tbl-candidaturas}).
 
 \section{Consideraciones éticas}\label{consideraciones-uxe9ticas}
 
-La investigación se rige por principios establecidos para la
-investigación con datos digitales (Salganik, 2018). En lo sustantivo,
-todo el contenido proviene de espacios públicos de Reddit, sin acceso a
-mensajes privados ni a información restringida. El análisis respeta la
-privacidad en el sentido de no reportar identificadores individuales ni
-de buscar vincular cuentas con identidades reales, y los ejemplos
-citados se anonimizan cuando resulta pertinente. Se cumple un criterio
-de no intervención: el estudio no actúa sobre las comunidades ni expone
-a sus miembros a riesgos adicionales, pues el foco recae en dinámicas
-colectivas. Por último, la reproducibilidad se apoya en la documentación
-de los scripts de recolección y procesamiento, de modo que el
-procedimiento pueda replicarse respetando los términos de uso de la API.
+La tesina se rige por principios establecidos para la tesina con datos
+digitales (Salganik, 2018). En lo sustantivo, todo el contenido proviene
+de espacios públicos de Reddit, sin acceso a mensajes privados ni a
+información restringida. El análisis respeta la privacidad en el sentido
+de no reportar identificadores individuales ni de buscar vincular
+cuentas con identidades reales, y los ejemplos citados se anonimizan
+cuando resulta pertinente. Se cumple un criterio de no intervención: el
+estudio no actúa sobre las comunidades ni expone a sus miembros a
+riesgos adicionales, pues el foco recae en dinámicas colectivas. Por
+último, la reproducibilidad se apoya en la documentación de los scripts
+de recolección y procesamiento, de modo que el procedimiento pueda
+replicarse respetando los términos de uso de la API.
 
 \section{Técnicas de Análisis}\label{tuxe9cnicas-de-anuxe1lisis}
 
@@ -1437,18 +1397,9 @@ final incluye publicaciones y comentarios de r/chile y
 r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis
 longitudinales, relacionales y discursivos integrados.
 
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/pipeline_corpus.png}
-
-}
-
-\caption{\label{fig-pipeline-datos}Flujo de recolección y procesamiento
-del corpus.}
-
-\end{figure}%
+Como esquema general del proceso, véase la Figura 2.1
+(Figura~\ref{fig-pipeline}), presentada en el capítulo de presentación
+del problema.
 
 \bookmarksetup{startatroot}
 
@@ -1598,6 +1549,33 @@ controla en el diseño del modelado del capítulo siguiente.
 
 \caption{\label{fig-count-facet-cand}Conteos de comentarios por
 candidato (facetas).}
+
+\end{figure}%
+
+\section{Resultados de encuestas
+presidenciales}\label{resultados-de-encuestas-presidenciales}
+
+Antes de entrar al modelado, conviene situar el ciclo electoral con un
+indicador externo al corpus de Reddit. La
+Figura~\ref{fig-encuestas-presidenciales} resume la consolidación
+bi-semanal de sondeos presidenciales de 2025 y marca, con una línea de
+corte, el inicio de la segunda vuelta. En este sentido, funciona como
+una ``luz'' contextual: no se usa para inferir causalidad sobre la
+conversación digital, pero sí para ubicar los momentos de mayor
+competencia y leer con mayor precisión los cambios de atención y tono
+observados en las series del corpus.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.92\textwidth,height=\textheight]{images/tendencia_panel_bisemanal_primera_segunda.png}
+
+}
+
+\caption{\label{fig-encuestas-presidenciales}Resultados de encuestas
+presidenciales 2025 (consolidación bi-semanal y corte de segunda
+vuelta).}
 
 \end{figure}%
 
@@ -1760,18 +1738,24 @@ Estrategia presenta la coincidencia bruta más alta (61.2\%) pero un
 kappa bajo (\(\kappa = 0.126\)), lo cual refleja una distribución
 desbalanceada donde la categoría mayoritaria infla la coincidencia sin
 elevar el acuerdo ajustado por azar. Frontera muestra un kappa negativo
-(\(\kappa = -0.146\)), un resultado que puede parecer paradójico pero
-que se explica por la estructura del desacuerdo: ambos sistemas tienden
-a identificar los mismos comentarios como fronterizos, pero discrepan de
-manera sistemática sobre la dirección de esa frontera (entre bloques
-frente al interior del bloque), lo que genera un patrón de desacuerdo no
-aleatorio que el estadístico kappa penaliza con valores negativos. Marco
-y emoción registran los acuerdos más bajos (\(\kappa = 0.136\) y
-\(\kappa = 0.076\), respectivamente), consistente con la mayor
-ambigüedad inherente a estas categorías: un mismo comentario admite
-lecturas legítimas en más de una categoría (por ejemplo, como
-indignación o desprecio, o encuadrado en un marco de conflicto o
-diagnóstico), sin que ninguna de las dos lecturas sea incorrecta.
+(\(\kappa = -0.146\)). \textbf{Este valor negativo no significa que los
+modelos diverjan al azar: significa que discrepan de manera
+sistemática.} Ambos sistemas tienden a identificar los mismos
+comentarios como fronterizos, pero discrepan de forma consistente sobre
+la \emph{dirección} de esa frontera ---si es entre bloques o al interior
+del bloque de derecha---, lo que genera un patrón de desacuerdo no
+aleatorio que el estadístico kappa penaliza con valores negativos. En
+términos sustantivos, esto señala que la distinción inter/intra-bloque
+es la dimensión más difícil de operacionalizar automáticamente, lo cual
+es consistente con la ambigüedad pragmática de comentarios que pueden
+leerse simultáneamente como crítica interna a la derecha y como refuerzo
+de la frontera con la izquierda. Marco y emoción registran los acuerdos
+más bajos (\(\kappa = 0.136\) y \(\kappa = 0.076\), respectivamente),
+consistente con la mayor ambigüedad inherente a estas categorías: un
+mismo comentario admite lecturas legítimas en más de una categoría (por
+ejemplo, como indignación o desprecio, o encuadrado en un marco de
+conflicto o diagnóstico), sin que ninguna de las dos lecturas sea
+incorrecta.
 
 Estos valores de kappa no invalidan el sistema de medición, pero sí
 delimitan su alcance interpretativo. La estrategia adoptada en esta
@@ -2153,6 +2137,16 @@ disposición previa que el ciclo electoral refuerza pero no origina. La
 tabla con la distribución porcentual completa figura en el Anexo A
 (Tabla~\ref{tbl-anexo-kast-transiciones}).
 
+Este patrón de cristalización actitudinal es coherente con la
+trayectoria de las encuestas presidenciales documentada en el capítulo
+exploratorio (Figura~\ref{fig-encuestas-presidenciales}): las
+preferencias por Kast se mantuvieron relativamente estables durante toda
+la campaña y solo se consolidaron de forma pronunciada tras el inicio de
+la segunda vuelta. La estabilidad observada en las encuestas y la
+estabilidad observada en el tono de los comentarios no son fenómenos
+independientes; ambas apuntan a que las posiciones hacia este candidato
+estaban fijadas antes del arranque formal de la campaña.
+
 \subsection{Cruces de tono entre candidatos (posicionamiento → segunda
 vuelta hacia Kast o
 Jara)}\label{cruces-de-tono-entre-candidatos-posicionamiento-segunda-vuelta-hacia-kast-o-jara}
@@ -2170,7 +2164,7 @@ diagrama.
 
 \centering{
 
-\includegraphics[width=0.83\textwidth,height=\textheight]{fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png}
+\includegraphics[width=0.85\textwidth,height=\textheight]{fig_thesis/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png}
 
 }
 
@@ -2378,6 +2372,25 @@ línea argumental; el resto se referencia desde allí. Las precisiones
 metodológicas que antes figuraban como notas bajo tablas (definición de
 variables, N, referencias de categorías) están desarrolladas en esos
 capítulos o en el texto que encabeza cada sección del anexo.
+
+\section{Presentación de
+resultados}\label{presentaciuxf3n-de-resultados}
+
+Para facilitar la lectura del anexo, se incluye a continuación una vista
+de conjunto del flujo analítico utilizado en la tesina.
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics[width=0.81\textwidth,height=\textheight]{fig_thesis/diagrama.png}
+
+}
+
+\caption{\label{fig-pipeline}Pipeline analítico: de la recolección del
+corpus a los hallazgos sustantivos.}
+
+\end{figure}%
 
 \textbf{A.1 Modelado de datos (capítulo 7)}
 
@@ -3319,7 +3332,7 @@ Marcus, G. E., Neuman, W. R., y MacKuen, M. (2000). \emph{Affective
 Intelligence and Political Judgment}. University of Chicago Press.
 
 \bibitem[\citeproctext]{ref-marwickFarRightOnlineRadicalization}
-Marwick, A., Clancy, B., y Furl, K. (s.~f.). \emph{Far-{Right Online
+Marwick, A., Clancy, B., y Furl, K. (2022). \emph{Far-{Right Online
 Radicalization}}.
 
 \bibitem[\citeproctext]{ref-mayer2021ReducingRespondentsPerceptionsBiasSurveyResearch}
@@ -3402,13 +3415,6 @@ Weeks, A. C., y Allen, P. (2022). Backlash against {«Identity
 Politics»}: Far Right Success and Mainstream Party Attention to Identity
 Groups. \emph{Politics, Groups, and Identities}, \emph{11}(5), 935-953.
 \url{https://doi.org/10.1080/21565503.2022.2065318}
-
-\bibitem[\citeproctext]{ref-winter2019OnlineHateFarRight}
-Winter, A. (2019). Online {Hate}: {From} the {Far-Right} to the
-{«{Alt-Right}»} and from the {Margins} to the {Mainstream}. En K.
-Lumsden y E. Harmer (Eds.), \emph{Online {Othering}} (pp. 39-63).
-Springer International Publishing.
-\url{https://doi.org/10.1007/978-3-030-12633-9_2}
 
 \end{CSLReferences}
 

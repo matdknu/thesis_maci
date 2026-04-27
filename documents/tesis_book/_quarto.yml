@@ -93,6 +93,9 @@ format:
 # ============================================================================
   pdf:
     keep-tex: true
+    # Evita que Quarto ejecute tlmgr automáticamente durante el render.
+    # Esto previene fallos intermitentes donde no se genera index.log.
+    latex-auto-install: false
     # Listas de figuras/tablas: varias pasadas para poblar .lof/.lot desde el .aux
     latex-min-runs: 4
     latex-max-runs: 10
