@@ -187,7 +187,7 @@ operacionalización (fuentes exactas, ventana temporal, comunidades
 muestreadas y parámetros de extracción) se expone con detalle en el
 capítulo de diseño y datos.
 
-La @fig-pipeline (anexo) sintetiza el encadenamiento entre corpus,
+La @fig-anexo-pipeline (anexo) sintetiza el encadenamiento entre corpus,
 procesamiento, modelamiento y hallazgos.
 
 

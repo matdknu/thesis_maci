@@ -79,4 +79,6 @@ El pipeline incluye técnicas de procesamiento de texto (TF-IDF, bigramas) [@hir
 
 Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis longitudinales, relacionales y discursivos integrados.
 
-Como esquema general del proceso, véase la Figura 2.1 (@fig-pipeline), presentada en el capítulo de presentación del problema.
+Como esquema general del proceso, véase la figura del anexo
+(@fig-anexo-pipeline), donde se sintetiza el encadenamiento entre corpus,
+procesamiento, modelamiento y hallazgos.

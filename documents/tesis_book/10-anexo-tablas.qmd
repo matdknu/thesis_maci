@@ -33,7 +33,7 @@ Para facilitar la lectura del anexo, se incluye a continuación una vista
 de conjunto del flujo analítico utilizado en la tesina.
 
 ![Pipeline analítico: de la recolección del corpus a los hallazgos
-sustantivos.](fig_thesis/diagrama.png){#fig-pipeline fig-align="center"
+sustantivos.](fig_thesis/diagrama.png){#fig-anexo-pipeline fig-align="center"
 width="81%"}
 
 

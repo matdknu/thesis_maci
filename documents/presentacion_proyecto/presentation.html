@@ -425,6 +425,10 @@ Matías Deneken
 </section>
 <section id="objetivo." class="slide level2">
 <h2>Objetivo:….</h2>
+<ul>
+<li>Construir y analizar un corpus longitudinal de conversación política en Reddit (agosto-diciembre 2025) para explicar cómo se articula la polarización afectiva en la competencia entre derechas.</li>
+<li>Integrar teoría social y modelado computacional en un diseño reproducible: sin teoría no hay interpretación y sin escala no hay evidencia robusta.</li>
+</ul>
 </section>
 <section id="técnicas-de-análisis-ii-uso-de-openai-y-deepseek-en-la-clasificación-de-texto" class="slide level2">
 <h2>Técnicas de análisis II: Uso de OpenAI y DeepSeek en la clasificación de texto</h2>
@@ -503,6 +507,64 @@ Matías Deneken
 <h1>Resultados</h1>
 
 </section>
+<section id="corpus-y-aporte-metodológico" class="slide level2">
+<h2>1) Corpus y aporte metodológico</h2>
+<ul>
+<li>Corpus de más de <strong>160.000 comentarios</strong>.</li>
+<li>Pipeline: Reddit → limpieza → detección de candidaturas → anotación dual GPT-4o/DeepSeek → variables discursivas → modelos → interpretación.</li>
+<li>Resultado metodológico: conversación política informal y masiva convertida en variables discursivas interpretables.</li>
+</ul>
+<blockquote>
+<p>“El primer resultado de la tesis es metodológico: muestra que es posible convertir conversación política informal, ruidosa y masiva en variables discursivas interpretables desde teoría social.”</p>
+</blockquote>
+</section>
+<section id="variables-llm-valor-agregado" class="slide level2">
+<h2>2) Variables LLM: valor agregado</h2>
+<ul>
+<li>Las variables discursivas agregan varianza propia sobre texto crudo: <strong><span class="math inline">\(\Delta R^2 = +0.187\)</span></strong>.</li>
+<li>Esto respalda el uso de LLMs como instrumentos de medición discursiva, con cautela en dimensiones de menor acuerdo.</li>
+</ul>
+</section>
+<section id="qué-explica-polarización" class="slide level2">
+<h2>3) Qué explica polarización</h2>
+<ul>
+<li>El candidato <em>target</em> no explica la polarización (<strong><span class="math inline">\(\beta \approx 0\)</span>, p = 0.818</strong>).</li>
+<li>Sí explican polarización: <strong>ira (<span class="math inline">\(\beta = 0.369\)</span>)</strong>, estrategias adversariales y tipo de hilo.</li>
+<li>Estabilidad predictiva: RandomForest <strong><span class="math inline">\(R^2 = 0.619\)</span></strong> y stacking <strong><span class="math inline">\(R^2 = 0.646\)</span></strong>.</li>
+</ul>
+<blockquote>
+<p>“La hostilidad no se explica principalmente por quién es atacado, sino por cómo se construye discursivamente el ataque.”</p>
+</blockquote>
+</section>
+<section id="frontera-política-recuperable" class="slide level2">
+<h2>4) Frontera política recuperable</h2>
+<ul>
+<li>Distinción interbloque/intrabloque recuperable desde texto corto y ruidoso: <strong><span class="math inline">\(F1\)</span>-macro = 0.725</strong>.</li>
+<li>Aporte: operacionalización computacional de una categoría teórica compleja.</li>
+</ul>
+</section>
+<section id="resultado-sustantivo-central" class="slide level2">
+<h2>5) Resultado sustantivo central</h2>
+<ul>
+<li>Diferenciación de estilos en competencia intraderecha.</li>
+<li>En confrontación entre bloques aumentan amenaza y esencialización.</li>
+<li>Síntesis: <strong>fragmentación estratégica, convergencia emocional</strong>.</li>
+</ul>
+</section>
+<section id="resultado-temporal" class="slide level2">
+<h2>6) Resultado temporal</h2>
+<ul>
+<li><strong>87,4%</strong> de autores inicialmente negativos hacia Kast mantiene esa posición durante el ciclo.</li>
+<li>La campaña parece activar y reforzar disposiciones previas más que producir polarización desde cero.</li>
+</ul>
+</section>
+<section id="cierre-de-alcance" class="slide level2">
+<h2>Cierre de alcance</h2>
+<ul>
+<li>El corpus representa <strong>cultura discursiva en Reddit</strong>, no al electorado chileno completo.</li>
+<li>Ventana observacional: <strong>agosto-diciembre 2025</strong>.</li>
+</ul>
+</section>
 <section id="menciones-agregadas-por-candidato" class="slide level2">
 <h2>Menciones agregadas por candidato</h2>
 
@@ -510,7 +572,21 @@ Matías Deneken
 <section id="evolución-temporal-de-menciones" class="slide level2">
 <h2>Evolución temporal de menciones</h2>
 
-<img data-src="../../outputs/thesis_figures/fig2_evolucion_temporal.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+<img data-src="../../outputs/thesis_figures/fig2_evolucion_temporal.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section>
+<section id="tres-historias" class="title-slide slide level1 center">
+<h1>Tres historias</h1>
+
+</section>
+<section id="la-polarización-en-el-texto-openai-y-deepseek" class="slide level2">
+<h2>La polarización en el texto: OpenAI y DeepSeek</h2>
+</section>
+<section id="marcos-interpretativos-y-predicción-de-la-polarización" class="slide level2">
+<h2>Marcos interpretativos y predicción de la polarización</h2>
+</section>
+<section id="identificación-de-los-polarizantes-y-uso-de-palabras." class="slide level2">
+<h2>Identificación de los polarizantes y uso de palabras.</h2>
+</section>
 <section id="actividad-y-polarización-de-uso-exploratorio" class="slide level2">
 <h2>Actividad y polarización de uso (exploratorio)</h2>
 

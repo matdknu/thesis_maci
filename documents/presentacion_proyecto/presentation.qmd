@@ -79,6 +79,13 @@ hola locoooo
 
 ## Objetivo:....
 
+-   Construir y analizar un corpus longitudinal de conversación política
+    en Reddit (agosto-diciembre 2025) para explicar cómo se articula la
+    polarización afectiva en la competencia entre derechas.
+-   Integrar teoría social y modelado computacional en un diseño
+    reproducible: sin teoría no hay interpretación y sin escala no hay
+    evidencia robusta.
+
 ## Técnicas de análisis II: Uso de OpenAI y DeepSeek en la clasificación de texto
 ```{=html}
 
@@ -150,6 +157,64 @@ hola locoooo
 
 
 # Resultados
+
+## 1) Corpus y aporte metodológico
+
+-   Corpus de más de **160.000 comentarios**.
+-   Pipeline: Reddit → limpieza → detección de candidaturas → anotación
+    dual GPT-4o/DeepSeek → variables discursivas → modelos →
+    interpretación.
+-   Resultado metodológico: conversación política informal y masiva
+    convertida en variables discursivas interpretables.
+
+> “El primer resultado de la tesis es metodológico: muestra que es
+> posible convertir conversación política informal, ruidosa y masiva en
+> variables discursivas interpretables desde teoría social.”
+
+## 2) Variables LLM: valor agregado
+
+-   Las variables discursivas agregan varianza propia sobre texto crudo:
+    **$\Delta R^2 = +0.187$**.
+-   Esto respalda el uso de LLMs como instrumentos de medición
+    discursiva, con cautela en dimensiones de menor acuerdo.
+
+## 3) Qué explica polarización
+
+-   El candidato *target* no explica la polarización
+    (**$\beta \approx 0$, p = 0.818**).
+-   Sí explican polarización: **ira ($\beta = 0.369$)**, estrategias
+    adversariales y tipo de hilo.
+-   Estabilidad predictiva: RandomForest **$R^2 = 0.619$** y stacking
+    **$R^2 = 0.646$**.
+
+> “La hostilidad no se explica principalmente por quién es atacado, sino
+> por cómo se construye discursivamente el ataque.”
+
+## 4) Frontera política recuperable
+
+-   Distinción interbloque/intrabloque recuperable desde texto corto y
+    ruidoso: **$F1$-macro = 0.725**.
+-   Aporte: operacionalización computacional de una categoría teórica
+    compleja.
+
+## 5) Resultado sustantivo central
+
+-   Diferenciación de estilos en competencia intraderecha.
+-   En confrontación entre bloques aumentan amenaza y esencialización.
+-   Síntesis: **fragmentación estratégica, convergencia emocional**.
+
+## 6) Resultado temporal
+
+-   **87,4%** de autores inicialmente negativos hacia Kast mantiene esa
+    posición durante el ciclo.
+-   La campaña parece activar y reforzar disposiciones previas más que
+    producir polarización desde cero.
+
+## Cierre de alcance
+
+-   El corpus representa **cultura discursiva en Reddit**, no al
+    electorado chileno completo.
+-   Ventana observacional: **agosto-diciembre 2025**.
 
 
 ## Menciones agregadas por candidato
