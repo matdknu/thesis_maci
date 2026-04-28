@@ -1,7 +1,7 @@
 ---
 title: "Derecha fragmentada y un enemigo compartido"
 subtitle: "Análisis textual longitudinal de la contestación discursiva — elecciones presidenciales 2025 (Chile)"
-author: "Matías Deneken"
+author: "Matías Javier Deneken Uribe"
 date: "Marzo 2026"
 format:
   revealjs:
@@ -15,6 +15,9 @@ format:
     margin: 0.2
     footer: " "
     css: comptext-theme.css
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ## 
@@ -23,27 +26,36 @@ format:
 
 # Problema
 
-## Elecciones presidenciales en Chile I
+## Redes sociales y democracia
 
-## Elecciones presidenciales en Chile II
+En muchas..
+
+![](images/odio.png){fig-align="center" width="503"}
+
+## Elecciones presidenciales en Chile: Nuestro laboratorio
 
 # ¿Por qué mi interés?
 
 ## Ciencias sociales computacionales / Ciencia de Datos Sociales I
 
-:::: {.columns .slide-img-text}
+::: {.columns .slide-img-text}
 ::: {.column width="40%"}
 ![](images/book.jpg){fig-align="left" width="100%"}
 :::
 
 ::: {.column width="60%"}
-> "One day I found that approximately 100 participants from Brazil had completed my experiment overnight. This seemingly small discovery had a deep impact on me. Back then, my colleagues were conducting research the traditional way — spending enormous effort recruiting, managing, and compensating participants in physical lab settings, where getting through 10 participantes in a day was considered a real achievement. Yet my internet-based study had gathered 100 participants \[...\] while I was sleeping."
+> "One day I found that approximately 100 participants from Brazil had
+> completed my experiment overnight. This seemingly small discovery had
+> a deep impact on me. Back then, my colleagues were conducting research
+> the traditional way — spending enormous effort recruiting, managing,
+> and compensating participants in physical lab settings, where getting
+> through 10 participantes in a day was considered a real achievement.
+> Yet my internet-based study had gathered 100 participants \[...\]
+> while I was sleeping."
 
 Matthew J. Salganik
-
-
 :::
-::::
+:::
 
 ## Ciencias sociales computacionales / Ciencia de Datos Sociales II
 
@@ -59,23 +71,9 @@ hola locoooo
 
 # Teoría
 
-## Relaciones intergrupales, redes sociales y debate político I
+## Redes sociales, polarización y debate político I
 
-## Relaciones intergrupales, redes sociales y debate político II
-
-
-# Sello de innovación 
-
-# Diseño de investigación
-
-
-## Datos: conversación política en Reddit
-
-::: incremental
--   Subreddits: **`r/chile`** y **`r/RepublicadeChile`**
--   Texto: títulos, cuerpos de posts y **comentarios** con línea temporal de campaña
--   Filtro por **menciones** a candidatos (regex / flags) para el foco analítico
-:::
+## Redes sociales, polarización y debate político II
 
 ## Objetivo:....
 
@@ -86,7 +84,24 @@ hola locoooo
     reproducible: sin teoría no hay interpretación y sin escala no hay
     evidencia robusta.
 
-## Técnicas de análisis II: Uso de OpenAI y DeepSeek en la clasificación de texto
+# Metodología
+
+## Acceso y fuente de datos
+
+::: incremental
+-   Subreddits: **`r/chile`** y **`r/RepublicadeChile`**
+-   Texto: títulos, cuerpos de posts y **comentarios** con línea
+    temporal de campaña
+-   Filtro por **menciones** a candidatos (regex / flags) para el foco
+    analítico
+:::
+
+## Uso de OpenAI y DeepSeek en la clasificación de texto: Consistencia
+
+-   Prompt.
+
+## Uso de OpenAI y DeepSeek en la clasificación de texto: Jerarquías
+
 ```{=html}
 
 <div style="margin: 2rem 0; font-family: 'Georgia', serif;">
@@ -145,55 +160,80 @@ hola locoooo
   </div>
 
 </div>
+```
+# Sello de innovación
 
+## ...
 
-```         
+## Del diccionario al LLM
 
+# Diseño de investigación
 
+## Datos: conversación política en Reddit
+
+# Datos obtenidos
+
+```{=html}
+<div style="
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+  <div style="
+    font-size: 9.8rem;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: #111827;
+    text-shadow: 4px 4px 0px #f3d34a;
+  ">
+    163.695
+  </div>
+  <div style="
+    margin-top: 0.8rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #1f2937;
+  ">
+    comentarios en el corpus
+  </div>
+  <div style="
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+    color: #374151;
+    letter-spacing: 0.2px;
+  ">
+    1 de agosto de 2025 al 31 de diciembre de 2025
+  </div>
+</div>
+```
 # Depuración de datos
-
 
 # Evidencia
 
-
 # Resultados
 
-## 1) Corpus y aporte metodológico
-
--   Corpus de más de **160.000 comentarios**.
 -   Pipeline: Reddit → limpieza → detección de candidaturas → anotación
     dual GPT-4o/DeepSeek → variables discursivas → modelos →
     interpretación.
 -   Resultado metodológico: conversación política informal y masiva
     convertida en variables discursivas interpretables.
 
-> “El primer resultado de la tesis es metodológico: muestra que es
+> El primer resultado de la tesis es metodológico: muestra que es
 > posible convertir conversación política informal, ruidosa y masiva en
-> variables discursivas interpretables desde teoría social.”
+> variables discursivas interpretables desde teoría social
 
 ## 2) Variables LLM: valor agregado
 
--   Las variables discursivas agregan varianza propia sobre texto crudo:
-    **$\Delta R^2 = +0.187$**.
--   Esto respalda el uso de LLMs como instrumentos de medición
-    discursiva, con cautela en dimensiones de menor acuerdo.
-
-## 3) Qué explica polarización
-
--   El candidato *target* no explica la polarización
-    (**$\beta \approx 0$, p = 0.818**).
--   Sí explican polarización: **ira ($\beta = 0.369$)**, estrategias
-    adversariales y tipo de hilo.
--   Estabilidad predictiva: RandomForest **$R^2 = 0.619$** y stacking
-    **$R^2 = 0.646$**.
-
-> “La hostilidad no se explica principalmente por quién es atacado, sino
-> por cómo se construye discursivamente el ataque.”
+-   
 
 ## 4) Frontera política recuperable
 
 -   Distinción interbloque/intrabloque recuperable desde texto corto y
-    ruidoso: **$F1$-macro = 0.725**.
+    ruidoso: $F1$-macro = 0.725.
 -   Aporte: operacionalización computacional de una categoría teórica
     compleja.
 
@@ -216,25 +256,44 @@ hola locoooo
     electorado chileno completo.
 -   Ventana observacional: **agosto-diciembre 2025**.
 
-
 ## Menciones agregadas por candidato
 
-![](../../outputs/thesis_figures/fig1_distribucion_menciones.png){.r-stretch fig-align="center"}
+![](images/fig_count_facet_candidatos.png){fig-align="center"}
 
-## Evolución temporal de menciones
-
-![](../../outputs/thesis_figures/fig2_evolucion_temporal.png){.r-stretch fig-align="center"}
+## 
 
 # Tres historias
 
-## La polarización en el texto: OpenAI y DeepSeek
-## Marcos interpretativos y predicción de la polarización
-## Identificación de los polarizantes y uso de palabras.
+# La polarización en el texto: OpenAI y DeepSeek
 
+## Polarización afectiva
 
-## Actividad y polarización de uso (exploratorio)
+![](images/serie_polarizacion_candidatos.png){fig-align="center"}
 
-![](../../outputs/thesis_figures/fig_engagement_candidatos.png){.r-stretch fig-align="center"}
+# Estrategias de ataques y emoción textual
+
+# Identificación de la polarización
+
+## .
+
+-   El objetivo del ataque no importante, en realidad.
+
+-   La hostilidad no depende de quién se dirige el mensaje, sino que de
+    la performance.
+
+-   Se esparse odio.... (aquí mostrar el gráfico).
+
+-   El candidato *target* no explica la polarización ($\beta \approx 0$,
+    p = 0.818).
+
+-   Sí explican polarización: **ira (**$\beta = 0.369$), estrategias
+    adversariales y tipo de hilo.
+
+-   Estabilidad predictiva: RandomForest $R^2 = 0.619$ y stacking
+    $R^2 = 0.646$.
+
+> “La hostilidad no se explica principalmente por quién es atacado, sino
+> por cómo se construye discursivamente el ataque.”
 
 ## Herramientas NLP (extracto)
 
@@ -247,8 +306,10 @@ hola locoooo
 
 ## Entregables abiertos
 
--   **Libro** (HTML + PDF): [GitHub Pages](https://matdknu.github.io/thesis_maci/)
--   **Shiny**: [reddit-politico-chile](https://matdknu.shinyapps.io/reddit-politico-chile/)
+-   **Libro** (HTML + PDF): [GitHub
+    Pages](https://matdknu.github.io/thesis_maci/)
+-   **Shiny**:
+    [reddit-politico-chile](https://matdknu.shinyapps.io/reddit-politico-chile/)
 -   **OSF / DOI**: [osf.io/nqb3g](https://osf.io/nqb3g/)
 
 ##  {#thank-you-slide}
@@ -260,7 +321,7 @@ hola locoooo
 
 *Análisis textual longitudinal — Chile 2025*
 
-**Matías Deneken**
+**Matías Javier Deneken Uribe**
 
 *Tesis presentada para obtención de Magíster en Ciencia de Datos*
 
