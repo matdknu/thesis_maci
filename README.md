@@ -66,7 +66,6 @@ thesis_maci/
 │   ├── README.md                   # Índice: scrapping → análisis
 │   ├── analisis/
 │   └── scrapping/
-├── wiki/                           # Páginas Markdown para pegar en la Wiki del repo
 ├── shiny_app/                     # Dashboard opcional (datos grandes no van al repo público)
 └── README.md                      # Este archivo
 ```
@@ -77,26 +76,12 @@ thesis_maci/
 
 ---
 
-## 📑 Wiki del proyecto (`wiki/` ≠ diapos de defensa)
-
-En la carpeta **[`wiki/`](wiki/)** hay páginas en Markdown listas para **copiarlas a la pestaña Wiki del repositorio** en GitHub o para **leerlas en local**. No son parte del libro Quarto ni de la tesina compilada:
-
-| Página | Contenido |
-|--------|-----------|
-| [`wiki/Home.md`](wiki/Home.md) | Portada: navegación, resumen, enlaces rápidos |
-| [`wiki/Analisis-de-texto-computacional.md`](wiki/Analisis-de-texto-computacional.md) | Comp text: pipeline NLP, herramientas, scripts, entregables |
-| [`wiki/Flujo-de-trabajo.md`](wiki/Flujo-de-trabajo.md) | Scraping → procesamiento → análisis → libro |
-| [`wiki/Enlaces-y-recursos.md`](wiki/Enlaces-y-recursos.md) | DOI, OSF, BibTeX |
-| [`wiki/_Sidebar.md`](wiki/_Sidebar.md) | Menú lateral (pegar en *Wiki → Edit sidebar* en GitHub) |
-
----
-
 ## 🖥 Presentación oral (diapositivas)
 
-Esto es **solo la presentación** (defensa u exposición en diapos Reveal): **no** es la Wiki de GitHub ni el libro de la tesina.
+Esta sección corresponde **solo a la presentación** (defensa/exposición en Reveal).
 
 - Fuente: [`documents/presentacion_proyecto/presentation.qmd`](documents/presentacion_proyecto/presentation.qmd)
-- Render: dentro de esa carpeta, `quarto render presentation.qmd` → `presentation.html` (estilo COMPTEXT / uso académico tipo wiki Chile).
+- Render: dentro de esa carpeta, `quarto render presentation.qmd` → `presentation.html`.
 
 ---
 
