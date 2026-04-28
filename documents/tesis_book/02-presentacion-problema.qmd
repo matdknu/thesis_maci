@@ -23,6 +23,11 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 } else {
   stop("Falta documents/tesis_book/includes/apa_tables.R")
 }
+
+tablas_xlsx <- file.path("data", "tablas_tesis.xlsx")
+if (!file.exists(tablas_xlsx)) {
+  stop("Falta documents/tesis_book/data/tablas_tesis.xlsx")
+}
 ```
 
 ## Dónde y con qué datos se estudia el fenómeno
@@ -118,35 +123,21 @@ La tesina se focaliza en cuatro candidaturas que representan
 posiciones distintivas en el espectro político chileno. Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
 derechas y un adversario común de izquierda.
 
+
 ```{r tbl-candidaturas-actores}
 #| tbl-cap: "Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024."
-actores_tbl <- data.frame(
-  Actor = c(
-    "Evelyn Matthei",
-    "José Antonio Kast",
-    "Johannes Kaiser",
-    "Jeannette Jara"
-  ),
-  Posición = c(
-    "Derecha tradicional",
-    "Derecha radical y conservadora",
-    "Derecha libertaria",
-    "Izquierda (PC)"
-  ),
-  `Base social` = c(
-    "Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).",
-    "Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%).",
-    "Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.",
-    "Fuerte en Región Metropolitana (56,9%); estratos medios (C2-C3); electorado altamente ideologizado (62,6% se identifica como centroizquierda)."
-  ),
-  check.names = FALSE
-)
-kable_apa(
-  actores_tbl,
-  caption = NULL,
-  align = "lll",
-  scale_down = knitr::is_latex_output()
-)
+actores_tbl <- readxl::read_excel(tablas_xlsx, sheet = "tabla_2_1")
+actores_tbl |>
+  knitr::kable(align = c("l", "l", "l")) |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options     = c("striped"),
+    full_width        = FALSE,
+    font_size         = 10
+  ) |>
+  kableExtra::column_spec(1, width = "4.2cm") |>
+  kableExtra::column_spec(2, width = "4.2cm") |>
+  kableExtra::column_spec(3, width = "6cm")
 ```
 
 
@@ -274,48 +265,30 @@ El producto mínimo viable de esta tesina consiste en:
 > adversarios de cada corriente ideológica, y que documente su evolución
 > a lo largo del ciclo electoral (de agosto a diciembre de 2025).
 
+
 ### Objetivos operacionales y entregables
 
 La planificación operativa del estudio se detalla en la
 @tbl-objetivos-mvp.
 
-```{r tbl-objetivos-mvp}
-#| tbl-cap: "Objetivos operacionales, entregables e indicadores de cumplimiento del MVP."
-objetivos_tbl <- data.frame(
-  Objetivo = c(
-    "O1: Construir corpus",
-    "O2: Mapear emociones",
-    "O3: Analizar encuadres",
-    "O4: Analizar adversarios",
-    "O5: Documentar evolución",
-    "O6: Sintetizar hallazgos"
-  ),
-  Entregable = c(
-    "Base de datos estructurada",
-    "Perfiles emocionales por candidatura",
-    "Distribución de marcos por corriente",
-    "Red de antagonismos",
-    "Serie temporal",
-    "Capítulos de resultados"
-  ),
-  `Indicador de cumplimiento` = c(
-    "$\\geq 1000$ posts y $\\geq 10.000$ comentarios con menciones políticas",
-    "Clasificación de polarización y emociones",
-    "Comparación de frames entre candidaturas y fases electorales",
-    "Matriz de menciones cruzadas con valencia",
-    "Análisis por fase electoral (precampaña, campaña, segunda vuelta)",
-    "Respuesta fundamentada a cada pregunta de investigación"
-  ),
-  check.names = FALSE
-)
-kable_apa(
-  objetivos_tbl,
-  caption = NULL,
-  align = "lll",
-  scale_down = knitr::is_latex_output()
-)
+```{=latex}
+\newpage
 ```
 
+```{r tbl-objetivos-mvp}
+#| tbl-cap: "Objetivos operacionales, entregables e indicadores de cumplimiento del MVP."
+objetivos_tbl <- readxl::read_excel(tablas_xlsx, sheet = "tabla_2_2")
+objetivos_tbl |>
+  knitr::kable(align = c("l", "l", "l")) |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options     = c("striped"),
+    full_width        = FALSE
+  ) |> 
+  kableExtra::column_spec(1, width = "4.2cm") |>
+  kableExtra::column_spec(2, width = "4.2cm")   |>
+  kableExtra::column_spec(3, width = "6.5cm")
+```
 
 ### Alcances y limitaciones anticipadas
 

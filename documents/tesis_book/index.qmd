@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 ::: {.thesis-cover-meta}
 Tesina presentada para optar al grado de **Magíster en Ciencia de Datos para la Innovación**.
 
-**Matías Deneken**  
+**Matías Javier Deneken Uribe**  
 
 **Profesores guías:** Dr. Carlos Navarrete · Dr. Marcela Parada
 
@@ -59,7 +59,7 @@ Al final del viaje partiremos de nuevo.
 
 # Presentación {.unnumbered}
 
-Esta investigación analiza la conversación política en Reddit durante la
+Esta tesina analiza la conversación política en Reddit durante la
 campaña presidencial chilena de 2025, con foco en tres fenómenos
 interrelacionados: la polarización afectiva en el debate digital, la
 reconfiguración discursiva de las derechas chilenas y la construcción de

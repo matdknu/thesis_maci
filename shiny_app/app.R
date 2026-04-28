@@ -644,7 +644,7 @@ ui <- dashboardPage(
               style = "color: #7f8c8d; font-size: 14px; line-height: 1.8; margin: 0;",
               "Desarrollado por",
               tags$br(),
-              tags$strong("Matías Deneken", style = "color: #2c3e50; font-size: 16px;"),
+              tags$strong("Matías Javier Deneken Uribe", style = "color: #2c3e50; font-size: 16px;"),
               tags$br(),
               "Sociólogo | Mag. en Sociología | Mg. (c) en Ciencia de Datos"
             )

@@ -15,18 +15,25 @@
 
 ## 👤 Autor
 
-**Matías Deneken**  
+**Matías Javier Deneken Uribe**  
 Centro de Datos e Inteligencia Artificial  
 Universidad de Concepción
 
 **Profesores Guías:**  
 Dr. Carlos Navarrete | Dr. Marcela Parada
 
-**Fecha:** Marzo 2026
+**Fecha:** Abril 2026
 
 ---
 
-## 📖 Descripción
+## Repositorio público: alcance en GitHub vs. OSF
+
+Este repositorio está pensado para **versionar solo lo necesario para leer y reconstruir el libro**: texto Quarto/BibTeX, figuras que cita la tesis, scripts del flujo principal y datos tabulares mínimos auxiliares. **No forma parte del objetivo** subir el corpus Reddit completo, claves API, borradores de revisión, ni duplicados de salidas grandes que pudieran **sustituir** resultados reproducibles desde código sin auditoría (`data/raw/`, parquet/CVS voluminosos, etc.) — esos materiales están documentados o concentrados en el **OSF** (véase DOI enlazado abajo).
+
+- **GitHub (este repo):** estructura de scripts, libro (fuente + `docs/` para GitHub Pages), tablas parametrizadas en Excel cuando aplican (`documents/tesis_book/data/tablas_tesis.xlsx`), figuras bajo `documents/tesis_book/fig_thesis/`.
+- **OSF / proyecto ampliado:** datos y materiales voluminosos, copia de respaldo abierta conforme a la práctica habitual de la disciplina.
+
+---
 
 Este proyecto analiza la fragmentación de la derecha chilena y la construcción de un adversario compartido durante la campaña presidencial de 2025, utilizando técnicas computacionales de análisis de texto y redes sociales.
 
@@ -41,45 +48,32 @@ El análisis examina discusiones políticas en Reddit (`r/chile` y `r/Republicad
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura del proyecto (rama medular)
 
 ```
-📦 thesis_maci
-├── 📚 documents/tesis_book/       # Libro de tesis (Quarto)
-│   ├── index.qmd                  # Portada y preliminares
-│   ├── 01-introduccion.qmd
-│   ├── 02-presentacion-problema.qmd
-│   ├── 03-obtencion-datos.qmd
-│   ├── 04-depuracion-datos.qmd
-│   ├── 05-exploracion-datos.qmd
-│   ├── 06-modelado-datos.qmd
-│   ├── 07-interpretacion-resultados.qmd
-│   ├── 08-conclusion.qmd
-│   └── references.qmd
-│
-├── 🔬 scripts/Tesis/              # Scripts de análisis
-│   ├── 01_filtrar_data.R
-│   ├── 02_merge_raw_data.py
-│   ├── 03_descriptivos_tesis.R
-│   ├── 04_visualizaciones_tesis.R
-│   ├── 05_analisis_textual_posts.R
-│   ├── 10_modelado.R
-│   ├── 12_ml_text_analysis.R
-│   ├── ORDEN_EJECUCION.md
-│   └── scraping_outputs/          # Scripts de web scraping
-│
-├── 📊 shiny_app/                  # Aplicación interactiva
-│   ├── app.R                      # Dashboard Shiny
-│   ├── README.md
-│   └── www/                       # Assets (imágenes, CSS)
-│
-├── 📄 informes/                   # Informes intermedios
-├── 📚 bibliografia/               # Referencias bibliográficas
-└── 📋 requirements.txt            # Dependencias Python
-
+thesis_maci/
+├── bibliografia/
+│   └── bittex.bib                 # BibTeX (la tesina enlaza con rutas relativas)
+├── docs/                           # Sitio compilado para GitHub Pages (`quarto render` desde documents/tesis_book)
+├── documents/
+│   ├── presentacion_proyecto/      # Presentación (Reveal): presentation.qmd
+│   └── tesis_book/                 # Libro Quarto (.qmd cap. 01–11, annexos, references)
+│       ├── _quarto.yml
+│       ├── fig_thesis/             # Figuras/CSV ligados como activos del PDF/HTML
+│       ├── includes/               # p. ej. helper de tablas APA
+│       └── data/tablas_tesis.xlsx # Tablas parametrizadas (no el corpus Reddit)
+├── scripts/
+│   ├── README.md                   # Índice: scrapping → análisis
+│   ├── analisis/
+│   └── scrapping/
+├── wiki/                           # Páginas Markdown para pegar en la Wiki del repo
+├── shiny_app/                     # Dashboard opcional (datos grandes no van al repo público)
+└── README.md                      # Este archivo
 ```
 
-> **⚠️ Nota sobre datos:** La carpeta `data/` no está incluida en este repositorio por razones de privacidad. Los datos fueron recopilados de Reddit siguiendo las políticas de la plataforma.
+**Qué no se espera aquí:** datos crudos/extensos (`.csv`/`.parquet` bajo rutas definidas por `.gitignore`), claves o tokens (`claves_*`, `.env`), borradores de revisión externa (`revision/`), renders sueltos en la raíz (`Rplots.pdf`). El **OSF** agrupa corpus, respaldos y materiales voluminosos; aquí sólo debe quedar lo que permite auditoría reproducible desde scripts + texto.
+
+> El libro se compila desde `documents/tesis_book/`; la salida publicada suele estar en **`docs/`** (según `_quarto.yml`).
 
 ---
 
@@ -154,7 +148,9 @@ quarto render --to pdf
 quarto render --to html
 ```
 
-El output se generará en `documents/tesis_book/_book/`.
+El output del libro Quarto está configurado en **`../../docs`** (véase `documents/tesis_book/_quarto.yml`, `project.output-dir`): GitHub Pages apunta habitualmente ahí tras `quarto render`.
+
+**GitHub Pages:** hay que **versionar `docs/site_libs/` por completo** (Bootstrap, `quarto-html`, `quarto-nav`, `quarto-search`, clipboard, etc.). Si en el remoto faltan esas carpetas, el sitio carga el HTML **sin CSS/JS** y se ve “roto”; el `index.html` enlaza a `site_libs/bootstrap/...` y similares — confirma con `git add docs/site_libs/` antes del push.
 
 ### 🌐 Ejecutar la Aplicación Shiny
 
@@ -234,7 +230,7 @@ Si utilizas este trabajo en tu investigación, por favor cita:
 @mastersthesis{deneken2026derecha,
   title   = {Derecha fragmentada y un enemigo compartido: Análisis textual longitudinal 
              de la contestación discursiva en las elecciones presidenciales de 2025 en Chile},
-  author  = {Deneken, Matías},
+  author  = {Deneken Uribe, Mat{\'{\i}}as Javier},
   year    = {2026},
   school  = {Universidad de Concepción},
   type    = {Tesina de Magíster en Ciencia de Datos},
@@ -255,7 +251,7 @@ Este proyecto es de **uso académico**. Los datos de Reddit están sujetos a las
 
 ## 📞 Contacto
 
-**Matías Deneken**  
+**Matías Javier Deneken Uribe**  
 📧 Email: [contacto@ejemplo.cl](mailto:contacto@ejemplo.cl)  
 🔗 GitHub: [@matdknu](https://github.com/matdknu)  
 🏛️ Centro de Datos e Inteligencia Artificial - Universidad de Concepción

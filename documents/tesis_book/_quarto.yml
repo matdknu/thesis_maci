@@ -59,7 +59,7 @@ format:
   html:
     title: "Derecha fragmentada y un enemigo compartido"
     subtitle: "Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025"
-    author: "Matías Deneken"
+    author: "Matías Javier Deneken Uribe"
     language: es
     lang: es
     # Citas: locale es-ES (p. ej. «y» entre autores) y formato autor-fecha (Autor, año)
@@ -92,6 +92,9 @@ format:
 # FORMATO PDF
 # ============================================================================
   pdf:
+    # Portada antes del índice y de Agradecimientos (si va en index.qmd, Pandoc
+    # puede emitir \\chapter*{Agradecimientos} antes del bloque {=latex}).
+    include-before-body: portada_pdf.tex
     keep-tex: true
     # Evita que Quarto ejecute tlmgr automáticamente durante el render.
     # Esto previene fallos intermitentes donde no se genera index.log.
@@ -143,10 +146,6 @@ format:
     
     # Fuente y espaciado (1,35 ≈ un tercio más que sencillo; antes 1,5)
     linestretch: 1.25
-    
-    # Portada antes del contenido
-    include-before-body:
-      - portada.tex
     
     # Cabecera LaTeX
     include-in-header:

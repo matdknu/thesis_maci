@@ -20,6 +20,11 @@ if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
 } else {
   stop("Falta documents/tesis_book/includes/apa_tables.R")
 }
+
+tablas_xlsx <- file.path("data", "tablas_tesis.xlsx")
+if (!file.exists(tablas_xlsx)) {
+  stop("Falta documents/tesis_book/data/tablas_tesis.xlsx")
+}
 ```
 
 ## Diseño de investigación {#sec-diseno}
@@ -46,28 +51,20 @@ Los datos fueron extraídos mediante la API pública de Reddit utilizando la lib
 
 ### Período de recolección y fases del ciclo electoral
 
-La recolección abarcó cinco meses, del 1 de agosto al 31 de diciembre de
-2025, cubriendo las siguientes fases del ciclo electoral:
+La recolección abarcó cinco meses, del 1 de agosto al 31 de diciembre de 2025, cubriendo las siguientes fases del ciclo electoral:
 
 ```{r tbl-fases-ciclo-electoral}
 #| tbl-cap: "Fases del ciclo electoral cubiertas en la recolección."
-fases_tbl <- data.frame(
-  `Período` = c(
-    "Agosto-octubre 2025",
-    "Noviembre-diciembre 2025"
-  ),
-  `Fase electoral` = c(
-    "Emergencia de candidaturas, posicionamiento inicial, primeras definiciones programáticas",
-    "Escalamiento de campaña, consolidación electoral, estructuración del debate público"
-  ),
-  check.names = FALSE
-)
-kable_apa(
-  fases_tbl,
-  caption = NULL,
-  align = "ll",
-  scale_down = knitr::is_latex_output()
-)
+fases_tbl <- readxl::read_excel(tablas_xlsx, sheet = "tabla_4_1")
+fases_tbl |>
+  knitr::kable(align = c("l", "l")) |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options     = c("striped"),
+    full_width        = FALSE
+  ) |> 
+  kableExtra::column_spec(1, width = "5cm") |>
+  kableExtra::column_spec(2, width = "5cm") 
 ```
 
 ### Estrategia de extracción incremental
@@ -78,40 +75,18 @@ El proceso fue incremental y acumulativo, ejecutado en múltiples iteraciones en
 
 Para cada publicación dentro del rango temporal se extrajeron dos niveles de registro. A nivel de publicación se conservaron el título, el cuerpo (*selftext*), el autor, la fecha, la puntuación, el número de comentarios y el *flair* temático. A nivel de comentario se conservaron el cuerpo, el autor, la fecha, la puntuación y el identificador del comentario al que responde.
 
-El filtrado temático se realizó mediante expresiones regulares que
-detectan menciones de las cuatro candidaturas de interés, manejando
-variaciones ortográficas (acentuación, nombres completos vs. apellidos,
-apodos y errores tipográficos frecuentes):
+El filtrado temático se realizó mediante expresiones regulares que detectan menciones de las cuatro candidaturas de interés, manejando variaciones ortográficas (acentuación, nombres completos vs. apellidos, apodos y errores tipográficos frecuentes):
 
 ```{r tbl-candidaturas}
 #| tbl-cap: "Candidaturas objetivo y patrones de detección."
-candidaturas_tbl <- data.frame(
-  Candidatura = c(
-    "Evelyn Matthei",
-    "José Antonio Kast",
-    "Johannes Kaiser",
-    "Jeannette Jara"
-  ),
-  `Corriente ideológica` = c(
-    "Derecha tradicional",
-    "Derecha radical y conservadora",
-    "Derecha libertaria",
-    "Izquierda (PC)"
-  ),
-  `Patrones de búsqueda` = c(
-    "`matthei`, `matei`, `evelyn`",
-    "`kast`, `jose antonio kast`, `jak`",
-    "`kaiser`, `johannes`, `jkaiser`",
-    "`jara`, `jeannette`, `jeanette`"
-  ),
-  check.names = FALSE
-)
-kable_apa(
-  candidaturas_tbl,
-  caption = NULL,
-  align = "lll",
-  scale_down = knitr::is_latex_output()
-)
+candidaturas_tbl <- readxl::read_excel(tablas_xlsx, sheet = "tabla_4_2")
+candidaturas_tbl |>
+  knitr::kable(align = c("l", "l", "l")) |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options     = c("striped"),
+    full_width        = FALSE
+  ) 
 ```
 
 Esta selección permite analizar tanto la competencia al interior de la derecha entre tres corrientes como la convergencia discursiva frente al adversario ideológico común (ver @tbl-candidaturas).
@@ -130,6 +105,4 @@ El pipeline incluye técnicas de procesamiento de texto (TF-IDF, bigramas) [@hir
 
 Los desacuerdos entre modelos se utilizan como señal de ambigüedad y se resuelven mediante revisión humana o criterios adicionales. El corpus final incluye publicaciones y comentarios de r/chile y r/RepublicadeChile durante todo el ciclo electoral, permitiendo análisis longitudinales, relacionales y discursivos integrados.
 
-Como esquema general del proceso, véase la figura del anexo
-(@fig-anexo-pipeline), donde se sintetiza el encadenamiento entre corpus,
-procesamiento, modelamiento y hallazgos.
+Como esquema general del proceso, véase la figura del anexo (@fig-anexo-pipeline), donde se sintetiza el encadenamiento entre corpus, procesamiento, modelamiento y hallazgos.

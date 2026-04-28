@@ -52,6 +52,9 @@ Cuando el enemigo es externo al bloque, se recurre a estrategias que lo
 presentan como amenaza esencial; cuando la disputa es interna, predomina
 un registro más irónico y deslegitimador.
 
+```{=latex}
+\newpage
+```
 ```{r tbl-estrategia-frontera}
 #| tbl-cap: "Estrategias discursivas por tipo de frontera política."
 ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
@@ -235,8 +238,11 @@ hostilidad es ambiental, no focalizada.
 #| echo: false
 path_atlas_global <- file.path(base_out, "3d_atlas_v1_globales.png")
 if (file.exists(path_atlas_global)) {
-  cat('![Atlas global 3D: temas, candidatos, polarización y emociones.](fig_thesis/3d_atlas_v1_globales.png){#fig-3d-atlas-global-v1 fig-align="center" width="81%"}\n')
+  cat('![Atlas global 3D: temas, candidatos, polarización y emociones.](fig_thesis/3d_atlas_v1_globales.png){#fig-3d-atlas-global-v1 fig-align="center" width="70%"}\n')
 } else {
   cat("_(Ejecutar `scripts/analisis/12_make_global_3d_atlas.py` para generar `3d_atlas_v1_globales.png`.)_\n")
 }
 ```
+
+
+
