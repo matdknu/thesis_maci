@@ -29,10 +29,27 @@ data/**/*.numbers
 !documents/tesis_book/fig_thesis/*.png
 !documents/tesis_book/fig_thesis/*.csv
 
+# Presentación Reveal (`presentation.qmd`, HTML, imágenes): se mantiene íntegra en el repositorio —
+# no usar aquí patrones que excluyan `documents/presentacion_proyecto/`.
+
 # Backups y artefactos temporales
 backups/
 scripts/analisis/__pycache__/
 scripts/analisis/*.pyc
+
+# Borradores de revisión y PDF locales sueltos (no libro publicado desde Quarto en docs/)
+revision/
+/Rplots.pdf
+
+# Entornos virtuales locales
+.venv/
+venv/
+
+# Materiales bibliográficos didácticos grandes (opcional fuera del control de versiones)
+bibliografia/Speech and Language Processing/
+
+# Claves/API (lista no exhaustiva; ver también scripts/... incluidos locales)
+**/claves_Api
 
 # Cachés de Quarto/knitr (no afectan al PDF final)
 documents/tesis_book/_freeze/
