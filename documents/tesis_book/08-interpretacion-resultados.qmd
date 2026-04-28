@@ -53,6 +53,7 @@ presentan como amenaza esencial; cuando la disputa es interna, predomina
 un registro más irónico y deslegitimador.
 
 ```{r tbl-estrategia-frontera}
+#| tbl-cap: "Estrategias discursivas por tipo de frontera política."
 ef <- read_or_empty(file.path(base_out, "estrategia_por_frontera.csv"))
 if (nrow(ef)) {
   ef <- data.frame(
@@ -70,7 +71,7 @@ if (nrow(ef)) {
   )
   kable_apa(
     ef,
-    caption = "Estrategias discursivas por tipo de frontera política.",
+    caption = NULL,
     align = "lrrr",
     landscape = FALSE,
     scale_down = FALSE

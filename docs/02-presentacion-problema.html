@@ -92,36 +92,9 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -323,53 +296,53 @@ window.Quarto = {
 <h2 data-number="2.3" class="anchored" data-anchor-id="acercamiento-actores-dimensiones-y-niveles-de-análisis"><span class="header-section-number">2.3</span> Acercamiento: actores, dimensiones y niveles de análisis</h2>
 <section id="los-actores-tres-derechas-y-un-adversario" class="level3">
 <h3 class="anchored" data-anchor-id="los-actores-tres-derechas-y-un-adversario">Los actores: tres derechas y un adversario</h3>
-<p>La tesina se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno:</p>
-<div id="tbl-candidaturas-actores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>La tesina se focaliza en cuatro candidaturas que representan posiciones distintivas en el espectro político chileno. Como se observa en la <a href="#tbl-candidaturas-actores" class="quarto-xref">Tabla&nbsp;<span>2.1</span></a>, el diseño compara tres derechas y un adversario común de izquierda.</p>
+<div class="cell">
+<div id="tbl-candidaturas-actores" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-candidaturas-actores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;2.1: Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudadano / Activa Research, 15–17 de octubre de 2024.
+Tabla&nbsp;2.1: Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.
 </figcaption>
 <div aria-describedby="tbl-candidaturas-actores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 14%">
-<col style="width: 76%">
-</colgroup>
+<div class="cell-output-display">
+<table class="table table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th>Actor</th>
-<th>Posición</th>
-<th>Base social</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Actor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Posición</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Base social</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Evelyn Matthei</td>
-<td>Derecha tradicional</td>
-<td>Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1–C2); alta proporción sin identificación política (40,1%).</td>
+<td style="text-align: left;">Evelyn Matthei</td>
+<td style="text-align: left;">Derecha tradicional</td>
+<td style="text-align: left;">Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).</td>
 </tr>
 <tr class="even">
-<td>José Antonio Kast</td>
-<td>Derecha radical y conservadora</td>
-<td>Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%).</td>
+<td style="text-align: left;">José Antonio Kast</td>
+<td style="text-align: left;">Derecha radical y conservadora</td>
+<td style="text-align: left;">Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%).</td>
 </tr>
 <tr class="odd">
-<td>Johannes Kaiser</td>
-<td>Derecha libertaria</td>
-<td>Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3–D/E); presencia en sur y centro del país.</td>
+<td style="text-align: left;">Johannes Kaiser</td>
+<td style="text-align: left;">Derecha libertaria</td>
+<td style="text-align: left;">Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.</td>
 </tr>
 <tr class="even">
-<td>Jeannette Jara</td>
-<td>Izquierda (PC)</td>
-<td>Fuerte en Región Metropolitana (56,9%); estratos medios (C2–C3); electorado altamente ideologizado (62,6% se identifica como centroizquierda).</td>
+<td style="text-align: left;">Jeannette Jara</td>
+<td style="text-align: left;">Izquierda (PC)</td>
+<td style="text-align: left;">Fuerte en Región Metropolitana (56,9%); estratos medios (C2-C3); electorado altamente ideologizado (62,6% se identifica como centroizquierda).</td>
 </tr>
 </tbody>
 </table>
+
+
+</div>
 </div>
 </figure>
 </div>
-<p>Como se observa en la <a href="#tbl-candidaturas-actores" class="quarto-xref">Tabla&nbsp;<span>2.1</span></a>, el diseño compara tres derechas y un adversario común de izquierda.</p>
+</div>
 <p>Más allá de la síntesis del inicio de este capítulo, conviene afinar el papel de los datos. El corpus se alimenta solo de contenido público en Reddit (definido arriba), reunido con la API oficial, sometido a criterio de filtrado por mención de candidaturas; el procedimiento, la ventana exacta, la lógica incremental de descarga y las salvaguardas éticas se exponen con detalle en el <a href="04-diseno.html#sec-diseno" class="quarto-xref"><span>Sección 4.1</span></a>. En síntesis, el estudio observa el debate político donde deja rastro trazable en r/chile y r/RepublicadeChile, sin confundirlo con el electorado completo. En la literatura, las propiedades de Reddit (comunidades temáticas, anidación de comentarios, énfasis relativo en el argumento) han facilitado el análisis de polarización y <em>framing</em> en contextos comparados <span class="citation" data-cites="defranciscimorales2021NoEchoChambers duguay2022ReadItReddit">(<a href="references.html#ref-defranciscimorales2021NoEchoChambers" role="doc-biblioref">De Francisci Morales et&nbsp;al., 2021</a>; <a href="references.html#ref-duguay2022ReadItReddit" role="doc-biblioref">Duguay, 2022</a>)</span>.</p>
 <section id="selección-de-actores-lo-que-la-selección-permite-observar" class="level4">
 <h4 class="anchored" data-anchor-id="selección-de-actores-lo-que-la-selección-permite-observar">Selección de actores (lo que la selección permite observar)</h4>
@@ -411,62 +384,63 @@ Tabla&nbsp;2.1: Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudad
 </section>
 <section id="objetivos-operacionales-y-entregables" class="level3">
 <h3 class="anchored" data-anchor-id="objetivos-operacionales-y-entregables">Objetivos operacionales y entregables</h3>
-<div id="tbl-objetivos-mvp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>La planificación operativa del estudio se detalla en la <a href="#tbl-objetivos-mvp" class="quarto-xref">Tabla&nbsp;<span>2.2</span></a>.</p>
+<div class="cell">
+<div id="tbl-objetivos-mvp" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-objetivos-mvp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;2.2: Objetivos operacionales, entregables e indicadores de cumplimiento del MVP.
 </figcaption>
 <div aria-describedby="tbl-objetivos-mvp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 27%">
-<col style="width: 45%">
-</colgroup>
+<div class="cell-output-display">
+<table class="table table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th>Objetivo</th>
-<th>Entregable</th>
-<th>Indicador de cumplimiento</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Objetivo</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Entregable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Indicador de cumplimiento</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>O1: Construir corpus</td>
-<td>Base de datos estructurada</td>
-<td><span class="math inline">\(\geq 1000\)</span> posts y <span class="math inline">\(\geq 10.000\)</span> comentarios con menciones políticas</td>
+<td style="text-align: left;">O1: Construir corpus</td>
+<td style="text-align: left;">Base de datos estructurada</td>
+<td style="text-align: left;">$\geq 1000$ posts y $\geq 10.000$ comentarios con menciones políticas</td>
 </tr>
 <tr class="even">
-<td>O2: Mapear emociones</td>
-<td>Perfiles emocionales por candidatura</td>
-<td>Clasificación de polarización y emociones</td>
+<td style="text-align: left;">O2: Mapear emociones</td>
+<td style="text-align: left;">Perfiles emocionales por candidatura</td>
+<td style="text-align: left;">Clasificación de polarización y emociones</td>
 </tr>
 <tr class="odd">
-<td>O3: Analizar encuadres</td>
-<td>Distribución de marcos por corriente</td>
-<td>Comparación de frames entre candidaturas y fases electorales</td>
+<td style="text-align: left;">O3: Analizar encuadres</td>
+<td style="text-align: left;">Distribución de marcos por corriente</td>
+<td style="text-align: left;">Comparación de frames entre candidaturas y fases electorales</td>
 </tr>
 <tr class="even">
-<td>O4: Analizar adversarios</td>
-<td>Red de antagonismos</td>
-<td>Matriz de menciones cruzadas con valencia</td>
+<td style="text-align: left;">O4: Analizar adversarios</td>
+<td style="text-align: left;">Red de antagonismos</td>
+<td style="text-align: left;">Matriz de menciones cruzadas con valencia</td>
 </tr>
 <tr class="odd">
-<td>O5: Documentar evolución</td>
-<td>Serie temporal</td>
-<td>Análisis por fase electoral (precampaña, campaña, segunda vuelta)</td>
+<td style="text-align: left;">O5: Documentar evolución</td>
+<td style="text-align: left;">Serie temporal</td>
+<td style="text-align: left;">Análisis por fase electoral (precampaña, campaña, segunda vuelta)</td>
 </tr>
 <tr class="even">
-<td>O6: Sintetizar hallazgos</td>
-<td>Capítulos de resultados</td>
-<td>Respuesta fundamentada a cada pregunta de investigación</td>
+<td style="text-align: left;">O6: Sintetizar hallazgos</td>
+<td style="text-align: left;">Capítulos de resultados</td>
+<td style="text-align: left;">Respuesta fundamentada a cada pregunta de investigación</td>
 </tr>
 </tbody>
 </table>
+
+
+</div>
 </div>
 </figure>
 </div>
-<p>La planificación operativa del estudio se detalla en la <a href="#tbl-objetivos-mvp" class="quarto-xref">Tabla&nbsp;<span>2.2</span></a>.</p>
+</div>
 </section>
 <section id="alcances-y-limitaciones-anticipadas" class="level3">
 <h3 class="anchored" data-anchor-id="alcances-y-limitaciones-anticipadas">Alcances y limitaciones anticipadas</h3>

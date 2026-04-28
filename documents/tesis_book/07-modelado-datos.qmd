@@ -55,6 +55,7 @@ Antes de utilizar las variables discursivas como predictores, es necesario estab
 
 
 ```{r tab-acuerdo-anotadores}
+#| tbl-cap: "Acuerdo entre sistemas de anotación por dimensión."
 agreement <- data.frame()
 if (nrow(api_df)) {
   agreement <- rbind(
@@ -111,7 +112,7 @@ if (nrow(api_df)) {
   names(agreement) <- c("Dim.", "N", "Est.", "Coinc.")
   kable_apa(
     agreement,
-    caption = "Acuerdo entre sistemas de anotación por dimensión.",
+    caption = NULL,
     align = "lrrr",
     scale_down = knitr::is_latex_output()
   )
@@ -173,6 +174,7 @@ para el resto del capítulo por su combinación de rendimiento,
 estabilidad e interpretabilidad.
 
 ```{r tbl-cv-regresion}
+#| tbl-cap: "Modelos de regresión para polarización."
 cv <- read_or_empty(file.path(base_out, "validacion_cruzada_resumen.csv"))
 stack <- read_or_empty(file.path(base_out, "resultados_stacking.csv"))
 if (nrow(cv)) {
@@ -197,7 +199,7 @@ if (nrow(cv)) {
   names(reg_w) <- c("Modelo", "MAE (CV)", "R$^2$ (CV)")
   kable_apa(
     reg_w,
-    caption = "Modelos de regresión para polarización.",
+    caption = NULL,
     scale_down = knitr::is_latex_output()
   )
 }

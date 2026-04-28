@@ -29,14 +29,13 @@ knitr::opts_chunk$set(
 ```
 
 ::: {.thesis-cover-meta}
-Tesina presentada para optar al grado de **Magíster en Ciencia de Datos**.
+Tesina presentada para optar al grado de **Magíster en Ciencia de Datos para la Innovación**.
 
 **Matías Deneken**  
-Centro de Datos e Inteligencia Artificial · Universidad de Concepción
 
 **Profesores guías:** Dr. Carlos Navarrete · Dr. Marcela Parada
 
-Facultad de Ingeniería · Universidad de Concepción · Marzo 2026
+Facultad de Ingeniería · Universidad de Concepción · Abril 2026
 :::
 :::
 :::

@@ -133,8 +133,8 @@ pretty_ols_term <- function(x) {
 #' @param landscape Si TRUE (p. ej. en PDF), página horizontal con pdflscape (tablas anchas).
 #' @param scale_down Si TRUE (LaTeX), escala la tabla al ancho de línea. No se combina con
 #'   longtable: kableExtra ante scale_down + longtable termina envolviendo en landscape.
-#' @param longtable Si NULL, se usa longtable solo si nrow(df) > max_rows_longtable (tabular en
-#'   el resto, compatible con scale_down en retrato).
+#' @param longtable Si FALSE, evita particionar tablas entre páginas en PDF.
+#'   Recomendado para mantener formato APA consistente.
 #' @param note Ignorado (reservado por compatibilidad; no se renderiza).
 kable_apa <- function(
     df,
@@ -161,7 +161,9 @@ kable_apa <- function(
     align <- paste(ifelse(vapply(df, is.numeric, logical(1)), "r", "l"), collapse = "")
   }
   if (is.null(longtable)) {
-    longtable <- isTRUE(nrow(df) > max_rows_longtable)
+    # En esta tesis se prioriza que cada tabla quede completa en una sola página.
+    # Evita cortes internos entre páginas (longtable) y fuerza tabular.
+    longtable <- FALSE
   }
   caption <- latex_escape_underscores(caption)
   # kableExtra: scale_down sobre longtable dispara aviso y puede envolver en landscape en el PDF.
@@ -189,13 +191,14 @@ kable_apa <- function(
   if (isTRUE(requireNamespace("kableExtra", quietly = TRUE))) {
     # Sin "hold_position": con Quarto + entorno table de crossref, kableExtra
     # puede dejar "[!h]" como texto visible en el PDF (fragmento fuera de \begin{table}[!h]).
-    latex_opts <- c("striped")
+    # Estilo APA limpio y homogéneo: sin franjas grises ni sombreado.
+    latex_opts <- c()
     if (isTRUE(scale_down) && isTRUE(knitr::is_latex_output()) && !isTRUE(longtable)) {
-      latex_opts <- c(latex_opts, "scale_down")
+      latex_opts <- c("scale_down")
     }
     ksty <- list(
       k,
-      bootstrap_options = c("striped", "hover", "condensed"),
+      bootstrap_options = c("condensed"),
       latex_options = latex_opts,
       full_width = FALSE
     )

@@ -14,6 +14,15 @@ knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 5
 )
+
+.apa <- Sys.getenv("QUARTO_PROJECT_DIR", "")
+if (nzchar(.apa) && file.exists(file.path(.apa, "includes", "apa_tables.R"))) {
+  source(file.path(.apa, "includes", "apa_tables.R"), local = FALSE)
+} else if (file.exists("includes/apa_tables.R")) {
+  source("includes/apa_tables.R", local = FALSE)
+} else {
+  stop("Falta documents/tesis_book/includes/apa_tables.R")
+}
 ```
 
 ## Dónde y con qué datos se estudia el fenómeno
@@ -106,20 +115,41 @@ escenarios de polarización [@kingzette2021HowAffectivePolarization].
 ### Los actores: tres derechas y un adversario
 
 La tesina se focaliza en cuatro candidaturas que representan
-posiciones distintivas en el espectro político chileno:
-
-
-| Actor             | Posición                       | Base social                                                                                                                                                           |
-|-------------------|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Evelyn Matthei    | Derecha tradicional            | Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1–C2); alta proporción sin identificación política (40,1%).                              |
-| José Antonio Kast | Derecha radical y conservadora | Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%). |
-| Johannes Kaiser   | Derecha libertaria             | Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3–D/E); presencia en sur y centro del país.                                 |
-| Jeannette Jara    | Izquierda (PC)                 | Fuerte en Región Metropolitana (56,9%); estratos medios (C2–C3); electorado altamente ideologizado (62,6% se identifica como centroizquierda).                      |
-
-: Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudadano / Activa Research, 15–17 de octubre de 2024. {#tbl-candidaturas-actores}
-
-Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
+posiciones distintivas en el espectro político chileno. Como se observa en la @tbl-candidaturas-actores, el diseño compara tres
 derechas y un adversario común de izquierda.
+
+```{r tbl-candidaturas-actores}
+#| tbl-cap: "Candidaturas analizadas y perfil electoral. Fuente: Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024."
+actores_tbl <- data.frame(
+  Actor = c(
+    "Evelyn Matthei",
+    "José Antonio Kast",
+    "Johannes Kaiser",
+    "Jeannette Jara"
+  ),
+  Posición = c(
+    "Derecha tradicional",
+    "Derecha radical y conservadora",
+    "Derecha libertaria",
+    "Izquierda (PC)"
+  ),
+  `Base social` = c(
+    "Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).",
+    "Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%).",
+    "Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.",
+    "Fuerte en Región Metropolitana (56,9%); estratos medios (C2-C3); electorado altamente ideologizado (62,6% se identifica como centroizquierda)."
+  ),
+  check.names = FALSE
+)
+kable_apa(
+  actores_tbl,
+  caption = NULL,
+  align = "lll",
+  scale_down = knitr::is_latex_output()
+)
+```
+
+
 
 Más allá de la síntesis del inicio de este capítulo, conviene afinar el
 papel de los datos. El corpus se alimenta solo de contenido público en
@@ -246,20 +276,46 @@ El producto mínimo viable de esta tesina consiste en:
 
 ### Objetivos operacionales y entregables
 
-| Objetivo                 | Entregable                           | Indicador de cumplimiento                                             |
-|-------------------|--------------------|---------------------------------|
-| O1: Construir corpus         | Base de datos estructurada           | $\geq 1000$ posts y $\geq 10.000$ comentarios con menciones políticas |
-| O2: Mapear emociones         | Perfiles emocionales por candidatura | Clasificación de polarización y emociones                             |
-| O3: Analizar encuadres       | Distribución de marcos por corriente | Comparación de frames entre candidaturas y fases electorales          |
-| O4: Analizar adversarios     | Red de antagonismos                  | Matriz de menciones cruzadas con valencia                             |
-| O5: Documentar evolución     | Serie temporal                       | Análisis por fase electoral (precampaña, campaña, segunda vuelta)     |
-| O6: Sintetizar hallazgos     | Capítulos de resultados              | Respuesta fundamentada a cada pregunta de investigación               |
-
-: Objetivos operacionales, entregables e indicadores de cumplimiento del
-MVP. {#tbl-objetivos-mvp}
-
 La planificación operativa del estudio se detalla en la
 @tbl-objetivos-mvp.
+
+```{r tbl-objetivos-mvp}
+#| tbl-cap: "Objetivos operacionales, entregables e indicadores de cumplimiento del MVP."
+objetivos_tbl <- data.frame(
+  Objetivo = c(
+    "O1: Construir corpus",
+    "O2: Mapear emociones",
+    "O3: Analizar encuadres",
+    "O4: Analizar adversarios",
+    "O5: Documentar evolución",
+    "O6: Sintetizar hallazgos"
+  ),
+  Entregable = c(
+    "Base de datos estructurada",
+    "Perfiles emocionales por candidatura",
+    "Distribución de marcos por corriente",
+    "Red de antagonismos",
+    "Serie temporal",
+    "Capítulos de resultados"
+  ),
+  `Indicador de cumplimiento` = c(
+    "$\\geq 1000$ posts y $\\geq 10.000$ comentarios con menciones políticas",
+    "Clasificación de polarización y emociones",
+    "Comparación de frames entre candidaturas y fases electorales",
+    "Matriz de menciones cruzadas con valencia",
+    "Análisis por fase electoral (precampaña, campaña, segunda vuelta)",
+    "Respuesta fundamentada a cada pregunta de investigación"
+  ),
+  check.names = FALSE
+)
+kable_apa(
+  objetivos_tbl,
+  caption = NULL,
+  align = "lll",
+  scale_down = knitr::is_latex_output()
+)
+```
+
 
 ### Alcances y limitaciones anticipadas
 
