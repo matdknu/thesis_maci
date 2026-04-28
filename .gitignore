@@ -48,6 +48,10 @@ venv/
 # Materiales bibliográficos didácticos grandes (opcional fuera del control de versiones)
 bibliografia/Speech and Language Processing/
 
+# Credenciales locales (no versionar: `cp .env.example .env` y pegar tus claves)
+.env
+.env.local
+
 # Claves/API (lista no exhaustiva; ver también scripts/... incluidos locales)
 **/claves_Api
 
