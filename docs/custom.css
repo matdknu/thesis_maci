@@ -375,7 +375,8 @@ body.fullcontent #portada-libro .thesis-cover-title {
 
 body.fullcontent #portada-libro .thesis-cover-subtitle {
   font-family: "Open Sans", "Source Sans Pro", -apple-system, system-ui, sans-serif;
-  font-size: clamp(0.98rem, 2.1vw, 1.12rem);
+  /* 80% del título (aprox. 20% más pequeño): escala con el mismo clamp proporcional */
+  font-size: clamp(1.12rem, 2.56vw, 1.6rem);
   font-weight: 400;
   line-height: 1.5;
   color: #475569;
