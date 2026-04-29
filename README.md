@@ -219,7 +219,7 @@ runApp("shiny_app")
 El análisis combina múltiples enfoques:
 
 | Técnica                  | Herramientas        | Propósito                            |
-|--------------------|----------------------------|------------------------|
+|--------------------------|---------------------|--------------------------------------|
 | 🕷️ **Web Scraping**      | PRAW, Python        | Recopilación de datos de Reddit      |
 | 📝 **NLP**               | spaCy, tidytext     | Análisis de sentimientos y entidades |
 | 🤖 **Machine Learning**  | scikit-learn, caret | Clasificación ideológica             |
