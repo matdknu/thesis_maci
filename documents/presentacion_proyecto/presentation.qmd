@@ -28,11 +28,23 @@ editor:
 
 ## Redes sociales y democracia
 
-En muchas..
+-   La frontera de las redes sociales: El ellos y el nosotros.
+
+-   Discursos de odio
+
+-   Colaboración entre grupos
 
 ![](images/odio.png){fig-align="center" width="503"}
 
 ## Elecciones presidenciales en Chile: Nuestro laboratorio
+
+-   Chile ofrece un escenario particularmente interesante: 3 candidatos
+    de derecha versus candidata de la izquierda.
+
+-   Las hipótesis sostenidas es que existía, por un lado, una disputa
+    dentro las derechas y entre las posiciones políticas antagónicas.
+
+![](images/matthei.jpg){fig-align="center"}
 
 # ¿Por qué mi interés?
 
@@ -65,24 +77,36 @@ Matthew J. Salganik
 :::
 
 ::: {.column width="60%"}
-hola locoooo
+-   Las Ciencias Sociales Computacionales han emergido como un campo que
+    analiza grandes volúmenes de datos
+
+-   En diferentes universidades el desarrollo de la IA se ha encontrado
+    acompañado desde las humanidades y ciencias sociales (Oxford,
+    Northwestern, etc).
 :::
 :::
 
-# Teoría
+## 
 
-## Redes sociales, polarización y debate político I
+## Y aquí el componente de innovación.. 
 
-## Redes sociales, polarización y debate político II
+-   Usos de datos de gran escala para el análisis políticos
 
-## Objetivo:....
+-   Innovación en términos metodológicos
+
+# Marco referencial y objetivos
+
+## Teoría
+
+-   Integrar teoría social y modelado computacional en un diseño
+    reproducible: sin teoría no hay interpretación y sin escala no hay
+    evidencia robusta.
+
+## Objetivo:
 
 -   Construir y analizar un corpus longitudinal de conversación política
     en Reddit (agosto-diciembre 2025) para explicar cómo se articula la
     polarización afectiva en la competencia entre derechas.
--   Integrar teoría social y modelado computacional en un diseño
-    reproducible: sin teoría no hay interpretación y sin escala no hay
-    evidencia robusta.
 
 # Metodología
 
@@ -98,7 +122,11 @@ hola locoooo
 
 ## Uso de OpenAI y DeepSeek en la clasificación de texto: Consistencia
 
--   Prompt.
+-   Uso de API de OpenIA y DeepSeek para la clasificación de texto.
+-   El prompt consistió en evaluar la:
+    -   Polarización
+    -   Estrategias
+    -   Marcos
 
 ## Uso de OpenAI y DeepSeek en la clasificación de texto: Jerarquías
 
@@ -161,12 +189,6 @@ hola locoooo
 
 </div>
 ```
-# Sello de innovación
-
-## ...
-
-## Del diccionario al LLM
-
 # Diseño de investigación
 
 ## Datos: conversación política en Reddit
@@ -212,57 +234,7 @@ hola locoooo
 ```
 # Depuración de datos
 
-# Evidencia
-
-# Resultados
-
--   Pipeline: Reddit → limpieza → detección de candidaturas → anotación
-    dual GPT-4o/DeepSeek → variables discursivas → modelos →
-    interpretación.
--   Resultado metodológico: conversación política informal y masiva
-    convertida en variables discursivas interpretables.
-
-> El primer resultado de la tesis es metodológico: muestra que es
-> posible convertir conversación política informal, ruidosa y masiva en
-> variables discursivas interpretables desde teoría social
-
-## 2) Variables LLM: valor agregado
-
--   
-
-## 4) Frontera política recuperable
-
--   Distinción interbloque/intrabloque recuperable desde texto corto y
-    ruidoso: $F1$-macro = 0.725.
--   Aporte: operacionalización computacional de una categoría teórica
-    compleja.
-
-## 5) Resultado sustantivo central
-
--   Diferenciación de estilos en competencia intraderecha.
--   En confrontación entre bloques aumentan amenaza y esencialización.
--   Síntesis: **fragmentación estratégica, convergencia emocional**.
-
-## 6) Resultado temporal
-
--   **87,4%** de autores inicialmente negativos hacia Kast mantiene esa
-    posición durante el ciclo.
--   La campaña parece activar y reforzar disposiciones previas más que
-    producir polarización desde cero.
-
-## Cierre de alcance
-
--   El corpus representa **cultura discursiva en Reddit**, no al
-    electorado chileno completo.
--   Ventana observacional: **agosto-diciembre 2025**.
-
-## Menciones agregadas por candidato
-
-![](images/fig_count_facet_candidatos.png){fig-align="center"}
-
-## 
-
-# Tres historias
+# Resultados: Tres historias
 
 # La polarización en el texto: OpenAI y DeepSeek
 
