@@ -360,7 +360,7 @@ Matías Javier Deneken Uribe
 <li><p>Colaboración entre grupos</p></li>
 </ul>
 
-<img data-src="images/odio.png" class="quarto-figure quarto-figure-center r-stretch" width="503"></section>
+<img data-src="images/odio.png" class="quarto-figure quarto-figure-center r-stretch" width="395"></section>
 <section id="elecciones-presidenciales-en-chile-nuestro-laboratorio" class="slide level2">
 <h2>Elecciones presidenciales en Chile: Nuestro laboratorio</h2>
 <ul>
@@ -438,6 +438,51 @@ Matías Javier Deneken Uribe
 <h1>Metodología</h1>
 
 </section>
+<section id="los-actores-del-estudio" class="slide level2">
+<h2>Los actores del estudio</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Candidato</th>
+<th>Posición</th>
+<th>Base social</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Evelyn Matthei</td>
+<td>Derecha tradicional</td>
+<td>Mayoría femenina, 50+, estratos C1-C2</td>
+</tr>
+<tr class="even">
+<td>José Antonio Kast</td>
+<td>Derecha radical</td>
+<td>Transversal, fuerte en regiones del sur</td>
+</tr>
+<tr class="odd">
+<td>Johannes Kaiser</td>
+<td>Derecha libertaria</td>
+<td>Mayoría masculina, 50+, estratos C3-D/E</td>
+</tr>
+<tr class="even">
+<td>Jeannette Jara</td>
+<td>Izquierda (PC)</td>
+<td>Región Metropolitana, C2-C3, ideologizado</td>
+</tr>
+</tbody>
+</table>
+<p><em>Nota:</em> 3 derechas + 1 adversario común — diseño comparativo intra-bloque vs.&nbsp;inter-bloque.</p>
+</section>
+<section id="pipeline-analítico" class="slide level2">
+<h2>Pipeline analítico</h2>
+<p>De la recolección del corpus a los hallazgos sustantivos.</p>
+
+<img data-src="images/diagrama.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="acceso-y-fuente-de-datos" class="slide level2">
 <h2>Acceso y fuente de datos</h2>
 <div>
@@ -448,85 +493,40 @@ Matías Javier Deneken Uribe
 </ul>
 </div>
 </section>
-<section id="uso-de-openai-y-deepseek-en-la-clasificación-de-texto-consistencia" class="slide level2">
-<h2>Uso de OpenAI y DeepSeek en la clasificación de texto: Consistencia</h2>
-<ul>
-<li>Uso de API de OpenIA y DeepSeek para la clasificación de texto.</li>
-<li>El prompt consistió en evaluar la:
-<ul>
-<li>Polarización</li>
-<li>Estrategias</li>
-<li>Marcos</li>
-</ul></li>
-</ul>
-</section>
-<section id="uso-de-openai-y-deepseek-en-la-clasificación-de-texto-jerarquías" class="slide level2">
-<h2>Uso de OpenAI y DeepSeek en la clasificación de texto: Jerarquías</h2>
-
-<div style="margin: 2rem 0; font-family: 'Georgia', serif;">
-
-  <!-- Paso 1 -->
-  <div style="
-    background: linear-gradient(135deg, #2980B9, #1A5276);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 0.8rem;
-    margin-left: 0rem;
-    max-width: 480px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  ">
-    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Dimensión 1</span><br>
-    <strong style="font-size: 1.1rem;">📐 Consistencia de medición</strong><br>
-    <span style="font-size: 0.9rem; opacity: 0.9;">Validación del sistema LLM dual (OpenAI + DeepSeek)</span>
+<section id="qué-clasificamos" class="slide level2">
+<h2>¿Qué clasificamos?</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; margin-top: 0.5rem; font-family: 'Georgia', serif; max-width: 920px;">
+  <div style="background: linear-gradient(135deg, #2980B9, #1A5276); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 1</span><br>
+    <strong style="font-size: 1rem;">Polarización afectiva</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Hostilidad discursiva (continua)</span>
   </div>
-
-  <!-- Flecha -->
-  <div style="text-align: left; margin-left: 220px; font-size: 1.4rem; color: #7F8C8D; margin-bottom: 0.4rem;">↓</div>
-
-  <!-- Paso 2 -->
-  <div style="
-    background: linear-gradient(135deg, #8E44AD, #6C3483);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 0.8rem;
-    margin-left: 3rem;
-    max-width: 480px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  ">
-    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Dimensión 2</span><br>
-    <strong style="font-size: 1.1rem;">📊 Modelado de polarización</strong><br>
-    <span style="font-size: 0.9rem; opacity: 0.9;">Predicción y determinantes del discurso hostil</span>
+  <div style="background: linear-gradient(135deg, #8E44AD, #6C3483); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 2</span><br>
+    <strong style="font-size: 1rem;">Estrategias de ataque</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Amenaza, ridiculización, esencialización…</span>
   </div>
-
-  <!-- Flecha -->
-  <div style="text-align: left; margin-left: 280px; font-size: 1.4rem; color: #7F8C8D; margin-bottom: 0.4rem;">↓</div>
-
-  <!-- Paso 3 -->
-  <div style="
-    background: linear-gradient(135deg, #C0392B, #922B21);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-left: 6rem;
-    max-width: 480px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  ">
-    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Dimensión 3</span><br>
-    <strong style="font-size: 1.1rem;">⚔️ Reconfiguración del antagonismo</strong><br>
-    <span style="font-size: 0.9rem; opacity: 0.9;">Pluralización del enemigo en el ciclo electoral</span>
+  <div style="background: linear-gradient(135deg, #C0392B, #922B21); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 3</span><br>
+    <strong style="font-size: 1rem;">Marcos interpretativos</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Moral, conflicto, economía, identidad…</span>
   </div>
-
+  <div style="background: linear-gradient(135deg, #117864, #0B5345); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 4</span><br>
+    <strong style="font-size: 1rem;">Fronteras políticas</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Inter-bloque vs. intra-bloque (derecha)</span>
+  </div>
 </div>
-</section></section>
-<section>
-<section id="diseño-de-investigación" class="title-slide slide level1 center">
-<h1>Diseño de investigación</h1>
-
+<p>Clasificación dual <strong>GPT-4o (OpenAI)</strong> + <strong>DeepSeek</strong>, con reglas de consenso y desempate documentadas en la tesis.</p>
 </section>
-<section id="datos-conversación-política-en-reddit" class="slide level2">
-<h2>Datos: conversación política en Reddit</h2>
+<section id="lógica-de-desempate-entre-modelos" class="slide level2">
+<h2>Lógica de desempate entre modelos</h2>
+<p>Cuando OpenAI y DeepSeek difieren, el <strong>karma</strong> del comentario en Reddit orienta la etiqueta final: se asume que el voto de la comunidad refleja, en promedio, el tono percibido del mensaje.</p>
+<ul>
+<li><strong>Acuerdo entre modelos</strong> → etiqueta directa (consenso).</li>
+<li><strong>Desacuerdo + karma positivo</strong> → se privilegia el modelo <strong>menos hostil</strong>.</li>
+<li><strong>Desacuerdo + karma negativo</strong> → se privilegia el modelo <strong>más hostil</strong>.</li>
+</ul>
 </section></section>
 <section id="datos-obtenidos" class="title-slide slide level1 center">
 <h1>Datos obtenidos</h1>
@@ -567,87 +567,326 @@ Matías Javier Deneken Uribe
 </div>
 </section>
 
+<section>
 <section id="depuración-de-datos" class="title-slide slide level1 center">
 <h1>Depuración de datos</h1>
 
 </section>
-
-<section id="resultados-tres-historias" class="title-slide slide level1 center">
-<h1>Resultados: Tres historias</h1>
-
-</section>
-
-<section>
-<section id="la-polarización-en-el-texto-openai-y-deepseek" class="title-slide slide level1 center">
-<h1>La polarización en el texto: OpenAI y DeepSeek</h1>
-
-</section>
-<section id="polarización-afectiva" class="slide level2">
-<h2>Polarización afectiva</h2>
-
-<img data-src="images/serie_polarizacion_candidatos.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
-<section id="estrategias-de-ataques-y-emoción-textual" class="title-slide slide level1 center">
-<h1>Estrategias de ataques y emoción textual</h1>
-
-</section>
-
-<section>
-<section id="identificación-de-la-polarización" class="title-slide slide level1 center">
-<h1>Identificación de la polarización</h1>
-
-</section>
-<section id="section-3" class="slide level2">
-<h2>.</h2>
-<ul>
-<li><p>El objetivo del ataque no importante, en realidad.</p></li>
-<li><p>La hostilidad no depende de quién se dirige el mensaje, sino que de la performance.</p></li>
-<li><p>Se esparse odio…. (aquí mostrar el gráfico).</p></li>
-<li><p>El candidato <em>target</em> no explica la polarización (<span class="math inline">\(\beta \approx 0\)</span>, p = 0.818).</p></li>
-<li><p>Sí explican polarización: <strong>ira (</strong><span class="math inline">\(\beta = 0.369\)</span>), estrategias adversariales y tipo de hilo.</p></li>
-<li><p>Estabilidad predictiva: RandomForest <span class="math inline">\(R^2 = 0.619\)</span> y stacking <span class="math inline">\(R^2 = 0.646\)</span>.</p></li>
-</ul>
-<blockquote>
-<p>“La hostilidad no se explica principalmente por quién es atacado, sino por cómo se construye discursivamente el ataque.”</p>
-</blockquote>
-</section>
-<section id="herramientas-nlp-extracto" class="slide level2">
-<h2>Herramientas NLP (extracto)</h2>
+<section id="del-corpus-bruto-al-corpus-analítico" class="slide level2">
+<h2>Del corpus bruto al corpus analítico</h2>
+<p>Embudo de exclusiones (misma lógica que el capítulo de depuración de la tesis; la fila final recorta además la ventana <strong>1 ago – 31 dic 2025</strong>, America/Santiago).</p>
 <table class="caption-top">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 75%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Capa</th>
-<th>Herramientas</th>
+<th>Etapa</th>
+<th>N comentarios</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Preprocesamiento</td>
-<td><code>tidytext</code>, <code>quanteda</code></td>
+<td>Corpus bruto</td>
+<td>163.695</td>
 </tr>
 <tr class="even">
-<td>Topics</td>
-<td><strong>LDA</strong>, <strong>STM</strong></td>
+<td>Tras filtrar bots y eliminados</td>
+<td>144.216</td>
 </tr>
 <tr class="odd">
-<td>Exploración</td>
-<td>Sentimiento con diccionarios, bigramas, redes léxicas</td>
+<td>Tras filtrar comentarios cortos (menos de 3 tokens)</td>
+<td>136.707</td>
 </tr>
 <tr class="even">
-<td>Productos</td>
-<td><strong>Quarto</strong>, figuras tipo tesis, <strong>Shiny</strong></td>
+<td>Corpus final analizable</td>
+<td>134.730</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="distribución-por-candidato" class="slide level2">
+<h2>Distribución por candidato</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Candidato</th>
+<th>Menciones</th>
+<th>% corpus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kast</td>
+<td>102.759</td>
+<td>62.8%</td>
+</tr>
+<tr class="even">
+<td>Jara</td>
+<td>63.602</td>
+<td>38.9%</td>
+</tr>
+<tr class="odd">
+<td>Kaiser</td>
+<td>26.521</td>
+<td>16.2%</td>
+</tr>
+<tr class="even">
+<td>Matthei</td>
+<td>16.358</td>
+<td>10.0%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Nota:</em> Asimetría marcada — Kast y Jara dominan el debate (los porcentajes suman más del 100% en conjunto porque un comentario puede mencionar más de un candidato).</p>
+</section></section>
+<section id="resultados-4-historias" class="title-slide slide level1 center">
+<h1>Resultados: 4 historias</h1>
+
+</section>
+
+<section>
+<section id="historia-1-coincidencia-de-los-modelos" class="title-slide slide level1 center">
+<h1>Historia 1: Coincidencia de los modelos</h1>
+
+</section>
+<section id="coinciden-los-dos-modelos" class="slide level2">
+<h2>¿Coinciden los dos modelos?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensión</th>
+<th>Métrica</th>
+<th>Valor</th>
+<th>Lectura</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Polarización</td>
+<td>Correlación <em>r</em></td>
+<td>0.665</td>
+<td>Convergencia moderada-alta</td>
+</tr>
+<tr class="even">
+<td>Estrategia</td>
+<td>κ Cohen</td>
+<td>0.126 (61% acuerdo bruto)</td>
+<td>Coincidencia alta, acuerdo ajustado bajo</td>
+</tr>
+<tr class="odd">
+<td>Marco</td>
+<td>κ Cohen</td>
+<td>0.136</td>
+<td>Ambigüedad inherente</td>
+</tr>
+<tr class="even">
+<td>Emoción</td>
+<td>κ Cohen</td>
+<td>0.076</td>
+<td>Lecturas legítimas múltiples</td>
+</tr>
+<tr class="odd">
+<td>Frontera</td>
+<td>κ Cohen</td>
+<td>−0.146</td>
+<td>Desacuerdo sistemático</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Los modelos coinciden en la dimensión continua (polarización) y en categorías estructurales (estrategia).</p>
+<p>El desacuerdo en frontera no es aleatorio: ambos detectan el comentario como fronterizo pero discrepan sobre la dirección.</p>
+<p>El desempate por consenso (karma del comentario) resuelve las divergencias.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="historia-2-la-polarización" class="title-slide slide level1 center">
+<h1>Historia 2: La polarización</h1>
+
+</section>
+<section id="distribución-de-polarización-por-candidato" class="slide level2">
+<h2>Distribución de polarización por candidato</h2>
+
+<img data-src="images/fig7_densidad_polarizacion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Distribuciones unimodales, medianas entre 0,3 y 0,5. Kast y Jara con colas más pesadas hacia alta hostilidad.</p>
+</section>
+<section id="polarización-en-el-tiempo" class="slide level2">
+<h2>Polarización en el tiempo</h2>
+
+<img data-src="images/serie_polarizacion_candidatos.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Sin tendencia ascendente clara hacia la elección: hostilidad de base relativamente <strong>estable</strong> en el periodo observado.</p>
+</section></section>
+<section>
+<section id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad" class="title-slide slide level1 center">
+<h1>Historia 3: Inter-bloque vs.&nbsp;intra-bloque — dos lógicas de hostilidad</h1>
+
+<img data-src="images/emociones_x.jpg" class="quarto-figure quarto-figure-right r-stretch"></section>
+<section id="estrategias-por-frontera-política" class="slide level2">
+<h2>Estrategias por frontera política</h2>
+
+<img data-src="images/fig4_estrategia_frontera.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><table class="caption-top">
+<thead>
+<tr class="header">
+<th>Estrategia</th>
+<th>Inter-bloque</th>
+<th>Intra-bloque</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Construcción de amenaza</td>
+<td>66.3%</td>
+<td>10.1%</td>
+</tr>
+<tr class="even">
+<td>Esencialización</td>
+<td>66.0%</td>
+<td>11.1%</td>
+</tr>
+<tr class="odd">
+<td>Ridiculización</td>
+<td>48.3%</td>
+<td>21.9%</td>
+</tr>
+</tbody>
+</table>
+<p>La amenaza se reserva para el adversario externo. La ridiculización <strong>viaja</strong> entre derechas.</p>
+</section>
+<section id="configuraciones-discursivas-marco-emoción" class="slide level2">
+<h2>Configuraciones discursivas (marco × emoción)</h2>
+<p>Moral + desprecio (n=702, pol=0,541) resulta más hostil que conflicto + desprecio (n=945, pol=0,463): el <strong>acoplamiento</strong> marco–emoción importa más que cada dimensión por separado.</p>
+</section>
+<section id="estrategias-en-el-tiempo" class="slide level2">
+<h2>Estrategias en el tiempo</h2>
+
+<img data-src="images/serie_estrategias_semanal_mejorada.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Estructura adversarial estable: <strong>ajustes tácticos</strong>, no transformaciones del repertorio.</p>
+</section></section>
+<section>
+<section id="historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación" class="title-slide slide level1 center">
+<h1>Historia 4: Polarización en el repertorio; el candidato, vía mediación</h1>
+
+<img data-src="images/polarizacion%202.webp" class="quarto-figure quarto-figure-right r-stretch"></section>
+<section id="valor-añadido-del-llm-dual" class="slide level2">
+<h2>Valor añadido del LLM dual</h2>
+
+<img data-src="images/figura_r2_configuraciones.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><ul>
+<li>TF-IDF solo: <strong>R² ≈ 0,43</strong></li>
+<li>Variables LLM solas: <strong>R² ≈ 0,55</strong></li>
+</ul>
+<div style="margin-top: 0.6rem; text-align: center;">
+  <div style="font-size: 4.2rem; font-weight: 900; color: #111827; text-shadow: 3px 3px 0px #f3d34a; line-height: 1;">R² = 0,62</div>
+  <div style="font-size: 1.15rem; color: #374151; margin-top: 0.35rem;">Combinado (texto + LLM). Las variables LLM no son redundantes con el bag-of-words: agregan estructura discursiva.</div>
+</div>
+</section>
+<section id="qué-predice-la-polarización" class="slide level2">
+<h2>¿Qué predice la polarización?</h2>
+
+<img data-src="images/permutation_importance_polarizacion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><ul>
+<li><strong>Tipo de hilo:</strong> caída de R² ≈ 0,50 al permutar (orden de magnitud).</li>
+<li><strong>Estrategia, n_words, emoción:</strong> caídas superiores a 0,40.</li>
+<li><strong>Candidato (target):</strong> caída ≈ <strong>0,04</strong> — sin aporte marginal <em>una vez fijados</em> estrategia, emoción, marco, frontera, tipo de hilo y largo del texto (OLS coherente: <span class="math inline">\(\beta \approx 0\)</span>, <span class="math inline">\(p = 0.818\)</span>).</li>
+</ul>
+<blockquote>
+<p><em>“Una vez controlado por estrategia y emoción, el candidato target deja de aportar información predictiva. La hostilidad reside en el repertorio, no en el destinatario.”</em></p>
+</blockquote>
+<div style="margin-top: 0.65rem; font-size: 0.72em; color: #6b7280; line-height: 1.38; border-left: 3px solid #d1d5db; padding-left: 0.75rem;">
+  El candidato sigue importando: su efecto está totalmente mediado por las dimensiones discursivas, no es independiente de ellas.
+</div>
+</section>
+<section id="clasificación-de-polarización-alta" class="slide level2">
+<h2>Clasificación de polarización alta</h2>
+
+<img data-src="images/roc_curves_polarizacion_alta.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><p><strong>RandomForest</strong> AUC ≈ <strong>0,856</strong>. <strong>Regresión logística</strong> AUC ≈ <strong>0,811</strong>. La señal tiene una parte lineal, pero hay interacciones que solo modelos <strong>no paramétricos</strong> capturan bien.</p>
+</section>
+<section id="historia-bonus-cristalización-actitudinal" class="slide level2">
+<h2>Historia bonus: Cristalización actitudinal</h2>
+</section>
+<section id="la-negatividad-no-se-construye-se-actualiza" class="slide level2">
+<h2>La negatividad no se construye, se actualiza</h2>
+<div style="
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+  <div style="
+    font-size: 8.5rem;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: #111827;
+    text-shadow: 4px 4px 0px #f3d34a;
+  ">
+    87,4%
+  </div>
+  <div style="
+    margin-top: 0.75rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1f2937;
+    max-width: 34ch;
+  ">
+    de autores inicialmente negativos hacia Kast permanecen negativos en todo el ciclo
+  </div>
+  <div style="
+    margin-top: 0.6rem;
+    font-size: 1.1rem;
+    color: #374151;
+  ">
+    Solo 2,8% transitan a tono positivo (Anexo / capítulo de autores).
+  </div>
+</div>
+</section>
+<section id="la-positividad-no-sobrevive-al-cruce-adversarial" class="slide level2">
+<h2>La positividad no sobrevive al cruce adversarial</h2>
+
+<img data-src="images/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:95.0%"><p>En los pares observados hacia la segunda vuelta, autores <strong>positivos</strong> hacia un candidato tienden a volverse <strong>negativos</strong> al cambiar de target adversarial.</p>
+</section>
+<section id="síntesis-visual-atlas-semántico-3d" class="slide level2">
+<h2>Síntesis visual: atlas semántico 3D</h2>
+
+<img data-src="images/3d_atlas_v1_globales.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>Los paneles sugieren que el espacio discursivo se organiza por <strong>emoción y tema</strong> antes que por candidato: la frontera política atraviesa un repertorio léxico compartido.</p>
+</section></section>
+<section>
+<section id="síntesis-y-limitaciones" class="title-slide slide level1 center">
+<h1>Síntesis y limitaciones</h1>
+
+</section>
+<section id="tres-hallazgos" class="slide level2">
+<h2>Tres hallazgos</h2>
+<ol type="1">
+<li><strong>Hostilidad en el repertorio, mediación vía candidato</strong> — con emoción, estrategia, marco y hilo en el modelo, el <em>target</em> nominal no suma señal incremental; el candidato <strong>sí</strong> importa porque condiciona esos repertorios (Kast/Jara ≠ Matthei/Kaiser en colas y persistencia descriptiva).</li>
+<li><strong>La frontera política es computacionalmente recuperable</strong> — F1-macro ≈ <strong>0,725</strong> sobre texto informal (mejor modelo de frontera).</li>
+<li><strong>La negatividad está cristalizada antes del pico de campaña</strong> — el ciclo <strong>refuerza</strong> disposiciones previas más de lo que las origina.</li>
+</ol>
+</section>
+<section id="limitaciones" class="slide level2">
+<h2>Limitaciones</h2>
+<ul>
+<li>Reddit <strong>no</strong> es representativo de la opinión pública chilena.</li>
+<li>Atribución ideológica <strong>inferida</strong> (comportamiento en plataforma), no autodeclarada.</li>
+<li>Diseño longitudinal <strong>sin</strong> identificación causal fuerte.</li>
+<li>Validación humana <strong>limitada</strong> en escala frente al volumen del corpus.</li>
+<li>Kappas bajos en emoción (<strong>0,076</strong>) y marco (<strong>0,136</strong>) entre anotadores automáticos: incertidumbre <strong>asumida</strong> y discutida en el texto.</li>
+</ul>
+</section>
+<section id="líneas-futuras" class="slide level2">
+<h2>Líneas futuras</h2>
+<ul>
+<li>Replicación en otras plataformas (X, TikTok).</li>
+<li>Ventanas de evento más finas (debates, declaraciones, <em>scandals</em>).</li>
+<li>Extensión a desinformación y coordinación inorgánica.</li>
+</ul>
+</section>
 <section id="entregables-abiertos" class="slide level2">
 <h2>Entregables abiertos</h2>
 <ul>
-<li><strong>Libro</strong> (HTML + PDF): <a href="https://matdknu.github.io/thesis_maci/">GitHub Pages</a></li>
-<li><strong>Shiny</strong>: <a href="https://matdknu.shinyapps.io/reddit-politico-chile/">reddit-politico-chile</a></li>
+<li><strong>Libro</strong> (GitHub Pages): <a href="https://matdknu.github.io/thesis_maci/">matdknu.github.io/thesis_maci</a></li>
+<li><strong>Shiny</strong>: <a href="https://matdknu.shinyapps.io/reddit-politico-chile/">reddit-politico-chile</a> (matdknu.shinyapps.io)</li>
 <li><strong>OSF / DOI</strong>: <a href="https://osf.io/nqb3g/">osf.io/nqb3g</a></li>
 </ul>
 </section>
@@ -664,6 +903,12 @@ Matías Javier Deneken Uribe
 <p><a href="mailto:m.deneken@uc.cl" class="email-link">m.deneken@uc.cl</a></p>
 <p><a href="https://github.com/matdknu" class="github-link">GitHub: @matdknu</a></p>
 </section>
+<p>```</p>
+<!--
+Imágenes para esta presentación: copiadas automáticamente a documents/presentacion_proyecto/images/
+desde documents/tesis_book/fig_thesis/ y documents/tesis_book/images/ (tendencia_panel_bisemanal_primera_segunda.png).
+Nada pendiente de copia manual si esas rutas siguen disponibles en tu máquina.
+-->
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

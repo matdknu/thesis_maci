@@ -386,19 +386,19 @@ body {
 /* Pie: dos logos centrados, misma altura (flex + pseudoelementos) */
 .reveal .footer.footer-default,
 .reveal > .footer {
-  /* Base 84px − 5% */
-  --footer-logo-h: calc(84px * 0.95);
+  /* Logos más compactos que la versión COMPTEXT original */
+  --footer-logo-h: calc(84px * 0.58);
   display: flex !important;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-end;
-  gap: 14px;
+  gap: 10px;
   color: transparent !important;
   font-size: 0 !important;
   line-height: 0 !important;
   letter-spacing: 0 !important;
-  min-height: 120px;
+  min-height: 78px;
   padding: 0.2em 1rem 0.55em !important;
   margin: 0 auto !important;
   width: 100%;
@@ -414,7 +414,7 @@ body {
   display: block !important;
   flex: 0 0 auto;
   height: var(--footer-logo-h);
-  width: 190px;
+  width: 132px;
   background: url("images/logo.png") no-repeat center bottom;
   background-size: auto var(--footer-logo-h);
 }
@@ -425,7 +425,7 @@ body {
   display: block !important;
   flex: 0 0 auto;
   height: var(--footer-logo-h);
-  width: 66px;
+  width: 46px;
   background: url("images/logo-udec.png") no-repeat center bottom;
   background-size: auto var(--footer-logo-h);
 }
@@ -590,5 +590,80 @@ body {
 
 #thank-you-slide .thank-you-content .github-link {
   margin-top: 0.2em !important;
+}
+
+/* --------------------------------------------------------------------------
+   Solo portadas # Historia 1–4: texto a la izquierda, imagen vía ::after a la derecha.
+   (Sin ![](…) en el .qmd en esas slides: duplicaría la imagen del pseudo-elemento.)
+   -------------------------------------------------------------------------- */
+#historia-1-coincidencia-de-los-modelos.slide.level1.title-slide,
+#historia-2-la-polarización.slide.level1.title-slide,
+#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide,
+#historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1rem !important;
+  min-height: 62vh !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 0.35rem 0.5rem 0.35rem 0 !important;
+  text-align: left !important;
+}
+
+#historia-1-coincidencia-de-los-modelos.slide.level1.title-slide.center,
+#historia-2-la-polarización.slide.level1.title-slide.center,
+#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide.center,
+#historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide.center {
+  text-align: left !important;
+}
+
+#historia-1-coincidencia-de-los-modelos.slide.level1.title-slide h1,
+#historia-2-la-polarización.slide.level1.title-slide h1,
+#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide h1,
+#historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide h1 {
+  flex: 0 0 44% !important;
+  max-width: 44% !important;
+  margin: 0 !important;
+  padding: 0 0.4rem 0 0.1rem !important;
+  box-sizing: border-box !important;
+  font-size: clamp(1.02em, 3.2vw, 1.38em) !important;
+  line-height: 1.1 !important;
+  text-align: left !important;
+  align-self: center !important;
+  hyphens: auto;
+}
+
+#historia-1-coincidencia-de-los-modelos.slide.level1.title-slide::after,
+#historia-2-la-polarización.slide.level1.title-slide::after,
+#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide::after,
+#historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide::after {
+  content: "" !important;
+  flex: 1 1 52% !important;
+  min-width: 0 !important;
+  align-self: stretch !important;
+  min-height: 38vh !important;
+  background-repeat: no-repeat !important;
+  background-position: center right !important;
+  background-size: contain !important;
+}
+
+#historia-1-coincidencia-de-los-modelos.slide.level1.title-slide::after {
+  background-image: url("images/openIA-deepseek.jpg");
+}
+
+/* Portada Historia 2: solo ilustración (fig7 va en la slide siguiente) */
+#historia-2-la-polarización.slide.level1.title-slide::after {
+  background-image: url("images/polarizacion-fotos.png");
+}
+
+#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide::after {
+  background-image: url("images/fig4_estrategia_frontera.png");
+}
+
+#historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide::after {
+  background-image: url("images/figura_r2_configuraciones.png");
 }
 
