@@ -1031,6 +1031,32 @@ Matías Javier Deneken Uribe
   <div style="font-size: 1.15rem; color: #374151; margin-top: 0.35rem;">Combinado (texto + LLM). Las variables LLM no son redundantes con el bag-of-words: agregan estructura discursiva.</div>
 </div>
 </section>
+<section id="valor-añadido-del-llm-dual-1" class="slide level2">
+<h2>Valor añadido del LLM dual</h2>
+<div class="callout-r2-validation-wrap">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Validación incremental: TF-IDF como baseline</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Ejemplo</strong>: Comentario “Kast es un peligro para Chile”</p>
+<ul>
+<li><strong>TF-IDF detecta</strong>: palabras “Kast” (peso alto) + “peligro” (peso medio) → predice polarización moderada</li>
+<li><strong>Variables LLM detectan</strong>: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta</li>
+</ul>
+<p><strong>Comparación de modelos</strong>:</p>
+<ul>
+<li><strong>Modelo A (solo TF-IDF)</strong>: Predice polarización usando únicamente las palabras del comentario → R² = 0.432</li>
+<li><strong>Modelo B (solo variables LLM)</strong>: Predice polarización usando emoción, estrategia, marco → R² = 0.554</li>
+<li><strong>Modelo C (TF-IDF + LLM)</strong>: Combina palabras y variables discursivas → R² = 0.619</li>
+</ul>
+<p><strong>Interpretación</strong>: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras crudas no revelan. TF-IDF sabe <em>qué</em> se dice; las variables LLM saben <em>cómo</em>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="qué-predice-la-polarización" class="slide level2">
 <h2>¿Qué predice la polarización?</h2>
 
@@ -1050,9 +1076,6 @@ Matías Javier Deneken Uribe
 <h2>Clasificación de polarización alta</h2>
 
 <img data-src="images/roc_curves_polarizacion_alta.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><p><strong>RandomForest</strong> AUC ≈ <strong>0,856</strong>. <strong>Regresión logística</strong> AUC ≈ <strong>0,811</strong>. La señal tiene una parte lineal, pero hay interacciones que solo modelos <strong>no paramétricos</strong> capturan bien.</p>
-</section>
-<section id="historia-bonus-cristalización-actitudinal" class="slide level2">
-<h2>Historia bonus: Cristalización actitudinal</h2>
 </section>
 <section id="la-negatividad-no-se-construye-se-actualiza" class="slide level2">
 <h2>La negatividad no se construye, se actualiza</h2>
