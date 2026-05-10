@@ -5,7 +5,10 @@ set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR"
 
-PORT="${PORT:-9876}"
+PORT="${PORT:-}"
+if [[ -z "${PORT}" ]]; then
+  PORT="$(python3 -c "import socket; s=socket.socket(); s.bind(('127.0.0.1',0)); print(s.getsockname()[1]); s.close()")"
+fi
 OUT="${1:-presentation.pdf}"
 
 quarto render presentation.qmd

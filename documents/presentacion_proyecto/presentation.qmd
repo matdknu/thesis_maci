@@ -1,7 +1,7 @@
 ---
 title: "Derecha fragmentada y un enemigo compartido"
 subtitle: "Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025"
-author: "Matías Javier Deneken Uribe"
+author: "Matías Javier Deneken"
 date: "Marzo 2026"
 format:
   revealjs:
@@ -312,7 +312,7 @@ palabras"*.
     admiración no son subproductos de la ideología — son organizadores
     del conflicto (Marcus et al., 2000). Las emociones negativas
     intensifican la polarización afectiva y movilizan identidades
-    políticas
+    políticas.
 
 ------------------------------------------------------------------------
 
@@ -322,12 +322,10 @@ Construir y analizar un corpus longitudinal de conversación política en
 Reddit (agosto-diciembre 2025) para explicar **cómo se articula la
 polarización afectiva en la competencia entre derechas**, capturando:
 
-::: incremental
 -   Patrones de encuadre por corriente
 -   Perfiles emocionales por candidatura
 -   Redes de antagonismo intra/inter-bloque
 -   Evolución temporal por fase electoral
-:::
 
 # Metodología
 
@@ -695,26 +693,21 @@ solo modelos **no paramétricos** capturan bien.
 ##  {#thank-you-slide}
 
 ::: thank-you-content
-### ¡Gracias!
-
-**Derecha fragmentada y un enemigo compartido**
-
-*Análisis textual longitudinal — Chile 2025*
-
-**Matías Javier Deneken Uribe**
-
-*Tesis presentada para obtención de Magíster en Ciencia de Datos*
-
-*Universidad de Concepción*
-
-Profesores guías: **Dr. Carlos Navarrete** · **Dra. Marcela Parada**
-
-[m.deneken\@uc.cl](mailto:m.deneken@uc.cl){.email-link}
-
-[GitHub: \@matdknu](https://github.com/matdknu){.github-link}
+```{=html}
+<div class="thank-you-title-block">
+  <p class="ty-line ty-main">Derecha fragmentada y</p>
+  <p class="ty-line ty-main">un enemigo compartido</p>
+  <p class="ty-line ty-sub">Anotación LLM dual y polarización discursiva</p>
+  <p class="ty-line ty-sub">en Reddit durante las elecciones chilenas de</p>
+  <p class="ty-line ty-year">2025</p>
+  <p class="ty-line ty-name">Matías Javier Deneken</p>
+  <p class="ty-degree">Tesis Magíster en Ciencia de Datos para la innovación</p>
+</div>
+<p class="ty-guides">Profesores guías: <strong>Dr. Carlos Navarrete</strong> · <strong>Dra. Marcela Parada</strong></p>
+<p><a href="mailto:m.deneken@uc.cl" class="email-link">m.deneken@uc.cl</a></p>
+<p><a href="https://github.com/matdknu" class="github-link">GitHub: @matdknu</a></p>
+```
 :::
-
-\`\`\`
 
 ```{=html}
 <!--

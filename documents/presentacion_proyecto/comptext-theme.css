@@ -149,7 +149,7 @@ body {
 }
 
 #title-slide .quarto-title-author-name::after {
-  content: "Tesis de Magíster en Ciencia de Datos\aCentro de Datos e IA · Universidad de Concepción";
+  content: "Tesis Magíster en Ciencia de Datos para la innovación";
   display: block;
   color: #1f2937;
   font-size: 0.75em;
@@ -647,6 +647,22 @@ body {
   margin-top: 0.55em !important;
 }
 
+/* Slide Teoría — cuerpo un poco más grande */
+.reveal .slides section#teoría ul,
+.reveal .slides section#teoría ol {
+  margin-left: 0.85em !important;
+}
+
+.reveal .slides section#teoría li,
+.reveal .slides section#teoría li p {
+  font-size: 0.95em !important;
+  line-height: 1.36 !important;
+}
+
+.reveal .slides section#teoría h2 {
+  font-size: 1.18em !important;
+}
+
 /* Layout */
 .reveal .columns .column {
   padding-right: 0.58em;
@@ -851,7 +867,7 @@ body {
 }
 
 #title-slide .quarto-title-author-name::after {
-  content: "Tesis Magíster en Ciencia de Datos \a Centro de Datos e IA · Universidad de Concepción";
+  content: "Tesis Magíster en Ciencia de Datos para la innovación";
   display: block;
   color: #1f2937;
   font-size: 0.75em;
@@ -946,6 +962,72 @@ body {
   font-size: 0.7em !important;
   margin: 0.15em 0 !important;
   text-align: center !important;
+}
+
+#thank-you-slide .thank-you-content .thank-you-title-block {
+  width: 100%;
+  max-width: 19em;
+  margin: 0 auto 0.75em;
+  text-align: center !important;
+}
+
+#thank-you-slide .thank-you-title-block .ty-line {
+  margin: 0.05em 0 !important;
+  text-align: center !important;
+}
+
+#thank-you-slide .thank-you-title-block .ty-main {
+  font-family: var(--r-heading-font), system-ui, sans-serif !important;
+  font-size: 0.88em !important;
+  font-weight: 700 !important;
+  color: #2f2a85 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+
+#thank-you-slide .thank-you-title-block .ty-sub {
+  font-family: var(--r-main-font), system-ui, sans-serif !important;
+  font-size: 0.58em !important;
+  font-weight: 400 !important;
+  color: #475970 !important;
+  line-height: 1.32 !important;
+  margin-top: 0.28em !important;
+}
+
+#thank-you-slide .thank-you-title-block .ty-year {
+  font-family: var(--r-heading-font), system-ui, sans-serif !important;
+  font-size: 0.72em !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  margin-top: 0.35em !important;
+  letter-spacing: 0.04em;
+}
+
+#thank-you-slide .thank-you-title-block .ty-name {
+  font-family: var(--r-main-font), system-ui, sans-serif !important;
+  font-size: 0.7em !important;
+  font-weight: 600 !important;
+  color: #5a6a82 !important;
+  margin-top: 0.45em !important;
+  margin-bottom: 0.35em !important;
+}
+
+#thank-you-slide .thank-you-title-block .ty-degree {
+  font-size: 0.58em !important;
+  font-style: italic !important;
+  color: #1f2937 !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  margin: 0.2em 0 0 !important;
+  padding-top: 0.45em !important;
+  border-top: 1px solid rgba(84, 49, 178, 0.2);
+}
+
+#thank-you-slide .thank-you-content p.ty-guides {
+  font-size: 0.55em !important;
+  color: #4b5563 !important;
+  margin-top: 0.65em !important;
+  line-height: 1.4 !important;
 }
 
 #thank-you-slide .thank-you-content p strong {
