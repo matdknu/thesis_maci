@@ -691,10 +691,6 @@ solo modelos **no paramétricos** capturan bien.
 - **Extensión a desinformación** — detección de bots, coordinación inorgánica, contenido falso.
 - **Modelado causal quasi-experimental** — diferencias-en-diferencias, regresión discontinua aprovechando eventos naturales.
 
-## Entregables abiertos
-
--   **Libro** (GitHub Pages):
-    [matdknu.github.io/thesis_maci](https://matdknu.github.io/thesis_maci/)
 
 ##  {#thank-you-slide}
 
