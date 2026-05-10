@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+
+/* Tema ligero para revealjs — ajustes mínimos */
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$presentation-heading-color: #1a365d;
+$body-color: #2d3748;
+
+/*-- scss:rules --*/
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  text-align: center;
+}
+
+.reveal table {
+  font-size: 0.85em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal pre {
+  font-size: 0.55em;
+}

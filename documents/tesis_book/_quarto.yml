@@ -9,6 +9,9 @@ project:
     - images
     - ../../outputs_modelado/umap_interactivo_temas.html
     - ../../outputs_modelado/umap_interactivo_sentimiento.html
+  # Presentación Reveal en docs/documents/presentacion_proyecto/ (GitHub Pages solo sirve docs/)
+  post-render:
+    - copy-presentation-to-docs.sh
 
 # URL pública (enlaces canónicos, Open Graph, rutas en GitHub Pages)
 website:

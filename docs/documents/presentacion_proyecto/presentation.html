@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="presentation_files/libs/clipboard/clipboard.min.js"></script>
+<script src="presentation_files/libs/quarto-html/tabby.min.js"></script>
+<script src="presentation_files/libs/quarto-html/popper.min.js"></script>
+<script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
+
+  <meta name="author" content="Matías Javier Deneken">
+  <meta name="dcterms.date" content="2026-03-01">
+  <title>Derecha fragmentada y un enemigo compartido</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="comptext-theme.css">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Derecha fragmentada y un enemigo compartido</h1>
+  <p class="subtitle">Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Matías Javier Deneken 
+</div>
+</div>
+</div>
+
+  <p class="date">2026-03-01</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+</section>
+<section id="índice" class="slide level2 toc-slide">
+<h2>Índice</h2>
+<div class="toc-panel">
+<ul>
+<li><strong>Problema, motivación e innovación</strong></li>
+<li class="fragment"><strong>Apuesta teórica y metodológica</strong></li>
+<li class="fragment"><strong>Resultados</strong></li>
+<li class="fragment"><strong>Balances, limitaciones y proyecciones</strong></li>
+</ul>
+</div>
+</section>
+<section>
+<section id="problema" class="title-slide slide level1 center">
+<h1>Problema</h1>
+
+</section>
+<section id="redes-sociales-y-democracia" class="slide level2">
+<h2>Redes sociales y democracia</h2>
+<style>
+/* Solo esta slide — tono sobrio tipo revista/panel académico */
+.reveal .slides section .rs-dem-scope {
+  --rs-card-gap: clamp(0.65rem, 1.8vh, 0.95rem);
+  --rs-col-gap: clamp(1rem, 3vw, 1.85rem);
+  --rs-card-pad-x: clamp(0.95rem, 2.8vw, 1.35rem);
+  --rs-card-pad-y: clamp(0.85rem, 2.2vw, 1.15rem);
+  font-feature-settings: "kern" 1, "liga" 1;
+  margin-top: 0.25em;
+  max-width: 58rem;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Grid: fuerza 2 columnas paralelas (Reveal a menudo aplana .columns/.column) */
+.reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--rs-col-gap) !important;
+  column-gap: var(--rs-col-gap) !important;
+  row-gap: 0 !important;
+  align-items: start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols > .column {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: var(--rs-card-gap) !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  float: none !important;
+  vertical-align: unset !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 760px) {
+  .reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols {
+    grid-template-columns: 1fr !important;
+  }
+}
+.reveal .slides section .rs-dem-scope .concept-card {
+  flex: 0 1 auto;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: var(--rs-card-pad-y) var(--rs-card-pad-x);
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 4px 18px rgba(15, 23, 42, 0.06);
+  text-align: left;
+}
+.reveal .slides section .rs-dem-scope .concept-card__idx {
+  display: block;
+  font-family: var(--r-heading-font), system-ui, sans-serif;
+  font-size: 0.52em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(30, 41, 59, 0.55);
+  margin-bottom: 0.42em;
+  line-height: 1.2;
+}
+.reveal .slides section .rs-dem-scope .concept-card__text {
+  margin: 0 !important;
+  font-family: var(--r-main-font), system-ui, sans-serif;
+  font-size: 0.72em !important;
+  line-height: 1.42 !important;
+  font-weight: 500;
+  color: rgba(17, 24, 39, 0.92);
+}
+/* Paleta académica — fondos muy apagados, sin fluorescencia */
+.reveal .slides section .rs-dem-scope .concept-card--frontera {
+  background: linear-gradient(158deg, #e8eef5 0%, #dfe8f2 52%, #e9eef6 100%);
+  border-color: rgba(71, 85, 119, 0.18);
+}
+.reveal .slides section .rs-dem-scope .concept-card--odio {
+  background: linear-gradient(154deg, #e5ebe7 0%, #dfe8e2 48%, #e8eeea 100%);
+  border-color: rgba(71, 95, 86, 0.22);
+}
+.reveal .slides section .rs-dem-scope .concept-card--eco {
+  background: linear-gradient(156deg, #ececf0 0%, #e3e6ec 50%, #f0f1f5 100%);
+  border-color: rgba(76, 80, 99, 0.16);
+}
+.reveal .slides section .rs-dem-scope .concept-card--colab {
+  background: linear-gradient(160deg, #e4eaef 0%, #dce5eb 52%, #e6eef4 100%);
+  border-color: rgba(61, 90, 118, 0.2);
+}
+</style>
+<div class="rs-dem-scope">
+<div class="columns rs-dem-two-cols">
+<div class="column" style="width:48%;">
+<div class="concept-card concept-card--frontera">
+<p><span class="concept-card__idx">I</span></p>
+<p class="concept-card__text">
+</p><p>La frontera de las redes sociales: El ellos y el nosotros</p>
+<p></p>
+</div>
+<div class="concept-card concept-card--odio">
+<p><span class="concept-card__idx">II</span></p>
+<p class="concept-card__text">
+</p><p>Discursos de odio</p>
+<p></p>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="concept-card concept-card--eco">
+<p><span class="concept-card__idx">III</span></p>
+<p class="concept-card__text">
+</p><p>Cámaras de eco y homofilia</p>
+<p></p>
+</div>
+<div class="concept-card concept-card--colab">
+<p><span class="concept-card__idx">IV</span></p>
+<p class="concept-card__text">
+</p><p>Colaboración entre grupos</p>
+<p></p>
+</div>
+</div></div>
+</div>
+</section>
+<section id="elecciones-presidenciales-en-chile-nuestro-laboratorio" class="slide level2">
+<h2>Elecciones presidenciales en Chile: Nuestro laboratorio</h2>
+<ul>
+<li><p>Chile ofrece un escenario particularmente interesante: 3 candidatos de derecha versus candidata de la izquierda.</p></li>
+<li><p>La hipótesis sostenida es que existían dos disputas simultáneas: una intra-derecha y otra entre los polos antagónicos (izquierda-derecha).</p></li>
+</ul>
+
+<img data-src="images/matthei.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="por-qué-mi-interés" class="title-slide slide level1 center">
+<h1>¿Por qué mi interés?</h1>
+
+</section>
+<section id="ciencias-sociales-computacionales-ciencia-de-datos-sociales" class="slide level2">
+<h2>Ciencias sociales computacionales / Ciencia de Datos Sociales</h2>
+<div class="columns slide-img-text">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/book.jpg" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<blockquote>
+<p>“One day I found that approximately 100 participants from Brazil had completed my experiment overnight. This seemingly small discovery had a deep impact on me. Back then, my colleagues were conducting research the traditional way — spending enormous effort recruiting, managing, and compensating participants in physical lab settings, where getting through 10 participantes in a day was considered a real achievement. Yet my internet-based study had gathered 100 participants […] while I was sleeping.”</p>
+</blockquote>
+<p>Matthew J. Salganik</p>
+</div></div>
+</section>
+<section id="cómo-hacer-cosas-con-las-palabras-i" class="slide level2">
+<h2>¿Cómo hacer cosas con las palabras? I</h2>
+<div class="literary-quote">
+<blockquote>
+<p>Pues bien; si a un cervantista se le ocurriera decir: el Quijote empieza con dos palabras monosilábicas terminadas en n: (en y un), y sigue con una de cinco letras (lugar), con dos de dos letras (de la), con una de cinco o de seis (Mancha), y luego se le ocurriera derivar conclusiones de eso, inmediatamente se pensaría que está loco. La Biblia ha sido estudiada de ese modo.</p>
+</blockquote>
+<div class="literary-quote-attribution">
+<p><strong>Jorge Luis Borges</strong> — <em>«La Cábala»</em>. Conferencias denominadas <em>Siete noches</em></p>
+</div>
+</div>
+
+<img data-src="images/borges.png" class="quarto-figure quarto-figure-center r-stretch" width="579"></section>
+<section id="cómo-hacer-cosas-con-las-palabras-ii" class="slide level2">
+<h2>¿Cómo hacer cosas con las palabras? II</h2>
+<div class="literary-quote">
+<blockquote>
+<p>En (1) un (1) lugar (2) de (1) la (1) Mancha (2) de (1) cuyo (2) nombre (2) no (1) quiero (2) acordarme (4) no (1) ha (1) mucho (2) tiempo (2) que (1) vivía (3) un (1) hidalgo (3) …..</p>
+</blockquote>
+<blockquote>
+<p>1 - 1 - 2 - 1 - 1 - 2 - 1 - 2 - 2 - 1 - 2 - 4 - 1 - 1 - 2 - 2 - 1 - 3 - 1 - 3</p>
+</blockquote>
+<div class="literary-quote-attribution">
+<p><strong>Miguel de Cervantes</strong> — <em>«Don Quijote de la Mancha»</em>.</p>
+</div>
+</div>
+
+<img data-src="images/quijote.jpg" class="quarto-figure quarto-figure-center r-stretch" width="579"></section></section>
+<section>
+<section id="y-aquí-la-innovación" class="title-slide slide level1 center">
+<h1>Y aquí la innovación</h1>
+
+</section>
+<section id="maci-para-la-innovación" class="slide level2">
+<h2>MACI (para la innovación…)</h2>
+<ul>
+<li>Reddit como fuente de datos no convencional para análisis político en Chile.</li>
+<li>Escalabilidad: análisis de corpus completo (&gt;100k comentarios) sin muestreo.</li>
+<li>Innovación metodológica:
+<ul>
+<li>Superación del enfoque léxico (diccionarios) mediante anotación dual LLM (GPT-4o + DeepSeek).</li>
+<li>Validación supervisada con ganancia incremental (ΔR²) sobre baseline TF-IDF.</li>
+</ul></li>
+<li>MVP concreto:
+<ul>
+<li>Perfiles emocionales por candidatura (O1)</li>
+<li>Red de antagonismos con valencia (O2)</li>
+<li>Serie temporal por fase electoral (O3)</li>
+</ul></li>
+<li>Termómetro de innovación:
+<ul>
+<li><strong>Incremental</strong>: Aplicación de LLMs a corpus político chileno (caso nuevo, método conocido).</li>
+<li><strong>Sustancial</strong>: Pipeline dual + validación cuantitativa de ganancia sobre métodos tradicionales.</li>
+</ul></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<div class="genesis-box">
+<p>El interés en particular nace cuando, dentro de mis labores en un proyecto, se me pidió un análisis de webscraping de diferentes medios chilenos sobre figuras de la derecha chilena. Llegado el momento de la presentación de resultados, la IP me indicó: <em>“Bueno, envíame la nube de palabras”</em>.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="marco-referencial-y-objetivos" class="title-slide slide level1 center">
+<h1>Marco referencial y objetivos</h1>
+
+</section>
+<section id="teoría" class="slide level2">
+<h2>Teoría</h2>
+<ul>
+<li><p>Polarización afectiva: Distancia emocional entre grupos políticos, no necesariamente ideológica (Iyengar et al., 2019). Se mide por intensidad de emociones negativas hacia el outgroup y positivas hacia el ingroup.</p></li>
+<li><p>Antagonismo/agonismo (Mouffe): Construcción de fronteras políticas — el “ellos vs.&nbsp;nosotros”. El antagonismo convierte al adversario en enemigo existencial; el agonismo reconoce la legitimidad del contrincante.</p></li>
+<li><p>Framing: Encuadres que definen problemas, causas y soluciones (Entman, 1993). Los marcos discursivos seleccionan ciertos aspectos de la realidad y los hacen salientes, guiando la interpretación política.</p></li>
+<li><p>Emociones políticas: El odio, el miedo, el resentimiento y la admiración no son subproductos de la ideología — son organizadores del conflicto (Marcus et al., 2000). Las emociones negativas intensifican la polarización afectiva y movilizan identidades políticas.</p></li>
+</ul>
+</section>
+<section id="objetivo" class="slide level2">
+<h2>Objetivo</h2>
+<p>Construir y analizar un corpus longitudinal de conversación política en Reddit (agosto-diciembre 2025) para explicar <strong>cómo se articula la polarización afectiva en la competencia entre derechas</strong>, capturando:</p>
+<ul>
+<li>Patrones de encuadre por corriente</li>
+<li>Perfiles emocionales por candidatura</li>
+<li>Redes de antagonismo intra/inter-bloque</li>
+<li>Evolución temporal por fase electoral</li>
+</ul>
+</section></section>
+<section>
+<section id="metodología" class="title-slide slide level1 center">
+<h1>Metodología</h1>
+
+</section>
+<section id="procesamiento-de-lenguaje-natural" class="slide level2">
+<h2>Procesamiento de lenguaje natural</h2>
+<p><strong>Clasificación automática de texto</strong>: Asignación de categorías semánticas o discursivas a unidades textuales.</p>
+<ul>
+<li><p><strong>Del léxico fijo al contexto dinámico</strong>: Los diccionarios de sentimiento asumen significado estable por palabra. Los LLMs capturan dependencia sintáctica y pragmática — “Kast es un peligro” vs.&nbsp;“Kast enfrenta un peligro”.</p></li>
+<li><p><strong>Anotación LLM dual</strong>: GPT-4o y DeepSeek como anotadores escalables.</p></li>
+<li><p><strong>Validación incremental (ΔR²)</strong>: Las variables LLM mejoran la predicción sobre baselines TF-IDF — evidencia de validez de constructo.</p></li>
+</ul>
+<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong>: Esquema de ponderación léxica. TF mide frecuencia de un término en un documento; IDF penaliza términos comunes en el corpus. Formalmente:</p>
+<p><span class="math display">\[
+\
+\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \log \frac{N}{\text{DF}(t)}
+\
+\]</span></p>
+<p>donde (N) es el total de documentos y ((t)) el número de documentos que contienen el término (t). Usado como baseline: si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), no capturan estructura semántica adicional.</p>
+</section>
+<section id="los-actores-del-estudio" class="slide level2">
+<h2>Los actores del estudio</h2>
+<div class="actors-study-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Candidato</th>
+<th>Posición</th>
+<th>Base social</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Evelyn Matthei</td>
+<td>Derecha tradicional</td>
+<td>Mayoría femenina, 50+, estratos C1-C2</td>
+</tr>
+<tr class="even">
+<td>José Antonio Kast</td>
+<td>Derecha radical</td>
+<td>Transversal, fuerte en regiones del sur</td>
+</tr>
+<tr class="odd">
+<td>Johannes Kaiser</td>
+<td>Derecha libertaria</td>
+<td>Mayoría masculina, 50+, estratos C3-D/E</td>
+</tr>
+<tr class="even">
+<td>Jeannette Jara</td>
+<td>Izquierda (PC)</td>
+<td>Región Metropolitana, C2-C3, ideologizado</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diseño comparativo</strong>: 3 derechas + 1 adversario común — competencia intra-bloque vs.&nbsp;inter-bloque.</p>
+</div>
+</section>
+<section id="acceso-y-fuente-de-datos" class="slide level2">
+<h2>Acceso y fuente de datos</h2>
+<div>
+<ul>
+<li class="fragment"><strong>¿Qué es Reddit?</strong></li>
+<li class="fragment"><strong>Subreddits</strong>: <code>r/chile</code> y <code>r/RepublicadeChile</code> (principales espacios de discusión política chilena)</li>
+<li class="fragment"><strong>Corpus</strong>: &gt;100k comentarios extraídos vía API pública de Reddit (Web scrapping)</li>
+<li class="fragment"><strong>Ventana temporal</strong>: Agosto-diciembre 2025 (precampaña, primera vuelta, segunda vuelta)</li>
+<li class="fragment"><strong>Filtro</strong>: Menciones explícitas a candidatos (regex/flags) para foco analítico</li>
+<li class="fragment"><strong>Sin muestreo</strong>: Análisis del corpus completo (Solo filtro a menciones explícitas)</li>
+</ul>
+</div>
+
+<img data-src="images/reddit.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="qué-clasificamos" class="slide level2">
+<h2>¿Qué clasificamos?</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; margin-top: 0.5rem; font-family: 'Georgia', serif; max-width: 920px;">
+  <div style="background: linear-gradient(135deg, #2980B9, #1A5276); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 1</span><br>
+    <strong style="font-size: 1rem;">Polarización afectiva</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Hostilidad discursiva (continua)</span>
+  </div>
+  <div style="background: linear-gradient(135deg, #8E44AD, #6C3483); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 2</span><br>
+    <strong style="font-size: 1rem;">Estrategias de ataque</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Amenaza, ridiculización, esencialización…</span>
+  </div>
+  <div style="background: linear-gradient(135deg, #C0392B, #922B21); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 3</span><br>
+    <strong style="font-size: 1rem;">Marcos interpretativos</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Moral, conflicto, economía, identidad…</span>
+  </div>
+  <div style="background: linear-gradient(135deg, #117864, #0B5345); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.15);">
+    <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85;">Dimensión 4</span><br>
+    <strong style="font-size: 1rem;">Fronteras políticas</strong><br>
+    <span style="font-size: 0.82rem; opacity: 0.92;">Inter-bloque vs. intra-bloque (derecha)</span>
+  </div>
+</div>
+<p>Clasificación dual <strong>GPT-4o (OpenAI)</strong> + <strong>DeepSeek</strong>, con reglas de consenso y desempate documentadas en la tesis.</p>
+</section>
+<section id="sobre-el-prompt-anotación-llm-dual" class="slide level2">
+<h2>Sobre el prompt anotación LLM dual</h2>
+<p>El sistema utiliza <strong>dos prompts secuenciales</strong> para clasificar cinco dimensiones discursivas en cada comentario:</p>
+<h3 id="prompt-a-sentimiento-y-polarización"><strong>Prompt A: Sentimiento y polarización</strong></h3>
+<ul>
+<li><strong>Polarización</strong> afectiva del comentario en escala continua (0.0–1.0), donde 0.0 = neutral/informativo y 1.0 = amenaza/deshumanización.</li>
+<li><strong>Reglas de target</strong>: Clasifica solo si el comentario evalúa directamente al candidato; crítica a votantes cuenta como negativo hacia el candidato; ironía evaluada por tono dominante.</li>
+</ul>
+<h3 id="prompt-b-marco-emoción-estrategia-y-frontera"><strong>Prompt B: Marco, emoción, estrategia y frontera</strong></h3>
+<p>Clasifica cuatro dimensiones siguiendo marcos teóricos establecidos:</p>
+<ol type="1">
+<li><p><strong>Marco interpretativo</strong> (Entman, 1993): diagnóstico, pronóstico, motivacional, conflicto, moral, económico, identitario, otro.</p></li>
+<li><p><strong>Emoción predominante</strong>: indignación, ira, desprecio, miedo, esperanza, alegría, ironía, ninguna. Distingue entre emociones cálidas (ira) vs.&nbsp;frías (desprecio), e ironía (crítica implícita) vs.&nbsp;alegría.</p></li>
+<li><p><strong>Estrategia adversarial</strong>: deslegitimación, ridiculización, atribución oculta, construcción de amenaza, esencialización, ninguna.</p></li>
+<li><p><strong>Frontera política</strong>: inter-bloque (derecha vs.&nbsp;izquierda), intra-bloque (entre candidatos de derecha), ninguna. Regla estricta: NUNCA inter-bloque si el hilo solo menciona candidatos de derecha.</p></li>
+</ol>
+<h3 id="configuración-técnica"><strong>Configuración técnica</strong></h3>
+<ul>
+<li><strong>Temperature = 0.1</strong> (máxima consistencia).</li>
+<li><strong>Validación JSON</strong>: Solo respuestas en formato estructurado, sin texto adicional.</li>
+</ul>
+</section></section>
+<section id="datos-obtenidos" class="title-slide slide level1 center">
+<h1>Datos obtenidos</h1>
+<div style="
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+  <div style="
+    font-size: 9.8rem;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: #111827;
+    text-shadow: 4px 4px 0px #f3d34a;
+  ">
+    163.695
+  </div>
+  <div style="
+    margin-top: 0.8rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #1f2937;
+  ">
+    comentarios en el corpus
+  </div>
+  <div style="
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+    color: #374151;
+    letter-spacing: 0.2px;
+  ">
+    1 de agosto de 2025 al 31 de diciembre de 2025
+  </div>
+</div>
+</section>
+
+<section>
+<section id="depuración-de-datos" class="title-slide slide level1 center">
+<h1>Depuración de datos</h1>
+
+</section>
+<section id="del-corpus-bruto-al-corpus-analítico" class="slide level2">
+<h2>Del corpus bruto al corpus analítico</h2>
+<p>Embudo de exclusiones (misma lógica que el capítulo de depuración de la tesis; la fila final recorta además la ventana <strong>1 ago – 31 dic 2025</strong>, America/Santiago).</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Etapa</th>
+<th>N comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Corpus bruto</td>
+<td>163.695</td>
+</tr>
+<tr class="even">
+<td>Tras filtrar bots y eliminados</td>
+<td>144.216</td>
+</tr>
+<tr class="odd">
+<td>Tras filtrar comentarios cortos (menos de 3 tokens)</td>
+<td>136.707</td>
+</tr>
+<tr class="even">
+<td>Corpus final analizable</td>
+<td>134.730</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distribución-por-candidato" class="slide level2">
+<h2>Distribución por candidato</h2>
+
+<img data-src="images/fig_count_facet_candidatos.png" class="quarto-figure quarto-figure-center r-stretch"><p><strong>Nota</strong>: Asimetría marcada en la distribución de menciones. Kast lidera con 102.759 comentarios (62.8% del corpus), seguido por Jara con 63.602 (38.9%), Kaiser con 26.521 (16.2%) y Matthei con 16.358 (10.0%). Los porcentajes suman más del 100% porque un mismo comentario puede referenciar a múltiples candidatos.</p>
+</section></section>
+<section id="resultados-4-historias" class="title-slide slide level1 center">
+<h1>Resultados: 4 historias</h1>
+
+</section>
+
+<section>
+<section id="historia-1-coincidencia-de-los-modelos" class="title-slide slide level1 center">
+<h1>Historia 1: Coincidencia de los modelos</h1>
+
+</section>
+<section id="coinciden-los-dos-modelos" class="slide level2">
+<h2>¿Coinciden los dos modelos?</h2>
+<p>Valores del acuerdo <strong>OpenAI (GPT-4o) vs.&nbsp;DeepSeek</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 8%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Valor</th>
+<th>Lectura</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correlación <em>r</em> (GPT-DeepSeek)</td>
+<td>0.665</td>
+<td>Convergencia moderada-alta en la escala continua</td>
+</tr>
+<tr class="even">
+<td>κ (Humano-GPT)</td>
+<td>0.64</td>
+<td>Acuerdo moderado alto; validez aceptable</td>
+</tr>
+<tr class="odd">
+<td>κ (Humano-DeepSeek)</td>
+<td>0.79</td>
+<td>Acuerdo alto; validez aceptable</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota</strong>: Validación humana sobre muestra aleatoria de 250 comentarios durante fase de calibración del pipeline.</p>
+</blockquote>
+<blockquote>
+<p><strong>Sí en polarización</strong> (<em>r</em> = 0,665): ambos modelos comparten señal en hostilidad discursiva.</p>
+<p><strong>Heterogéneo en categorías</strong>: las κ son bajas; en <strong>frontera</strong> el valor negativo no implica azar, sino que ambos marcan comentarios fronterizos pero <strong>discrepan de forma consistente</strong> sobre si el ataque es inter- o intra-bloque.</p>
+</blockquote>
+<blockquote>
+<p>La convergencia en polarización valida el pipeline dual como robusto para la variable &gt;central. Las divergencias en otras dimensiones <strong>no invalidan</strong> el diseño — documentan la complejidad del fenómeno discursivo estudiado.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="historia-2-la-polarización" class="title-slide slide level1 center">
+<h1>Historia 2: La polarización</h1>
+
+</section>
+<section id="distribución-de-polarización-por-candidato" class="slide level2">
+<h2>Distribución de polarización por candidato</h2>
+
+<img data-src="images/fig7_densidad_polarizacion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Distribuciones unimodales, medianas entre 0,3 y 0,5. Kast y Jara con colas más pesadas hacia alta hostilidad.</p>
+</section>
+<section id="polarización-en-el-tiempo" class="slide level2">
+<h2>Polarización en el tiempo</h2>
+
+<img data-src="images/serie_polarizacion_candidatos.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Sin tendencia ascendente clara hacia la elección: hostilidad de base relativamente <strong>estable</strong> en el periodo observado.</p>
+</section></section>
+<section>
+<section id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad" class="title-slide slide level1 center">
+<h1>Historia 3: Inter-bloque vs.&nbsp;intra-bloque — dos lógicas de hostilidad</h1>
+
+</section>
+<section id="configuraciones-discursivas-ml-clásico-clustering-k-means" class="slide level2">
+<h2>Configuraciones discursivas (ML clásico: clustering K-means)</h2>
+<p><strong>Método</strong>: Clustering K-means (K=5) sobre las dimensiones (marco × emoción), optimizado mediante método del codo (elbow) y validado con silhouette score = 0.42. La polarización se usa como variable externa de validación.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 8%">
+<col style="width: 24%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cluster</th>
+<th>Marco dominante</th>
+<th>Emoción dominante</th>
+<th>n</th>
+<th>Polarización media</th>
+<th>Silhouette</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Diagnóstico</td>
+<td>Ninguna</td>
+<td>1,124</td>
+<td>0.287</td>
+<td>0.51</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Moral</td>
+<td>Desprecio</td>
+<td>702</td>
+<td>0.541</td>
+<td>0.48</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Conflicto</td>
+<td>Desprecio</td>
+<td>945</td>
+<td>0.463</td>
+<td>0.39</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Conflicto</td>
+<td>Ira</td>
+<td>823</td>
+<td>0.598</td>
+<td>0.44</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Motivacional</td>
+<td>Indignación</td>
+<td>456</td>
+<td>0.512</td>
+<td>0.37</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado</strong>: Moral + desprecio (cluster 1, pol=0.541) resulta más hostil que conflicto + desprecio (cluster 2, pol=0.463), pero <strong>conflicto + ira</strong> (cluster 3) alcanza la mayor polarización media (0.598). El <strong>acoplamiento</strong> marco–emoción importa más que cada dimensión por separado — evidencia de <strong>interacción no aditiva</strong> entre features discursivas. ANOVA one-way confirma diferencias significativas entre clusters (F(4, 4045) = 127.3, p &lt; 0.001, η² = 0.112).</p>
+</section>
+<section id="estrategias-por-frontera-política-ml-clásico-test-χ²-de-independencia" class="slide level2">
+<h2>Estrategias por frontera política (ML clásico: test χ² de independencia)</h2>
+<p><strong>Hipótesis</strong>: Las estrategias adversariales no se distribuyen uniformemente entre fronteras inter- e intra-bloque.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 25%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Estrategia</th>
+<th>Inter-bloque</th>
+<th>Intra-bloque</th>
+<th>χ² (gl=1)</th>
+<th>V de Cramér</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Deslegitimación</td>
+<td>66.3%</td>
+<td>10.1%</td>
+<td>χ² = 1245.3 (p&lt;0.001)</td>
+<td>0.38</td>
+</tr>
+<tr class="even">
+<td>Ridiculización</td>
+<td>48.3%</td>
+<td>21.9%</td>
+<td>χ² = 347.2 (p&lt;0.001)</td>
+<td>0.20</td>
+</tr>
+<tr class="odd">
+<td>Construcción de amenaza</td>
+<td>66.0%</td>
+<td>11.1%</td>
+<td>χ² = 1189.7 (p&lt;0.001)</td>
+<td>0.37</td>
+</tr>
+<tr class="even">
+<td>Esencialización</td>
+<td>65.2%</td>
+<td>12.8%</td>
+<td>χ² = 1098.4 (p&lt;0.001)</td>
+<td>0.36</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado</strong>: La deslegitimación domina el ataque inter-bloque (hacia la izquierda, 66.3%), mientras que la ridiculización es la estrategia preferida intra-bloque (entre derechas, 21.9%). El test χ² rechaza la hipótesis de independencia (p &lt; 0.001 en todas las estrategias). La V de Cramér confirma asociación moderada-fuerte (V &gt; 0.30) entre estrategia y dirección de frontera para deslegitimación, amenaza y esencialización — <strong>acoplamiento estructural</strong>, no distribución aleatoria.</p>
+</section>
+<section id="estrategias-a-lo-largo-del-tiempo" class="slide level2">
+<h2>Estrategias a lo largo del tiempo</h2>
+
+<img data-src="images/serie_estrategias_semanal_mejorada.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Estructura adversarial estable: <strong>ajustes tácticos</strong>, no transformaciones del repertorio.</p>
+</section></section>
+<section>
+<section id="historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación" class="title-slide slide level1 center">
+<h1>Historia 4: Polarización en el repertorio; el candidato, vía mediación</h1>
+
+</section>
+<section id="valor-añadido-del-llm-dual" class="slide level2">
+<h2>Valor añadido del LLM dual</h2>
+
+<img data-src="images/figura_r2_configuraciones.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><ul>
+<li>TF-IDF solo: <strong>R² ≈ 0,43</strong></li>
+<li>Variables LLM solas: <strong>R² ≈ 0,55</strong></li>
+</ul>
+<div style="margin-top: 0.6rem; text-align: center;">
+  <div style="font-size: 4.2rem; font-weight: 900; color: #111827; text-shadow: 3px 3px 0px #f3d34a; line-height: 1;">R² = 0,62</div>
+  <div style="font-size: 1.15rem; color: #374151; margin-top: 0.35rem;">Combinado (texto + LLM). Las variables LLM no son redundantes con el bag-of-words: agregan estructura discursiva.</div>
+</div>
+</section>
+<section id="valor-añadido-del-llm-dual-1" class="slide level2">
+<h2>Valor añadido del LLM dual</h2>
+<div class="callout-r2-validation-wrap">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Validación incremental: TF-IDF como baseline</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Ejemplo</strong>: Comentario “Kast es un peligro para Chile. Una copia barata de Trump”</p>
+<ul>
+<li><strong>TF-IDF detecta</strong>: palabras “Kast” (peso alto) + “peligro” (peso medio) → predice polarización moderada</li>
+<li><strong>Variables LLM detectan</strong>: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta</li>
+</ul>
+<p><strong>Comparación de modelos</strong>:</p>
+<ul>
+<li><strong>Modelo A (solo TF-IDF)</strong>: Predice polarización usando únicamente las palabras del comentario → R² = 0.432</li>
+<li><strong>Modelo B (solo variables LLM)</strong>: Predice polarización usando emoción, estrategia, marco → R² = 0.554</li>
+<li><strong>Modelo C (TF-IDF + LLM)</strong>: Combina palabras y variables discursivas → R² = 0.619</li>
+</ul>
+<p><strong>Interpretación</strong>: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras crudas no revelan. TF-IDF sabe <em>qué</em> se dice; las variables LLM saben <em>cómo</em>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="qué-predice-la-polarización" class="slide level2">
+<h2>¿Qué predice la polarización?</h2>
+
+<img data-src="images/permutation_importance_polarizacion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><ul>
+<li><strong>Tipo de hilo:</strong> caída de R² ≈ 0,50 al permutar (orden de magnitud).</li>
+<li><strong>Estrategia, n_words, emoción:</strong> caídas superiores a 0,40.</li>
+<li><strong>Candidato (target):</strong> caída ≈ <strong>0,04</strong> — sin aporte marginal <em>una vez fijados</em> estrategia, emoción, marco, frontera, tipo de hilo y largo del texto (OLS coherente: <span class="math inline">\(\beta \approx 0\)</span>, <span class="math inline">\(p = 0.818\)</span>).</li>
+</ul>
+<blockquote>
+<p><em>“Una vez controlado por estrategia y emoción, el candidato target deja de aportar información predictiva. La hostilidad reside en el repertorio, no en el destinatario.”</em></p>
+</blockquote>
+<div style="margin-top: 0.65rem; font-size: 0.72em; color: #6b7280; line-height: 1.38; border-left: 3px solid #d1d5db; padding-left: 0.75rem;">
+  El candidato sigue importando: su efecto está totalmente mediado por las dimensiones discursivas, no es independiente de ellas.
+</div>
+</section>
+<section id="clasificación-de-polarización-alta" class="slide level2">
+<h2>Clasificación de polarización alta</h2>
+
+<img data-src="images/roc_curves_polarizacion_alta.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><p><strong>RandomForest</strong> AUC ≈ <strong>0,856</strong>. <strong>Regresión logística</strong> AUC ≈ <strong>0,811</strong>. La señal tiene una parte lineal, pero hay interacciones que solo modelos <strong>no paramétricos</strong> capturan bien.</p>
+</section></section>
+<section>
+<section id="síntesis-y-limitaciones" class="title-slide slide level1 center">
+<h1>Síntesis y limitaciones</h1>
+
+</section>
+<section id="tres-hallazgos-centrales" class="slide level2">
+<h2>Tres hallazgos centrales</h2>
+<ol type="1">
+<li><p><strong>Hostilidad en el repertorio, mediación vía candidato</strong> — El candidato como <em>target</em> no predice polarización directamente (β ≈ 0, p &gt; 0.05), pero <strong>condiciona el repertorio</strong> que se le aplica. Kast y Jara movilizan estrategias de mayor intensidad (ira, deslegitimación, amenaza) que Matthei y Kaiser. La polarización no se explica por <em>quién</em> es atacado, sino por <em>cómo</em>, pero ese “cómo” depende del candidato.</p></li>
+<li><p><strong>La frontera política es computacionalmente recuperable</strong> — El mejor modelo alcanza F1-macro = <strong>0.725</strong> para clasificar frontera inter/intra-bloque. El concepto teórico de Mouffe (antagonismo/agonismo) <strong>deja huella textual detectable</strong> en corpus informal.</p></li>
+<li><p><strong>La negatividad está cristalizada antes del pico de campaña</strong> — Los niveles de hostilidad se mantienen <strong>estables</strong> durante todo el período electoral. El ciclo <strong>refuerza</strong> disposiciones previas más de lo que las origina. Reddit es espacio de <strong>cristalización</strong>, no de persuasión.</p></li>
+</ol>
+</section>
+<section id="limitaciones" class="slide level2">
+<h2>Limitaciones</h2>
+<ul>
+<li><strong>Reddit no es representativo</strong> del electorado chileno — élite activista digital, sesgada demográficamente.</li>
+<li><strong>Atribución ideológica inferida</strong> (comportamiento en plataforma), no autodeclarada — introduce ruido de medición.</li>
+<li><strong>Diseño longitudinal sin causalidad fuerte</strong> — documenta correlaciones robustas, no identifica mecanismos causales.</li>
+<li><strong>Validación humana limitada</strong> — 250 comentarios en fase de calibración (κ ≈ 0.50); corpus completo sin validación exhaustiva.</li>
+<li><strong>Kappas bajos en emoción (0.076) y marco (0.136)</strong> — ambigüedad conceptual legítima; dimensiones usadas para tendencias agregadas, no clasificación individual.</li>
+</ul>
+</section>
+<section id="líneas-futuras" class="slide level2">
+<h2>Líneas futuras</h2>
+<ul>
+<li><strong>Replicación en X, TikTok, Instagram</strong> — comparar ecologías discursivas entre plataformas.</li>
+<li><strong>Ventanas de evento más finas</strong> — análisis diario/horario alrededor de debates, declaraciones, <em>scandals</em>.</li>
+<li><strong>Extensión a desinformación</strong> — detección de bots, coordinación inorgánica, contenido falso.</li>
+<li><strong>Modelado causal quasi-experimental</strong> — diferencias-en-diferencias, regresión discontinua aprovechando eventos naturales.</li>
+</ul>
+</section>
+<section id="thank-you-slide" class="slide level2">
+<h2></h2>
+<div class="thank-you-content">
+<div class="thank-you-title-block">
+  <p class="ty-line ty-main">Derecha fragmentada y</p>
+  <p class="ty-line ty-main">un enemigo compartido</p>
+  <p class="ty-line ty-sub">Anotación LLM dual y polarización discursiva</p>
+  <p class="ty-line ty-sub">en Reddit durante las elecciones chilenas de</p>
+  <p class="ty-line ty-year">2025</p>
+  <p class="ty-line ty-name">Matías Javier Deneken</p>
+  <p class="ty-degree">Tesis Magíster en Ciencia de Datos para la innovación</p>
+</div>
+<p class="ty-guides">Profesores guías: <strong>Dr. Carlos Navarrete</strong> · <strong>Dra. Marcela Parada</strong></p>
+<p><a href="mailto:m.deneken@uc.cl" class="email-link">m.deneken@uc.cl</a></p>
+<p><a href="https://github.com/matdknu" class="github-link">GitHub: @matdknu</a></p>
+</div>
+<!--
+Imágenes para esta presentación: copiadas automáticamente a documents/presentacion_proyecto/images/
+desde documents/tesis_book/fig_thesis/ y documents/tesis_book/images/ (tendencia_panel_bisemanal_primera_segunda.png).
+Nada pendiente de copia manual si esas rutas siguen disponibles en tu máquina.
+-->
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="presentation_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="presentation_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.2,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

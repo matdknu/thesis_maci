@@ -6,13 +6,26 @@ adaptada a la **tesis MACI** (Reddit, NLP, UdeC).
 
 ## Versión en línea (GitHub Pages)
 
-Con el sitio del repositorio [**thesis_maci**](https://github.com/matdknu/thesis_maci) publicado en Pages (`site-url`: **https://matdknu.github.io/thesis_maci/**), la presentación compilada debería estar en:
+GitHub Pages solo publica lo que está en **`docs/`** en la rama que uses para Pages. La presentación se **copia automáticamente** allí al renderizar el libro Quarto:
+
+```bash
+cd documents/tesis_book
+quarto render
+```
+
+Eso ejecuta `copy-presentation-to-docs.sh` (`project.post-render` en `_quarto.yml`): vuelve a renderizar `presentation.qmd` y sincroniza **`docs/documents/presentacion_proyecto/`** (`presentation.html`, `presentation_files/`, `comptext-theme.css`, `images/`, etc.).
+
+URL pública (tras **`git add docs/`** y push):
 
 [**https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html**](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html)
 
-Fuente en el repo: [`documents/presentacion_proyecto/presentation.qmd`](https://github.com/matdknu/thesis_maci/blob/main/documents/presentacion_proyecto/presentation.qmd).
+Fuente: [`documents/presentacion_proyecto/presentation.qmd`](https://github.com/matdknu/thesis_maci/blob/main/documents/presentacion_proyecto/presentation.qmd).
 
-> Si tu flujo de Pages solo despliega la carpeta `docs/` del libro Quarto, esa URL puede no existir hasta que copies ahí `presentation.html`, `presentation_files/`, `comptext-theme.css`, `images/` y recursos enlazados, o hasta que incluyas esta carpeta en el build del sitio.
+Si solo cambias la presentación sin recompilar el libro, puedes ejecutar solo el script de copia:
+
+```bash
+documents/tesis_book/copy-presentation-to-docs.sh
+```
 
 ## Archivos
 
