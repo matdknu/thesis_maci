@@ -7,7 +7,7 @@ format:
   revealjs:
     theme: simple
     fontsize: 28px
-    slide-number: true
+    slide-number: false
     transition: fade
     background-transition: fade
     controls: true

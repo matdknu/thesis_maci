@@ -757,11 +757,10 @@ body {
   margin-top: 0 !important;
 }
 
-/* Footer y navegación */
+/* Numeración de slide (Reveal): desactivada en YAML; ocultar por si el PDF/HTML la reinyecta */
 .reveal .slide-number {
-  color: #315d93 !important;
-  font-size: 0.42em;
-  opacity: 0.85;
+  display: none !important;
+  visibility: hidden !important;
 }
 
 /* Pie: dos logos centrados, misma altura (flex + pseudoelementos) */
