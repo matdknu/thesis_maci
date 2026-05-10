@@ -602,7 +602,6 @@ width="88%"}
 </div>
 ```
 
-
 ## Valor añadido del LLM dual
 
 ::: {.callout-r2-validation-wrap}
