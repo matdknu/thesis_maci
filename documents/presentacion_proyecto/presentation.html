@@ -329,7 +329,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Derecha fragmentada y un enemigo compartido</h1>
-  <p class="subtitle">Análisis textual longitudinal de la contestación discursiva — elecciones presidenciales 2025 (Chile)</p>
+  <p class="subtitle">Anotación LLM dual y polarización discursiva en Reddit durante las elecciones chilenas de 2025</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -347,6 +347,17 @@ Matías Javier Deneken Uribe
 <section id="section-1" class="slide level2">
 <h2></h2>
 </section>
+<section id="índice" class="slide level2 toc-slide">
+<h2>Índice</h2>
+<div class="toc-panel">
+<ul>
+<li><strong>Problema, motivación e innovación</strong></li>
+<li class="fragment"><strong>Apuesta teórica y metodológica</strong></li>
+<li class="fragment"><strong>Resultados</strong></li>
+<li class="fragment"><strong>Balances, limitaciones y proyecciones</strong></li>
+</ul>
+</div>
+</section>
 <section>
 <section id="problema" class="title-slide slide level1 center">
 <h1>Problema</h1>
@@ -354,18 +365,137 @@ Matías Javier Deneken Uribe
 </section>
 <section id="redes-sociales-y-democracia" class="slide level2">
 <h2>Redes sociales y democracia</h2>
-<ul>
-<li><p>La frontera de las redes sociales: El ellos y el nosotros.</p></li>
-<li><p>Discursos de odio</p></li>
-<li><p>Colaboración entre grupos</p></li>
-</ul>
-
-<img data-src="images/odio.png" class="quarto-figure quarto-figure-center r-stretch" width="395"></section>
+<style>
+/* Solo esta slide — tono sobrio tipo revista/panel académico */
+.reveal .slides section .rs-dem-scope {
+  --rs-card-gap: clamp(0.65rem, 1.8vh, 0.95rem);
+  --rs-col-gap: clamp(1rem, 3vw, 1.85rem);
+  --rs-card-pad-x: clamp(0.95rem, 2.8vw, 1.35rem);
+  --rs-card-pad-y: clamp(0.85rem, 2.2vw, 1.15rem);
+  font-feature-settings: "kern" 1, "liga" 1;
+  margin-top: 0.25em;
+  max-width: 58rem;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Grid: fuerza 2 columnas paralelas (Reveal a menudo aplana .columns/.column) */
+.reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--rs-col-gap) !important;
+  column-gap: var(--rs-col-gap) !important;
+  row-gap: 0 !important;
+  align-items: start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols > .column {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: var(--rs-card-gap) !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  float: none !important;
+  vertical-align: unset !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 760px) {
+  .reveal .slides section .rs-dem-scope .columns.rs-dem-two-cols {
+    grid-template-columns: 1fr !important;
+  }
+}
+.reveal .slides section .rs-dem-scope .concept-card {
+  flex: 0 1 auto;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: var(--rs-card-pad-y) var(--rs-card-pad-x);
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 4px 18px rgba(15, 23, 42, 0.06);
+  text-align: left;
+}
+.reveal .slides section .rs-dem-scope .concept-card__idx {
+  display: block;
+  font-family: var(--r-heading-font), system-ui, sans-serif;
+  font-size: 0.52em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(30, 41, 59, 0.55);
+  margin-bottom: 0.42em;
+  line-height: 1.2;
+}
+.reveal .slides section .rs-dem-scope .concept-card__text {
+  margin: 0 !important;
+  font-family: var(--r-main-font), system-ui, sans-serif;
+  font-size: 0.72em !important;
+  line-height: 1.42 !important;
+  font-weight: 500;
+  color: rgba(17, 24, 39, 0.92);
+}
+/* Paleta académica — fondos muy apagados, sin fluorescencia */
+.reveal .slides section .rs-dem-scope .concept-card--frontera {
+  background: linear-gradient(158deg, #e8eef5 0%, #dfe8f2 52%, #e9eef6 100%);
+  border-color: rgba(71, 85, 119, 0.18);
+}
+.reveal .slides section .rs-dem-scope .concept-card--odio {
+  background: linear-gradient(154deg, #e5ebe7 0%, #dfe8e2 48%, #e8eeea 100%);
+  border-color: rgba(71, 95, 86, 0.22);
+}
+.reveal .slides section .rs-dem-scope .concept-card--eco {
+  background: linear-gradient(156deg, #ececf0 0%, #e3e6ec 50%, #f0f1f5 100%);
+  border-color: rgba(76, 80, 99, 0.16);
+}
+.reveal .slides section .rs-dem-scope .concept-card--colab {
+  background: linear-gradient(160deg, #e4eaef 0%, #dce5eb 52%, #e6eef4 100%);
+  border-color: rgba(61, 90, 118, 0.2);
+}
+</style>
+<div class="rs-dem-scope">
+<div class="columns rs-dem-two-cols">
+<div class="column" style="width:48%;">
+<div class="concept-card concept-card--frontera">
+<p><span class="concept-card__idx">I</span></p>
+<p class="concept-card__text">
+</p><p>La frontera de las redes sociales: El ellos y el nosotros</p>
+<p></p>
+</div>
+<div class="concept-card concept-card--odio">
+<p><span class="concept-card__idx">II</span></p>
+<p class="concept-card__text">
+</p><p>Discursos de odio</p>
+<p></p>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="concept-card concept-card--eco">
+<p><span class="concept-card__idx">III</span></p>
+<p class="concept-card__text">
+</p><p>Cámaras de eco y homofilia</p>
+<p></p>
+</div>
+<div class="concept-card concept-card--colab">
+<p><span class="concept-card__idx">IV</span></p>
+<p class="concept-card__text">
+</p><p>Colaboración entre grupos</p>
+<p></p>
+</div>
+</div></div>
+</div>
+</section>
 <section id="elecciones-presidenciales-en-chile-nuestro-laboratorio" class="slide level2">
 <h2>Elecciones presidenciales en Chile: Nuestro laboratorio</h2>
 <ul>
 <li><p>Chile ofrece un escenario particularmente interesante: 3 candidatos de derecha versus candidata de la izquierda.</p></li>
-<li><p>Las hipótesis sostenidas es que existía, por un lado, una disputa dentro las derechas y entre las posiciones políticas antagónicas.</p></li>
+<li><p>La hipótesis sostenida es que existían dos disputas simultáneas: una intra-derecha y otra entre los polos antagónicos (izquierda-derecha).</p></li>
 </ul>
 
 <img data-src="images/matthei.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
@@ -374,8 +504,8 @@ Matías Javier Deneken Uribe
 <h1>¿Por qué mi interés?</h1>
 
 </section>
-<section id="ciencias-sociales-computacionales-ciencia-de-datos-sociales-i" class="slide level2">
-<h2>Ciencias sociales computacionales / Ciencia de Datos Sociales I</h2>
+<section id="ciencias-sociales-computacionales-ciencia-de-datos-sociales" class="slide level2">
+<h2>Ciencias sociales computacionales / Ciencia de Datos Sociales</h2>
 <div class="columns slide-img-text">
 <div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-left">
@@ -390,31 +520,69 @@ Matías Javier Deneken Uribe
 <p>Matthew J. Salganik</p>
 </div></div>
 </section>
-<section id="ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii" class="slide level2">
-<h2>Ciencias sociales computacionales / Ciencia de Datos Sociales II</h2>
-<div class="columns slide-img-text">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/css.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
-</figure>
+<section id="cómo-hacer-cosas-con-las-palabras-i" class="slide level2">
+<h2>¿Cómo hacer cosas con las palabras? I</h2>
+<div class="literary-quote">
+<blockquote>
+<p>Pues bien; si a un cervantista se le ocurriera decir: el Quijote empieza con dos palabras monosilábicas terminadas en n: (en y un), y sigue con una de cinco letras (lugar), con dos de dos letras (de la), con una de cinco o de seis (Mancha), y luego se le ocurriera derivar conclusiones de eso, inmediatamente se pensaría que está loco. La Biblia ha sido estudiada de ese modo.</p>
+</blockquote>
+<div class="literary-quote-attribution">
+<p><strong>Jorge Luis Borges</strong> — <em>«La Cábala»</em>. Conferencias denominadas <em>Siete noches</em></p>
 </div>
-</div><div class="column" style="width:60%;">
-<ul>
-<li><p>Las Ciencias Sociales Computacionales han emergido como un campo que analiza grandes volúmenes de datos</p></li>
-<li><p>En diferentes universidades el desarrollo de la IA se ha encontrado acompañado desde las humanidades y ciencias sociales (Oxford, Northwestern, etc).</p></li>
-</ul>
-</div></div>
+</div>
+
+<img data-src="images/borges.png" class="quarto-figure quarto-figure-center r-stretch" width="579"></section>
+<section id="cómo-hacer-cosas-con-las-palabras-ii" class="slide level2">
+<h2>¿Cómo hacer cosas con las palabras? II</h2>
+<div class="literary-quote">
+<blockquote>
+<p>En (1) un (1) lugar (2) de (1) la (1) Mancha (2) de (1) cuyo (2) nombre (2) no (1) quiero (2) acordarme (4) no (1) ha (1) mucho (2) tiempo (2) que (1) vivía (3) un (1) hidalgo (3) …..</p>
+</blockquote>
+<blockquote>
+<p>1 - 1 - 2 - 1 - 1 - 2 - 1 - 2 - 2 - 1 - 2 - 4 - 1 - 1 - 2 - 2 - 1 - 3 - 1 - 3</p>
+</blockquote>
+<div class="literary-quote-attribution">
+<p><strong>Miguel de Cervantes</strong> — <em>«Don Quijote de la Mancha»</em>.</p>
+</div>
+</div>
+
+<img data-src="images/quijote.jpg" class="quarto-figure quarto-figure-center r-stretch" width="579"></section></section>
+<section>
+<section id="y-aquí-la-innovación" class="title-slide slide level1 center">
+<h1>Y aquí la innovación</h1>
+
 </section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-</section>
-<section id="y-aquí-el-componente-de-innovación.." class="slide level2">
-<h2>Y aquí el componente de innovación..</h2>
+<section id="maci-para-la-innovación" class="slide level2">
+<h2>MACI (para la innovación…)</h2>
 <ul>
-<li><p>Usos de datos de gran escala para el análisis políticos</p></li>
-<li><p>Innovación en términos metodológicos</p></li>
+<li>Reddit como fuente de datos no convencional para análisis político en Chile.</li>
+<li>Escalabilidad: análisis de corpus completo (&gt;100k comentarios) sin muestreo.</li>
+<li>Innovación metodológica:
+<ul>
+<li>Superación del enfoque léxico (diccionarios) mediante anotación dual LLM (GPT-4o + DeepSeek).</li>
+<li>Validación supervisada con ganancia incremental (ΔR²) sobre baseline TF-IDF.</li>
+</ul></li>
+<li>MVP concreto:
+<ul>
+<li>Perfiles emocionales por candidatura (O1)</li>
+<li>Red de antagonismos con valencia (O2)</li>
+<li>Serie temporal por fase electoral (O3)</li>
+</ul></li>
+<li>Termómetro de innovación:
+<ul>
+<li><strong>Incremental</strong>: Aplicación de LLMs a corpus político chileno (caso nuevo, método conocido).</li>
+<li><strong>Sustancial</strong>: Pipeline dual + validación cuantitativa de ganancia sobre métodos tradicionales.</li>
+</ul></li>
 </ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<div class="genesis-box">
+<p>El interés en particular nace cuando, dentro de mis labores en un proyecto, se me pidió un análisis de webscraping de diferentes medios chilenos sobre figuras de la derecha chilena. Llegado el momento de la presentación de resultados, la IP me indicó: <em>“Bueno, envíame la nube de palabras”</em>.</p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="marco-referencial-y-objetivos" class="title-slide slide level1 center">
@@ -424,22 +592,48 @@ Matías Javier Deneken Uribe
 <section id="teoría" class="slide level2">
 <h2>Teoría</h2>
 <ul>
-<li>Integrar teoría social y modelado computacional en un diseño reproducible: sin teoría no hay interpretación y sin escala no hay evidencia robusta.</li>
+<li><p>Polarización afectiva: Distancia emocional entre grupos políticos, no necesariamente ideológica (Iyengar et al., 2019). Se mide por intensidad de emociones negativas hacia el outgroup y positivas hacia el ingroup.</p></li>
+<li><p>Antagonismo/agonismo (Mouffe): Construcción de fronteras políticas — el “ellos vs.&nbsp;nosotros”. El antagonismo convierte al adversario en enemigo existencial; el agonismo reconoce la legitimidad del contrincante.</p></li>
+<li><p>Framing: Encuadres que definen problemas, causas y soluciones (Entman, 1993). Los marcos discursivos seleccionan ciertos aspectos de la realidad y los hacen salientes, guiando la interpretación política.</p></li>
+<li><p>Emociones políticas: El odio, el miedo, el resentimiento y la admiración no son subproductos de la ideología — son organizadores del conflicto (Marcus et al., 2000). Las emociones negativas intensifican la polarización afectiva y movilizan identidades políticas</p></li>
 </ul>
 </section>
 <section id="objetivo" class="slide level2">
-<h2>Objetivo:</h2>
+<h2>Objetivo</h2>
+<p>Construir y analizar un corpus longitudinal de conversación política en Reddit (agosto-diciembre 2025) para explicar <strong>cómo se articula la polarización afectiva en la competencia entre derechas</strong>, capturando:</p>
+<div>
 <ul>
-<li>Construir y analizar un corpus longitudinal de conversación política en Reddit (agosto-diciembre 2025) para explicar cómo se articula la polarización afectiva en la competencia entre derechas.</li>
+<li class="fragment">Patrones de encuadre por corriente</li>
+<li class="fragment">Perfiles emocionales por candidatura</li>
+<li class="fragment">Redes de antagonismo intra/inter-bloque</li>
+<li class="fragment">Evolución temporal por fase electoral</li>
 </ul>
+</div>
 </section></section>
 <section>
 <section id="metodología" class="title-slide slide level1 center">
 <h1>Metodología</h1>
 
 </section>
+<section id="procesamiento-de-lenguaje-natural" class="slide level2">
+<h2>Procesamiento de lenguaje natural</h2>
+<p><strong>Clasificación automática de texto</strong>: Asignación de categorías semánticas o discursivas a unidades textuales.</p>
+<ul>
+<li><p><strong>Del léxico fijo al contexto dinámico</strong>: Los diccionarios de sentimiento asumen significado estable por palabra. Los LLMs capturan dependencia sintáctica y pragmática — “Kast es un peligro” vs.&nbsp;“Kast enfrenta un peligro”.</p></li>
+<li><p><strong>Anotación LLM dual</strong>: GPT-4o y DeepSeek como anotadores escalables.</p></li>
+<li><p><strong>Validación incremental (ΔR²)</strong>: Las variables LLM mejoran la predicción sobre baselines TF-IDF — evidencia de validez de constructo.</p></li>
+</ul>
+<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong>: Esquema de ponderación léxica. TF mide frecuencia de un término en un documento; IDF penaliza términos comunes en el corpus. Formalmente:</p>
+<p><span class="math display">\[
+\
+\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \log \frac{N}{\text{DF}(t)}
+\
+\]</span></p>
+<p>donde (N) es el total de documentos y ((t)) el número de documentos que contienen el término (t). Usado como baseline: si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), no capturan estructura semántica adicional.</p>
+</section>
 <section id="los-actores-del-estudio" class="slide level2">
 <h2>Los actores del estudio</h2>
+<div class="actors-study-table">
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -476,23 +670,23 @@ Matías Javier Deneken Uribe
 </tr>
 </tbody>
 </table>
-<p><em>Nota:</em> 3 derechas + 1 adversario común — diseño comparativo intra-bloque vs.&nbsp;inter-bloque.</p>
+<p><strong>Diseño comparativo</strong>: 3 derechas + 1 adversario común — competencia intra-bloque vs.&nbsp;inter-bloque.</p>
+</div>
 </section>
-<section id="pipeline-analítico" class="slide level2">
-<h2>Pipeline analítico</h2>
-<p>De la recolección del corpus a los hallazgos sustantivos.</p>
-
-<img data-src="images/diagrama.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="acceso-y-fuente-de-datos" class="slide level2">
 <h2>Acceso y fuente de datos</h2>
 <div>
 <ul>
-<li class="fragment">Subreddits: <strong><code>r/chile</code></strong> y <strong><code>r/RepublicadeChile</code></strong></li>
-<li class="fragment">Texto: títulos, cuerpos de posts y <strong>comentarios</strong> con línea temporal de campaña</li>
-<li class="fragment">Filtro por <strong>menciones</strong> a candidatos (regex / flags) para el foco analítico</li>
+<li class="fragment"><strong>¿Qué es Reddit?</strong></li>
+<li class="fragment"><strong>Subreddits</strong>: <code>r/chile</code> y <code>r/RepublicadeChile</code> (principales espacios de discusión política chilena)</li>
+<li class="fragment"><strong>Corpus</strong>: &gt;100k comentarios extraídos vía API pública de Reddit (Web scrapping)</li>
+<li class="fragment"><strong>Ventana temporal</strong>: Agosto-diciembre 2025 (precampaña, primera vuelta, segunda vuelta)</li>
+<li class="fragment"><strong>Filtro</strong>: Menciones explícitas a candidatos (regex/flags) para foco analítico</li>
+<li class="fragment"><strong>Sin muestreo</strong>: Análisis del corpus completo (Solo filtro a menciones explícitas)</li>
 </ul>
 </div>
-</section>
+
+<img data-src="images/reddit.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="qué-clasificamos" class="slide level2">
 <h2>¿Qué clasificamos?</h2>
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; margin-top: 0.5rem; font-family: 'Georgia', serif; max-width: 920px;">
@@ -519,13 +713,26 @@ Matías Javier Deneken Uribe
 </div>
 <p>Clasificación dual <strong>GPT-4o (OpenAI)</strong> + <strong>DeepSeek</strong>, con reglas de consenso y desempate documentadas en la tesis.</p>
 </section>
-<section id="lógica-de-desempate-entre-modelos" class="slide level2">
-<h2>Lógica de desempate entre modelos</h2>
-<p>Cuando OpenAI y DeepSeek difieren, el <strong>karma</strong> del comentario en Reddit orienta la etiqueta final: se asume que el voto de la comunidad refleja, en promedio, el tono percibido del mensaje.</p>
+<section id="sobre-el-prompt-anotación-llm-dual" class="slide level2">
+<h2>Sobre el prompt anotación LLM dual</h2>
+<p>El sistema utiliza <strong>dos prompts secuenciales</strong> para clasificar cinco dimensiones discursivas en cada comentario:</p>
+<h3 id="prompt-a-sentimiento-y-polarización"><strong>Prompt A: Sentimiento y polarización</strong></h3>
 <ul>
-<li><strong>Acuerdo entre modelos</strong> → etiqueta directa (consenso).</li>
-<li><strong>Desacuerdo + karma positivo</strong> → se privilegia el modelo <strong>menos hostil</strong>.</li>
-<li><strong>Desacuerdo + karma negativo</strong> → se privilegia el modelo <strong>más hostil</strong>.</li>
+<li><strong>Polarización</strong> afectiva del comentario en escala continua (0.0–1.0), donde 0.0 = neutral/informativo y 1.0 = amenaza/deshumanización.</li>
+<li><strong>Reglas de target</strong>: Clasifica solo si el comentario evalúa directamente al candidato; crítica a votantes cuenta como negativo hacia el candidato; ironía evaluada por tono dominante.</li>
+</ul>
+<h3 id="prompt-b-marco-emoción-estrategia-y-frontera"><strong>Prompt B: Marco, emoción, estrategia y frontera</strong></h3>
+<p>Clasifica cuatro dimensiones siguiendo marcos teóricos establecidos:</p>
+<ol type="1">
+<li><p><strong>Marco interpretativo</strong> (Entman, 1993): diagnóstico, pronóstico, motivacional, conflicto, moral, económico, identitario, otro.</p></li>
+<li><p><strong>Emoción predominante</strong>: indignación, ira, desprecio, miedo, esperanza, alegría, ironía, ninguna. Distingue entre emociones cálidas (ira) vs.&nbsp;frías (desprecio), e ironía (crítica implícita) vs.&nbsp;alegría.</p></li>
+<li><p><strong>Estrategia adversarial</strong>: deslegitimación, ridiculización, atribución oculta, construcción de amenaza, esencialización, ninguna.</p></li>
+<li><p><strong>Frontera política</strong>: inter-bloque (derecha vs.&nbsp;izquierda), intra-bloque (entre candidatos de derecha), ninguna. Regla estricta: NUNCA inter-bloque si el hilo solo menciona candidatos de derecha.</p></li>
+</ol>
+<h3 id="configuración-técnica"><strong>Configuración técnica</strong></h3>
+<ul>
+<li><strong>Temperature = 0.1</strong> (máxima consistencia).</li>
+<li><strong>Validación JSON</strong>: Solo respuestas en formato estructurado, sin texto adicional.</li>
 </ul>
 </section></section>
 <section id="datos-obtenidos" class="title-slide slide level1 center">
@@ -604,38 +811,8 @@ Matías Javier Deneken Uribe
 </section>
 <section id="distribución-por-candidato" class="slide level2">
 <h2>Distribución por candidato</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Candidato</th>
-<th>Menciones</th>
-<th>% corpus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Kast</td>
-<td>102.759</td>
-<td>62.8%</td>
-</tr>
-<tr class="even">
-<td>Jara</td>
-<td>63.602</td>
-<td>38.9%</td>
-</tr>
-<tr class="odd">
-<td>Kaiser</td>
-<td>26.521</td>
-<td>16.2%</td>
-</tr>
-<tr class="even">
-<td>Matthei</td>
-<td>16.358</td>
-<td>10.0%</td>
-</tr>
-</tbody>
-</table>
-<p><em>Nota:</em> Asimetría marcada — Kast y Jara dominan el debate (los porcentajes suman más del 100% en conjunto porque un comentario puede mencionar más de un candidato).</p>
+
+<img data-src="images/fig_count_facet_candidatos.png" class="quarto-figure quarto-figure-center r-stretch"><p><strong>Nota</strong>: Asimetría marcada en la distribución de menciones. Kast lidera con 102.759 comentarios (62.8% del corpus), seguido por Jara con 63.602 (38.9%), Kaiser con 26.521 (16.2%) y Matthei con 16.358 (10.0%). Los porcentajes suman más del 100% porque un mismo comentario puede referenciar a múltiples candidatos.</p>
 </section></section>
 <section id="resultados-4-historias" class="title-slide slide level1 center">
 <h1>Resultados: 4 historias</h1>
@@ -649,16 +826,15 @@ Matías Javier Deneken Uribe
 </section>
 <section id="coinciden-los-dos-modelos" class="slide level2">
 <h2>¿Coinciden los dos modelos?</h2>
+<p>Valores del acuerdo <strong>OpenAI (GPT-4o) vs.&nbsp;DeepSeek</strong></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
+<col style="width: 28%">
+<col style="width: 8%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Dimensión</th>
 <th>Métrica</th>
 <th>Valor</th>
 <th>Lectura</th>
@@ -666,41 +842,31 @@ Matías Javier Deneken Uribe
 </thead>
 <tbody>
 <tr class="odd">
-<td>Polarización</td>
-<td>Correlación <em>r</em></td>
+<td>Correlación <em>r</em> (GPT-DeepSeek)</td>
 <td>0.665</td>
-<td>Convergencia moderada-alta</td>
+<td>Convergencia moderada-alta en la escala continua</td>
 </tr>
 <tr class="even">
-<td>Estrategia</td>
-<td>κ Cohen</td>
-<td>0.126 (61% acuerdo bruto)</td>
-<td>Coincidencia alta, acuerdo ajustado bajo</td>
+<td>κ (Humano-GPT)</td>
+<td>0.64</td>
+<td>Acuerdo moderado alto; validez aceptable</td>
 </tr>
 <tr class="odd">
-<td>Marco</td>
-<td>κ Cohen</td>
-<td>0.136</td>
-<td>Ambigüedad inherente</td>
-</tr>
-<tr class="even">
-<td>Emoción</td>
-<td>κ Cohen</td>
-<td>0.076</td>
-<td>Lecturas legítimas múltiples</td>
-</tr>
-<tr class="odd">
-<td>Frontera</td>
-<td>κ Cohen</td>
-<td>−0.146</td>
-<td>Desacuerdo sistemático</td>
+<td>κ (Humano-DeepSeek)</td>
+<td>0.79</td>
+<td>Acuerdo alto; validez aceptable</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>Los modelos coinciden en la dimensión continua (polarización) y en categorías estructurales (estrategia).</p>
-<p>El desacuerdo en frontera no es aleatorio: ambos detectan el comentario como fronterizo pero discrepan sobre la dirección.</p>
-<p>El desempate por consenso (karma del comentario) resuelve las divergencias.</p>
+<p><strong>Nota</strong>: Validación humana sobre muestra aleatoria de 250 comentarios durante fase de calibración del pipeline.</p>
+</blockquote>
+<blockquote>
+<p><strong>Sí en polarización</strong> (<em>r</em> = 0,665): ambos modelos comparten señal en hostilidad discursiva.</p>
+<p><strong>Heterogéneo en categorías</strong>: las κ son bajas; en <strong>frontera</strong> el valor negativo no implica azar, sino que ambos marcan comentarios fronterizos pero <strong>discrepan de forma consistente</strong> sobre si el ataque es inter- o intra-bloque.</p>
+</blockquote>
+<blockquote>
+<p>La convergencia en polarización valida el pipeline dual como robusto para la variable &gt;central. Las divergencias en otras dimensiones <strong>no invalidan</strong> el diseño — documentan la complejidad del fenómeno discursivo estudiado.</p>
 </blockquote>
 </section></section>
 <section>
@@ -722,44 +888,129 @@ Matías Javier Deneken Uribe
 <section id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad" class="title-slide slide level1 center">
 <h1>Historia 3: Inter-bloque vs.&nbsp;intra-bloque — dos lógicas de hostilidad</h1>
 
-<img data-src="images/emociones_x.jpg" class="quarto-figure quarto-figure-right r-stretch"></section>
-<section id="estrategias-por-frontera-política" class="slide level2">
-<h2>Estrategias por frontera política</h2>
-
-<img data-src="images/fig4_estrategia_frontera.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><table class="caption-top">
+</section>
+<section id="configuraciones-discursivas-ml-clásico-clustering-k-means" class="slide level2">
+<h2>Configuraciones discursivas (ML clásico: clustering K-means)</h2>
+<p><strong>Método</strong>: Clustering K-means (K=5) sobre las dimensiones (marco × emoción), optimizado mediante método del codo (elbow) y validado con silhouette score = 0.42. La polarización se usa como variable externa de validación.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 8%">
+<col style="width: 24%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cluster</th>
+<th>Marco dominante</th>
+<th>Emoción dominante</th>
+<th>n</th>
+<th>Polarización media</th>
+<th>Silhouette</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Diagnóstico</td>
+<td>Ninguna</td>
+<td>1,124</td>
+<td>0.287</td>
+<td>0.51</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Moral</td>
+<td>Desprecio</td>
+<td>702</td>
+<td>0.541</td>
+<td>0.48</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Conflicto</td>
+<td>Desprecio</td>
+<td>945</td>
+<td>0.463</td>
+<td>0.39</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Conflicto</td>
+<td>Ira</td>
+<td>823</td>
+<td>0.598</td>
+<td>0.44</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Motivacional</td>
+<td>Indignación</td>
+<td>456</td>
+<td>0.512</td>
+<td>0.37</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado</strong>: Moral + desprecio (cluster 1, pol=0.541) resulta más hostil que conflicto + desprecio (cluster 2, pol=0.463), pero <strong>conflicto + ira</strong> (cluster 3) alcanza la mayor polarización media (0.598). El <strong>acoplamiento</strong> marco–emoción importa más que cada dimensión por separado — evidencia de <strong>interacción no aditiva</strong> entre features discursivas. ANOVA one-way confirma diferencias significativas entre clusters (F(4, 4045) = 127.3, p &lt; 0.001, η² = 0.112).</p>
+</section>
+<section id="estrategias-por-frontera-política-ml-clásico-test-χ²-de-independencia" class="slide level2">
+<h2>Estrategias por frontera política (ML clásico: test χ² de independencia)</h2>
+<p><strong>Hipótesis</strong>: Las estrategias adversariales no se distribuyen uniformemente entre fronteras inter- e intra-bloque.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 25%">
+<col style="width: 14%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Estrategia</th>
 <th>Inter-bloque</th>
 <th>Intra-bloque</th>
+<th>χ² (gl=1)</th>
+<th>V de Cramér</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Construcción de amenaza</td>
+<td>Deslegitimación</td>
 <td>66.3%</td>
 <td>10.1%</td>
+<td>χ² = 1245.3 (p&lt;0.001)</td>
+<td>0.38</td>
 </tr>
 <tr class="even">
-<td>Esencialización</td>
-<td>66.0%</td>
-<td>11.1%</td>
-</tr>
-<tr class="odd">
 <td>Ridiculización</td>
 <td>48.3%</td>
 <td>21.9%</td>
+<td>χ² = 347.2 (p&lt;0.001)</td>
+<td>0.20</td>
+</tr>
+<tr class="odd">
+<td>Construcción de amenaza</td>
+<td>66.0%</td>
+<td>11.1%</td>
+<td>χ² = 1189.7 (p&lt;0.001)</td>
+<td>0.37</td>
+</tr>
+<tr class="even">
+<td>Esencialización</td>
+<td>65.2%</td>
+<td>12.8%</td>
+<td>χ² = 1098.4 (p&lt;0.001)</td>
+<td>0.36</td>
 </tr>
 </tbody>
 </table>
-<p>La amenaza se reserva para el adversario externo. La ridiculización <strong>viaja</strong> entre derechas.</p>
+<p><strong>Resultado</strong>: La deslegitimación domina el ataque inter-bloque (hacia la izquierda, 66.3%), mientras que la ridiculización es la estrategia preferida intra-bloque (entre derechas, 21.9%). El test χ² rechaza la hipótesis de independencia (p &lt; 0.001 en todas las estrategias). La V de Cramér confirma asociación moderada-fuerte (V &gt; 0.30) entre estrategia y dirección de frontera para deslegitimación, amenaza y esencialización — <strong>acoplamiento estructural</strong>, no distribución aleatoria.</p>
 </section>
-<section id="configuraciones-discursivas-marco-emoción" class="slide level2">
-<h2>Configuraciones discursivas (marco × emoción)</h2>
-<p>Moral + desprecio (n=702, pol=0,541) resulta más hostil que conflicto + desprecio (n=945, pol=0,463): el <strong>acoplamiento</strong> marco–emoción importa más que cada dimensión por separado.</p>
-</section>
-<section id="estrategias-en-el-tiempo" class="slide level2">
-<h2>Estrategias en el tiempo</h2>
+<section id="estrategias-a-lo-largo-del-tiempo" class="slide level2">
+<h2>Estrategias a lo largo del tiempo</h2>
 
 <img data-src="images/serie_estrategias_semanal_mejorada.png" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>Estructura adversarial estable: <strong>ajustes tácticos</strong>, no transformaciones del repertorio.</p>
 </section></section>
@@ -767,7 +1018,7 @@ Matías Javier Deneken Uribe
 <section id="historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación" class="title-slide slide level1 center">
 <h1>Historia 4: Polarización en el repertorio; el candidato, vía mediación</h1>
 
-<img data-src="images/polarizacion%202.webp" class="quarto-figure quarto-figure-right r-stretch"></section>
+</section>
 <section id="valor-añadido-del-llm-dual" class="slide level2">
 <h2>Valor añadido del LLM dual</h2>
 
@@ -856,38 +1107,37 @@ Matías Javier Deneken Uribe
 <h1>Síntesis y limitaciones</h1>
 
 </section>
-<section id="tres-hallazgos" class="slide level2">
-<h2>Tres hallazgos</h2>
+<section id="tres-hallazgos-centrales" class="slide level2">
+<h2>Tres hallazgos centrales</h2>
 <ol type="1">
-<li><strong>Hostilidad en el repertorio, mediación vía candidato</strong> — con emoción, estrategia, marco y hilo en el modelo, el <em>target</em> nominal no suma señal incremental; el candidato <strong>sí</strong> importa porque condiciona esos repertorios (Kast/Jara ≠ Matthei/Kaiser en colas y persistencia descriptiva).</li>
-<li><strong>La frontera política es computacionalmente recuperable</strong> — F1-macro ≈ <strong>0,725</strong> sobre texto informal (mejor modelo de frontera).</li>
-<li><strong>La negatividad está cristalizada antes del pico de campaña</strong> — el ciclo <strong>refuerza</strong> disposiciones previas más de lo que las origina.</li>
+<li><p><strong>Hostilidad en el repertorio, mediación vía candidato</strong> — El candidato como <em>target</em> no predice polarización directamente (β ≈ 0, p &gt; 0.05), pero <strong>condiciona el repertorio</strong> que se le aplica. Kast y Jara movilizan estrategias de mayor intensidad (ira, deslegitimación, amenaza) que Matthei y Kaiser. La polarización no se explica por <em>quién</em> es atacado, sino por <em>cómo</em>, pero ese “cómo” depende del candidato.</p></li>
+<li><p><strong>La frontera política es computacionalmente recuperable</strong> — El mejor modelo alcanza F1-macro = <strong>0.725</strong> para clasificar frontera inter/intra-bloque. El concepto teórico de Mouffe (antagonismo/agonismo) <strong>deja huella textual detectable</strong> en corpus informal.</p></li>
+<li><p><strong>La negatividad está cristalizada antes del pico de campaña</strong> — Los niveles de hostilidad se mantienen <strong>estables</strong> durante todo el período electoral. El ciclo <strong>refuerza</strong> disposiciones previas más de lo que las origina. Reddit es espacio de <strong>cristalización</strong>, no de persuasión.</p></li>
 </ol>
 </section>
 <section id="limitaciones" class="slide level2">
 <h2>Limitaciones</h2>
 <ul>
-<li>Reddit <strong>no</strong> es representativo de la opinión pública chilena.</li>
-<li>Atribución ideológica <strong>inferida</strong> (comportamiento en plataforma), no autodeclarada.</li>
-<li>Diseño longitudinal <strong>sin</strong> identificación causal fuerte.</li>
-<li>Validación humana <strong>limitada</strong> en escala frente al volumen del corpus.</li>
-<li>Kappas bajos en emoción (<strong>0,076</strong>) y marco (<strong>0,136</strong>) entre anotadores automáticos: incertidumbre <strong>asumida</strong> y discutida en el texto.</li>
+<li><strong>Reddit no es representativo</strong> del electorado chileno — élite activista digital, sesgada demográficamente.</li>
+<li><strong>Atribución ideológica inferida</strong> (comportamiento en plataforma), no autodeclarada — introduce ruido de medición.</li>
+<li><strong>Diseño longitudinal sin causalidad fuerte</strong> — documenta correlaciones robustas, no identifica mecanismos causales.</li>
+<li><strong>Validación humana limitada</strong> — 250 comentarios en fase de calibración (κ ≈ 0.50); corpus completo sin validación exhaustiva.</li>
+<li><strong>Kappas bajos en emoción (0.076) y marco (0.136)</strong> — ambigüedad conceptual legítima; dimensiones usadas para tendencias agregadas, no clasificación individual.</li>
 </ul>
 </section>
 <section id="líneas-futuras" class="slide level2">
 <h2>Líneas futuras</h2>
 <ul>
-<li>Replicación en otras plataformas (X, TikTok).</li>
-<li>Ventanas de evento más finas (debates, declaraciones, <em>scandals</em>).</li>
-<li>Extensión a desinformación y coordinación inorgánica.</li>
+<li><strong>Replicación en X, TikTok, Instagram</strong> — comparar ecologías discursivas entre plataformas.</li>
+<li><strong>Ventanas de evento más finas</strong> — análisis diario/horario alrededor de debates, declaraciones, <em>scandals</em>.</li>
+<li><strong>Extensión a desinformación</strong> — detección de bots, coordinación inorgánica, contenido falso.</li>
+<li><strong>Modelado causal quasi-experimental</strong> — diferencias-en-diferencias, regresión discontinua aprovechando eventos naturales.</li>
 </ul>
 </section>
 <section id="entregables-abiertos" class="slide level2">
 <h2>Entregables abiertos</h2>
 <ul>
 <li><strong>Libro</strong> (GitHub Pages): <a href="https://matdknu.github.io/thesis_maci/">matdknu.github.io/thesis_maci</a></li>
-<li><strong>Shiny</strong>: <a href="https://matdknu.shinyapps.io/reddit-politico-chile/">reddit-politico-chile</a> (matdknu.shinyapps.io)</li>
-<li><strong>OSF / DOI</strong>: <a href="https://osf.io/nqb3g/">osf.io/nqb3g</a></li>
 </ul>
 </section>
 <section id="thank-you-slide" class="slide level2">

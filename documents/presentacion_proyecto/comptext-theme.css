@@ -179,6 +179,204 @@ body {
   display: none;
 }
 
+/* --------------------------------------------------------------------------
+   Índice: una sola diapositiva, revelado acumulativo (incremental / fragments)
+   -------------------------------------------------------------------------- */
+.reveal .slides section.toc-slide {
+  justify-content: flex-start !important;
+  padding-top: 0.2em !important;
+  padding-bottom: 0.5em !important;
+  box-sizing: border-box;
+}
+
+.reveal .slides section.toc-slide h2 {
+  border-bottom-color: transparent;
+  margin-bottom: 0.42em !important;
+  padding-bottom: 0.1em;
+  letter-spacing: -0.02em;
+  font-size: 1.05em !important;
+}
+
+.reveal .slides section.toc-slide .toc-panel {
+  margin-top: 0.28em;
+  width: 100%;
+  max-width: min(96%, 58rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.12em 1.35em 1.22em 1.42em;
+  box-sizing: border-box;
+  /* Fondo compuesto: varias “manchas” + base */
+  background: radial-gradient(
+      ellipse 130% 90% at 0% -10%,
+      rgba(107, 70, 212, 0.16),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 100% 80% at 100% 0%,
+      rgba(49, 95, 190, 0.12),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 78% 100%,
+      rgba(168, 85, 180, 0.1),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 12% 100%,
+      rgba(13, 148, 136, 0.09),
+      transparent 50%
+    ),
+    linear-gradient(
+      168deg,
+      #faf8ff 0%,
+      #eaeef8 38%,
+      #e8f4fb 72%,
+      #f9f7fc 100%
+    );
+  border: 1px solid rgba(84, 49, 178, 0.16);
+  border-left-width: 5px;
+  border-left-color: #5431b2;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(46, 32, 120, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li {
+  position: relative;
+  margin: 0 0 0.82em 0 !important;
+  padding: 0.54em 0.62em 0.54em 1.92em !important;
+  font-family: var(--r-heading-font);
+  font-size: 0.9em !important;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.38 !important;
+  color: #1e2940;
+  border-radius: 10px;
+  transition: background 0.35s ease, color 0.25s ease, box-shadow 0.35s ease;
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Numeración lateral (1–4), sin duplicar texto en markdown */
+.reveal .slides section.toc-slide .toc-panel ul {
+  counter-reset: toc-part;
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li::before {
+  counter-increment: toc-part;
+  content: counter(toc-part);
+  position: absolute;
+  left: 0.08em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.55em;
+  height: 1.55em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.58em;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(1)::before {
+  background: linear-gradient(150deg, #8b7bff 0%, #5431b2 55%, #3d2890 100%);
+  box-shadow: 0 3px 14px rgba(84, 49, 178, 0.38);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(2)::before {
+  background: linear-gradient(155deg, #4d9ae8 0%, #2859a8 50%, #1e3f78 100%);
+  box-shadow: 0 3px 14px rgba(49, 95, 190, 0.35);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(3)::before {
+  background: linear-gradient(150deg, #c977e8 0%, #9248b8 45%, #6b2188 100%);
+  box-shadow: 0 3px 14px rgba(146, 72, 184, 0.35);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(4)::before {
+  background: linear-gradient(152deg, #2dd4c4 0%, #15958a 48%, #0f6b5c 100%);
+  box-shadow: 0 3px 14px rgba(15, 107, 92, 0.32);
+}
+
+/* Fila visible: un gradiente distinto por parte */
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(1) {
+  background: linear-gradient(
+    98deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(236, 230, 255, 0.72) 55%,
+    rgba(239, 244, 252, 0.85) 100%
+  ) !important;
+  box-shadow: 0 3px 16px rgba(84, 49, 178, 0.08);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(2).fragment.visible {
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(226, 238, 255, 0.78) 50%,
+    rgba(236, 244, 255, 0.88) 100%
+  ) !important;
+  box-shadow: 0 3px 16px rgba(49, 95, 190, 0.09);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(3).fragment.visible {
+  background: linear-gradient(
+    96deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(246, 232, 255, 0.75) 48%,
+    rgba(249, 240, 255, 0.9) 100%
+  ) !important;
+  box-shadow: 0 3px 16px rgba(146, 72, 184, 0.08);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li:nth-child(4).fragment.visible {
+  background: linear-gradient(
+    98deg,
+    rgba(255, 255, 255, 0.91) 0%,
+    rgba(224, 247, 244, 0.72) 52%,
+    rgba(237, 252, 248, 0.9) 100%
+  ) !important;
+  box-shadow: 0 3px 16px rgba(13, 148, 136, 0.08);
+}
+
+/* Ocultar fragmentos pendientes sin reservar altura (evita “huecos” bajo el 1.er ítem) */
+.reveal .slides section.toc-slide .toc-panel ul > li.fragment:not(.visible) {
+  display: none !important;
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li.fragment.current-fragment {
+  color: #171e35;
+  box-shadow: inset 0 0 0 1px rgba(49, 95, 190, 0.22),
+    0 6px 22px rgba(46, 55, 100, 0.12);
+  filter: saturate(1.08);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li.fragment.current-fragment:nth-child(2)::before {
+  background: linear-gradient(145deg, #5aaef5, #24498f);
+  box-shadow: 0 4px 18px rgba(49, 95, 190, 0.45);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li.fragment.current-fragment:nth-child(3)::before {
+  background: linear-gradient(145deg, #d896f0, #6b2188);
+  box-shadow: 0 4px 18px rgba(146, 72, 184, 0.42);
+}
+
+.reveal .slides section.toc-slide .toc-panel ul > li.fragment.current-fragment:nth-child(4)::before {
+  background: linear-gradient(145deg, #3ee8d4, #0d6b58);
+  box-shadow: 0 4px 18px rgba(13, 148, 136, 0.42);
+}
+
 /* Jerarquía tipográfica compacta */
 .reveal h2 {
   color: #5431b2;
@@ -189,6 +387,65 @@ body {
   border-bottom: 1px solid #d8deef;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+/* Cita destacada tipo “pull quote” (p. ej. Borges) */
+.reveal section .literary-quote {
+  margin: 0.25em auto 0.55em;
+  max-width: 48em;
+  padding: 0.95em 1.2em 0.95em 1.25em;
+  background: linear-gradient(145deg, #fbf9ff 0%, #f3f7fc 55%, #f6f9ff 100%);
+  border-left: 5px solid #5431b2;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 20px rgba(84, 49, 178, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.reveal section .literary-quote > blockquote {
+  margin: 0;
+  padding: 0 0 0 0.85em;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 0.82em;
+  line-height: 1.46;
+  color: #1e293b;
+  font-style: italic;
+  text-align: left;
+  quotes: none;
+}
+
+.reveal section .literary-quote > blockquote::before,
+.reveal section .literary-quote > blockquote::after {
+  content: none;
+}
+
+.reveal section .literary-quote .literary-quote-attribution {
+  margin: 1em 0 0;
+  padding: 0.75em 0 0;
+  border-top: 1px solid rgba(84, 49, 178, 0.18);
+  font-family: var(--r-main-font);
+  font-size: 0.74em;
+  font-style: normal;
+  font-weight: 400;
+  color: #4b5563;
+  letter-spacing: 0.03em;
+  text-align: right;
+}
+
+.reveal section .literary-quote .literary-quote-attribution strong {
+  color: #5431b2;
+  font-weight: 650;
+}
+
+.reveal section .literary-quote .literary-quote-attribution em {
+  font-style: italic;
+  color: #374151;
+}
+
+.reveal section .literary-quote .literary-quote-attribution p {
+  margin: 0;
 }
 
 .reveal h3 {
@@ -283,6 +540,70 @@ body {
   background: #f1f5fb;
 }
 
+/* Tabla “Actores del estudio” — más tamaño útil sin hinchar el deck global */
+.reveal section .actors-study-table {
+  width: 100% !important;
+  max-width: 96% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+.reveal section .actors-study-table table {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 0.7em !important;
+  margin: 0.4em 0 0.35em !important;
+  table-layout: fixed !important;
+  box-shadow: 0 6px 24px rgba(16, 35, 61, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.reveal section .actors-study-table th:nth-child(1),
+.reveal section .actors-study-table td:nth-child(1) {
+  width: 24% !important;
+}
+
+.reveal section .actors-study-table th:nth-child(2),
+.reveal section .actors-study-table td:nth-child(2) {
+  width: 28% !important;
+}
+
+.reveal section .actors-study-table th:nth-child(3),
+.reveal section .actors-study-table td:nth-child(3) {
+  width: 48% !important;
+}
+
+.reveal section .actors-study-table th,
+.reveal section .actors-study-table td {
+  padding: 0.45em 0.58em !important;
+  vertical-align: top !important;
+  word-wrap: break-word !important;
+  hyphens: auto;
+  line-height: 1.32 !important;
+}
+
+.reveal section .actors-study-table th {
+  font-size: 1.06em !important;
+  letter-spacing: 0.015em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+.reveal section .actors-study-table tbody td {
+  font-size: 1.03em !important;
+  padding-top: 0.48em !important;
+  padding-bottom: 0.48em !important;
+}
+
+.reveal section .actors-study-table > p {
+  font-size: 0.78em !important;
+  margin-top: 0.62em !important;
+  margin-bottom: 0 !important;
+  line-height: 1.38 !important;
+  max-width: 100%;
+}
+
 /* Layout */
 .reveal .columns .column {
   padding-right: 0.58em;
@@ -336,10 +657,10 @@ body {
 }
 
 /*
- * Slide #/ciencias-sociales-computacionales-ii (Reveal): la foto a la izquierda,
- * centrada en vertical en el espacio del slide (Reveal no estira .columns por defecto).
+ * Slide “Ciencias sociales… II”: foto a la izquierda centrada en vertical
+ * (#id coincide con Quarto/Reveal desde el encabezado h2).
  */
-#ciencias-sociales-computacionales-ii.slide.level2 {
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 {
   display: flex !important;
   flex-direction: column !important;
   align-items: stretch !important;
@@ -349,18 +670,18 @@ body {
   box-sizing: border-box !important;
 }
 
-#ciencias-sociales-computacionales-ii.slide.level2 > h2 {
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 > h2 {
   flex: 0 0 auto !important;
 }
 
-#ciencias-sociales-computacionales-ii .columns.slide-img-text {
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii .columns.slide-img-text {
   flex: 1 1 auto !important;
   min-height: 0 !important;
   align-items: stretch !important;
   align-self: stretch !important;
 }
 
-#ciencias-sociales-computacionales-ii .columns.slide-img-text > .column:first-child {
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii .columns.slide-img-text > .column:first-child {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
@@ -368,11 +689,28 @@ body {
   align-self: stretch !important;
 }
 
-#ciencias-sociales-computacionales-ii .columns.slide-img-text > .column:last-child {
+/*
+ * Viñetas: .reveal li y .reveal p fuerzan 0.78em cada uno → el <p> dentro de <li>
+ * queda ~0.61× respecto del slide; aquí se resetea para este slide sólo.
+ */
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 .columns.slide-img-text > .column:last-child {
   align-self: stretch !important;
+  /* Era 1.32em (~+32 %); −25 % ≈ 1.0× respecto del cuerpo del slide */
+  font-size: 1em !important;
+  line-height: 1.4 !important;
 }
 
-#ciencias-sociales-computacionales-ii .columns.slide-img-text > .column:last-child > p:first-child {
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 .columns.slide-img-text > .column:last-child ul {
+  margin-left: 0.72em !important;
+}
+
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 .columns.slide-img-text > .column:last-child li,
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii.slide.level2 .columns.slide-img-text > .column:last-child li p {
+  font-size: 1em !important;
+  line-height: 1.4 !important;
+}
+
+#ciencias-sociales-computacionales-ciencia-de-datos-sociales-ii .columns.slide-img-text > .column:last-child > p:first-child {
   margin-top: 0 !important;
 }
 
@@ -663,7 +1001,7 @@ body {
   background-image: url("images/fig4_estrategia_frontera.png");
 }
 
+/* Portada Historia 4: solo foto de polarización (R² va en slide siguiente) */
 #historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide::after {
-  background-image: url("images/figura_r2_configuraciones.png");
+  background-image: url("images/polarizacion%202.webp");
 }
-
