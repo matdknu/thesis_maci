@@ -727,11 +727,6 @@ Matías Javier Deneken
 <li><p><strong>Estrategia adversarial</strong>: deslegitimación, ridiculización, atribución oculta, construcción de amenaza, esencialización, ninguna.</p></li>
 <li><p><strong>Frontera política</strong>: inter-bloque (derecha vs.&nbsp;izquierda), intra-bloque (entre candidatos de derecha), ninguna. Regla estricta: NUNCA inter-bloque si el hilo solo menciona candidatos de derecha.</p></li>
 </ol>
-<h3 id="configuración-técnica"><strong>Configuración técnica</strong></h3>
-<ul>
-<li><strong>Temperature = 0.1</strong> (máxima consistencia).</li>
-<li><strong>Validación JSON</strong>: Solo respuestas en formato estructurado, sin texto adicional.</li>
-</ul>
 </section></section>
 <section id="datos-obtenidos" class="title-slide slide level1 center">
 <h1>Datos obtenidos</h1>
@@ -1040,16 +1035,13 @@ Matías Javier Deneken
 <div class="callout-content">
 <p><strong>Ejemplo</strong>: Comentario “Kast es un peligro para Chile. Una copia barata de Trump”</p>
 <ul>
-<li><strong>TF-IDF detecta</strong>: palabras “Kast” (peso alto) + “peligro” (peso medio) → predice polarización moderada</li>
-<li><strong>Variables LLM detectan</strong>: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta</li>
+<li><p><strong>TF-IDF detecta</strong>: palabras “Kast” (peso alto) + “peligro” (peso medio) → predice polarización moderada</p></li>
+<li><p><strong>Variables LLM detectan</strong>: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta</p></li>
+<li><p><strong>Modelo A (solo TF-IDF)</strong>: Predice polarización usando únicamente las palabras del comentario → R² = 0.432</p></li>
+<li><p><strong>Modelo B (solo variables LLM)</strong>: Predice polarización usando emoción, estrategia, marco → R² = 0.554</p></li>
+<li><p><strong>Modelo C (TF-IDF + LLM)</strong>: Combina palabras y variables discursivas → R² = 0.619</p></li>
 </ul>
-<p><strong>Comparación de modelos</strong>:</p>
-<ul>
-<li><strong>Modelo A (solo TF-IDF)</strong>: Predice polarización usando únicamente las palabras del comentario → R² = 0.432</li>
-<li><strong>Modelo B (solo variables LLM)</strong>: Predice polarización usando emoción, estrategia, marco → R² = 0.554</li>
-<li><strong>Modelo C (TF-IDF + LLM)</strong>: Combina palabras y variables discursivas → R² = 0.619</li>
-</ul>
-<p><strong>Interpretación</strong>: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras crudas no revelan. TF-IDF sabe <em>qué</em> se dice; las variables LLM saben <em>cómo</em>.</p>
+<p><strong>Interpretación</strong>: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras no revelan. TF-IDF sabe <em>qué</em> se dice; las variables LLM saben <em>cómo</em>.</p>
 </div>
 </div>
 </div>

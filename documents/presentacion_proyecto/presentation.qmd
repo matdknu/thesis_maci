@@ -432,9 +432,6 @@ Clasifica cuatro dimensiones siguiendo marcos teóricos establecidos:
 
 4. **Frontera política**: inter-bloque (derecha vs. izquierda), intra-bloque (entre candidatos de derecha), ninguna. Regla estricta: NUNCA inter-bloque si el hilo solo menciona candidatos de derecha.
 
-### **Configuración técnica**
-- **Temperature = 0.1** (máxima consistencia).
-- **Validación JSON**: Solo respuestas en formato estructurado, sin texto adicional.
 
 
 # Datos obtenidos
@@ -617,13 +614,11 @@ width="88%"}
 - **TF-IDF detecta**: palabras "Kast" (peso alto) + "peligro" (peso medio) → predice polarización moderada
 - **Variables LLM detectan**: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta
 
-**Comparación de modelos**:
-
 - **Modelo A (solo TF-IDF)**: Predice polarización usando únicamente las palabras del comentario → R² = 0.432
 - **Modelo B (solo variables LLM)**: Predice polarización usando emoción, estrategia, marco → R² = 0.554
 - **Modelo C (TF-IDF + LLM)**: Combina palabras y variables discursivas → R² = 0.619
 
-**Interpretación**: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras crudas no revelan. TF-IDF sabe *qué* se dice; las variables LLM saben *cómo*.
+**Interpretación**: Las variables LLM superan TF-IDF (+0.122 en R²) — capturan estructura semántica adicional que las palabras no revelan. TF-IDF sabe *qué* se dice; las variables LLM saben *cómo*.
 :::
 :::
 
