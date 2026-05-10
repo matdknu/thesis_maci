@@ -614,7 +614,7 @@ width="88%"}
 ::: {.callout-note icon=false}
 ## Validación incremental: TF-IDF como baseline
 
-**Ejemplo**: Comentario "Kast es un peligro para Chile"
+**Ejemplo**: Comentario "Kast es un peligro para Chile. Una copia barata de Trump"
 
 - **TF-IDF detecta**: palabras "Kast" (peso alto) + "peligro" (peso medio) → predice polarización moderada
 - **Variables LLM detectan**: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta
@@ -661,62 +661,6 @@ width="88%"}
 **0,811**. La señal tiene una parte lineal, pero hay interacciones que
 solo modelos **no paramétricos** capturan bien.
 
-
-## La negatividad no se construye, se actualiza
-
-```{=html}
-<div style="
-  min-height: 62vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-">
-  <div style="
-    font-size: 8.5rem;
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: 1px;
-    color: #111827;
-    text-shadow: 4px 4px 0px #f3d34a;
-  ">
-    87,4%
-  </div>
-  <div style="
-    margin-top: 0.75rem;
-    font-size: 1.55rem;
-    font-weight: 700;
-    color: #1f2937;
-    max-width: 34ch;
-  ">
-    de autores inicialmente negativos hacia Kast permanecen negativos en todo el ciclo
-  </div>
-  <div style="
-    margin-top: 0.6rem;
-    font-size: 1.1rem;
-    color: #374151;
-  ">
-    Solo 2,8% transitan a tono positivo (Anexo / capítulo de autores).
-  </div>
-</div>
-```
-## La positividad no sobrevive al cruce adversarial
-
-![](images/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png){fig-align="center"
-width="95%"}
-
-En los pares observados hacia la segunda vuelta, autores **positivos**
-hacia un candidato tienden a volverse **negativos** al cambiar de target
-adversarial.
-
-## Síntesis visual: atlas semántico 3D
-
-![](images/3d_atlas_v1_globales.png){fig-align="center" width="100%"}
-
-Los paneles sugieren que el espacio discursivo se organiza por **emoción
-y tema** antes que por candidato: la frontera política atraviesa un
-repertorio léxico compartido.
 
 # Síntesis y limitaciones
 

@@ -1040,7 +1040,7 @@ Matías Javier Deneken Uribe
 <p><strong>Validación incremental: TF-IDF como baseline</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Ejemplo</strong>: Comentario “Kast es un peligro para Chile”</p>
+<p><strong>Ejemplo</strong>: Comentario “Kast es un peligro para Chile. Una copia barata de Trump”</p>
 <ul>
 <li><strong>TF-IDF detecta</strong>: palabras “Kast” (peso alto) + “peligro” (peso medio) → predice polarización moderada</li>
 <li><strong>Variables LLM detectan</strong>: emoción = miedo, estrategia = construcción de amenaza, marco = conflicto → predice polarización alta</li>
@@ -1076,54 +1076,6 @@ Matías Javier Deneken Uribe
 <h2>Clasificación de polarización alta</h2>
 
 <img data-src="images/roc_curves_polarizacion_alta.png" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%"><p><strong>RandomForest</strong> AUC ≈ <strong>0,856</strong>. <strong>Regresión logística</strong> AUC ≈ <strong>0,811</strong>. La señal tiene una parte lineal, pero hay interacciones que solo modelos <strong>no paramétricos</strong> capturan bien.</p>
-</section>
-<section id="la-negatividad-no-se-construye-se-actualiza" class="slide level2">
-<h2>La negatividad no se construye, se actualiza</h2>
-<div style="
-  min-height: 62vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-">
-  <div style="
-    font-size: 8.5rem;
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: 1px;
-    color: #111827;
-    text-shadow: 4px 4px 0px #f3d34a;
-  ">
-    87,4%
-  </div>
-  <div style="
-    margin-top: 0.75rem;
-    font-size: 1.55rem;
-    font-weight: 700;
-    color: #1f2937;
-    max-width: 34ch;
-  ">
-    de autores inicialmente negativos hacia Kast permanecen negativos en todo el ciclo
-  </div>
-  <div style="
-    margin-top: 0.6rem;
-    font-size: 1.1rem;
-    color: #374151;
-  ">
-    Solo 2,8% transitan a tono positivo (Anexo / capítulo de autores).
-  </div>
-</div>
-</section>
-<section id="la-positividad-no-sobrevive-al-cruce-adversarial" class="slide level2">
-<h2>La positividad no sobrevive al cruce adversarial</h2>
-
-<img data-src="images/alluvial_emocion_segunda_vuelta_por_candidato_origen_sin_sin_emocion.png" class="quarto-figure quarto-figure-center r-stretch" style="width:95.0%"><p>En los pares observados hacia la segunda vuelta, autores <strong>positivos</strong> hacia un candidato tienden a volverse <strong>negativos</strong> al cambiar de target adversarial.</p>
-</section>
-<section id="síntesis-visual-atlas-semántico-3d" class="slide level2">
-<h2>Síntesis visual: atlas semántico 3D</h2>
-
-<img data-src="images/3d_atlas_v1_globales.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>Los paneles sugieren que el espacio discursivo se organiza por <strong>emoción y tema</strong> antes que por candidato: la frontera política atraviesa un repertorio léxico compartido.</p>
 </section></section>
 <section>
 <section id="síntesis-y-limitaciones" class="title-slide slide level1 center">
@@ -1155,12 +1107,6 @@ Matías Javier Deneken Uribe
 <li><strong>Ventanas de evento más finas</strong> — análisis diario/horario alrededor de debates, declaraciones, <em>scandals</em>.</li>
 <li><strong>Extensión a desinformación</strong> — detección de bots, coordinación inorgánica, contenido falso.</li>
 <li><strong>Modelado causal quasi-experimental</strong> — diferencias-en-diferencias, regresión discontinua aprovechando eventos naturales.</li>
-</ul>
-</section>
-<section id="entregables-abiertos" class="slide level2">
-<h2>Entregables abiertos</h2>
-<ul>
-<li><strong>Libro</strong> (GitHub Pages): <a href="https://matdknu.github.io/thesis_maci/">matdknu.github.io/thesis_maci</a></li>
 </ul>
 </section>
 <section id="thank-you-slide" class="slide level2">
