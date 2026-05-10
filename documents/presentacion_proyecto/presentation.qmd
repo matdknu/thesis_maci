@@ -606,6 +606,7 @@ width="88%"}
 
 ::: {.callout-r2-validation-wrap}
 ::: {.callout-note icon=false}
+
 ## Validación incremental: TF-IDF como baseline
 
 **Ejemplo**: Comentario "Kast es un peligro para Chile. Una copia barata de Trump"
