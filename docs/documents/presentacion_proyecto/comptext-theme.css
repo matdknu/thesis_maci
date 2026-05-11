@@ -1064,7 +1064,7 @@ body {
    -------------------------------------------------------------------------- */
 #historia-1-coincidencia-de-los-modelos.slide.level1.title-slide,
 #historia-2-la-polarización.slide.level1.title-slide,
-#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide,
+[id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad"].slide.level1.title-slide,
 #historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide {
   display: flex !important;
   flex-direction: row !important;
@@ -1081,14 +1081,14 @@ body {
 
 #historia-1-coincidencia-de-los-modelos.slide.level1.title-slide.center,
 #historia-2-la-polarización.slide.level1.title-slide.center,
-#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide.center,
+[id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad"].slide.level1.title-slide.center,
 #historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide.center {
   text-align: left !important;
 }
 
 #historia-1-coincidencia-de-los-modelos.slide.level1.title-slide h1,
 #historia-2-la-polarización.slide.level1.title-slide h1,
-#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide h1,
+[id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad"].slide.level1.title-slide h1,
 #historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide h1 {
   flex: 0 0 44% !important;
   max-width: 44% !important;
@@ -1104,7 +1104,7 @@ body {
 
 #historia-1-coincidencia-de-los-modelos.slide.level1.title-slide::after,
 #historia-2-la-polarización.slide.level1.title-slide::after,
-#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide::after,
+[id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad"].slide.level1.title-slide::after,
 #historia-4-polarización-en-el-repertorio-el-candidato-vía-mediación.slide.level1.title-slide::after {
   content: "" !important;
   flex: 1 1 52% !important;
@@ -1125,8 +1125,8 @@ body {
   background-image: url("images/polarizacion-fotos.png");
 }
 
-#historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad.slide.level1.title-slide::after {
-  background-image: url("images/fig4_estrategia_frontera.png");
+[id="historia-3-inter-bloque-vs.-intra-bloque-dos-lógicas-de-hostilidad"].slide.level1.title-slide::after {
+  background-image: url("images/emociones_x.jpg");
 }
 
 /* Portada Historia 4: solo foto de polarización (R² va en slide siguiente) */
