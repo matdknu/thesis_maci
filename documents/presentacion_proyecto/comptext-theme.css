@@ -787,7 +787,7 @@ body {
 .reveal .footer.footer-default,
 .reveal > .footer {
   /* Logos más compactos que la versión COMPTEXT original */
-  --footer-logo-h: calc(84px * 0.58);
+  --footer-logo-h: calc(84px * 0.522);
   display: flex !important;
   flex-direction: row;
   flex-wrap: nowrap;
