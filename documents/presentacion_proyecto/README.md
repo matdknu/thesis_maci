@@ -6,7 +6,18 @@ adaptada a la **tesis MACI** (Reddit, NLP, UdeC).
 
 ## Versión en línea (GitHub Pages)
 
-GitHub Pages solo publica lo que está en **`docs/`** en la rama que uses para Pages. La presentación se **copia automáticamente** allí al renderizar el libro Quarto:
+GitHub Pages solo publica lo que está en **`docs/`** en la rama que uses para Pages. La presentación se **mantiene sincronizada automáticamente** allí de dos maneras:
+
+1. Al renderizar la propia presentación:
+
+```bash
+cd documents/presentacion_proyecto
+quarto render presentation.qmd
+```
+
+Eso dispara `sync-presentation-to-docs.sh` mediante `documents/presentacion_proyecto/_quarto.yml` y actualiza la copia publicada en `docs/documents/presentacion_proyecto/`.
+
+2. Al renderizar el libro Quarto:
 
 ```bash
 cd documents/tesis_book
@@ -21,10 +32,10 @@ URL pública (tras **`git add docs/`** y push):
 
 Fuente: [`documents/presentacion_proyecto/presentation.qmd`](https://github.com/matdknu/thesis_maci/blob/main/documents/presentacion_proyecto/presentation.qmd).
 
-Si solo cambias la presentación sin recompilar el libro, puedes ejecutar solo el script de copia:
+Si quieres forzar la sincronización sin renderizar el libro:
 
 ```bash
-documents/tesis_book/copy-presentation-to-docs.sh
+documents/presentacion_proyecto/sync-presentation-to-docs.sh
 ```
 
 ## Archivos

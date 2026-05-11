@@ -543,7 +543,7 @@ body {
 /* Tabla “Actores del estudio” — más tamaño útil sin hinchar el deck global */
 .reveal section .actors-study-table {
   width: 100% !important;
-  max-width: 96% !important;
+  max-width: 92% !important;
   margin-left: auto !important;
   margin-right: auto !important;
   box-sizing: border-box !important;
@@ -552,8 +552,8 @@ body {
 .reveal section .actors-study-table table {
   width: 100% !important;
   max-width: 100% !important;
-  font-size: 0.7em !important;
-  margin: 0.4em 0 0.35em !important;
+  font-size: 0.53em !important;
+  margin: 0.28em 0 0.22em !important;
   table-layout: fixed !important;
   box-shadow: 0 6px 24px rgba(16, 35, 61, 0.07),
     inset 0 1px 0 rgba(255, 255, 255, 0.75);
@@ -576,31 +576,31 @@ body {
 
 .reveal section .actors-study-table th,
 .reveal section .actors-study-table td {
-  padding: 0.45em 0.58em !important;
+  padding: 0.34em 0.43em !important;
   vertical-align: top !important;
   word-wrap: break-word !important;
   hyphens: auto;
-  line-height: 1.32 !important;
+  line-height: 1.24 !important;
 }
 
 .reveal section .actors-study-table th {
-  font-size: 1.06em !important;
+  font-size: 1em !important;
   letter-spacing: 0.015em !important;
-  padding-top: 0.5em !important;
-  padding-bottom: 0.5em !important;
+  padding-top: 0.36em !important;
+  padding-bottom: 0.36em !important;
 }
 
 .reveal section .actors-study-table tbody td {
-  font-size: 1.03em !important;
-  padding-top: 0.48em !important;
-  padding-bottom: 0.48em !important;
+  font-size: 0.98em !important;
+  padding-top: 0.36em !important;
+  padding-bottom: 0.36em !important;
 }
 
 .reveal section .actors-study-table > p {
-  font-size: 0.78em !important;
-  margin-top: 0.62em !important;
+  font-size: 0.58em !important;
+  margin-top: 0.4em !important;
   margin-bottom: 0 !important;
-  line-height: 1.38 !important;
+  line-height: 1.26 !important;
   max-width: 100%;
 }
 

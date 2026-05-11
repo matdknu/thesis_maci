@@ -1,0 +1,6 @@
+project:
+  type: default
+  # Mantener sincronizada la copia publicada en docs/ cada vez que se renderiza
+  # la presentación localmente con `quarto render presentation.qmd`.
+  post-render:
+    - ./sync-presentation-to-docs.sh
