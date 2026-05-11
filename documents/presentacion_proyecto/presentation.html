@@ -631,19 +631,29 @@ Matías Javier Deneken
 </section>
 <section id="procesamiento-de-lenguaje-natural" class="slide level2">
 <h2>Procesamiento de lenguaje natural</h2>
-<p><strong>Clasificación automática de texto</strong>: Asignación de categorías semánticas o discursivas a unidades textuales.</p>
+<h3 id="del-léxico-fijo-al-contexto-dinámico">Del léxico fijo al contexto dinámico</h3>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Baseline ML tradicional</strong><br>
+TF-IDF (bag-of-words) + RandomForest</p>
 <ul>
-<li><p><strong>Del léxico fijo al contexto dinámico</strong>: Los diccionarios de sentimiento asumen significado estable por palabra. Los LLMs capturan dependencia sintáctica y pragmática — “Kast es un peligro” vs.&nbsp;“Kast enfrenta un peligro”.</p></li>
-<li><p><strong>Anotación LLM dual</strong>: GPT-4o y DeepSeek como anotadores escalables.</p></li>
-<li><p><strong>Validación incremental (ΔR²)</strong>: Las variables LLM mejoran la predicción sobre baselines TF-IDF — evidencia de validez de constructo.</p></li>
+<li>Aprende desde <strong>coocurrencias léxicas</strong></li>
+<li>Significado estable por palabra</li>
+<li>“Kast es un peligro” vs.&nbsp;“Kast enfrenta un peligro” → indistinguibles</li>
 </ul>
-<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong>: Esquema de ponderación léxica. TF mide frecuencia de un término en un documento; IDF penaliza términos comunes en el corpus. Formalmente:</p>
-<p><span class="math display">\[
-\
-\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \log \frac{N}{\text{DF}(t)}
-\
-\]</span></p>
-<p>donde (N) es el total de documentos y ((t)) el número de documentos que contienen el término (t). Usado como baseline: si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), no capturan estructura semántica adicional.</p>
+</div><div class="column" style="width:48%;">
+<p><strong>Pipeline dual LLM</strong><br>
+Anotación semántica + RandomForest</p>
+<ul>
+<li>LLMs (GPT-4o + DeepSeek) anotan contexto</li>
+<li>Capturan sintaxis y pragmática</li>
+<li>“es un peligro” → amenaza<br>
+“enfrenta un peligro” → neutral</li>
+</ul>
+</div></div>
+<h3 id="validación-incremental-δr²">Validación incremental (ΔR²)</h3>
+<p><strong>Hipótesis</strong>: Si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), solo recodifican coocurrencias léxicas — no agregan estructura semántica adicional.</p>
+<p><strong>Test</strong>: Comparar R² de tres modelos (TF-IDF solo, LLM solo, combinado) para medir ganancia incremental del pipeline dual.</p>
 </section>
 <section id="los-actores-del-estudio" class="slide level2">
 <h2>Los actores del estudio</h2>
@@ -651,9 +661,9 @@ Matías Javier Deneken
 <p><strong>Tabla 2.1: Candidaturas analizadas y perfil electoral.</strong> <em>Fuente: Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.</em></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 14%">
-<col style="width: 76%">
+<col style="width: 29%">
+<col style="width: 47%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -838,9 +848,9 @@ Matías Javier Deneken
 <p>Valores del acuerdo <strong>OpenAI (GPT-4o) vs.&nbsp;DeepSeek</strong></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 7%">
-<col style="width: 56%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -901,14 +911,14 @@ Matías Javier Deneken
 <section id="configuraciones-discursivas-ml-clásico-clustering-k-means" class="slide level2">
 <h2>Configuraciones discursivas (ML clásico: clustering K-means)</h2>
 <p><strong>Método</strong>: Clustering K-means (K=5) sobre las dimensiones (marco × emoción), optimizado mediante método del codo (elbow) y validado con silhouette score = 0.42. La polarización se usa como variable externa de validación.</p>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 20%">
-<col style="width: 22%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -970,11 +980,11 @@ Matías Javier Deneken
 <p><strong>Hipótesis</strong>: Las estrategias adversariales no se distribuyen uniformemente entre fronteras inter- e intra-bloque.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 26%">
-<col style="width: 14%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">

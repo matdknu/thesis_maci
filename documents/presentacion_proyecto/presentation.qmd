@@ -318,37 +318,38 @@ movilizan identidades políticas.
 
 ## Procesamiento de lenguaje natural
 
-**Clasificación automática de texto**: Asignación de categorías
-semánticas o discursivas a unidades textuales.
+### Del léxico fijo al contexto dinámico
 
--   **Del léxico fijo al contexto dinámico**: Los diccionarios de
-    sentimiento asumen significado estable por palabra. Los LLMs
-    capturan dependencia sintáctica y pragmática — "Kast es un peligro"
-    vs. "Kast enfrenta un peligro".
+::: {.columns}
+::: {.column width="48%"}
 
--   **Anotación LLM dual**: GPT-4o y DeepSeek como anotadores
-    escalables.
+**Baseline ML tradicional**  
+TF-IDF (bag-of-words) + RandomForest
 
--   **Validación incremental (ΔR²)**: Las variables LLM mejoran la
-    predicción sobre baselines TF-IDF — evidencia de validez de
-    constructo.
+- Aprende desde **coocurrencias léxicas**
+- Significado estable por palabra
+- "Kast es un peligro" vs. "Kast enfrenta un peligro" → indistinguibles
 
-**TF-IDF (Term Frequency-Inverse Document Frequency)**: Esquema de
-ponderación léxica. TF mide frecuencia de un término en un documento;
-IDF penaliza términos comunes en el corpus. Formalmente:
+:::
 
-$$
-\
-\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \log \frac{N}{\text{DF}(t)}
-\
-$$
+::: {.column width="48%"}
 
-donde (N) es el total de documentos y (\text{DF}(t)) el número de
-documentos que contienen el término (t). Usado como baseline: si las
-variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), no capturan estructura
-semántica adicional.
+**Pipeline dual LLM**  
+Anotación semántica + RandomForest
 
-------------------------------------------------------------------------
+- LLMs (GPT-4o + DeepSeek) anotan contexto
+- Capturan sintaxis y pragmática
+- "es un peligro" → amenaza  
+  "enfrenta un peligro" → neutral
+
+:::
+:::
+
+### Validación incremental (ΔR²)
+
+**Hipótesis**: Si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), solo recodifican coocurrencias léxicas — no agregan estructura semántica adicional.
+
+**Test**: Comparar R² de tres modelos (TF-IDF solo, LLM solo, combinado) para medir ganancia incremental del pipeline dual.
 
 ## Los actores del estudio
 
@@ -357,7 +358,7 @@ semántica adicional.
 Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.*
 
 | Actor             | Posición                       | Base social                                                                                                                                                          |
-|-------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------|----------------------------------|-----------------|
 | Evelyn Matthei    | Derecha tradicional            | Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).                              |
 | José Antonio Kast | Derecha radical y conservadora | Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%). |
 | Johannes Kaiser   | Derecha libertaria             | Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.                                  |
@@ -520,7 +521,7 @@ referenciar a múltiples candidatos.
 Valores del acuerdo **OpenAI (GPT-4o) vs. DeepSeek**
 
 | Métrica                        | Valor | Lectura                                          |
-|--------------------------------|-------|--------------------------------------------------|
+|-----------------|-----------------|--------------------------------------|
 | Correlación *r* (GPT-DeepSeek) | 0.665 | Convergencia moderada-alta en la escala continua |
 | κ (Humano-GPT)                 | 0.64  | Acuerdo moderado alto; validez aceptable         |
 | κ (Humano-DeepSeek)            | 0.79  | Acuerdo alto; validez aceptable                  |
@@ -569,7 +570,7 @@ silhouette score = 0.42. La polarización se usa como variable externa de
 validación.
 
 | Cluster | Marco dominante | Emoción dominante | n     | Polarización media | Silhouette |
-|---------|-----------------|-------------------|-------|--------------------|------------|
+|------------|------------|------------|------------|------------|------------|
 | 0       | Diagnóstico     | Ninguna           | 1,124 | 0.287              | 0.51       |
 | 1       | Moral           | Desprecio         | 702   | 0.541              | 0.48       |
 | 2       | Conflicto       | Desprecio         | 945   | 0.463              | 0.39       |
@@ -592,7 +593,7 @@ entre clusters (F(4, 4045) = 127.3, p \< 0.001, η² = 0.112).
 uniformemente entre fronteras inter- e intra-bloque.
 
 | Estrategia              | Inter-bloque | Intra-bloque | χ² (gl=1)              | V de Cramér |
-|-------------------------|--------------|--------------|------------------------|-------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Deslegitimación         | 66.3%        | 10.1%        | χ² = 1245.3 (p\<0.001) | 0.38        |
 | Ridiculización          | 48.3%        | 21.9%        | χ² = 347.2 (p\<0.001)  | 0.20        |
 | Construcción de amenaza | 66.0%        | 11.1%        | χ² = 1189.7 (p\<0.001) | 0.37        |
