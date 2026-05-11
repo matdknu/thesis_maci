@@ -186,6 +186,8 @@ Colaboración entre grupos
 :::
 :::
 
+![](images/polarization.png){fig-align="center"}
+
 ## Elecciones presidenciales en Chile: Nuestro laboratorio
 
 -   Chile ofrece un escenario particularmente interesante: 3 candidatos
@@ -219,7 +221,6 @@ Colaboración entre grupos
 Matthew J. Salganik
 :::
 :::
-
 
 # Y aquí la innovación
 
@@ -315,36 +316,36 @@ movilizan identidades políticas.
 
 ### Del léxico fijo al contexto dinámico
 
-::: {.columns}
+::: columns
 ::: {.column width="48%"}
-
-**Baseline ML tradicional**  
+**Baseline ML tradicional**\
 TF-IDF (bag-of-words) + RandomForest
 
-- Aprende desde **coocurrencias léxicas**
-- Significado estable por palabra
-- "Kast es un peligro" vs. "Kast enfrenta un peligro" → indistinguibles
-
+-   Aprende desde **coocurrencias léxicas**
+-   Significado estable por palabra
+-   "Kast es un peligro" vs. "Kast enfrenta un peligro" →
+    indistinguibles
 :::
 
 ::: {.column width="48%"}
-
-**Pipeline dual LLM**  
+**Pipeline dual LLM**\
 Anotación semántica + RandomForest
 
-- LLMs (GPT-4o + DeepSeek) anotan contexto
-- Capturan sintaxis y pragmática
-- "es un peligro" → amenaza  
-  "enfrenta un peligro" → neutral
-
+-   LLMs (GPT-4o + DeepSeek) anotan contexto
+-   Capturan sintaxis y pragmática
+-   "es un peligro" → amenaza\
+    "enfrenta un peligro" → neutral
 :::
 :::
 
 ### Validación incremental (ΔR²)
 
-**Hipótesis**: Si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0), solo recodifican coocurrencias léxicas — no agregan estructura semántica adicional.
+**Hipótesis**: Si las variables LLM no mejoran sobre TF-IDF (ΔR² ≤ 0),
+solo recodifican coocurrencias léxicas — no agregan estructura semántica
+adicional.
 
-**Test**: Comparar R² de tres modelos (TF-IDF solo, LLM solo, combinado) para medir ganancia incremental del pipeline dual.
+**Test**: Comparar R² de tres modelos (TF-IDF solo, LLM solo, combinado)
+para medir ganancia incremental del pipeline dual.
 
 ## Los actores del estudio
 
@@ -353,7 +354,7 @@ Anotación semántica + RandomForest
 Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.*
 
 | Actor             | Posición                       | Base social                                                                                                                                                          |
-|---------------------|----------------------------------|-----------------|
+|---------------------|---------------------------------|------------------|
 | Evelyn Matthei    | Derecha tradicional            | Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).                              |
 | José Antonio Kast | Derecha radical y conservadora | Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%). |
 | Johannes Kaiser   | Derecha libertaria             | Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.                                  |
@@ -490,7 +491,7 @@ Embudo de exclusiones (misma lógica que el capítulo de depuración de la
 tesis; la fila final recorta además la ventana **1 ago – 31 dic 2025**,
 America/Santiago).
 
-::: {.corpus-funnel-table}
+::: corpus-funnel-table
 | Etapa                                               | N comentarios |
 |-----------------------------------------------------|---------------|
 | Corpus bruto                                        | 163.695       |
@@ -518,7 +519,7 @@ referenciar a múltiples candidatos.
 Valores del acuerdo **OpenAI (GPT-4o) vs. DeepSeek**
 
 | Métrica                        | Valor | Lectura                                          |
-|-----------------|-----------------|--------------------------------------|
+|------------------|------------------|-------------------------------------|
 | Correlación *r* (GPT-DeepSeek) | 0.665 | Convergencia moderada-alta en la escala continua |
 | κ (Humano-GPT)                 | 0.64  | Acuerdo moderado alto; validez aceptable         |
 | κ (Humano-DeepSeek)            | 0.79  | Acuerdo alto; validez aceptable                  |
@@ -675,14 +676,24 @@ width="92%"}
 
 ## Tres hallazgos centrales
 
-**1. Validación incremental del pipeline dual LLM**  
-Las variables LLM (emoción, estrategia, marco, frontera) superan el baseline TF-IDF por **ΔR² = +0.187** (modelo combinado alcanza R² = 0.619 vs. 0.432 del bag-of-words). Las variables discursivas capturan estructura semántica que el léxico puro no recupera — **TF-IDF sabe *qué* se dice; LLM sabe *cómo***.
+**1. Validación incremental del pipeline dual LLM**\
+Las variables LLM (emoción, estrategia, marco, frontera) superan el
+baseline TF-IDF por **ΔR² = +0.187** (modelo combinado alcanza R² =
+0.619 vs. 0.432 del bag-of-words). Las variables discursivas capturan
+estructura semántica que el léxico puro no recupera — **TF-IDF sabe
+*qué* se dice; LLM sabe *cómo***.
 
-**2. Frontera política computacionalmente recuperable**  
-F1-macro = 0.725 para clasificar inter/intra-bloque. La frontera política (derecha vs. izquierda, intra-derecha) deja huella textual detectable en corpus informal.
+**2. Frontera política computacionalmente recuperable**\
+F1-macro = 0.725 para clasificar inter/intra-bloque. La frontera
+política (derecha vs. izquierda, intra-derecha) deja huella textual
+detectable en corpus informal.
 
-**3. Hostilidad en el repertorio, mediación vía candidato**  
-Candidato como target no predice polarización directamente (β ≈ 0, p > 0.05), pero condiciona el repertorio aplicado. Kast/Jara movilizan estrategias de mayor intensidad que Matthei/Kaiser. **La polarización no se explica por *quién* es atacado, sino por *cómo*** — pero ese "cómo" depende del candidato.
+**3. Hostilidad en el repertorio, mediación vía candidato**\
+Candidato como target no predice polarización directamente (β ≈ 0, p \>
+0.05), pero condiciona el repertorio aplicado. Kast/Jara movilizan
+estrategias de mayor intensidad que Matthei/Kaiser. **La polarización no
+se explica por *quién* es atacado, sino por *cómo*** — pero ese "cómo"
+depende del candidato.
 
 ------------------------------------------------------------------------
 
@@ -704,20 +715,22 @@ Candidato como target no predice polarización directamente (β ≈ 0, p > 0.05)
 
 ## Líneas futuras
 
-
 -   **Ventanas de evento más finas** — análisis diario/horario alrededor
     de debates, declaraciones, *scandals*.
+
 -   **Extensión a desinformación** — detección de bots, coordinación
     inorgánica, contenido falso.
+
 -   **Modelado causal quasi-experimental** — diferencias-en-diferencias,
     regresión discontinua aprovechando eventos naturales.
 
--   **Seguirlo en mi eventual doctorado** — Mi propuesta de investigación versa sobre la difusión y adopción de ideas que tensionan la deliberación democrática
+-   **Seguirlo en mi eventual doctorado** — Mi propuesta de
+    investigación versa sobre la difusión y adopción de ideas que
+    tensionan la deliberación democrática
 
 ##  {#thank-you-slide}
 
 ::: thank-you-content
-
 ```{=html}
 <div class="thank-you-title-block">
   <p class="ty-line ty-main">Derecha fragmentada y</p>
