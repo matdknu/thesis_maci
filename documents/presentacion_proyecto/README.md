@@ -4,6 +4,9 @@ Réplica del formato de
 `/social-data-science/wiki-chile_project/presentation-comptext/`  
 adaptada a la **tesis MACI** (Reddit, NLP, UdeC).
 
+**Enlace directo a la presentación:**  
+[https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html)
+
 ## Versión en línea (GitHub Pages)
 
 GitHub Pages solo publica lo que está en **`docs/`** en la rama que uses para Pages. La presentación se **mantiene sincronizada automáticamente** allí de dos maneras:
