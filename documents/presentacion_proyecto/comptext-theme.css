@@ -604,6 +604,38 @@ body {
   max-width: 100%;
 }
 
+/* Tabla “Del corpus bruto al corpus analítico” — un poco más grande */
+.reveal section .corpus-funnel-table {
+  width: 100% !important;
+  max-width: 94% !important;
+  margin: 0.25em auto 0.1em !important;
+  box-sizing: border-box !important;
+}
+
+.reveal section .corpus-funnel-table table {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 0.68em !important;
+  margin: 0 !important;
+  box-shadow: 0 6px 24px rgba(16, 35, 61, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.reveal section .corpus-funnel-table th,
+.reveal section .corpus-funnel-table td {
+  padding: 0.42em 0.56em !important;
+  line-height: 1.3 !important;
+  vertical-align: top !important;
+}
+
+.reveal section .corpus-funnel-table th {
+  font-size: 1.04em !important;
+}
+
+.reveal section .corpus-funnel-table tbody td {
+  font-size: 1.02em !important;
+}
+
 /* Callout “Validación incremental / TF-IDF” — compacto (legible sin dominar la slide) */
 .reveal .slides section .callout-r2-validation-wrap {
   width: 100% !important;

@@ -490,12 +490,14 @@ Embudo de exclusiones (misma lógica que el capítulo de depuración de la
 tesis; la fila final recorta además la ventana **1 ago – 31 dic 2025**,
 America/Santiago).
 
+::: {.corpus-funnel-table}
 | Etapa                                               | N comentarios |
 |-----------------------------------------------------|---------------|
 | Corpus bruto                                        | 163.695       |
 | Tras filtrar bots y eliminados                      | 144.216       |
 | Tras filtrar comentarios cortos (menos de 3 tokens) | 136.707       |
 | Corpus final analizable                             | 134.730       |
+:::
 
 ## Distribución por candidato
 
