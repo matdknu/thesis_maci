@@ -740,6 +740,8 @@ Candidato como target no predice polarización directamente (β ≈ 0, p > 0.05)
 -   **Modelado causal quasi-experimental** — diferencias-en-diferencias,
     regresión discontinua aprovechando eventos naturales.
 
+-   **Seguirlo en mi eventual doctorado** — Mi propuesta de investigación versa sobre la difusión y adopción de ideas que tensionan la deliberación democrática
+
 ##  {#thank-you-slide}
 
 ::: thank-you-content
