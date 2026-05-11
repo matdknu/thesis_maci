@@ -1104,11 +1104,12 @@ Anotación semántica + RandomForest</p>
 </section>
 <section id="tres-hallazgos-centrales" class="slide level2">
 <h2>Tres hallazgos centrales</h2>
-<ol type="1">
-<li><p><strong>Hostilidad en el repertorio, mediación vía candidato</strong> — El candidato como <em>target</em> no predice polarización directamente (β ≈ 0, p &gt; 0.05), pero <strong>condiciona el repertorio</strong> que se le aplica. Kast y Jara movilizan estrategias de mayor intensidad (ira, deslegitimación, amenaza) que Matthei y Kaiser. La polarización no se explica por <em>quién</em> es atacado, sino por <em>cómo</em>, pero ese “cómo” depende del candidato.</p></li>
-<li><p><strong>La frontera política es computacionalmente recuperable</strong> — El mejor modelo alcanza F1-macro = <strong>0.725</strong> para clasificar frontera inter/intra-bloque. El concepto teórico de Mouffe (antagonismo/agonismo) <strong>deja huella textual detectable</strong> en corpus informal.</p></li>
-<li><p><strong>La negatividad está cristalizada antes del pico de campaña</strong> — Los niveles de hostilidad se mantienen <strong>estables</strong> durante todo el período electoral. El ciclo <strong>refuerza</strong> disposiciones previas más de lo que las origina. Reddit es espacio de <strong>cristalización</strong>, no de persuasión.</p></li>
-</ol>
+<p><strong>1. Validación incremental del pipeline dual LLM</strong><br>
+Las variables LLM (emoción, estrategia, marco, frontera) superan el baseline TF-IDF por <strong>ΔR² = +0.187</strong> (modelo combinado alcanza R² = 0.619 vs.&nbsp;0.432 del bag-of-words). Las variables discursivas capturan estructura semántica que el léxico puro no recupera — <strong>TF-IDF sabe <em>qué</em> se dice; LLM sabe <em>cómo</em></strong>.</p>
+<p><strong>2. Frontera política computacionalmente recuperable</strong><br>
+F1-macro = 0.725 para clasificar inter/intra-bloque. La frontera política (derecha vs.&nbsp;izquierda, intra-derecha) deja huella textual detectable en corpus informal.</p>
+<p><strong>3. Hostilidad en el repertorio, mediación vía candidato</strong><br>
+Candidato como target no predice polarización directamente (β ≈ 0, p &gt; 0.05), pero condiciona el repertorio aplicado. Kast/Jara movilizan estrategias de mayor intensidad que Matthei/Kaiser. <strong>La polarización no se explica por <em>quién</em> es atacado, sino por <em>cómo</em></strong> — pero ese “cómo” depende del candidato.</p>
 </section>
 <section id="limitaciones" class="slide level2">
 <h2>Limitaciones</h2>
@@ -1123,7 +1124,6 @@ Anotación semántica + RandomForest</p>
 <section id="líneas-futuras" class="slide level2">
 <h2>Líneas futuras</h2>
 <ul>
-<li><strong>Replicación en X, TikTok, Instagram</strong> — comparar ecologías discursivas entre plataformas.</li>
 <li><strong>Ventanas de evento más finas</strong> — análisis diario/horario alrededor de debates, declaraciones, <em>scandals</em>.</li>
 <li><strong>Extensión a desinformación</strong> — detección de bots, coordinación inorgánica, contenido falso.</li>
 <li><strong>Modelado causal quasi-experimental</strong> — diferencias-en-diferencias, regresión discontinua aprovechando eventos naturales.</li>

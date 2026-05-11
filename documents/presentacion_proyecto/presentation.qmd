@@ -703,25 +703,14 @@ width="92%"}
 
 ## Tres hallazgos centrales
 
-1.  **Hostilidad en el repertorio, mediación vía candidato** — El
-    candidato como *target* no predice polarización directamente (β ≈ 0,
-    p \> 0.05), pero **condiciona el repertorio** que se le aplica. Kast
-    y Jara movilizan estrategias de mayor intensidad (ira,
-    deslegitimación, amenaza) que Matthei y Kaiser. La polarización no
-    se explica por *quién* es atacado, sino por *cómo*, pero ese "cómo"
-    depende del candidato.
+**1. Validación incremental del pipeline dual LLM**  
+Las variables LLM (emoción, estrategia, marco, frontera) superan el baseline TF-IDF por **ΔR² = +0.187** (modelo combinado alcanza R² = 0.619 vs. 0.432 del bag-of-words). Las variables discursivas capturan estructura semántica que el léxico puro no recupera — **TF-IDF sabe *qué* se dice; LLM sabe *cómo***.
 
-2.  **La frontera política es computacionalmente recuperable** — El
-    mejor modelo alcanza F1-macro = **0.725** para clasificar frontera
-    inter/intra-bloque. El concepto teórico de Mouffe
-    (antagonismo/agonismo) **deja huella textual detectable** en corpus
-    informal.
+**2. Frontera política computacionalmente recuperable**  
+F1-macro = 0.725 para clasificar inter/intra-bloque. La frontera política (derecha vs. izquierda, intra-derecha) deja huella textual detectable en corpus informal.
 
-3.  **La negatividad está cristalizada antes del pico de campaña** — Los
-    niveles de hostilidad se mantienen **estables** durante todo el
-    período electoral. El ciclo **refuerza** disposiciones previas más
-    de lo que las origina. Reddit es espacio de **cristalización**, no
-    de persuasión.
+**3. Hostilidad en el repertorio, mediación vía candidato**  
+Candidato como target no predice polarización directamente (β ≈ 0, p > 0.05), pero condiciona el repertorio aplicado. Kast/Jara movilizan estrategias de mayor intensidad que Matthei/Kaiser. **La polarización no se explica por *quién* es atacado, sino por *cómo*** — pero ese "cómo" depende del candidato.
 
 ------------------------------------------------------------------------
 
@@ -743,8 +732,7 @@ width="92%"}
 
 ## Líneas futuras
 
--   **Replicación en X, TikTok, Instagram** — comparar ecologías
-    discursivas entre plataformas.
+
 -   **Ventanas de evento más finas** — análisis diario/horario alrededor
     de debates, declaraciones, *scandals*.
 -   **Extensión a desinformación** — detección de bots, coordinación
