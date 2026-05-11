@@ -557,31 +557,6 @@ relativamente **estable** en el periodo observado.
 
 # Historia 3: Inter-bloque vs. intra-bloque — dos lógicas de hostilidad
 
-## Configuraciones discursivas (ML clásico: clustering K-means)
-
-**Método**: Clustering K-means (K=5) sobre las dimensiones (marco ×
-emoción), optimizado mediante método del codo (elbow) y validado con
-silhouette score = 0.42. La polarización se usa como variable externa de
-validación.
-
-| Cluster | Marco dominante | Emoción dominante | n     | Polarización media | Silhouette |
-|------------|------------|------------|------------|------------|------------|
-| 0       | Diagnóstico     | Ninguna           | 1,124 | 0.287              | 0.51       |
-| 1       | Moral           | Desprecio         | 702   | 0.541              | 0.48       |
-| 2       | Conflicto       | Desprecio         | 945   | 0.463              | 0.39       |
-| 3       | Conflicto       | Ira               | 823   | 0.598              | 0.44       |
-| 4       | Motivacional    | Indignación       | 456   | 0.512              | 0.37       |
-
-**Resultado**: Moral + desprecio (cluster 1, pol=0.541) resulta más
-hostil que conflicto + desprecio (cluster 2, pol=0.463), pero
-**conflicto + ira** (cluster 3) alcanza la mayor polarización media
-(0.598). El **acoplamiento** marco–emoción importa más que cada
-dimensión por separado — evidencia de **interacción no aditiva** entre
-features discursivas. ANOVA one-way confirma diferencias significativas
-entre clusters (F(4, 4045) = 127.3, p \< 0.001, η² = 0.112).
-
-------------------------------------------------------------------------
-
 ## Estrategias por frontera política (ML clásico: test χ² de independencia)
 
 **Hipótesis**: Las estrategias adversariales no se distribuyen
