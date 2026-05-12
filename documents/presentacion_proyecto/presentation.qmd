@@ -354,7 +354,7 @@ para medir ganancia incremental del pipeline dual.
 Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.*
 
 | Actor             | Posición                       | Base social                                                                                                                                                          |
-|-------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------|---------------|-------------------------------------------|
 | Evelyn Matthei    | Derecha tradicional            | Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).                              |
 | José Antonio Kast | Derecha radical y conservadora | Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%). |
 | Johannes Kaiser   | Derecha libertaria             | Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.                                  |
@@ -519,7 +519,7 @@ referenciar a múltiples candidatos.
 Valores del acuerdo **OpenAI (GPT-4o) vs. DeepSeek**
 
 | Métrica                        | Valor | Lectura                                          |
-|--------------------------------|-------|--------------------------------------------------|
+|---------------------|-----------------|----------------------------------|
 | Correlación *r* (GPT-DeepSeek) | 0.665 | Convergencia moderada-alta en la escala continua |
 | κ (Humano-GPT)                 | 0.64  | Acuerdo moderado alto; validez aceptable         |
 | κ (Humano-DeepSeek)            | 0.79  | Acuerdo alto; validez aceptable                  |
@@ -537,8 +537,7 @@ Valores del acuerdo **OpenAI (GPT-4o) vs. DeepSeek**
 
 > La convergencia en polarización valida el pipeline dual como robusto
 > para la variable \>central. Las divergencias en otras dimensiones **no
-> invalidan** el diseño — documentan la complejidad del fenómeno
-> discursivo estudiado.
+> invalidan** el diseño
 
 # Historia 2: La polarización
 
@@ -566,7 +565,7 @@ relativamente **estable** en el periodo observado.
 uniformemente entre fronteras inter- e intra-bloque.
 
 | Estrategia              | Inter-bloque | Intra-bloque | χ² (gl=1)              | V de Cramér |
-|-------------------------|--------------|--------------|------------------------|-------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Deslegitimación         | 66.3%        | 10.1%        | χ² = 1245.3 (p\<0.001) | 0.38        |
 | Ridiculización          | 48.3%        | 21.9%        | χ² = 347.2 (p\<0.001)  | 0.20        |
 | Construcción de amenaza | 66.0%        | 11.1%        | χ² = 1189.7 (p\<0.001) | 0.37        |
@@ -578,8 +577,7 @@ preferida intra-bloque (entre derechas, 21.9%). El test χ² rechaza la
 hipótesis de independencia (p \< 0.001 en todas las estrategias). La V
 de Cramér confirma asociación moderada-fuerte (V \> 0.30) entre
 estrategia y dirección de frontera para deslegitimación, amenaza y
-esencialización — **acoplamiento estructural**, no distribución
-aleatoria.
+esencialización
 
 ------------------------------------------------------------------------
 
@@ -683,10 +681,14 @@ baseline TF-IDF por **ΔR² = +0.187** (modelo combinado alcanza R² =
 estructura semántica que el léxico puro no recupera — **TF-IDF sabe
 *qué* se dice; LLM sabe *cómo***.
 
-**2. Frontera política computacionalmente recuperable**\
-F1-macro = 0.725 para clasificar inter/intra-bloque. La frontera
-política (derecha vs. izquierda, intra-derecha) deja huella textual
-detectable en corpus informal.
+**2. Frontera política computacionalmente recuperable**
+
+El diseño de tres modelos (A, B, C) permite **falsear** la hipótesis del
+LLM.\
+Si hubiera fallado (ΔR² ≈ 0), habríamos documentado que el LLM solo
+recodifica palabras.\
+Como **sí hay ganancia**, tenemos evidencia cuantitativa de valor
+añadido.\
 
 **3. Hostilidad en el repertorio, mediación vía candidato**\
 Candidato como target no predice polarización directamente (β ≈ 0, p \>
