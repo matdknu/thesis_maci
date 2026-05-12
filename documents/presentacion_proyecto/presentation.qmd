@@ -270,7 +270,7 @@ hacia el outgroup y positivas hacia el ingroup.
 :::
 
 ::: {.callout-note icon="false"}
-## Antagonismo/agonismo (Mouffe)
+## Antagonismo/agonismo
 
 Construcción de fronteras políticas — el "ellos vs. nosotros". El
 antagonismo convierte al adversario en enemigo existencial; el agonismo
@@ -354,7 +354,7 @@ para medir ganancia incremental del pipeline dual.
 Pulso Ciudadano / Activa Research, 15-17 de octubre de 2024.*
 
 | Actor             | Posición                       | Base social                                                                                                                                                          |
-|---------------------|---------------------------------|------------------|
+|-------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Evelyn Matthei    | Derecha tradicional            | Mayoría femenina (60,4%), mayores de 50 años (54%), estratos medios-altos (C1-C2); alta proporción sin identificación política (40,1%).                              |
 | José Antonio Kast | Derecha radical y conservadora | Transversal en términos de clase; fuerte presencia en regiones del sur (31,8%); electorado joven y mayor de 50; alta proporción sin identificación política (35,1%). |
 | Johannes Kaiser   | Derecha libertaria             | Mayoría masculina (55,5%); concentrado en mayores de 50 años (50,2%) y estratos bajos (C3-D/E); presencia en sur y centro del país.                                  |
@@ -519,7 +519,7 @@ referenciar a múltiples candidatos.
 Valores del acuerdo **OpenAI (GPT-4o) vs. DeepSeek**
 
 | Métrica                        | Valor | Lectura                                          |
-|------------------|------------------|-------------------------------------|
+|--------------------------------|-------|--------------------------------------------------|
 | Correlación *r* (GPT-DeepSeek) | 0.665 | Convergencia moderada-alta en la escala continua |
 | κ (Humano-GPT)                 | 0.64  | Acuerdo moderado alto; validez aceptable         |
 | κ (Humano-DeepSeek)            | 0.79  | Acuerdo alto; validez aceptable                  |
@@ -566,7 +566,7 @@ relativamente **estable** en el periodo observado.
 uniformemente entre fronteras inter- e intra-bloque.
 
 | Estrategia              | Inter-bloque | Intra-bloque | χ² (gl=1)              | V de Cramér |
-|---------------|---------------|---------------|---------------|---------------|
+|-------------------------|--------------|--------------|------------------------|-------------|
 | Deslegitimación         | 66.3%        | 10.1%        | χ² = 1245.3 (p\<0.001) | 0.38        |
 | Ridiculización          | 48.3%        | 21.9%        | χ² = 347.2 (p\<0.001)  | 0.20        |
 | Construcción de amenaza | 66.0%        | 11.1%        | χ² = 1189.7 (p\<0.001) | 0.37        |

@@ -5,7 +5,7 @@ Réplica del formato de
 adaptada a la **tesis MACI** (Reddit, NLP, UdeC).
 
 **Enlace directo a la presentación:**  
-[https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html)
+[https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html#/title-slide](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html#/title-slide)
 
 ## Versión en línea (GitHub Pages)
 
@@ -31,7 +31,7 @@ Eso ejecuta `copy-presentation-to-docs.sh` (`project.post-render` en `_quarto.ym
 
 URL pública (tras **`git add docs/`** y push):
 
-[**https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html**](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html)
+[**https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html#/title-slide**](https://matdknu.github.io/thesis_maci/documents/presentacion_proyecto/presentation.html#/title-slide)
 
 Fuente: [`documents/presentacion_proyecto/presentation.qmd`](https://github.com/matdknu/thesis_maci/blob/main/documents/presentacion_proyecto/presentation.qmd).
 
